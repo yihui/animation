@@ -1,0 +1,146 @@
+<html><head><title>Demonstration of the Bisection Method for Root-finding on an Interval</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>bisection.method(animation)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   bisection.method">
+<param name="keyword" value=" Demonstration of the Bisection Method for Root-finding on an Interval">
+</object>
+
+
+<h2>Demonstration of the Bisection Method for Root-finding on an Interval</h2>
+
+
+<h3>Description</h3>
+
+<p>
+In mathematics, the bisection method is a root-finding algorithm which works by repeatedly dividing an interval in half and then selecting the subinterval in which a root exists. This function gives a visual demonstration of this process of finding the root of an equation <i>f(x) = 0</i>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+bisection.method(FUN = function(x) x^2 - 4, rg = c(-1, 10), tol = 0.001,
+    interact = FALSE, main, xlab, ylab, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>FUN</code></td>
+<td>
+the function in the equation to solve (univariate)</td></tr>
+<tr valign="top"><td><code>rg</code></td>
+<td>
+a vector containing the end-points of the interval to be searched for the root; in a <code>c(a, b)</code> form  </td></tr>
+<tr valign="top"><td><code>tol</code></td>
+<td>
+the desired accuracy (convergence tolerance) </td></tr>
+<tr valign="top"><td><code>interact</code></td>
+<td>
+logical; whether choose the end-points by cliking on the curve (for two times) directly? </td></tr>
+<tr valign="top"><td><code>xlab, ylab, main</code></td>
+<td>
+axis and main titles to be used in the plot </td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+other arguments passed to <code><a onclick="findlink('graphics', 'curve.html')" style="text-decoration: underline; color: blue; cursor: hand">curve</a></code> </td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+Suppose we want to solve the equation <i>f(x) = 0</i>. Given two points a and b such that <i>f(a)</i> and <i>f(b)</i> have opposite signs, we know by the intermediate value theorem that <i>f</i> must have at least one root in the interval <i>[a, b]</i> as long as <i>f</i> is continuous on this interval. The bisection method divides the interval in two by computing <i>c = (a + b) / 2</i>. There are now two possibilities: either <i>f(a)</i> and <i>f(c)</i> have opposite signs, or <i>f(c)</i> and <i>f(b)</i> have opposite signs. The bisection algorithm is then applied recursively to the sub-interval where the sign change occurs.
+</p>
+<p>
+During the process of searching, the mid-point of subintervals are annotated in the graph by both texts and blue straight lines, and the end-points are denoted in dashed red lines. The root of each iteration is also plotted in the right margin of the graph.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+A list containing 
+</p>
+<table summary="R argblock">
+<tr valign="top"><td><code>root </code></td>
+<td>
+the root found by the algorithm</td></tr>
+<tr valign="top"><td><code>value </code></td>
+<td>
+the value of <code>FUN(root)</code></td></tr>
+<tr valign="top"><td><code>iter</code></td>
+<td>
+number of iterations; if it is equal to <code>ani.options('nmax')</code>, it's quite likely that the root is not reliable because the maximum number of iterations has been reached</td></tr>
+</table>
+
+<h3>Author(s)</h3>
+
+<p>
+Yihui Xie
+</p>
+
+
+<h3>References</h3>
+
+<p>
+<a href="http://en.wikipedia.org/wiki/Bisection_method">http://en.wikipedia.org/wiki/Bisection_method</a>
+</p>
+<p>
+<a href="http://animation.yihui.name/compstat:bisection_method">http://animation.yihui.name/compstat:bisection_method</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a onclick="findlink('stats', 'deriv.html')" style="text-decoration: underline; color: blue; cursor: hand">deriv</a></code>, <code><a onclick="findlink('stats', 'uniroot.html')" style="text-decoration: underline; color: blue; cursor: hand">uniroot</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# default example 
+xx = bisection.method() 
+xx$root  # solution
+
+## Not run: 
+ 
+# a cubic curve 
+f = function(x) x^3 - 7 * x - 10 
+xx = bisection.method(f, c(-3, 5)) 
+# interaction: use your mouse to select the end-points 
+bisection.method(f, c(-3, 5), interact = TRUE) 
+
+# HTML animation pages 
+ani.start(nmax = 50, ani.height = 400, ani.width = 600, interval = 1,
+    title = "The Bisection Method for Root-finding on an Interval",
+    description = "The bisection method is a root-finding algorithm
+    which works by repeatedly dividing an interval in half and then
+    selecting the subinterval in which a root exists.")
+par(mar = c(4, 4, 1, 2))
+bisection.method(main = "")
+ani.stop() 
+
+## End(Not run)
+</pre>
+
+<script Language="JScript">
+function findlink(pkg, fn) {
+var Y, link;
+Y = location.href.lastIndexOf("\\") + 1;
+link = location.href.substring(0, Y);
+link = link + "../../" + pkg + "/chtml/" + pkg + ".chm::/" + fn;
+location.href = link;
+}
+</script>
+
+
+<hr><div align="center">[Package <em>animation</em> version 1.0-0 <a href="00Index.html">Index]</a></div>
+
+</body></html>

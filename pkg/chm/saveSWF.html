@@ -1,0 +1,132 @@
+<html><head><title>Convert Images to Flash Animations</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>saveSWF(animation)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   saveSWF">
+<param name="keyword" value=" Convert Images to Flash Animations">
+</object>
+
+
+<h2>Convert Images to Flash Animations</h2>
+
+
+<h3>Description</h3>
+
+<p>
+This function opens a graphical device first to generate a sequence of images based on <code>expr</code>, then makes use of the commands in `SWF Tools' (<code>png2swf</code>, <code>jpeg2swf</code>, <code>pdf2swf</code>) to convert these images to a single Flash animation.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+saveSWF(expr, interval = 1, swfname = "movie.swf",
+    dev = c("png", "jpeg", "pdf"), filename = "Rplot", fmt = "%03d",
+    outdir = tempdir(), swftools = NULL, para = par(no.readonly = TRUE), ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>expr</code></td>
+<td>
+an expression to generate animations; use either the animation functions (e.g. <code>brownian.motion()</code>) in this package or a custom expression (e.g. <code>for(i in 1:10) plot(runif(10), ylim = 0:1)</code>). </td></tr>
+<tr valign="top"><td><code>interval</code></td>
+<td>
+duration between animation frames (unit in seconds) </td></tr>
+<tr valign="top"><td><code>swfname</code></td>
+<td>
+file name of the Flash file </td></tr>
+<tr valign="top"><td><code>dev</code></td>
+<td>
+character: the graphics device to be used. Three choices are available: <code><a onclick="findlink('grDevices', 'png.html')" style="text-decoration: underline; color: blue; cursor: hand">png</a></code>, <code><a onclick="findlink('grDevices', 'png.html')" style="text-decoration: underline; color: blue; cursor: hand">jpeg</a></code> and <code><a onclick="findlink('grDevices', 'pdf.html')" style="text-decoration: underline; color: blue; cursor: hand">pdf</a></code>, etc. </td></tr>
+<tr valign="top"><td><code>filename</code></td>
+<td>
+file name of the sequence of images (`pure' name; without any format or extension) </td></tr>
+<tr valign="top"><td><code>fmt</code></td>
+<td>
+a C-style string formatting command, such as `<code>%3d</code>'  </td></tr>
+<tr valign="top"><td><code>outdir</code></td>
+<td>
+the directory for the animation frames and the Flash file </td></tr>
+<tr valign="top"><td><code>swftools</code></td>
+<td>
+the path of `SWF Tools', e.g. &lsquo;<span class="file">C:/swftools</span>&rsquo;. This argument is to make sure that <code>png2swf</code>, <code>jpeg2swf</code> and <code>pdf2swf</code> can be executed correctly. If it is <code>NULL</code>, it should be guaranteed that these commands can be executed without the path. </td></tr>
+<tr valign="top"><td><code>para</code></td>
+<td>
+a list: the graphics parameters to be set before plotting; passed to <code><a onclick="findlink('graphics', 'par.html')" style="text-decoration: underline; color: blue; cursor: hand">par</a></code> </td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+other arguments passed to the graphical device, such as <code>height</code> and <code>width</code>, ... </td></tr>
+</table>
+
+<h3>Value</h3>
+
+<p>
+An integer indicating failure (-1) or success (0) of the converting (refer to <code><a onclick="findlink('base', 'system.html')" style="text-decoration: underline; color: blue; cursor: hand">system</a></code>).</p>
+
+<h3>Note</h3>
+
+<p>
+Please download the SWF Tools before using this function: <a href="http://www.swftools.org">http://www.swftools.org</a>
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+Yihui Xie
+</p>
+
+
+<h3>References</h3>
+
+<p>
+<a href="http://animation.yihui.name/animation:start#create_flash_animations">http://animation.yihui.name/animation:start#create_flash_animations</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="saveMovie.html">saveMovie</a></code>, <code><a onclick="findlink('base', 'system.html')" style="text-decoration: underline; color: blue; cursor: hand">system</a></code>, <code><a onclick="findlink('grDevices', 'png.html')" style="text-decoration: underline; color: blue; cursor: hand">png</a></code>, <code><a onclick="findlink('grDevices', 'png.html')" style="text-decoration: underline; color: blue; cursor: hand">jpeg</a></code>, <code><a onclick="findlink('grDevices', 'pdf.html')" style="text-decoration: underline; color: blue; cursor: hand">pdf</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+oopt = ani.options(interval = 0, nmax = 50)
+# from png
+saveSWF(knn.ani(test = matrix(rnorm(16), ncol = 2),
+    cl.pch = c(16, 2)), 1.5, dev = "png", para = list(mar = c(3,
+    3, 1, 1.5), mgp = c(1.5, 0.5, 0)), swfname = "kNN.swf")
+
+# from pdf (vector plot!)
+ani.options(interval = 0, nmax = 50)
+saveSWF(brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow"),
+    0.2, "brownian.swf", "pdf", fmt = "")
+
+ani.options(oopt)
+## End(Not run)
+</pre>
+
+<script Language="JScript">
+function findlink(pkg, fn) {
+var Y, link;
+Y = location.href.lastIndexOf("\\") + 1;
+link = location.href.substring(0, Y);
+link = link + "../../" + pkg + "/chtml/" + pkg + ".chm::/" + fn;
+location.href = link;
+}
+</script>
+
+
+<hr><div align="center">[Package <em>animation</em> version 1.0-1 <a href="00Index.html">Index]</a></div>
+
+</body></html>

@@ -1,0 +1,92 @@
+<html><head><title>Start the generation of an HTML animation page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>ani.start(animation)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   ani.start">
+<param name="keyword" value=" Start the generation of an HTML animation page">
+</object>
+
+
+<h2>Start the generation of an HTML animation page</h2>
+
+
+<h3>Description</h3>
+
+<p>
+Copy JavaScript file &lsquo;<span class="file">FUN.js</span>&rsquo; and CSS file &lsquo;<span class="file">ANI.css</span>&rsquo; to the same directory as the HTML animation page, create a directory &lsquo;<span class="file">images</span>&rsquo; and open a graphics device in this directory (the device is specified as <code>ani.dev</code> in <code><a href="ani.options.html">ani.options</a></code>). The prompt of the current R session is modified (by default <code>ANI&gt; </code>).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ani.start(...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>...</code></td>
+<td>
+arguments passed to <code><a href="ani.options.html">ani.options</a></code> to set animation parameters </td></tr>
+</table>
+
+<h3>Value</h3>
+
+<p>
+None (invisible `<code>NULL</code>').</p>
+
+<h3>Note</h3>
+
+<p>
+After calling <code><a href="ani.start.html">ani.start</a></code>, either animation functions in this package or R script of your own can be used to generate &amp; save animated pictures using proper graphics devices (specified as <code>ani.dev</code> in <code><a href="ani.options.html">ani.options</a></code>), then watch your animation by <code><a href="ani.stop.html">ani.stop</a>()</code>.
+</p>
+<p>
+Note that former image files in the directory &lsquo;<span class="file">images</span>&rsquo; will be removed.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+Yihui Xie
+</p>
+
+
+<h3>References</h3>
+
+<p>
+<a href="http://animation.yihui.name/animation:create_html_animation_page">http://animation.yihui.name/animation:create_html_animation_page</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="ani.options.html">ani.options</a></code>, <code><a href="ani.stop.html">ani.stop</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+ 
+# save the animation in HTML pages and auto-browse it 
+ani.options(ani.width = 600, ani.height = 500, interval = 0.2)
+ani.start()
+boot.iid()
+ani.stop()
+
+## End(Not run)
+</pre>
+
+
+
+<hr><div align="center">[Package <em>animation</em> version 0.2-1 <a href="00Index.html">Index]</a></div>
+
+</body></html>

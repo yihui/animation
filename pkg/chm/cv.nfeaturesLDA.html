@@ -1,0 +1,155 @@
+<html><head><title>Cross-validation to find the optimum number of features (variables) in LDA</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>cv.nfeaturesLDA(animation)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   cv.nfeaturesLDA">
+<param name="keyword" value=" Cross-validation to find the optimum number of features (variables) in LDA">
+</object>
+
+
+<h2>Cross-validation to find the optimum number of features (variables) in LDA</h2>
+
+
+<h3>Description</h3>
+
+<p>
+For a classification problem, usually we wish to use as less variables as possible because of difficulties brought by the high dimension. This function has provided an illustration of the process of finding out the optimum number of variables using k-fold cross-validation in a linear discriminant analysis (LDA).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+cv.nfeaturesLDA(data = matrix(rnorm(600), 60), cl = gl(3, 20),
+    k = 5, cex.rg = c(0.5, 3), col.av = c("blue", "red"))
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>data</code></td>
+<td>
+a data matrix containg the predictors in columns </td></tr>
+<tr valign="top"><td><code>cl</code></td>
+<td>
+a factor indicating the classification of the rows of <code>data</code> </td></tr>
+<tr valign="top"><td><code>k</code></td>
+<td>
+the number of folds </td></tr>
+<tr valign="top"><td><code>cex.rg</code></td>
+<td>
+the range of the magnification to be used to the points in the plot </td></tr>
+<tr valign="top"><td><code>col.av</code></td>
+<td>
+the two colors used to respectively denote rates of correct predictions in the i-th fold and the average rates for all k folds </td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+The procedure is like this:
+</p>
+
+<ul>
+<li>Split the whole data randomly into <i>k</i> folds:
+<ul>
+<li>For the number of features <i>g = 1, 2, ..., gmax</i>, choose <i>g</i> features that have the largest discriminatory power (measured by the F-statistic in ANOVA):
+<ul>
+<li>For the fold <i>i</i> (<i>i = 1, 2, ..., k</i>):
+<ul>
+<li>Train a LDA model without the <i>i</i>-th fold data, and predict with the <i>i</i>-th fold for a proportion of correct predictions <i>p[gi]</i>;
+</ul>
+</ul>
+<li>Average the <i>k</i> proportions to get the correct rate <i>p[g]</i>;
+</ul>
+<li>Determine the optimum number of features with the largest <i>p</i>.
+</ul>
+
+<p>
+Note that <i>g_{max}</i> is set by <code>ani.options("nmax")</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+A list containing
+</p>
+<table summary="R argblock">
+<tr valign="top"><td><code>accuracy </code></td>
+<td>
+a matrix in which the element in the i-th row and j-th column is the rate of correct predictions based on LDA, i.e. build a LDA model with j variables and predict with data in the i-th fold (the test set) </td></tr>
+<tr valign="top"><td><code>optimum </code></td>
+<td>
+the optimum number of features based on the cross-validation</td></tr>
+</table>
+
+<h3>Author(s)</h3>
+
+<p>
+Yihui Xie
+</p>
+
+
+<h3>References</h3>
+
+<p>
+Maindonald J, Braun J (2007). <EM>Data Analysis and Graphics Using R - An Example-Based
+Approach</EM>. Cambridge University Press, 2nd edition. pp. 400
+</p>
+<p>
+<a href="http://animation.yihui.name/da:biostat:select_features_via_cv">http://animation.yihui.name/da:biostat:select_features_via_cv</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="kfcv.html">kfcv</a></code>, <code><a href="cv.ani.html">cv.ani</a></code>, <code><a onclick="findlink('MASS', 'lda.html')" style="text-decoration: underline; color: blue; cursor: hand">lda</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+op = par(pch = 19, mar = c(3, 3, 0.2, 0.7), mgp = c(1.5, 0.5, 0))
+cv.nfeaturesLDA()
+par(op)
+
+## Not run: 
+
+# save the animation in HTML pages
+oopt = ani.options(ani.height = 480, ani.width = 600, outdir = getwd(),
+    interval = 0.5, nmax = 10,
+    title = "Cross-validation to find the optimum number of features in LDA",
+    description = "This animation has provided an illustration of the process of
+    finding out the optimum number of variables using k-fold cross-validation
+    in a linear discriminant analysis (LDA).")
+ani.start()
+par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 0), tcl = -0.3, pch = 19, cex = 1.5)
+cv.nfeaturesLDA()
+ani.stop()
+ani.options(oopt)
+
+## End(Not run)
+
+</pre>
+
+<script Language="JScript">
+function findlink(pkg, fn) {
+var Y, link;
+Y = location.href.lastIndexOf("\\") + 1;
+link = location.href.substring(0, Y);
+link = link + "../../" + pkg + "/chtml/" + pkg + ".chm::/" + fn;
+location.href = link;
+}
+</script>
+
+
+<hr><div align="center">[Package <em>animation</em> version 1.0-0 <a href="00Index.html">Index]</a></div>
+
+</body></html>

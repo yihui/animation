@@ -1,0 +1,176 @@
+<html><head><title>Gradient Descent Algorithm for the 2D Case</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>grad.desc(animation)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   grad.desc">
+<param name="keyword" value=" Gradient Descent Algorithm for the 2D Case">
+</object>
+
+
+<h2>Gradient Descent Algorithm for the 2D Case</h2>
+
+
+<h3>Description</h3>
+
+<p>
+This function has provided a visual illustration for the process of minimizing a real-valued function through Gradient Descent Algorithm.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+grad.desc(FUN = function(x, y) x^2 + 2 * y^2, rg = c(-3, -3, 3, 3), 
+    init = c(-3, 3), gamma = 0.05, tol = 0.001, len = 50, 
+    interact = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>FUN</code></td>
+<td>
+the objective function to be minimized; contains only two independent variables (variable names do not need to be 'x' and 'y') </td></tr>
+<tr valign="top"><td><code>rg</code></td>
+<td>
+ranges for independent variables to plot contours; in a <code>c(x0, y0, x1, y1)</code> form </td></tr>
+<tr valign="top"><td><code>init</code></td>
+<td>
+starting values </td></tr>
+<tr valign="top"><td><code>gamma</code></td>
+<td>
+size of a step </td></tr>
+<tr valign="top"><td><code>tol</code></td>
+<td>
+tolerance to stop the iterations, i.e. the minimum difference between <i>F(x[i])</i> and <i>F(x[i+1])</i> </td></tr>
+<tr valign="top"><td><code>len</code></td>
+<td>
+desired length of the independent sequences (to compute z values for contours) </td></tr>
+<tr valign="top"><td><code>interact</code></td>
+<td>
+logical; whether choose the starting values by cliking on the contour plot directly? </td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+Gradient descent is an optimization algorithm. To find a local minimum of a function using gradient descent, one takes steps proportional to the negative of the gradient (or the approximate gradient) of the function at the current point. If instead one takes steps proportional to the gradient, one approaches a local maximum of that function; the procedure is then known as gradient ascent.
+</p>
+<p>
+The arrows are indicating the result of iterations and the process of minimization; they will go to a local minimum in the end if the maximum number of iterations (<code>nmax</code> in <code>control</code>) has not been reached.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+A list containing 
+</p>
+<table summary="R argblock">
+<tr valign="top"><td><code>par </code></td>
+<td>
+the solution for the local minimum</td></tr>
+<tr valign="top"><td><code>value </code></td>
+<td>
+the value of the objective function corresponding to <code>par</code></td></tr>
+<tr valign="top"><td><code>iter</code></td>
+<td>
+the number of iterations; if it is equal to <code>control$nmax</code>, it's quite likely that the solution is not reliable because the maximum number of iterations has been reached</td></tr>
+<tr valign="top"><td><code>gradient</code></td>
+<td>
+the gradient function of the objective function; it is returned by <code><a onclick="findlink('stats', 'deriv.html')" style="text-decoration: underline; color: blue; cursor: hand">deriv</a></code></td></tr>
+<tr valign="top"><td><code>persp</code></td>
+<td>
+a function to make the perspective plot of the objective function; can accept further arguments from <code><a onclick="findlink('graphics', 'persp.html')" style="text-decoration: underline; color: blue; cursor: hand">persp</a></code> (see the examples below)</td></tr>
+</table>
+
+<h3>Note</h3>
+
+<p>
+Please make sure the function <code>FUN</code> provided is differentiable at <code>init</code>, what's more, it should also be 'differentiable' using <code><a onclick="findlink('stats', 'deriv.html')" style="text-decoration: underline; color: blue; cursor: hand">deriv</a></code> (see the help file)! 
+</p>
+<p>
+If the arrows cannot reach the local minimum, the maximum number of iterations <code>nmax</code> in <code><a href="ani.options.html">ani.options</a></code> may be increased.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+Yihui Xie
+</p>
+
+
+<h3>References</h3>
+
+<p>
+<a href="http://en.wikipedia.org/wiki/Gradient_descent">http://en.wikipedia.org/wiki/Gradient_descent</a>
+</p>
+<p>
+<a href="http://animation.yihui.name/compstat:gradient_descent_algorithm">http://animation.yihui.name/compstat:gradient_descent_algorithm</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a onclick="findlink('stats', 'deriv.html')" style="text-decoration: underline; color: blue; cursor: hand">deriv</a></code>, <code><a onclick="findlink('graphics', 'persp.html')" style="text-decoration: underline; color: blue; cursor: hand">persp</a></code>, <code><a onclick="findlink('graphics', 'contour.html')" style="text-decoration: underline; color: blue; cursor: hand">contour</a></code>, <code><a onclick="findlink('stats', 'optim.html')" style="text-decoration: underline; color: blue; cursor: hand">optim</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# default example 
+oopt = ani.options(interval = 0.3, nmax = 50)
+xx = grad.desc()
+xx$par  # solution
+xx$persp(col = "lightblue", phi = 30)   # perspective plot 
+
+## Not run: 
+ 
+# define more complex functions; a little time-consuming 
+f1 = function(x, y) x^2 + 3 * sin(y) 
+xx = grad.desc(f1, pi * c(-2, -2, 2, 2), c(-2 * pi, 2)) 
+xx$persp(col = "lightblue", theta = 30, phi = 30)
+# or 
+ani.options(interval = 0, nmax = 200)
+f2 = function(x, y) sin(1/2 * x^2 - 1/4 * y^2 + 3) * 
+    cos(2 * x + 1 - exp(y))  
+xx = grad.desc(f2, c(-2, -2, 2, 2), c(-1, 0.5), 
+    gamma = 0.1, tol = 1e-04)
+# click your mouse to select a start point 
+xx = grad.desc(f2, c(-2, -2, 2, 2), interact = TRUE, 
+    tol = 1e-04)
+xx$persp(col = "lightblue", theta = 30, phi = 30)
+
+# HTML animation pages 
+ani.options(ani.height = 500, ani.width = 500, outdir = getwd(), interval = 0.3,
+    nmax = 50, title = "Demonstration of the Gradient Descent Algorithm",
+    description = "The arrows will take you to the optimum step by step.")
+ani.start()
+grad.desc()
+ani.stop()
+
+## End(Not run)
+ani.options(oopt)
+</pre>
+
+<script Language="JScript">
+function findlink(pkg, fn) {
+var Y, link;
+Y = location.href.lastIndexOf("\\") + 1;
+link = location.href.substring(0, Y);
+link = link + "../../" + pkg + "/chtml/" + pkg + ".chm::/" + fn;
+location.href = link;
+}
+</script>
+
+
+<hr><div align="center">[Package <em>animation</em> version 1.0-1 <a href="00Index.html">Index]</a></div>
+
+</body></html>

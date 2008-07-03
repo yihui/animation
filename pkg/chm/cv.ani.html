@@ -1,0 +1,137 @@
+<html><head><title>Demonstration for the process of cross-validation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>cv.ani(animation)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   cv.ani">
+<param name="keyword" value=" Demonstration for the process of cross-validation">
+</object>
+
+
+<h2>Demonstration for the process of cross-validation</h2>
+
+
+<h3>Description</h3>
+
+<p>
+Simply speaking, the process of cross-validation is just to split the whole data set into several parts and select one part as the test set and the rest parts as the training set. This function uses rectangles to illustrate these `parts' and mark the test set &amp; the training set with different colors.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+cv.ani(x = runif(150), k = 10, col = c("green", "red", "blue"),
+    pch = c(4, 1), ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+a numerical vector which stands for the sample points.</td></tr>
+<tr valign="top"><td><code>k</code></td>
+<td>
+an integer: how many parts should we split the data into? (comes from the <i>k</i>-fold cross-validation.) </td></tr>
+<tr valign="top"><td><code>col</code></td>
+<td>
+a character vector of length 3 specifying the colors of: the rectangle representing the test set, the points of the test set, and points of the training set. </td></tr>
+<tr valign="top"><td><code>pch</code></td>
+<td>
+a numeric vector of length 2 specifying the symbols of the test set and training set respectively. </td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+other arguments passed to <code><a onclick="findlink('graphics', 'plot.default.html')" style="text-decoration: underline; color: blue; cursor: hand">plot</a></code> </td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+The computation of sample sizes is base on <code><a href="kfcv.html">kfcv</a></code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+None (invisible `<code>NULL</code>').</p>
+
+<h3>Note</h3>
+
+<p>
+For the `leave-one-out' cross-validation, just specify <code>k</code> as <code>length(x)</code>, then the rectangles will `shrink' into single lines.
+</p>
+<p>
+The final number of animation frames is the smaller one of <code>nmax</code> and <code>k</code>.
+</p>
+<p>
+This function has nothing to do with specific models used in cross-validation.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+Yihui Xie
+</p>
+
+
+<h3>References</h3>
+
+<p>
+<a href="http://animation.yihui.name/dmml:k-fold_cross-validation">http://animation.yihui.name/dmml:k-fold_cross-validation</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="kfcv.html">kfcv</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+oopt = ani.options(interval = 2, nmax = 10)
+cv.ani(main = "Demonstration of the k-fold Cross Validation", bty = "l")
+
+# leave-one-out CV 
+cv.ani(x = runif(15), k = 15) 
+
+## Not run: 
+ 
+# save the animation in HTML pages
+ani.options(ani.height = 400, ani.width = 600, outdir = getwd(), interval = 2,
+    nmax = 10, title = "Demonstration of the k-fold Cross Validation",
+    description = "This is a naive demonstration for the k-fold cross
+    validation. The k rectangles in the plot denote the k folds of data.
+    Each time a fold will be used as the test set and the rest parts
+    as the training set.")
+ani.start()
+par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 0), tcl = -0.3)
+cv.ani(bty = "l")
+ani.stop()
+
+## End(Not run)
+ani.options(oopt)
+</pre>
+
+<script Language="JScript">
+function findlink(pkg, fn) {
+var Y, link;
+Y = location.href.lastIndexOf("\\") + 1;
+link = location.href.substring(0, Y);
+link = link + "../../" + pkg + "/chtml/" + pkg + ".chm::/" + fn;
+location.href = link;
+}
+</script>
+
+
+<hr><div align="center">[Package <em>animation</em> version 1.0-1 <a href="00Index.html">Index]</a></div>
+
+</body></html>

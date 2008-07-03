@@ -1,0 +1,134 @@
+<html><head><title>Demonstration of Law of Large Numbers</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>lln.ani(animation)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   lln.ani">
+<param name="keyword" value=" Demonstration of Law of Large Numbers">
+</object>
+
+
+<h2>Demonstration of Law of Large Numbers</h2>
+
+
+<h3>Description</h3>
+
+<p>
+This function plots the sample mean as the sample size grows to check whether the sample mean approaches to the population mean.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+lln.ani(FUN = rnorm, mu = 0, np = 30, pch = 20, col.poly = "bisque",
+    col.mu = "gray", ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>FUN</code></td>
+<td>
+a function to generate random numbers from a certain distribution: <code>function(n, mu)</code> </td></tr>
+<tr valign="top"><td><code>mu</code></td>
+<td>
+population mean; passed to <code>FUN</code> </td></tr>
+<tr valign="top"><td><code>np</code></td>
+<td>
+times for sampling from a distribution (not the sample size!); to examine the behaviour of the sample mean, we need more times of sampling to get a series of mean values </td></tr>
+<tr valign="top"><td><code>pch</code></td>
+<td>
+symbols for points; see Details </td></tr>
+<tr valign="top"><td><code>col.poly</code></td>
+<td>
+the color of the polygon to annotate the range of sample means </td></tr>
+<tr valign="top"><td><code>col.mu</code></td>
+<td>
+the color of the horizontal line which denotes the population mean </td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+other arguments passed to <code><a onclick="findlink('graphics', 'points.html')" style="text-decoration: underline; color: blue; cursor: hand">points</a></code> </td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+<code>np</code> points are plotted to denote the distribution of the sample mean; we will observe that the range of the sample mean just becomes smaller and smaller as the sample size increases and ultimately there will be an obvious trend that the sample mean converges to the population mean <code>mu</code>. 
+</p>
+<p>
+The parameter <code>nmax</code> in <code><a href="ani.options.html">ani.options</a></code> means the maximum sample size.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+None (invisible `<code>NULL</code>').</p>
+
+<h3>Note</h3>
+
+<p>
+The argument <code>pch</code> will influence the speed of plotting, and for a very large sample size (say, 300), it is suggested that this argument be specified as '<code>.</code>'.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+Yihui Xie
+</p>
+
+
+<h3>References</h3>
+
+<p>
+George Casella and Roger L. Berger. <EM>Statistical Inference</EM>. Duxbury Press, 2th edition, 2001. 
+</p>
+<p>
+<a href="http://animation.yihui.name/prob:law_of_large_numbers">http://animation.yihui.name/prob:law_of_large_numbers</a>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+oopt = ani.options(interval = 0.01, nmax = 150)
+lln.ani(pch = ".")
+
+# chi-square distribution; population mean = df
+lln.ani(function(n, mu) rchisq(n, df = mu), mu = 5, cex = 0.6)
+
+## Not run: 
+ 
+# save the animation in HTML pages
+ani.options(ani.height = 480, ani.width = 600, outdir = getwd(), nmax = 100,
+    interval = 0.1, title = "Demonstration of the Law of Large Numbers",
+    description = "The sample mean approaches to the population mean as
+    the sample size n grows.")
+ani.start()
+par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 0))
+lln.ani(cex = 0.6)
+ani.stop()
+
+## End(Not run)
+ani.options(oopt)
+</pre>
+
+<script Language="JScript">
+function findlink(pkg, fn) {
+var Y, link;
+Y = location.href.lastIndexOf("\\") + 1;
+link = location.href.substring(0, Y);
+link = link + "../../" + pkg + "/chtml/" + pkg + ".chm::/" + fn;
+location.href = link;
+}
+</script>
+
+
+<hr><div align="center">[Package <em>animation</em> version 1.0-1 <a href="00Index.html">Index]</a></div>
+
+</body></html>

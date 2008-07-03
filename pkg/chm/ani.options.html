@@ -1,0 +1,128 @@
+<html><head><title>Set or Query Animation Parameters</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>ani.options(animation)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   ani.options">
+<param name="keyword" value=" Set or Query Animation Parameters">
+</object>
+
+
+<h2>Set or Query Animation Parameters</h2>
+
+
+<h3>Description</h3>
+
+<p>
+Set or query various parameters that control the behaviour of the animation, such as time interval, maximum frames, height and width, etc. This function is based on <code><a onclick="findlink('base', 'options.html')" style="text-decoration: underline; color: blue; cursor: hand">options</a></code> to set an option <code>ani</code> which is a list containing the animation parameters.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ani.options(...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>...</code></td>
+<td>
+arguments in <code>tag = value</code> form, or a list of tagged values. 
+The tags must come from the animation parameters described
+below. </td></tr>
+</table>
+
+<h3>Value</h3>
+
+<p>
+a list containing the options.
+<br>
+When parameters are set, their former values are returned in an
+invisible named list.  Such a list can be passed as an argument to
+<code><a href="ani.options.html">ani.options</a></code> to restore the parameter values.</p>
+
+<h3>Animation Parameters</h3>
+
+<p>
+<dt>interval</dt><dd>a positive number to set the time interval of the animation (unit in seconds). </dd>
+<dt>nmax</dt><dd>maximum number of steps for a loop (e.g. iterations) to create animation frames. Note: the actual number of frames can be less than this number, depending on specific animations.</dd>
+<dt>ani.width, ani.height</dt><dd>width and height of image frames (unit in px); see graphics devices like <code><a onclick="findlink('grDevices', 'png.html')" style="text-decoration: underline; color: blue; cursor: hand">png</a></code>, <code><a onclick="findlink('grDevices', 'png.html')" style="text-decoration: underline; color: blue; cursor: hand">jpeg</a></code>, ...</dd>
+<dt>outdir</dt><dd>character: specify the output dir if we want to create HTML animation pages; default to be <code><a onclick="findlink('base', 'tempfile.html')" style="text-decoration: underline; color: blue; cursor: hand">tempdir</a></code>.</dd>
+<dt>filename</dt><dd>character: name of the target HTML main file</dd>
+<dt>withprompt</dt><dd>character: prompt to display while using <code><a href="ani.start.html">ani.start</a></code> (restore with <code><a href="ani.stop.html">ani.stop</a></code>)</dd>
+<dt>ani.type</dt><dd>character: image format for animation frames, e.g. <code>png</code>, <code>jpg</code>, ...</dd>
+<dt>ani.dev</dt><dd>function: the graphics device; e.g. (<code><a onclick="findlink('grDevices', 'png.html')" style="text-decoration: underline; color: blue; cursor: hand">png</a></code>, <code><a onclick="findlink('grDevices', 'png.html')" style="text-decoration: underline; color: blue; cursor: hand">jpeg</a></code>, ...)</dd>
+<dt>title</dt><dd>character: the title of animation </dd>
+<dt>description</dt><dd>character: a description about the animation </dd>
+<dt>footer</dt><dd>logical: if <code>TRUE</code>, write a foot part in the HTML page containing information such as date/time of creation; else don't write.</dd>
+<dt>autobrowse</dt><dd>logical: whether auto-browse the animation page immediately after it is created?</dd>
+</p>
+
+
+<h3>Note</h3>
+
+<p>
+Please note that <code>nmax</code> is usually equal to the number of animation frames (e.g. for <code><a href="brownian.motion.html">brownian.motion</a></code>) but not <EM>always</EM>! The reason is that sometimes there are more than one frame recorded in a single step of a loop, for instance, there are 2 frames generated in each step of <code><a href="kmeans.ani.html">kmeans.ani</a></code>, and 4 frames in <code><a href="knn.ani.html">knn.ani</a></code>, etc. 
+</p>
+<p>
+This function can be used for almost all the animation functions such as <code><a href="brownian.motion.html">brownian.motion</a></code>, <code><a href="boot.iid.html">boot.iid</a></code>, <code><a href="buffon.needle.html">buffon.needle</a></code>, <code><a href="cv.ani.html">cv.ani</a></code>, <code><a href="flip.coin.html">flip.coin</a></code>, <code><a href="kmeans.ani.html">kmeans.ani</a></code>, <code><a href="knn.ani.html">knn.ani</a></code>, etc. All the parameters will affect the behaviour of HTML animations, but only <code>interval</code> will affect animations in windows graphics device.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+Yihui Xie
+</p>
+
+
+<h3>References</h3>
+
+<p>
+<a href="http://animation.yihui.name/animation:options">http://animation.yihui.name/animation:options</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a onclick="findlink('base', 'options.html')" style="text-decoration: underline; color: blue; cursor: hand">options</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+# store the old option to restore it later
+oopt = ani.options(interval = 0.05, nmax = 100, ani.dev = png, ani.type = "png")
+ani.start() 
+opar = par(mar = c(3, 3, 2, 0.5), mgp = c(2, .5, 0), tcl = -0.3,
+    cex.axis = 0.8, cex.lab = 0.8, cex.main = 1) 
+brownian.motion( pch = 21, cex = 5, col = "red", bg = "yellow",
+    main = "Demonstration of Brownian Motion",)
+par(opar)
+ani.stop() 
+ani.options(oopt)
+## End(Not run)
+</pre>
+
+<script Language="JScript">
+function findlink(pkg, fn) {
+var Y, link;
+Y = location.href.lastIndexOf("\\") + 1;
+link = location.href.substring(0, Y);
+link = link + "../../" + pkg + "/chtml/" + pkg + ".chm::/" + fn;
+location.href = link;
+}
+</script>
+
+
+<hr><div align="center">[Package <em>animation</em> version 0.2-1 <a href="00Index.html">Index]</a></div>
+
+</body></html>

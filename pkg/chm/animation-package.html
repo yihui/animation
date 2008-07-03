@@ -1,0 +1,121 @@
+<html><head><title>Statistical Animations Using R</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>animation-package(animation)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   animation-package">
+<param name="keyword" value=" Statistical Animations Using R">
+</object>
+
+
+<h2>Statistical Animations Using R</h2>
+
+
+<h3>Description</h3>
+
+<p>
+Various functions for animations in statistics which could probably aid in teaching statistics and data analysis.
+</p>
+
+
+<h3>Details</h3>
+
+<p>
+<table summary="Rd table">
+<tr>
+  <td align="left">Package: </td>  <td align="left"> animation</td>
+</tr>
+<tr>
+  <td align="left"> Type: </td>  <td align="left"> Package</td>
+</tr>
+<tr>
+  <td align="left"> Version: </td>  <td align="left"> 1.0</td>
+</tr>
+<tr>
+  <td align="left"> Date: </td>  <td align="left"> 2008-06-20</td>
+</tr>
+<tr>
+  <td align="left"> License: </td>  <td align="left"> GPL-2 | GPL-3</td>
+</tr>
+</table>
+<p>
+This package mainly makes use of HTML &amp; JavaScript and R windows graphics devices (such as <code><a onclick="findlink('grDevices', 'windows.html')" style="text-decoration: underline; color: blue; cursor: hand">x11</a></code>) to demonstrate animations in statistics; other kinds of output such as Flash (SWF) or GIF/MPG animations are also available if necessary software has been installed.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+Yihui Xie &lt;<a href="http://www.yihui.name">http://www.yihui.name</a>&gt;
+</p>
+
+
+<h3>References</h3>
+
+<p>
+AniWiki: Animations in Statistics <a href="http://animation.yihui.name">http://animation.yihui.name</a>; created and maintained by Yihui Xie
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+#############################################################
+# (1) Animations in HTML pages
+# create an animation page in the tempdir() and auto-browse it 
+# Brownian Motion 
+oopt = ani.options(interval = 0.05, nmax = 100, ani.dev = png,
+    ani.type = "png",
+    title = "Demonstration of Brownian Motion",
+    description = "Random walk on the 2D plane: for each point
+    (x, y), x = x + rnorm(1) and y = y + rnorm(1).")
+ani.start()
+opar = par(mar = c(3, 3, 2, 0.5), mgp = c(2, .5, 0), tcl = -0.3,
+    cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)
+brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow",
+    main = "Demonstration of Brownian Motion",)
+par(opar)
+ani.stop()
+ani.options(oopt)
+
+#############################################################
+# (2) Animations inside R windows graphics devices
+# Bootstrapping
+oopt = ani.options(interval = 0.3, nmax = 50)
+boot.iid()
+ani.options(oopt)
+
+#############################################################
+# (3) GIF animations
+oopt = ani.options(interval = 0, nmax = 100)
+saveMovie(brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow"),
+    interval = 0.05, outdir = getwd(), width = 600, height = 600)
+ani.options(oopt)
+
+#############################################################
+# (4) Flash animations
+oopt = ani.options(nmax = 100, interval = 0)
+saveSWF(buffon.needle(type = "S"), para = list(mar = c(3, 2.5, 1, 0.2),
+    pch = 20, mgp = c(1.5, 0.5, 0)), dev = "pdf", swfname = "buffon.swf",
+    outdir = getwd(), interval = 0.1)
+ani.options(oopt)
+## End(Not run)
+</pre>
+
+<script Language="JScript">
+function findlink(pkg, fn) {
+var Y, link;
+Y = location.href.lastIndexOf("\\") + 1;
+link = location.href.substring(0, Y);
+link = link + "../../" + pkg + "/chtml/" + pkg + ".chm::/" + fn;
+location.href = link;
+}
+</script>
+
+
+<hr><div align="center">[Package <em>animation</em> version 1.0-1 <a href="00Index.html">Index]</a></div>
+
+</body></html>

@@ -1,0 +1,114 @@
+<html><head><title>Demonstration for simple random sampling without replacement</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>sample.simple(animation)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   sample.simple">
+<param name="keyword" value=" Demonstration for simple random sampling without replacement">
+</object>
+
+
+<h2>Demonstration for simple random sampling without replacement</h2>
+
+
+<h3>Description</h3>
+
+<p>
+The whole sample frame is denoted by a matrix (<code>nrow * ncol</code>) in the plane just for convenience, and the points being sampled are marked out (by red circles by default). Each member of the population has an equal and known chance of being selected.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+sample.simple(nrow = 10, ncol = 10, size = 15, p.col = c("blue", "red"),
+    p.cex = c(1, 3))
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>nrow</code></td>
+<td>
+the desired number of rows of the sample frame. </td></tr>
+<tr valign="top"><td><code>ncol</code></td>
+<td>
+the desired number of columns of the sample frame. </td></tr>
+<tr valign="top"><td><code>size</code></td>
+<td>
+the sample size. </td></tr>
+<tr valign="top"><td><code>p.col, p.cex</code></td>
+<td>
+different colors /magnification rate to annotate the population and the sample </td></tr>
+</table>
+
+<h3>Value</h3>
+
+<p>
+None (invisible `<code>NULL</code>').</p>
+
+<h3>Author(s)</h3>
+
+<p>
+Yihui Xie
+</p>
+
+
+<h3>References</h3>
+
+<p>
+Cochran, W G (1977) <EM>Sampling Techniques</EM>, Wiley, ISBN 0-471-16240-X 
+</p>
+<p>
+<a href="http://animation.yihui.name/samp:srswr">http://animation.yihui.name/samp:srswr</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a onclick="findlink('base', 'sample.html')" style="text-decoration: underline; color: blue; cursor: hand">sample</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+oopt = ani.options(interval = 1, nmax = 30)
+op = par(mar = rep(1, 4))
+sample.simple()
+par(op)
+## Not run: 
+
+# HTML animation page
+ani.options(ani.height = 350, ani.width = 500, outdir = getwd(), nmax = 30,
+    interval = 1,
+    title = "Demonstration of the simple random sampling without replacement",
+    description = "Each member of the population has an equal and known chance
+    of being selected.")
+ani.start()
+par(mar = rep(1, 4), lwd = 2)
+sample.simple()
+ani.stop()
+
+## End(Not run)
+ani.options(oopt)
+</pre>
+
+<script Language="JScript">
+function findlink(pkg, fn) {
+var Y, link;
+Y = location.href.lastIndexOf("\\") + 1;
+link = location.href.substring(0, Y);
+link = link + "../../" + pkg + "/chtml/" + pkg + ".chm::/" + fn;
+location.href = link;
+}
+</script>
+
+
+<hr><div align="center">[Package <em>animation</em> version 1.0-1 <a href="00Index.html">Index]</a></div>
+
+</body></html>

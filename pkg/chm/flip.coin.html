@@ -1,0 +1,156 @@
+<html><head><title>Probability in flipping coins</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>flip.coin(animation)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   flip.coin">
+<param name="keyword" value=" Probability in flipping coins">
+</object>
+
+
+<h2>Probability in flipping coins</h2>
+
+
+<h3>Description</h3>
+
+<p>
+In the first class of learning probability theory, we usually begin with flipping coins or tossing dice. This function provides a simulation to such a process and computes the frequency for `heads' and `tails'.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+flip.coin(faces = 2, prob = NULL, border = "white", grid = "white",
+    col = 1:2, type = "p", pch = 21, bg = "transparent",
+    digits = 3)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>faces</code></td>
+<td>
+an integer or a character vector. See details below. </td></tr>
+<tr valign="top"><td><code>prob</code></td>
+<td>
+the probability vector of showing each face. If <code>NULL</code>, each face will be shown in the same probability. </td></tr>
+<tr valign="top"><td><code>border</code></td>
+<td>
+The border style for the rectangles which stand for probabilities. </td></tr>
+<tr valign="top"><td><code>grid</code></td>
+<td>
+the color for horizontal grid lines in these rectangles </td></tr>
+<tr valign="top"><td><code>col</code></td>
+<td>
+The colors to annotate different faces of the `coin'. </td></tr>
+<tr valign="top"><td><code>type, pch, bg</code></td>
+<td>
+See <code><a onclick="findlink('graphics', 'points.html')" style="text-decoration: underline; color: blue; cursor: hand">points</a></code>.</td></tr>
+<tr valign="top"><td><code>digits</code></td>
+<td>
+integer indicating the precision to be used in the annotation of frequencies in the plot</td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+If <code>faces</code> is a single integer, say 2, a sequence of integers from 1 to <code>faces</code> will be used to denote the faces of a coin; otherwise this character vector just gives the names of each face.
+</p>
+<p>
+When the <EM>i</EM>-th face shows up, a colored thin rectangle will be added to the corresponding place (the <EM>i</EM>-th bar), and there will be corresponding annotations for the number of tosses and frequencies. 
+</p>
+<p>
+The special argument <code>grid</code> is for consideration of a too large number of flipping, in which case if you still draw horizontal lines in these rectangles, the rectangles will be completely covered by these lines, thus we should specify it as <code>NA</code>.
+</p>
+<p>
+At last the frequency for each face will be computed and shown in the header of the plot &ndash; this shall be close to <code>prob</code> if <code>nmax</code> is large enough.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+A list containing
+</p>
+<table summary="R argblock">
+<tr valign="top"><td><code>freq </code></td>
+<td>
+A vector of frequencies (simulated probabilities)</td></tr>
+<tr valign="top"><td><code>nmax </code></td>
+<td>
+the total number of tosses</td></tr>
+</table>
+
+<h3>Note</h3>
+
+<p>
+You may change the colors of each face using the argument <code>col</code> (repeated if shorter than the number of faces).
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+Yihui Xie
+</p>
+
+
+<h3>References</h3>
+
+<p>
+<a href="http://animation.yihui.name/prob:flipping_coins">http://animation.yihui.name/prob:flipping_coins</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="ani.start.html">ani.start</a></code>, <code><a href="ani.stop.html">ani.stop</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+oopt = ani.options(interval = 0.2, nmax = 100)
+# a coin would stand on the table?? just kidding :) 
+flip.coin(faces = c("Head", "Stand", "Tail"), type = "n",
+    prob = c(0.45, 0.1, 0.45), col =c(1, 2, 4))
+
+flip.coin(bg = "yellow")
+
+## Not run: 
+ 
+# HTML animation page
+ani.options(ani.height = 500, ani.width = 600, outdir = getwd(), interval = 0.2,
+    nmax = 50, title = "Probability in flipping coins",
+    description = "This animation has provided a simulation of flipping coins,
+    which might be helpful in understanding the concept of probability.")
+ani.start()
+par(mar = c(2, 3, 2, 1.5), mgp = c(1.5, 0.5, 0))
+flip.coin(faces = c("Head", "Stand", "Tail"), type = "n",
+    prob = c(0.45, 0.1, 0.45), col =c(1, 2, 4))
+ani.stop()
+## End(Not run)
+ani.options(oopt)
+</pre>
+
+<script Language="JScript">
+function findlink(pkg, fn) {
+var Y, link;
+Y = location.href.lastIndexOf("\\") + 1;
+link = location.href.substring(0, Y);
+link = link + "../../" + pkg + "/chtml/" + pkg + ".chm::/" + fn;
+location.href = link;
+}
+</script>
+
+
+<hr><div align="center">[Package <em>animation</em> version 1.0-1 <a href="00Index.html">Index]</a></div>
+
+</body></html>

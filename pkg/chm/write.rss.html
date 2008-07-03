@@ -1,0 +1,167 @@
+<html><head><title>Create RSS feed from a CSV data file</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>write.rss(animation)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   write.rss">
+<param name="keyword" value=" Create RSS feed from a CSV data file">
+</object>
+
+
+<h2>Create RSS feed from a CSV data file</h2>
+
+
+<h3>Description</h3>
+
+<p>
+An RSS feed is essentially just an XML file, thus the creation is easy just with <code><a onclick="findlink('base', 'cat.html')" style="text-decoration: underline; color: blue; cursor: hand">cat</a></code> to write some tags into a text file. The elments of an item in an RSS feed usually contains 'title', 'link', 'author', 'description', 'pubDate', 'guid', and 'category', etc, which are stored in the CSV data file.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+write.rss(file = "feed.xml", entry = "rss.csv", xmlver = "1.0", 
+    rssver = "2.0", title = "What's New?", 
+    link = "http://R.yihui.name", 
+    description = "Animated Statistics Using R", 
+    language = "en-us", copyright = "Copyright 2007, Yihui Xie", 
+    pubDate = Sys.time(), lastBuildDate = Sys.time(), 
+    docs = "http://R.yihui.name", 
+    generator = "Function write.rss() in R package animation", 
+    managingEditor = "xieyihui[at]gmail.com", 
+    webMaster = "xieyihui[at]gmail.com", 
+    maxitem = 10, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>file</code></td>
+<td>
+the path of the output file (RSS feed); passed to <code><a onclick="findlink('base', 'cat.html')" style="text-decoration: underline; color: blue; cursor: hand">cat</a></code> </td></tr>
+<tr valign="top"><td><code>entry</code></td>
+<td>
+the input CSV file, containing elements for items in the RSS feed (with tag names in the header); <code><a onclick="findlink('utils', 'read.table.html')" style="text-decoration: underline; color: blue; cursor: hand">read.csv</a></code> </td></tr>
+<tr valign="top"><td><code>xmlver</code></td>
+<td>
+version of XML </td></tr>
+<tr valign="top"><td><code>rssver</code></td>
+<td>
+version of RSS </td></tr>
+<tr valign="top"><td><code>title</code></td>
+<td>
+The name of the channel. It's how people refer to your service. If you have an HTML website that contains the same information as your RSS file, the title of your channel should be the same as the title of your website. </td></tr>
+<tr valign="top"><td><code>link</code></td>
+<td>
+The URL to the HTML website corresponding to the channel. </td></tr>
+<tr valign="top"><td><code>description</code></td>
+<td>
+Phrase or sentence describing the channel. </td></tr>
+<tr valign="top"><td><code>language</code></td>
+<td>
+The language the channel is written in. </td></tr>
+<tr valign="top"><td><code>copyright</code></td>
+<td>
+Copyright notice for content in the channel. </td></tr>
+<tr valign="top"><td><code>pubDate</code></td>
+<td>
+The publication date for the content in the channel. </td></tr>
+<tr valign="top"><td><code>lastBuildDate</code></td>
+<td>
+The last time the content of the channel changed. </td></tr>
+<tr valign="top"><td><code>docs</code></td>
+<td>
+A URL that points to the documentation for the format used in the RSS file. </td></tr>
+<tr valign="top"><td><code>generator</code></td>
+<td>
+A string indicating the program used to generate the channel. </td></tr>
+<tr valign="top"><td><code>managingEditor</code></td>
+<td>
+Email address for person responsible for editorial content. </td></tr>
+<tr valign="top"><td><code>webMaster</code></td>
+<td>
+Email address for person responsible for technical issues relating to channel. </td></tr>
+<tr valign="top"><td><code>maxitem</code></td>
+<td>
+Maximum number of items to be written into the feed. </td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+other elements for the channel, e.g. image, cloud, etc. </td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+The items of the RSS feed are stored in the file &lsquo;<span class="file">entry</span>&rsquo;, and the many arguments above are just for the channel information.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+None. Only a message indicating where the RSS was created.</p>
+
+<h3>Note</h3>
+
+<p>
+As the argument <code>file</code> is passed to <code><a onclick="findlink('base', 'cat.html')" style="text-decoration: underline; color: blue; cursor: hand">cat</a></code>, you may specify it as an empty string <code>""</code> so that the result will be printed to the standard output connection, the console unless redirected by 'sink'. 
+</p>
+<p>
+Note the order of items in the CSV file: newer items are added to the end of the file. But this order will be <EM>reversed</EM> in the RSS file!
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+Yihui Xie
+</p>
+
+
+<h3>References</h3>
+
+<p>
+Read <a href="http://cyber.law.harvard.edu/rss/rss.html">http://cyber.law.harvard.edu/rss/rss.html</a> for the specification of RSS.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a onclick="findlink('base', 'cat.html')" style="text-decoration: underline; color: blue; cursor: hand">cat</a></code>, <code><a onclick="findlink('utils', 'read.table.html')" style="text-decoration: underline; color: blue; cursor: hand">read.csv</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# create rss feed from a sample file in 'animation' 
+# to getwd() 
+write.rss(entry = system.file("js", "rss.csv", package = "animation")) 
+
+## Not run: 
+
+# Read entries from the internet 
+write.rss(entry = "http://r.yihui.name/news/rss.csv")
+
+## End(Not run) 
+</pre>
+
+<script Language="JScript">
+function findlink(pkg, fn) {
+var Y, link;
+Y = location.href.lastIndexOf("\\") + 1;
+link = location.href.substring(0, Y);
+link = link + "../../" + pkg + "/chtml/" + pkg + ".chm::/" + fn;
+location.href = link;
+}
+</script>
+
+
+<hr><div align="center">[Package <em>animation</em> version 0.1-7 <a href="00Index.html">Index]</a></div>
+
+</body></html>

@@ -1,0 +1,129 @@
+<html><head><title>Demonstration of the Central Limit Theorem</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>clt.ani(animation)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   clt.ani">
+<param name="keyword" value=" Demonstration of the Central Limit Theorem">
+</object>
+
+
+<h2>Demonstration of the Central Limit Theorem</h2>
+
+
+<h3>Description</h3>
+
+<p>
+First of all, a number of <code>obs</code> observations are generated from a certain distribution for each variable <i>X_j</i>, <i>j = 1, 2, ..., n</i>, and <i>n = 1, 2, ..., nmax</i>, then the sample means are computed, and at last the density of these sample means is plotted as the sample size <i>n</i> increases, besides, the p-values from the normality test <code><a onclick="findlink('stats', 'shapiro.test.html')" style="text-decoration: underline; color: blue; cursor: hand">shapiro.test</a></code> are computed for each <i>n</i> and plotted at the same time.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+clt.ani(obs = 300, FUN = rexp, col = c("bisque", "red", "black"),
+    mat = matrix(1:2, 2), widths = rep(1, ncol(mat)),
+    heights = rep(1, nrow(mat)), ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>obs</code></td>
+<td>
+the number of sample points to be generated from the distribution </td></tr>
+<tr valign="top"><td><code>FUN</code></td>
+<td>
+the function to generate <code>n</code> random numbers from a certain distribution </td></tr>
+<tr valign="top"><td><code>col</code></td>
+<td>
+a vector of length 2 specifying the colors of the histogram and the density line </td></tr>
+<tr valign="top"><td><code>mat, widths, heights</code></td>
+<td>
+arguments passed to <code><a onclick="findlink('graphics', 'layout.html')" style="text-decoration: underline; color: blue; cursor: hand">layout</a></code> to set the layout of the two graphs. </td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+other arguments passed to <code><a onclick="findlink('graphics', 'hist.html')" style="text-decoration: underline; color: blue; cursor: hand">hist</a></code> </td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+As long as the conditions of the Central Limit Theorem (CLT) are satisfied, the distribution of the sample mean will be approximate to the Normal distribution when the sample size <code>n</code> is large enough, no matter what is the original distribution. The largest sample size is defined by <code>nmax</code> in <code><a href="ani.options.html">ani.options</a></code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+None.</p>
+
+<h3>Author(s)</h3>
+
+<p>
+Yihui Xie
+</p>
+
+
+<h3>References</h3>
+
+<p>
+E. L. Lehmann, <EM>Elements of Large-Sample Theory</EM>. Springer-Verlag, New York, 1999.
+</p>
+<p>
+<a href="http://animation.yihui.name/prob:central_limit_theorem">http://animation.yihui.name/prob:central_limit_theorem</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a onclick="findlink('graphics', 'hist.html')" style="text-decoration: underline; color: blue; cursor: hand">hist</a></code>, <code><a onclick="findlink('stats', 'density.html')" style="text-decoration: underline; color: blue; cursor: hand">density</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+oopt = ani.options(interval = 0.1, nmax = 150)
+op = par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 0), tcl = -0.3)
+clt.ani(type = "s")
+par(op)
+
+## Not run: 
+ 
+# HTML animation page
+ani.options(ani.height = 500, ani.width = 600, outdir = getwd(), nmax = 100,
+    interval = 0.1, title = "Demonstration of the Central Limit Theorem",
+    description = "This animation shows the distribution of the sample
+    mean as the sample size grows.")
+ani.start()
+par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 0), tcl = -0.3)
+clt.ani(type = "h")
+ani.stop()
+## End(Not run)
+ani.options(oopt)
+
+# other distributions: Chi-square with df = 5 
+f = function(n) rchisq(n, 5) 
+clt.ani(FUN = f) 
+</pre>
+
+<script Language="JScript">
+function findlink(pkg, fn) {
+var Y, link;
+Y = location.href.lastIndexOf("\\") + 1;
+link = location.href.substring(0, Y);
+link = link + "../../" + pkg + "/chtml/" + pkg + ".chm::/" + fn;
+location.href = link;
+}
+</script>
+
+
+<hr><div align="center">[Package <em>animation</em> version 1.0-1 <a href="00Index.html">Index]</a></div>
+
+</body></html>

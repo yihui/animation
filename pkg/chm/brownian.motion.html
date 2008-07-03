@@ -1,0 +1,121 @@
+<html><head><title>Demonstration of Brownian motion on the 2D plane</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>brownian.motion(animation)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   brownian.motion">
+<param name="keyword" value=" Demonstration of Brownian motion on the 2D plane">
+</object>
+
+
+<h2>Demonstration of Brownian motion on the 2D plane</h2>
+
+
+<h3>Description</h3>
+
+<p>
+Demonstrate Brownian motion (random walk) in a 2D scatterplot.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+brownian.motion(n = 10, xlim = c(-20, 20), ylim = c(-20, 20), ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>n</code></td>
+<td>
+Number of points in the scatterplot </td></tr>
+<tr valign="top"><td><code>xlim, ylim</code></td>
+<td>
+Arguments passed to <code><a onclick="findlink('graphics', 'plotdefault.html')" style="text-decoration: underline; color: blue; cursor: hand">plot.default</a></code> to control the apperance of the scatterplot (title, points, etc), see <code><a onclick="findlink('graphics', 'points.html')" style="text-decoration: underline; color: blue; cursor: hand">points</a></code> for details.</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+other arguments passed to <code><a onclick="findlink('graphics', 'plotdefault.html')" style="text-decoration: underline; color: blue; cursor: hand">plot.default</a></code></td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+Brownian motion, or random walk, can be regarded as the trace of some cumulative normal random numbers: the location of the next step is just ``current location + random Gaussian numbers'', i.e.,
+</p>
+<p align="center"><i>x[k + 1] = x[k] + rnorm(1)<br> y[k + 1] = y[k] + rnorm(1)</i></p><p> 
+where <EM>(x, y)</EM> stands for the location of a point.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+None (invisible `<code>NULL</code>').</p>
+
+<h3>Author(s)</h3>
+
+<p>
+Yihui Xie
+</p>
+
+
+<h3>References</h3>
+
+<p>
+<a href="http://animation.yihui.name/prob:brownian_motion">http://animation.yihui.name/prob:brownian_motion</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a onclick="findlink('stats', 'Normal.html')" style="text-decoration: underline; color: blue; cursor: hand">rnorm</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# show an animation in (Windows/X Window...) a graphics device 
+# unless you have opened an invisible device like png(), pdf(), ... 
+oopt = ani.options(interval = 0.05, nmax = 150)
+brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow",
+    main = "Demonstration of Brownian Motion")
+ani.options(oopt)
+
+## Not run: 
+# create an HTML animation page
+# store the old option to restore it later
+oopt = ani.options(interval = 0.05, nmax = 100, ani.dev = png,
+    ani.type = "png",
+    title = "Demonstration of Brownian Motion",
+    description = "Random walk on the 2D plane: for each point
+    (x, y), x = x + rnorm(1) and y = y + rnorm(1).")
+ani.start()
+opar = par(mar = c(3, 3, 1, 0.5), mgp = c(2, .5, 0), tcl = -0.3,
+    cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)
+brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")
+par(opar)
+ani.stop()
+## End(Not run)
+ani.options(oopt)
+</pre>
+
+<script Language="JScript">
+function findlink(pkg, fn) {
+var Y, link;
+Y = location.href.lastIndexOf("\\") + 1;
+link = location.href.substring(0, Y);
+link = link + "../../" + pkg + "/chtml/" + pkg + ".chm::/" + fn;
+location.href = link;
+}
+</script>
+
+
+<hr><div align="center">[Package <em>animation</em> version 1.0-1 <a href="00Index.html">Index]</a></div>
+
+</body></html>
