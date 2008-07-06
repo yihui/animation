@@ -7,7 +7,7 @@
 
 <body>
 <p>&nbsp;</p>
-<p align="center"><img src="http://animation.yihui.name/_media/ani_frontpage.gif?cache=cache&amp;w=400&amp;h=400" width="400" height="400" alt="Gradient Descent Algorithm" /></p>
+<p align="center"><a href="http://animation.yihui.name/"><img src="http://animation.yihui.name/_media/ani_frontpage.gif?cache=cache&amp;w=400&amp;h=400" alt="Gradient Descent Algorithm" width="400" height="400" border="0" /></a></p>
 <p></p>
 </body>
 </html>
