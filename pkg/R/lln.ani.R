@@ -11,8 +11,8 @@
     xax = pretty(1:n)
     interval = ani.options("interval")
     for (i in 1:n) {
-        plot(1:n, ylim = rg, type = "n", xlab = "n", ylab = expression(bar(x)),
-            xaxt = "n")
+        plot(1:n, ylim = rg, type = "n", xlab = paste("n =", i),
+            ylab = expression(bar(x)), xaxt = "n")
         axis(1, xax[xax <= i])
         polygon(c(1:i, i:1), c(x[1:i, 1], x[i:1, 2]), border = NA,
             col = col.poly)
