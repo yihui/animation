@@ -41,6 +41,7 @@ h1 {
 }
 -->
 </style>
+<link href="favicon.ico" rel="shortcut icon" />
 </head>
 
 <body>
