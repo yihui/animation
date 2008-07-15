@@ -43,7 +43,7 @@ ani.start()
 opar = par(mar = c(3, 3, 2, 0.5), mgp = c(2, .5, 0), tcl = -0.3,
     cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)
 brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow",
-    main = "Demonstration of Brownian Motion",)
+    main = "Demonstration of Brownian Motion")
 par(opar)
 ani.stop()
 ani.options(oopt)
