@@ -1,8 +1,11 @@
 \name{Rosling.bubbles}
 \alias{Rosling.bubbles}
-\title{ The Bubble Animation in Hans Rosling's Talk ``Debunking third-world myths with the best stats you've ever seen''}
+\title{ The Bubbles Animation in Hans Rosling's Talk ``Debunking third-world myths with the best stats you've ever seen''}
 \description{
-  ~~ A concise (1-5 lines) description of what the function does. ~~
+  In Hans Rosling's attractive talk ``Debunking third-world myths with the best stats you've ever seen'', he used a lot of
+bubble plots to illustrate trends behind the data over time. This function gives an imitation of those moving bubbles, besides,
+as this function is based on \code{\link[graphics]{symbols}}, we can also make use of other symbols such as squares, rectangles,
+thermometers, etc.
 }
 \usage{
 Rosling.bubbles(x, y, circles, squares, rectangles, stars, thermometers, 
@@ -12,44 +15,68 @@ Rosling.bubbles(x, y, circles, squares, rectangles, stars, thermometers,
 }
 
 \arguments{
-  \item{x}{ ~~Describe \code{x} here~~ }
-  \item{y}{ ~~Describe \code{y} here~~ }
-  \item{circles}{ ~~Describe \code{circles} here~~ }
-  \item{squares}{ ~~Describe \code{squares} here~~ }
-  \item{rectangles}{ ~~Describe \code{rectangles} here~~ }
-  \item{stars}{ ~~Describe \code{stars} here~~ }
-  \item{thermometers}{ ~~Describe \code{thermometers} here~~ }
-  \item{boxplots}{ ~~Describe \code{boxplots} here~~ }
-  \item{inches}{ ~~Describe \code{inches} here~~ }
-  \item{fg}{ ~~Describe \code{fg} here~~ }
-  \item{bg}{ ~~Describe \code{bg} here~~ }
-  \item{xlab}{ ~~Describe \code{xlab} here~~ }
-  \item{ylab}{ ~~Describe \code{ylab} here~~ }
-  \item{main}{ ~~Describe \code{main} here~~ }
-  \item{xlim}{ ~~Describe \code{xlim} here~~ }
-  \item{ylim}{ ~~Describe \code{ylim} here~~ }
-  \item{\dots}{ ~~Describe \code{\dots} here~~ }
-  \item{grid}{ ~~Describe \code{grid} here~~ }
-  \item{text}{ ~~Describe \code{text} here~~ }
-  \item{text.col}{ ~~Describe \code{text.col} here~~ }
-  \item{text.cex}{ ~~Describe \code{text.cex} here~~ }
+  \item{x, y}{ the x and y co-ordinates for the centres of the bubbles (symbols). Default to be 10 uniform random numbers in [0, 1]}
+  \item{circles, squares, rectangles, stars, thermometers, boxplots}{ different symbols; see \code{\link[graphics]{symbols}}. Default 
+    to be \code{circles}. }
+  \item{inches, fg, bg, xlab, ylab, main, xlim, ylim, \dots}{ see \code{\link[graphics]{symbols}}. Note that \code{bg} has default values 
+    taking semi-transparent colors. }
+  \item{grid}{ logical; add a grid to the plot? }
+  \item{text}{ a character vector to be added to the plot one by one (e.g. the year in Rosling's talk) }
+  \item{text.col, text.cex}{ color and magnification of the background text }
 }
 \details{
-  ~~ If necessary, more details than the description above ~~
+  Suppose we have observations of \eqn{n}{n} individuals over \code{ani.options("nmax")} years. In this animation, 
+the data of each year will be shown in the bubbles (symbols) plot; as time goes on, certain trends will be revealed 
+(like those in Rosling's talk). Please note that the arrangement of the data for bubbles (symbols) should be a
+matrix like this:
+
+\preformatted{
+    +- Var1_11       Var2_11     Var3_11     ...
+year|  Var1_12       Var2_12     Var3_12     ...
+   1|  ...           ...         ...         ...
+    +- Var1_1n       Var2_1n     Var3_1n     ...
+year+- Var1_21       Var2_21     Var3_21     ...
+   2|  ...           ...         ...         ...
+    +- Var1_2n       Var2_21     Var3_2n     ...
+       ...           ...         ...         ...
+year+- Var1_nmax1    Var2_nmax1  Var3_nmax1  ...
+nmax+- ...           ...         ...         ...
+    +- Var1_nmaxn    Var2_nmaxn  Var3_nmaxn  ...
+}
+
 }
 \value{
 \code{NULL}.
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{ ~~who you are~~ }
-\note{ ~~further notes~~ 
+\references{ 
+\url{http://animation.yihui.name/da:ts:hans_rosling_s_talk}
 
- ~Make other sections like Warning with \section{Warning }{....} ~
+\url{http://www.ted.com/index.php/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html} 
 }
-\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
+\author{ Yihui Xie }
+\seealso{ \code{\link[graphics]{symbols}} }
 \examples{
+opar = par(mar = c(4, 4, 0.2, 0.2))
+oopt = ani.options(interval = 0.1, nmax = 50)
+# use default arguments (random numbers); you may try to find the real data
+Rosling.bubbles()
 
+
+\dontrun{
+ 
+# save the animation in HTML pages
+ani.options(ani.height = 450, ani.width = 600, outdir = getwd(),
+    title = "The Bubbles Animation in Hans Rosling's Talk",
+    description = "An imitation of Hans Rosling's moving bubbles.")
+ani.start()
+par(mar = c(4, 4, 0.2, 0.2))
+# with 'years' as the background
+Rosling.bubbles(text = 1951:2000)
+ani.stop()
 
 }
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }
+
+ani.options(oopt)
+par(opar)
+}
+\keyword{ dynamic }
