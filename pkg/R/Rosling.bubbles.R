@@ -38,26 +38,25 @@ function(x, y, circles, squares,
     }
     if (count != 1) {
         n = 10
-        data = matrix(runif(n * nmax, 0.1, 0.3))
+        data = matrix(runif(n * nmax))
         type = 1
     }
     if (is.null(dim(data))) data = matrix(data)
     n = nrow(data)%/%nmax
     if (missing(x))
-        x = runif(n) + rnorm(n * nmax, 0, 0.02)
+        x = runif(n) + sort(rnorm(n * nmax, 0, 0.02))
     if (missing(y))
-        y = runif(n) + rnorm(n * nmax, 0, 0.02)
+        y = runif(n) + sort(rnorm(n * nmax, 0, 0.02))
     if (missing(bg))
         bg = rgb(runif(n), runif(n), runif(n), 0.5)
     interval = ani.options("interval")
+    md = c(mean(xlim), mean(ylim))
     for (i in 1:nmax) {
         xy = xy.coords(x[((i - 1) * n + 1):(n * i)], y[((i -
             1) * n + 1):(n * i)], xlab = deparse(substitute(x)),
             ylab = deparse(substitute(y)))
         xi = xy$x
         yi = xy$y
-        rg = par("usr")
-        md = c((rg[1] + rg[2])/2, (rg[3] + rg[4])/2)
         plot(NA, NA, type = "n", xlim = xlim, ylim = ylim, xlab = xlab,
             ylab = ylab, main = main, panel.first = {
                 if (grid)
