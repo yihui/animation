@@ -11,6 +11,9 @@
 
 NEW FEATURES
 
+    o A new function Rosling.bubbles() added to show the
+  bubbles animations like those used in Hans Rosling's 
+  talk.
 
 MINOR CHANGES
 
