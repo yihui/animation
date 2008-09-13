@@ -15,7 +15,8 @@ Rosling.bubbles(x, y, circles, squares, rectangles, stars, thermometers,
 }
 
 \arguments{
-  \item{x, y}{ the x and y co-ordinates for the centres of the bubbles (symbols). Default to be 10 uniform random numbers in [0, 1]}
+  \item{x, y}{ the x and y co-ordinates for the centres of the bubbles (symbols). Default to be 10 uniform random numbers in [0, 1]
+    for each single image frame (so the length should be 10 * \code{ani.options("nmax")})}
   \item{circles, squares, rectangles, stars, thermometers, boxplots}{ different symbols; see \code{\link[graphics]{symbols}}. Default 
     to be \code{circles}. }
   \item{inches, fg, bg, xlab, ylab, main, xlim, ylim, \dots}{ see \code{\link[graphics]{symbols}}. Note that \code{bg} has default values 
@@ -44,6 +45,7 @@ nmax+- ...           ...         ...         ...
     +- Var1_nmaxn    Var2_nmaxn  Var3_nmaxn  ...
 }
 
+And the length of \code{x} and \code{y} should be equal to the number of rows of this matrix.
 }
 \value{
 \code{NULL}.
@@ -61,6 +63,8 @@ oopt = ani.options(interval = 0.1, nmax = 50)
 # use default arguments (random numbers); you may try to find the real data
 Rosling.bubbles()
 
+# rectangles
+Rosling.bubbles(rectangles = matrix(abs(rnorm(50 * 10 * 2)), ncol = 2))
 
 \dontrun{
  

@@ -41,7 +41,8 @@ function(x, y, circles, squares,
         data = matrix(runif(n * nmax, 0.1, 0.3))
         type = 1
     }
-    n = nrow(matrix(data))%/%nmax
+    if (is.null(dim(data))) data = matrix(data)
+    n = nrow(data)%/%nmax
     if (missing(x))
         x = runif(n) + rnorm(n * nmax, 0, 0.02)
     if (missing(y))
