@@ -20,7 +20,7 @@ None (invisible `\code{NULL}').
 \references{
 Cochran, W G (1977) \emph{Sampling Techniques}, Wiley, ISBN 0-471-16240-X 
 
-\url{}
+\url{http://animation.yihui.name/samp:systematic_sampling}
 }
 \author{ Yihui Xie }
 \seealso{ \code{\link[base:sample]{sample}} }

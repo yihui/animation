@@ -38,7 +38,7 @@ The algorithm might not converge -- it depends on the starting value. See the ex
 \references{ 
 \url{http://en.wikipedia.org/wiki/Newton's_method}
 
-\url{}
+\url{http://animation.yihui.name/compstat:newton_s_method}
 }
 \author{ Yihui Xie }
 \seealso{ \code{\link[stats]{optim}} }
