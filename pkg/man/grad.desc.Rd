@@ -7,7 +7,7 @@
 \usage{
 grad.desc(FUN = function(x, y) x^2 + 2 * y^2, rg = c(-3, -3, 3, 3), 
     init = c(-3, 3), gamma = 0.05, tol = 0.001, len = 50, 
-    interact = FALSE)
+    interact = FALSE, col.contour = "red", col.arrow = "blue")
 }
 \arguments{
   \item{FUN}{ the objective function to be minimized; contains only two independent variables (variable names do not need to be 'x' and 'y') }
@@ -17,6 +17,7 @@ grad.desc(FUN = function(x, y) x^2 + 2 * y^2, rg = c(-3, -3, 3, 3),
   \item{tol}{ tolerance to stop the iterations, i.e. the minimum difference between \eqn{F(x_i)}{F(x[i])} and \eqn{F(x_{i+1})}{F(x[i+1])} }
   \item{len}{ desired length of the independent sequences (to compute z values for contours) }
   \item{interact}{ logical; whether choose the starting values by cliking on the contour plot directly? }
+  \item{col.contour, col.arrow}{ colors for the contour lines and arrows respectively (default to be red and blue) }
 }
 \details{
   Gradient descent is an optimization algorithm. To find a local minimum of a function using gradient descent, one takes steps proportional to the negative of the gradient (or the approximate gradient) of the function at the current point. If instead one takes steps proportional to the gradient, one approaches a local maximum of that function; the procedure is then known as gradient ascent.
