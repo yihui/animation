@@ -10,7 +10,7 @@
     eval(expr)
     dev.off()
     tool = ifelse(is.null(swftools), paste(dev, "2swf", sep = ""), 
-        dQuote(file.path(swftools, paste(dev, "2swf", sep = ""))))
+        shQuote(file.path(swftools, paste(dev, "2swf", sep = ""))))
     if (.Platform$OS.type == "windows") 
         system <- shell
     version <- system(tool, intern = TRUE)

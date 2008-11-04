@@ -27,11 +27,15 @@ MINOR CHANGES
     o The Shapiro-Wilk normality tests are performed
   to independent sample means instead of the original
   'cumulative' data. (Thanks, Duncan Murdoch)
-    o arguments 'col.contour' and 'col.arrow' added
+    o Arguments 'col.contour' and 'col.arrow' added
   to grad.desc() to specify the colors for the contour
   lines and arrows freely; the graphical parameters
   are no longer specified within the function using
   par().
+    o The path of SWF Tools in saveSWF() will be 
+  quoted by shQuote() instead of dQuote(). 
+  (Thanks, zhoulvjun)
+    
 
 	**************************************************
 	*						 *
