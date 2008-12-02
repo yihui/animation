@@ -1,5 +1,6 @@
 \name{animation-package}
 \alias{animation-package}
+\alias{animation}
 \docType{package}
 \title{
 Statistical Animations Using R
