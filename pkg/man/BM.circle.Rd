@@ -12,6 +12,9 @@ BM.circle(n = 20, col = rainbow(n), ...)
   \item{col}{ colors of points }
   \item{\dots}{ other parameters passed to \code{\link[graphics]{points}} }
 }
+\details{
+This is a solution to the question raised in R-help: \url{https://stat.ethz.ch/pipermail/r-help/2008-December/183018.html}.
+}
 \value{
 Invisible \code{NULL}.
 }
