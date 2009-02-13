@@ -18,11 +18,11 @@ least.squares(x, y, n = 15, ani.type = c("slope", "intercept"), a, b,
   \item{a, b}{ the fixed intercept and slope; depending on \code{ani.type}, we only need to specify one of them; e.g. when \code{ani.type == "slope"}, we need to specify the value of \code{a} }
   \item{a.range, b.range}{ a vector of length 2 to define the range of the intercept and the slope; only one of them need to be specified; see above }
   \item{ab.col}{ the colors of two lines: the real regression line and the moving line with either intercept or slope changing }
-  \item{est.pch}{ the point character of the ``estimated'' values given \code{x} }
+  \item{est.pch}{ the point character of the "estimated" values given \code{x} }
   \item{v.col, v.lty}{ the color and line type of the vetical lines which demonstrate the residuals }
   \item{rss.pch, rss.type}{ the point character and plot type of the residual plot }
   \item{mfrow}{ defines the layout of the graph; see \code{\link[graphics]{par}} }
-  \item{\dots}{ other parameters passed to \code{\link[graphics]{plot.default}} to define the appearance of the scatterplot }
+  \item{\dots}{ other parameters passed to \code{\link[graphics]{plot}} to define the appearance of the scatterplot }
 }
 \value{
   The value returned depends on the animation type.
@@ -30,7 +30,6 @@ least.squares(x, y, n = 15, ani.type = c("slope", "intercept"), a, b,
   If it is a slope animation, the value will be a list containing
   \item{lmfit }{ the estimates of the intercept and slope with \code{\link[stats]{lm}} }
   \item{anifit }{ the estimate of the slope in the animation }
-
   If it is an intercept animation, the second component of the above list will be the estimate of the intercept.
   
   Note the estimate will not be precise generally.
@@ -42,9 +41,9 @@ least.squares(x, y, n = 15, ani.type = c("slope", "intercept"), a, b,
 opar = par(mar = c(5, 4, 0.5, 0.1))
 oopt = ani.options(interval = 0.3, nmax = 50)
 # default animation: with slope changing
-least.square()
+least.squares()
 # intercept changing
-least.square(ani.type = "i")
+least.squares(ani.type = "i")
 
 par(opar)
 \dontrun{
@@ -56,7 +55,7 @@ ani.options(ani.height = 450, ani.width = 600, outdir = getwd(),
     in 50 candidate slopes, so we just compute the RSS one by one. ")
 ani.start()
 par(mar = c(4, 4, 0.5, 0.1), mgp = c(2, 0.5, 0), tcl = -0.3)
-least.square()
+least.squares()
 ani.stop()
 
 }

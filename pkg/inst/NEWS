@@ -21,6 +21,9 @@ NEW FEATURES
   ordinary least square process.
     o A function BM.circle() added to show the
   Brownian Motion in a circle.
+    o A function g.brownian.motion() added to 
+  demonstrate the Brownian Motion using Google
+  Visulization API.
     o A function cart.ani() to show the splitting
   process of classification and regression trees.
 
