@@ -58,7 +58,7 @@ write.rss(entry = system.file("js", "rss.csv", package = "animation"))
 \dontrun{
 
 # Read entries from the internet 
-write.rss(entry = "http://r.yihui.name/news/rss.csv")
+write.rss(entry = "http://www.yihui.name/r/news/rss.csv")
 
 } 
 }
