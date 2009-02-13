@@ -19,6 +19,8 @@ NEW FEATURES
   bootstrapping effects on loess().
     o A function least.squares() added to show the 
   ordinary least square process.
+    o A function BM.circle() added to show the
+  Brownian Motion in a circle.
     o A function cart.ani() to show the splitting
   process of classification and regression trees.
 
