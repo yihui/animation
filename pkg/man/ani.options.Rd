@@ -23,7 +23,7 @@ When parameters are set, their former values are returned in an
 }
 
 \section{Animation Parameters}{
-
+\describe{
   \item{interval}{ a positive number to set the time interval of the animation (unit in seconds). }
   \item{nmax}{ maximum number of steps for a loop (e.g. iterations) to create animation frames. Note: the actual number of frames can be less than this number, depending on specific animations.}
   \item{ani.width, ani.height}{ width and height of image frames (unit in px); see graphics devices like \code{\link[grDevices]{png}}, \code{\link[grDevices:png]{jpeg}}, ...}
@@ -36,7 +36,7 @@ When parameters are set, their former values are returned in an
   \item{description}{character: a description about the animation }
   \item{footer}{ logical: if \code{TRUE}, write a foot part in the HTML page containing information such as date/time of creation; else don't write.}
   \item{autobrowse}{logical: whether auto-browse the animation page immediately after it is created?}
-
+}
 }
 \author{ Yihui Xie }
 \note{ 
