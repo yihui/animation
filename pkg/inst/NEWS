@@ -17,8 +17,8 @@ NEW FEATURES
   Galton box or Bean Machine. (Thanks, Roger Koenker)
     o A function boot.loess() added to show the
   bootstrapping effects on loess().
-    o A function ls.ani() added to show the ordinary
-  least square process.
+    o A function least.squares() added to show the 
+  ordinary least square process.
     o A function cart.ani() to show the splitting
   process of classification and regression trees.
 
