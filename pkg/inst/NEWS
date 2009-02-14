@@ -14,9 +14,11 @@ NEW FEATURES
     o The famous 'pollen' data added. See the example
   for finding the letters hidden in the data.
     o A function quincunx() added to simulate the
-  Galton box or Bean Machine. (Thanks, Roger Koenker)
+  Galton box or Bean Machine. (Thanks for the 
+  inspiration from Roger Koenker)
     o A function least.squares() added to show the 
-  ordinary least square process.
+  ordinary least square process. (Thanks for the
+  inspiration from Daniel Goldstein) 
     o A function BM.circle() added to show the
   Brownian Motion in a circle.
     o A function g.brownian.motion() added to 
