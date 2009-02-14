@@ -3,6 +3,8 @@ function(balls = 200, layers = 15, pch.layers = 2,
     pch.balls = 19, col.balls = sample(colors(), balls, TRUE), 
     cex.balls = 2) {
     op = par(mar = c(1, 0.1, 0.1, 0.1), mfrow = c(2, 1))
+    if (ani.options("nmax") != (balls + layers - 2))
+        warning("It's strongly recommended that ani.options(nmax = balls + layers -2)")
     nmax = max(balls + layers - 2, ani.options("nmax"))
     interval = ani.options("interval")
     layerx = layery = NULL
