@@ -1,4 +1,4 @@
-			Dear Emacs, please make this -*-Text-*- mode!
+
 	**************************************************
 	*						 *
 	*	       1.0-3 NEWS			 *
@@ -15,8 +15,6 @@ NEW FEATURES
   for finding the letters hidden in the data.
     o A function quincunx() added to simulate the
   Galton box or Bean Machine. (Thanks, Roger Koenker)
-    o A function boot.loess() added to show the
-  bootstrapping effects on loess().
     o A function least.squares() added to show the 
   ordinary least square process.
     o A function BM.circle() added to show the
@@ -24,8 +22,6 @@ NEW FEATURES
     o A function g.brownian.motion() added to 
   demonstrate the Brownian Motion using Google
   Visulization API.
-    o A function cart.ani() to show the splitting
-  process of classification and regression trees.
 
 MINOR CHANGES
 
@@ -40,7 +36,14 @@ MINOR CHANGES
     o The path of SWF Tools in saveSWF() will be 
   quoted by shQuote() instead of dQuote(). 
   (Thanks, zhoulvjun)
+
+TO APPEAR 
     
+    o A function boot.loess() added to show the
+  bootstrapping effects on loess().
+    o A function cart.ani() to show the splitting
+  process of classification and regression trees.
+
 
 	**************************************************
 	*						 *
