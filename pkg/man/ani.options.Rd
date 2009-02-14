@@ -53,7 +53,8 @@ This function can be used for almost all the animation functions such as \code{\
 \examples{
 \dontrun{
 # store the old option to restore it later
-oopt = ani.options(interval = 0.05, nmax = 100, ani.dev = png, ani.type = "png")
+oopt = ani.options(interval = 0.05, nmax = 100, ani.dev = png, 
+    ani.type = "png")
 ani.start() 
 opar = par(mar = c(3, 3, 2, 0.5), mgp = c(2, .5, 0), tcl = -0.3,
     cex.axis = 0.8, cex.lab = 0.8, cex.main = 1) 

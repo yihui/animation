@@ -31,7 +31,7 @@ knn.ani(train, test, cl, k = 10, interact = FALSE,
   \item vote for the result (find the maximum in the table for the true classifications) 
   } 
   
-  As there are four steps in an iteration, the total number of animation frames should be \code{4 * min(ani.options("nmax"), nrow(test))} at last.
+  As there are four steps in an iteration, the total number of animation frames should be \code{4 * min(nrow(test), ani.options("nmax"))} at last.
 }
 \value{
 A vector of class labels for the test set.
