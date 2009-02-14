@@ -10,8 +10,8 @@ boot.iid(x = runif(20), statistic = mean, m = length(x),
     heights = rep(1, nrow(mat)),
     col = c("black", "red", "bisque", "red", "gray"),
     cex = c(1.5, 0.8),
-    main = c("Bootstrapping the i.i.d data", "Density of bootstrap estimates"),
-    ...)
+    main = c("Bootstrapping the i.i.d data", 
+    "Density of bootstrap estimates"), ...)
 }
 \arguments{
   \item{x}{ a numerical vector (the original data). }

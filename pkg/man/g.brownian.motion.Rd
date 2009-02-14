@@ -30,10 +30,8 @@ g.brownian.motion(p = 20, start = 1900, digits = 14,
 \seealso{ \code{\link{brownian.motion}}, \code{\link{BM.circle}}, \code{\link[stats:Normal]{rnorm}} }
 \examples{
 \dontrun{
-
 g.brownian.motion(15, digits = 2, width = 600, 
     height = 500) 
-
 }
 }
 \keyword{ dynamic }

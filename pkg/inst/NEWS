@@ -43,7 +43,8 @@ TO APPEAR
   bootstrapping effects on loess().
     o A function cart.ani() to show the splitting
   process of classification and regression trees.
-
+    o saveLatex() to embed the animation into a
+  LaTeX document (with LaTeX package 'animate').
 
 	**************************************************
 	*						 *
