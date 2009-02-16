@@ -42,8 +42,8 @@
             digits = digits), ")", sep = ""), tcl = 0, mgp = c(0,
             0.5, 0))
         axis(1, 1.5, paste("Number of Tosses:", i), tcl = 0)
-        Sys.sleep(interval)
         box()
+        Sys.sleep(interval)
     }
     invisible(list(freq = as.matrix(frq)[, 1], nmax = i))
 }
