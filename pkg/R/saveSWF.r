@@ -16,18 +16,20 @@
     version <- system(tool, intern = TRUE)
     if (length(version) < 10) 
         stop("swftools not found; please install swftools first: http://www.swftools.org")
-    cat("Flash will be created at: ", normalizePath(file.path(outdir, 
-        swfname)), "\n")
     wildcard <- paste(filename, "*.", dev, sep = "")
     convert <- paste(tool, wildcard, "-o", swfname)
+    cmd = -1
     if (dev == "png" | dev == "jpeg") {
         convert = paste(convert, "-r", 1/interval)
         cat("Executing: ", convert, "\n")
-        system(convert)
+        cmd = system(convert)
     }
     else {
         convert = paste(convert, " -s framerate=", 1/interval, sep = "")
         cat("Executing: ", convert, "\n")
-        system(convert)
+        cmd = system(convert)
     }
+    if (cmd == 0) cat("Flash has been created at: ", normalizePath(file.path(outdir, 
+        swfname)), "\n")
+    invisible(cmd)
 } 
