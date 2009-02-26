@@ -15,12 +15,13 @@
     if (!length(grep("ImageMagick", version))) 
         stop("ImageMagick not found; please install ImageMagick first: http://www.imagemagick.org")
     moviename <- paste(moviename, ".", movietype, sep = "")
-    cat("Movie will be created at: ", normalizePath(file.path(outdir, 
-        moviename)), "\n")
     wildcard <- paste(filename, "*.", deparse(substitute(dev)), 
         sep = "")
     convert <- paste("convert -delay", interval * 100, "-loop", 
         loop, wildcard, moviename)
     cat("Executing: ", convert, "\n")
-    system(convert)
+    cmd = system(convert)
+    if (cmd == 0) cat("Movie has been created at: ", normalizePath(file.path(outdir, 
+        moviename)), "\n")
+    invisible(cmd)
 } 
