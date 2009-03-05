@@ -1,6 +1,6 @@
 \name{tidy.source}
 \alias{tidy.source}
-\title{ `Tidy up' R code }
+\title{ `Tidy up' R Code and Delete All Comments}
 \description{
   Actually this function has nothing to do with code optimization; it just returns parsed source code. 
 }
@@ -15,17 +15,18 @@ tidy.source(source = "clipboard", ...)
   This function helps the user to tidy up his source code in a sense that necessary indents and spaces will be added, etc. See \code{\link[base:parse]{parse}}.
 }
 \value{
-None (invisible `\code{NULL}'). `Clean' code will be returned to the console unless the output is redirected by `sink'. 
+None (invisible `\code{NULL}'). `Clean' code will be returned to the console unless the output is redirected by \code{\link[base]{sink}}. 
 }
 
 \author{ Yihui Xie }
 \references{\url{http://animation.yihui.name/animation:misc\#tidy_up_r_source}}
-\seealso{ \code{\link[base:parse]{parse}}, \code{\link[base:cat]{cat}} }
+\seealso{ \code{\link[base:parse]{parse}}, \code{\link[base:cat]{cat}}, \code{\link{tidy.source2}} }
 \examples{
 ## tidy up the source code of image demo 
 x = file.path(system.file(package = "graphics"), "demo", "image.R") 
 # to console 
 tidy.source(x)
+# try tidy.source2(x) to see the difference
 # to a file
 tidy.source(x, file = tempfile()) 
 ## check the original code here and see the difference 
