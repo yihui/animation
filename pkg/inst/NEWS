@@ -13,6 +13,19 @@ NEW FEATURES
     o tidy.source2() is a improved version of
   tidy.source(); it preserves some comments in R code.
 
+MINOR CHANGES
+
+    o fixed a bug for normalizePath() in saveMovie() 
+  and saveSWF().
+  
+TO APPEAR 
+    
+    o A function boot.loess() added to show the
+  bootstrapping effects on loess().
+    o A function cart.ani() to show the splitting
+  process of classification and regression trees.
+    o saveLatex() to embed the animation into a
+  LaTeX document (with LaTeX package 'animate').
 
   
 	**************************************************
@@ -55,14 +68,6 @@ MINOR CHANGES
   quoted by shQuote() instead of dQuote(). 
   (Thanks, zhoulvjun)
 
-TO APPEAR 
-    
-    o A function boot.loess() added to show the
-  bootstrapping effects on loess().
-    o A function cart.ani() to show the splitting
-  process of classification and regression trees.
-    o saveLatex() to embed the animation into a
-  LaTeX document (with LaTeX package 'animate').
 
 	**************************************************
 	*						 *
