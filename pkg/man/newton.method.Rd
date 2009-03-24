@@ -52,19 +52,23 @@ xx = newton.method()
 xx$root  # solution
 
 # take a long long journey
+ani.options(nmax = 50)
 newton.method(function(x) 5 * x^3 - 7 * x^2 - 40 *
     x + 100, 7.15, c(-6.2, 7.1))
 
 \dontrun{
  
 # another function 
+ani.options(interval = 0.5, nmax = 50)
 xx = newton.method(function(x) exp(-x) * x, rg = c(0, 
     10), init = 2) 
 # not converge!
+ani.options(interval = 0.5, nmax = 50)
 xx = newton.method(function(x) atan(x), rg = c(-5, 
     5), init = 1.5) 
 xx$root   # Inf 
 # interaction: use your mouse to select the starting point
+ani.options(interval = 0.5, nmax = 50)
 xx = newton.method(function(x) atan(x), rg = c(-2, 
     2), interact = TRUE) 
 
