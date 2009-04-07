@@ -1,0 +1,16 @@
+Package: animation
+Type: Package
+Title: Demonstrate Animations in Statistics 
+Version: 1.0-5
+Date: 2009-04-14
+Author: Yihui Xie 
+Maintainer: Yihui Xie <xieyihui@gmail.com>
+Description: This package consists of various functions for animations in
+  statistics, covering many areas such as probability theory, mathematical
+  statistics, multivariate statistics, nonparametric statistics, sampling
+  survey, linear models, time series, computational statistics, data mining
+  and machine learning. These functions might be of help in teaching
+  statistics and data analysis.
+Depends: MASS
+License: 	GPL-2 | GPL-3
+URL: http://animation.yihui.name
