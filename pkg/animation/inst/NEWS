@@ -1,0 +1,441 @@
+	**************************************************
+	*						 *
+	*	       1.0-4 NEWS			 *
+	*						 *
+	**************************************************
+
+
+		CHANGES IN animation VERSION 1.0-4
+
+
+NEW FEATURES
+
+    o new demo 'Sierpinski' for Sierpinski triangle;
+  see demo(Sierpinski).
+
+
+
+
+	**************************************************
+	*						 *
+	*	       1.0-4 NEWS			 *
+	*						 *
+	**************************************************
+
+
+		CHANGES IN animation VERSION 1.0-4
+
+
+NEW FEATURES
+
+    o tidy.source2() is a improved version of
+  tidy.source(); it preserves some comments in R code.
+
+MINOR CHANGES
+
+    o fixed a bug for normalizePath() in saveMovie() 
+  and saveSWF().
+  
+TO APPEAR 
+    
+    o A function boot.loess() added to show the
+  bootstrapping effects on loess().
+    o A function cart.ani() to show the splitting
+  process of classification and regression trees.
+    o saveLatex() to embed the animation into a
+  LaTeX document (with LaTeX package 'animate').
+
+  
+	**************************************************
+	*						 *
+	*	       1.0-3 NEWS			 *
+	*						 *
+	**************************************************
+
+
+		CHANGES IN animation VERSION 1.0-3
+
+
+NEW FEATURES
+
+    o The famous 'pollen' data added. See the example
+  for finding the letters hidden in the data.
+    o A function quincunx() added to simulate the
+  Galton box or Bean Machine. (Thanks for the 
+  inspiration from Roger Koenker)
+    o A function least.squares() added to show the 
+  ordinary least square process. (Thanks for the
+  inspiration from Daniel Goldstein) 
+    o A function BM.circle() added to show the
+  Brownian Motion in a circle.
+    o A function g.brownian.motion() added to 
+  demonstrate the Brownian Motion using Google
+  Visulization API.
+
+MINOR CHANGES
+
+    o The Shapiro-Wilk normality tests are performed
+  to independent sample means instead of the original
+  'cumulative' data. (Thanks, Duncan Murdoch)
+    o Arguments 'col.contour' and 'col.arrow' added
+  to grad.desc() to specify the colors for the contour
+  lines and arrows freely; the graphical parameters
+  are no longer specified within the function using
+  par().
+    o The path of SWF Tools in saveSWF() will be 
+  quoted by shQuote() instead of dQuote(). 
+  (Thanks, zhoulvjun)
+
+
+	**************************************************
+	*						 *
+	*	       1.0-2 NEWS			 *
+	*						 *
+	**************************************************
+
+
+		CHANGES IN animation VERSION 1.0-2
+
+
+NEW FEATURES
+
+    o A new function Rosling.bubbles() added to show the
+  bubbles animations like those used in Hans Rosling's 
+  talk.
+
+MINOR CHANGES
+
+    o The argument 'swftools' is double quoted so that
+  the SWF utilities can be executed correctly when the
+  path contains spaces. (Thanks, Geng Yang)
+
+
+	**************************************************
+	*						 *
+	*	       1.0-1 NEWS			 *
+	*						 *
+	**************************************************
+
+
+		CHANGES IN animation VERSION 1.0-1
+
+
+NEW FEATURES
+
+    o The package has provided a wrapper to produce Flash
+  animations using SWF Tools: saveSWF()
+    o A demo 'wordrotation' added to show the basic
+  method to make animations. More demos will be added
+  in future releases.
+
+MINOR CHANGES
+
+    o A new argument 'para' added to saveMovie() so that
+  the graphics parameters can be set for the device.
+
+
+	**************************************************
+	*						 *
+	*	       1.0-0 NEWS			 *
+	*						 *
+	**************************************************
+
+
+		CHANGES IN animation VERSION 1.0-0
+
+
+NEW FEATURES
+
+    o ani.options() added to control animation parameters.
+  It is much better than ani.control() in previous
+  versions.
+    o ani.start() and ani.stop() are modified. The former
+  function opens a graphics device and the latter one
+  create an HTML page with a new interface.
+    o A wiki has been build to support this package:
+  http://animation.yihui.name (AniWiki: Animations in
+  Statistics)
+
+MINOR CHANGES
+
+    o Graphical parameters can be set in ... argument for:
+  brownian.motion(), buffon.needle(), clt.ani(), conf.int(),
+  cv.ani(), lln.ani(), mwar.ani(), newton.method(),
+  sample.cluster(), sample.strat().
+    o P-values are computed in clt.ani() to check the
+  normality (using 'shapiro.test()').
+
+SIGNIFICANT CHANGES
+
+    o The vignette is abandoned and stopped being updated;
+  the wiki http://animation.yihui.name will be used instead.
+    o The way to create HTML animations is significantly
+  changed for the sake of a better interface and more
+  flexible control of animations. Read the help files 
+  for ani.control(), ani.start(), ani.stop().
+    o The function savePNG() removed. The new way to
+  create animation frames allows ANY graphics devices.
+    o ani.control() and checkargs() removed. The new
+  way to control animation parameters is more flexible.
+ 
+
+
+	**************************************************
+	*						 *
+	*	       0.2-0 NEWS			 *
+	*						 *
+	**************************************************
+
+
+		CHANGES IN animation VERSION 0.2-0
+
+
+NEW FEATURES
+
+    o cv.nfeaturesLDA() to illustrate the process of k-fold
+  cross-validation to find the optimum number of features
+  in LDA. 
+
+MINOR CHANGES
+
+    o A rectangular grid has been added to the plot in
+  kmeans.ani() so that the moving of centers can be
+  better observed.
+    o The default value for the argument "source" is set
+  to be "clipboard".
+
+SIGNIFICANT CHANGES
+
+    o The code for clt.ani() has been modified to make
+  better illustrations for the CLT. 
+ 
+
+
+	**************************************************
+	*						 *
+	*	       0.1-8 NEWS			 *
+	*						 *
+	**************************************************
+
+
+		CHANGES IN animation VERSION 0.1-8
+
+
+MINOR CHANGES
+
+    o the function flip.coin() is slightly modified (a new
+  argument 'grid' added and the digits of probabilities 
+  in the graph can be controlled)
+ 
+
+	**************************************************
+	*						 *
+	*	       0.1-7 NEWS			 *
+	*						 *
+	**************************************************
+
+
+		CHANGES IN animation VERSION 0.1-7 
+
+
+NEW FEATURES
+
+    o conf.int() to illustrate the concept of confidence 
+  intervals. 
+    o lln.ani() to illustrate the Law of Large Numbers. 
+    o grad.desc() for the Gradient Descent Algorithm.
+    o bisection.method() for the illustration of the 
+  Bisection method.
+    o newton.method() for the demonstration of Newton-Raphson
+  method. 
+ 
+
+MINOR CHANGES
+
+    o A special function checkargs() is added to validate 
+  animation arguments, which can promote the efficiency 
+  of animation functions. 
+    o It doesn't need Sys.sleep() when creating HTML pages,
+  so the code is modified to avoid suspending in this case. 
+
+
+	**************************************************
+	*						 *
+	*	       0.1-6 NEWS			 *
+	*						 *
+	**************************************************
+
+
+		CHANGES IN animation VERSION 0.1-6 
+
+
+NEW FEATURES
+
+    o saveMovie() to create single movies using ImageMagick. 
+ 
+
+MINOR CHANGES
+
+    o The number of tosses is added to the plot in flip.coin(). 
+
+
+	**************************************************
+	*						 *
+	*	       0.1-5 NEWS			 *
+	*						 *
+	**************************************************
+
+
+		CHANGES IN animation VERSION 0.1-5 
+
+
+NEW FEATURES
+
+    o cli.ani() to illustrate the Centrol Limit Theorem (CLT).
+    o vi.grid.illusion() to illustrate two kinds of grid
+  illusions (Scintillating grid illusion and Hermann grid illusion). 
+ 
+
+MINOR CHANGES
+
+    o Argument '...' added to tidy.source() for more flexible 
+  control of the output. 
+
+
+	**************************************************
+	*						 *
+	*	       0.1-4 NEWS			 *
+	*						 *
+	**************************************************
+
+
+		CHANGES IN animation VERSION 0.1-4
+
+
+NEW FEATURES
+
+    o write.rss() for creating RSS feed files from a CSV file
+  containing RSS items. 
+    o vi.lilac.chaser() for the visual illusion 'Lilac Chaser'. 
+
+MINOR CHANGES
+
+    o The capability of PNG device is checked before creating png
+  image files in savePNG().
+    o A bug in the assigning of 'interval' in the environment
+  'ANIenv' was fixed. 
+
+
+	**************************************************
+	*						 *
+	*	       0.1-3 NEWS			 *
+	*						 *
+	**************************************************
+
+
+		CHANGES IN animation VERSION 0.1-3
+
+
+NEW FEATURES
+
+    o A new function highlight.def() added to dynamically generate
+  the R definition file for the software Highlight.
+    o mwar.ani() to show moving window auto-regression.
+    o sample.simple() for simple random sampling without replacement.
+    o sample.strat() for stratified sampling.
+    o sample.cluster for cluster sampling.
+    o sample.system() for systematic sampling. 
+
+MINOR CHANGES 
+
+    o The string 'file://' was added before the path of the HTML
+  animation page to avoid the error caused by browseURL in ani.stop().
+    o File 'ANI.css' and 'FUN.js' were moved to the directory 'js' 
+  (because they are not 'data'). Both files were modified slightly.
+    o The parameter for time interval can be passed to the HTML
+  animation page now.
+    o The vignette was supplemented and modified accordingly. 
+
+
+	**************************************************
+	*						 *
+	*	       0.1-2 NEWS			 *
+	*						 *
+	**************************************************
+
+
+		CHANGES IN animation VERSION 0.1-2
+
+
+MINOR CHANGES 
+
+    o An argument 'col' added to flip.coin() to control colors of 
+  each face of the coin. 
+    o The 'pageview' data updated to Dec 3, 2007.
+    o Points that have already been classified in knn.ani() are
+  marked out in later steps of classification for the rest points.
+    o The values of PI are silently returned in buffon.needle().
+    o The result for the test set can be returned in knn.ani(). 
+
+SIGNIFICANT CHANGES
+
+    o The computation for kfcv() is changed so that the sample
+  sizes will be more 'uniformly' allocated.
+    o A new function ani.control() added so that the controlling
+  parameters can be more uniform and the scalability of the
+  animation functions will also be better. All the animation 
+  functions are chanaged accordingly. 
+
+	**************************************************
+	*						 *
+	*	       0.1-1 NEWS			 *
+	*						 *
+	**************************************************
+
+
+		CHANGES IN animation VERSION 0.1-1
+
+
+NEW FEATURES
+
+    o A news-reading function ani.news() added so that changes will
+  be conveniently known.
+    o boot.iid() is available for demonstration of bootstrapping 
+  i.i.d data. 
+
+
+MINOR CHANGES 
+
+    o The arguments ... is added in animation functions to control
+  PNG image files. 
+    o The sample data is permuted before cv.ani() so that every time
+  we do cross-validation, the splitting of trainig set and test set
+  will change (instead of splitting 1:n into k parts). The tick 
+  marks of x-axis will change accordingly. 
+
+
+
+	**************************************************
+	*						 *
+	*	       0.1-0 NEWS			 *
+	*						 *
+	**************************************************
+
+
+    CONSTITUTION OF animation VERSION 0.1-0 
+    
+    o ani.start() to start an HTML page for animations.
+    o ani.stop() to complete the HTML animation page.
+    o brownian.motion() to demonstrate Brownian motion in the 2D 
+  plane. 
+    o buffon.needle() to simulate the process of Buffon's needle.
+    o cv.ani() to demonstrate k-fold cross validation.
+    o flip.coin() to simulate tossing 'coins'.
+    o kfcv() to compute sample sizes for k-fold cross-validation.
+    o kmeans.ani() to show the process of K-Means cluster analysis.
+    o knn.ani() to show k-Nearest Neighbor algorithm.
+    o savePNG() to save PNG image files which constitute the basic
+  animation frames in the HTML page.
+    o tidy.source() is a trivial function to 'tidy up' R code 
+  using the internal R function parse(). 
+    o 'pageview' is a daily page view data of my personal website. 
