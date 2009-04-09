@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="FeedCreator 1.7.2-ppt DokuWiki" -->
+<?xml-stylesheet href="http://animation.yihui.name/lib/exe/css.php?s=feed" type="text/css"?>
+<rss version="2.0">
+    <channel>
+        <title>AniWiki: Animations in Statistics da</title>
+        <description></description>
+        <link>http://animation.yihui.name/</link>
+        <lastBuildDate>Thu, 05 Jun 2008 20:25:52 +0800</lastBuildDate>
+        <generator>FeedCreator 1.7.2-ppt DokuWiki</generator>
+        <image>
+            <url>http://animation.yihui.name/lib/images/favicon.ico</url>
+            <title>AniWiki: Animations in Statistics</title>
+            <link>http://animation.yihui.name/</link>
+        </image>
+        <item>
+            <title>da:start</title>
+            <link>http://animation.yihui.name/da:start</link>
+            <description>This section is to collect animation examples in data analysis.
+
+Biostatistics
+
+Demonstration of wrong gene expression arrays
+
+
+Here is a demonstration of image plots for some wrong gene expression arrays. Read details...</description>
+        <category>da</category>
+            <pubDate>Thu, 05 Jun 2008 00:46:22 +0800</pubDate>
+        </item>
+    </channel>
+</rss>

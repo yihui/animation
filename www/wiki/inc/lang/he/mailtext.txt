@@ -1,0 +1,17 @@
+דף בDokuWiki נוסף או שונה. הנה הפרטים:
+
+Date        : @DATE@
+Browser     : @BROWSER@
+IP-Address  : @IPADDRESS@
+Hostname    : @HOSTNAME@
+Old Revision: @OLDPAGE@
+New Revision: @NEWPAGE@
+Edit Summary: @SUMMARY@
+User        : @USER@
+
+@DIFF@
+
+--
+
+דף זה נוצר ע"י DokuWiki ב-
+@DOKUWIKIURL@

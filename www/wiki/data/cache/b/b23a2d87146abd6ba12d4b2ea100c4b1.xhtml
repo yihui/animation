@@ -1,0 +1,38 @@
+
+
+
+<h1><a name="cluster_sampling" id="cluster_sampling">Cluster Sampling</a></h1>
+<div class="level1">
+
+<p>
+
+Sometimes it is cheaper to &#039;cluster&#039; the sample in some way e.g. by selecting respondents from certain areas only, or certain time-periods only. (Nearly all samples are in some sense &#039;clustered&#039; in time &ndash; although this is rarely taken into account in the analysis.)
+</p>
+
+</div>
+<!-- SECTION "Cluster Sampling" [1-300] -->
+<h2><a name="animation" id="animation">Animation</a></h2>
+<div class="level2">
+
+<p>
+
+<div align="center" class="anidemo" title="Demonstration of the cluster sampling"><fieldset><legend align="center">Demonstration of the cluster sampling</legend><div id="loadingcs" class="loading">loading animation frames... 0%</div><div id="divPreloadcs" class="divPreload"><script language="JavaScript" type="text/javascript">	var sourcecs = "http://s288.photobucket.com/albums/ll181/xieyihui/cluster_sampling/";	var imgtypecs = "png";	var tmpcs = 0;	var nmaxcs=30; 	var ncs=1;	var tcs;	for(i = 1; i <= nmaxcs; i++){		document.write("<div class=\"divFrame\" id=\"divPreload" + "cs" + i + "\"><img src=\"" + sourcecs + i + "." + imgtypecs + "\"" + " id = \"img" + "cs" + i + "\" onload = \"loading(\'cs\')\" onerror = \"loading(\'cs\')\" alt=\"Demonstration of the cluster sampling\" title=\"Demonstration of the cluster sampling\" /></div>");}</script></div><div class="btncontrol"><input name="nmaxcs" type="hidden" id="nmaxcs" value="30" /><input name="heightcs" type="hidden" id="heightcs" value="350" /><input name="btnPlaycs" type="submit" disabled="disabled" class="anibutton" id="btnPlaycs" title="Play" onclick="playAni('cs')" value="  &gt;  " /> <input name="btnPausecs" type="submit" disabled="disabled" class="anibutton" id="btnPausecs" title="Pause" onclick="pauseAni('cs')" value="  O  " /> <input name="btnFastcs" type="submit" disabled="disabled" class="anibutton" id="btnFastcs" title="Speed up" onclick="fastAni('cs',1)" value="  +  " /> <input name="btnSlowcs" type="submit" disabled="disabled" class="anibutton" id="btnSlowcs" title="Slow down" onclick="fastAni('cs',-1)" value="  -  " /> <input name="btnPrevcs" type="submit" disabled="disabled" class="anibutton" id="btnPrevcs" title="Previous frame" onclick="prevAni('cs',1)" value="  &lt;&lt;  " /> <input name="btnNextcs" type="submit" disabled="disabled" class="anibutton" id="btnNextcs" title="Next frame" onclick="prevAni('cs',-1)" value="  &gt;&gt;  " /> <input name="btnFirstcs" type="submit" disabled="disabled" class="anibutton" id="btnFirstcs" title="First frame" onclick="firstAni('cs',true)" value="  |&lt;  " /> <input name="btnLastcs" type="submit" disabled="disabled" class="anibutton" id="btnLastcs" title="Last frame" onclick="firstAni('cs',false)" value="  &gt;|  " /> <input name="btnMorecs" type="submit" disabled="disabled" class="anibutton" id="btnMorecs" title="More controls" onclick="btnMore('cs')" value="  &lt;&gt;  " /></div><div id="moreParcs" class="morepar"><label title="Which frame to go?" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">View frame <input name="txtFramecs" type="text" id="txtFramecs" onblur="txtFrame(this.value, 'cs')" value="1" size="4" class="text" />/30</label> <label title="Loop or not?" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'"><input name="checkLoopcs" type="checkbox" id="checkLoopcs" checked="checked"/>Loop</label> <label title="Time interval for the animation (in sec)" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">Time Interval: <input name="txtIntervalcs" type="text" id="txtIntervalcs" onblur="txtInterval(this)" value="1" size="4" class="text" /></label> <label title="Increment in time interval" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">Step: <input name="txtStepcs" type="text" id="txtStepcs" onblur="txtInterval(this)" value="0.1" size="4" class="text" /></label></div><hr /><div class="description">
+Once a cluster is sampled, all its elements will be chosen.
+</div></fieldset></div>
+</p>
+
+</div>
+<!-- SECTION "Animation" [301-519] -->
+<h2><a name="r_code" id="r_code">R code</a></h2>
+<div class="level2">
+<pre class="code r"><span class="re5">oopt</span> = ani.options<span class="br0">&#40;</span><span class="re4"><span class="re5">ani</span></span><span class="re5">.height</span> = <span class="nu0">350</span>, <span class="re4"><span class="re5">ani</span></span><span class="re5">.width</span> = <span class="nu0">500</span>, <span class="re5">outdir</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=getwd"><span class="kw4">getwd</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span>, <span class="re5">nmax</span> = <span class="nu0">30</span>,
+    <span class="re5">interval</span> = <span class="nu0">1</span>, <span class="re5">title</span> = <span class="st0">"Demonstration of the cluster sampling"</span>,
+    <span class="re5">description</span> = <span class="st0">"Once a cluster is sampled, all its elements will be
+    chosen."</span><span class="br0">&#41;</span>
+ani.start<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=par"><span class="kw4">par</span></a><span class="br0">&#40;</span><span class="re5">mar</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=rep"><span class="kw3">rep</span></a><span class="br0">&#40;</span><span class="nu0">1</span>, <span class="nu0">4</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=sample"><span class="kw4">sample</span></a>.cluster<span class="br0">&#40;</span><span class="re5">col</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=c"><span class="kw3">c</span></a><span class="br0">&#40;</span><span class="st0">"bisque"</span>, <span class="st0">"white"</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+ani.stop<span class="br0">&#40;</span><span class="br0">&#41;</span>
+ani.options<span class="br0">&#40;</span><span class="re5">oopt</span><span class="br0">&#41;</span></pre>
+</div>
+<!-- SECTION "R code" [520-] -->

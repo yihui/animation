@@ -1,0 +1,23 @@
+a:6:{s:2:"id";s:28:"mathstat:confidence_interval";s:6:"prefix";s:199:"====== The concept of confidence intervals ======
+
+The interval covers the true parameter with a probability $1-\alpha$ or the true parameter lies in the interval with a probability $1-\alpha$?
+
+";s:4:"text";s:401:"===== Animation =====
+
+<ani ci http://s288.photobucket.com/albums/ll181/xieyihui/confidence_interval/ png 100 400 0.15|Demonstration of Confidence Intervals>
+This animation shows the concept of the confidence interval which depends on the observations: if the samples change, the interval changes too. At last we can see that the coverage rate will be approximate to the confidence level.
+</ani>
+";s:6:"suffix";s:556:"===== R code =====
+
+<code r>
+ani.options(ani.height = 400, ani.width = 600, outdir = getwd(), nmax = 100,
+    interval = 0.15, title = "Demonstration of Confidence Intervals",
+    description = "This animation shows the concept of the confidence
+    interval which depends on the observations: if the samples change,
+    the interval changes too. At last we can see that the coverage rate
+    will be approximate to the confidence level.")
+ani.start()
+par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 0), tcl = -0.3)
+conf.int()
+ani.stop() 
+</code>";s:4:"date";s:10:"1212979967";s:6:"client";s:12:"191.254.5.20";}

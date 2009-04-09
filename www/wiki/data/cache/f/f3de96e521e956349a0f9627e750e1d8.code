@@ -1,0 +1,9 @@
+<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=library"><span class="kw4">library</span></a><span class="br0">&#40;</span><span class="re5">animation</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co3"># inside R: windows graphics device</span>
+brownian.motion<span class="br0">&#40;</span><span class="re5">n</span> = <span class="nu0">15</span>, <span class="re5">nmax</span> = <span class="nu0">150</span><span class="br0">&#41;</span> 
+&nbsp;
+<span class="co3"># outside R: create an HTML animation page</span>
+ani.start<span class="br0">&#40;</span><span class="br0">&#41;</span>
+brownian.motion<span class="br0">&#40;</span><span class="re5">n</span> = <span class="nu0">15</span>, <span class="re5">nmax</span> = <span class="nu0">100</span>, <span class="re5">saveANI</span> = <span class="re1">TRUE</span>, <span class="re5">width</span> = <span class="nu0">500</span>, <span class="re5">height</span> = <span class="nu0">500</span><span class="br0">&#41;</span> 
+ani.stop<span class="br0">&#40;</span><span class="br0">&#41;</span>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="FeedCreator 1.7.2-ppt DokuWiki" -->
+<?xml-stylesheet href="http://animation.yihui.name/lib/exe/css.php?s=feed" type="text/css"?>
+<rss version="2.0">
+    <channel>
+        <title>AniWiki: Animations in Statistics c</title>
+        <description></description>
+        <link>http://animation.yihui.name/</link>
+        <lastBuildDate>Tue, 11 Nov 2008 00:26:07 +0800</lastBuildDate>
+        <generator>FeedCreator 1.7.2-ppt DokuWiki</generator>
+        <image>
+            <url>http://animation.yihui.name/lib/images/favicon.ico</url>
+            <title>AniWiki: Animations in Statistics</title>
+            <link>http://animation.yihui.name/</link>
+        </image>
+    </channel>
+</rss>

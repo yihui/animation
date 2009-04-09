@@ -1,0 +1,90 @@
+
+
+
+<h1><a name="including_mathematical_formulae_into_aniwiki" id="including_mathematical_formulae_into_aniwiki">Including mathematical formulae into AniWiki</a></h1>
+<div class="level1">
+
+<p>
+
+Based on the <a href="http://wiki.splitbrain.org/plugin%3Amath" class="interwiki iw_doku" target="_blank" title="http://wiki.splitbrain.org/plugin%3Amath">math</a> plugin, I created a method for <code>AniWiki</code> to generate mathematical formulae, which is fairly similar to <code>TeX/LaTeX</code>.
+</p>
+
+</div>
+<!-- SECTION "Including mathematical formulae into AniWiki" [1-220] -->
+<h2><a name="syntax" id="syntax">Syntax</a></h2>
+<div class="level2">
+
+<p>
+
+Dokuwiki Syntax:
+</p>
+<pre class="code">
+$...text style mathematical formula...$
+$$...display style mathematical formula...$$
+</pre>
+
+<p>
+I don&#039;t think I still need to explain what are <code>textstyle</code> and <code>displaystyle</code> in <code>LaTeX</code>. See the examples below.
+</p>
+
+</div>
+<!-- SECTION "Syntax" [221-480] -->
+<h2><a name="example" id="example">Example</a></h2>
+<div class="level2">
+
+<p>
+
+Let&#039;s try the familiar <acronym title="Central Limit Theorem">CLT</acronym> formula here.
+</p>
+
+</div>
+<!-- SECTION "Example" [481-543] -->
+<h3><a name="stronger_form_of_the_central_limit_theorem" id="stronger_form_of_the_central_limit_theorem">Stronger form of the Central Limit Theorem</a></h3>
+<div class="level3">
+
+<p>
+
+Let <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize X_{1}, X_{2}, \ldots" alt="\normalsize X_{1}, X_{2}, \ldots" title="\normalsize X_{1}, X_{2}, \ldots"  class="math"/> be a sequence of iid random variables with <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize E(X_{i})=\mu" alt="\normalsize E(X_{i})=\mu" title="\normalsize E(X_{i})=\mu"  class="math"/> and <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize 0&lt;Var(X_i)=\sigma^2&lt;\infty" alt="\normalsize 0&lt;Var(X_i)=\sigma^2&lt;\infty" title="\normalsize 0&lt;Var(X_i)=\sigma^2&lt;\infty"  class="math"/>. Define <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize \bar{X}_n=(1/n)\sum_{i=1}^n X_i" alt="\normalsize \bar{X}_n=(1/n)\sum_{i=1}^n X_i" title="\normalsize \bar{X}_n=(1/n)\sum_{i=1}^n X_i"  class="math"/>. Let <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize G_n(x)" alt="\normalsize G_n(x)" title="\normalsize G_n(x)"  class="math"/> denote the cdf of <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize \sqrt{n}(\bar{X}_n-\mu)/\sigma" alt="\normalsize \sqrt{n}(\bar{X}_n-\mu)/\sigma" title="\normalsize \sqrt{n}(\bar{X}_n-\mu)/\sigma"  class="math"/>. Then, for any <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize x" alt="\normalsize x" title="\normalsize x"  class="math"/>, <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize -\infty&lt;x&lt;\infty" alt="\normalsize -\infty&lt;x&lt;\infty" title="\normalsize -\infty&lt;x&lt;\infty"  class="math"/>,
+</p>
+
+<p>
+<img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\lim_{n\rightarrow\infty}G_n(x)=\int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-y^2/2}dy" alt="\lim_{n\rightarrow\infty}G_n(x)=\int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-y^2/2}dy" title="\lim_{n\rightarrow\infty}G_n(x)=\int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-y^2/2}dy"  class="mediacenter"/>
+</p>
+
+<p>
+that is, <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize \sqrt{n}(\bar{X}_n-\mu)/\sigma" alt="\normalsize \sqrt{n}(\bar{X}_n-\mu)/\sigma" title="\normalsize \sqrt{n}(\bar{X}_n-\mu)/\sigma"  class="math"/> has a limiting standard normal distribution.
+</p>
+<pre class="code">
+Let $X_{1}, X_{2}, \ldots$ be a sequence of iid random variables with $E(X_{i})=\mu$ 
+and $0&lt;Var(X_i)=\sigma^2&lt;\infty$. Define $\bar{X}_n=(1/n)\sum_{i=1}^n X_i$. 
+Let $G_n(x)$ denote the cdf of $\sqrt{n}(\bar{X}_n-\mu)/\sigma$. 
+Then, for any $x$, $-\infty&lt;x&lt;\infty$,
+
+$$\lim_{n\rightarrow\infty}G_n(x)=\int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-y^2/2}dy$$
+
+that is, $\sqrt{n}(\bar{X}_n-\mu)/\sigma$ has a limiting standard normal distribution.
+</pre>
+
+</div>
+<!-- SECTION "Stronger form of the Central Limit Theorem" [544-1499] -->
+<h3><a name="taylor_series" id="taylor_series">Taylor series</a></h3>
+<div class="level3">
+
+<p>
+
+This formula is familiar for us:
+</p>
+
+<p>
+<img src="http://www.forkosh.dreamhost.com/mimetex.cgi?f(x) = f(a) + \frac{f&#039;(a)}{1!}(x - a) + \frac{f^{(2)}(a)}{2!}(x - a)^2 + 
+\cdots + \frac{f^{(n)}(a)}{n!}(x - a)^n + R_n(x)" alt="f(x) = f(a) + \frac{f&#039;(a)}{1!}(x - a) + \frac{f^{(2)}(a)}{2!}(x - a)^2 + 
+\cdots + \frac{f^{(n)}(a)}{n!}(x - a)^n + R_n(x)" title="f(x) = f(a) + \frac{f&#039;(a)}{1!}(x - a) + \frac{f^{(2)}(a)}{2!}(x - a)^2 + 
+\cdots + \frac{f^{(n)}(a)}{n!}(x - a)^n + R_n(x)"  class="mediacenter"/>
+</p>
+<pre class="code">
+$$f(x) = f(a) + \frac{f&#039;(a)}{1!}(x - a) + \frac{f^{(2)}(a)}{2!}(x - a)^2 
+       + \cdots + \frac{f^{(n)}(a)}{n!}(x - a)^n + R_n(x)$$
+</pre>
+
+</div>
+<!-- SECTION "Taylor series" [1500-] -->

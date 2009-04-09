@@ -1,0 +1,28 @@
+/**
+ * additional rtl CSS for DokuWiki Arctic Template
+ *
+ * @author Katriel Traum <katriel@penguin-it.co.il>
+ */
+
+div.dokuwiki div.left_sidebar div.ajax_qsearch,
+div.dokuwiki div.right_sidebar div.ajax_qsearch {
+	right: 1px;
+	left: 0px;
+	float: right;
+}
+
+div.dokuwiki div.left_sidebar div.ajax_qsearch ul li,
+div.dokuwiki div.right_sidebar div.ajax_qsearch ul li {
+	text-direction: rtl;
+	text-align: right;
+}
+
+div.dokuwiki div.ajax_qsearch strong {
+	text-direction: rtl;
+	text-align: right;
+}
+
+/* 
+setup vim: ts=2 sw=2: 
+*/
+

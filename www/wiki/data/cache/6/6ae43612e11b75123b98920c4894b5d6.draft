@@ -1,0 +1,9 @@
+a:6:{s:2:"id";s:14:"compstat:start";s:6:"prefix";s:0:"";s:4:"text";s:315:"====== Computational Statistics ======
+
+Introduction. FIXME
+
+===== List of animations =====
+
+  * [[bisection_method|the Bisection Method for Root-finding on an Interval]]
+  * [[newton_s_method|the Newton-Raphson Method for Root-finding]]
+  * [[gradient_descent_algorithm|Gradient Descent Algorithm in the 2D Plane]]";s:6:"suffix";s:0:"";s:4:"date";s:10:"1213102749";s:6:"client";s:13:"114.58.105.72";}

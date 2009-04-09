@@ -1,0 +1,57 @@
+
+
+
+<h1><a name="the_k-nearest_neighbour_algorithm" id="the_k-nearest_neighbour_algorithm">The k-Nearest Neighbour Algorithm</a></h1>
+<div class="level1">
+
+<p>
+
+Let the people around me decide who I am. <img src="/lib/images/smileys/fixme.gif" class="middle" alt="FIXME" />
+</p>
+
+</div>
+<!-- SECTION "The k-Nearest Neighbour Algorithm" [1-98] -->
+<h2><a name="animation" id="animation">Animation</a></h2>
+<div class="level2">
+
+<p>
+
+<div align="center" class="anidemo" title="Demonstration for kNN Classification"><fieldset><legend align="center">Demonstration for kNN Classification</legend><div id="loadingknn" class="loading">loading animation frames... 0%</div><div id="divPreloadknn" class="divPreload"><script language="JavaScript" type="text/javascript">	var sourceknn = "http://animation.r-forge.r-project.org/frames/k-nearest_neighbour_algorithm/";	var imgtypeknn = "png";	var tmpknn = 0;	var nmaxknn=40; 	var nknn=1;	var tknn;	for(i = 1; i <= nmaxknn; i++){		document.write("<div class=\"divFrame\" id=\"divPreload" + "knn" + i + "\"><img src=\"" + sourceknn + i + "." + imgtypeknn + "\"" + " id = \"img" + "knn" + i + "\" onload = \"loading(\'knn\')\" onerror = \"loading(\'knn\')\" alt=\"Demonstration for kNN Classification\" title=\"Demonstration for kNN Classification\" /></div>");}</script></div><div class="btncontrol"><input name="nmaxknn" type="hidden" id="nmaxknn" value="40" /><input name="heightknn" type="hidden" id="heightknn" value="500" /><input name="btnPlayknn" type="submit" disabled="disabled" class="anibutton" id="btnPlayknn" title="Play" onclick="playAni('knn')" value="  &gt;  " /> <input name="btnPauseknn" type="submit" disabled="disabled" class="anibutton" id="btnPauseknn" title="Pause" onclick="pauseAni('knn')" value="  O  " /> <input name="btnFastknn" type="submit" disabled="disabled" class="anibutton" id="btnFastknn" title="Speed up" onclick="fastAni('knn',1)" value="  +  " /> <input name="btnSlowknn" type="submit" disabled="disabled" class="anibutton" id="btnSlowknn" title="Slow down" onclick="fastAni('knn',-1)" value="  -  " /> <input name="btnPrevknn" type="submit" disabled="disabled" class="anibutton" id="btnPrevknn" title="Previous frame" onclick="prevAni('knn',1)" value="  &lt;&lt;  " /> <input name="btnNextknn" type="submit" disabled="disabled" class="anibutton" id="btnNextknn" title="Next frame" onclick="prevAni('knn',-1)" value="  &gt;&gt;  " /> <input name="btnFirstknn" type="submit" disabled="disabled" class="anibutton" id="btnFirstknn" title="First frame" onclick="firstAni('knn',true)" value="  |&lt;  " /> <input name="btnLastknn" type="submit" disabled="disabled" class="anibutton" id="btnLastknn" title="Last frame" onclick="firstAni('knn',false)" value="  &gt;|  " /> <input name="btnMoreknn" type="submit" disabled="disabled" class="anibutton" id="btnMoreknn" title="More controls" onclick="btnMore('knn')" value="  &lt;&gt;  " /></div><div id="moreParknn" class="morepar"><label title="Which frame to go?" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">View frame <input name="txtFrameknn" type="text" id="txtFrameknn" onblur="txtFrame(this.value, 'knn')" value="1" size="4" class="text" />/40</label> <label title="Loop or not?" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'"><input name="checkLoopknn" type="checkbox" id="checkLoopknn" checked="checked"/>Loop</label> <label title="Time interval for the animation (in sec)" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">Time Interval: <input name="txtIntervalknn" type="text" id="txtIntervalknn" onblur="txtInterval(this)" value="2" size="4" class="text" /></label> <label title="Increment in time interval" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">Step: <input name="txtStepknn" type="text" id="txtStepknn" onblur="txtInterval(this)" value="0.1" size="4" class="text" /></label></div><hr /><div class="description">
+For each row of the test set, the <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize k" alt="\normalsize k" title="\normalsize k"  class="math"/> nearest (in Euclidean distance) training set vectors are found, and the classification is decided by majority vote, with ties broken at random.
+</div></fieldset></div>
+</p>
+
+</div>
+<!-- SECTION "Animation" [99-448] -->
+<h2><a name="r_code" id="r_code">R code</a></h2>
+<div class="level2">
+<pre class="code r"><a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=library"><span class="kw4">library</span></a><span class="br0">&#40;</span><span class="re5">animation</span><span class="br0">&#41;</span>
+<span class="re5">oopt</span> = ani.options<span class="br0">&#40;</span><span class="re4"><span class="re5">ani</span></span><span class="re5">.height</span> = <span class="nu0">500</span>, <span class="re4"><span class="re5">ani</span></span><span class="re5">.width</span> = <span class="nu0">600</span>, <span class="re5">outdir</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=getwd"><span class="kw4">getwd</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span>, <span class="re5">nmax</span> = <span class="nu0">10</span>,
+    <span class="re5">interval</span> = <span class="nu0">2</span>, <span class="re5">title</span> = <span class="st0">"Demonstration for kNN Classification"</span>,
+    <span class="re5">description</span> = <span class="st0">"For each row of the test set, the k nearest (in Euclidean
+    distance) training set vectors are found, and the classification is
+    decided by majority vote, with ties broken at random."</span><span class="br0">&#41;</span>
+ani.start<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=par"><span class="kw4">par</span></a><span class="br0">&#40;</span><span class="re5">mar</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=c"><span class="kw3">c</span></a><span class="br0">&#40;</span><span class="nu0">3</span>, <span class="nu0">3</span>, <span class="nu0">1</span>, <span class="nu0">0</span><span class="re5">.<span class="nu0">5</span></span><span class="br0">&#41;</span>, <span class="re5">mgp</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=c"><span class="kw3">c</span></a><span class="br0">&#40;</span><span class="nu0">1</span><span class="re5">.<span class="nu0">5</span></span>, <span class="nu0">0</span><span class="re5">.<span class="nu0">5</span></span>, <span class="nu0">0</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+knn.ani<span class="br0">&#40;</span><span class="br0">&#41;</span>
+ani.stop<span class="br0">&#40;</span><span class="br0">&#41;</span>
+ani.options<span class="br0">&#40;</span><span class="re5">oopt</span><span class="br0">&#41;</span></pre>
+</div>
+<!-- SECTION "R code" [449-963] -->
+<h2><a name="more_examples" id="more_examples">More Examples</a></h2>
+<div class="level2">
+
+<p>
+
+Try the <code>iris</code> data here:
+</p>
+<pre class="code r"><a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=library"><span class="kw4">library</span></a><span class="br0">&#40;</span><span class="re5">animation</span><span class="br0">&#41;</span>
+<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=set.seed"><span class="kw4">set.seed</span></a><span class="br0">&#40;</span><span class="nu0">11</span><span class="br0">&#41;</span>
+<span class="re5">idx</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=sample"><span class="kw4">sample</span></a><span class="br0">&#40;</span><a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=NROW"><span class="kw4">nrow</span></a><span class="br0">&#40;</span><span class="re5">iris</span><span class="br0">&#41;</span>, <span class="nu0">140</span><span class="br0">&#41;</span>
+<span class="re5">trn</span> = <span class="re5">iris</span><span class="br0">&#91;</span><span class="re5">idx</span>, <span class="br0">&#93;</span>
+<span class="re5">tst</span> = <span class="re5">iris</span><span class="br0">&#91;</span>-<span class="re5">idx</span>, <span class="br0">&#93;</span>
+ani.options<span class="br0">&#40;</span><span class="re5">interval</span> = <span class="nu0">0</span><span class="re5">.<span class="nu0">5</span></span><span class="br0">&#41;</span>
+knn.ani<span class="br0">&#40;</span><span class="re5">trn</span><span class="br0">&#91;</span>, <span class="nu0">1</span>:<span class="nu0">2</span><span class="br0">&#93;</span>, <span class="re5">tst</span><span class="br0">&#91;</span>, <span class="nu0">1</span>:<span class="nu0">2</span><span class="br0">&#93;</span>, <span class="re5">cl</span> = <span class="re5">trn</span>$<span class="re5">Species</span>, 
+    <span class="re5">k</span> = <span class="nu0">30</span><span class="br0">&#41;</span></pre>
+</div>
+<!-- SECTION "More Examples" [964-] -->

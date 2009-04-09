@@ -1,0 +1,27 @@
+====== Simple Random Sampling Without Replacement ======
+
+**Simple Random Sampling** is the purest form of probability sampling. Each member of the population has an equal and known chance of being selected. When there are very large populations, it is often difficult or impossible to identify every member of the population, so the pool of available subjects becomes biased.
+
+In most cases, we conduct the sampling in a "//without//-replacement" manner, i.e. we don't put back the sample points once we pick them out. Correspondingly there is another way "sampling //with// replacement": every time before we do the sampling, we put all the individuals back again; although this is rare in practical sampling work, it's also extremely important and closely related to the idea of [[dmml:bootstrap_i.i.d|bootstrapping]]. 
+
+===== Animation =====
+
+<ani srswr http://s288.photobucket.com/albums/ll181/xieyihui/srswr/ png 30 350 1|Demonstration of the simple random sampling without replacement>
+Each member of the population has an equal and known chance of being selected.
+</ani>
+
+===== R code =====
+
+<code r>
+oopt = ani.options(ani.height = 350, ani.width = 500, outdir = getwd(), nmax = 30,
+    interval = 1,
+    title = "Demonstration of the simple random sampling without replacement",
+    description = "Each member of the population has an equal and known chance
+    of being selected.")
+ani.start()
+par(mar = rep(1, 4), lwd = 2)
+sample.simple()
+ani.stop()
+ani.options(oopt)
+</code>
+

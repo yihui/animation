@@ -1,0 +1,14 @@
+====== Animations in data analysis ======
+
+This section is to collect animation examples in data analysis.
+
+===== Biostatistics =====
+
+^ topic ^ description ^ preview ^ 
+| [[da:biostat:select_features_via_cv]] | For a classification problem, usually we wish to use as less variables as possible because of difficulties brought by the high dimension. Here we present the process of finding the minimum number of features for a predictive model. | [[da:biostat:select_features_via_cv|{{http://s288.photobucket.com/albums/ll181/xieyihui/cv_nfeaturesLDA/50.png?200x200}}]] |
+
+
+===== Time Series Analysis =====
+
+^ topic ^ description ^ preview ^ 
+| [[da:ts:Hans_Rosling_s_talk]] | In Hans Rosling's attractive talk ``Debunking third-world myths with the best stats you've ever seen'', he used a lot of bubble plots to illustrate trends behind the data over time. Here we can create similar animations. | [[da:ts:Hans_Rosling_s_talk|{{http://animation.r-forge.r-project.org/frames/hans_rosling_s_talk/50.png?200x200}}]] |

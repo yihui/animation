@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="FeedCreator 1.7.2-ppt DokuWiki" -->
+<?xml-stylesheet href="http://animation.yihui.name/lib/exe/css.php?s=feed" type="text/css"?>
+<rss version="2.0">
+    <channel>
+        <title>AniWiki: Animations in Statistics mvstat</title>
+        <description></description>
+        <link>http://animation.yihui.name/</link>
+        <lastBuildDate>Sat, 05 Jul 2008 01:12:06 +0800</lastBuildDate>
+        <generator>FeedCreator 1.7.2-ppt DokuWiki</generator>
+        <image>
+            <url>http://animation.yihui.name/lib/images/favicon.ico</url>
+            <title>AniWiki: Animations in Statistics</title>
+            <link>http://animation.yihui.name/</link>
+        </image>
+        <item>
+            <title>mvstat:k-means_cluster_algorithm</title>
+            <link>http://animation.yihui.name/mvstat:k-means_cluster_algorithm</link>
+            <description>
+
+
+&lt;h1&gt;&lt;a name=&quot;k-means_cluster_algorithm&quot; id=&quot;k-means_cluster_algorithm&quot;&gt;K-Means Cluster Algorithm&lt;/a&gt;&lt;/h1&gt;
+&lt;div class=&quot;level1&quot;&gt;
+
+&lt;p&gt;
+
+Move! Average! Cluster! Move! Average! Cluster! &amp;hellip; &lt;img src=&quot;http://animation.yihui.name/lib/images/smileys/fixme.gif&quot; class=&quot;middle&quot; alt=&quot;FIXME&quot; /&gt;
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;K-Means Cluster Algorithm&quot; [1-100] --&gt;
+&lt;h2&gt;&lt;a name=&quot;animation&quot; id=&quot;animation&quot;&gt;Animation&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+&lt;div align=&quot;center&quot; class=&quot;anidemo&quot; title=&quot;Demonstration of the K-means Cluster Algorithm&quot;&gt;&lt;fieldset&gt;&lt;legend align=&quot;center&quot;&gt;Demonstration of the K-means Cluster Algorithm&lt;/legend&gt;&lt;div id=&quot;loadingkmeans&quot; class=&quot;loading&quot;&gt;loading animation frames... 0%&lt;/div&gt;&lt;div id=&quot;divPreloadkmeans&quot; class=&quot;divPreload&quot;&gt;&lt;script language=&quot;JavaScript&quot; type=&quot;text/javascript&quot;&gt;	var sourcekmeans = &quot;http://s288.photobucket.com/albums/ll181/xieyihui/k-means_cluster/&quot;;	var imgtypekmeans = &quot;png&quot;;	var tmpkmeans = 0;	var nmaxkmeans=20; 	var nkmeans=1;	var tkmeans;	for(i = 1; i &lt;= nmaxkmeans; i++){		document.write(&quot;&lt;div class=\&quot;divFrame\&quot; id=\&quot;divPreload&quot; + &quot;kmeans&quot; + i + &quot;\&quot;&gt;&lt;img src=\&quot;&quot; + sourcekmeans + i + &quot;.&quot; + imgtypekmeans + &quot;\&quot;&quot; + &quot; id = \&quot;img&quot; + &quot;kmeans&quot; + i + &quot;\&quot; onload = \&quot;loading(\'kmeans\')\&quot; onerror = \&quot;loading(\'kmeans\')\&quot; alt=\&quot;Demonstration of the K-means Cluster Algorithm\&quot; title=\&quot;Demonstration of the K-means Cluster Algorithm\&quot; /&gt;&lt;/div&gt;&quot;);}&lt;/script&gt;&lt;/div&gt;&lt;div class=&quot;btncontrol&quot;&gt;&lt;input name=&quot;nmaxkmeans&quot; type=&quot;hidden&quot; id=&quot;nmaxkmeans&quot; value=&quot;20&quot; /&gt;&lt;input name=&quot;heightkmeans&quot; type=&quot;hidden&quot; id=&quot;heightkmeans&quot; value=&quot;480&quot; /&gt;&lt;input name=&quot;btnPlaykmeans&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnPlaykmeans&quot; title=&quot;Play&quot; onclick=&quot;playAni('kmeans')&quot; value=&quot;  &amp;gt;  &quot; /&gt; &lt;input name=&quot;btnPausekmeans&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnPausekmeans&quot; title=&quot;Pause&quot; onclick=&quot;pauseAni('kmeans')&quot; value=&quot;  O  &quot; /&gt; &lt;input name=&quot;btnFastkmeans&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnFastkmeans&quot; title=&quot;Speed up&quot; onclick=&quot;fastAni('kmeans',1)&quot; value=&quot;  +  &quot; /&gt; &lt;input name=&quot;btnSlowkmeans&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnSlowkmeans&quot; title=&quot;Slow down&quot; onclick=&quot;fastAni('kmeans',-1)&quot; value=&quot;  -  &quot; /&gt; &lt;input name=&quot;btnPrevkmeans&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnPrevkmeans&quot; title=&quot;Previous frame&quot; onclick=&quot;prevAni('kmeans',1)&quot; value=&quot;  &amp;lt;&amp;lt;  &quot; /&gt; &lt;input name=&quot;btnNextkmeans&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnNextkmeans&quot; title=&quot;Next frame&quot; onclick=&quot;prevAni('kmeans',-1)&quot; value=&quot;  &amp;gt;&amp;gt;  &quot; /&gt; &lt;input name=&quot;btnFirstkmeans&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnFirstkmeans&quot; title=&quot;First frame&quot; onclick=&quot;firstAni('kmeans',true)&quot; value=&quot;  |&amp;lt;  &quot; /&gt; &lt;input name=&quot;btnLastkmeans&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnLastkmeans&quot; title=&quot;Last frame&quot; onclick=&quot;firstAni('kmeans',false)&quot; value=&quot;  &amp;gt;|  &quot; /&gt; &lt;input name=&quot;btnMorekmeans&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnMorekmeans&quot; title=&quot;More controls&quot; onclick=&quot;btnMore('kmeans')&quot; value=&quot;  &amp;lt;&amp;gt;  &quot; /&gt;&lt;/div&gt;&lt;div id=&quot;moreParkmeans&quot; class=&quot;morepar&quot;&gt;&lt;label title=&quot;Which frame to go?&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;View frame &lt;input name=&quot;txtFramekmeans&quot; type=&quot;text&quot; id=&quot;txtFramekmeans&quot; onblur=&quot;txtFrame(this.value, 'kmeans')&quot; value=&quot;1&quot; size=&quot;4&quot; class=&quot;text&quot; /&gt;/20&lt;/label&gt; &lt;label title=&quot;Loop or not?&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;&lt;input name=&quot;checkLoopkmeans&quot; type=&quot;checkbox&quot; id=&quot;checkLoopkmeans&quot; checked=&quot;checked&quot;/&gt;Loop&lt;/label&gt; &lt;label title=&quot;Time interval for the animation (in sec)&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;Time Interval: &lt;input name=&quot;txtIntervalkmeans&quot; type=&quot;text&quot; id=&quot;txtIntervalkmeans&quot; onblur=&quot;txtInterval(this)&quot; value=&quot;2&quot; size=&quot;4&quot; class=&quot;text&quot; /&gt;&lt;/label&gt; &lt;label title=&quot;Increment in time interval&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;Step: &lt;input name=&quot;txtStepkmeans&quot; type=&quot;text&quot; id=&quot;txtStepkmeans&quot; onblur=&quot;txtInterval(this)&quot; value=&quot;0.1&quot; size=&quot;4&quot; class=&quot;text&quot; /&gt;&lt;/label&gt;&lt;/div&gt;&lt;hr /&gt;&lt;div class=&quot;description&quot;&gt;
+Move! Average! Cluster! Move! Average! Cluster! &amp;hellip;
+&lt;/div&gt;&lt;/fieldset&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Animation&quot; [101-323] --&gt;
+&lt;h2&gt;&lt;a name=&quot;r_code&quot; id=&quot;r_code&quot;&gt;R code&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;span class=&quot;re5&quot;&gt;oopt&lt;/span&gt; = ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;ani&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.height&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;480&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;ani&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.width&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;480&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;outdir&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=getwd&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;getwd&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;interval&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;2&lt;/span&gt;,
+    &lt;span class=&quot;re5&quot;&gt;nmax&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;50&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;title&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;Demonstration of the K-means Cluster Algorithm&quot;&lt;/span&gt;,
+    &lt;span class=&quot;re5&quot;&gt;description&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;Move! Average! Cluster! Move! Average! Cluster! ...&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.start&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=par&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;par&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;mar&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;mgp&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;re5&quot;&gt;cent&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt; * &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;-1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;-1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;-1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;-1&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;; &lt;span class=&quot;re5&quot;&gt;x&lt;/span&gt; = &lt;span class=&quot;re1&quot;&gt;NULL&lt;/span&gt;
+&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=for&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;for&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;i &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=in&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;in&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;nu0&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&quot;re5&quot;&gt;x&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;x&lt;/span&gt;, &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=rnorm&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;rnorm&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;25&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;mean&lt;/span&gt; = &lt;span class=&quot;re5&quot;&gt;cent&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;re5&quot;&gt;x&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=matrix&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;matrix&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;x&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;ncol&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=colnames&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;colnames&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;&quot;X1&quot;&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;&quot;X2&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=kmeans&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;kmeans&lt;/span&gt;&lt;/a&gt;.ani&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;x&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;centers&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;pch&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;nu0&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;col&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;nu0&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.stop&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;oopt&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- SECTION &quot;R code&quot; [324-] --&gt;</description>
+        <category>mvstat</category>
+            <pubDate>Tue, 10 Jun 2008 11:09:10 +0800</pubDate>
+        </item>
+        <item>
+            <title>mvstat:start</title>
+            <link>http://animation.yihui.name/mvstat:start</link>
+            <description>
+
+
+&lt;h1&gt;&lt;a name=&quot;multivariate_statistics&quot; id=&quot;multivariate_statistics&quot;&gt;Multivariate Statistics&lt;/a&gt;&lt;/h1&gt;
+&lt;div class=&quot;level1&quot;&gt;
+
+&lt;p&gt;
+
+Introduction. &lt;img src=&quot;http://animation.yihui.name/lib/images/smileys/fixme.gif&quot; class=&quot;middle&quot; alt=&quot;FIXME&quot; /&gt;
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Multivariate Statistics&quot; [1-60] --&gt;
+&lt;h2&gt;&lt;a name=&quot;list_of_animations&quot; id=&quot;list_of_animations&quot;&gt;List of Animations&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+&lt;ul&gt;
+&lt;li class=&quot;level1&quot;&gt;&lt;div class=&quot;li&quot;&gt; &lt;a href=&quot;http://animation.yihui.name/mvstat:k-means_cluster_algorithm&quot; class=&quot;wikilink1&quot; title=&quot;mvstat:k-means_cluster_algorithm&quot;&gt;K-Means Cluster Algorithm&lt;/a&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;List of Animations&quot; [61-] --&gt;</description>
+        <category>mvstat</category>
+            <pubDate>Tue, 10 Jun 2008 11:06:47 +0800</pubDate>
+        </item>
+    </channel>
+</rss>

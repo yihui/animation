@@ -1,0 +1,24 @@
+====== Simulation of flipping coins ======
+
+Head or tail? Let's try it.
+
+===== Animation =====
+
+<ani fc http://s288.photobucket.com/albums/ll181/xieyihui/flipping_coins/ png 50 500 0.2|Probability in flipping coins>
+This animation has provided a simulation of flipping coins, which might be helpful in understanding the concept of probability.
+</ani>
+
+===== R code =====
+
+<code r>
+oopt = ani.options(ani.height = 500, ani.width = 600, outdir = getwd(), interval = 0.2,
+    nmax = 50, title = "Probability in flipping coins",
+    description = "This animation has provided a simulation of flipping coins,
+    which might be helpful in understanding the concept of probability.")
+ani.start()
+par(mar = c(2, 3, 2, 1.5), mgp = c(1.5, 0.5, 0))
+flip.coin(faces = c("Head", "Stand", "Tail"), type = "n",
+    prob = c(0.45, 0.1, 0.45), col =c(1, 2, 4))
+ani.stop()
+ani.options(oopt)
+</code>

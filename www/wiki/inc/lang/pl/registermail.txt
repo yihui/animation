@@ -1,0 +1,15 @@
+Zarejestrował się nowy użytkownik.
+Szczegółowe informacje:
+
+Użytkownik      : @NEWUSER@
+Imię i nazwisko : @NEWNAME@
+E-mail          : @NEWEMAIL@
+
+Data            : @DATE@
+Przeglądarka    : @BROWSER@
+Adres IP        : @IPADDRESS@
+Nazwa DNS       : @HOSTNAME@
+
+-- 
+List został wygenerowany przez DokuWiki pod adresem
+@DOKUWIKIURL@

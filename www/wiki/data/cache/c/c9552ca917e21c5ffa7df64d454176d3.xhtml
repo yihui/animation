@@ -1,0 +1,201 @@
+
+
+
+<h1><a name="package_animation_before_0.2-1" id="package_animation_before_0.2-1">Package &#039;&#039;animation&#039;&#039; before 0.2-1</a></h1>
+<div class="level1">
+
+<p>
+
+Prior to <code>animation (&le; 0.2-0)</code> the way to control animation parameters is quite different to later releases (<code>&gt; 0.2-0</code>). If you are still using the old versions, please read the usage and animation method below.
+</p>
+
+</div>
+<!-- SECTION "Package ''animation'' before 0.2-1" [1-268] -->
+<h2><a name="usage" id="usage">Usage</a></h2>
+<div class="level2">
+
+<p>
+
+Running animations either inside R (in graphical devices) or outside R (in <acronym title="HyperText Markup Language">HTML</acronym> pages) are OK, as an argument <code>saveANI</code> (actually in the argument <code>control</code> using the function <code>ani.control()</code>) to decide whether to save <acronym title="Portable Network Graphics">PNG</acronym> files.
+</p>
+
+<p>
+By <code>ani.start()</code>, specifying <code>saveANI = TRUE</code>, and <code>ani.stop()</code>, you can generate an <acronym title="HyperText Markup Language">HTML</acronym> page containing the animation; or if <code>saveANI = FALSE</code>, the animations will be shown inside R graphical devices.
+</p>
+
+<p>
+For further information, please check the help pages or the vignette. 
+</p>
+
+</div>
+<!-- SECTION "Usage" [269-808] -->
+<h2><a name="method" id="method">Method</a></h2>
+<div class="level2">
+
+<p>
+
+How to generate an animation sequence and save it?
+</p>
+
+</div>
+<!-- SECTION "Method" [809-880] -->
+<h3><a name="generate_an_animation_sequence" id="generate_an_animation_sequence">Generate an animation sequence</a></h3>
+<div class="level3">
+
+<p>
+
+The animation method behind the package is quite naive and intuitive; here is an example showing how it works:
+</p>
+<pre class="code r"><a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=for"><span class="kw1">for</span></a> <span class="br0">&#40;</span>i <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=in"><span class="kw1">in</span></a> <span class="nu0">1</span>:<span class="nu0">360</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+    <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=plot"><span class="kw3">plot</span></a><span class="br0">&#40;</span><span class="nu0">1</span>, <span class="re5">ann</span> = <span class="re5">F</span>, <span class="re5">type</span> = <span class="st0">"n"</span>, <span class="re5">axes</span> = <span class="re5">F</span><span class="br0">&#41;</span>
+    <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=text"><span class="kw3">text</span></a><span class="br0">&#40;</span><span class="nu0">1</span>, <span class="nu0">1</span>, <span class="st0">"Animation"</span>, <span class="re5">srt</span> = <span class="re5">i</span>, <span class="re5">col</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=rainbow"><span class="kw4">rainbow</span></a><span class="br0">&#40;</span><span class="nu0">360</span><span class="br0">&#41;</span><span class="br0">&#91;</span><span class="re5">i</span><span class="br0">&#93;</span>, <span class="re5">cex</span> = <span class="nu0">7</span> * 
+        i/<span class="nu0">360</span><span class="br0">&#41;</span>
+    <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=Sys.sleep"><span class="kw2">Sys.sleep</span></a><span class="br0">&#40;</span><span class="nu0">0</span><span class="re5">.<span class="nu0">01</span></span><span class="br0">&#41;</span>
+<span class="br0">&#125;</span></pre>
+<p>
+The above R code will produce an animation like this:
+</p>
+
+<p>
+<a href="/_detail/animation:animation_rotation.gif?id=animation%3Aversion_0.2-0&amp;cache=cache" class="media" title="animation:animation_rotation.gif"><img src="/_media/animation:animation_rotation.gif?w=&amp;h=&amp;cache=cache" class="mediacenter" title="The rotation animation of the word &quot;Animation&quot;" alt="The rotation animation of the word &quot;Animation&quot;" /></a>
+</p>
+
+<p>
+Almost all of the animation functions in the package just follow this kind of loop to produce a sequence of image frames.
+</p>
+
+</div>
+<!-- SECTION "Generate an animation sequence" [881-1489] -->
+<h3><a name="a_general_schema" id="a_general_schema">A General Schema</a></h3>
+<div class="level3">
+
+<p>
+
+Here is the pseudo code for the general schema used in the package:
+</p>
+<pre class="code r"><span class="re4"><span class="re5">ani</span></span><span class="re5">.fun</span> &lt;- <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=function"><span class="kw1">function</span></a><span class="br0">&#40;</span><span class="re5">args</span><span class="re4"><span class="re5">.stat</span></span><span class="re5">.method</span>, <span class="re5">control</span> = ani.control<span class="br0">&#40;</span><span class="re5">nmax</span> = <span class="nu0">100</span>, 
+    <span class="re5">interval</span> = <span class="nu0">0</span><span class="re5">.<span class="nu0">05</span></span>, <span class="re5">width</span>, <span class="re5">height</span>, <span class="re4"><span class="re5">.</span></span>.<span class="re5">.</span><span class="br0">&#41;</span>, <span class="re4"><span class="re5">.</span></span>.<span class="re5">.</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+    <span class="re5">control</span> = checkargs<span class="br0">&#40;</span><span class="re5">control</span>, <span class="re4"><span class="re5">.</span></span>.<span class="re5">.</span><span class="br0">&#41;</span>
+    <span class="br0">&#40;</span>stat.calculation<span class="re5">.for</span><span class="re4"><span class="re5">.preparation</span></span><span class="re5">.here</span><span class="br0">&#41;</span>
+    <span class="re5">i</span> = <span class="nu0">1</span>
+    <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=while"><span class="kw1">while</span></a> <span class="br0">&#40;</span><span class="re5">i</span> &lt;= <span class="re5">control</span>$<span class="re5">nmax</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+        <span class="br0">&#40;</span>stat<span class="re5">.calculation</span><span class="re4"><span class="re5">.for</span></span><span class="re5">.animation</span><span class="br0">&#41;</span>
+        <span class="br0">&#40;</span><a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=plot"><span class="kw3">plot</span></a>.results<span class="re5">.in</span><span class="re4"><span class="re5">.ith</span></span><span class="re5">.step</span><span class="br0">&#41;</span>
+        <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=if"><span class="kw1">if</span></a> <span class="br0">&#40;</span><span class="re5">control</span>$<span class="re5">saveANI</span><span class="br0">&#41;</span> 
+            savePNG<span class="br0">&#40;</span><span class="re5">n</span> = <span class="re5">i</span>, <span class="re5">width</span> = <span class="re5">control</span>$<span class="re5">width</span>, <span class="re5">height</span> = <span class="re5">control</span>$<span class="re5">height</span><span class="br0">&#41;</span>
+        <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=else"><span class="kw1">else</span></a> <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=Sys.sleep"><span class="kw2">Sys.sleep</span></a><span class="br0">&#40;</span><span class="re5">control</span>$<span class="re5">interval</span><span class="br0">&#41;</span>
+        <span class="re5">i</span> = <span class="re5">i</span> + <span class="nu0">1</span>
+    <span class="br0">&#125;</span>
+    <span class="br0">&#40;</span><span class="re4"><span class="re5">return</span></span><span class="re5">.something</span><span class="br0">&#41;</span>
+<span class="br0">&#125;</span></pre>
+</div>
+<!-- SECTION "A General Schema" [1490-2122] -->
+<h3><a name="create_an_html_page_for_animation" id="create_an_html_page_for_animation">Create an HTML page for animation</a></h3>
+<div class="level3">
+
+<p>
+
+The animation in the <acronym title="HyperText Markup Language">HTML</acronym> pages is actually driven by <acronym title="JavaScript">JS</acronym>. For more details, please refer to the <a href="/wiki:animation_example" class="wikilink1" title="wiki:animation_example">HTML animation examples</a> and the <a href="/wiki:animation_plugin" class="wikilink1" title="wiki:animation_plugin">animation plugin for Dokuwiki</a>.
+</p>
+
+</div>
+<!-- SECTION "Create an HTML page for animation" [2123-2380] -->
+<h3><a name="create_gif_animations" id="create_gif_animations">Create GIF animations</a></h3>
+<div class="level3">
+
+<p>
+
+The package has also provided a wrapper to generate <acronym title="Graphics Interchange Format">GIF</acronym> animations together with <a href="http://www.imagemagick.org" class="urlextern" target="_blank" title="http://www.imagemagick.org"  rel="nofollow">ImageMagic</a>. The method is even easier; we merely need to write some code which can produce a sequence of images, and the rest work will be done by the function <code>saveMovie()</code> in the package. See the example in the “Examples” section.
+</p>
+
+</div>
+<!-- SECTION "Create GIF animations" [2381-2761] -->
+<h2><a name="examples" id="examples">Examples</a></h2>
+<div class="level2">
+
+<p>
+
+Currently we can directly use the functions in the package to produce animations, or we can also define animation functions for ourselves.
+</p>
+
+</div>
+<!-- SECTION "Examples" [2762-2923] -->
+<h3><a name="use_internal_functions" id="use_internal_functions">Use internal functions</a></h3>
+<div class="level3">
+<pre class="code r"><a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=library"><span class="kw4">library</span></a><span class="br0">&#40;</span><span class="re5">animation</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co3"># inside R: windows graphics device</span>
+brownian.motion<span class="br0">&#40;</span><span class="re5">n</span> = <span class="nu0">15</span>, <span class="re5">nmax</span> = <span class="nu0">150</span><span class="br0">&#41;</span> 
+&nbsp;
+<span class="co3"># outside R: create an HTML animation page</span>
+ani.start<span class="br0">&#40;</span><span class="br0">&#41;</span>
+brownian.motion<span class="br0">&#40;</span><span class="re5">n</span> = <span class="nu0">15</span>, <span class="re5">nmax</span> = <span class="nu0">100</span>, <span class="re5">saveANI</span> = <span class="re1">TRUE</span>, <span class="re5">width</span> = <span class="nu0">500</span>, <span class="re5">height</span> = <span class="nu0">500</span><span class="br0">&#41;</span> 
+ani.stop<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+</div>
+<!-- SECTION "Use internal functions" [2924-3216] -->
+<h3><a name="define_custom_functions" id="define_custom_functions">Define custom functions</a></h3>
+<div class="level3">
+
+<p>
+
+The following code has explained how to define animation functions for yourself (please read <a href="/animation:start#a_general_schema" class="wikilink1" title="animation:start">the general schema</a> above first):
+</p>
+<pre class="code r"><a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=library"><span class="kw4">library</span></a><span class="br0">&#40;</span><span class="re5">animation</span><span class="br0">&#41;</span>
+<span class="co3"># define an animation function to show the jitter effect</span>
+<span class="re4"><span class="re5">jitter</span></span><span class="re5">.ani</span> &lt;- <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=function"><span class="kw1">function</span></a><span class="br0">&#40;</span><span class="re5">control</span> = ani.control<span class="br0">&#40;</span><span class="br0">&#41;</span>, <span class="re4"><span class="re5">.</span></span>.<span class="re5">.</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+    <span class="re5">control</span> = checkargs<span class="br0">&#40;</span><span class="re5">control</span>, <span class="re4"><span class="re5">.</span></span>.<span class="re5">.</span><span class="br0">&#41;</span>
+    <span class="re5">x</span> &lt;- <span class="nu0">1</span>:<span class="nu0">100</span>
+    <span class="re5">i</span> &lt;- <span class="nu0">1</span>
+    <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=while"><span class="kw1">while</span></a> <span class="br0">&#40;</span><span class="re5">i</span> &lt;= <span class="nu0">30</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+        <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=plot"><span class="kw3">plot</span></a><span class="br0">&#40;</span><span class="re5">x</span>, <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=jitter"><span class="kw4">jitter</span></a><span class="br0">&#40;</span><span class="re5">x</span>, <span class="re5">amount</span> = <span class="nu0">5</span><span class="br0">&#41;</span>, <span class="re5">ylim</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=c"><span class="kw3">c</span></a><span class="br0">&#40;</span><span class="nu0">1</span>, <span class="nu0">100</span><span class="br0">&#41;</span>, <span class="re5">ylab</span> = <span class="st0">"jittered x"</span>, 
+            <span class="re4"><span class="re5">panel</span></span><span class="re5">.first</span> = <span class="br0">&#123;</span>
+                <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=grid"><span class="kw4">grid</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span>
+                <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=abline"><span class="kw4">abline</span></a><span class="br0">&#40;</span><span class="nu0">0</span>, <span class="nu0">1</span>, <span class="re5">col</span> = <span class="st0">"darkgray"</span><span class="br0">&#41;</span>
+            <span class="br0">&#125;</span><span class="br0">&#41;</span>
+        <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=if"><span class="kw1">if</span></a> <span class="br0">&#40;</span><span class="re5">control</span>$<span class="re5">saveANI</span><span class="br0">&#41;</span> 
+            savePNG<span class="br0">&#40;</span><span class="re5">n</span> = <span class="re5">i</span>, <span class="re5">width</span> = <span class="re5">control</span>$<span class="re5">width</span>, <span class="re5">height</span> = <span class="re5">control</span>$<span class="re5">height</span><span class="br0">&#41;</span>
+        <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=else"><span class="kw1">else</span></a> <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=Sys.sleep"><span class="kw2">Sys.sleep</span></a><span class="br0">&#40;</span><span class="re5">control</span>$<span class="re5">interval</span><span class="br0">&#41;</span>
+        <span class="re5">i</span> &lt;- <span class="re5">i</span> + <span class="nu0">1</span>
+    <span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+ani.start<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=jitter"><span class="kw4">jitter</span></a>.ani<span class="br0">&#40;</span><span class="re5">saveANI</span> = <span class="re1">TRUE</span>, <span class="re5">interval</span> = <span class="nu0">0</span><span class="re5">.<span class="nu0">5</span></span><span class="br0">&#41;</span>
+ani.stop<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+</div>
+<!-- SECTION "Define custom functions" [3217-4082] -->
+<h3><a name="gif_animation" id="gif_animation">GIF animation</a></h3>
+<div class="level3">
+
+<p>
+
+Following the above example, we pass an expression to the function <code>saveMovie()</code> to create a similar animation:
+</p>
+<pre class="code r"><a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=library"><span class="kw4">library</span></a><span class="br0">&#40;</span><span class="re5">animation</span><span class="br0">&#41;</span>
+saveMovie<span class="br0">&#40;</span><a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=for"><span class="kw1">for</span></a> <span class="br0">&#40;</span>i <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=in"><span class="kw1">in</span></a> <span class="nu0">1</span>:<span class="nu0">30</span><span class="br0">&#41;</span> <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=plot"><span class="kw3">plot</span></a><span class="br0">&#40;</span><span class="re5">x</span>, <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=jitter"><span class="kw4">jitter</span></a><span class="br0">&#40;</span><span class="re5">x</span>, <span class="re5">amount</span> = <span class="nu0">5</span><span class="br0">&#41;</span>, 
+    <span class="re5">ylim</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=c"><span class="kw3">c</span></a><span class="br0">&#40;</span><span class="nu0">1</span>, <span class="nu0">100</span><span class="br0">&#41;</span>, <span class="re5">ylab</span> = <span class="st0">"jittered x"</span>, <span class="re4"><span class="re5">panel</span></span><span class="re5">.first</span> = <span class="br0">&#123;</span>
+        <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=grid"><span class="kw4">grid</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span>
+        <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=abline"><span class="kw4">abline</span></a><span class="br0">&#40;</span><span class="nu0">0</span>, <span class="nu0">1</span>, <span class="re5">col</span> = <span class="st0">"darkgray"</span><span class="br0">&#41;</span>
+    <span class="br0">&#125;</span><span class="br0">&#41;</span>, <span class="re5">interval</span> = <span class="nu0">0</span><span class="re5">.<span class="nu0">5</span></span>, <span class="re5">outdir</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=getwd"><span class="kw4">getwd</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> 
+<span class="co3"># the GIF animation 'movie.gif' will be created in the directory getwd() </span></pre>
+<p>
+Or this code will be more clear:
+</p>
+<pre class="code r"><a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=library"><span class="kw4">library</span></a><span class="br0">&#40;</span><span class="re5">animation</span><span class="br0">&#41;</span>
+<span class="re4"><span class="re5">ani</span></span><span class="re5">.expr</span> &lt;- <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=expression"><span class="kw4">expression</span></a><span class="br0">&#40;</span><a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=for"><span class="kw1">for</span></a> <span class="br0">&#40;</span>i <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=in"><span class="kw1">in</span></a> <span class="nu0">1</span>:<span class="nu0">30</span><span class="br0">&#41;</span> <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=plot"><span class="kw3">plot</span></a><span class="br0">&#40;</span><span class="re5">x</span>, <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=jitter"><span class="kw4">jitter</span></a><span class="br0">&#40;</span><span class="re5">x</span>, 
+    <span class="re5">amount</span> = <span class="nu0">5</span><span class="br0">&#41;</span>, <span class="re5">ylim</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=c"><span class="kw3">c</span></a><span class="br0">&#40;</span><span class="nu0">1</span>, <span class="nu0">100</span><span class="br0">&#41;</span>, <span class="re5">ylab</span> = <span class="st0">"jittered x"</span>, <span class="re4"><span class="re5">panel</span></span><span class="re5">.first</span> = <span class="br0">&#123;</span>
+    <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=grid"><span class="kw4">grid</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span>
+    <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=abline"><span class="kw4">abline</span></a><span class="br0">&#40;</span><span class="nu0">0</span>, <span class="nu0">1</span>, <span class="re5">col</span> = <span class="st0">"darkgray"</span><span class="br0">&#41;</span>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+saveMovie<span class="br0">&#40;</span><span class="re4"><span class="re5">ani</span></span><span class="re5">.expr</span>, <span class="re5">interval</span> = <span class="nu0">0</span><span class="re5">.<span class="nu0">5</span></span>, <span class="re5">outdir</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=getwd"><span class="kw4">getwd</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre>
+</div>
+<!-- SECTION "GIF animation" [4083-4852] -->
+<h2><a name="vignette" id="vignette">Vignette</a></h2>
+<div class="level2">
+
+<p>
+
+Here is <a href="/_media/animation:animation.pdf?id=animation%3Aversion_0.2-0&amp;cache=cache" class="media mediafile mf_pdf" title="animation:animation.pdf">the old vignette</a>. If anybody wants to continue my work, please download <a href="/_media/animation:vignette.zip?id=animation%3Aversion_0.2-0&amp;cache=cache" class="media mediafile mf_zip" title="animation:vignette.zip">the LaTeX source (Sweave)</a>.
+</p>
+
+</div>
+<!-- SECTION "Vignette" [4853-] -->

@@ -1,0 +1,17 @@
+Er is een pagina in je DokuWiki toegevoegd of gewijzigd. Hier zijn de details
+
+Datum         : @DATE@
+Browser       : @BROWSER@
+IP-Adres      : @IPADDRESS@
+Hostname      : @HOSTNAME@
+Oude revisie  : @OLDPAGE@
+Nieuwe revisie: @NEWPAGE@
+Samenvatting  : @SUMMARY@
+User          : @USER@
+
+@DIFF@
+
+
+-- 
+Deze mail werd gegenereerd door DokuWiki op
+@DOKUWIKIURL@

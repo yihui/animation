@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="FeedCreator 1.7.2-ppt DokuWiki" -->
+<?xml-stylesheet href="http://animation.yihui.name/lib/exe/css.php?s=feed" type="text/css"?>
+<rss version="2.0">
+    <channel>
+        <title>AniWiki: Animations in Statistics rgraphics</title>
+        <description></description>
+        <link>http://animation.yihui.name/</link>
+        <lastBuildDate>Wed, 11 Feb 2009 13:49:10 +0800</lastBuildDate>
+        <generator>FeedCreator 1.7.2-ppt DokuWiki</generator>
+        <image>
+            <url>http://animation.yihui.name/lib/images/favicon.ico</url>
+            <title>AniWiki: Animations in Statistics</title>
+            <link>http://animation.yihui.name/</link>
+        </image>
+        <item>
+            <title>R Graphics</title>
+            <link>http://animation.yihui.name/rgraphics:start?rev=1218180864</link>
+            <description>
+
+
+&lt;h1&gt;&lt;a name=&quot;r_graphics&quot; id=&quot;r_graphics&quot;&gt;R Graphics&lt;/a&gt;&lt;/h1&gt;
+&lt;div class=&quot;level1&quot;&gt;
+
+&lt;p&gt;
+
+Basic knowledge and useful resources for R graphics. &lt;img src=&quot;http://animation.yihui.name/lib/images/smileys/fixme.gif&quot; class=&quot;middle&quot; alt=&quot;FIXME&quot; /&gt;
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;R Graphics&quot; [1-86] --&gt;
+&lt;h2&gt;&lt;a name=&quot;books&quot; id=&quot;books&quot;&gt;Books&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+&lt;ul&gt;
+&lt;li class=&quot;level1&quot;&gt;&lt;div class=&quot;li&quot;&gt; &lt;a href=&quot;http://www.stat.auckland.ac.nz/~paul/RGraphics/rgraphics.html&quot; class=&quot;urlextern&quot; target=&quot;_blank&quot; title=&quot;http://www.stat.auckland.ac.nz/~paul/RGraphics/rgraphics.html&quot;  rel=&quot;nofollow&quot;&gt;R Graphics&lt;/a&gt; by &lt;a href=&quot;http://www.stat.auckland.ac.nz/~paul/&quot; class=&quot;urlextern&quot; target=&quot;_blank&quot; title=&quot;http://www.stat.auckland.ac.nz/~paul/&quot;  rel=&quot;nofollow&quot;&gt;Paul Murrell&lt;/a&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Books&quot; [87-245] --&gt;
+&lt;h2&gt;&lt;a name=&quot;website&quot; id=&quot;website&quot;&gt;Website&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+&lt;ul&gt;
+&lt;li class=&quot;level1&quot;&gt;&lt;div class=&quot;li&quot;&gt; &lt;a href=&quot;http://addictedtor.free.fr/graphiques&quot; class=&quot;urlextern&quot; target=&quot;_blank&quot; title=&quot;http://addictedtor.free.fr/graphiques&quot;  rel=&quot;nofollow&quot;&gt;R Graph Gallery&lt;/a&gt; by &lt;a href=&quot;http://francoisromain.free.fr/&quot; class=&quot;urlextern&quot; target=&quot;_blank&quot; title=&quot;http://francoisromain.free.fr/&quot;  rel=&quot;nofollow&quot;&gt;Romain François&lt;/a&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Website&quot; [246-] --&gt;</description>
+        <category>rgraphics</category>
+            <pubDate>Fri, 08 Aug 2008 15:34:24 +0800</pubDate>
+        </item>
+    </channel>
+</rss>

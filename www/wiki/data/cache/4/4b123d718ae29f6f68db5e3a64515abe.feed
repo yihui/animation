@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="FeedCreator 1.7.2-ppt DokuWiki" -->
+<?xml-stylesheet href="http://animation.yihui.name/lib/exe/css.php?s=feed" type="text/css"?>
+<rss version="2.0">
+    <channel>
+        <title>AniWiki: Animations in Statistics wiki</title>
+        <description></description>
+        <link>http://animation.yihui.name/</link>
+        <lastBuildDate>Thu, 05 Jun 2008 19:15:37 +0800</lastBuildDate>
+        <generator>FeedCreator 1.7.2-ppt DokuWiki</generator>
+        <image>
+            <url>http://animation.yihui.name/lib/images/favicon.ico</url>
+            <title>AniWiki: Animations in Statistics</title>
+            <link>http://animation.yihui.name/</link>
+        </image>
+        <item>
+            <title>wiki:animation_example</title>
+            <link>http://animation.yihui.name/wiki:animation_example</link>
+            <description>Please read the explanations in the plugin page to understand how animations work in AniWiki.
+
+The syntax for inserting animations in AniWiki is like this:
+
+
+&lt;ani id url type max height interval|title&gt;
+description
+&lt;/ani&gt;
+
+
+:!: Always bear in mind that you have provided a correct url, i.e. your images can be accessed by such a series of addresses: url + i + type, where i is an integer giving the filename of each frame.</description>
+        <category>wiki</category>
+            <pubDate>Thu, 05 Jun 2008 16:54:34 +0800</pubDate>
+        </item>
+        <item>
+            <title>wiki:animation_plugin</title>
+            <link>http://animation.yihui.name/wiki:animation_plugin</link>
+            <description>The animation plugin can generate an animation from a sequence of images, e.g. 1.png, 2.png, 3.png, ... The animation is driven by HTML &amp; JS.
+
+Download and Install
+
+
+Plugin source: zip format (3.86K) (last updated on 2008-06-04)
+
+For people who would like to create animations in this wiki, the above file does not need to be downloaded (just follow the instructions below) -- it is merely for Dokuwiki system administrators.</description>
+        <category>wiki</category>
+            <pubDate>Thu, 05 Jun 2008 01:27:11 +0800</pubDate>
+        </item>
+        <item>
+            <title>wiki:developments</title>
+            <link>http://animation.yihui.name/wiki:developments</link>
+            <description>The predecessor of AniWiki is Animated Statistics Using R, which was created in Oct 2007 by Yihui. As time goes on, he find there are two obvious disadvantages of this website: (1) the static HTML pages are not easy to maintain; (2) to build a whole gallery of animations by a single person is also difficult. Thus he changed his idea to create a wiki on May 26, 2008 so that everybody can participate in this project to contribute their brilliant ideas in creating animations in statistics.</description>
+        <category>wiki</category>
+            <pubDate>Thu, 05 Jun 2008 01:21:35 +0800</pubDate>
+        </item>
+        <item>
+            <title>wiki:dokuwiki</title>
+            <link>http://animation.yihui.name/wiki:dokuwiki</link>
+            <description>[Array] DokuWiki is a standards compliant, simple to use wp&gt;Wiki, mainly aimed at creating documentation of any kind. It is targeted at developer teams, workgroups and small companies. It has a simple but powerful syntax which makes sure the datafiles remain readable outside the Wiki and eases the creation of structured texts. All data is stored in plain text files -- no database is required.</description>
+        <category>wiki</category>
+            <pubDate>Tue, 06 May 2008 01:10:08 +0800</pubDate>
+        </item>
+        <item>
+            <title>wiki:donate</title>
+            <link>http://animation.yihui.name/wiki:donate</link>
+            <description>Certainly I'd be very happy if you like this wiki and want to make a donation; in that case you may push the button below to pay via PayPal:</description>
+        <category>wiki</category>
+            <pubDate>Mon, 26 May 2008 23:22:46 +0800</pubDate>
+        </item>
+        <item>
+            <title>wiki:homepage_animation</title>
+            <link>http://animation.yihui.name/wiki:homepage_animation</link>
+            <description>The animation in the homepage will be changed aperiodically. All of the animations which were once used are listed in this page. If you want to submit one, please contact Yihui Xie first. The size of the image(s) had better be 400×400 px. The format should be GIF.</description>
+        <category>wiki</category>
+            <pubDate>Thu, 05 Jun 2008 13:50:50 +0800</pubDate>
+        </item>
+        <item>
+            <title>wiki:math</title>
+            <link>http://animation.yihui.name/wiki:math</link>
+            <description>Based on the math plugin, I created a method for AniWiki to generate mathematical formulae, which is fairly similar to TeX/LaTeX.
+
+Syntax
+
+
+Dokuwiki Syntax:
+
+
+$...text style mathematical formula...$
+$$...display style mathematical formula...$$
+
+
+I don't think I still need to explain what are textstyle and displaystyle in LaTeX. See the examples below.</description>
+        <category>wiki</category>
+            <pubDate>Wed, 04 Jun 2008 22:13:15 +0800</pubDate>
+        </item>
+        <item>
+            <title>wiki:message</title>
+            <link>http://animation.yihui.name/wiki:message</link>
+            <description>Many hands make light work. In this page, we are looking forward to your feedbacks, including new ideas/suggestions about statistical animations (or a wish list) and miscellaneous advice to this wiki. 
+
+Please leave your messages here simply by modifying this page. All the messages are in an ordered list, while some responses may appear in the footnotes at the bottom of the list. (Learn to use wiki in the playground or read the syntax)</description>
+        <category>wiki</category>
+            <pubDate>Thu, 29 May 2008 18:25:26 +0800</pubDate>
+        </item>
+        <item>
+            <title>wiki:playground</title>
+            <link>http://animation.yihui.name/wiki:playground</link>
+            <description>Yihui is a robber in statistics; he always wants to rob you of your ideas on statistical animations!
+
+[A cartoon picture of Yihui]
+
+Freeze! Show me your ideas!</description>
+        <category>wiki</category>
+            <pubDate>Wed, 28 May 2008 20:52:02 +0800</pubDate>
+        </item>
+        <item>
+            <title>wiki:start</title>
+            <link>http://animation.yihui.name/wiki:start</link>
+            <description>History &amp; Developments
+
+
+You can read the history and developments of this wiki.
+
+Usage
+
+Wiki syntax
+
+
+Please learn the wiki syntax first if you are not familiar with Dokuwiki; and you may practise in the playground
+
+Animation syntax
+
+
+Please refer to the animation example page and plugin page to learn how to insert animations into wiki pages.</description>
+        <category>wiki</category>
+            <pubDate>Wed, 04 Jun 2008 22:22:20 +0800</pubDate>
+        </item>
+        <item>
+            <title>wiki:syntax</title>
+            <link>http://animation.yihui.name/wiki:syntax</link>
+            <description>DokuWiki supports some simple markup language, which tries to make the datafiles to be as readable as possible. This page contains all possible syntax you may use when editing the pages. Simply have a look at the source of this page by pressing the Edit this page button at the top or bottom of the page. If you want to try something, just use the playground page. The simpler markup is easily accessible via quickbuttons, too.</description>
+        <category>wiki</category>
+            <pubDate>Thu, 29 May 2008 23:32:28 +0800</pubDate>
+        </item>
+        <item>
+            <title>wiki:yihui_xie</title>
+            <link>http://animation.yihui.name/wiki:yihui_xie</link>
+            <description>To know more about this guy, please visit his Blog or read his CV. Chinese visitors may also wish to visit his Chinese Blog.
+
+[Yihui is a robber in statistics]
+
+And here is his name card:
+
+[Name Card of Yihui]</description>
+        <category>wiki</category>
+            <pubDate>Wed, 28 May 2008 20:53:11 +0800</pubDate>
+        </item>
+    </channel>
+</rss>

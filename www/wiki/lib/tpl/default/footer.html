@@ -1,0 +1,20 @@
+<?php
+/**
+ * Example footer include
+ *
+ * This file shows you how to use the include hooks. However I recommend to
+ * create your own complete new template instead.
+ */
+?>
+
+<div class="footerinc">
+
+<?php
+if ($conf['allowdebug']) {
+    echo '<!-- page made in '.round(delta_time(DOKU_START_TIME), 3).' seconds -->';
+}
+?>
+
+
+</div>
+<?php include(dirname(__FILE__).'/dwtb.html') ?>

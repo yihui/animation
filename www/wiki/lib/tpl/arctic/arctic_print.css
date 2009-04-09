@@ -1,0 +1,9 @@
+/**
+ * Print - additional CSS for the Artic Template
+ * @author Michael Klier <chi@chimeric.de>
+ */
+
+div.dokuwiki div.left_sidebar,
+div.dokuwiki div.right_sidebar {
+  display:none;
+}

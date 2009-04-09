@@ -1,0 +1,25 @@
+====== The concept of k-fold cross-validation ======
+
+Introduction. FIXME
+
+===== Animation =====
+
+<ani kfcv http://s288.photobucket.com/albums/ll181/xieyihui/k-fold_cross_validation/ png 10 400 2|Demonstration of the k-fold Cross Validation>
+This is a naive demonstration for the //k//-fold cross validation. The //k// rectangles in the plot denote the //k// folds of data. Each time a fold will be used as the test set and the rest parts as the training set.
+</ani>
+
+===== R code =====
+
+<code r>
+oopt = ani.options(ani.height = 400, ani.width = 600, outdir = getwd(), interval = 2,
+    nmax = 10, title = "Demonstration of the k-fold Cross Validation",
+    description = "This is a naive demonstration for the k-fold cross
+    validation. The k rectangles in the plot denote the k folds of data.
+    Each time a fold will be used as the test set and the rest parts
+    as the training set.")
+ani.start()
+par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 0), tcl = -0.3)
+cv.ani(bty = "l")
+ani.stop()
+ani.options(oopt)
+</code>

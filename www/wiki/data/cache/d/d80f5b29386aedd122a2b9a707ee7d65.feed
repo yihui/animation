@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="FeedCreator 1.7.2-ppt DokuWiki" -->
+<?xml-stylesheet href="http://animation.yihui.name/lib/exe/css.php?s=feed" type="text/css"?>
+<rss version="2.0">
+    <channel>
+        <title>AniWiki: Animations in Statistics mathstat</title>
+        <description></description>
+        <link>http://animation.yihui.name/</link>
+        <lastBuildDate>Thu, 02 Apr 2009 01:09:04 +0800</lastBuildDate>
+        <generator>FeedCreator 1.7.2-ppt DokuWiki</generator>
+        <image>
+            <url>http://animation.yihui.name/lib/images/favicon.ico</url>
+            <title>AniWiki: Animations in Statistics</title>
+            <link>http://animation.yihui.name/</link>
+        </image>
+        <item>
+            <title>The concept of confidence intervals</title>
+            <link>http://animation.yihui.name/mathstat:confidence_interval?rev=1212979967</link>
+            <description>
+
+
+&lt;h1&gt;&lt;a name=&quot;the_concept_of_confidence_intervals&quot; id=&quot;the_concept_of_confidence_intervals&quot;&gt;The concept of confidence intervals&lt;/a&gt;&lt;/h1&gt;
+&lt;div class=&quot;level1&quot;&gt;
+
+&lt;p&gt;
+
+The interval covers the true parameter with a probability &lt;img src=&quot;http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize 1-\alpha&quot; alt=&quot;\normalsize 1-\alpha&quot; title=&quot;\normalsize 1-\alpha&quot;  class=&quot;math&quot;/&gt; or the true parameter lies in the interval with a probability &lt;img src=&quot;http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize 1-\alpha&quot; alt=&quot;\normalsize 1-\alpha&quot; title=&quot;\normalsize 1-\alpha&quot;  class=&quot;math&quot;/&gt;?
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;The concept of confidence intervals&quot; [1-195] --&gt;
+&lt;h2&gt;&lt;a name=&quot;animation&quot; id=&quot;animation&quot;&gt;Animation&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+&lt;div align=&quot;center&quot; class=&quot;anidemo&quot; title=&quot;Demonstration of Confidence Intervals&quot;&gt;&lt;fieldset&gt;&lt;legend align=&quot;center&quot;&gt;Demonstration of Confidence Intervals&lt;/legend&gt;&lt;div id=&quot;loadingci&quot; class=&quot;loading&quot;&gt;loading animation frames... 0%&lt;/div&gt;&lt;div id=&quot;divPreloadci&quot; class=&quot;divPreload&quot;&gt;&lt;script language=&quot;JavaScript&quot; type=&quot;text/javascript&quot;&gt;	var sourceci = &quot;http://s288.photobucket.com/albums/ll181/xieyihui/confidence_interval/&quot;;	var imgtypeci = &quot;png&quot;;	var tmpci = 0;	var nmaxci=100; 	var nci=1;	var tci;	for(i = 1; i &lt;= nmaxci; i++){		document.write(&quot;&lt;div class=\&quot;divFrame\&quot; id=\&quot;divPreload&quot; + &quot;ci&quot; + i + &quot;\&quot;&gt;&lt;img src=\&quot;&quot; + sourceci + i + &quot;.&quot; + imgtypeci + &quot;\&quot;&quot; + &quot; id = \&quot;img&quot; + &quot;ci&quot; + i + &quot;\&quot; onload = \&quot;loading(\'ci\')\&quot; onerror = \&quot;loading(\'ci\')\&quot; alt=\&quot;Demonstration of Confidence Intervals\&quot; title=\&quot;Demonstration of Confidence Intervals\&quot; /&gt;&lt;/div&gt;&quot;);}&lt;/script&gt;&lt;/div&gt;&lt;div class=&quot;btncontrol&quot;&gt;&lt;input name=&quot;nmaxci&quot; type=&quot;hidden&quot; id=&quot;nmaxci&quot; value=&quot;100&quot; /&gt;&lt;input name=&quot;heightci&quot; type=&quot;hidden&quot; id=&quot;heightci&quot; value=&quot;400&quot; /&gt;&lt;input name=&quot;btnPlayci&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnPlayci&quot; title=&quot;Play&quot; onclick=&quot;playAni('ci')&quot; value=&quot;  &amp;gt;  &quot; /&gt; &lt;input name=&quot;btnPauseci&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnPauseci&quot; title=&quot;Pause&quot; onclick=&quot;pauseAni('ci')&quot; value=&quot;  O  &quot; /&gt; &lt;input name=&quot;btnFastci&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnFastci&quot; title=&quot;Speed up&quot; onclick=&quot;fastAni('ci',1)&quot; value=&quot;  +  &quot; /&gt; &lt;input name=&quot;btnSlowci&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnSlowci&quot; title=&quot;Slow down&quot; onclick=&quot;fastAni('ci',-1)&quot; value=&quot;  -  &quot; /&gt; &lt;input name=&quot;btnPrevci&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnPrevci&quot; title=&quot;Previous frame&quot; onclick=&quot;prevAni('ci',1)&quot; value=&quot;  &amp;lt;&amp;lt;  &quot; /&gt; &lt;input name=&quot;btnNextci&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnNextci&quot; title=&quot;Next frame&quot; onclick=&quot;prevAni('ci',-1)&quot; value=&quot;  &amp;gt;&amp;gt;  &quot; /&gt; &lt;input name=&quot;btnFirstci&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnFirstci&quot; title=&quot;First frame&quot; onclick=&quot;firstAni('ci',true)&quot; value=&quot;  |&amp;lt;  &quot; /&gt; &lt;input name=&quot;btnLastci&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnLastci&quot; title=&quot;Last frame&quot; onclick=&quot;firstAni('ci',false)&quot; value=&quot;  &amp;gt;|  &quot; /&gt; &lt;input name=&quot;btnMoreci&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnMoreci&quot; title=&quot;More controls&quot; onclick=&quot;btnMore('ci')&quot; value=&quot;  &amp;lt;&amp;gt;  &quot; /&gt;&lt;/div&gt;&lt;div id=&quot;moreParci&quot; class=&quot;morepar&quot;&gt;&lt;label title=&quot;Which frame to go?&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;View frame &lt;input name=&quot;txtFrameci&quot; type=&quot;text&quot; id=&quot;txtFrameci&quot; onblur=&quot;txtFrame(this.value, 'ci')&quot; value=&quot;1&quot; size=&quot;4&quot; class=&quot;text&quot; /&gt;/100&lt;/label&gt; &lt;label title=&quot;Loop or not?&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;&lt;input name=&quot;checkLoopci&quot; type=&quot;checkbox&quot; id=&quot;checkLoopci&quot; checked=&quot;checked&quot;/&gt;Loop&lt;/label&gt; &lt;label title=&quot;Time interval for the animation (in sec)&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;Time Interval: &lt;input name=&quot;txtIntervalci&quot; type=&quot;text&quot; id=&quot;txtIntervalci&quot; onblur=&quot;txtInterval(this)&quot; value=&quot;0.15&quot; size=&quot;4&quot; class=&quot;text&quot; /&gt;&lt;/label&gt; &lt;label title=&quot;Increment in time interval&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;Step: &lt;input name=&quot;txtStepci&quot; type=&quot;text&quot; id=&quot;txtStepci&quot; onblur=&quot;txtInterval(this)&quot; value=&quot;0.1&quot; size=&quot;4&quot; class=&quot;text&quot; /&gt;&lt;/label&gt;&lt;/div&gt;&lt;hr /&gt;&lt;div class=&quot;description&quot;&gt;
+This animation shows the concept of the confidence interval which depends on the observations: if the samples change, the interval changes too. At last we can see that the coverage rate will be approximate to the confidence level.
+&lt;/div&gt;&lt;/fieldset&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Animation&quot; [196-592] --&gt;
+&lt;h2&gt;&lt;a name=&quot;r_code&quot; id=&quot;r_code&quot;&gt;R code&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+&lt;pre class=&quot;code r&quot;&gt;ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;ani&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.height&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;400&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;ani&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.width&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;600&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;outdir&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=getwd&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;getwd&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;nmax&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;100&lt;/span&gt;,
+    &lt;span class=&quot;re5&quot;&gt;interval&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;15&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;title&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;Demonstration of Confidence Intervals&quot;&lt;/span&gt;,
+    &lt;span class=&quot;re5&quot;&gt;description&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;This animation shows the concept of the confidence
+    interval which depends on the observations: if the samples change,
+    the interval changes too. At last we can see that the coverage rate
+    will be approximate to the confidence level.&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.start&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=par&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;par&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;mar&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;mgp&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;tcl&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;-0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+conf.int&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.stop&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- SECTION &quot;R code&quot; [593-] --&gt;</description>
+        <category>mathstat</category>
+            <pubDate>Mon, 09 Jun 2008 10:52:47 +0800</pubDate>
+        </item>
+        <item>
+            <title>Animations in Mathematical Statistics</title>
+            <link>http://animation.yihui.name/mathstat:start?rev=1215500775</link>
+            <description>
+
+
+&lt;h1&gt;&lt;a name=&quot;animations_in_mathematical_statistics&quot; id=&quot;animations_in_mathematical_statistics&quot;&gt;Animations in Mathematical Statistics&lt;/a&gt;&lt;/h1&gt;
+&lt;div class=&quot;level1&quot;&gt;
+
+&lt;p&gt;
+
+Introduction. &lt;img src=&quot;http://animation.yihui.name/lib/images/smileys/fixme.gif&quot; class=&quot;middle&quot; alt=&quot;FIXME&quot; /&gt;
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Animations in Mathematical Statistics&quot; [1-74] --&gt;
+&lt;h2&gt;&lt;a name=&quot;list_of_animations&quot; id=&quot;list_of_animations&quot;&gt;List of animations&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+&lt;table class=&quot;inline&quot;&gt;
+	&lt;tr class=&quot;row0&quot;&gt;
+		&lt;th class=&quot;col0&quot;&gt; topic &lt;/th&gt;&lt;th class=&quot;col1&quot;&gt; description &lt;/th&gt;&lt;th class=&quot;col2&quot;&gt; preview &lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr class=&quot;row1&quot;&gt;
+		&lt;td class=&quot;col0&quot;&gt; &lt;a href=&quot;http://animation.yihui.name/mathstat:confidence_interval&quot; class=&quot;wikilink1&quot; title=&quot;mathstat:confidence_interval&quot;&gt;The concept of confidence intervals&lt;/a&gt; &lt;/td&gt;&lt;td class=&quot;col1&quot;&gt; The interval covers the true parameter with a probability &lt;img src=&quot;http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize 1-\alpha&quot; alt=&quot;\normalsize 1-\alpha&quot; title=&quot;\normalsize 1-\alpha&quot;  class=&quot;math&quot;/&gt; or the true parameter lies in the interval with a probability &lt;img src=&quot;http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize 1-\alpha&quot; alt=&quot;\normalsize 1-\alpha&quot; title=&quot;\normalsize 1-\alpha&quot;  class=&quot;math&quot;/&gt;? &lt;/td&gt;&lt;td class=&quot;col2&quot;&gt; &lt;a href=&quot;http://animation.yihui.name/mathstat:confidence_interval&quot; class=&quot;media&quot; title=&quot;mathstat:confidence_interval&quot;&gt;&lt;img src=&quot;http://animation.yihui.name/lib/exe/fetch.php?w=200&amp;amp;h=200&amp;amp;cache=cache&amp;amp;media=http%3A%2F%2Fs288.photobucket.com%2Falbums%2Fll181%2Fxieyihui%2Fconfidence_interval%2F100.png&quot; class=&quot;media&quot; alt=&quot;&quot; width=&quot;200&quot; height=&quot;200&quot; /&gt;&lt;/a&gt; &lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;List of animations&quot; [75-] --&gt;</description>
+        <category>mathstat</category>
+            <pubDate>Tue, 08 Jul 2008 15:06:15 +0800</pubDate>
+        </item>
+    </channel>
+</rss>
