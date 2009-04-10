@@ -1,8 +1,0 @@
-====== Time Series Analysis ======
-
-As time goes by... FIXME
-
-===== List of Animations =====
-
-  * [[moving_window_ar|Moving Window Auto-Regression]]
-

@@ -1,5 +1,0 @@
-<?php
-/**
- * Arabic language file
- *
- */

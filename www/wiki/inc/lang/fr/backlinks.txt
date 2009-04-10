@@ -1,3 +1,0 @@
-====== Pages pointant sur la page en cours (backlinks) ====== 
- Ceci est la liste des pages qui pointent sur la page en cours.
-

@@ -1,9 +1,0 @@
-====== Data Mining and Machine Learning ======
-
-Introduction. FIXME
-
-===== List of Animations =====
-
-  * [[bootstrap_i.i.d|Bootstrapping the iid data]]
-  * [[k-fold_cross-validation|The concept of k-fold cross-validation]]
-  * [[k-nearest_neighbour_algorithm|k-Nearest Neighbour Algorithm]]

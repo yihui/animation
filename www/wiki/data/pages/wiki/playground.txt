@@ -1,7 +1,0 @@
-====== PlayGround ======
-
-Yihui is a robber in statistics; he always wants to rob you of your ideas on statistical animations!
-
-{{ :wiki:robstat.png |A cartoon picture of Yihui}}
-
-Freeze! Show me your ideas!
