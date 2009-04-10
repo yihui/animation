@@ -1,0 +1,7 @@
+====== Multivariate Statistics ======
+
+Introduction. FIXME
+
+===== List of Animations =====
+
+  * [[k-means_cluster_algorithm|K-Means Cluster Algorithm]]

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="FeedCreator 1.7.2-ppt DokuWiki" -->
+<?xml-stylesheet href="http://animation.yihui.name/lib/exe/css.php?s=feed" type="text/css"?>
+<rss version="2.0">
+    <channel>
+        <title>AniWiki: Animations in Statistics</title>
+        <description></description>
+        <link>http://animation.yihui.name/</link>
+        <lastBuildDate>Tue, 27 May 2008 11:36:50 +0800</lastBuildDate>
+        <generator>FeedCreator 1.7.2-ppt DokuWiki</generator>
+        <image>
+            <url>http://animation.yihui.name/lib/images/favicon.ico</url>
+            <title>AniWiki: Animations in Statistics</title>
+            <link>http://animation.yihui.name/</link>
+        </image>
+        <item>
+            <title>start</title>
+            <link>http://animation.yihui.name/doku.php?id=start&amp;rev=1211855044&amp;do=diff</link>
+            <description>AniWiki aims to be a gallery for statistical animations in several subjects listed below. Most of the animations are created in the R environment. There is a special R package ''animation'' contributed by Yihui Xie with the goal ”to turn ideas into animation, quickly and faithfully”.</description>
+            <author>yihui</author>
+            <pubDate>Tue, 27 May 2008 10:24:04 +0800</pubDate>
+        </item>
+        <item>
+            <title>wiki:start</title>
+            <link>http://animation.yihui.name/doku.php?id=wiki:start&amp;rev=1211819126&amp;do=diff</link>
+            <description>*  You may want to learn the syntax first: syntax
+	*  The history and development of this wiki
+	*  Wanna make a donation?</description>
+            <author>yihui</author>
+        <category>wiki</category>
+            <pubDate>Tue, 27 May 2008 00:25:26 +0800</pubDate>
+        </item>
+        <item>
+            <title>playground:playground</title>
+            <link>http://animation.yihui.name/doku.php?id=playground:playground&amp;rev=1211819019&amp;do=diff</link>
+            <description>Yihui is a robber in statistics; he always wants to rob you of your ideas on statistical animations!
+
+[A cartoon picture of Yihui]
+
+Freeze! Show me your ideas!</description>
+            <author>yihui</author>
+        <category>playground</category>
+            <pubDate>Tue, 27 May 2008 00:23:39 +0800</pubDate>
+        </item>
+        <item>
+            <title>wiki:history</title>
+            <link>http://animation.yihui.name/doku.php?id=wiki:history&amp;rev=1211816822&amp;do=diff</link>
+            <description>The predecessor of AniWiki is Animated Statistics Using R, which was created in Oct 2007 by Yihui. As time goes on, he find there are two obvious disadvantages of this website: (1) the static HTML pages are not easy to maintain; (2) to build a whole gallery of animations by a single person is also difficult. Thus he changed his idea to create a wiki on May 26, 2008 so that everybody can participate in this project to contribute their brilliant ideas in creating animations in statistics.</description>
+            <author>yihui</author>
+        <category>wiki</category>
+            <pubDate>Mon, 26 May 2008 23:47:02 +0800</pubDate>
+        </item>
+        <item>
+            <title>wiki:donate</title>
+            <link>http://animation.yihui.name/doku.php?id=wiki:donate&amp;rev=1211815366&amp;do=diff</link>
+            <description>Certainly I'd be very happy if you like this wiki and want to make a donation; in that case you may push the button below to pay via PayPal:</description>
+            <author>yihui</author>
+        <category>wiki</category>
+            <pubDate>Mon, 26 May 2008 23:22:46 +0800</pubDate>
+        </item>
+        <item>
+            <title>wiki:message</title>
+            <link>http://animation.yihui.name/doku.php?id=wiki:message&amp;rev=1211814475&amp;do=diff</link>
+            <description>Please leave your messages here simply by modifying this page. All the messages are in an ordered list, while some responses may appear in the footnotes at the bottom of the list.
+
+
+	*  Hi, this is Yihui. I have a suggestion that... 
+ --- Yihui Xie 2008/05/26 22:57
+	*  Hey, I can donate to this wiki, but I didn't find the link :-( 
+ --- A Millionaire 2008/05/26 22:58</description>
+            <author>yihui</author>
+        <category>wiki</category>
+            <pubDate>Mon, 26 May 2008 23:07:55 +0800</pubDate>
+        </item>
+        <item>
+            <title>prob:buffon_s_needle</title>
+            <link>http://animation.yihui.name/doku.php?id=prob:buffon_s_needle&amp;rev=1211796246&amp;do=diff</link>
+            <description>In mathematics, Buffon's needle problem is a question first posed in the 18th century by Georges-Louis Leclerc, Comte de Buffon:
+
+
+	&quot; Suppose we have a floor made of parallel strips of wood, each the same width, and we drop a needle onto the floor. What is the probability that the needle will lie across a line between two strips?&quot;</description>
+            <author>yihui</author>
+        <category>prob</category>
+            <pubDate>Mon, 26 May 2008 18:04:06 +0800</pubDate>
+        </item>
+        <item>
+            <title>prob</title>
+            <link>http://animation.yihui.name/doku.php?id=prob&amp;rev=1211789273&amp;do=diff</link>
+            <description>Probability theory is the branch of mathematics concerned with analysis of random phenomena. The central objects of probability theory are random variables, stochastic processes, and events: mathematical abstractions of non-deterministic events or measured quantities that may either be single occurrences or evolve over time in an apparently random fashion. Although an individual coin toss or the roll of a die is a random event, if repeated many times the sequence of random events will exhibit ce…</description>
+            <author>yihui</author>
+            <pubDate>Mon, 26 May 2008 16:07:53 +0800</pubDate>
+        </item>
+    </channel>
+</rss>

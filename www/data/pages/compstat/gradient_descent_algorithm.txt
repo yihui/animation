@@ -1,0 +1,39 @@
+====== The Gradient Descent Algorithm ======
+
+Follow the gradient to the optimum. FIXME
+
+===== Animations =====
+
+<ani gda http://animation.r-forge.r-project.org/frames/gradient_descent_algorithm/ png 36 500 0.3|Demonstration of the Gradient Descent Algorithm>
+The arrows will take you to the optimum step by step.
+</ani>
+
+<ani gdafail http://animation.r-forge.r-project.org/frames/gradient_descent_algorithm_fail/ png 70 480 0.2|When Gradient Descent Algorithm Fails>
+This example shows how the gradient descent algorithm will fail with a too large step length.
+</ani>
+
+===== R code =====
+
+<code r>
+library(animation)
+# gradient descent works
+oopt = ani.options(ani.height = 500, ani.width = 500, outdir = getwd(), interval = 0.3,
+    nmax = 50, title = "Demonstration of the Gradient Descent Algorithm",
+    description = "The arrows will take you to the optimum step by step.")
+ani.start()
+grad.desc()
+ani.stop()
+ani.options(oopt)
+
+# gradient descent fails
+oopt = ani.options(ani.height = 480, ani.width = 480, outdir = getwd(), interval = 0.2,
+    nmax = 70, title = "When Gradient Descent Algorithm Fails",
+    description = "This example shows how the gradient descent algorithm will fail with 
+    a too large step length.")
+ani.start()
+f2 = function(x, y) sin(1/2 * x^2 - 1/4 * y^2 + 3) *
+    cos(2 * x + 1 - exp(y))
+grad.desc(f2, c(-2, -2, 2, 2), c(-1, 0.5), gamma = 0.3, tol = 1e-04)
+ani.stop()
+ani.options(oopt)
+</code>

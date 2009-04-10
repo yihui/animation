@@ -1,0 +1,8 @@
+====== Animations in Mathematical Statistics ======
+
+Introduction. FIXME
+
+===== List of animations =====
+
+^ topic ^ description ^ preview ^ 
+| [[confidence_interval]] | The interval covers the true parameter with a probability $1-\alpha$ or the true parameter lies in the interval with a probability $1-\alpha$? | [[confidence_interval|{{http://s288.photobucket.com/albums/ll181/xieyihui/confidence_interval/100.png?200x200}}]] |

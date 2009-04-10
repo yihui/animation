@@ -1,0 +1,85 @@
+
+
+
+<h1><a name="development_of_aniwiki" id="development_of_aniwiki">Development of AniWiki</a></h1>
+<div class="level1">
+
+<p>
+
+The predecessor of <code>AniWiki</code> is <a href="http://R.yihui.name" class="urlextern" target="_blank" title="http://R.yihui.name"  rel="nofollow">Animated Statistics Using R</a>, which was created in Oct 2007 by Yihui. As time goes on, he find there are two obvious disadvantages of this website: (1) the static <code><acronym title="HyperText Markup Language">HTML</acronym></code> pages are not easy to maintain; (2) to build a whole gallery of animations by a single person is also difficult. Thus he changed his idea to create a wiki on May 26, 2008 so that everybody can participate in this project to contribute their brilliant ideas in creating animations in statistics.
+</p>
+
+<p>
+Topics for animations will start from the basic theories of probability and mathematical statistics (<acronym title="Central Limit Theorem">CLT</acronym>, estimation &amp; hypothesis testing, etc), then go through classical linear models and nonparametric statistics, and finally be diversified into several directions such as time series, multivariate statistics, econometrics, numerical optimization, data mining and machine learning, etc.
+</p>
+
+</div>
+<!-- SECTION "Development of AniWiki" [1-953] -->
+<h2><a name="software_development" id="software_development">Software development</a></h2>
+<div class="level2">
+
+<p>
+
+As mentioned in the home page, most of the animations in this wiki are based on the output of the R package <code>animation</code>. The package is created on Dec 11th, 2007 and kept being updated since then. Till now there are more than 20 animation functions included in the package. Besides, the package can support both the output of <acronym title="HyperText Markup Language">HTML</acronym> animation pages (based on JavaScript) and animations inside R graphics devices. For more information about <code>animation</code>, please refer to <a href="/animation:start" class="wikilink1" title="animation:start">this page</a>.
+</p>
+
+<p>
+We are looking forward to more ideas on the software for statistical animations. If you have any ideas, please share with us in the <a href="/wiki:message" class="wikilink1" title="wiki:message">Messages, Discussions &amp; Ideas</a> page, besides, you may either choose the Google Group <a href="https://groups.google.com/group/animation-in-statistics" class="urlextern" target="_blank" title="https://groups.google.com/group/animation-in-statistics"  rel="nofollow">Animation in Statistics</a> or the R-Forge mailing list <a href="https://lists.r-forge.r-project.org/cgi-bin/mailman/listinfo/animation-commits" class="urlextern" target="_blank" title="https://lists.r-forge.r-project.org/cgi-bin/mailman/listinfo/animation-commits"  rel="nofollow">animation-commits</a>.
+</p>
+
+<p>
+Daily snapshots can be downloaded from R-Forge: <a href="http://r-forge.r-project.org/R/?group_id=208" class="urlextern" target="_blank" title="http://r-forge.r-project.org/R/?group_id=208"  rel="nofollow">http://r-forge.r-project.org/R/?group_id=208</a> 
+</p>
+
+<p>
+To install the package directly within R type: <code>install.packages(&quot;animation&quot;,repos=&quot;http://R-Forge.R-project.org&quot;)</code>
+</p>
+
+</div>
+<!-- SECTION "Software development" [954-2126] -->
+<h2><a name="wiki_development" id="wiki_development">Wiki development</a></h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Jun 04, 2008: Dokuwiki&#039;s math plugin was modified to generate <code>TeX/LaTeX</code> formulae in wiki pages; see the <a href="/wiki:math" class="wikilink1" title="wiki:math">syntax and examples page</a>.</div>
+</li>
+<li class="level1"><div class="li"> Jun 03, 2008: a plugin <a href="/wiki:animation_plugin" class="wikilink1" title="wiki:animation_plugin">animation</a> was created for <code>AniWiki</code> to insert animations into wiki pages conveniently.</div>
+</li>
+<li class="level1"><div class="li"> May 29, 2008: gained support for highlighting R code (also Rd code, etc) via <a href="http://qbnz.com/highlighter" class="urlextern" target="_blank" title="http://qbnz.com/highlighter"  rel="nofollow">GeSHi</a>; many thanks to <a href="http://www.sciviews.org/_phgrosjean" class="urlextern" target="_blank" title="http://www.sciviews.org/_phgrosjean"  rel="nofollow">Philippe Grosjean</a> who shared the <acronym title="Hypertext Preprocessor">PHP</acronym> code with me.</div>
+</li>
+<li class="level1"><div class="li"> May 26, 2008: the wiki system <a href="http://wiki.splitbrain.org/wiki%3Adokuwiki" class="interwiki iw_doku" target="_blank" title="http://wiki.splitbrain.org/wiki%3Adokuwiki">DokuWiki</a> was adopted as the supporting system of <code>AniWiki</code>.</div>
+</li>
+</ul>
+
+</div>
+<!-- SECTION "Wiki development" [2127-2796] -->
+<h2><a name="credits" id="credits">Credits</a></h2>
+<div class="level2">
+
+<p>
+
+<code>AniWiki</code> would not be what it is today without the invaluable help of these people (in alphabetic order):
+
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://had.co.nz" class="urlextern" target="_blank" title="http://had.co.nz"  rel="nofollow">Hadley Wickham</a> told me some materials from which I got some inspirations for animations. Besides, he also introduced the <a href="http://www.swftools.org" class="urlextern" target="_blank" title="http://www.swftools.org"  rel="nofollow">SWF Tools</a> to me, and I have added a function <code>saveSWF()</code> to the package now.</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://wwwmaths.anu.edu.au/~johnm" class="urlextern" target="_blank" title="http://wwwmaths.anu.edu.au/~johnm"  rel="nofollow">John Maindonald</a> has provided a lot of suggestions to the development and improvement of the package <code>animation</code>. Some of his ideas are still to be implemented.</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.math.usu.edu/~symanzik" class="urlextern" target="_blank" title="http://www.math.usu.edu/~symanzik"  rel="nofollow">Juergen Symanzik</a> told me some previous resources about statistical animations (especially in the web), and most importantly, he reminded me of the importance of interactivity in the web. Hopefully I will implement his ideas in the future.</div>
+</li>
+<li class="level1"><div class="li"> <a href="mailto:mflawren%20%5Bat%5D%20fhcrc%20%5Bdot%5D%20org" class="mail JSnocheck" title="mflawren [at] fhcrc [dot] org">Michael Lawrence</a> gave me instructions on developing the <acronym title="Graphical User Interface">GUI</acronym> as well as the way to create animation frames for my R package.</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.sciviews.org/_phgrosjean" class="urlextern" target="_blank" title="http://www.sciviews.org/_phgrosjean"  rel="nofollow">Philippe Grosjean</a> offered the necessary files for highlighting R code in this wiki.</div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.stats.ox.ac.uk/~wills" class="urlextern" target="_blank" title="http://www.stats.ox.ac.uk/~wills"  rel="nofollow">Quin Wills</a> gave me some suggestions on a better interface for the <acronym title="HyperText Markup Language">HTML</acronym> animation pages.</div>
+</li>
+</ul>
+
+<p>
+
+If you have been overlooked, please feel free to update the list by yourself.
+
+</p>
+
+</div>
+<!-- SECTION "Credits" [2797-] -->

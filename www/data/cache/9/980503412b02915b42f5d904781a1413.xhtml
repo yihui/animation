@@ -1,0 +1,50 @@
+
+
+
+<h1><a name="central_limit_theorem" id="central_limit_theorem">Central Limit Theorem</a></h1>
+<div class="level1">
+
+<p>
+
+Let <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize X_{1}, X_{2}, \ldots" alt="\normalsize X_{1}, X_{2}, \ldots" title="\normalsize X_{1}, X_{2}, \ldots"  class="math"/> be a sequence of iid random variables with <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize E(X_{i})=\mu" alt="\normalsize E(X_{i})=\mu" title="\normalsize E(X_{i})=\mu"  class="math"/> and <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize 0&lt;Var(X_i)=\sigma^2&lt;\infty" alt="\normalsize 0&lt;Var(X_i)=\sigma^2&lt;\infty" title="\normalsize 0&lt;Var(X_i)=\sigma^2&lt;\infty"  class="math"/>. Define <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize \bar{X}_n=(1/n)\sum_{i=1}^n X_i" alt="\normalsize \bar{X}_n=(1/n)\sum_{i=1}^n X_i" title="\normalsize \bar{X}_n=(1/n)\sum_{i=1}^n X_i"  class="math"/>. Let <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize G_n(x)" alt="\normalsize G_n(x)" title="\normalsize G_n(x)"  class="math"/> denote the cdf of <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize \sqrt{n}(\bar{X}_n-\mu)/\sigma" alt="\normalsize \sqrt{n}(\bar{X}_n-\mu)/\sigma" title="\normalsize \sqrt{n}(\bar{X}_n-\mu)/\sigma"  class="math"/>. Then, for any <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize x" alt="\normalsize x" title="\normalsize x"  class="math"/>, <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize -\infty&lt;x&lt;\infty" alt="\normalsize -\infty&lt;x&lt;\infty" title="\normalsize -\infty&lt;x&lt;\infty"  class="math"/>,
+</p>
+
+<p>
+<img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\lim_{n\rightarrow\infty}G_n(x)=\int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-y^2/2}dy" alt="\lim_{n\rightarrow\infty}G_n(x)=\int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-y^2/2}dy" title="\lim_{n\rightarrow\infty}G_n(x)=\int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-y^2/2}dy"  class="mediacenter"/>
+</p>
+
+<p>
+that is, <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize \sqrt{n}(\bar{X}_n-\mu)/\sigma" alt="\normalsize \sqrt{n}(\bar{X}_n-\mu)/\sigma" title="\normalsize \sqrt{n}(\bar{X}_n-\mu)/\sigma"  class="math"/> has a limiting standard normal distribution.
+</p>
+
+</div>
+<!-- SECTION "Central Limit Theorem" [1-479] -->
+<h2><a name="animation" id="animation">Animation</a></h2>
+<div class="level2">
+
+<p>
+
+Note that from <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize n \geq 15" alt="\normalsize n \geq 15" title="\normalsize n \geq 15"  class="math"/>, the P-value becomes large, which indicates that we cannot reject the null hypothesis (the normality of the sample mean). The population distribution of the random variables is exponential distribution <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize \mathbf{Exp}(1)" alt="\normalsize \mathbf{Exp}(1)" title="\normalsize \mathbf{Exp}(1)"  class="math"/>. For small <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize n" alt="\normalsize n" title="\normalsize n"  class="math"/>, we can still observe the characteristic of the exponential distribution: the density is right-skewed. But as <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize n" alt="\normalsize n" title="\normalsize n"  class="math"/> grows large, the distribution tends to be symmetrical!
+</p>
+
+<p>
+<div align="center" class="anidemo" title="Demonstration of the Central Limit Theorem"><fieldset><legend align="center">Demonstration of the Central Limit Theorem</legend><div id="loadingclt" class="loading">loading animation frames... 0%</div><div id="divPreloadclt" class="divPreload"><script language="JavaScript" type="text/javascript">	var sourceclt = "http://s288.photobucket.com/albums/ll181/xieyihui/central_limit_theorem/";	var imgtypeclt = "png";	var tmpclt = 0;	var nmaxclt=100; 	var nclt=1;	var tclt;	for(i = 1; i <= nmaxclt; i++){		document.write("<div class=\"divFrame\" id=\"divPreload" + "clt" + i + "\"><img src=\"" + sourceclt + i + "." + imgtypeclt + "\"" + " id = \"img" + "clt" + i + "\" onload = \"loading(\'clt\')\" onerror = \"loading(\'clt\')\" alt=\"Demonstration of the Central Limit Theorem\" title=\"Demonstration of the Central Limit Theorem\" /></div>");}</script></div><div class="btncontrol"><input name="nmaxclt" type="hidden" id="nmaxclt" value="100" /><input name="heightclt" type="hidden" id="heightclt" value="500" /><input name="btnPlayclt" type="submit" disabled="disabled" class="anibutton" id="btnPlayclt" title="Play" onclick="playAni('clt')" value="  &gt;  " /> <input name="btnPauseclt" type="submit" disabled="disabled" class="anibutton" id="btnPauseclt" title="Pause" onclick="pauseAni('clt')" value="  O  " /> <input name="btnFastclt" type="submit" disabled="disabled" class="anibutton" id="btnFastclt" title="Speed up" onclick="fastAni('clt',1)" value="  +  " /> <input name="btnSlowclt" type="submit" disabled="disabled" class="anibutton" id="btnSlowclt" title="Slow down" onclick="fastAni('clt',-1)" value="  -  " /> <input name="btnPrevclt" type="submit" disabled="disabled" class="anibutton" id="btnPrevclt" title="Previous frame" onclick="prevAni('clt',1)" value="  &lt;&lt;  " /> <input name="btnNextclt" type="submit" disabled="disabled" class="anibutton" id="btnNextclt" title="Next frame" onclick="prevAni('clt',-1)" value="  &gt;&gt;  " /> <input name="btnFirstclt" type="submit" disabled="disabled" class="anibutton" id="btnFirstclt" title="First frame" onclick="firstAni('clt',true)" value="  |&lt;  " /> <input name="btnLastclt" type="submit" disabled="disabled" class="anibutton" id="btnLastclt" title="Last frame" onclick="firstAni('clt',false)" value="  &gt;|  " /> <input name="btnMoreclt" type="submit" disabled="disabled" class="anibutton" id="btnMoreclt" title="More controls" onclick="btnMore('clt')" value="  &lt;&gt;  " /></div><div id="moreParclt" class="morepar"><label title="Which frame to go?" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">View frame <input name="txtFrameclt" type="text" id="txtFrameclt" onblur="txtFrame(this.value, 'clt')" value="1" size="4" class="text" />/100</label> <label title="Loop or not?" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'"><input name="checkLoopclt" type="checkbox" id="checkLoopclt" checked="checked"/>Loop</label> <label title="Time interval for the animation (in sec)" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">Time Interval: <input name="txtIntervalclt" type="text" id="txtIntervalclt" onblur="txtInterval(this)" value="0.2" size="4" class="text" /></label> <label title="Increment in time interval" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">Step: <input name="txtStepclt" type="text" id="txtStepclt" onblur="txtInterval(this)" value="0.1" size="4" class="text" /></label></div><hr /><div class="description">
+This animation shows the distribution of the sample mean as the sample size <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize n" alt="\normalsize n" title="\normalsize n"  class="math"/> grows. A normality test <code>shapiro.test()</code> is also performed to check whether the sample mean follows the normal distribution.
+</div></fieldset></div>
+</p>
+
+</div>
+<!-- SECTION "Animation" [480-1291] -->
+<h2><a name="r_code" id="r_code">R code</a></h2>
+<div class="level2">
+<pre class="code r"><span class="re5">oopt</span> = ani.options<span class="br0">&#40;</span><span class="re4"><span class="re5">ani</span></span><span class="re5">.height</span> = <span class="nu0">500</span>, <span class="re4"><span class="re5">ani</span></span><span class="re5">.width</span> = <span class="nu0">600</span>, <span class="re5">outdir</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=getwd"><span class="kw4">getwd</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span>, <span class="re5">nmax</span> = <span class="nu0">100</span>,
+    <span class="re5">interval</span> = <span class="nu0">0</span><span class="re5">.<span class="nu0">1</span></span>, <span class="re5">title</span> = <span class="st0">"Demonstration of the Central Limit Theorem"</span>,
+    <span class="re5">description</span> = <span class="st0">"This animation shows the distribution of the sample
+    mean as the sample size grows."</span><span class="br0">&#41;</span>
+ani.start<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=par"><span class="kw4">par</span></a><span class="br0">&#40;</span><span class="re5">mar</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=c"><span class="kw3">c</span></a><span class="br0">&#40;</span><span class="nu0">3</span>, <span class="nu0">3</span>, <span class="nu0">1</span>, <span class="nu0">0</span><span class="re5">.<span class="nu0">5</span></span><span class="br0">&#41;</span>, <span class="re5">mgp</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=c"><span class="kw3">c</span></a><span class="br0">&#40;</span><span class="nu0">1</span><span class="re5">.<span class="nu0">5</span></span>, <span class="nu0">0</span><span class="re5">.<span class="nu0">5</span></span>, <span class="nu0">0</span><span class="br0">&#41;</span>, <span class="re5">tcl</span> = <span class="nu0">-0</span><span class="re5">.<span class="nu0">3</span></span><span class="br0">&#41;</span>
+clt.ani<span class="br0">&#40;</span><span class="re5">type</span> = <span class="st0">"h"</span><span class="br0">&#41;</span>
+ani.stop<span class="br0">&#40;</span><span class="br0">&#41;</span>
+ani.options<span class="br0">&#40;</span><span class="re5">oopt</span><span class="br0">&#41;</span></pre>
+</div>
+<!-- SECTION "R code" [1292-] -->

@@ -1,0 +1,771 @@
+
+
+
+<h1><a name="formatting_syntax" id="formatting_syntax">Formatting Syntax</a></h1>
+<div class="level1">
+
+<p>
+
+<a href="/wiki:dokuwiki" class="wikilink1" title="wiki:dokuwiki">DokuWiki</a> supports some simple markup language, which tries to make the datafiles to be as readable as possible. This page contains all possible syntax you may use when editing the pages. Simply have a look at the source of this page by pressing the <em>Edit this page</em> button at the top or bottom of the page. If you want to try something, just use the <a href="/wiki:playground" class="wikilink1" title="wiki:playground">playground</a> page. The simpler markup is easily accessible via <a href="http://wiki.splitbrain.org/wiki%3Aquickbuttons" class="interwiki iw_doku" target="_blank" title="http://wiki.splitbrain.org/wiki%3Aquickbuttons">quickbuttons</a>, too.
+</p>
+
+</div>
+<!-- SECTION "Formatting Syntax" [1-522] -->
+<h2><a name="basic_text_formatting" id="basic_text_formatting">Basic text formatting</a></h2>
+<div class="level2">
+
+<p>
+
+DokuWiki supports <strong>bold</strong>, <em>italic</em>, <em class="u">underlined</em> and <code>monospaced</code> texts. Of course you can <strong><em class="u"><em><code>combine</code></em></em></strong> all these.
+
+</p>
+<pre class="code">DokuWiki supports **bold**, //italic//, __underlined__ and &#039;&#039;monospaced&#039;&#039; texts.
+Of course you can **__//&#039;&#039;combine&#039;&#039;//__** all these.</pre>
+
+<p>
+
+You can use <sub>subscript</sub> and <sup>superscript</sup>, too.
+
+</p>
+<pre class="code">You can use &lt;sub&gt;subscript&lt;/sub&gt; and &lt;sup&gt;superscript&lt;/sup&gt;, too.</pre>
+
+<p>
+
+You can mark something as <del>deleted</del> as well.
+
+</p>
+<pre class="code">You can mark something as &lt;del&gt;deleted&lt;/del&gt; as well.</pre>
+
+<p>
+
+<strong>Paragraphs</strong> are created from blank lines. If you want to <strong>force a newline</strong> without a paragraph, you can use two backslashes followed by a whitespace or the end of line.
+</p>
+
+<p>
+This is some text with some linebreaks<br/>
+ Note that the
+two backslashes are only recognized at the end of a line<br/>
+
+or followed by<br/>
+ a whitespace \\this happens without it.
+
+</p>
+<pre class="code">This is some text with some linebreaks\\ Note that the
+two backslashes are only recognized at the end of a line\\
+or followed by\\ a whitespace \\this happens without it.</pre>
+
+<p>
+
+You should use forced newlines only if really needed.
+</p>
+
+</div>
+<!-- SECTION "Basic text formatting" [523-1659] -->
+<h2><a name="links" id="links">Links</a></h2>
+<div class="level2">
+
+<p>
+
+DokuWiki supports multiple ways of creating links.
+</p>
+
+</div>
+<!-- SECTION "Links" [1660-1730] -->
+<h3><a name="external" id="external">External</a></h3>
+<div class="level3">
+
+<p>
+
+External links are recognized automagically: <a href="http://www.google.com" class="urlextern" target="_blank" title="http://www.google.com"  rel="nofollow">http://www.google.com</a> or simply <a href="http://www.google.com" class="urlextern" target="_blank" title="http://www.google.com"  rel="nofollow">www.google.com</a> - You can set Linknames, too: <a href="http://www.google.com" class="urlextern" target="_blank" title="http://www.google.com"  rel="nofollow">This Link points to google</a>. Email addresses like this one: <a href="mailto:andi%20%5Bat%5D%20splitbrain%20%5Bdot%5D%20org" class="mail JSnocheck" title="andi [at] splitbrain [dot] org">andi [at] splitbrain [dot] org</a> are recognized, too.
+
+</p>
+<pre class="code">DokuWiki supports multiple ways of creating links. External links are recognized
+automagically: http://www.google.com or simply www.google.com - You can set
+Linknames, too: [[http://www.google.com|This Link points to google]]. Email
+addresses like this one: &lt;andi@splitbrain.org&gt; are recognized, too.</pre>
+
+</div>
+<!-- SECTION "External" [1731-2311] -->
+<h3><a name="internal" id="internal">Internal</a></h3>
+<div class="level3">
+
+<p>
+
+Internal links are created by using square brackets. You can either just give a <a href="http://wiki.splitbrain.org/wiki%3Apagename" class="interwiki iw_doku" target="_blank" title="http://wiki.splitbrain.org/wiki%3Apagename">wiki:pagename</a> or use an additional <a href="http://wiki.splitbrain.org/wiki%3Apagename" class="interwiki iw_doku" target="_blank" title="http://wiki.splitbrain.org/wiki%3Apagename">Title Text</a>. Wiki pagenames are converted to lowercase automatically, special characters are not allowed. 
+
+</p>
+<pre class="code">Internal links are created by using square brackets. You can either just give
+a [[pagename]] or use an additional [[pagename|Title Text]]. Wiki pagenames
+are converted to lowercase automatically, special chars are not allowed.</pre>
+
+<p>
+
+You can use <a href="/wiki:namespaces" class="wikilink2" title="wiki:namespaces" rel="nofollow">namespaces</a> by using a colon in the pagename.
+
+</p>
+<pre class="code">You can use [[wiki:namespaces]] by using a colon in the pagename.</pre>
+
+<p>
+
+For details about namespaces see <a href="http://wiki.splitbrain.org/wiki%3Anamespaces" class="interwiki iw_doku" target="_blank" title="http://wiki.splitbrain.org/wiki%3Anamespaces">wiki:namespaces</a>.
+</p>
+
+<p>
+Linking to a specific section is possible, too. Just add the section name behind a hash character as known from <acronym title="HyperText Markup Language">HTML</acronym>. This links to <span class="curid"><a href="/wiki:syntax#internal" class="wikilink1" title="wiki:syntax">this Section</a></span>.
+
+</p>
+<pre class="code">This links to [[syntax#internal|this Section]].</pre>
+
+<p>
+
+Notes:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> Links to <span class="curid"><a href="/wiki:syntax" class="wikilink1" title="wiki:syntax">existing pages</a></span> are shown in a different style from <a href="/wiki:nonexisting" class="wikilink2" title="wiki:nonexisting" rel="nofollow">nonexisting</a> ones.</div>
+</li>
+<li class="level1"><div class="li"> DokuWiki does not use <a href="http://en.wikipedia.org/wiki/CamelCase" class="interwiki iw_wp" target="_blank" title="http://en.wikipedia.org/wiki/CamelCase">CamelCase</a> to automatically create links by default, but this behaviour can be enabled in the <a href="http://wiki.splitbrain.org/wiki%3Aconfig" class="interwiki iw_doku" target="_blank" title="http://wiki.splitbrain.org/wiki%3Aconfig">wiki:config</a> file. Hint: If DokuWiki is a link, then it&#039;s enabled.</div>
+</li>
+<li class="level1"><div class="li"> When a section&#039;s heading is changed, its bookmark changes, too. So don&#039;t rely on section linking too much.</div>
+</li>
+</ul>
+
+</div>
+<!-- SECTION "Internal" [2312-3661] -->
+<h3><a name="interwiki" id="interwiki">Interwiki</a></h3>
+<div class="level3">
+
+<p>
+
+DokuWiki supports <a href="http://wiki.splitbrain.org/wiki%3Ainterwiki" class="interwiki iw_doku" target="_blank" title="http://wiki.splitbrain.org/wiki%3Ainterwiki">Interwiki</a> links. These are quick links to other Wikis. For example this is a link to Wikipedia&#039;s page about Wikis: <a href="http://en.wikipedia.org/wiki/Wiki" class="interwiki iw_wp" target="_blank" title="http://en.wikipedia.org/wiki/Wiki">Wiki</a>.
+
+</p>
+<pre class="code">DokuWiki supports [[doku&gt;wiki:interwiki|Interwiki]] links. These are quick links to other Wikis.
+For example this is a link to Wikipedia&#039;s page about Wikis: [[wp&gt;Wiki]].</pre>
+
+</div>
+<!-- SECTION "Interwiki" [3662-4029] -->
+<h3><a name="windows_shares" id="windows_shares">Windows Shares</a></h3>
+<div class="level3">
+
+<p>
+
+Windows shares like <a href="file://///server/share" class="windows" title="\\server\share" onclick="if(document.all == null){alert('Linking to Windows shares only works in Microsoft Internet Explorer.\nYou still can copy and paste the link.');}" onkeypress="if(document.all == null){alert('Linking to Windows shares only works in Microsoft Internet Explorer.\nYou still can copy and paste the link.');}">this</a> are recognized, too. Please note that these only make sense in a homogenous user group like a corporate <a href="http://en.wikipedia.org/wiki/Intranet" class="interwiki iw_wp" target="_blank" title="http://en.wikipedia.org/wiki/Intranet">Intranet</a>.
+
+</p>
+<pre class="code">Windows Shares like [[\\server\share|this]] are recognized, too.</pre>
+
+<p>
+
+Notes:
+
+</p>
+<ul>
+<li class="level1"><div class="li"> For security reasons direct browsing of windows shares only works in Microsoft Internet Explorer per default (and only in the “local zone”).</div>
+</li>
+<li class="level1"><div class="li"> For Mozilla and Firefox it can be enabled through the config option <a href="http://www.mozilla.org/quality/networking/docs/netprefs.html#file" class="urlextern" target="_blank" title="http://www.mozilla.org/quality/networking/docs/netprefs.html#file"  rel="nofollow">security.checkloaduri</a> but this is not recommended.</div>
+</li>
+<li class="level1"><div class="li"> See <a href="http://bugs.splitbrain.org/index.php?do=details&amp;task_id=151" class="interwiki iw_dokubug" target="_blank" title="http://bugs.splitbrain.org/index.php?do=details&amp;task_id=151">151</a> for more info.</div>
+</li>
+</ul>
+
+</div>
+<!-- SECTION "Windows Shares" [4030-4675] -->
+<h3><a name="image_links" id="image_links">Image Links</a></h3>
+<div class="level3">
+
+<p>
+
+You can also use an image to link to another internal or external page by combining the syntax for links and <a href="#images_and_other_files" title="wiki:syntax &crarr;" class="wikilink1">images</a> (see below) like this:
+
+</p>
+<pre class="code">[[http://www.php.net|{{wiki:dokuwiki-128.png}}]]</pre>
+
+<p>
+
+<a href="http://www.php.net" class="media" target="_blank" title="http://www.php.net"  rel="nofollow"><img src="/_media/wiki:dokuwiki-128.png?w=&amp;h=&amp;cache=cache" class="media" alt="" /></a>
+</p>
+
+<p>
+Please note: The image formatting is the only formatting syntax accepted in link names.
+</p>
+
+<p>
+The whole <a href="#images_and_other_files" title="wiki:syntax &crarr;" class="wikilink1">image</a> and <a href="#links" title="wiki:syntax &crarr;" class="wikilink1">link</a> syntax is supported (including image resizing, internal and external images and URLs and interwiki links).
+</p>
+
+</div>
+<!-- SECTION "Image Links" [4676-5229] -->
+<h2><a name="footnotes" id="footnotes">Footnotes</a></h2>
+<div class="level2">
+
+<p>
+
+You can add footnotes <sup><a href="#fn__1" name="fnt__1" id="fnt__1" class="fn_top">1)</a></sup> by using double parentheses.
+
+</p>
+<pre class="code">You can add footnotes ((This is a footnote)) by using double parentheses.</pre>
+
+</div>
+<!-- SECTION "Footnotes" [5230-5404] -->
+<h2><a name="sectioning" id="sectioning">Sectioning</a></h2>
+<div class="level2">
+
+<p>
+
+You can use up to five different levels of headlines to structure your content. If you have more than three headlines, a table of contents is generated automatically &ndash; this can be disabled by including the string <code>~~NOTOC~~</code> in the document.
+</p>
+
+</div>
+<!-- SECTION "Sectioning" [5405-5691] -->
+<h3><a name="headline_level_3" id="headline_level_3">Headline Level 3</a></h3>
+<div class="level3">
+
+</div>
+
+<h4><a name="headline_level_4" id="headline_level_4">Headline Level 4</a></h4>
+<div class="level4">
+
+</div>
+
+<h5><a name="headline_level_5" id="headline_level_5">Headline Level 5</a></h5>
+<div class="level5">
+<pre class="code">==== Headline Level 3 ====
+=== Headline Level 4 ===
+== Headline Level 5 ==</pre>
+
+<p>
+
+By using four or more dashes, you can make a horizontal line:
+
+</p>
+<hr />
+
+</div>
+<!-- SECTION "Headline Level 3" [5692-5918] -->
+<h2><a name="images_and_other_files" id="images_and_other_files">Images and other files</a></h2>
+<div class="level2">
+
+<p>
+
+You can include external and internal <a href="http://wiki.splitbrain.org/wiki%3Aimages" class="interwiki iw_doku" target="_blank" title="http://wiki.splitbrain.org/wiki%3Aimages">wiki:images</a> with curly brackets. Optionally you can specify the size of them.
+</p>
+
+<p>
+Real size:                        <a href="/_detail/wiki:dokuwiki-128.png?id=wiki%3Asyntax&amp;cache=cache" class="media" title="wiki:dokuwiki-128.png"><img src="/_media/wiki:dokuwiki-128.png?w=&amp;h=&amp;cache=cache" class="media" alt="" /></a>
+</p>
+
+<p>
+Resize to given width:            <a href="/_detail/wiki:dokuwiki-128.png?id=wiki%3Asyntax&amp;cache=cache" class="media" title="wiki:dokuwiki-128.png"><img src="/_media/wiki:dokuwiki-128.png?w=50&amp;h=&amp;cache=cache" class="media" alt="" width="50" /></a>
+</p>
+
+<p>
+Resize to given width and height: <a href="/_detail/wiki:dokuwiki-128.png?id=wiki%3Asyntax&amp;cache=cache" class="media" title="wiki:dokuwiki-128.png"><img src="/_media/wiki:dokuwiki-128.png?w=200&amp;h=50&amp;cache=cache" class="media" alt="" width="200" height="50" /></a>
+</p>
+
+<p>
+Resized external image:           <a href="/lib/exe/fetch.php?cache=cache&amp;media=http%3A%2F%2Fde3.php.net%2Fimages%2Fphp.gif" class="media" title="http://de3.php.net/images/php.gif"><img src="/lib/exe/fetch.php?w=200&amp;h=50&amp;cache=cache&amp;media=http%3A%2F%2Fde3.php.net%2Fimages%2Fphp.gif" class="media" alt="" width="200" height="50" /></a>
+
+</p>
+<pre class="code">Real size:                        {{wiki:dokuwiki-128.png}}
+Resize to given width:            {{wiki:dokuwiki-128.png?50}}
+Resize to given width and height: {{wiki:dokuwiki-128.png?200x50}}
+Resized external image:           {{http://de3.php.net/images/php.gif?200x50}}</pre>
+
+<p>
+By using left or right whitespaces you can choose the alignment.
+</p>
+
+<p>
+<a href="/_detail/wiki:dokuwiki-128.png?id=wiki%3Asyntax&amp;cache=cache" class="media" title="wiki:dokuwiki-128.png"><img src="/_media/wiki:dokuwiki-128.png?w=&amp;h=&amp;cache=cache" class="mediaright" align="right" alt="" /></a>
+</p>
+
+<p>
+<a href="/_detail/wiki:dokuwiki-128.png?id=wiki%3Asyntax&amp;cache=cache" class="media" title="wiki:dokuwiki-128.png"><img src="/_media/wiki:dokuwiki-128.png?w=&amp;h=&amp;cache=cache" class="medialeft" align="left" alt="" /></a>
+</p>
+
+<p>
+<a href="/_detail/wiki:dokuwiki-128.png?id=wiki%3Asyntax&amp;cache=cache" class="media" title="wiki:dokuwiki-128.png"><img src="/_media/wiki:dokuwiki-128.png?w=&amp;h=&amp;cache=cache" class="mediacenter" alt="" /></a>
+
+</p>
+<pre class="code">{{ wiki:dokuwiki-128.png}}
+{{wiki:dokuwiki-128.png }}
+{{ wiki:dokuwiki-128.png }}</pre>
+
+<p>
+
+Of course, you can add a title (displayed as a tooltip by most browsers), too.
+</p>
+
+<p>
+<a href="/_detail/wiki:dokuwiki-128.png?id=wiki%3Asyntax&amp;cache=cache" class="media" title="wiki:dokuwiki-128.png"><img src="/_media/wiki:dokuwiki-128.png?w=&amp;h=&amp;cache=cache" class="mediacenter" title="This is the caption" alt="This is the caption" /></a>
+
+</p>
+<pre class="code">{{ wiki:dokuwiki-128.png |This is the caption}}</pre>
+
+<p>
+
+If you specify a filename (external or internal) that is not an image (<code>gif, jpeg, png</code>), then it will be displayed as a link instead.
+</p>
+
+<p>
+For linking an image to another page see <a href="#image_links" title="wiki:syntax &crarr;" class="wikilink1">Image Links</a> above.
+</p>
+
+</div>
+<!-- SECTION "Images and other files" [5919-7256] -->
+<h2><a name="lists" id="lists">Lists</a></h2>
+<div class="level2">
+
+<p>
+
+Dokuwiki supports ordered and unordered lists. To create a list item, indent your text by two spaces and use a <code>*</code> for unordered lists or a <code>-</code> for ordered ones.
+
+</p>
+<ul>
+<li class="level1"><div class="li"> This is a list</div>
+</li>
+<li class="level1"><div class="li"> The second item</div>
+<ul>
+<li class="level2"><div class="li"> You may have different levels</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Another item</div>
+</li>
+</ul>
+<ol>
+<li class="level1"><div class="li"> The same list but ordered</div>
+</li>
+<li class="level1"><div class="li"> Another item</div>
+<ol>
+<li class="level2"><div class="li"> Just use indention for deeper levels</div>
+</li>
+</ol>
+</li>
+<li class="level1"><div class="li"> That&#039;s it</div>
+</li>
+</ol>
+<pre class="code">
+  * This is a list
+  * The second item
+    * You may have different levels
+  * Another item
+
+  - The same list but ordered
+  - Another item
+    - Just use indention for deeper levels
+  - That&#039;s it
+</pre>
+
+</div>
+<!-- SECTION "Lists" [7257-7853] -->
+<h2><a name="smileys" id="smileys">Smileys</a></h2>
+<div class="level2">
+
+<p>
+
+DokuWiki converts commonly used <a href="http://en.wikipedia.org/wiki/emoticon" class="interwiki iw_wp" target="_blank" title="http://en.wikipedia.org/wiki/emoticon">emoticon</a>s to their graphical equivalents. More smileys can be placed in the <code>smiley</code> directory and configured in the <code>conf/smileys.conf</code> file. Here is an overview of Smileys included in DokuWiki.
+
+</p>
+<ul>
+<li class="level1"><div class="li"> <img src="/lib/images/smileys/icon_cool.gif" class="middle" alt="8-)" />   8-)  </div>
+</li>
+<li class="level1"><div class="li"> <img src="/lib/images/smileys/icon_eek.gif" class="middle" alt="8-O" />   8-O  </div>
+</li>
+<li class="level1"><div class="li"> <img src="/lib/images/smileys/icon_sad.gif" class="middle" alt=":-(" />   :-(  </div>
+</li>
+<li class="level1"><div class="li"> <img src="/lib/images/smileys/icon_smile.gif" class="middle" alt=":-)" />   :-)  </div>
+</li>
+<li class="level1"><div class="li"> <img src="/lib/images/smileys/icon_smile2.gif" class="middle" alt="=)" />    =)   </div>
+</li>
+<li class="level1"><div class="li"> <img src="/lib/images/smileys/icon_doubt.gif" class="middle" alt=":-/" />   :-/  </div>
+</li>
+<li class="level1"><div class="li"> <img src="/lib/images/smileys/icon_doubt2.gif" class="middle" alt=":-\" />   :-\  </div>
+</li>
+<li class="level1"><div class="li"> <img src="/lib/images/smileys/icon_confused.gif" class="middle" alt=":-?" />   :-?  </div>
+</li>
+<li class="level1"><div class="li"> <img src="/lib/images/smileys/icon_biggrin.gif" class="middle" alt=":-D" />   :-D  </div>
+</li>
+<li class="level1"><div class="li"> <img src="/lib/images/smileys/icon_razz.gif" class="middle" alt=":-P" />   :-P  </div>
+</li>
+<li class="level1"><div class="li"> <img src="/lib/images/smileys/icon_surprised.gif" class="middle" alt=":-O" />   :-O  </div>
+</li>
+<li class="level1"><div class="li"> <img src="/lib/images/smileys/icon_silenced.gif" class="middle" alt=":-X" />   :-X  </div>
+</li>
+<li class="level1"><div class="li"> <img src="/lib/images/smileys/icon_neutral.gif" class="middle" alt=":-|" />   :-|  </div>
+</li>
+<li class="level1"><div class="li"> <img src="/lib/images/smileys/icon_wink.gif" class="middle" alt=";-)" />   ;-)  </div>
+</li>
+<li class="level1"><div class="li"> <img src="/lib/images/smileys/icon_fun.gif" class="middle" alt="^_^" />   ^_^  </div>
+</li>
+<li class="level1"><div class="li"> <img src="/lib/images/smileys/icon_question.gif" class="middle" alt=":?:" />   :?:  </div>
+</li>
+<li class="level1"><div class="li"> <img src="/lib/images/smileys/icon_exclaim.gif" class="middle" alt=":!:" />   :!:  </div>
+</li>
+<li class="level1"><div class="li"> <img src="/lib/images/smileys/icon_lol.gif" class="middle" alt="LOL" />   LOL  </div>
+</li>
+<li class="level1"><div class="li"> <img src="/lib/images/smileys/fixme.gif" class="middle" alt="FIXME" />   FIXME </div>
+</li>
+<li class="level1"><div class="li"> <img src="/lib/images/smileys/delete.gif" class="middle" alt="DELETEME" />  DELETEME </div>
+</li>
+</ul>
+
+</div>
+<!-- SECTION "Smileys" [7854-8526] -->
+<h2><a name="typography" id="typography">Typography</a></h2>
+<div class="level2">
+
+<p>
+
+<a href="/wiki:dokuwiki" class="wikilink1" title="wiki:dokuwiki">DokuWiki</a> can convert simple text characters to their typographically correct entities. Here is an example of recognized characters.
+</p>
+
+<p>
+&rarr; &larr; &harr; &hArr; &ge; &le; &raquo; &laquo; &ndash; &mdash; 640&times;480 &copy; &trade; &reg;
+“He thought &#039;It&#039;s a man&#039;s world&#039;&hellip;”
+</p>
+<pre class="code">
+-&gt; &lt;- &lt;-&gt; &lt;=&gt; &gt;= &lt;= &gt;&gt; &lt;&lt; -- --- 640x480 (c) (tm) (r)
+&quot;He thought &#039;It&#039;s a man&#039;s world&#039;...&quot;
+</pre>
+
+<p>
+Please note: These conversions can be turned off through a <a href="http://wiki.splitbrain.org/wiki%3Aconfig%23typography" class="interwiki iw_doku" target="_blank" title="http://wiki.splitbrain.org/wiki%3Aconfig%23typography">config option</a> and a <a href="http://wiki.splitbrain.org/wiki%3Aentities" class="interwiki iw_doku" target="_blank" title="http://wiki.splitbrain.org/wiki%3Aentities">pattern file</a>.
+</p>
+
+</div>
+<!-- SECTION "Typography" [8527-9035] -->
+<h2><a name="quoting" id="quoting">Quoting</a></h2>
+<div class="level2">
+
+<p>
+
+Some times you want to mark some text to show it&#039;s a reply or comment. You can use the following syntax:
+
+</p>
+<pre class="code">I think we should do it
+
+&gt; No we shouldn&#039;t
+
+&gt;&gt; Well, I say we should
+
+&gt; Really?
+
+&gt;&gt; Yes!
+
+&gt;&gt;&gt; Then lets do it!</pre>
+
+<p>
+
+I think we should do it
+
+</p>
+<blockquote><div class="no">
+ No we shouldn&#039;t</div></blockquote>
+<blockquote><div class="no">
+<blockquote><div class="no">
+ Well, I say we should</div></blockquote>
+</div></blockquote>
+<blockquote><div class="no">
+ Really?</div></blockquote>
+<blockquote><div class="no">
+<blockquote><div class="no">
+ Yes!</div></blockquote>
+</div></blockquote>
+<blockquote><div class="no">
+<blockquote><div class="no">
+<blockquote><div class="no">
+ Then lets do it!</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+
+</div>
+<!-- SECTION "Quoting" [9036-9408] -->
+<h2><a name="tables" id="tables">Tables</a></h2>
+<div class="level2">
+
+<p>
+
+DokuWiki supports a simple syntax to create tables. 
+
+</p>
+<table class="inline">
+	<tr class="row0">
+		<th class="col0 leftalign"> Heading 1      </th><th class="col1 leftalign"> Heading 2       </th><th class="col2 leftalign"> Heading 3          </th>
+	</tr>
+	<tr class="row1">
+		<td class="col0 leftalign"> Row 1 Col 1    </td><td class="col1 leftalign"> Row 1 Col 2     </td><td class="col2 leftalign"> Row 1 Col 3        </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> Row 2 Col 1    </td><td class="col1" colspan="2"> some colspan (note the double pipe) </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> Row 3 Col 1    </td><td class="col1 leftalign"> Row 2 Col 2     </td><td class="col2 leftalign"> Row 2 Col 3        </td>
+	</tr>
+</table>
+
+<p>
+
+Table rows have to start and end with a <code>|</code> for normal rows or a <code>^</code> for headers.
+
+</p>
+<pre class="code">^ Heading 1      ^ Heading 2       ^ Heading 3          ^
+| Row 1 Col 1    | Row 1 Col 2     | Row 1 Col 3        |
+| Row 2 Col 1    | some colspan (note the double pipe) ||
+| Row 3 Col 1    | Row 2 Col 2     | Row 2 Col 3        |</pre>
+
+<p>
+
+To connect cells horizontally, just make the next cell completely empty as shown above. Be sure to have always the same amount of cell separators!
+</p>
+
+<p>
+Vertical tableheaders are possible, too.
+
+</p>
+<table class="inline">
+	<tr class="row0">
+		<td class="col0 rightalign">              </td><th class="col1 leftalign"> Heading 1            </th><th class="col2 leftalign"> Heading 2          </th>
+	</tr>
+	<tr class="row1">
+		<th class="col0 leftalign"> Heading 3    </th><td class="col1 leftalign"> Row 1 Col 2          </td><td class="col2 leftalign"> Row 1 Col 3        </td>
+	</tr>
+	<tr class="row2">
+		<th class="col0 leftalign"> Heading 4    </th><td class="col1"> no colspan this time </td><td class="col2 rightalign">                    </td>
+	</tr>
+	<tr class="row3">
+		<th class="col0 leftalign"> Heading 5    </th><td class="col1 leftalign"> Row 2 Col 2          </td><td class="col2 leftalign"> Row 2 Col 3        </td>
+	</tr>
+</table>
+
+<p>
+
+As you can see, it&#039;s the cell separator before a cell which decides about the formatting:
+
+</p>
+<pre class="code">|              ^ Heading 1            ^ Heading 2          ^
+^ Heading 3    | Row 1 Col 2          | Row 1 Col 3        |
+^ Heading 4    | no colspan this time |                    |
+^ Heading 5    | Row 2 Col 2          | Row 2 Col 3        |</pre>
+
+<p>
+
+Note: Vertical spans (rowspan) are not possible.
+</p>
+
+<p>
+You can align the table contents, too. Just add at least two whitespaces at the opposite end of your text: Add two spaces on the left to align right, two spaces on the right to align left and two spaces at least at both ends for centered text.
+
+</p>
+<table class="inline">
+	<tr class="row0">
+		<th class="col0 centeralign" colspan="3">           Table with alignment           </th>
+	</tr>
+	<tr class="row1">
+		<td class="col0 rightalign">         right</td><td class="col1 centeralign">    center    </td><td class="col2 leftalign">left          </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign">left          </td><td class="col1 rightalign">         right</td><td class="col2 centeralign">    center    </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> xxxxxxxxxxxx </td><td class="col1"> xxxxxxxxxxxx </td><td class="col2"> xxxxxxxxxxxx </td>
+	</tr>
+</table>
+
+<p>
+
+This is how it looks in the source:
+
+</p>
+<pre class="code">^           Table with alignment           ^^^
+|         right|    center    |left          |
+|left          |         right|    center    |
+| xxxxxxxxxxxx | xxxxxxxxxxxx | xxxxxxxxxxxx |</pre>
+
+</div>
+<!-- SECTION "Tables" [9409-11540] -->
+<h2><a name="non-parsed_blocks" id="non-parsed_blocks">Non-parsed Blocks</a></h2>
+<div class="level2">
+
+<p>
+
+You can include non-parsed blocks into your documents by either indenting them by at least two spaces (like used for the previous examples) or by using the tags <code>code</code> or <code>file</code>.
+</p>
+<pre class="code">
+This is preformatted code all spaces are preserved: like              &lt;-this
+</pre>
+<pre class="file">
+This is pretty much the same, but you could use it to show that you quoted a file.  
+</pre>
+
+<p>
+To let the parser ignore an area completely (ie. do no formatting on it), enclose the area either with <code>nowiki</code> tags or even simpler, with double percent signs <code>%%</code>.
+</p>
+
+<p>
+
+This is some text which contains addresses like this: http://www.splitbrain.org and **formatting**, but nothing is done with it.
+
+</p>
+
+<p>
+See the source of this page to see how to use these blocks.
+</p>
+
+</div>
+<!-- SECTION "Non-parsed Blocks" [11541-12347] -->
+<h2><a name="syntax_highlighting" id="syntax_highlighting">Syntax Highlighting</a></h2>
+<div class="level2">
+
+<p>
+
+<a href="/wiki:dokuwiki" class="wikilink1" title="wiki:dokuwiki">DokuWiki</a> can highlight sourcecode, which makes it easier to read. It uses the <a href="http://qbnz.com/highlighter/" class="urlextern" target="_blank" title="http://qbnz.com/highlighter/"  rel="nofollow">GeSHi</a> Generic Syntax Highlighter &ndash; so any language supported by GeSHi is supported. The syntax is the same like in the code block in the previous section, but this time the name of the used language is inserted inside the tag. Eg. <code>&lt;code java&gt;</code>.
+</p>
+<pre class="code java"><span class="coMULTI">/** 
+ * The HelloWorldApp class implements an application that
+ * simply displays &quot;Hello World!&quot; to the standard output.
+ */</span>
+<span class="kw2">class</span> HelloWorldApp <span class="br0">&#123;</span>
+    <span class="kw2">public</span> <span class="kw2">static</span> <span class="kw4">void</span> main<span class="br0">&#40;</span><a target="_blank"  href="http://www.google.com/search?q=allinurl%3AString+java.sun.com&amp;bntl=1"><span class="kw3">String</span></a><span class="br0">&#91;</span><span class="br0">&#93;</span> args<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+        <a target="_blank"  href="http://www.google.com/search?q=allinurl%3ASystem+java.sun.com&amp;bntl=1"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span><span class="st0">"Hello World!"</span><span class="br0">&#41;</span>; <span class="co1">//Display the string.</span>
+    <span class="br0">&#125;</span>
+<span class="br0">&#125;</span></pre>
+<p>
+The following language strings are currently recognized: <em>abap actionscript-french, actionscript, ada, apache, applescript, asm, asp, autoit, bash, basic4gl, blitzbasic, bnf, caddcl, cadlisp, cfdg, cfm, c_mac, c, cpp, cpp-qt, csharp, css, delphi, diff, div, dos, dot, d, eiffel, fortran, freebasic, genero, gml, groovy, haskell, html, idl, ini, inno, io, java5, java, javascript, latex, lisp, lua, m68k, matlab, mirc, mpasm, mysql, nsis, objc, ocaml-brief, ocaml, oobas, oracle8, pascal, perl, per, php-brief, php, plsql, python, qbasic, rails, reg, robots, ruby, sas, scheme, sdlbasic, smalltalk, smarty, sql, tcl, text, thinbasic, tsql, vbnet, vb, vhdl, visualfoxpro, winbatch, xml, xpp, z80</em>
+</p>
+
+</div>
+<!-- SECTION "Syntax Highlighting" [12348-13748] -->
+<h2><a name="rss_atom_feed_aggregation" id="rss_atom_feed_aggregation">RSS/ATOM Feed Aggregation</a></h2>
+<div class="level2">
+
+<p>
+<a href="/wiki:dokuwiki" class="wikilink1" title="wiki:dokuwiki">DokuWiki</a> can integrate data from external <acronym title="Extensible Markup Language">XML</acronym> feeds. For parsing the <acronym title="Extensible Markup Language">XML</acronym> feeds, <a href="http://simplepie.org/" class="urlextern" target="_blank" title="http://simplepie.org/"  rel="nofollow">SimplePie</a> is used. All formats understood by SimplePie can be used in DokuWiki as well. You can influence the rendering by multiple additional space separated parameters:
+
+</p>
+<table class="inline">
+	<tr class="row0">
+		<th class="col0 leftalign"> Parameter  </th><th class="col1"> Description </th>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> any number </td><td class="col1"> will be used as maximum number items to show, defaults to 8 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> reverse    </td><td class="col1"> display the last items in the feed first </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> author     </td><td class="col1"> show item authors names </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> date       </td><td class="col1"> show item dates </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> description</td><td class="col1"> show the item description. If <a href="http://wiki.splitbrain.org/wiki%3Aconfig%23htmlok" class="interwiki iw_doku" target="_blank" title="http://wiki.splitbrain.org/wiki%3Aconfig%23htmlok">HTML</a> is disabled all tags will be stripped </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> <em>n</em>[dhm] </td><td class="col1"> refresh period, where d=days, h=hours, m=minutes. (e.g. 12h = 12 hours). </td>
+	</tr>
+</table>
+
+<p>
+
+The refresh period defaults to 4 hours. Any value below 10 minutes will be treated as 10 minutes. <a href="/wiki:dokuwiki" class="wikilink1" title="wiki:dokuwiki">DokuWiki</a> will generally try to supply a cached version of a page, obviously this is inappropriate when the page contains dynamic external content. The parameter tells <a href="/wiki:dokuwiki" class="wikilink1" title="wiki:dokuwiki">DokuWiki</a> to re-render the page if it is more than <em>refresh period</em> since the page was last rendered.
+</p>
+
+<p>
+<strong>Example:</strong>
+
+</p>
+<pre class="code">{{rss&gt;http://slashdot.org/index.rss 5 author date 1h }}</pre>
+<ul class="rss"><li><div class="li"><em>An error occurred while fetching this feed: </em><a href="http://slashdot.org/index.rss" class="urlextern" target="_blank" title="http://slashdot.org/index.rss"  rel="nofollow">http://slashdot.org/index.rss</a></div></li></ul>
+</div>
+<!-- SECTION "RSS/ATOM Feed Aggregation" [13749-15023] -->
+<h2><a name="embedding_html_and_php" id="embedding_html_and_php">Embedding HTML and PHP</a></h2>
+<div class="level2">
+
+<p>
+
+You can embed raw <acronym title="HyperText Markup Language">HTML</acronym> or <acronym title="Hypertext Preprocessor">PHP</acronym> code into your documents by using the <code>html</code> or <code>php</code> tags like this:
+
+</p>
+<pre class="code">
+&lt;html&gt;
+This is some &lt;span style=&quot;color:red;font-size:150%;&quot;&gt;inline HTML&lt;/span&gt;
+&lt;/html&gt;
+&lt;HTML&gt;
+&lt;p style=&quot;border:2px dashed red;&quot;&gt;And this is some block HTML&lt;/p&gt;
+&lt;/HTML&gt;
+</pre>
+
+<p>
+
+This is some <span style="color:red;font-size:150%;">inline HTML</span>
+
+
+</p>
+
+<p style="border:2px dashed red;">And this is some block HTML</p>
+<pre class="code">
+&lt;php&gt;
+echo &#039;A logo generated by PHP:&#039;;
+echo &#039;&lt;img src=&quot;&#039; . $_SERVER[&#039;PHP_SELF&#039;] . &#039;?=&#039; . php_logo_guid() . &#039;&quot; alt=&quot;PHP Logo !&quot; /&gt;&#039;;
+echo &#039;(generated inline HTML)&#039;;
+&lt;/php&gt;
+&lt;PHP&gt;
+echo &#039;&lt;table class=&quot;inline&quot;&gt;&lt;tr&gt;&lt;td&gt;The same, but inside a block level element:&lt;/td&gt;&#039;;
+echo &#039;&lt;td&gt;&lt;img src=&quot;&#039; . $_SERVER[&#039;PHP_SELF&#039;] . &#039;?=&#039; . php_logo_guid() . &#039;&quot; alt=&quot;PHP Logo !&quot; /&gt;&lt;/td&gt;&#039;;
+echo &#039;&lt;/tr&gt;&lt;/table&gt;&#039;;
+&lt;/PHP&gt;
+</pre>
+
+<p>
+<code class="code php"><a target="_blank"  href="http://www.php.net/echo"><span class="kw3">echo</span></a> <span class="st0">'A logo generated by PHP:'</span>;
+<a target="_blank"  href="http://www.php.net/echo"><span class="kw3">echo</span></a> <span class="st0">'&lt;img src=&quot;'</span> . <span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st0">'PHP_SELF'</span><span class="br0">&#93;</span> . <span class="st0">'?='</span> . <a target="_blank"  href="http://www.php.net/php_logo_guid"><span class="kw3">php_logo_guid</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span> . <span class="st0">'&quot; alt=&quot;PHP Logo !&quot; /&gt;'</span>;
+<a target="_blank"  href="http://www.php.net/echo"><span class="kw3">echo</span></a> <span class="st0">'(inline HTML)'</span>;</code>
+
+</p>
+<pre class="code php"><a target="_blank"  href="http://www.php.net/echo"><span class="kw3">echo</span></a> <span class="st0">'&lt;table class=&quot;inline&quot;&gt;&lt;tr&gt;&lt;td&gt;The same, but inside a block level element:&lt;/td&gt;'</span>;
+<a target="_blank"  href="http://www.php.net/echo"><span class="kw3">echo</span></a> <span class="st0">'&lt;td&gt;&lt;img src=&quot;'</span> . <span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st0">'PHP_SELF'</span><span class="br0">&#93;</span> . <span class="st0">'?='</span> . <a target="_blank"  href="http://www.php.net/php_logo_guid"><span class="kw3">php_logo_guid</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span> . <span class="st0">'&quot; alt=&quot;PHP Logo !&quot; /&gt;&lt;/td&gt;'</span>;
+<a target="_blank"  href="http://www.php.net/echo"><span class="kw3">echo</span></a> <span class="st0">'&lt;/tr&gt;&lt;/table&gt;'</span>;</pre>
+<p>
+<strong>Please Note</strong>: <acronym title="HyperText Markup Language">HTML</acronym> and <acronym title="Hypertext Preprocessor">PHP</acronym> embedding is disabled by default in the configuration. If disabled, the code is displayed instead of executed.
+</p>
+
+</div>
+<!-- SECTION "Embedding HTML and PHP" [15024-16455] -->
+<h2><a name="control_macros" id="control_macros">Control Macros</a></h2>
+<div class="level2">
+
+<p>
+
+Some syntax influences how DokuWiki renders a page without creating any output it self. The following control macros are availble:
+
+</p>
+<table class="inline">
+	<tr class="row0">
+		<th class="col0 leftalign"> Macro           </th><th class="col1"> Description </th>
+	</tr>
+	<tr class="row1">
+		<td class="col0 leftalign"> ~~NOTOC~~   </td><td class="col1"> If this macro is found on the page, no table of contents will be created </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> ~~NOCACHE~~ </td><td class="col1"> DokuWiki caches all output by default. Sometimes this might not be wanted (eg. when the &lt;php&gt; syntax above is used), adding this macro will force DokuWiki to rerender a page on every call </td>
+	</tr>
+</table>
+
+</div>
+<!-- SECTION "Control Macros" [16456-16959] -->
+<h2><a name="syntax_plugins" id="syntax_plugins">Syntax Plugins</a></h2>
+<div class="level2">
+
+<p>
+
+DokuWiki&#039;s syntax can be extended by <a href="http://wiki.splitbrain.org/wiki%3Aplugins" class="interwiki iw_doku" target="_blank" title="http://wiki.splitbrain.org/wiki%3Aplugins">Plugins</a>. How the installed plugins are used is described on their appropriate description pages. The following syntax plugins are available in this particular DokuWiki installation:
+</p>
+<ul><li><div class="li"><a href="http://www.yihui.name" class="urlextern" target="_blank" title="http://www.yihui.name"  rel="nofollow">Animation Plugin</a> <em>2008-06-02</em> by <a href="mailto:xie%20%5Bat%5D%20yihui%20%5Bdot%5D%20name" class="mail JSnocheck" title="xie [at] yihui [dot] name">Yihui Xie</a><br />Generate an animation from a sequence of images, e.g. 1.png, 2.png, ...</div></li><li><div class="li"><a href="http://wiki.splitbrain.org/plugin:info" class="urlextern" target="_blank" title="http://wiki.splitbrain.org/plugin:info"  rel="nofollow">Info Plugin</a> <em>2006-12-09</em> by <a href="mailto:andi%20%5Bat%5D%20splitbrain%20%5Bdot%5D%20org" class="mail JSnocheck" title="andi [at] splitbrain [dot] org">Andreas Gohr</a><br />Displays information about various DokuWiki internals</div></li><li><div class="li"><a href="http://wiki.splitbrain.org/plugin:math" class="urlextern" target="_blank" title="http://wiki.splitbrain.org/plugin:math"  rel="nofollow">MathMulti Plugin ()</a> <em>2006-05-23</em> by <a href="mailto:stephane%20%5Bdot%5D%20chamberland%20%5Bat%5D%20ec%20%5Bdot%5D%20gc%20%5Bdot%5D%20ca" class="mail JSnocheck" title="stephane [dot] chamberland [at] ec [dot] gc [dot] ca">Stephane Chamberland</a><br /><br />()</div></li></ul>
+</div>
+<!-- SECTION "Syntax Plugins" [16960-] --><div class="footnotes">
+<div class="fn"><sup><a href="#fnt__1" id="fn__1" name="fn__1" class="fn_bot">1)</a></sup> 
+This is a footnote</div>
+</div>

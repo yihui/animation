@@ -1,0 +1,26 @@
+<span class="co3">#---------------------------------------------------------------------------#</span>
+<span class="co3"># Some parameters in 'ani.options()' such as 'nmax' and 'interval' have been</span>
+<span class="co3">#   appropriately set beforehand;</span>
+<span class="co3">#---------------------------------------------------------------------------#</span>
+ani<span class="re5">.fun</span> &lt;- <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=function"><span class="kw1">function</span></a><span class="br0">&#40;</span><a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=args"><span class="kw4">args</span></a>.<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=for"><span class="kw1">for</span></a>.stat<span class="re5">.method</span>, <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=args"><span class="kw4">args</span></a>.<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=for"><span class="kw1">for</span></a><span class="re5">.graphics</span>, ...<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+    <span class="br0">&#123;</span>stat.calculation.<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=for"><span class="kw1">for</span></a>.preparation.here<span class="br0">&#125;</span>
+    <span class="re5">i</span> = <span class="nu0">1</span>
+    <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=while"><span class="kw1">while</span></a> <span class="br0">&#40;</span><span class="re5">i</span> &lt;= ani.<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=options"><span class="kw4">options</span></a><span class="br0">&#40;</span><span class="st0">&quot;nmax&quot;</span><span class="br0">&#41;</span> &amp; other.conditions.<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=for"><span class="kw1">for</span></a>.stat.method<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+        <span class="br0">&#123;</span>stat.calculation.<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=for"><span class="kw1">for</span></a>.animation<span class="br0">&#125;</span>
+        <span class="br0">&#123;</span><a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=plot"><span class="kw3">plot</span></a>.results.<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=in"><span class="kw1">in</span></a>.ith.<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=step"><span class="kw4">step</span></a><span class="br0">&#125;</span>
+        <span class="co3"># pause for a while in this step</span>
+        <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=Sys.sleep"><span class="kw2">Sys.sleep</span></a><span class="br0">&#40;</span>ani.<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=options"><span class="kw4">options</span></a><span class="br0">&#40;</span><span class="st0">&quot;interval&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+        <span class="re5">i</span> = i + <span class="nu0">1</span>
+    <span class="br0">&#125;</span>
+    <span class="co3"># (i - 1) frames produced in the loop</span>
+    ani.<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=options"><span class="kw4">options</span></a><span class="br0">&#40;</span><span class="st0">&quot;nmax&quot;</span><span class="br0">&#41;</span> = i - <span class="nu0">1</span>
+    <span class="br0">&#123;</span><a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=return"><span class="kw4">return</span></a>.something<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+<span class="co3">#---------------------------------------------------------------------------#</span>
+<span class="co3"># To produce an HTML animation page, use 'ani.start(...)'; then </span>
+<span class="co3"># 'ani.fun(...)'; use 'ani.stop(...)' to complete the HTML page.</span>
+<span class="co3">#---------------------------------------------------------------------------#</span>
+<span class="co3"># To produce GIF/MPEG animations, use 'saveMovie(ani.fun(...), ...)';</span>
+<span class="co3">#---------------------------------------------------------------------------#</span>
+<span class="co3"># To produce Flash animations, use 'saveSWF(ani.fun(...), ...))';</span>
+<span class="co3">#---------------------------------------------------------------------------#</span>

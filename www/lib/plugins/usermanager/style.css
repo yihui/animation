@@ -1,0 +1,20 @@
+/* User Manager specific styles */
+#user__manager tr.disabled {
+  color: #6f6f6f;
+  background: #e4e4e4;
+}
+#user__manager tr.user_info {
+  vertical-align: top;
+}
+#user__manager div.edit_user {
+  width: 46%;
+  float: left;
+}
+#user__manager table {
+  margin-bottom: 1em;
+}
+#user__manager input.button[disabled] {
+  color: #ccc!important;
+  border-color: #ccc!important;
+}
+/* IE won't understand but doesn't require it */

@@ -1,0 +1,61 @@
+.anidemo {
+	width: auto;
+	margin: 5px auto 10px auto;
+}
+.anidemo input{
+	font-family: monospace;
+	background-color: #FFFFFF;
+}
+.anidemo input.anibutton{
+	font-weight: bold;
+}
+
+.anidemo input.text {
+	border: 1px solid __border__;
+}
+
+.anidemo fieldset {
+	padding: 0em;
+	width: auto;
+}
+
+.anidemo legend {
+	font-variant: small-caps;
+	font-weight: bold;
+	font-size: 140%;
+}
+
+.loading {
+	font-family: "Bitstream Vera Sans Mono", "Courier New", monospace;
+	color: #FFFFFF;
+	background-color: #990000;
+	padding: 2px;
+	width: auto;
+	float: left;
+	text-align: left;
+}
+
+.divPreload {
+	height: 150px;
+	width: 100%;
+}
+
+.divFrame {
+	display: none;
+}
+
+
+.anidemo .btncontrol{
+	margin: 5px auto 5px auto;
+}
+
+
+.anidemo .morepar{
+	font-family: "Bitstream Vera Sans Mono", "Courier New", monospace;
+	display: none;
+	margin-bottom: 5px;
+}
+
+.anidemo .description {
+	text-align: left;
+}

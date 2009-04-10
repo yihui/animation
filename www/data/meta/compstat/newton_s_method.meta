@@ -1,0 +1,21 @@
+a:2:{s:7:"current";a:6:{s:4:"date";a:2:{s:7:"created";i:1213102973;s:8:"modified";i:1234236506;}s:7:"creator";s:9:"Yihui Xie";s:11:"last_change";a:7:{s:4:"date";i:1234236506;s:2:"ip";s:15:"218.107.132.124";s:4:"type";s:1:"E";s:2:"id";s:24:"compstat:newton_s_method";s:4:"user";N;s:3:"sum";s:21:"old revision restored";s:5:"extra";s:0:"";}s:5:"title";s:42:"The Newton-Raphson Method for Root-finding";s:11:"description";a:2:{s:15:"tableofcontents";a:3:{i:0;a:4:{s:3:"hid";s:42:"the_newton-raphson_method_for_root-finding";s:5:"title";s:42:"The Newton-Raphson Method for Root-finding";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:9:"animation";s:5:"title";s:9:"Animation";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:6:"r_code";s:5:"title";s:6:"R code";s:4:"type";s:2:"ul";s:5:"level";i:2;}}s:8:"abstract";s:488:"Go go go! Along with the tangent lines! FIXME
+
+Animation
+
+
+
+
+
+
+R code
+
+
+oopt = ani.options(ani.height = 500, ani.width = 600, outdir = getwd(), nmax = 100,
+    interval = 1, title = "Demonstration of the Newton-Raphson Method",
+    description = "Go along with the tangent lines and iterate.")
+ani.start()
+par(mar = c(3, 3, 1, 1.5), mgp = c(1.5, 0.5, 0), pch = 19)
+newton.method(function(x) 5 * x^3 - 7 * x^2 - 40 *
+    x + 100, 7.15, c(-6.2, 7.1), main = "")
+ani.stop()
+ani.options(oopt)";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}}s:10:"persistent";a:3:{s:4:"date";a:2:{s:7:"created";i:1213102973;s:8:"modified";i:1234236506;}s:7:"creator";s:9:"Yihui Xie";s:11:"last_change";a:7:{s:4:"date";i:1234236506;s:2:"ip";s:15:"218.107.132.124";s:4:"type";s:1:"E";s:2:"id";s:24:"compstat:newton_s_method";s:4:"user";N;s:3:"sum";s:21:"old revision restored";s:5:"extra";s:0:"";}}}

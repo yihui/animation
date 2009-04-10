@@ -1,0 +1,24 @@
+====== Stratified Sampling ======
+
+**Stratified Sampling** is commonly used probability method that is superior to random sampling because it reduces sampling error. A stratum is a subset of the population that share at least one common characteristic. Examples of strata might be males and females, or managers and non-managers. The researcher first identifies the relevant strata and their actual representation in the population. Random sampling is then used to select a sufficient number of subjects from each stratum. "Sufficient" refers to a sample size large enough for us to be reasonably confident that the stratum represents the population. Stratified sampling is often used when one or more of the strata in the population have a low incidence relative to the other strata.
+
+===== Animation =====
+
+<ani strat http://s288.photobucket.com/albums/ll181/xieyihui/stratified_sampling/ png 30 350 1|Demonstration of the stratified sampling>
+Every rectangle stands for a stratum, and the simple random sampling without replacement is performed within each stratum.
+</ani>
+
+===== R code =====
+
+<code r>
+oopt = ani.options(ani.height = 350, ani.width = 500, outdir = getwd(), nmax = 30,
+    interval = 1, title = "Demonstration of the stratified sampling",
+    description = "Every rectangle stands for a stratum, and the simple
+    random sampling without replacement is performed within each stratum.")
+ani.start()
+par(mar = rep(1, 4), lwd = 2)
+sample.strat(col = c("bisque", "white"))
+ani.stop()
+ani.options(oopt)
+</code>
+

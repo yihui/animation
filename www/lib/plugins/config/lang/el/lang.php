@@ -1,0 +1,160 @@
+<?php
+/**
+ * Greek language file
+ *
+ * Based on DokuWiki Version rc2007-05-24 english language file
+ * Original english language file contents included for reference
+ *
+ * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
+ * @author Christopher Smith <chris@jalakai.co.uk>
+ * @author Thanos Massias <tm@thriasio.gr>
+ * @author Αθανάσιος Νταής <homunculus@wana.gr>
+ */
+$lang['menu']                  = 'Ρυθμίσεις';
+$lang['error']                 = 'Οι ρυθμίσεις σας δεν έγιναν δεκτές λόγω λανθασμένης τιμής κάποιας ρύθμισης. Διορθώστε την λάθος τιμή και προσπαθήστε ξανά.
+                                      <br />Η λανθασμένη τιμή υποδεικνύεται με κόκκινο πλαίσιο.';
+$lang['updated']               = 'Επιτυχής τροποποίση ρυθμίσεων.';
+$lang['nochoice']              = '(δεν υπάρχουν άλλες διαθέσιμες επιλογές)';
+$lang['locked']                = 'Το αρχείο ρυθμίσεων δεν μπορεί να τροποποιηθεί.
+                                      <br />Εάν αυτό δεν είναι επιθυμητό, διορθώστε τα δικαιώματα πρόσβασης του αρχείου ρυθμίσεων';
+$lang['_configuration_manager'] = 'Ρυθμίσεις';
+$lang['_header_dokuwiki']      = 'Ρυθμίσεις DokuWiki';
+$lang['_header_plugin']        = 'Ρυθμίσεις Επεκτάσεων';
+$lang['_header_template']      = 'Ρυθμίσεις Προτύπων παρουσίασης';
+$lang['_header_undefined']     = 'Διάφορες Ρυθμίσεις';
+$lang['_basic']                = 'Βασικές Ρυθμίσεις';
+$lang['_display']              = 'Ρυθμίσεις Εμφάνισης';
+$lang['_authentication']       = 'Ρυθμίσεις Ασφαλείας';
+$lang['_anti_spam']            = 'Ρυθμίσεις Anti-Spam';
+$lang['_editing']              = 'Ρυθμίσεις Σύνταξης σελίδων';
+$lang['_links']                = 'Ρυθμίσεις Συνδέσμων';
+$lang['_media']                = 'Ρυθμίσεις Αρχείων';
+$lang['_advanced']             = 'Ρυθμίσεις για Προχωρημένους';
+$lang['_network']              = 'Ρυθμίσεις Δικτύου';
+$lang['_plugin_sufix']         = 'Ρυθμίσεις Επεκτάσεων';
+$lang['_template_sufix']       = 'Ρυθμίσεις Προτύπων παρουσίασης';
+$lang['_msg_setting_undefined'] = 'Δεν έχουν οριστεί metadata.';
+$lang['_msg_setting_no_class'] = 'Δεν έχει οριστεί κλάση.';
+$lang['_msg_setting_no_default'] = 'Δεν υπάρχει τιμή εξ ορισμού.';
+$lang['fmode']                 = 'Δικαιώματα πρόσβασης δημιουργούμενων αρχείων';
+$lang['dmode']                 = 'Δικαιώματα πρόσβασης δημιουργούμενων φακέλων';
+$lang['lang']                  = 'Γλώσσα';
+$lang['basedir']               = 'Αρχικός Φάκελος';
+$lang['baseurl']               = 'Αρχικό URL';
+$lang['savedir']               = 'Φάκελος για την αποθήκευση δεδομένων';
+$lang['start']                 = 'Ονομασία αρχικής σελίδας';
+$lang['title']                 = 'Τίτλος Wiki';
+$lang['template']              = 'Πρότυπο προβολής';
+$lang['fullpath']              = 'Εμφάνιση πλήρους διαδρομής σελίδας στην υποκεφαλίδα';
+$lang['recent']                = 'Αριθμός πρόσφατων αλλαγών ανά σελίδα';
+$lang['breadcrumbs']           = 'Αριθμός συνδέσμων ιστορικού';
+$lang['youarehere']            = 'Εμφάνιση ιεραρχικής προβολής τρέχουσας σελίδας';
+$lang['typography']            = 'Μετατροπή ειδικών χαρακτήρων στο τυπογραφικό ισοδύναμό τους';
+$lang['htmlok']                = 'Να επιτρέπεται η ενσωμάτωση HTML';
+$lang['phpok']                 = 'Να επιτρέπεται η ενσωμάτωση PHP';
+$lang['dformat']               = 'Μορφή ημερομηνίας (βλέπε την <a href="http://www.php.net/strftime">strftime</a> function της PHP)';
+$lang['signature']             = 'Υπογραφή';
+$lang['toptoclevel']           = 'Ανώτατο επίπεδο πίνακα περιεχομένων σελίδας';
+$lang['maxtoclevel']           = 'Μέγιστο επίπεδο για πίνακα περιεχομένων σελίδας';
+$lang['maxseclevel']           = 'Μέγιστο επίπεδο για εμφάνιση της επιλογής τροποποίησης επιπέδου';
+$lang['camelcase']             = 'Χρήση CamelCase στους συνδέσμους';
+$lang['deaccent']              = 'Αφαίρεση σημείων στίξης από ονόματα σελίδων';
+$lang['useheading']            = 'Χρήση κεφαλίδας πρώτου επιπέδου σαν τίτλο σθνδέσμων';
+$lang['refcheck']              = 'Πριν τη διαγραφή ενός αρχείου να ελέγχεται η ύπαρξη σελίδων που το χρησιμοποιούν';
+$lang['refshow']               = 'Εμφανιζόμενος αριθμός σελίδων που χρησιμοποιούν ένα αρχείο';
+$lang['allowdebug']            = 'Δεδομένα εκσφαλμάτωσης (debug) <b>απενεργοποιήστε τα εάν δεν τα έχετε ανάγκη!</b>';
+$lang['usewordblock']          = 'Χρήστη λίστα απαγορευμένων λέξεων για καταπολέμηση του spam';
+$lang['indexdelay']            = 'Χρόνος αναμονής πρωτού επιταπεί σε μηχανές αναζήτησης να ευρετηριάσουν μια τροποποιημένη σελίδα (sec)';
+$lang['relnofollow']           = 'Χρήση rel="nofollow"';
+$lang['mailguard']             = 'Κωδικοποίηση e-mail διευθύνσεων';
+$lang['iexssprotect']          = 'Έλεγχος μεταφορτώσεων για πιθανώς επικίνδυνο κώδικα JavaScript ή HTML';
+$lang['useacl']                = 'Χρήση Λίστας Δικαιωμάτων Πρόσβασης (ACL)';
+$lang['autopasswd']            = 'Αυτόματη δημιουργία κωδικού χρήστη';
+$lang['authtype']              = 'Τύπος πιστοποίησης στοιχείων χρήστη';
+$lang['passcrypt']             = 'Μέθοδος κρυπτογράφησης κωδικού χρήστη';
+$lang['defaultgroup']          = 'Προεπιλεγμένη ομάδα χρηστών';
+$lang['superuser']             = 'Υπερ-χρήστης - μία ομάδα ή ένας χρήστης με πλήρη δικαιώματα πρόσβασης σε όλες τις σελίδες και όλες τις λειτουργίες ανεξάρτητα από τις ρυθμίσης των Λιστών Δικαιωμάτων Πρόσβασης (ACL)';
+$lang['manager']               = 'Διαχειριστής - μία ομάδα ή ένας χρήστης με δικαιώματα πρόσβασης σε ορισμένες από τις λειτουργίες της εφαρμογής';
+$lang['profileconfirm']        = 'Να απαιτείται ο κωδικός χρήστη για την επιβεβαίωση αλλαγών στο προφίλ χρήστη';
+$lang['disableactions']        = 'Απενεργοποίηση λειτουργιών DokuWiki';
+$lang['disableactions_check']  = 'Έλεγχος';
+$lang['disableactions_subscription'] = 'Εγγραφή/Διαγραφή χρήστη';
+$lang['disableactions_wikicode'] = 'Προβολή κώδικα σελίδας';
+$lang['disableactions_other']  = 'Άλλες λειτουργίες (διαχωρίστε τις με κόμμα)';
+$lang['sneaky_index']          = 'Εξ ορισμού, η εφαρμογή DokuWiki δείχνει όλους τους φακέλους στην προβολή Καταλόγου.
+                                      Ενεργοποιώντας αυτή την επιλογή, δεν θα εμφανίζονται οι φάκελοι για τους οποίους ο χρήστης δεν έχει δικαιώματα ανάγνωσης αλλά και οι υπο-φάκελοί τους ανεξαρτήτως δικαιωμάτων πρόσβασης.';
+$lang['auth_security_timeout'] = 'Διάρκεια χρόνου για ασφάλεια πιστοποίησης (δευτερόλεπτα)';
+$lang['updatecheck']           = 'Έλεγχος για ύπαρξη νέων εκδόσεων και ενημερώσεων ασφαλείας της εφαρμογής? Απαιτείται η σύνδεση με το splitbrain.org για να λειτουργήσει σωστά αυτή η επιλογή.';
+$lang['userewrite']            = 'Χρήση ωραίων URLs';
+$lang['useslash']              = 'Χρήση slash σαν διαχωριστικό φακέλων στα URLs';
+$lang['usedraft']              = 'Αυτόματη αποθήκευση αντιγράφων κατά την τροποποίηση σελίδων';
+$lang['sepchar']               = 'Διαχωριστικός χαρακτήρας για κανονικοποίση ονόματος σελίδας';
+$lang['canonical']             = 'Πλήρη και κανονικοποιημένα URLs';
+$lang['autoplural']            = 'Ταίριασμα πληθυντικού στους συνδέσμους';
+$lang['compression']           = 'Μέθοδος συμπίεσης για αρχεία attic';
+$lang['cachetime']             = 'Μέγιστη ηλικία cache (sec)';
+$lang['locktime']              = 'Μέγιστος χρόνος κλειδώματος αρχείου υπό τροποποίηση (sec)';
+$lang['fetchsize']             = 'Μέγιστο μέγεθος (σε bytes) εξωτερικού αρχείου που επιτρέπεται να μεταφέρει η fetch.php';
+$lang['notify']                = 'Αποστολή ενημέρωσης για αλλαγές σε αυτή την e-mail διεύθυνση';
+$lang['registernotify']        = 'Αποστολή ενημερωτικών μυνημάτων σε αυτή την e-mail διεύθυνση κατά την εγγραφή νέων χρηστών';
+$lang['mailfrom']              = 'e-mail διεύθυνση αποστολέα για μηνύματα από την εφαρμογή';
+$lang['gzip_output']           = 'Χρήση gzip Content-Encoding για την xhtml';
+$lang['gdlib']                 = 'Έκδοση βιβλιοθήκης GD';
+$lang['im_convert']            = 'Διαδρομή προς το εργαλείο μετατροπής εικόνων του ImageMagick';
+$lang['jpg_quality']           = 'Ποιότητα συμπίεσης JPG (0-100)';
+$lang['subscribers']           = 'Να επιτρέπεται η εγγραφή στην ενημέρωση αλλαγών σελίδας';
+$lang['compress']              = 'Συμπίεση αρχείων CSS και javascript';
+$lang['hidepages']             = 'Φίλτρο απόκρυψης σελίδων (regular expressions)';
+$lang['send404']               = 'Αποστολή "HTTP 404/Page Not Found" για σελίδες που δεν υπάρχουν';
+$lang['sitemap']               = 'Δημιουργία Google sitemap (ημέρες)';
+$lang['broken_iua']            = 'Η συνάρτηση ignore_user_abort δεν λειτουργεί σωστά στο σύστημά σας? Σε αυτή την περίπτωση μπορεί να μην δουλεύει σωστά η λειτουργία Καταλόγου. Ο συνδυασμός IIS+PHP/CGI είναι γνωστό ότι έχει τέτοιο πρόβλημα. Δείτε και <a href="http://bugs.splitbrain.org/?do=details&amp;task_id=852">Bug 852</a> για λεπτομέρειες.';
+$lang['rss_type']              = 'Τύπος XML feed';
+$lang['rss_linkto']            = 'Τύπος συνδέσμων στο XML feed';
+$lang['rss_content']           = 'Τι να εμφανίζεται στα XML feed items?';
+$lang['rss_update']            = 'Χρόνος ανανέωσης XML feed (sec)';
+$lang['recent_days']           = 'Πόσο παλιές αλλαγές να εμφανίζονται (ημέρες)';
+$lang['rss_show_summary']      = 'Να εμφανίζεται σύνοψη του XML feed στον τίτλο';
+$lang['target____wiki']        = 'Παράθυρο-στόχος για εσωτερικούς συνδέσμους';
+$lang['target____interwiki']   = 'Παράθυρο-στόχος για συνδέσμους interwiki';
+$lang['target____extern']      = 'Παράθυρο-στόχος για εξωτερικούς σθνδέσμους';
+$lang['target____media']       = 'Παράθυρο-στόχος για συνδέσμους αρχείων';
+$lang['target____windows']     = 'Παράθυρο-στόχος για συνδέσμους σε Windows shares';
+$lang['proxy____host']         = 'Διακομιστής Proxy';
+$lang['proxy____port']         = 'Θύρα Proxy';
+$lang['proxy____user']         = 'Όνομα χρήστη Proxy';
+$lang['proxy____pass']         = 'Κωδικός χρήστη Proxy';
+$lang['proxy____ssl']          = 'Χρήση ssl για σύνδεση με διακομιστή Proxy';
+$lang['safemodehack']          = 'Ενεργοποίηση safemode hack';
+$lang['ftp____host']           = 'Διακομιστής FTP για safemode hack';
+$lang['ftp____port']           = 'Θύρα FTP για safemode hack';
+$lang['ftp____user']           = 'Όνομα χρήστη FTP για safemode hack';
+$lang['ftp____pass']           = 'Κωδικός χρήστη FTP για safemode hack';
+$lang['ftp____root']           = 'Αρχικός φάκελος FTP για safemode hack';
+$lang['typography_o_0']        = 'κανένα';
+$lang['typography_o_1']        = 'Μόνο διπλά εισαγωγικά';
+$lang['typography_o_2']        = 'Όλα τα εισαγωγικά (μπορεί να μην λειτουργήσει πάντα)';
+$lang['userewrite_o_0']        = 'κανένα';
+$lang['userewrite_o_1']        = '.htaccess';
+$lang['userewrite_o_2']        = 'από DokuWiki';
+$lang['deaccent_o_0']          = 'όχι';
+$lang['deaccent_o_1']          = 'Αφαίρεση σημείων στίξης';
+$lang['deaccent_o_2']          = 'Λατινοποίηση';
+$lang['gdlib_o_0']             = 'Δεν υπάρχει βιβλιοθήκη GD στο σύστημα';
+$lang['gdlib_o_1']             = 'Έκδοση 1.x';
+$lang['gdlib_o_2']             = 'Αυτόματος εντοπισμός';
+$lang['rss_type_o_rss']        = 'RSS 0.91';
+$lang['rss_type_o_rss1']       = 'RSS 1.0';
+$lang['rss_type_o_rss2']       = 'RSS 2.0';
+$lang['rss_type_o_atom']       = 'Atom 0.3';
+$lang['rss_type_o_atom1']      = 'Atom 1.0';
+$lang['rss_content_o_abstract'] = 'Περίληψη';
+$lang['rss_content_o_diff']    = 'Ενοποιημένο Diff';
+$lang['rss_content_o_htmldiff'] = 'HTML διαμορφωμένος πίνακας diff';
+$lang['rss_content_o_html']    = 'Περιεχόμενο Σελίδας μόνο με HTML';
+$lang['rss_linkto_o_diff']     = 'προβολή αλλαγών';
+$lang['rss_linkto_o_page']     = 'τροποποιημένη σελίδα';
+$lang['rss_linkto_o_rev']      = 'εκδόσεις σελίδας';
+$lang['rss_linkto_o_current']  = 'τρέχουσα σελίδα';
+$lang['compression_o_0']       = 'none';
+$lang['compression_o_gz']      = 'gzip';
+$lang['compression_o_bz2']     = 'bz2';

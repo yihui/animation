@@ -1,0 +1,31 @@
+
+
+
+<h1><a name="referrers" id="referrers">Referrers</a></h1>
+<div class="level1">
+
+<p>
+
+This plugin logs referrers for your site, so you can see where your traffic comes from. The log will be located at <strong>wiki:referrers</strong>, so you will need to create that page for this plugin to work.
+</p>
+
+<p>
+Currently the superuser will not be logged, along with some search engines and some referrer spammers. This will all be configurable in a future release.
+</p>
+
+<p>
+The plugin also exports a function for use with your template, so you will have to insert the following code into your template, somewhere inside of the <strong>&lt;head&gt;&lt;/head&gt;</strong> tags.
+</p>
+<pre class="code php"><span class="kw2">&lt;?php</span>
+<span class="kw1">if</span> <span class="br0">&#40;</span><a target="_blank"  href="http://www.php.net/file_exists"><span class="kw3">file_exists</span></a><span class="br0">&#40;</span>DOKU_PLUGIN<span class="sy0">.</span><span class="st0">'referrers/code.php'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">include_once</span><span class="br0">&#40;</span>DOKU_PLUGIN<span class="sy0">.</span><span class="st0">'referrers/code.php'</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="kw1">if</span> <span class="br0">&#40;</span><a target="_blank"  href="http://www.php.net/function_exists"><span class="kw3">function_exists</span></a><span class="br0">&#40;</span><span class="st0">'re_log_referrers'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> re_log_referrers<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="kw2">?&gt;</span></pre>
+<p>
+<strong>Note</strong>: Inserting the code above is <strong>required</strong>, not optional.
+</p>
+
+<p>
+<strong>Template Authors Note</strong>: You can insert the above code and make your template “Referrers Ready”, even if your users do not use Referrers for DokuWiki (or have this plugin.)
+</p>
+
+</div>

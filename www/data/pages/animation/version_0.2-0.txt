@@ -1,0 +1,140 @@
+====== Package ''animation'' before 0.2-1 ======
+
+Prior to ''animation (<= 0.2-0)'' the way to control animation parameters is quite different to later releases (''> 0.2-0''). If you are still using the old versions, please read the usage and animation method below.
+
+===== Usage  =====
+
+Running animations either inside R (in graphical devices) or outside R (in HTML pages) are OK, as an argument ''saveANI'' (actually in the argument ''control'' using the function ''ani.control()'') to decide whether to save PNG files.
+
+By ''ani.start()'', specifying ''saveANI = TRUE'', and ''ani.stop()'', you can generate an HTML page containing the animation; or if ''saveANI = FALSE'', the animations will be shown inside R graphical devices.
+
+For further information, please check the help pages or the vignette. 
+
+===== Method =====
+
+How to generate an animation sequence and save it?
+
+==== Generate an animation sequence ====
+
+The animation method behind the package is quite naive and intuitive; here is an example showing how it works:
+
+<code r>
+for (i in 1:360) {
+    plot(1, ann = F, type = "n", axes = F)
+    text(1, 1, "Animation", srt = i, col = rainbow(360)[i], cex = 7 * 
+        i/360)
+    Sys.sleep(0.01)
+} 
+</code>
+
+The above R code will produce an animation like this:
+
+{{ :animation:animation_rotation.gif |The rotation animation of the word "Animation"}}
+
+Almost all of the animation functions in the package just follow this kind of loop to produce a sequence of image frames.
+
+==== A General Schema ====
+
+Here is the pseudo code for the general schema used in the package:
+
+<code r>
+ani.fun <- function(args.stat.method, control = ani.control(nmax = 100, 
+    interval = 0.05, width, height, ...), ...) {
+    control = checkargs(control, ...)
+    (stat.calculation.for.preparation.here)
+    i = 1
+    while (i <= control$nmax) {
+        (stat.calculation.for.animation)
+        (plot.results.in.ith.step)
+        if (control$saveANI) 
+            savePNG(n = i, width = control$width, height = control$height)
+        else Sys.sleep(control$interval)
+        i = i + 1
+    }
+    (return.something)
+} 
+</code>
+
+==== Create an HTML page for animation ====
+
+The animation in the HTML pages is actually driven by JS. For more details, please refer to the [[wiki:animation_example|HTML animation examples]] and the [[wiki:animation_plugin|animation plugin for Dokuwiki]].
+
+==== Create GIF animations ====
+
+The package has also provided a wrapper to generate GIF animations together with [[http://www.imagemagick.org|ImageMagic]]. The method is even easier; we merely need to write some code which can produce a sequence of images, and the rest work will be done by the function ''saveMovie()'' in the package. See the example in the "Examples" section.
+
+===== Examples =====
+
+Currently we can directly use the functions in the package to produce animations, or we can also define animation functions for ourselves.
+
+==== Use internal functions ====
+
+<code r>
+library(animation)
+
+# inside R: windows graphics device
+brownian.motion(n = 15, nmax = 150) 
+
+# outside R: create an HTML animation page
+ani.start()
+brownian.motion(n = 15, nmax = 100, saveANI = TRUE, width = 500, height = 500) 
+ani.stop() 
+</code>
+
+==== Define custom functions ====
+
+The following code has explained how to define animation functions for yourself (please read [[animation:start#a_general_schema|the general schema]] above first):
+
+<code r>
+library(animation)
+# define an animation function to show the jitter effect
+jitter.ani <- function(control = ani.control(), ...) {
+    control = checkargs(control, ...)
+    x <- 1:100
+    i <- 1
+    while (i <= 30) {
+        plot(x, jitter(x, amount = 5), ylim = c(1, 100), ylab = "jittered x", 
+            panel.first = {
+                grid()
+                abline(0, 1, col = "darkgray")
+            })
+        if (control$saveANI) 
+            savePNG(n = i, width = control$width, height = control$height)
+        else Sys.sleep(control$interval)
+        i <- i + 1
+    }
+}
+ani.start()
+jitter.ani(saveANI = TRUE, interval = 0.5)
+ani.stop() 
+</code>
+
+==== GIF animation ====
+
+Following the above example, we pass an expression to the function ''saveMovie()'' to create a similar animation:
+
+<code r>
+library(animation)
+saveMovie(for (i in 1:30) plot(x, jitter(x, amount = 5), 
+    ylim = c(1, 100), ylab = "jittered x", panel.first = {
+        grid()
+        abline(0, 1, col = "darkgray")
+    }), interval = 0.5, outdir = getwd()) 
+# the GIF animation 'movie.gif' will be created in the directory getwd()
+</code>
+
+Or this code will be more clear:
+
+<code r>
+library(animation)
+ani.expr <- expression(for (i in 1:30) plot(x, jitter(x, 
+    amount = 5), ylim = c(1, 100), ylab = "jittered x", panel.first = {
+    grid()
+    abline(0, 1, col = "darkgray")
+}))
+saveMovie(ani.expr, interval = 0.5, outdir = getwd()) 
+</code>
+
+===== Vignette =====
+
+Here is {{:animation:animation.pdf|the old vignette}}. If anybody wants to continue my work, please download {{:animation:vignette.zip|the LaTeX source (Sweave)}}.

@@ -1,0 +1,13 @@
+<span class="re5">f</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=tempfile"><span class="kw4">tempfile</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span>
+<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=writeLines"><span class="kw4">writeLines</span></a><span class="br0">&#40;</span><span class="st0">'
+ # rotation of the word &quot;Animation&quot;
+# in a loop; change the angle and color
+# step by step
+for (i in 1:360) {
+# redraw the plot again and again
+plot(1,ann=FALSE,type=&quot;n&quot;,axes=FALSE)
+# rotate; use rainbow() colors
+text(1,1,&quot;Animation&quot;,srt=i,col=rainbow(360)[i],cex=7*i/360)
+# pause for a while
+Sys.sleep(0.01)}
+'</span>, f<span class="br0">&#41;</span>

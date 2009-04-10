@@ -1,0 +1,33 @@
+====== Brownian Motion ======
+
+The function ''brownian.motion()'' has illustrated the phenomenon of [[wp>random_walk|Random Walk]] on the 2D plane. For a point ''(x, y)'', its next location is ''(x + rnorm(1), y + rnorm(1))''.
+
+===== R code =====
+
+<code r>
+# create an HTML animation page of Brownian Motion
+# store the old option to restore it later
+oopt = ani.options(interval = 0.05, nmax = 100, ani.dev = png, ani.type = "png",
+    title = "Demonstration of Brownian Motion",
+    description = "Random walk on the 2D plane: for each point (x, y), 
+    x = x + rnorm(1) and y = y + rnorm(1).")
+ani.start()
+opar = par(mar = c(3, 3, 1, 0.5), mgp = c(2, .5, 0), tcl = -0.3,
+    cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)
+brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")
+par(opar)
+ani.stop()
+ani.options(oopt)
+</code>
+
+===== Animation =====
+
+The animation is like this:
+
+<ani bm http://i288.photobucket.com/albums/ll181/xieyihui/brownian_motion/ png 100 480 0.05|Demonstration of Brownian Motion>
+Random walk on the 2D plane: for each point (x, y), x = x + rnorm(1) and y = y + rnorm(1).
+</ani>
+
+===== Other resources =====
+
+  * I find this Java applet is much more interesting than my function: [[http://galileoandeinstein.physics.virginia.edu/more_stuff/Applets/brownian/brownian.html|Einstein's Explanation of Brownian Motion]]

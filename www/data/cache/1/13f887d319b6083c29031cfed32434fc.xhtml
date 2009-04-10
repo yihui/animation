@@ -1,0 +1,38 @@
+
+
+
+<h1><a name="stratified_sampling" id="stratified_sampling">Stratified Sampling</a></h1>
+<div class="level1">
+
+<p>
+
+<strong>Stratified Sampling</strong> is commonly used probability method that is superior to random sampling because it reduces sampling error. A stratum is a subset of the population that share at least one common characteristic. Examples of strata might be males and females, or managers and non-managers. The researcher first identifies the relevant strata and their actual representation in the population. Random sampling is then used to select a sufficient number of subjects from each stratum. “Sufficient” refers to a sample size large enough for us to be reasonably confident that the stratum represents the population. Stratified sampling is often used when one or more of the strata in the population have a low incidence relative to the other strata.
+</p>
+
+</div>
+<!-- SECTION "Stratified Sampling" [1-786] -->
+<h2><a name="animation" id="animation">Animation</a></h2>
+<div class="level2">
+
+<p>
+
+<div align="center" class="anidemo" title="Demonstration of the stratified sampling"><fieldset><legend align="center">Demonstration of the stratified sampling</legend><div id="loadingstrat" class="loading">loading animation frames... 0%</div><div id="divPreloadstrat" class="divPreload"><script language="JavaScript" type="text/javascript">	var sourcestrat = "http://s288.photobucket.com/albums/ll181/xieyihui/stratified_sampling/";	var imgtypestrat = "png";	var tmpstrat = 0;	var nmaxstrat=30; 	var nstrat=1;	var tstrat;	for(i = 1; i <= nmaxstrat; i++){		document.write("<div class=\"divFrame\" id=\"divPreload" + "strat" + i + "\"><img src=\"" + sourcestrat + i + "." + imgtypestrat + "\"" + " id = \"img" + "strat" + i + "\" onload = \"loading(\'strat\')\" onerror = \"loading(\'strat\')\" alt=\"Demonstration of the stratified sampling\" title=\"Demonstration of the stratified sampling\" /></div>");}</script></div><div class="btncontrol"><input name="nmaxstrat" type="hidden" id="nmaxstrat" value="30" /><input name="heightstrat" type="hidden" id="heightstrat" value="350" /><input name="btnPlaystrat" type="submit" disabled="disabled" class="anibutton" id="btnPlaystrat" title="Play" onclick="playAni('strat')" value="  &gt;  " /> <input name="btnPausestrat" type="submit" disabled="disabled" class="anibutton" id="btnPausestrat" title="Pause" onclick="pauseAni('strat')" value="  O  " /> <input name="btnFaststrat" type="submit" disabled="disabled" class="anibutton" id="btnFaststrat" title="Speed up" onclick="fastAni('strat',1)" value="  +  " /> <input name="btnSlowstrat" type="submit" disabled="disabled" class="anibutton" id="btnSlowstrat" title="Slow down" onclick="fastAni('strat',-1)" value="  -  " /> <input name="btnPrevstrat" type="submit" disabled="disabled" class="anibutton" id="btnPrevstrat" title="Previous frame" onclick="prevAni('strat',1)" value="  &lt;&lt;  " /> <input name="btnNextstrat" type="submit" disabled="disabled" class="anibutton" id="btnNextstrat" title="Next frame" onclick="prevAni('strat',-1)" value="  &gt;&gt;  " /> <input name="btnFirststrat" type="submit" disabled="disabled" class="anibutton" id="btnFirststrat" title="First frame" onclick="firstAni('strat',true)" value="  |&lt;  " /> <input name="btnLaststrat" type="submit" disabled="disabled" class="anibutton" id="btnLaststrat" title="Last frame" onclick="firstAni('strat',false)" value="  &gt;|  " /> <input name="btnMorestrat" type="submit" disabled="disabled" class="anibutton" id="btnMorestrat" title="More controls" onclick="btnMore('strat')" value="  &lt;&gt;  " /></div><div id="moreParstrat" class="morepar"><label title="Which frame to go?" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">View frame <input name="txtFramestrat" type="text" id="txtFramestrat" onblur="txtFrame(this.value, 'strat')" value="1" size="4" class="text" />/30</label> <label title="Loop or not?" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'"><input name="checkLoopstrat" type="checkbox" id="checkLoopstrat" checked="checked"/>Loop</label> <label title="Time interval for the animation (in sec)" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">Time Interval: <input name="txtIntervalstrat" type="text" id="txtIntervalstrat" onblur="txtInterval(this)" value="1" size="4" class="text" /></label> <label title="Increment in time interval" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">Step: <input name="txtStepstrat" type="text" id="txtStepstrat" onblur="txtInterval(this)" value="0.1" size="4" class="text" /></label></div><hr /><div class="description">
+Every rectangle stands for a stratum, and the simple random sampling without replacement is performed within each stratum.
+</div></fieldset></div>
+</p>
+
+</div>
+<!-- SECTION "Animation" [787-1077] -->
+<h2><a name="r_code" id="r_code">R code</a></h2>
+<div class="level2">
+<pre class="code r"><span class="re5">oopt</span> = ani.options<span class="br0">&#40;</span><span class="re4"><span class="re5">ani</span></span><span class="re5">.height</span> = <span class="nu0">350</span>, <span class="re4"><span class="re5">ani</span></span><span class="re5">.width</span> = <span class="nu0">500</span>, <span class="re5">outdir</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=getwd"><span class="kw4">getwd</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span>, <span class="re5">nmax</span> = <span class="nu0">30</span>,
+    <span class="re5">interval</span> = <span class="nu0">1</span>, <span class="re5">title</span> = <span class="st0">"Demonstration of the stratified sampling"</span>,
+    <span class="re5">description</span> = <span class="st0">"Every rectangle stands for a stratum, and the simple
+    random sampling without replacement is performed within each stratum."</span><span class="br0">&#41;</span>
+ani.start<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=par"><span class="kw4">par</span></a><span class="br0">&#40;</span><span class="re5">mar</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=rep"><span class="kw3">rep</span></a><span class="br0">&#40;</span><span class="nu0">1</span>, <span class="nu0">4</span><span class="br0">&#41;</span>, <span class="re5">lwd</span> = <span class="nu0">2</span><span class="br0">&#41;</span>
+<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=sample"><span class="kw4">sample</span></a>.strat<span class="br0">&#40;</span><span class="re5">col</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=c"><span class="kw3">c</span></a><span class="br0">&#40;</span><span class="st0">"bisque"</span>, <span class="st0">"white"</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+ani.stop<span class="br0">&#40;</span><span class="br0">&#41;</span>
+ani.options<span class="br0">&#40;</span><span class="re5">oopt</span><span class="br0">&#41;</span></pre>
+</div>
+<!-- SECTION "R code" [1078-] -->

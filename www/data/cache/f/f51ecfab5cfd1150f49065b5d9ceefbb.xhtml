@@ -1,0 +1,99 @@
+
+
+
+<h1><a name="set_or_query_animation_parameters" id="set_or_query_animation_parameters">Set or Query Animation Parameters</a></h1>
+<div class="level1">
+
+<p>
+
+The function <code>ani.options()</code> is mainly based on the function <code>options()</code> to set or query animation parameters.
+</p>
+
+</div>
+<!-- SECTION "Set or Query Animation Parameters" [1-165] -->
+<h2><a name="animation_parameters" id="animation_parameters">Animation parameters</a></h2>
+<div class="level2">
+
+<p>
+
+In all there are currently 13 parameters to control the output of animations (mainly for <acronym title="HyperText Markup Language">HTML</acronym> output): <code>interval</code>, <code>nmax</code>, <code>ani.width</code>, <code>ani.height</code>, <code>outdir</code>, <code>filename</code>, <code>withprompt</code>, <code>ani.type</code>, <code>ani.dev</code>, <code>title</code>, <code>description</code>, <code>footer</code>, <code>autobrowse</code>. Among these options, maybe <code>nmax</code> is the most difficult to understand. Sometimes it is equal to the maximum number of animation frames (e.g. <code><a href="/prob:brownian_motion" class="wikilink1" title="prob:brownian_motion">brownian.motion()</a></code>, <code><a href="/prob:buffon_s_needle" class="wikilink1" title="prob:buffon_s_needle">buffon.needle()</a></code>, &hellip;), but sometimes it is not (e.g. <code><a href="/dmml:k-nearest_neighbour_algorithm" class="wikilink1" title="dmml:k-nearest_neighbour_algorithm">knn.ani()</a></code>, <code><a href="/compstat:gradient_descent_algorithm" class="wikilink1" title="compstat:gradient_descent_algorithm">grad.desc()</a></code>, &hellip;).
+</p>
+
+<p>
+Generally speaking, what <code>nmax</code> really governs is the number of steps in a loop. We know that there might be: (1) more than one condition to end (or break) a loop (2) more than one frame being recorded in a step. These two facts make <code>nmax</code> a little complicated. The former case will make <code>nmax</code> <em>no greater than</em> what you specified, while the latter one will produce <code>k * nmax</code> animation frames during a whole loop<sup><a href="#fn__1" name="fnt__1" id="fnt__1" class="fn_top">1)</a></sup>. You should refer to the help pages to know what <code>nmax</code> exactly means.
+</p>
+
+<p>
+At last, it is recommended that you should specify <code>nmax</code> <em>each time</em> you call an animation function, because usually in the last part of an animation function, the <code>nmax</code> will be reset to the <em>actual</em> number of animation frames, which might be larger or smaller than the value set before!
+</p>
+
+</div>
+<!-- SECTION "Animation parameters" [166-1738] -->
+<h2><a name="examples" id="examples">Examples</a></h2>
+<div class="level2">
+
+<p>
+
+The most common options that will be used are <code>interval</code> and <code>nmax</code>. For example,
+</p>
+<pre class="code r"><span class="co3"># 100 frames of brownian motion</span>
+ani.options<span class="br0">&#40;</span><span class="re5">nmax</span> = <span class="nu0">100</span><span class="br0">&#41;</span>
+brownian.motion<span class="br0">&#40;</span><span class="re5">pch</span> = <span class="nu0">21</span>, <span class="re5">cex</span> = <span class="nu0">5</span>, <span class="re5">col</span> = <span class="st0">"red"</span>, <span class="re5">bg</span> = <span class="st0">"yellow"</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co3"># too slow? OK, faster: interval = 0.02</span>
+ani.options<span class="br0">&#40;</span><span class="re5">interval</span> = <span class="nu0">0</span><span class="re5">.<span class="nu0">02</span></span><span class="br0">&#41;</span>
+brownian.motion<span class="br0">&#40;</span><span class="re5">pch</span> = <span class="nu0">21</span>, <span class="re5">cex</span> = <span class="nu0">5</span>, <span class="re5">col</span> = <span class="st0">"red"</span>, <span class="re5">bg</span> = <span class="st0">"yellow"</span><span class="br0">&#41;</span></pre>
+<p>
+Note that <code>ani.options()</code> will change the <em>global</em> options for any animation functions unless you quit R, so you&#039;d better save the value returned to an object and restore the options when you have finished creating an animation. For example,
+</p>
+<pre class="code r"><span class="co3"># save the options in 'oopt'</span>
+<span class="re3"> &gt;</span> <span class="re5">oopt</span> = ani.options<span class="br0">&#40;</span><span class="re5">interval</span> = <span class="nu0">0</span><span class="re5">.<span class="nu0">5</span></span>, <span class="re5">nmax</span> = <span class="nu0">40</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co3"># play the animation</span>
+<span class="re3"> &gt;</span> boot.iid<span class="br0">&#40;</span><span class="re5">main</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=c"><span class="kw3">c</span></a><span class="br0">&#40;</span><span class="st0">""</span>, <span class="st0">""</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+<span class="co3"># see the values of interval and nmax</span>
+<span class="re3"> &gt;</span> ani.options<span class="br0">&#40;</span><span class="st0">'interval'</span><span class="br0">&#41;</span>
+<span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span> <span class="nu0">0</span>.<span class="nu0">5</span>
+<span class="re3"> &gt;</span> ani.options<span class="br0">&#40;</span><span class="st0">'nmax'</span><span class="br0">&#41;</span>
+<span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span> <span class="nu0">40</span>
+&nbsp;
+<span class="co3"># restore the options</span>
+<span class="re3"> &gt;</span> ani.options<span class="br0">&#40;</span><span class="re5">oopt</span><span class="br0">&#41;</span>
+<span class="co3"># default options</span>
+<span class="re3"> &gt;</span> ani.options<span class="br0">&#40;</span><span class="st0">'interval'</span><span class="br0">&#41;</span>
+<span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span> <span class="nu0">0</span>.<span class="nu0">02</span>
+<span class="re3"> &gt;</span> ani.options<span class="br0">&#40;</span><span class="st0">'nmax'</span><span class="br0">&#41;</span>
+<span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span> <span class="nu0">50</span>
+&nbsp;
+<span class="co3"># what's oopt?</span>
+<span class="re3"> &gt;</span> <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=str"><span class="kw3">str</span></a><span class="br0">&#40;</span><span class="re5">oopt</span><span class="br0">&#41;</span>
+List of <span class="nu0">13</span>
+ $ interval   : num <span class="nu0">0</span><span class="re5">.<span class="nu0">02</span></span>
+ $ nmax       : num <span class="nu0">50</span>
+ $ ani.width  : num <span class="nu0">480</span>
+ $ ani.height : num <span class="nu0">480</span>
+ $ outdir     : chr <span class="st0">"C:<span class="es0">\\</span>WINDOWS<span class="es0">\\</span>Temp<span class="es0">\\</span>Rtmpi1JPFO"</span>
+ $ filename   : chr <span class="st0">"index.htm"</span>
+ $ withprompt : chr <span class="st0">"ANI&gt; "</span>
+ $ ani.type   : chr <span class="st0">"png"</span>
+ $ ani.dev    :<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=function"><span class="kw1">function</span></a> <span class="br0">&#40;</span><span class="re5">filename</span> = <span class="st0">"Rplot%03d.png"</span>, <span class="re5">width</span> = <span class="nu0">480</span>, <span class="re5">height</span> = <span class="nu0">480</span>, 
+    <span class="re5">units</span> = <span class="st0">"px"</span>, <span class="re5">pointsize</span> = <span class="nu0">12</span>, <span class="re5">bg</span> = <span class="st0">"white"</span>, <span class="re5">res</span> = <span class="re1">NA</span>, <span class="re5">restoreConsole</span> = <span class="re1">TRUE</span><span class="br0">&#41;</span>  
+ $ <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=title"><span class="kw4">title</span></a>      : chr <span class="st0">"Statistical Animations Using R"</span>
+ $ description: chr <span class="st0">"This is an animation."</span>
+ $ footer     : logi <span class="re1">TRUE</span>
+ $ autobrowse : logi <span class="re1">TRUE</span></pre>
+</div>
+<!-- SECTION "Examples" [1739-3322] -->
+<h2><a name="discussion" id="discussion">Discussion</a></h2>
+<div class="level2">
+
+<p>
+
+If I have not made it clear enough, please raise you questions here. <img src="/lib/images/smileys/icon_smile2.gif" class="middle" alt="=)" />
+</p>
+
+</div>
+<!-- SECTION "Discussion" [3323-] --><div class="footnotes">
+<div class="fn"><sup><a href="#fnt__1" id="fn__1" name="fn__1" class="fn_bot">1)</a></sup> 
+where <code>k</code> is the number of animation frames made in one step</div>
+</div>

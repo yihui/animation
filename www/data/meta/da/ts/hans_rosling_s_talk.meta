@@ -1,0 +1,21 @@
+a:2:{s:7:"current";a:7:{s:4:"date";a:2:{s:7:"created";i:1221307283;s:8:"modified";i:1223985601;}s:7:"creator";s:9:"Yihui Xie";s:11:"last_change";a:7:{s:4:"date";i:1223985601;s:2:"ip";s:15:"218.107.132.124";s:4:"type";s:1:"E";s:2:"id";s:25:"da:ts:hans_rosling_s_talk";s:4:"user";N;s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:5:"yihui";s:9:"Yihui Xie";}s:5:"title";s:44:"The Bubbles Animation in Hans Rosling's Talk";s:11:"description";a:2:{s:15:"tableofcontents";a:4:{i:0;a:4:{s:3:"hid";s:44:"the_bubbles_animation_in_hans_rosling_s_talk";s:5:"title";s:44:"The Bubbles Animation in Hans Rosling's Talk";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:9:"animation";s:5:"title";s:9:"Animation";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:6:"r_code";s:5:"title";s:6:"R code";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:3;a:4:{s:3:"hid";s:9:"reference";s:5:"title";s:9:"Reference";s:4:"type";s:2:"ul";s:5:"level";i:2;}}s:8:"abstract";s:433:"An imitation to Hans Rosling's talk using bubbles animation.
+
+Animation
+
+
+
+
+
+
+R code
+
+
+library(animation)
+ani.options(interval = 0.2, ani.height = 450, ani.width = 600, outdir = getwd(),
+    title = "The Bubbles Animation in Hans Rosling's Talk",
+    description = "An imitation of Hans Rosling's moving bubbles.")
+ani.start()
+par(mar = c(4, 4, 0.2, 0.2))
+# with 'years' as the background
+Rosling.bubbles(text = 1951:2000)
+ani.stop()";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}}s:10:"persistent";a:4:{s:4:"date";a:2:{s:7:"created";i:1221307283;s:8:"modified";i:1223985601;}s:7:"creator";s:9:"Yihui Xie";s:11:"last_change";a:7:{s:4:"date";i:1223985601;s:2:"ip";s:15:"218.107.132.124";s:4:"type";s:1:"E";s:2:"id";s:25:"da:ts:hans_rosling_s_talk";s:4:"user";N;s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:5:"yihui";s:9:"Yihui Xie";}}}

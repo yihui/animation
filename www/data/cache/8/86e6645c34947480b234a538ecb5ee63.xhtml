@@ -1,0 +1,39 @@
+
+
+
+<h1><a name="the_concept_of_confidence_intervals" id="the_concept_of_confidence_intervals">The concept of confidence intervals</a></h1>
+<div class="level1">
+
+<p>
+
+The interval covers the true parameter with a probability <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize 1-\alpha" alt="\normalsize 1-\alpha" title="\normalsize 1-\alpha"  class="math"/> or the true parameter lies in the interval with a probability <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize 1-\alpha" alt="\normalsize 1-\alpha" title="\normalsize 1-\alpha"  class="math"/>?
+</p>
+
+</div>
+<!-- SECTION "The concept of confidence intervals" [1-195] -->
+<h2><a name="animation" id="animation">Animation</a></h2>
+<div class="level2">
+
+<p>
+
+<div align="center" class="anidemo" title="Demonstration of Confidence Intervals"><fieldset><legend align="center">Demonstration of Confidence Intervals</legend><div id="loadingci" class="loading">loading animation frames... 0%</div><div id="divPreloadci" class="divPreload"><script language="JavaScript" type="text/javascript">	var sourceci = "http://s288.photobucket.com/albums/ll181/xieyihui/confidence_interval/";	var imgtypeci = "png";	var tmpci = 0;	var nmaxci=100; 	var nci=1;	var tci;	for(i = 1; i <= nmaxci; i++){		document.write("<div class=\"divFrame\" id=\"divPreload" + "ci" + i + "\"><img src=\"" + sourceci + i + "." + imgtypeci + "\"" + " id = \"img" + "ci" + i + "\" onload = \"loading(\'ci\')\" onerror = \"loading(\'ci\')\" alt=\"Demonstration of Confidence Intervals\" title=\"Demonstration of Confidence Intervals\" /></div>");}</script></div><div class="btncontrol"><input name="nmaxci" type="hidden" id="nmaxci" value="100" /><input name="heightci" type="hidden" id="heightci" value="400" /><input name="btnPlayci" type="submit" disabled="disabled" class="anibutton" id="btnPlayci" title="Play" onclick="playAni('ci')" value="  &gt;  " /> <input name="btnPauseci" type="submit" disabled="disabled" class="anibutton" id="btnPauseci" title="Pause" onclick="pauseAni('ci')" value="  O  " /> <input name="btnFastci" type="submit" disabled="disabled" class="anibutton" id="btnFastci" title="Speed up" onclick="fastAni('ci',1)" value="  +  " /> <input name="btnSlowci" type="submit" disabled="disabled" class="anibutton" id="btnSlowci" title="Slow down" onclick="fastAni('ci',-1)" value="  -  " /> <input name="btnPrevci" type="submit" disabled="disabled" class="anibutton" id="btnPrevci" title="Previous frame" onclick="prevAni('ci',1)" value="  &lt;&lt;  " /> <input name="btnNextci" type="submit" disabled="disabled" class="anibutton" id="btnNextci" title="Next frame" onclick="prevAni('ci',-1)" value="  &gt;&gt;  " /> <input name="btnFirstci" type="submit" disabled="disabled" class="anibutton" id="btnFirstci" title="First frame" onclick="firstAni('ci',true)" value="  |&lt;  " /> <input name="btnLastci" type="submit" disabled="disabled" class="anibutton" id="btnLastci" title="Last frame" onclick="firstAni('ci',false)" value="  &gt;|  " /> <input name="btnMoreci" type="submit" disabled="disabled" class="anibutton" id="btnMoreci" title="More controls" onclick="btnMore('ci')" value="  &lt;&gt;  " /></div><div id="moreParci" class="morepar"><label title="Which frame to go?" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">View frame <input name="txtFrameci" type="text" id="txtFrameci" onblur="txtFrame(this.value, 'ci')" value="1" size="4" class="text" />/100</label> <label title="Loop or not?" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'"><input name="checkLoopci" type="checkbox" id="checkLoopci" checked="checked"/>Loop</label> <label title="Time interval for the animation (in sec)" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">Time Interval: <input name="txtIntervalci" type="text" id="txtIntervalci" onblur="txtInterval(this)" value="0.15" size="4" class="text" /></label> <label title="Increment in time interval" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">Step: <input name="txtStepci" type="text" id="txtStepci" onblur="txtInterval(this)" value="0.1" size="4" class="text" /></label></div><hr /><div class="description">
+This animation shows the concept of the confidence interval which depends on the observations: if the samples change, the interval changes too. At last we can see that the coverage rate will be approximate to the confidence level.
+</div></fieldset></div>
+</p>
+
+</div>
+<!-- SECTION "Animation" [196-592] -->
+<h2><a name="r_code" id="r_code">R code</a></h2>
+<div class="level2">
+<pre class="code r">ani.options<span class="br0">&#40;</span><span class="re4"><span class="re5">ani</span></span><span class="re5">.height</span> = <span class="nu0">400</span>, <span class="re4"><span class="re5">ani</span></span><span class="re5">.width</span> = <span class="nu0">600</span>, <span class="re5">outdir</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=getwd"><span class="kw4">getwd</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span>, <span class="re5">nmax</span> = <span class="nu0">100</span>,
+    <span class="re5">interval</span> = <span class="nu0">0</span><span class="re5">.<span class="nu0">15</span></span>, <span class="re5">title</span> = <span class="st0">"Demonstration of Confidence Intervals"</span>,
+    <span class="re5">description</span> = <span class="st0">"This animation shows the concept of the confidence
+    interval which depends on the observations: if the samples change,
+    the interval changes too. At last we can see that the coverage rate
+    will be approximate to the confidence level."</span><span class="br0">&#41;</span>
+ani.start<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=par"><span class="kw4">par</span></a><span class="br0">&#40;</span><span class="re5">mar</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=c"><span class="kw3">c</span></a><span class="br0">&#40;</span><span class="nu0">3</span>, <span class="nu0">3</span>, <span class="nu0">1</span>, <span class="nu0">0</span><span class="re5">.<span class="nu0">5</span></span><span class="br0">&#41;</span>, <span class="re5">mgp</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=c"><span class="kw3">c</span></a><span class="br0">&#40;</span><span class="nu0">1</span><span class="re5">.<span class="nu0">5</span></span>, <span class="nu0">0</span><span class="re5">.<span class="nu0">5</span></span>, <span class="nu0">0</span><span class="br0">&#41;</span>, <span class="re5">tcl</span> = <span class="nu0">-0</span><span class="re5">.<span class="nu0">3</span></span><span class="br0">&#41;</span>
+conf.int<span class="br0">&#40;</span><span class="br0">&#41;</span>
+ani.stop<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+</div>
+<!-- SECTION "R code" [593-] -->

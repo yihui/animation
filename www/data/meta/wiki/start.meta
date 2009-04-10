@@ -1,0 +1,16 @@
+a:2:{s:7:"current";a:8:{s:4:"date";a:2:{s:7:"created";i:1211815516;s:8:"modified";i:1221113719;}s:7:"creator";s:9:"Yihui Xie";s:11:"last_change";a:7:{s:4:"date";i:1221113719;s:2:"ip";s:15:"218.107.132.126";s:4:"type";s:1:"E";s:2:"id";s:10:"wiki:start";s:4:"user";s:5:"yihui";s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:2:{s:5:"yihui";s:9:"Yihui Xie";s:3:"xie";s:9:"Yihui Xie";}s:5:"title";s:15:"About this wiki";s:11:"description";a:2:{s:15:"tableofcontents";a:12:{i:0;a:4:{s:3:"hid";s:15:"about_this_wiki";s:5:"title";s:15:"About this wiki";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:20:"history_developments";s:5:"title";s:22:"History & Developments";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:5:"usage";s:5:"title";s:5:"Usage";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:3;a:4:{s:3:"hid";s:11:"wiki_syntax";s:5:"title";s:11:"Wiki syntax";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:4;a:4:{s:3:"hid";s:16:"animation_syntax";s:5:"title";s:16:"Animation syntax";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:5;a:4:{s:3:"hid";s:11:"math_syntax";s:5:"title";s:11:"Math syntax";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:6;a:4:{s:3:"hid";s:17:"access_permission";s:5:"title";s:17:"Access permission";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:7;a:4:{s:3:"hid";s:9:"uploading";s:5:"title";s:9:"Uploading";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:8;a:4:{s:3:"hid";s:8:"browsing";s:5:"title";s:8:"Browsing";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:9;a:4:{s:3:"hid";s:8:"donation";s:5:"title";s:8:"Donation";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:10;a:4:{s:3:"hid";s:5:"ideas";s:5:"title";s:5:"Ideas";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:11;a:4:{s:3:"hid";s:7:"support";s:5:"title";s:7:"Support";s:4:"type";s:2:"ul";s:5:"level";i:1;}}s:8:"abstract";s:393:"History & Developments
+
+
+You can read the history and developments of this wiki.
+
+Usage
+
+Wiki syntax
+
+
+Please learn the wiki Formatting Syntax first if you are not familiar with Dokuwiki; and you may practise in the PlayGround
+
+Animation syntax
+
+
+Please refer to the animation example page and plugin page to learn how to insert animations into wiki pages and use the HTML animation interface.";}s:8:"relation";a:1:{s:10:"references";a:9:{s:17:"wiki:developments";b:1;s:11:"wiki:syntax";b:1;s:15:"wiki:playground";b:1;s:22:"wiki:animation_example";b:1;s:21:"wiki:animation_plugin";b:1;s:9:"wiki:math";b:1;s:14:"wiki:yihui_xie";b:1;s:11:"wiki:donate";b:1;s:12:"wiki:message";b:1;}}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}}s:10:"persistent";a:4:{s:4:"date";a:2:{s:7:"created";i:1211815516;s:8:"modified";i:1221113719;}s:7:"creator";s:9:"Yihui Xie";s:11:"last_change";a:7:{s:4:"date";i:1221113719;s:2:"ip";s:15:"218.107.132.126";s:4:"type";s:1:"E";s:2:"id";s:10:"wiki:start";s:4:"user";s:5:"yihui";s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:2:{s:5:"yihui";s:9:"Yihui Xie";s:3:"xie";s:9:"Yihui Xie";}}}

@@ -1,0 +1,11 @@
+====== Sampling Survey ======
+
+Here only some basic sampling methods are demonstrated; this section has nothing to do with survey techniques.
+
+===== List of Animations =====
+
+  * [[srswr|Simple Random Sampling Without Replacement]]
+  * [[cluster_sampling|Cluster Sampling]]
+  * [[stratified_sampling|Stratified Sampling]]
+  * [[systematic_sampling|Systematic Sampling]]
+

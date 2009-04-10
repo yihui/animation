@@ -1,0 +1,29 @@
+====== Central Limit Theorem ======
+
+Let $X_{1}, X_{2}, \ldots$ be a sequence of iid random variables with $E(X_{i})=\mu$ and $0<Var(X_i)=\sigma^2<\infty$. Define $\bar{X}_n=(1/n)\sum_{i=1}^n X_i$. Let $G_n(x)$ denote the cdf of $\sqrt{n}(\bar{X}_n-\mu)/\sigma$. Then, for any $x$, $-\infty<x<\infty$,
+
+$$\lim_{n\rightarrow\infty}G_n(x)=\int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-y^2/2}dy$$
+
+that is, $\sqrt{n}(\bar{X}_n-\mu)/\sigma$ has a limiting standard normal distribution.
+
+===== Animation =====
+
+Note that from $n \geq 15$, the P-value becomes large, which indicates that we cannot reject the null hypothesis (the normality of the sample mean). The population distribution of the random variables is exponential distribution $\mathbf{Exp}(1)$. For small $n$, we can still observe the characteristic of the exponential distribution: the density is right-skewed. But as $n$ grows large, the distribution tends to be symmetrical!
+
+<ani clt http://s288.photobucket.com/albums/ll181/xieyihui/central_limit_theorem/ png 100 500 0.2|Demonstration of the Central Limit Theorem>
+This animation shows the distribution of the sample mean as the sample size $n$ grows. A normality test ''shapiro.test()'' is also performed to check whether the sample mean follows the normal distribution.
+</ani>
+
+===== R code =====
+
+<code r>
+oopt = ani.options(ani.height = 500, ani.width = 600, outdir = getwd(), nmax = 100,
+    interval = 0.1, title = "Demonstration of the Central Limit Theorem",
+    description = "This animation shows the distribution of the sample
+    mean as the sample size grows.")
+ani.start()
+par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 0), tcl = -0.3)
+clt.ani(type = "h")
+ani.stop()
+ani.options(oopt)
+</code>

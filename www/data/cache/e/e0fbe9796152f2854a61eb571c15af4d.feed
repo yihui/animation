@@ -1,0 +1,1089 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="FeedCreator 1.7.2-ppt DokuWiki" -->
+<?xml-stylesheet href="http://animation.yihui.name/lib/exe/css.php?s=feed" type="text/css"?>
+<rss version="2.0">
+    <channel>
+        <title>AniWiki: Animations in Statistics animation</title>
+        <description></description>
+        <link>http://animation.yihui.name/</link>
+        <lastBuildDate>Sat, 04 Apr 2009 07:32:27 +0800</lastBuildDate>
+        <generator>FeedCreator 1.7.2-ppt DokuWiki</generator>
+        <image>
+            <url>http://animation.yihui.name/lib/images/favicon.ico</url>
+            <title>AniWiki: Animations in Statistics</title>
+            <link>http://animation.yihui.name/</link>
+        </image>
+        <item>
+            <title>Creating HTML animation pages</title>
+            <link>http://animation.yihui.name/animation:create_html_animation_page?rev=1220601523</link>
+            <description>
+
+
+&lt;h1&gt;&lt;a name=&quot;creating_html_animation_pages&quot; id=&quot;creating_html_animation_pages&quot;&gt;Creating HTML animation pages&lt;/a&gt;&lt;/h1&gt;
+&lt;div class=&quot;level1&quot;&gt;
+
+&lt;p&gt;
+
+This page is to explain what happens behind the animation functions. Generally speaking, there are three steps to follow when we want to create an &lt;acronym title=&quot;HyperText Markup Language&quot;&gt;HTML&lt;/acronym&gt; animation page. First, make some preparations (copy necessary &lt;acronym title=&quot;Cascading Style Sheets&quot;&gt;CSS&lt;/acronym&gt; and &lt;acronym title=&quot;JavaScript&quot;&gt;JS&lt;/acronym&gt; files) for the &lt;acronym title=&quot;HyperText Markup Language&quot;&gt;HTML&lt;/acronym&gt; file and open a graphics device for the next step &amp;ndash; &lt;code&gt;ani.start()&lt;/code&gt;; second, make a series of plots using any R functions &amp;ndash; these plots will be recorded as image frames one by one; third, write the &lt;acronym title=&quot;HyperText Markup Language&quot;&gt;HTML&lt;/acronym&gt; file &amp;ndash; &lt;code&gt;ani.stop()&lt;/code&gt;. Below is a typical process for creating &lt;acronym title=&quot;HyperText Markup Language&quot;&gt;HTML&lt;/acronym&gt; animation pages:
+&lt;/p&gt;
+&lt;pre class=&quot;code&quot;&gt;
+ani.options(...)
+ani.start(...)
+for (i in 1:nmax) plot(...)
+ani.stop()
+&lt;/pre&gt;
+
+&lt;p&gt;
+The function &lt;code&gt;&lt;a href=&quot;http://animation.yihui.name/animation:options&quot; class=&quot;wikilink1&quot; title=&quot;animation:options&quot;&gt;ani.options()&lt;/a&gt;&lt;/code&gt; will tell the following functions some options to make an animation, such as the time interval, the maximum frames, the width and height of images, etc.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Creating HTML animation pages&quot; [1-866] --&gt;
+&lt;h2&gt;&lt;a name=&quot;ani.start&quot; id=&quot;ani.start&quot;&gt;ani.start()&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+In the beginning, two files &lt;code&gt;ANI.css&lt;/code&gt; and &lt;code&gt;FUN.js&lt;/code&gt; are copied to the output directory &lt;code&gt;outdir&lt;/code&gt;. Then a graphics device &lt;code&gt;ani.dev&lt;/code&gt; is opened to record the plots as image files in the &lt;code&gt;images/&lt;/code&gt; directory&lt;sup&gt;&lt;a href=&quot;#fn__1&quot; name=&quot;fnt__1&quot; id=&quot;fnt__1&quot; class=&quot;fn_top&quot;&gt;1)&lt;/a&gt;&lt;/sup&gt;. The format of the image files is &lt;code&gt;paste(%d, &amp;#039;.&amp;#039;, ani.type)&lt;/code&gt;, thus the files will be named from 1 to the maximum number of image frames.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;ani.start()&quot; [867-1363] --&gt;
+&lt;h2&gt;&lt;a name=&quot;make_plots&quot; id=&quot;make_plots&quot;&gt;Make plots&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+Then some high-level plotting commands (typically in a loop) are executed and the plots are written to &lt;code&gt;images/&lt;/code&gt;. 
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Make plots&quot; [1364-1505] --&gt;
+&lt;h2&gt;&lt;a name=&quot;ani.stop&quot; id=&quot;ani.stop&quot;&gt;ani.stop()&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+In the end, we have obtained all the animation frames, and &lt;code&gt;ani.stop()&lt;/code&gt; will write an &lt;acronym title=&quot;HyperText Markup Language&quot;&gt;HTML&lt;/acronym&gt; file&lt;sup&gt;&lt;a href=&quot;#fn__2&quot; name=&quot;fnt__2&quot; id=&quot;fnt__2&quot; class=&quot;fn_top&quot;&gt;2)&lt;/a&gt;&lt;/sup&gt; containing the animation driven by &lt;acronym title=&quot;JavaScript&quot;&gt;JS&lt;/acronym&gt;. The &lt;acronym title=&quot;JavaScript&quot;&gt;JS&lt;/acronym&gt; code also works as a loop: in the &lt;em&gt;i&lt;/em&gt;-th step, display the &lt;em&gt;i&lt;/em&gt;-th image element and hide the rest. 
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;ani.stop()&quot; [1506-1800] --&gt;
+&lt;h2&gt;&lt;a name=&quot;examples&quot; id=&quot;examples&quot;&gt;Examples&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+Below are two examples using functions in package &lt;code&gt;animation&lt;/code&gt; and some custom R code to generate &lt;acronym title=&quot;HyperText Markup Language&quot;&gt;HTML&lt;/acronym&gt; animation pages respectively.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Examples&quot; [1801-1957] --&gt;
+&lt;h3&gt;&lt;a name=&quot;brownian_motion&quot; id=&quot;brownian_motion&quot;&gt;Brownian Motion&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+
+&lt;p&gt;
+
+The function &lt;code&gt;brownian.motion()&lt;/code&gt; in the package &lt;code&gt;animation&lt;/code&gt; has given a demonstration of the Brownian Motion.
+&lt;/p&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;span class=&quot;co3&quot;&gt;# create an HTML animation page of Brownian Motion&lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;# store the old option to restore it later&lt;/span&gt;
+&lt;span class=&quot;re5&quot;&gt;oopt&lt;/span&gt; = ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;interval&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;05&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;nmax&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;ani&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.dev&lt;/span&gt; = &lt;span class=&quot;re5&quot;&gt;png&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;ani&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.type&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;png&quot;&lt;/span&gt;,
+    &lt;span class=&quot;re5&quot;&gt;title&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;Demonstration of Brownian Motion&quot;&lt;/span&gt;,
+    &lt;span class=&quot;re5&quot;&gt;description&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;Random walk on the 2D plane: for each point (x, y), 
+    x = x + rnorm(1) and y = y + rnorm(1).&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.start&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;re5&quot;&gt;opar&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=par&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;par&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;mar&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;mgp&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;tcl&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;-0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;&lt;/span&gt;,
+    &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;cex&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.axis&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;8&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;cex&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.lab&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;8&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;cex&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.main&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+brownian.motion&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;pch&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;21&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;cex&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;col&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;red&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;bg&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;yellow&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=par&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;par&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;opar&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.stop&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;oopt&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;
+The animation is like this:
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;div align=&quot;center&quot; class=&quot;anidemo&quot; title=&quot;Demonstration of Brownian Motion&quot;&gt;&lt;fieldset&gt;&lt;legend align=&quot;center&quot;&gt;Demonstration of Brownian Motion&lt;/legend&gt;&lt;div id=&quot;loadingbm&quot; class=&quot;loading&quot;&gt;loading animation frames... 0%&lt;/div&gt;&lt;div id=&quot;divPreloadbm&quot; class=&quot;divPreload&quot;&gt;&lt;script language=&quot;JavaScript&quot; type=&quot;text/javascript&quot;&gt;	var sourcebm = &quot;http://i288.photobucket.com/albums/ll181/xieyihui/brownian_motion/&quot;;	var imgtypebm = &quot;png&quot;;	var tmpbm = 0;	var nmaxbm=100; 	var nbm=1;	var tbm;	for(i = 1; i &lt;= nmaxbm; i++){		document.write(&quot;&lt;div class=\&quot;divFrame\&quot; id=\&quot;divPreload&quot; + &quot;bm&quot; + i + &quot;\&quot;&gt;&lt;img src=\&quot;&quot; + sourcebm + i + &quot;.&quot; + imgtypebm + &quot;\&quot;&quot; + &quot; id = \&quot;img&quot; + &quot;bm&quot; + i + &quot;\&quot; onload = \&quot;loading(\'bm\')\&quot; onerror = \&quot;loading(\'bm\')\&quot; alt=\&quot;Demonstration of Brownian Motion\&quot; title=\&quot;Demonstration of Brownian Motion\&quot; /&gt;&lt;/div&gt;&quot;);}&lt;/script&gt;&lt;/div&gt;&lt;div class=&quot;btncontrol&quot;&gt;&lt;input name=&quot;nmaxbm&quot; type=&quot;hidden&quot; id=&quot;nmaxbm&quot; value=&quot;100&quot; /&gt;&lt;input name=&quot;heightbm&quot; type=&quot;hidden&quot; id=&quot;heightbm&quot; value=&quot;480&quot; /&gt;&lt;input name=&quot;btnPlaybm&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnPlaybm&quot; title=&quot;Play&quot; onclick=&quot;playAni('bm')&quot; value=&quot;  &amp;gt;  &quot; /&gt; &lt;input name=&quot;btnPausebm&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnPausebm&quot; title=&quot;Pause&quot; onclick=&quot;pauseAni('bm')&quot; value=&quot;  O  &quot; /&gt; &lt;input name=&quot;btnFastbm&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnFastbm&quot; title=&quot;Speed up&quot; onclick=&quot;fastAni('bm',1)&quot; value=&quot;  +  &quot; /&gt; &lt;input name=&quot;btnSlowbm&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnSlowbm&quot; title=&quot;Slow down&quot; onclick=&quot;fastAni('bm',-1)&quot; value=&quot;  -  &quot; /&gt; &lt;input name=&quot;btnPrevbm&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnPrevbm&quot; title=&quot;Previous frame&quot; onclick=&quot;prevAni('bm',1)&quot; value=&quot;  &amp;lt;&amp;lt;  &quot; /&gt; &lt;input name=&quot;btnNextbm&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnNextbm&quot; title=&quot;Next frame&quot; onclick=&quot;prevAni('bm',-1)&quot; value=&quot;  &amp;gt;&amp;gt;  &quot; /&gt; &lt;input name=&quot;btnFirstbm&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnFirstbm&quot; title=&quot;First frame&quot; onclick=&quot;firstAni('bm',true)&quot; value=&quot;  |&amp;lt;  &quot; /&gt; &lt;input name=&quot;btnLastbm&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnLastbm&quot; title=&quot;Last frame&quot; onclick=&quot;firstAni('bm',false)&quot; value=&quot;  &amp;gt;|  &quot; /&gt; &lt;input name=&quot;btnMorebm&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnMorebm&quot; title=&quot;More controls&quot; onclick=&quot;btnMore('bm')&quot; value=&quot;  &amp;lt;&amp;gt;  &quot; /&gt;&lt;/div&gt;&lt;div id=&quot;moreParbm&quot; class=&quot;morepar&quot;&gt;&lt;label title=&quot;Which frame to go?&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;View frame &lt;input name=&quot;txtFramebm&quot; type=&quot;text&quot; id=&quot;txtFramebm&quot; onblur=&quot;txtFrame(this.value, 'bm')&quot; value=&quot;1&quot; size=&quot;4&quot; class=&quot;text&quot; /&gt;/100&lt;/label&gt; &lt;label title=&quot;Loop or not?&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;&lt;input name=&quot;checkLoopbm&quot; type=&quot;checkbox&quot; id=&quot;checkLoopbm&quot; checked=&quot;checked&quot;/&gt;Loop&lt;/label&gt; &lt;label title=&quot;Time interval for the animation (in sec)&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;Time Interval: &lt;input name=&quot;txtIntervalbm&quot; type=&quot;text&quot; id=&quot;txtIntervalbm&quot; onblur=&quot;txtInterval(this)&quot; value=&quot;0.05&quot; size=&quot;4&quot; class=&quot;text&quot; /&gt;&lt;/label&gt; &lt;label title=&quot;Increment in time interval&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;Step: &lt;input name=&quot;txtStepbm&quot; type=&quot;text&quot; id=&quot;txtStepbm&quot; onblur=&quot;txtInterval(this)&quot; value=&quot;0.1&quot; size=&quot;4&quot; class=&quot;text&quot; /&gt;&lt;/label&gt;&lt;/div&gt;&lt;hr /&gt;&lt;div class=&quot;description&quot;&gt;
+Random walk on the 2D plane: for each point (x, y), x = x + rnorm(1) and y = y + rnorm(1).
+&lt;/div&gt;&lt;/fieldset&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Brownian Motion&quot; [1958-2939] --&gt;
+&lt;h3&gt;&lt;a name=&quot;gradient_polygons&quot; id=&quot;gradient_polygons&quot;&gt;Gradient polygons&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+
+&lt;p&gt;
+
+Here is some code to produce an animation illustrating the gradient colors in polygons.
+&lt;/p&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;span class=&quot;re5&quot;&gt;y&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;/span&gt; + &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=runif&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;runif&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;20&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;2&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;re5&quot;&gt;xx&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;nu0&quot;&gt;20&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;re5&quot;&gt;yy&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;y&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;re5&quot;&gt;cl&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=seq&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;seq&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;255&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;length&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=for&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;for&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;i &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=in&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;in&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;nu0&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+    &lt;span class=&quot;re5&quot;&gt;yy&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=rbind&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;rbind&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;yy&lt;/span&gt;, &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;, y - &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt; - &lt;span class=&quot;re5&quot;&gt;cl&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt;/&lt;span class=&quot;nu0&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; * &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=min&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;min&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=plot&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;plot&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;xx&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;yy&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;type&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;n&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;xlab&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;x&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;ylab&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;y&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=for&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;for&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;j &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=in&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;in&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=polygon&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;polygon&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;xx&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;yy&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;j&lt;/span&gt; + &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;col&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=rgb&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;rgb&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;cl&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt;/&lt;span class=&quot;nu0&quot;&gt;255&lt;/span&gt;,
+        &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;border&lt;/span&gt; = &lt;span class=&quot;re1&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=Sys.sleep&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;Sys.sleep&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;
+We can also put the animation in an &lt;acronym title=&quot;HyperText Markup Language&quot;&gt;HTML&lt;/acronym&gt; animation page like this:
+&lt;/p&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;span class=&quot;re5&quot;&gt;oopt&lt;/span&gt; = ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;interval&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;2&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;nmax&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;50&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;ani&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.dev&lt;/span&gt; = &lt;span class=&quot;re5&quot;&gt;png&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;ani&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.type&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;png&quot;&lt;/span&gt;,
+    &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;ani&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.height&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;350&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;ani&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.width&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;500&lt;/span&gt;,
+    &lt;span class=&quot;re5&quot;&gt;title&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;Demonstration of Polygons with Gradient Colors&quot;&lt;/span&gt;,
+    &lt;span class=&quot;re5&quot;&gt;description&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;The graph actually consists of a series of polygons, 
+    each with a redder color starting from yellow.&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.start&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;re5&quot;&gt;opar&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=par&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;par&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;mar&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;mgp&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;tcl&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;-0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;&lt;/span&gt;,
+    &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;cex&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.axis&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;8&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;cex&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.lab&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;8&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;cex&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.main&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&quot;co1&quot;&gt;####################&lt;/span&gt;
+&lt;span class=&quot;re5&quot;&gt;y&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;/span&gt; + &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=runif&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;runif&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;20&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;2&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;re5&quot;&gt;xx&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;nu0&quot;&gt;20&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;re5&quot;&gt;yy&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;y&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;re5&quot;&gt;cl&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=seq&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;seq&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;255&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;length&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=for&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;for&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;i &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=in&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;in&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;nu0&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+    &lt;span class=&quot;re5&quot;&gt;yy&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=rbind&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;rbind&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;yy&lt;/span&gt;, &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;, y - &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt; - &lt;span class=&quot;re5&quot;&gt;cl&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt;/&lt;span class=&quot;nu0&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; * &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=min&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;min&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=plot&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;plot&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;xx&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;yy&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;type&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;n&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;xlab&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;x&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;ylab&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;y&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=for&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;for&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;j &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=in&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;in&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=polygon&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;polygon&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;xx&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;yy&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;j&lt;/span&gt; + &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;col&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=rgb&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;rgb&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;cl&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt;/&lt;span class=&quot;nu0&quot;&gt;255&lt;/span&gt;,
+        &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;border&lt;/span&gt; = &lt;span class=&quot;re1&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;#    Sys.sleep(0.1)&lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;#    not need to 'sleep' here!&lt;/span&gt;
+&lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&quot;co1&quot;&gt;####################&lt;/span&gt;
+&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=par&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;par&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;opar&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.stop&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;oopt&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;
+This is the animation (it may look different with your output because &lt;code&gt;y&lt;/code&gt; is random):
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;div align=&quot;center&quot; class=&quot;anidemo&quot; title=&quot;Demonstration of Polygons with Gradient Colors&quot;&gt;&lt;fieldset&gt;&lt;legend align=&quot;center&quot;&gt;Demonstration of Polygons with Gradient Colors&lt;/legend&gt;&lt;div id=&quot;loadinggp&quot; class=&quot;loading&quot;&gt;loading animation frames... 0%&lt;/div&gt;&lt;div id=&quot;divPreloadgp&quot; class=&quot;divPreload&quot;&gt;&lt;script language=&quot;JavaScript&quot; type=&quot;text/javascript&quot;&gt;	var sourcegp = &quot;http://i288.photobucket.com/albums/ll181/xieyihui/gradient_polygons/&quot;;	var imgtypegp = &quot;png&quot;;	var tmpgp = 0;	var nmaxgp=50; 	var ngp=1;	var tgp;	for(i = 1; i &lt;= nmaxgp; i++){		document.write(&quot;&lt;div class=\&quot;divFrame\&quot; id=\&quot;divPreload&quot; + &quot;gp&quot; + i + &quot;\&quot;&gt;&lt;img src=\&quot;&quot; + sourcegp + i + &quot;.&quot; + imgtypegp + &quot;\&quot;&quot; + &quot; id = \&quot;img&quot; + &quot;gp&quot; + i + &quot;\&quot; onload = \&quot;loading(\'gp\')\&quot; onerror = \&quot;loading(\'gp\')\&quot; alt=\&quot;Demonstration of Polygons with Gradient Colors\&quot; title=\&quot;Demonstration of Polygons with Gradient Colors\&quot; /&gt;&lt;/div&gt;&quot;);}&lt;/script&gt;&lt;/div&gt;&lt;div class=&quot;btncontrol&quot;&gt;&lt;input name=&quot;nmaxgp&quot; type=&quot;hidden&quot; id=&quot;nmaxgp&quot; value=&quot;50&quot; /&gt;&lt;input name=&quot;heightgp&quot; type=&quot;hidden&quot; id=&quot;heightgp&quot; value=&quot;350&quot; /&gt;&lt;input name=&quot;btnPlaygp&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnPlaygp&quot; title=&quot;Play&quot; onclick=&quot;playAni('gp')&quot; value=&quot;  &amp;gt;  &quot; /&gt; &lt;input name=&quot;btnPausegp&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnPausegp&quot; title=&quot;Pause&quot; onclick=&quot;pauseAni('gp')&quot; value=&quot;  O  &quot; /&gt; &lt;input name=&quot;btnFastgp&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnFastgp&quot; title=&quot;Speed up&quot; onclick=&quot;fastAni('gp',1)&quot; value=&quot;  +  &quot; /&gt; &lt;input name=&quot;btnSlowgp&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnSlowgp&quot; title=&quot;Slow down&quot; onclick=&quot;fastAni('gp',-1)&quot; value=&quot;  -  &quot; /&gt; &lt;input name=&quot;btnPrevgp&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnPrevgp&quot; title=&quot;Previous frame&quot; onclick=&quot;prevAni('gp',1)&quot; value=&quot;  &amp;lt;&amp;lt;  &quot; /&gt; &lt;input name=&quot;btnNextgp&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnNextgp&quot; title=&quot;Next frame&quot; onclick=&quot;prevAni('gp',-1)&quot; value=&quot;  &amp;gt;&amp;gt;  &quot; /&gt; &lt;input name=&quot;btnFirstgp&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnFirstgp&quot; title=&quot;First frame&quot; onclick=&quot;firstAni('gp',true)&quot; value=&quot;  |&amp;lt;  &quot; /&gt; &lt;input name=&quot;btnLastgp&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnLastgp&quot; title=&quot;Last frame&quot; onclick=&quot;firstAni('gp',false)&quot; value=&quot;  &amp;gt;|  &quot; /&gt; &lt;input name=&quot;btnMoregp&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnMoregp&quot; title=&quot;More controls&quot; onclick=&quot;btnMore('gp')&quot; value=&quot;  &amp;lt;&amp;gt;  &quot; /&gt;&lt;/div&gt;&lt;div id=&quot;morePargp&quot; class=&quot;morepar&quot;&gt;&lt;label title=&quot;Which frame to go?&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;View frame &lt;input name=&quot;txtFramegp&quot; type=&quot;text&quot; id=&quot;txtFramegp&quot; onblur=&quot;txtFrame(this.value, 'gp')&quot; value=&quot;1&quot; size=&quot;4&quot; class=&quot;text&quot; /&gt;/50&lt;/label&gt; &lt;label title=&quot;Loop or not?&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;&lt;input name=&quot;checkLoopgp&quot; type=&quot;checkbox&quot; id=&quot;checkLoopgp&quot; checked=&quot;checked&quot;/&gt;Loop&lt;/label&gt; &lt;label title=&quot;Time interval for the animation (in sec)&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;Time Interval: &lt;input name=&quot;txtIntervalgp&quot; type=&quot;text&quot; id=&quot;txtIntervalgp&quot; onblur=&quot;txtInterval(this)&quot; value=&quot;0.2&quot; size=&quot;4&quot; class=&quot;text&quot; /&gt;&lt;/label&gt; &lt;label title=&quot;Increment in time interval&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;Step: &lt;input name=&quot;txtStepgp&quot; type=&quot;text&quot; id=&quot;txtStepgp&quot; onblur=&quot;txtInterval(this)&quot; value=&quot;0.1&quot; size=&quot;4&quot; class=&quot;text&quot; /&gt;&lt;/label&gt;&lt;/div&gt;&lt;hr /&gt;&lt;div class=&quot;description&quot;&gt;
+The graph actually consists of a series of polygons, each with a redder color starting from yellow.
+&lt;/div&gt;&lt;/fieldset&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Gradient polygons&quot; [2940-4729] --&gt;
+&lt;h2&gt;&lt;a name=&quot;discussions&quot; id=&quot;discussions&quot;&gt;Discussions&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+Post the discussions here. &lt;img src=&quot;http://animation.yihui.name/lib/images/smileys/icon_fun.gif&quot; class=&quot;middle&quot; alt=&quot;^_^&quot; /&gt;
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Discussions&quot; [4730-] --&gt;&lt;div class=&quot;footnotes&quot;&gt;
+&lt;div class=&quot;fn&quot;&gt;&lt;sup&gt;&lt;a href=&quot;#fnt__1&quot; id=&quot;fn__1&quot; name=&quot;fn__1&quot; class=&quot;fn_bot&quot;&gt;1)&lt;/a&gt;&lt;/sup&gt; 
+it will be created if it does not exist, or all the files in this directory will be removed before new plots are made&lt;/div&gt;
+&lt;div class=&quot;fn&quot;&gt;&lt;sup&gt;&lt;a href=&quot;#fnt__2&quot; id=&quot;fn__2&quot; name=&quot;fn__2&quot; class=&quot;fn_bot&quot;&gt;2)&lt;/a&gt;&lt;/sup&gt; 
+just use &lt;code&gt;cat()&lt;/code&gt;&lt;/div&gt;
+&lt;/div&gt;
+</description>
+        <category>animation</category>
+            <pubDate>Fri, 05 Sep 2008 15:58:43 +0800</pubDate>
+        </item>
+        <item>
+            <title>An example for the jitter effect</title>
+            <link>http://animation.yihui.name/animation:example_jitter_effect?rev=1212850706</link>
+            <description>
+
+
+&lt;h1&gt;&lt;a name=&quot;an_example_for_the_jitter_effect&quot; id=&quot;an_example_for_the_jitter_effect&quot;&gt;An example for the jitter effect&lt;/a&gt;&lt;/h1&gt;
+&lt;div class=&quot;level1&quot;&gt;
+
+&lt;p&gt;
+
+Adding a small noise to the original data might be helpful in visualizing data, especially for categorical data. The scatterplot of two categorical variables just m x n points, from which we do not know how many sample points are actually in these graphical symbols. If we &lt;code&gt;jitter()&lt;/code&gt; the data before drawing a scatterplot, the effect can be better.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;An example for the jitter effect&quot; [1-400] --&gt;
+&lt;h2&gt;&lt;a name=&quot;animation&quot; id=&quot;animation&quot;&gt;Animation&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+&lt;div align=&quot;center&quot; class=&quot;anidemo&quot; title=&quot;Jitter Effect for Categorical Data&quot;&gt;&lt;fieldset&gt;&lt;legend align=&quot;center&quot;&gt;Jitter Effect for Categorical Data&lt;/legend&gt;&lt;div id=&quot;loadingje&quot; class=&quot;loading&quot;&gt;loading animation frames... 0%&lt;/div&gt;&lt;div id=&quot;divPreloadje&quot; class=&quot;divPreload&quot;&gt;&lt;script language=&quot;JavaScript&quot; type=&quot;text/javascript&quot;&gt;	var sourceje = &quot;http://i288.photobucket.com/albums/ll181/xieyihui/jitter_effect/&quot;;	var imgtypeje = &quot;png&quot;;	var tmpje = 0;	var nmaxje=30; 	var nje=1;	var tje;	for(i = 1; i &lt;= nmaxje; i++){		document.write(&quot;&lt;div class=\&quot;divFrame\&quot; id=\&quot;divPreload&quot; + &quot;je&quot; + i + &quot;\&quot;&gt;&lt;img src=\&quot;&quot; + sourceje + i + &quot;.&quot; + imgtypeje + &quot;\&quot;&quot; + &quot; id = \&quot;img&quot; + &quot;je&quot; + i + &quot;\&quot; onload = \&quot;loading(\'je\')\&quot; onerror = \&quot;loading(\'je\')\&quot; alt=\&quot;Jitter Effect for Categorical Data\&quot; title=\&quot;Jitter Effect for Categorical Data\&quot; /&gt;&lt;/div&gt;&quot;);}&lt;/script&gt;&lt;/div&gt;&lt;div class=&quot;btncontrol&quot;&gt;&lt;input name=&quot;nmaxje&quot; type=&quot;hidden&quot; id=&quot;nmaxje&quot; value=&quot;30&quot; /&gt;&lt;input name=&quot;heightje&quot; type=&quot;hidden&quot; id=&quot;heightje&quot; value=&quot;480&quot; /&gt;&lt;input name=&quot;btnPlayje&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnPlayje&quot; title=&quot;Play&quot; onclick=&quot;playAni('je')&quot; value=&quot;  &amp;gt;  &quot; /&gt; &lt;input name=&quot;btnPauseje&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnPauseje&quot; title=&quot;Pause&quot; onclick=&quot;pauseAni('je')&quot; value=&quot;  O  &quot; /&gt; &lt;input name=&quot;btnFastje&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnFastje&quot; title=&quot;Speed up&quot; onclick=&quot;fastAni('je',1)&quot; value=&quot;  +  &quot; /&gt; &lt;input name=&quot;btnSlowje&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnSlowje&quot; title=&quot;Slow down&quot; onclick=&quot;fastAni('je',-1)&quot; value=&quot;  -  &quot; /&gt; &lt;input name=&quot;btnPrevje&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnPrevje&quot; title=&quot;Previous frame&quot; onclick=&quot;prevAni('je',1)&quot; value=&quot;  &amp;lt;&amp;lt;  &quot; /&gt; &lt;input name=&quot;btnNextje&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnNextje&quot; title=&quot;Next frame&quot; onclick=&quot;prevAni('je',-1)&quot; value=&quot;  &amp;gt;&amp;gt;  &quot; /&gt; &lt;input name=&quot;btnFirstje&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnFirstje&quot; title=&quot;First frame&quot; onclick=&quot;firstAni('je',true)&quot; value=&quot;  |&amp;lt;  &quot; /&gt; &lt;input name=&quot;btnLastje&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnLastje&quot; title=&quot;Last frame&quot; onclick=&quot;firstAni('je',false)&quot; value=&quot;  &amp;gt;|  &quot; /&gt; &lt;input name=&quot;btnMoreje&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnMoreje&quot; title=&quot;More controls&quot; onclick=&quot;btnMore('je')&quot; value=&quot;  &amp;lt;&amp;gt;  &quot; /&gt;&lt;/div&gt;&lt;div id=&quot;moreParje&quot; class=&quot;morepar&quot;&gt;&lt;label title=&quot;Which frame to go?&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;View frame &lt;input name=&quot;txtFrameje&quot; type=&quot;text&quot; id=&quot;txtFrameje&quot; onblur=&quot;txtFrame(this.value, 'je')&quot; value=&quot;1&quot; size=&quot;4&quot; class=&quot;text&quot; /&gt;/30&lt;/label&gt; &lt;label title=&quot;Loop or not?&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;&lt;input name=&quot;checkLoopje&quot; type=&quot;checkbox&quot; id=&quot;checkLoopje&quot; checked=&quot;checked&quot;/&gt;Loop&lt;/label&gt; &lt;label title=&quot;Time interval for the animation (in sec)&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;Time Interval: &lt;input name=&quot;txtIntervalje&quot; type=&quot;text&quot; id=&quot;txtIntervalje&quot; onblur=&quot;txtInterval(this)&quot; value=&quot;0.5&quot; size=&quot;4&quot; class=&quot;text&quot; /&gt;&lt;/label&gt; &lt;label title=&quot;Increment in time interval&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;Step: &lt;input name=&quot;txtStepje&quot; type=&quot;text&quot; id=&quot;txtStepje&quot; onblur=&quot;txtInterval(this)&quot; value=&quot;0.1&quot; size=&quot;4&quot; class=&quot;text&quot; /&gt;&lt;/label&gt;&lt;/div&gt;&lt;hr /&gt;&lt;div class=&quot;description&quot;&gt;
+Some small random numbers are added to the original data (which only take values on &lt;code&gt;{1, 2, 3}&lt;/code&gt;). If we do not jitter the data, the scatterplot will merely consist of nine points. As the process of jittering is random, this animation has shown its 30 possible results.
+&lt;/div&gt;&lt;/fieldset&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Animation&quot; [401-826] --&gt;
+&lt;h2&gt;&lt;a name=&quot;r_code&quot; id=&quot;r_code&quot;&gt;R code&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+Refer to the example introduced in &lt;a href=&quot;http://animation.yihui.name/animation:start#define_custom_functions&quot; class=&quot;wikilink1&quot; title=&quot;animation:start&quot;&gt;the start page of R package &amp;#039;&amp;#039;animation&amp;#039;&amp;#039;&lt;/a&gt;.
+
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;R code&quot; [827-] --&gt;</description>
+        <category>animation</category>
+            <pubDate>Sat, 07 Jun 2008 22:58:26 +0800</pubDate>
+        </item>
+        <item>
+            <title>Miscellaneous functions in package animation</title>
+            <link>http://animation.yihui.name/animation:misc?rev=1238509388</link>
+            <description>
+
+
+&lt;h1&gt;&lt;a name=&quot;miscellaneous_functions_in_package_animation&quot; id=&quot;miscellaneous_functions_in_package_animation&quot;&gt;Miscellaneous functions in package animation&lt;/a&gt;&lt;/h1&gt;
+&lt;div class=&quot;level1&quot;&gt;
+
+&lt;p&gt;
+
+Some of these functions are occasionally used in my daily life, and some are the implementations of my quick ideas when I see something interesting (like the visual illusions).
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Miscellaneous functions in package animation&quot; [1-238] --&gt;
+&lt;h2&gt;&lt;a name=&quot;tidy_up_r_source&quot; id=&quot;tidy_up_r_source&quot;&gt;&amp;quot;Tidy up&amp;quot; R source&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+The function &lt;code&gt;tidy.source()&lt;/code&gt; is defined as:
+&lt;/p&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;span class=&quot;re3&quot;&gt; &amp;gt;&lt;/span&gt; tidy.source
+&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=function&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;function&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;source&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;clipboard&quot;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;keep&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt; = &lt;span class=&quot;re1&quot;&gt;TRUE&lt;/span&gt;, 
+    &lt;span class=&quot;re5&quot;&gt;keep&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;.blank&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.line&lt;/span&gt; = &lt;span class=&quot;re1&quot;&gt;FALSE&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;begin&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;/span&gt;&lt;/span&gt;.&lt;span class=&quot;re5&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+    &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;tidy&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.block&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=function&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;function&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;block&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.text&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+        &lt;span class=&quot;re5&quot;&gt;exprs&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=parse&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;parse&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;text&lt;/span&gt; = &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;block&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.text&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;span class=&quot;re5&quot;&gt;n&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=length&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;length&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;exprs&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;span class=&quot;re5&quot;&gt;res&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=character&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;character&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=for&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;for&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;i &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=in&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;in&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;re5&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+            &lt;span class=&quot;re5&quot;&gt;dep&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=paste&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;paste&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=deparse&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;deparse&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;exprs&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;collapse&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;&lt;span class=&quot;es0&quot;&gt;\n&lt;/span&gt;&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+            &lt;span class=&quot;re5&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=substring&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;substring&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;dep&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;12&lt;/span&gt;, &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=nchar&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;nchar&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;dep&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; - &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;
+        &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=return&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;return&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;
+    &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;text&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.lines&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=readLines&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;readLines&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;source&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;warn&lt;/span&gt; = &lt;span class=&quot;re1&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=if&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;if&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;keep&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+        &lt;span class=&quot;re5&quot;&gt;identifier&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=function&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;function&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=paste&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;paste&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=sample&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;sample&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;LETTERS&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;collapse&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=if&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;if&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=missing&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;missing&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;begin&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; 
+            &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;begin&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt; = identifier&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=if&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;if&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=missing&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;missing&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; 
+            &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt; = identifier&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;text&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.lines&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=gsub&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;gsub&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;&quot;^[[:space:]]+|[[:space:]]+$&quot;&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;&quot;&quot;&lt;/span&gt;, 
+            &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;text&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.lines&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=while&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;while&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=length&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;length&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=grep&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;grep&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=sprintf&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;sprintf&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;&quot;%s|%s&quot;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;begin&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, 
+            &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;text&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.lines&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+            &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;begin&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt; = identifier&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+            &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt; = identifier&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;
+        &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;head&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=substring&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;substring&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;text&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.lines&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; == &lt;span class=&quot;st0&quot;&gt;&quot;#&quot;&lt;/span&gt;
+        &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=if&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;if&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=any&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;any&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;head&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+            &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;text&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.lines&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;head&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=gsub&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;gsub&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;&quot;&lt;span class=&quot;es0&quot;&gt;\&quot;&lt;/span&gt;&quot;&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;&quot;'&quot;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;text&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.lines&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;head&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+            &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;text&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.lines&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;head&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=sprintf&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;sprintf&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;&quot;%s=&lt;span class=&quot;es0&quot;&gt;\&quot;&lt;/span&gt;%s%s&lt;span class=&quot;es0&quot;&gt;\&quot;&lt;/span&gt;&quot;&lt;/span&gt;, 
+                &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;begin&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;text&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.lines&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;head&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;
+        &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;blank&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.line&lt;/span&gt; = &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;text&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.lines&lt;/span&gt; == &lt;span class=&quot;st0&quot;&gt;&quot;&quot;&lt;/span&gt;
+        &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=if&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;if&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=any&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;any&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;blank&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.line&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &amp;amp; &lt;span class=&quot;re5&quot;&gt;keep&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;.blank&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.line&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; 
+            &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;text&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.lines&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;blank&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.line&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=sprintf&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;sprintf&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;&quot;%s=&lt;span class=&quot;es0&quot;&gt;\&quot;&lt;/span&gt;%s&lt;span class=&quot;es0&quot;&gt;\&quot;&lt;/span&gt;&quot;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;begin&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt;, 
+                &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;text&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.tidy&lt;/span&gt; = tidy.block&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;text&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.lines&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;text&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.tidy&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=gsub&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;gsub&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=sprintf&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;sprintf&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;&quot;%s = &lt;span class=&quot;es0&quot;&gt;\&quot;&lt;/span&gt;|%s&lt;span class=&quot;es0&quot;&gt;\&quot;&lt;/span&gt;&quot;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;begin&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt;, 
+            &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.comment&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;&quot;&quot;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;text&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.tidy&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=else&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;else&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+        &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;text&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.tidy&lt;/span&gt; = tidy.block&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;text&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.lines&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=cat&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;cat&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=paste&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;paste&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;text&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.tidy&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;collapse&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;&lt;span class=&quot;es0&quot;&gt;\n&lt;/span&gt;&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;&quot;&lt;span class=&quot;es0&quot;&gt;\n&lt;/span&gt;&quot;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;/span&gt;&lt;/span&gt;.&lt;span class=&quot;re5&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=invisible&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;invisible&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;text&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.tidy&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;
+As you have seen, it&amp;#039;s quite simple. When I write R code, I&amp;#039;d like to “tidy” them up, because I don&amp;#039;t want to type the spaces (either those around operators or those for indents). You just have to copy your code to the clipboard, then &lt;code&gt;tidy.source()&lt;/code&gt;, and the (more standard) code will be printed in the console. For example, this is the original code:
+&lt;/p&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;span class=&quot;re5&quot;&gt;f&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=tempfile&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;tempfile&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=writeLines&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;writeLines&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;'
+ # rotation of the word &amp;quot;Animation&amp;quot;
+# in a loop; change the angle and color
+# step by step
+for (i in 1:360) {
+# redraw the plot again and again
+plot(1,ann=FALSE,type=&amp;quot;n&amp;quot;,axes=FALSE)
+# rotate; use rainbow() colors
+text(1,1,&amp;quot;Animation&amp;quot;,srt=i,col=rainbow(360)[i],cex=7*i/360)
+# pause for a while
+Sys.sleep(0.01)}
+'&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;
+And this is the “tidy” version:
+&lt;/p&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;span class=&quot;re3&quot;&gt; &amp;gt;&lt;/span&gt; tidy.source&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;# rotation of the word 'Animation'&lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;# in a loop; change the angle and color&lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;# step by step&lt;/span&gt;
+&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=for&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;for&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;i &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=in&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;in&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;nu0&quot;&gt;360&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+   &lt;span class=&quot;co3&quot;&gt;# redraw the plot again and again&lt;/span&gt;
+   &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=plot&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;plot&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;ann&lt;/span&gt; = &lt;span class=&quot;re1&quot;&gt;FALSE&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;type&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;n&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;axes&lt;/span&gt; = &lt;span class=&quot;re1&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+   &lt;span class=&quot;co3&quot;&gt;# rotate; use rainbow() colors&lt;/span&gt;
+   &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=text&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;text&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;&quot;Animation&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;srt&lt;/span&gt; = &lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;col&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=rainbow&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;rainbow&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;360&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;cex&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;7&lt;/span&gt; *
+       i/&lt;span class=&quot;nu0&quot;&gt;360&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+   &lt;span class=&quot;co3&quot;&gt;# pause for a while&lt;/span&gt;
+   &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=Sys.sleep&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;Sys.sleep&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;01&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Tidy up R source&quot; [239-3294] --&gt;
+&lt;h2&gt;&lt;a name=&quot;visual_illusions&quot; id=&quot;visual_illusions&quot;&gt;Visual Illusions&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+Perhaps visual illusions can inspire ideas in animations.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Visual Illusions&quot; [3295-3383] --&gt;
+&lt;h3&gt;&lt;a name=&quot;scintillating_grid_illusion&quot; id=&quot;scintillating_grid_illusion&quot;&gt;Scintillating grid illusion&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+
+&lt;p&gt;
+
+White dots? Black dots?
+&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h4&gt;&lt;a name=&quot;illusion&quot; id=&quot;illusion&quot;&gt;Illusion&lt;/a&gt;&lt;/h4&gt;
+&lt;div class=&quot;level4&quot;&gt;
+
+&lt;p&gt;
+
+&lt;a href=&quot;http://animation.yihui.name/_detail/animation:scintillating_grid_illusion.png?id=animation%3Amisc&amp;amp;cache=cache&quot; class=&quot;media&quot; title=&quot;animation:scintillating_grid_illusion.png&quot;&gt;&lt;img src=&quot;http://animation.yihui.name/_media/animation:scintillating_grid_illusion.png?w=&amp;amp;h=&amp;amp;cache=cache&quot; class=&quot;mediacenter&quot; title=&quot;Scintillating grid illusion&quot; alt=&quot;Scintillating grid illusion&quot; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h4&gt;&lt;a name=&quot;r_code&quot; id=&quot;r_code&quot;&gt;R code&lt;/a&gt;&lt;/h4&gt;
+&lt;div class=&quot;level4&quot;&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=vi&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;vi&lt;/span&gt;&lt;/a&gt;.grid.illusion&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Scintillating grid illusion&quot; [3384-3596] --&gt;
+&lt;h3&gt;&lt;a name=&quot;hermann_grid_illusion&quot; id=&quot;hermann_grid_illusion&quot;&gt;Hermann grid illusion&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+
+&lt;p&gt;
+
+Gray dots at the intersections?
+&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h4&gt;&lt;a name=&quot;illusion1&quot; id=&quot;illusion1&quot;&gt;Illusion&lt;/a&gt;&lt;/h4&gt;
+&lt;div class=&quot;level4&quot;&gt;
+
+&lt;p&gt;
+
+&lt;a href=&quot;http://animation.yihui.name/_detail/animation:hermann_grid_illusion.png?id=animation%3Amisc&amp;amp;cache=cache&quot; class=&quot;media&quot; title=&quot;animation:hermann_grid_illusion.png&quot;&gt;&lt;img src=&quot;http://animation.yihui.name/_media/animation:hermann_grid_illusion.png?w=&amp;amp;h=&amp;amp;cache=cache&quot; class=&quot;mediacenter&quot; title=&quot;Hermann grid illusion&quot; alt=&quot;Hermann grid illusion&quot; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h4&gt;&lt;a name=&quot;r_code1&quot; id=&quot;r_code1&quot;&gt;R code&lt;/a&gt;&lt;/h4&gt;
+&lt;div class=&quot;level4&quot;&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=vi&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;vi&lt;/span&gt;&lt;/a&gt;.grid.illusion&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;type&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;h&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;lwd&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;22&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;nrow&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;ncol&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;, 
+    &lt;span class=&quot;re5&quot;&gt;col&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;white&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Hermann grid illusion&quot; [3597-3859] --&gt;
+&lt;h3&gt;&lt;a name=&quot;lilac_chaser&quot; id=&quot;lilac_chaser&quot;&gt;Lilac Chaser&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+
+&lt;p&gt;
+
+Green dots moving?
+&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h4&gt;&lt;a name=&quot;animation&quot; id=&quot;animation&quot;&gt;Animation&lt;/a&gt;&lt;/h4&gt;
+&lt;div class=&quot;level4&quot;&gt;
+
+&lt;p&gt;
+
+&lt;div align=&quot;center&quot; class=&quot;anidemo&quot; title=&quot;Visual Illusions: Lilac Chaser&quot;&gt;&lt;fieldset&gt;&lt;legend align=&quot;center&quot;&gt;Visual Illusions: Lilac Chaser&lt;/legend&gt;&lt;div id=&quot;loadinglilac&quot; class=&quot;loading&quot;&gt;loading animation frames... 0%&lt;/div&gt;&lt;div id=&quot;divPreloadlilac&quot; class=&quot;divPreload&quot;&gt;&lt;script language=&quot;JavaScript&quot; type=&quot;text/javascript&quot;&gt;	var sourcelilac = &quot;http://s288.photobucket.com/albums/ll181/xieyihui/lilac_chaser/&quot;;	var imgtypelilac = &quot;png&quot;;	var tmplilac = 0;	var nmaxlilac=16; 	var nlilac=1;	var tlilac;	for(i = 1; i &lt;= nmaxlilac; i++){		document.write(&quot;&lt;div class=\&quot;divFrame\&quot; id=\&quot;divPreload&quot; + &quot;lilac&quot; + i + &quot;\&quot;&gt;&lt;img src=\&quot;&quot; + sourcelilac + i + &quot;.&quot; + imgtypelilac + &quot;\&quot;&quot; + &quot; id = \&quot;img&quot; + &quot;lilac&quot; + i + &quot;\&quot; onload = \&quot;loading(\'lilac\')\&quot; onerror = \&quot;loading(\'lilac\')\&quot; alt=\&quot;Visual Illusions: Lilac Chaser\&quot; title=\&quot;Visual Illusions: Lilac Chaser\&quot; /&gt;&lt;/div&gt;&quot;);}&lt;/script&gt;&lt;/div&gt;&lt;div class=&quot;btncontrol&quot;&gt;&lt;input name=&quot;nmaxlilac&quot; type=&quot;hidden&quot; id=&quot;nmaxlilac&quot; value=&quot;16&quot; /&gt;&lt;input name=&quot;heightlilac&quot; type=&quot;hidden&quot; id=&quot;heightlilac&quot; value=&quot;480&quot; /&gt;&lt;input name=&quot;btnPlaylilac&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnPlaylilac&quot; title=&quot;Play&quot; onclick=&quot;playAni('lilac')&quot; value=&quot;  &amp;gt;  &quot; /&gt; &lt;input name=&quot;btnPauselilac&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnPauselilac&quot; title=&quot;Pause&quot; onclick=&quot;pauseAni('lilac')&quot; value=&quot;  O  &quot; /&gt; &lt;input name=&quot;btnFastlilac&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnFastlilac&quot; title=&quot;Speed up&quot; onclick=&quot;fastAni('lilac',1)&quot; value=&quot;  +  &quot; /&gt; &lt;input name=&quot;btnSlowlilac&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnSlowlilac&quot; title=&quot;Slow down&quot; onclick=&quot;fastAni('lilac',-1)&quot; value=&quot;  -  &quot; /&gt; &lt;input name=&quot;btnPrevlilac&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnPrevlilac&quot; title=&quot;Previous frame&quot; onclick=&quot;prevAni('lilac',1)&quot; value=&quot;  &amp;lt;&amp;lt;  &quot; /&gt; &lt;input name=&quot;btnNextlilac&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnNextlilac&quot; title=&quot;Next frame&quot; onclick=&quot;prevAni('lilac',-1)&quot; value=&quot;  &amp;gt;&amp;gt;  &quot; /&gt; &lt;input name=&quot;btnFirstlilac&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnFirstlilac&quot; title=&quot;First frame&quot; onclick=&quot;firstAni('lilac',true)&quot; value=&quot;  |&amp;lt;  &quot; /&gt; &lt;input name=&quot;btnLastlilac&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnLastlilac&quot; title=&quot;Last frame&quot; onclick=&quot;firstAni('lilac',false)&quot; value=&quot;  &amp;gt;|  &quot; /&gt; &lt;input name=&quot;btnMorelilac&quot; type=&quot;submit&quot; disabled=&quot;disabled&quot; class=&quot;anibutton&quot; id=&quot;btnMorelilac&quot; title=&quot;More controls&quot; onclick=&quot;btnMore('lilac')&quot; value=&quot;  &amp;lt;&amp;gt;  &quot; /&gt;&lt;/div&gt;&lt;div id=&quot;moreParlilac&quot; class=&quot;morepar&quot;&gt;&lt;label title=&quot;Which frame to go?&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;View frame &lt;input name=&quot;txtFramelilac&quot; type=&quot;text&quot; id=&quot;txtFramelilac&quot; onblur=&quot;txtFrame(this.value, 'lilac')&quot; value=&quot;1&quot; size=&quot;4&quot; class=&quot;text&quot; /&gt;/16&lt;/label&gt; &lt;label title=&quot;Loop or not?&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;&lt;input name=&quot;checkLooplilac&quot; type=&quot;checkbox&quot; id=&quot;checkLooplilac&quot; checked=&quot;checked&quot;/&gt;Loop&lt;/label&gt; &lt;label title=&quot;Time interval for the animation (in sec)&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;Time Interval: &lt;input name=&quot;txtIntervallilac&quot; type=&quot;text&quot; id=&quot;txtIntervallilac&quot; onblur=&quot;txtInterval(this)&quot; value=&quot;0.05&quot; size=&quot;4&quot; class=&quot;text&quot; /&gt;&lt;/label&gt; &lt;label title=&quot;Increment in time interval&quot; onmouseover=&quot;this.style.backgroundColor='#8cacbb'&quot; onmouseout=&quot;this.style.backgroundColor='#ffffff'&quot;&gt;Step: &lt;input name=&quot;txtSteplilac&quot; type=&quot;text&quot; id=&quot;txtSteplilac&quot; onblur=&quot;txtInterval(this)&quot; value=&quot;0.1&quot; size=&quot;4&quot; class=&quot;text&quot; /&gt;&lt;/label&gt;&lt;/div&gt;&lt;hr /&gt;&lt;div class=&quot;description&quot;&gt;
+Stare at the center cross for a few (say 30) seconds to experience the phenomena of the illusion.
+&lt;/div&gt;&lt;/fieldset&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h4&gt;&lt;a name=&quot;r_code2&quot; id=&quot;r_code2&quot;&gt;R code&lt;/a&gt;&lt;/h4&gt;
+&lt;div class=&quot;level4&quot;&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;span class=&quot;re5&quot;&gt;oopt&lt;/span&gt; = ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;ani&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.height&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;480&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;ani&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.width&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;480&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;outdir&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=getwd&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;getwd&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;nmax&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;,
+    &lt;span class=&quot;re5&quot;&gt;interval&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;05&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;title&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;Visual Illusions: Lilac Chaser&quot;&lt;/span&gt;,
+    &lt;span class=&quot;re5&quot;&gt;description&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;Stare at the center cross for a few (say 30) seconds
+    to experience the phenomena of the illusion.&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.start&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=par&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;par&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;pty&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;s&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;mar&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=rep&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;rep&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=vi&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;vi&lt;/span&gt;&lt;/a&gt;.lilac.chaser&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.stop&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;oopt&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Lilac Chaser&quot; [3860-4544] --&gt;
+&lt;h2&gt;&lt;a name=&quot;create_rss_feed_from_a_csv_file&quot; id=&quot;create_rss_feed_from_a_csv_file&quot;&gt;Create RSS feed from a CSV file&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+An &lt;acronym title=&quot;Rich Site Summary&quot;&gt;RSS&lt;/acronym&gt; feed is essentially just an &lt;acronym title=&quot;Extensible Markup Language&quot;&gt;XML&lt;/acronym&gt; file, thus the creation is easy just with &lt;code&gt;cat()&lt;/code&gt; to write some tags into a text file. The elments of an item in an &lt;acronym title=&quot;Rich Site Summary&quot;&gt;RSS&lt;/acronym&gt; feed usually contains &lt;code&gt;title&lt;/code&gt;, &lt;code&gt;link&lt;/code&gt;, &lt;code&gt;author&lt;/code&gt;, &lt;code&gt;description&lt;/code&gt;, &lt;code&gt;pubDate&lt;/code&gt;, &lt;code&gt;guid&lt;/code&gt;, and &lt;code&gt;category&lt;/code&gt;, etc, which are stored in the &lt;acronym title=&quot;Comma-separated values&quot;&gt;CSV&lt;/acronym&gt; data file. 
+&lt;/p&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=write&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;write&lt;/span&gt;&lt;/a&gt;.rss&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;entry&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;http://r.yihui.name/news/rss.csv&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Create RSS feed from a CSV file&quot; [4545-] --&gt;</description>
+        <category>animation</category>
+            <pubDate>Tue, 31 Mar 2009 22:23:08 +0800</pubDate>
+        </item>
+        <item>
+            <title>Set or Query Animation Parameters</title>
+            <link>http://animation.yihui.name/animation:options?rev=1213338998</link>
+            <description>
+
+
+&lt;h1&gt;&lt;a name=&quot;set_or_query_animation_parameters&quot; id=&quot;set_or_query_animation_parameters&quot;&gt;Set or Query Animation Parameters&lt;/a&gt;&lt;/h1&gt;
+&lt;div class=&quot;level1&quot;&gt;
+
+&lt;p&gt;
+
+The function &lt;code&gt;ani.options()&lt;/code&gt; is mainly based on the function &lt;code&gt;options()&lt;/code&gt; to set or query animation parameters.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Set or Query Animation Parameters&quot; [1-165] --&gt;
+&lt;h2&gt;&lt;a name=&quot;animation_parameters&quot; id=&quot;animation_parameters&quot;&gt;Animation parameters&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+In all there are currently 13 parameters to control the output of animations (mainly for &lt;acronym title=&quot;HyperText Markup Language&quot;&gt;HTML&lt;/acronym&gt; output): &lt;code&gt;interval&lt;/code&gt;, &lt;code&gt;nmax&lt;/code&gt;, &lt;code&gt;ani.width&lt;/code&gt;, &lt;code&gt;ani.height&lt;/code&gt;, &lt;code&gt;outdir&lt;/code&gt;, &lt;code&gt;filename&lt;/code&gt;, &lt;code&gt;withprompt&lt;/code&gt;, &lt;code&gt;ani.type&lt;/code&gt;, &lt;code&gt;ani.dev&lt;/code&gt;, &lt;code&gt;title&lt;/code&gt;, &lt;code&gt;description&lt;/code&gt;, &lt;code&gt;footer&lt;/code&gt;, &lt;code&gt;autobrowse&lt;/code&gt;. Among these options, maybe &lt;code&gt;nmax&lt;/code&gt; is the most difficult to understand. Sometimes it is equal to the maximum number of animation frames (e.g. &lt;code&gt;&lt;a href=&quot;http://animation.yihui.name/prob:brownian_motion&quot; class=&quot;wikilink1&quot; title=&quot;prob:brownian_motion&quot;&gt;brownian.motion()&lt;/a&gt;&lt;/code&gt;, &lt;code&gt;&lt;a href=&quot;http://animation.yihui.name/prob:buffon_s_needle&quot; class=&quot;wikilink1&quot; title=&quot;prob:buffon_s_needle&quot;&gt;buffon.needle()&lt;/a&gt;&lt;/code&gt;, &amp;hellip;), but sometimes it is not (e.g. &lt;code&gt;&lt;a href=&quot;http://animation.yihui.name/dmml:k-nearest_neighbour_algorithm&quot; class=&quot;wikilink1&quot; title=&quot;dmml:k-nearest_neighbour_algorithm&quot;&gt;knn.ani()&lt;/a&gt;&lt;/code&gt;, &lt;code&gt;&lt;a href=&quot;http://animation.yihui.name/compstat:gradient_descent_algorithm&quot; class=&quot;wikilink1&quot; title=&quot;compstat:gradient_descent_algorithm&quot;&gt;grad.desc()&lt;/a&gt;&lt;/code&gt;, &amp;hellip;).
+&lt;/p&gt;
+
+&lt;p&gt;
+Generally speaking, what &lt;code&gt;nmax&lt;/code&gt; really governs is the number of steps in a loop. We know that there might be: (1) more than one condition to end (or break) a loop (2) more than one frame being recorded in a step. These two facts make &lt;code&gt;nmax&lt;/code&gt; a little complicated. The former case will make &lt;code&gt;nmax&lt;/code&gt; &lt;em&gt;no greater than&lt;/em&gt; what you specified, while the latter one will produce &lt;code&gt;k * nmax&lt;/code&gt; animation frames during a whole loop&lt;sup&gt;&lt;a href=&quot;#fn__1&quot; name=&quot;fnt__1&quot; id=&quot;fnt__1&quot; class=&quot;fn_top&quot;&gt;1)&lt;/a&gt;&lt;/sup&gt;. You should refer to the help pages to know what &lt;code&gt;nmax&lt;/code&gt; exactly means.
+&lt;/p&gt;
+
+&lt;p&gt;
+At last, it is recommended that you should specify &lt;code&gt;nmax&lt;/code&gt; &lt;em&gt;each time&lt;/em&gt; you call an animation function, because usually in the last part of an animation function, the &lt;code&gt;nmax&lt;/code&gt; will be reset to the &lt;em&gt;actual&lt;/em&gt; number of animation frames, which might be larger or smaller than the value set before!
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Animation parameters&quot; [166-1738] --&gt;
+&lt;h2&gt;&lt;a name=&quot;examples&quot; id=&quot;examples&quot;&gt;Examples&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+The most common options that will be used are &lt;code&gt;interval&lt;/code&gt; and &lt;code&gt;nmax&lt;/code&gt;. For example,
+&lt;/p&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;span class=&quot;co3&quot;&gt;# 100 frames of brownian motion&lt;/span&gt;
+ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;nmax&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+brownian.motion&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;pch&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;21&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;cex&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;col&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;red&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;bg&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;yellow&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&quot;co3&quot;&gt;# too slow? OK, faster: interval = 0.02&lt;/span&gt;
+ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;interval&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;02&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+brownian.motion&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;pch&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;21&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;cex&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;col&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;red&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;bg&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;yellow&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;
+Note that &lt;code&gt;ani.options()&lt;/code&gt; will change the &lt;em&gt;global&lt;/em&gt; options for any animation functions unless you quit R, so you&amp;#039;d better save the value returned to an object and restore the options when you have finished creating an animation. For example,
+&lt;/p&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;span class=&quot;co3&quot;&gt;# save the options in 'oopt'&lt;/span&gt;
+&lt;span class=&quot;re3&quot;&gt; &amp;gt;&lt;/span&gt; &lt;span class=&quot;re5&quot;&gt;oopt&lt;/span&gt; = ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;interval&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;nmax&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;40&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&quot;co3&quot;&gt;# play the animation&lt;/span&gt;
+&lt;span class=&quot;re3&quot;&gt; &amp;gt;&lt;/span&gt; boot.iid&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;main&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;&quot;&quot;&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;# see the values of interval and nmax&lt;/span&gt;
+&lt;span class=&quot;re3&quot;&gt; &amp;gt;&lt;/span&gt; ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;'interval'&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt; &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;re3&quot;&gt; &amp;gt;&lt;/span&gt; ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;'nmax'&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt; &lt;span class=&quot;nu0&quot;&gt;40&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&quot;co3&quot;&gt;# restore the options&lt;/span&gt;
+&lt;span class=&quot;re3&quot;&gt; &amp;gt;&lt;/span&gt; ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;oopt&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;# default options&lt;/span&gt;
+&lt;span class=&quot;re3&quot;&gt; &amp;gt;&lt;/span&gt; ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;'interval'&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt; &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;.&lt;span class=&quot;nu0&quot;&gt;02&lt;/span&gt;
+&lt;span class=&quot;re3&quot;&gt; &amp;gt;&lt;/span&gt; ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;'nmax'&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt; &lt;span class=&quot;nu0&quot;&gt;50&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&quot;co3&quot;&gt;# what's oopt?&lt;/span&gt;
+&lt;span class=&quot;re3&quot;&gt; &amp;gt;&lt;/span&gt; &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=str&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;str&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;oopt&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+List of &lt;span class=&quot;nu0&quot;&gt;13&lt;/span&gt;
+ $ interval   : num &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;02&lt;/span&gt;&lt;/span&gt;
+ $ nmax       : num &lt;span class=&quot;nu0&quot;&gt;50&lt;/span&gt;
+ $ ani.width  : num &lt;span class=&quot;nu0&quot;&gt;480&lt;/span&gt;
+ $ ani.height : num &lt;span class=&quot;nu0&quot;&gt;480&lt;/span&gt;
+ $ outdir     : chr &lt;span class=&quot;st0&quot;&gt;&quot;C:&lt;span class=&quot;es0&quot;&gt;\\&lt;/span&gt;WINDOWS&lt;span class=&quot;es0&quot;&gt;\\&lt;/span&gt;Temp&lt;span class=&quot;es0&quot;&gt;\\&lt;/span&gt;Rtmpi1JPFO&quot;&lt;/span&gt;
+ $ filename   : chr &lt;span class=&quot;st0&quot;&gt;&quot;index.htm&quot;&lt;/span&gt;
+ $ withprompt : chr &lt;span class=&quot;st0&quot;&gt;&quot;ANI&amp;gt; &quot;&lt;/span&gt;
+ $ ani.type   : chr &lt;span class=&quot;st0&quot;&gt;&quot;png&quot;&lt;/span&gt;
+ $ ani.dev    :&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=function&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;function&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;filename&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;Rplot%03d.png&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;width&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;480&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;height&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;480&lt;/span&gt;, 
+    &lt;span class=&quot;re5&quot;&gt;units&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;px&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;pointsize&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;12&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;bg&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;white&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;res&lt;/span&gt; = &lt;span class=&quot;re1&quot;&gt;NA&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;restoreConsole&lt;/span&gt; = &lt;span class=&quot;re1&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;  
+ $ &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=title&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;title&lt;/span&gt;&lt;/a&gt;      : chr &lt;span class=&quot;st0&quot;&gt;&quot;Statistical Animations Using R&quot;&lt;/span&gt;
+ $ description: chr &lt;span class=&quot;st0&quot;&gt;&quot;This is an animation.&quot;&lt;/span&gt;
+ $ footer     : logi &lt;span class=&quot;re1&quot;&gt;TRUE&lt;/span&gt;
+ $ autobrowse : logi &lt;span class=&quot;re1&quot;&gt;TRUE&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Examples&quot; [1739-3322] --&gt;
+&lt;h2&gt;&lt;a name=&quot;discussion&quot; id=&quot;discussion&quot;&gt;Discussion&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+If I have not made it clear enough, please raise you questions here. &lt;img src=&quot;http://animation.yihui.name/lib/images/smileys/icon_smile2.gif&quot; class=&quot;middle&quot; alt=&quot;=)&quot; /&gt;
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Discussion&quot; [3323-] --&gt;&lt;div class=&quot;footnotes&quot;&gt;
+&lt;div class=&quot;fn&quot;&gt;&lt;sup&gt;&lt;a href=&quot;#fnt__1&quot; id=&quot;fn__1&quot; name=&quot;fn__1&quot; class=&quot;fn_bot&quot;&gt;1)&lt;/a&gt;&lt;/sup&gt; 
+where &lt;code&gt;k&lt;/code&gt; is the number of animation frames made in one step&lt;/div&gt;
+&lt;/div&gt;
+</description>
+        <category>animation</category>
+            <pubDate>Fri, 13 Jun 2008 14:36:38 +0800</pubDate>
+        </item>
+        <item>
+            <title>R Package ''animation''</title>
+            <link>http://animation.yihui.name/animation:start?rev=1216456785</link>
+            <description>
+
+
+&lt;h1&gt;&lt;a name=&quot;r_package_animation&quot; id=&quot;r_package_animation&quot;&gt;R Package &amp;#039;&amp;#039;animation&amp;#039;&amp;#039;&lt;/a&gt;&lt;/h1&gt;
+&lt;div class=&quot;level1&quot;&gt;
+
+&lt;p&gt;
+
+This package consists of various functions for animations in statistics, covering many areas such as probability theory, mathematical statistics, multivariate statistics, nonparametric statistics, sampling survey, linear models, time series, computational statistics, data mining and machine learning. These functions might be of help in teaching statistics and data analysis.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;R Package ''animation''&quot; [1-417] --&gt;
+&lt;h2&gt;&lt;a name=&quot;motivation&quot; id=&quot;motivation&quot;&gt;Motivation&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+There is at least one significant difference between the disciplines of pure mathematics and statistics: usually statistics can be imagined in a very practical way, while it is not always true for mathematics. For example, everyone can imagine why &lt;em&gt;k&lt;/em&gt;-Nearest Neighbor technique works, but perhaps not everyone can imagine why &lt;em&gt;Taylor expansion&lt;/em&gt; technique works, although we can &lt;em&gt;prove&lt;/em&gt; it!
+&lt;/p&gt;
+
+&lt;p&gt;
+Thus an &lt;code&gt;animation&lt;/code&gt; package is written &amp;ndash; just for better understanding of statistical techniques and data analysis. 
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Motivation&quot; [418-961] --&gt;
+&lt;h2&gt;&lt;a name=&quot;download&quot; id=&quot;download&quot;&gt;Download&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+This package &lt;code&gt;animation&lt;/code&gt; is available on &lt;acronym title=&quot;The Comprehensive R Archive Network&quot;&gt;CRAN&lt;/acronym&gt; now; the source code as well as the Windows binary can be downloaded at:
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;a href=&quot;http://cran.r-project.org/web/packages/animation/index.html&quot; class=&quot;urlextern&quot; target=&quot;_blank&quot; title=&quot;http://cran.r-project.org/web/packages/animation/index.html&quot;  rel=&quot;nofollow&quot;&gt;http://cran.r-project.org/web/packages/animation/index.html&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+You may install by &lt;code&gt;R CMD INSTALL&lt;/code&gt; after downloading the source or simply use &lt;code&gt;install.packages()&lt;/code&gt; in R:
+&lt;/p&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=install.packages&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;install.packages&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;&quot;animation&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Download&quot; [962-1330] --&gt;
+&lt;h2&gt;&lt;a name=&quot;usage&quot; id=&quot;usage&quot;&gt;Usage&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+Watching animations either inside R (in windows graphics devices) or outside R (in &lt;acronym title=&quot;HyperText Markup Language&quot;&gt;HTML&lt;/acronym&gt; pages) are OK:
+
+&lt;/p&gt;
+&lt;ol&gt;
+&lt;li class=&quot;level1&quot;&gt;&lt;div class=&quot;li&quot;&gt; Inside R: just type the animation functions in the console, and watch the animations in an R windows graphics device. Usually we don&amp;#039;t need to provide any argument values because all there are default ones for demonstration purposes. The time interval for animations can be set in &lt;code&gt;&lt;a href=&quot;http://animation.yihui.name/animation:options&quot; class=&quot;wikilink1&quot; title=&quot;animation:options&quot;&gt;ani.options()&lt;/a&gt;&lt;/code&gt; (the &lt;code&gt;interval&lt;/code&gt; argument).&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class=&quot;level1&quot;&gt;&lt;div class=&quot;li&quot;&gt; Outside R: the package has also provided a way to create &lt;acronym title=&quot;HyperText Markup Language&quot;&gt;HTML&lt;/acronym&gt; output containing the animations. You may use the function &lt;code&gt;&lt;a href=&quot;http://animation.yihui.name/animation:options&quot; class=&quot;wikilink1&quot; title=&quot;animation:options&quot;&gt;ani.options()&lt;/a&gt;&lt;/code&gt; to specify a series of parameters to control the output, e.g. &lt;code&gt;ani.dev&lt;/code&gt; to select an R graphics devices such as &lt;code&gt;png&lt;/code&gt;, &lt;code&gt;jpeg&lt;/code&gt;, etc; &lt;code&gt;ani.width&lt;/code&gt; and &lt;code&gt;ani.height&lt;/code&gt; to specify the width and height of image frames. Then call &lt;code&gt;ani.start()&lt;/code&gt;, an animation function and &lt;code&gt;ani.stop()&lt;/code&gt; to produce the &lt;acronym title=&quot;HyperText Markup Language&quot;&gt;HTML&lt;/acronym&gt; animation output.&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;
+
+For further information, please check corresponding help pages or &lt;a href=&quot;http://animation.yihui.name/animation:create_html_animation_page&quot; class=&quot;wikilink1&quot; title=&quot;animation:create_html_animation_page&quot;&gt;learn how the HTML pages are created&lt;/a&gt;. 
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Usage&quot; [1331-2417] --&gt;
+&lt;h2&gt;&lt;a name=&quot;method&quot; id=&quot;method&quot;&gt;Method&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+How to generate an animation sequence and save it?
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Method&quot; [2418-2489] --&gt;
+&lt;h3&gt;&lt;a name=&quot;generate_an_animation_sequence&quot; id=&quot;generate_an_animation_sequence&quot;&gt;Generate an animation sequence&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+
+&lt;p&gt;
+
+The animation method behind the package is quite naive and intuitive; here is an example showing how it works:
+&lt;/p&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=for&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;for&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;i &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=in&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;in&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;nu0&quot;&gt;360&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=plot&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;plot&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;ann&lt;/span&gt; = &lt;span class=&quot;re5&quot;&gt;F&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;type&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;n&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;axes&lt;/span&gt; = &lt;span class=&quot;re5&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=text&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;text&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;&quot;Animation&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;srt&lt;/span&gt; = &lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;col&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=rainbow&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;rainbow&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;360&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;cex&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;7&lt;/span&gt; * 
+        i/&lt;span class=&quot;nu0&quot;&gt;360&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=Sys.sleep&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;Sys.sleep&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;01&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;
+The above R code will produce an animation like this:
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;a href=&quot;http://animation.yihui.name/_detail/animation:animation_rotation.gif?id=animation%3Astart&amp;amp;cache=cache&quot; class=&quot;media&quot; title=&quot;animation:animation_rotation.gif&quot;&gt;&lt;img src=&quot;http://animation.yihui.name/_media/animation:animation_rotation.gif?w=&amp;amp;h=&amp;amp;cache=cache&quot; class=&quot;mediacenter&quot; title=&quot;The rotation animation of the word &amp;quot;Animation&amp;quot;&quot; alt=&quot;The rotation animation of the word &amp;quot;Animation&amp;quot;&quot; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+Almost all of the animation functions in the package just follow this kind of loop to produce a sequence of image frames.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Generate an animation sequence&quot; [2490-3098] --&gt;
+&lt;h3&gt;&lt;a name=&quot;a_general_schema&quot; id=&quot;a_general_schema&quot;&gt;A General Schema&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+
+&lt;p&gt;
+
+Here is the pseudo code for the general schema used in the package:
+&lt;/p&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;span class=&quot;co3&quot;&gt;#---------------------------------------------------------------------------#&lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;# Some parameters in 'ani.options()' such as 'nmax' and 'interval' have been&lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;#   appropriately set beforehand;&lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;#---------------------------------------------------------------------------#&lt;/span&gt;
+&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;ani&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.fun&lt;/span&gt; &amp;lt;- &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=function&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;function&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=args&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;args&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;re5&quot;&gt;.for&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;.stat&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.method&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;.for&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.graphics&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;/span&gt;&lt;/span&gt;.&lt;span class=&quot;re5&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+    &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;stat.calculation.for.preparation.here&lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;
+    &lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=while&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;while&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt; &amp;lt;= ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;&quot;nmax&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &amp;amp; other.conditions&lt;span class=&quot;re5&quot;&gt;.for&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;.stat&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.method&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+        &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;stat.calculation.for.animation&lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;
+        &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=plot&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;plot&lt;/span&gt;&lt;/a&gt;.results.in.ith.step&lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;
+        &lt;span class=&quot;co3&quot;&gt;# pause for a while in this step&lt;/span&gt;
+        &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=Sys.sleep&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;Sys.sleep&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;&quot;interval&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt; = &lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt; + &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;
+    &lt;span class=&quot;co3&quot;&gt;# (i - 1) frames produced in the loop&lt;/span&gt;
+    ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;&quot;nmax&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; = i - &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=return&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;return&lt;/span&gt;&lt;/a&gt;.something&lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;
+&lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;#---------------------------------------------------------------------------#&lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;# To produce an HTML animation page, use 'ani.start(...)'; then &lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;# 'ani.fun(...)'; use 'ani.stop(...)' to complete the HTML page.&lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;#---------------------------------------------------------------------------#&lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;# To produce GIF/MPEG animations, use 'saveMovie(ani.fun(...), ...)';&lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;#---------------------------------------------------------------------------#&lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;# To produce Flash animations, use 'saveSWF(ani.fun(...), ...))';&lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;#---------------------------------------------------------------------------# &lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;
+What should be noted here is: the actual number of image frames might not be equal to the &lt;code&gt;nmax&lt;/code&gt; set in &lt;code&gt;ani.options()&lt;/code&gt; before, because &lt;code&gt;nmax&lt;/code&gt; is not the sole condition to break the loop; sometimes a statistical method may have other conditions such as a threshold for error, etc. That&amp;#039;s why we have to reset the &lt;code&gt;nmax&lt;/code&gt; parameter in the end&lt;sup&gt;&lt;a href=&quot;#fn__1&quot; name=&quot;fnt__1&quot; id=&quot;fnt__1&quot; class=&quot;fn_top&quot;&gt;1)&lt;/a&gt;&lt;/sup&gt;.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;A General Schema&quot; [3099-4995] --&gt;
+&lt;h3&gt;&lt;a name=&quot;create_an_html_page_for_animation&quot; id=&quot;create_an_html_page_for_animation&quot;&gt;Create an HTML page for animation&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+
+&lt;p&gt;
+
+The animation in the &lt;acronym title=&quot;HyperText Markup Language&quot;&gt;HTML&lt;/acronym&gt; pages is actually driven by &lt;acronym title=&quot;JavaScript&quot;&gt;JS&lt;/acronym&gt;. For more details, please refer to &lt;a href=&quot;http://animation.yihui.name/animation:create_html_animation_page&quot; class=&quot;wikilink1&quot; title=&quot;animation:create_html_animation_page&quot;&gt;the method to create an HTML animation page&lt;/a&gt;. To generate animations in this wiki, you should read the &lt;a href=&quot;http://animation.yihui.name/wiki:animation_example&quot; class=&quot;wikilink1&quot; title=&quot;wiki:animation_example&quot;&gt;HTML animation examples&lt;/a&gt; and the &lt;a href=&quot;http://animation.yihui.name/wiki:animation_plugin&quot; class=&quot;wikilink1&quot; title=&quot;wiki:animation_plugin&quot;&gt;animation plugin for Dokuwiki&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Create an HTML page for animation&quot; [4996-5382] --&gt;
+&lt;h3&gt;&lt;a name=&quot;create_gif_animations&quot; id=&quot;create_gif_animations&quot;&gt;Create GIF animations&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+
+&lt;p&gt;
+
+The package has also provided a wrapper to generate &lt;acronym title=&quot;Graphics Interchange Format&quot;&gt;GIF&lt;/acronym&gt; animations together with &lt;a href=&quot;http://www.imagemagick.org&quot; class=&quot;urlextern&quot; target=&quot;_blank&quot; title=&quot;http://www.imagemagick.org&quot;  rel=&quot;nofollow&quot;&gt;ImageMagic&lt;/a&gt;. The method is even easier; we merely need to write some code which can produce a sequence of images, and the rest work will be done by the function &lt;code&gt;saveMovie()&lt;/code&gt; in the package. See &lt;a href=&quot;#gif_animation&quot; title=&quot;animation:start &amp;crarr;&quot; class=&quot;wikilink1&quot;&gt;the example below&lt;/a&gt; in the “Examples” section. (Actually the &lt;acronym title=&quot;Graphics Interchange Format&quot;&gt;GIF&lt;/acronym&gt; animation above is just made by this function.)
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Create GIF animations&quot; [5383-5854] --&gt;
+&lt;h3&gt;&lt;a name=&quot;create_flash_animations&quot; id=&quot;create_flash_animations&quot;&gt;Create Flash animations&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+
+&lt;p&gt;
+
+The &lt;a href=&quot;http://www.swftools.org/&quot; class=&quot;urlextern&quot; target=&quot;_blank&quot; title=&quot;http://www.swftools.org/&quot;  rel=&quot;nofollow&quot;&gt;SWF Tools&lt;/a&gt; a collection of SWF manipulation and creation utilities written by Rainer Böhme and Matthias Kramm, and the package &lt;code&gt;animation&lt;/code&gt; has also provided a wrapper &lt;code&gt;saveSWF()&lt;/code&gt; to generate Flash animations with the help of these tools. Currently three graphics devices are available for producing Flash animations: &lt;code&gt;png&lt;/code&gt;, &lt;code&gt;jpeg&lt;/code&gt; and &lt;code&gt;pdf&lt;/code&gt;. There is also &lt;a href=&quot;#flash_animation&quot; title=&quot;animation:start &amp;crarr;&quot; class=&quot;wikilink1&quot;&gt;an example below&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Create Flash animations&quot; [5855-6328] --&gt;
+&lt;h2&gt;&lt;a name=&quot;examples&quot; id=&quot;examples&quot;&gt;Examples&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+Currently we can directly use the functions in the package to produce animations, or we can also define animation functions for ourselves.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Examples&quot; [6329-6490] --&gt;
+&lt;h3&gt;&lt;a name=&quot;use_internal_functions&quot; id=&quot;use_internal_functions&quot;&gt;Use internal functions&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=library&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;library&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;animation&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&quot;co3&quot;&gt;# inside R: windows graphics device&lt;/span&gt;
+&lt;span class=&quot;re5&quot;&gt;oopt&lt;/span&gt; = ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;interval&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;05&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;nmax&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;150&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+brownian.motion&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;n&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;15&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;pch&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;21&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;cex&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;col&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;red&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;bg&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;yellow&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;oopt&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&quot;co3&quot;&gt;# outside R: create an HTML animation page&lt;/span&gt;
+&lt;span class=&quot;re5&quot;&gt;oopt&lt;/span&gt; = ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;interval&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;05&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;nmax&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;100&lt;/span&gt;, 
+    &lt;span class=&quot;re5&quot;&gt;title&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;Demonstration of Brownian Motion&quot;&lt;/span&gt;,
+    &lt;span class=&quot;re5&quot;&gt;description&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;Random walk on the 2D plane: for each point (x, y), 
+    x = x + rnorm(1) and y = y + rnorm(1).&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.start&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;re5&quot;&gt;opar&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=par&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;par&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;mar&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;mgp&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;tcl&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;-0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;&lt;/span&gt;,
+    &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;cex&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.axis&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;8&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;cex&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.lab&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;8&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;cex&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.main&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+brownian.motion&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;pch&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;21&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;cex&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;col&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;red&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;bg&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;yellow&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=par&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;par&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;opar&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.stop&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;oopt&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;
+Check the page &lt;a href=&quot;http://animation.yihui.name/prob:brownian_motion&quot; class=&quot;wikilink1&quot; title=&quot;prob:brownian_motion&quot;&gt;Brownian Motion (Random Walk)&lt;/a&gt; to see the results.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Use internal functions&quot; [6491-7312] --&gt;
+&lt;h3&gt;&lt;a name=&quot;define_custom_functions&quot; id=&quot;define_custom_functions&quot;&gt;Define custom functions&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+
+&lt;p&gt;
+
+The following code has explained how to define animation functions for yourself (please read &lt;span class=&quot;curid&quot;&gt;&lt;a href=&quot;http://animation.yihui.name/animation:start#a_general_schema&quot; class=&quot;wikilink1&quot; title=&quot;animation:start&quot;&gt;the general schema&lt;/a&gt;&lt;/span&gt; above first):
+&lt;/p&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=library&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;library&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;animation&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;# define an animation function to show the jitter effect&lt;/span&gt;
+&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;jitter&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.ani&lt;/span&gt; &amp;lt;- &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=function&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;function&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;amount&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;2&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;/span&gt;&lt;/span&gt;.&lt;span class=&quot;re5&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+    &lt;span class=&quot;re5&quot;&gt;x&lt;/span&gt; &amp;lt;- &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=sample&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;sample&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;300&lt;/span&gt;, &lt;span class=&quot;re1&quot;&gt;TRUE&lt;/span&gt;, &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;6&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&quot;re5&quot;&gt;y&lt;/span&gt; &amp;lt;- &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=sample&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;sample&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;300&lt;/span&gt;, &lt;span class=&quot;re1&quot;&gt;TRUE&lt;/span&gt;, &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;7&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;2&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt; &amp;lt;- &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=while&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;while&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt; &amp;lt;= ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;&quot;nmax&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+        &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=plot&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;plot&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=jitter&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;jitter&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;x&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;amount&lt;/span&gt; = &lt;span class=&quot;re5&quot;&gt;amount&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=jitter&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;jitter&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;y&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;amount&lt;/span&gt; = &lt;span class=&quot;re5&quot;&gt;amount&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, 
+            &lt;span class=&quot;re5&quot;&gt;xlim&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;ylim&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;xlab&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;jittered x&quot;&lt;/span&gt;, 
+            &lt;span class=&quot;re5&quot;&gt;ylab&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;jittered y&quot;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;panel&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.first&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=grid&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;grid&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;/span&gt;&lt;/span&gt;.&lt;span class=&quot;re5&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=points&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;points&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=rep&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;rep&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=rep&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;rep&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;each&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;cex&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;pch&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;19&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=Sys.sleep&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;Sys.sleep&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;&quot;interval&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt; &amp;lt;- &lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt; + &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;
+&lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt; 
+ani.start&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;nmax&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;30&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;interval&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;title&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;Jitter Effect&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=par&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;par&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;mar&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=jitter&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;jitter&lt;/span&gt;&lt;/a&gt;.ani&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.stop&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;
+To see the animation effects, please visit the &lt;a href=&quot;http://animation.yihui.name/animation:example_jitter_effect&quot; class=&quot;wikilink1&quot; title=&quot;animation:example_jitter_effect&quot;&gt;example page for jitter effect&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Define custom functions&quot; [7313-8357] --&gt;
+&lt;h3&gt;&lt;a name=&quot;gif_animation&quot; id=&quot;gif_animation&quot;&gt;GIF animation&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+
+&lt;p&gt;
+
+Following the above example, we pass an expression to the function &lt;code&gt;saveMovie()&lt;/code&gt; to create a similar animation:
+&lt;/p&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=library&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;library&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;animation&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+saveMovie&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=jitter&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;jitter&lt;/span&gt;&lt;/a&gt;.ani&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;interval&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;outdir&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=getwd&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;getwd&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- SECTION &quot;GIF animation&quot; [8358-8593] --&gt;
+&lt;h3&gt;&lt;a name=&quot;flash_animation&quot; id=&quot;flash_animation&quot;&gt;Flash animation&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+
+&lt;p&gt;
+
+Here is a Flash animation example for the kNN algorithm: 
+&lt;/p&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;span class=&quot;re5&quot;&gt;oopt&lt;/span&gt; = ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;interval&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;nmax&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+saveSWF&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;knn.ani&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;test&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=matrix&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;matrix&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=rnorm&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;rnorm&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;ncol&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, 
+    &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;cl&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.pch&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;16&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;dev&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;png&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;para&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=list&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;list&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;mar&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;, 
+    &lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;mgp&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.options&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;oopt&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;
+&lt;object classid=&quot;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&quot; codebase=&quot;http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0&quot; width=&quot;480&quot; height=&quot;480&quot;&gt;
+&lt;param name=&quot;movie&quot; value=&quot;/_media/animation:knn_flash.swf&quot; /&gt;
+&lt;param name=&quot;quality&quot; value=&quot;high&quot; /&gt;
+&lt;embed src=&quot;/_media/animation:knn_flash.swf&quot; quality=&quot;high&quot; width=&quot;480&quot; height=&quot;480&quot; type=&quot;application/x-shockwave-flash&quot; pluginspage=&quot;http://www.macromedia.com/go/getflashplayer&quot;&gt;&lt;/embed&gt;
+&lt;/object&gt;
+
+&lt;/p&gt;
+
+&lt;p&gt;
+Be sure your browser has the Flash plugin to view Flash animations.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Flash animation&quot; [8594-9064] --&gt;
+&lt;h2&gt;&lt;a name=&quot;changes&quot; id=&quot;changes&quot;&gt;Changes&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+See the &lt;a href=&quot;http://animation.yihui.name/lib/exe/fetch.php?cache=cache&amp;amp;media=http%3A%2F%2Fcran.r-project.org%2Fweb%2Fpackages%2Fanimation%2FNEWS&quot; class=&quot;media mediafile mf_&quot; title=&quot;http://cran.r-project.org/web/packages/animation/NEWS&quot;&gt;NEWS&lt;/a&gt; file of the package. There are significant changes since version 1.0-0 (it has been submitted to &lt;acronym title=&quot;The Comprehensive R Archive Network&quot;&gt;CRAN&lt;/acronym&gt;); if you wish to know more about the old versions, please read the page &lt;a href=&quot;http://animation.yihui.name/animation:version_0.2-0&quot; class=&quot;wikilink1&quot; title=&quot;animation:version_0.2-0&quot;&gt;package &amp;#039;&amp;#039;animation&amp;#039;&amp;#039; prior to 1.0-0&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Changes&quot; [9065-9387] --&gt;
+&lt;h2&gt;&lt;a name=&quot;future_plans&quot; id=&quot;future_plans&quot;&gt;Future Plans&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+&lt;ul&gt;
+&lt;li class=&quot;level1&quot;&gt;&lt;div class=&quot;li&quot;&gt; To include more interesting examples to demonstrate statistical theories&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class=&quot;level1&quot;&gt;&lt;div class=&quot;li&quot;&gt; Introduce &lt;em&gt;interactivity&lt;/em&gt; of animations in the web using services like &lt;a href=&quot;http://rweb.stat.umn.edu/Rweb&quot; class=&quot;urlextern&quot; target=&quot;_blank&quot; title=&quot;http://rweb.stat.umn.edu/Rweb&quot;  rel=&quot;nofollow&quot;&gt;Rweb&lt;/a&gt;.&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class=&quot;level1&quot;&gt;&lt;div class=&quot;li&quot;&gt; Try to make 3D animations with other packages such as &lt;a href=&quot;http://cran.r-project.org/package=rgl&quot; class=&quot;urlextern&quot; target=&quot;_blank&quot; title=&quot;http://cran.r-project.org/package=rgl&quot;  rel=&quot;nofollow&quot;&gt;&amp;#039;&amp;#039;rgl&amp;#039;&amp;#039;&lt;/a&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class=&quot;level1&quot;&gt;&lt;div class=&quot;li&quot;&gt; Learn other dynamic graphics systems such as &lt;a href=&quot;http://www.ggobi.org&quot; class=&quot;urlextern&quot; target=&quot;_blank&quot; title=&quot;http://www.ggobi.org&quot;  rel=&quot;nofollow&quot;&gt;&amp;#039;&amp;#039;GGobi&amp;#039;&amp;#039;&lt;/a&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class=&quot;level1&quot;&gt;&lt;div class=&quot;li&quot;&gt; Introduce a &lt;acronym title=&quot;Graphical User Interface&quot;&gt;GUI&lt;/acronym&gt; written in &lt;a href=&quot;http://www.gtk.org&quot; class=&quot;urlextern&quot; target=&quot;_blank&quot; title=&quot;http://www.gtk.org&quot;  rel=&quot;nofollow&quot;&gt;&amp;#039;&amp;#039;GTK+&amp;#039;&amp;#039;&lt;/a&gt; (R package &lt;a href=&quot;http://cran.r-project.org/package=RGtk2&quot; class=&quot;urlextern&quot; target=&quot;_blank&quot; title=&quot;http://cran.r-project.org/package=RGtk2&quot;  rel=&quot;nofollow&quot;&gt;&amp;#039;&amp;#039;RGtk2&amp;#039;&amp;#039;&lt;/a&gt;), or &lt;code&gt;tcltk&lt;/code&gt;, etc&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Future Plans&quot; [9388-9948] --&gt;
+&lt;h2&gt;&lt;a name=&quot;misc&quot; id=&quot;misc&quot;&gt;Misc&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+I have included some miscellaneous functions in this package too, which may (may not) have something (anything) to do with animations. If you are interested, please read &lt;a href=&quot;http://animation.yihui.name/animation:misc&quot; class=&quot;wikilink1&quot; title=&quot;animation:misc&quot;&gt;this page&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Misc&quot; [9949-] --&gt;&lt;div class=&quot;footnotes&quot;&gt;
+&lt;div class=&quot;fn&quot;&gt;&lt;sup&gt;&lt;a href=&quot;#fnt__1&quot; id=&quot;fn__1&quot; name=&quot;fn__1&quot; class=&quot;fn_bot&quot;&gt;1)&lt;/a&gt;&lt;/sup&gt; 
+in the case when &lt;code&gt;nmax&lt;/code&gt; is exactly the number of animation frames, we don&amp;#039;t need to reset this option&lt;/div&gt;
+&lt;/div&gt;
+</description>
+        <category>animation</category>
+            <pubDate>Sat, 19 Jul 2008 16:39:45 +0800</pubDate>
+        </item>
+        <item>
+            <title>Package ''animation'' before 0.2-1</title>
+            <link>http://animation.yihui.name/animation:version_0.2-0?rev=1212851979</link>
+            <description>
+
+
+&lt;h1&gt;&lt;a name=&quot;package_animation_before_0.2-1&quot; id=&quot;package_animation_before_0.2-1&quot;&gt;Package &amp;#039;&amp;#039;animation&amp;#039;&amp;#039; before 0.2-1&lt;/a&gt;&lt;/h1&gt;
+&lt;div class=&quot;level1&quot;&gt;
+
+&lt;p&gt;
+
+Prior to &lt;code&gt;animation (&amp;le; 0.2-0)&lt;/code&gt; the way to control animation parameters is quite different to later releases (&lt;code&gt;&amp;gt; 0.2-0&lt;/code&gt;). If you are still using the old versions, please read the usage and animation method below.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Package ''animation'' before 0.2-1&quot; [1-268] --&gt;
+&lt;h2&gt;&lt;a name=&quot;usage&quot; id=&quot;usage&quot;&gt;Usage&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+Running animations either inside R (in graphical devices) or outside R (in &lt;acronym title=&quot;HyperText Markup Language&quot;&gt;HTML&lt;/acronym&gt; pages) are OK, as an argument &lt;code&gt;saveANI&lt;/code&gt; (actually in the argument &lt;code&gt;control&lt;/code&gt; using the function &lt;code&gt;ani.control()&lt;/code&gt;) to decide whether to save &lt;acronym title=&quot;Portable Network Graphics&quot;&gt;PNG&lt;/acronym&gt; files.
+&lt;/p&gt;
+
+&lt;p&gt;
+By &lt;code&gt;ani.start()&lt;/code&gt;, specifying &lt;code&gt;saveANI = TRUE&lt;/code&gt;, and &lt;code&gt;ani.stop()&lt;/code&gt;, you can generate an &lt;acronym title=&quot;HyperText Markup Language&quot;&gt;HTML&lt;/acronym&gt; page containing the animation; or if &lt;code&gt;saveANI = FALSE&lt;/code&gt;, the animations will be shown inside R graphical devices.
+&lt;/p&gt;
+
+&lt;p&gt;
+For further information, please check the help pages or the vignette. 
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Usage&quot; [269-808] --&gt;
+&lt;h2&gt;&lt;a name=&quot;method&quot; id=&quot;method&quot;&gt;Method&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+How to generate an animation sequence and save it?
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Method&quot; [809-880] --&gt;
+&lt;h3&gt;&lt;a name=&quot;generate_an_animation_sequence&quot; id=&quot;generate_an_animation_sequence&quot;&gt;Generate an animation sequence&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+
+&lt;p&gt;
+
+The animation method behind the package is quite naive and intuitive; here is an example showing how it works:
+&lt;/p&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=for&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;for&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;i &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=in&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;in&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;nu0&quot;&gt;360&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=plot&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;plot&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;ann&lt;/span&gt; = &lt;span class=&quot;re5&quot;&gt;F&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;type&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;n&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;axes&lt;/span&gt; = &lt;span class=&quot;re5&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=text&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;text&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;&quot;Animation&quot;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;srt&lt;/span&gt; = &lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;col&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=rainbow&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;rainbow&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;360&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#91;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#93;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;cex&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;7&lt;/span&gt; * 
+        i/&lt;span class=&quot;nu0&quot;&gt;360&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=Sys.sleep&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;Sys.sleep&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;01&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;
+The above R code will produce an animation like this:
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;a href=&quot;http://animation.yihui.name/_detail/animation:animation_rotation.gif?id=animation%3Aversion_0.2-0&amp;amp;cache=cache&quot; class=&quot;media&quot; title=&quot;animation:animation_rotation.gif&quot;&gt;&lt;img src=&quot;http://animation.yihui.name/_media/animation:animation_rotation.gif?w=&amp;amp;h=&amp;amp;cache=cache&quot; class=&quot;mediacenter&quot; title=&quot;The rotation animation of the word &amp;quot;Animation&amp;quot;&quot; alt=&quot;The rotation animation of the word &amp;quot;Animation&amp;quot;&quot; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+Almost all of the animation functions in the package just follow this kind of loop to produce a sequence of image frames.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Generate an animation sequence&quot; [881-1489] --&gt;
+&lt;h3&gt;&lt;a name=&quot;a_general_schema&quot; id=&quot;a_general_schema&quot;&gt;A General Schema&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+
+&lt;p&gt;
+
+Here is the pseudo code for the general schema used in the package:
+&lt;/p&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;ani&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.fun&lt;/span&gt; &amp;lt;- &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=function&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;function&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;.stat&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.method&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;control&lt;/span&gt; = ani.control&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;nmax&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;100&lt;/span&gt;, 
+    &lt;span class=&quot;re5&quot;&gt;interval&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;05&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;width&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;height&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;/span&gt;&lt;/span&gt;.&lt;span class=&quot;re5&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;/span&gt;&lt;/span&gt;.&lt;span class=&quot;re5&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+    &lt;span class=&quot;re5&quot;&gt;control&lt;/span&gt; = checkargs&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;control&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;/span&gt;&lt;/span&gt;.&lt;span class=&quot;re5&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;stat.calculation&lt;span class=&quot;re5&quot;&gt;.for&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;.preparation&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.here&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=while&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;while&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt; &amp;lt;= &lt;span class=&quot;re5&quot;&gt;control&lt;/span&gt;$&lt;span class=&quot;re5&quot;&gt;nmax&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+        &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;stat&lt;span class=&quot;re5&quot;&gt;.calculation&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;.for&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.animation&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=plot&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;plot&lt;/span&gt;&lt;/a&gt;.results&lt;span class=&quot;re5&quot;&gt;.in&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;.ith&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.step&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=if&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;if&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;control&lt;/span&gt;$&lt;span class=&quot;re5&quot;&gt;saveANI&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; 
+            savePNG&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;n&lt;/span&gt; = &lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;width&lt;/span&gt; = &lt;span class=&quot;re5&quot;&gt;control&lt;/span&gt;$&lt;span class=&quot;re5&quot;&gt;width&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;height&lt;/span&gt; = &lt;span class=&quot;re5&quot;&gt;control&lt;/span&gt;$&lt;span class=&quot;re5&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=else&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;else&lt;/span&gt;&lt;/a&gt; &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=Sys.sleep&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;Sys.sleep&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;control&lt;/span&gt;$&lt;span class=&quot;re5&quot;&gt;interval&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt; = &lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt; + &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;
+    &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;return&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.something&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- SECTION &quot;A General Schema&quot; [1490-2122] --&gt;
+&lt;h3&gt;&lt;a name=&quot;create_an_html_page_for_animation&quot; id=&quot;create_an_html_page_for_animation&quot;&gt;Create an HTML page for animation&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+
+&lt;p&gt;
+
+The animation in the &lt;acronym title=&quot;HyperText Markup Language&quot;&gt;HTML&lt;/acronym&gt; pages is actually driven by &lt;acronym title=&quot;JavaScript&quot;&gt;JS&lt;/acronym&gt;. For more details, please refer to the &lt;a href=&quot;http://animation.yihui.name/wiki:animation_example&quot; class=&quot;wikilink1&quot; title=&quot;wiki:animation_example&quot;&gt;HTML animation examples&lt;/a&gt; and the &lt;a href=&quot;http://animation.yihui.name/wiki:animation_plugin&quot; class=&quot;wikilink1&quot; title=&quot;wiki:animation_plugin&quot;&gt;animation plugin for Dokuwiki&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Create an HTML page for animation&quot; [2123-2380] --&gt;
+&lt;h3&gt;&lt;a name=&quot;create_gif_animations&quot; id=&quot;create_gif_animations&quot;&gt;Create GIF animations&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+
+&lt;p&gt;
+
+The package has also provided a wrapper to generate &lt;acronym title=&quot;Graphics Interchange Format&quot;&gt;GIF&lt;/acronym&gt; animations together with &lt;a href=&quot;http://www.imagemagick.org&quot; class=&quot;urlextern&quot; target=&quot;_blank&quot; title=&quot;http://www.imagemagick.org&quot;  rel=&quot;nofollow&quot;&gt;ImageMagic&lt;/a&gt;. The method is even easier; we merely need to write some code which can produce a sequence of images, and the rest work will be done by the function &lt;code&gt;saveMovie()&lt;/code&gt; in the package. See the example in the “Examples” section.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Create GIF animations&quot; [2381-2761] --&gt;
+&lt;h2&gt;&lt;a name=&quot;examples&quot; id=&quot;examples&quot;&gt;Examples&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+Currently we can directly use the functions in the package to produce animations, or we can also define animation functions for ourselves.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Examples&quot; [2762-2923] --&gt;
+&lt;h3&gt;&lt;a name=&quot;use_internal_functions&quot; id=&quot;use_internal_functions&quot;&gt;Use internal functions&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=library&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;library&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;animation&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&amp;nbsp;
+&lt;span class=&quot;co3&quot;&gt;# inside R: windows graphics device&lt;/span&gt;
+brownian.motion&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;n&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;15&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;nmax&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;150&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; 
+&amp;nbsp;
+&lt;span class=&quot;co3&quot;&gt;# outside R: create an HTML animation page&lt;/span&gt;
+ani.start&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+brownian.motion&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;n&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;15&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;nmax&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;saveANI&lt;/span&gt; = &lt;span class=&quot;re1&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;width&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;500&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;height&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; 
+ani.stop&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Use internal functions&quot; [2924-3216] --&gt;
+&lt;h3&gt;&lt;a name=&quot;define_custom_functions&quot; id=&quot;define_custom_functions&quot;&gt;Define custom functions&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+
+&lt;p&gt;
+
+The following code has explained how to define animation functions for yourself (please read &lt;a href=&quot;http://animation.yihui.name/animation:start#a_general_schema&quot; class=&quot;wikilink1&quot; title=&quot;animation:start&quot;&gt;the general schema&lt;/a&gt; above first):
+&lt;/p&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=library&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;library&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;animation&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;co3&quot;&gt;# define an animation function to show the jitter effect&lt;/span&gt;
+&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;jitter&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.ani&lt;/span&gt; &amp;lt;- &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=function&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;function&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;control&lt;/span&gt; = ani.control&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;/span&gt;&lt;/span&gt;.&lt;span class=&quot;re5&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+    &lt;span class=&quot;re5&quot;&gt;control&lt;/span&gt; = checkargs&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;control&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;/span&gt;&lt;/span&gt;.&lt;span class=&quot;re5&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&quot;re5&quot;&gt;x&lt;/span&gt; &amp;lt;- &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;nu0&quot;&gt;100&lt;/span&gt;
+    &lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt; &amp;lt;- &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=while&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;while&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt; &amp;lt;= &lt;span class=&quot;nu0&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+        &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=plot&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;plot&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;x&lt;/span&gt;, &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=jitter&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;jitter&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;x&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;amount&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;ylim&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;ylab&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;jittered x&quot;&lt;/span&gt;, 
+            &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;panel&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.first&lt;/span&gt; = &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+                &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=grid&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;grid&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+                &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=abline&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;abline&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;col&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;darkgray&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+            &lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=if&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;if&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;control&lt;/span&gt;$&lt;span class=&quot;re5&quot;&gt;saveANI&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; 
+            savePNG&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;n&lt;/span&gt; = &lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;width&lt;/span&gt; = &lt;span class=&quot;re5&quot;&gt;control&lt;/span&gt;$&lt;span class=&quot;re5&quot;&gt;width&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;height&lt;/span&gt; = &lt;span class=&quot;re5&quot;&gt;control&lt;/span&gt;$&lt;span class=&quot;re5&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=else&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;else&lt;/span&gt;&lt;/a&gt; &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=Sys.sleep&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;Sys.sleep&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;control&lt;/span&gt;$&lt;span class=&quot;re5&quot;&gt;interval&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt; &amp;lt;- &lt;span class=&quot;re5&quot;&gt;i&lt;/span&gt; + &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;
+&lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;
+ani.start&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=jitter&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;jitter&lt;/span&gt;&lt;/a&gt;.ani&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;saveANI&lt;/span&gt; = &lt;span class=&quot;re1&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;interval&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+ani.stop&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Define custom functions&quot; [3217-4082] --&gt;
+&lt;h3&gt;&lt;a name=&quot;gif_animation&quot; id=&quot;gif_animation&quot;&gt;GIF animation&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;level3&quot;&gt;
+
+&lt;p&gt;
+
+Following the above example, we pass an expression to the function &lt;code&gt;saveMovie()&lt;/code&gt; to create a similar animation:
+&lt;/p&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=library&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;library&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;animation&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+saveMovie&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=for&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;for&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;i &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=in&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;in&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;nu0&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=plot&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;plot&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;x&lt;/span&gt;, &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=jitter&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;jitter&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;x&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;amount&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, 
+    &lt;span class=&quot;re5&quot;&gt;ylim&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;ylab&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;jittered x&quot;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;panel&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.first&lt;/span&gt; = &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+        &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=grid&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;grid&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+        &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=abline&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;abline&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;col&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;darkgray&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;interval&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;outdir&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=getwd&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;getwd&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; 
+&lt;span class=&quot;co3&quot;&gt;# the GIF animation 'movie.gif' will be created in the directory getwd() &lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;
+Or this code will be more clear:
+&lt;/p&gt;
+&lt;pre class=&quot;code r&quot;&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=library&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;library&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;animation&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;ani&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.expr&lt;/span&gt; &amp;lt;- &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=expression&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;expression&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=for&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;for&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;i &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=in&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;in&lt;/span&gt;&lt;/a&gt; &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;nu0&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt; &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=plot&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;plot&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;x&lt;/span&gt;, &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=jitter&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;jitter&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;x&lt;/span&gt;, 
+    &lt;span class=&quot;re5&quot;&gt;amount&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;ylim&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=c&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;c&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;ylab&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;jittered x&quot;&lt;/span&gt;, &lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;panel&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.first&lt;/span&gt; = &lt;span class=&quot;br0&quot;&gt;&amp;#123;&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=grid&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;grid&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+    &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=abline&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;abline&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;col&lt;/span&gt; = &lt;span class=&quot;st0&quot;&gt;&quot;darkgray&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+&lt;span class=&quot;br0&quot;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+saveMovie&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re4&quot;&gt;&lt;span class=&quot;re5&quot;&gt;ani&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.expr&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;interval&lt;/span&gt; = &lt;span class=&quot;nu0&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;re5&quot;&gt;.&lt;span class=&quot;nu0&quot;&gt;5&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;re5&quot;&gt;outdir&lt;/span&gt; = &lt;a target=&quot;_blank&quot;  href=&quot;http://wiki.r-project.org/rwiki/rhelp.php?id=getwd&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;getwd&lt;/span&gt;&lt;/a&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- SECTION &quot;GIF animation&quot; [4083-4852] --&gt;
+&lt;h2&gt;&lt;a name=&quot;vignette&quot; id=&quot;vignette&quot;&gt;Vignette&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;level2&quot;&gt;
+
+&lt;p&gt;
+
+Here is &lt;a href=&quot;http://animation.yihui.name/_media/animation:animation.pdf?id=animation%3Aversion_0.2-0&amp;amp;cache=cache&quot; class=&quot;media mediafile mf_pdf&quot; title=&quot;animation:animation.pdf&quot;&gt;the old vignette&lt;/a&gt;. If anybody wants to continue my work, please download &lt;a href=&quot;http://animation.yihui.name/_media/animation:vignette.zip?id=animation%3Aversion_0.2-0&amp;amp;cache=cache&quot; class=&quot;media mediafile mf_zip&quot; title=&quot;animation:vignette.zip&quot;&gt;the LaTeX source (Sweave)&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;!-- SECTION &quot;Vignette&quot; [4853-] --&gt;</description>
+        <category>animation</category>
+            <pubDate>Sat, 07 Jun 2008 23:19:39 +0800</pubDate>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,43 @@
+
+
+
+<h1><a name="simple_random_sampling_without_replacement" id="simple_random_sampling_without_replacement">Simple Random Sampling Without Replacement</a></h1>
+<div class="level1">
+
+<p>
+
+<strong>Simple Random Sampling</strong> is the purest form of probability sampling. Each member of the population has an equal and known chance of being selected. When there are very large populations, it is often difficult or impossible to identify every member of the population, so the pool of available subjects becomes biased.
+</p>
+
+<p>
+In most cases, we conduct the sampling in a ”<em>without</em>-replacement” manner, i.e. we don&#039;t put back the sample points once we pick them out. Correspondingly there is another way “sampling <em>with</em> replacement”: every time before we do the sampling, we put all the individuals back again; although this is rare in practical sampling work, it&#039;s also extremely important and closely related to the idea of <a href="/dmml:bootstrap_i.i.d" class="wikilink1" title="dmml:bootstrap_i.i.d">bootstrapping</a>. 
+</p>
+
+</div>
+<!-- SECTION "Simple Random Sampling Without Replacement" [1-824] -->
+<h2><a name="animation" id="animation">Animation</a></h2>
+<div class="level2">
+
+<p>
+
+<div align="center" class="anidemo" title="Demonstration of the simple random sampling without replacement"><fieldset><legend align="center">Demonstration of the simple random sampling without replacement</legend><div id="loadingsrswr" class="loading">loading animation frames... 0%</div><div id="divPreloadsrswr" class="divPreload"><script language="JavaScript" type="text/javascript">	var sourcesrswr = "http://s288.photobucket.com/albums/ll181/xieyihui/srswr/";	var imgtypesrswr = "png";	var tmpsrswr = 0;	var nmaxsrswr=30; 	var nsrswr=1;	var tsrswr;	for(i = 1; i <= nmaxsrswr; i++){		document.write("<div class=\"divFrame\" id=\"divPreload" + "srswr" + i + "\"><img src=\"" + sourcesrswr + i + "." + imgtypesrswr + "\"" + " id = \"img" + "srswr" + i + "\" onload = \"loading(\'srswr\')\" onerror = \"loading(\'srswr\')\" alt=\"Demonstration of the simple random sampling without replacement\" title=\"Demonstration of the simple random sampling without replacement\" /></div>");}</script></div><div class="btncontrol"><input name="nmaxsrswr" type="hidden" id="nmaxsrswr" value="30" /><input name="heightsrswr" type="hidden" id="heightsrswr" value="350" /><input name="btnPlaysrswr" type="submit" disabled="disabled" class="anibutton" id="btnPlaysrswr" title="Play" onclick="playAni('srswr')" value="  &gt;  " /> <input name="btnPausesrswr" type="submit" disabled="disabled" class="anibutton" id="btnPausesrswr" title="Pause" onclick="pauseAni('srswr')" value="  O  " /> <input name="btnFastsrswr" type="submit" disabled="disabled" class="anibutton" id="btnFastsrswr" title="Speed up" onclick="fastAni('srswr',1)" value="  +  " /> <input name="btnSlowsrswr" type="submit" disabled="disabled" class="anibutton" id="btnSlowsrswr" title="Slow down" onclick="fastAni('srswr',-1)" value="  -  " /> <input name="btnPrevsrswr" type="submit" disabled="disabled" class="anibutton" id="btnPrevsrswr" title="Previous frame" onclick="prevAni('srswr',1)" value="  &lt;&lt;  " /> <input name="btnNextsrswr" type="submit" disabled="disabled" class="anibutton" id="btnNextsrswr" title="Next frame" onclick="prevAni('srswr',-1)" value="  &gt;&gt;  " /> <input name="btnFirstsrswr" type="submit" disabled="disabled" class="anibutton" id="btnFirstsrswr" title="First frame" onclick="firstAni('srswr',true)" value="  |&lt;  " /> <input name="btnLastsrswr" type="submit" disabled="disabled" class="anibutton" id="btnLastsrswr" title="Last frame" onclick="firstAni('srswr',false)" value="  &gt;|  " /> <input name="btnMoresrswr" type="submit" disabled="disabled" class="anibutton" id="btnMoresrswr" title="More controls" onclick="btnMore('srswr')" value="  &lt;&gt;  " /></div><div id="moreParsrswr" class="morepar"><label title="Which frame to go?" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">View frame <input name="txtFramesrswr" type="text" id="txtFramesrswr" onblur="txtFrame(this.value, 'srswr')" value="1" size="4" class="text" />/30</label> <label title="Loop or not?" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'"><input name="checkLoopsrswr" type="checkbox" id="checkLoopsrswr" checked="checked"/>Loop</label> <label title="Time interval for the animation (in sec)" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">Time Interval: <input name="txtIntervalsrswr" type="text" id="txtIntervalsrswr" onblur="txtInterval(this)" value="1" size="4" class="text" /></label> <label title="Increment in time interval" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">Step: <input name="txtStepsrswr" type="text" id="txtStepsrswr" onblur="txtInterval(this)" value="0.1" size="4" class="text" /></label></div><hr /><div class="description">
+Each member of the population has an equal and known chance of being selected.
+</div></fieldset></div>
+</p>
+
+</div>
+<!-- SECTION "Animation" [825-1080] -->
+<h2><a name="r_code" id="r_code">R code</a></h2>
+<div class="level2">
+<pre class="code r"><span class="re5">oopt</span> = ani.options<span class="br0">&#40;</span><span class="re4"><span class="re5">ani</span></span><span class="re5">.height</span> = <span class="nu0">350</span>, <span class="re4"><span class="re5">ani</span></span><span class="re5">.width</span> = <span class="nu0">500</span>, <span class="re5">outdir</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=getwd"><span class="kw4">getwd</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span>, <span class="re5">nmax</span> = <span class="nu0">30</span>,
+    <span class="re5">interval</span> = <span class="nu0">1</span>,
+    <span class="re5">title</span> = <span class="st0">"Demonstration of the simple random sampling without replacement"</span>,
+    <span class="re5">description</span> = <span class="st0">"Each member of the population has an equal and known chance
+    of being selected."</span><span class="br0">&#41;</span>
+ani.start<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=par"><span class="kw4">par</span></a><span class="br0">&#40;</span><span class="re5">mar</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=rep"><span class="kw3">rep</span></a><span class="br0">&#40;</span><span class="nu0">1</span>, <span class="nu0">4</span><span class="br0">&#41;</span>, <span class="re5">lwd</span> = <span class="nu0">2</span><span class="br0">&#41;</span>
+<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=sample"><span class="kw4">sample</span></a>.simple<span class="br0">&#40;</span><span class="br0">&#41;</span>
+ani.stop<span class="br0">&#40;</span><span class="br0">&#41;</span>
+ani.options<span class="br0">&#40;</span><span class="re5">oopt</span><span class="br0">&#41;</span></pre>
+</div>
+<!-- SECTION "R code" [1081-] -->

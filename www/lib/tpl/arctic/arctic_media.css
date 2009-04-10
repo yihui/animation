@@ -1,0 +1,9 @@
+/**
+ * Media Manager - additional CSS for the Arctic Template
+ * @author Michael Klier <chi@chimeric.de>
+ */
+
+#media__left,
+#media__right {
+  background: __background__;
+}

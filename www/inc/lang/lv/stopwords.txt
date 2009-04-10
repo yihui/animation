@@ -1,0 +1,25 @@
+# Šis ir to vārdu sarakstus, kurus indeksētājs neņem vērā. Katru vārdu savā rindā!
+# Labojot failu ievēro, ja jālieto UNIX rindu aplauzumi (single newline)
+# Nevajag likt sarakstā par 3 burtiem īsākus vārdus, tos tā pat neņem vērā
+# Angļu valodai saraksts ņemts no http://www.ranks.nl/stopwords/
+gar 
+par
+pār
+pret 
+starp
+caur
+vai
+nav
+aiz 
+apakš
+bez
+dēļ
+pēc
+pie 
+pirms
+priekš
+
+
+ 
+
+

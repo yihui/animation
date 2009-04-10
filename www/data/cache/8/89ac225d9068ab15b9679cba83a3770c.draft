@@ -1,0 +1,21 @@
+a:6:{s:2:"id";s:20:"dmml:bootstrap_i.i.d";s:6:"prefix";s:0:"";s:4:"text";s:141:"====== Bootstrapping the i.i.d data ======
+
+The function ''boot.iid()'' has provided an illustration of bootstrapping for the i.i.d data.
+";s:6:"suffix";s:1030:"===== Animation =====
+
+<ani boot http://i288.photobucket.com/albums/ll181/xieyihui/boot_iid/ png 40 500 0.5|Bootstrapping the i.i.d data>
+This is a naive version of bootstrapping but may be useful for novices. In the top plot, the circles denote the original dataset, while the red sunflowers (probably) with leaves denote the points being resampled; the number of leaves just means how many times these points are resampled, as bootstrap samples //with// replacement. The bottom plot shows the distribution of $\bar{x}^{*}$. The whole process has illustrated the steps of resampling, computing the statistic and plotting its distribution based on bootstrapping.
+</ani>
+
+===== R code =====
+
+<code r>
+ani.options(ani.height = 500, ani.width = 600, outdir = getwd(),
+    title = "Bootstrapping the i.i.d data",
+    description = "This is a naive version of bootstrapping but
+    may be useful for novices.")
+ani.start()
+par(mar = c(2.5, 4, 0.5, 0.5))
+boot.iid(main = c("", ""), heights = c(1, 2))
+ani.stop()
+</code>";s:4:"date";s:10:"1231992000";s:6:"client";s:13:"201.80.33.119";}

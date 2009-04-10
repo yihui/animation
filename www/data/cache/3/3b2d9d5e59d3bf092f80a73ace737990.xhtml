@@ -1,0 +1,38 @@
+
+
+
+<h1><a name="the_newton-raphson_method_for_root-finding" id="the_newton-raphson_method_for_root-finding">The Newton-Raphson Method for Root-finding</a></h1>
+<div class="level1">
+
+<p>
+
+Go go go! Along with the tangent lines! <img src="/lib/images/smileys/fixme.gif" class="middle" alt="FIXME" />
+</p>
+
+</div>
+<!-- SECTION "The Newton-Raphson Method for Root-finding" [1-105] -->
+<h2><a name="animation" id="animation">Animation</a></h2>
+<div class="level2">
+
+<p>
+
+<div align="center" class="anidemo" title="The Newton-Raphson Method for Root-finding"><fieldset><legend align="center">The Newton-Raphson Method for Root-finding</legend><div id="loadingnm" class="loading">loading animation frames... 0%</div><div id="divPreloadnm" class="divPreload"><script language="JavaScript" type="text/javascript">	var sourcenm = "http://s288.photobucket.com/albums/ll181/xieyihui/newton_s_method/";	var imgtypenm = "png";	var tmpnm = 0;	var nmaxnm=21; 	var nnm=1;	var tnm;	for(i = 1; i <= nmaxnm; i++){		document.write("<div class=\"divFrame\" id=\"divPreload" + "nm" + i + "\"><img src=\"" + sourcenm + i + "." + imgtypenm + "\"" + " id = \"img" + "nm" + i + "\" onload = \"loading(\'nm\')\" onerror = \"loading(\'nm\')\" alt=\"The Newton-Raphson Method for Root-finding\" title=\"The Newton-Raphson Method for Root-finding\" /></div>");}</script></div><div class="btncontrol"><input name="nmaxnm" type="hidden" id="nmaxnm" value="21" /><input name="heightnm" type="hidden" id="heightnm" value="500" /><input name="btnPlaynm" type="submit" disabled="disabled" class="anibutton" id="btnPlaynm" title="Play" onclick="playAni('nm')" value="  &gt;  " /> <input name="btnPausenm" type="submit" disabled="disabled" class="anibutton" id="btnPausenm" title="Pause" onclick="pauseAni('nm')" value="  O  " /> <input name="btnFastnm" type="submit" disabled="disabled" class="anibutton" id="btnFastnm" title="Speed up" onclick="fastAni('nm',1)" value="  +  " /> <input name="btnSlownm" type="submit" disabled="disabled" class="anibutton" id="btnSlownm" title="Slow down" onclick="fastAni('nm',-1)" value="  -  " /> <input name="btnPrevnm" type="submit" disabled="disabled" class="anibutton" id="btnPrevnm" title="Previous frame" onclick="prevAni('nm',1)" value="  &lt;&lt;  " /> <input name="btnNextnm" type="submit" disabled="disabled" class="anibutton" id="btnNextnm" title="Next frame" onclick="prevAni('nm',-1)" value="  &gt;&gt;  " /> <input name="btnFirstnm" type="submit" disabled="disabled" class="anibutton" id="btnFirstnm" title="First frame" onclick="firstAni('nm',true)" value="  |&lt;  " /> <input name="btnLastnm" type="submit" disabled="disabled" class="anibutton" id="btnLastnm" title="Last frame" onclick="firstAni('nm',false)" value="  &gt;|  " /> <input name="btnMorenm" type="submit" disabled="disabled" class="anibutton" id="btnMorenm" title="More controls" onclick="btnMore('nm')" value="  &lt;&gt;  " /></div><div id="moreParnm" class="morepar"><label title="Which frame to go?" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">View frame <input name="txtFramenm" type="text" id="txtFramenm" onblur="txtFrame(this.value, 'nm')" value="1" size="4" class="text" />/21</label> <label title="Loop or not?" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'"><input name="checkLoopnm" type="checkbox" id="checkLoopnm" checked="checked"/>Loop</label> <label title="Time interval for the animation (in sec)" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">Time Interval: <input name="txtIntervalnm" type="text" id="txtIntervalnm" onblur="txtInterval(this)" value="1" size="4" class="text" /></label> <label title="Increment in time interval" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">Step: <input name="txtStepnm" type="text" id="txtStepnm" onblur="txtInterval(this)" value="0.1" size="4" class="text" /></label></div><hr /><div class="description">
+Go along with the tangent lines and iterate.
+</div></fieldset></div>
+</p>
+
+</div>
+<!-- SECTION "Animation" [106-313] -->
+<h2><a name="r_code" id="r_code">R code</a></h2>
+<div class="level2">
+<pre class="code r"><span class="re5">oopt</span> = ani.<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=options"><span class="kw4">options</span></a><span class="br0">&#40;</span>ani<span class="re5">.height</span> = <span class="nu0">500</span>, ani<span class="re5">.width</span> = <span class="nu0">600</span>, <span class="re5">outdir</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=getwd"><span class="kw4">getwd</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span>, <span class="re5">nmax</span> = <span class="nu0">100</span>,
+    <span class="re5">interval</span> = <span class="nu0">1</span>, <span class="re5">title</span> = <span class="st0">&quot;Demonstration of the Newton-Raphson Method&quot;</span>,
+    <span class="re5">description</span> = <span class="st0">&quot;Go along with the tangent lines and iterate.&quot;</span><span class="br0">&#41;</span>
+ani.<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=start"><span class="kw3">start</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span>
+<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=par"><span class="kw4">par</span></a><span class="br0">&#40;</span><span class="re5">mar</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=c"><span class="kw3">c</span></a><span class="br0">&#40;</span><span class="nu0">3</span>, <span class="nu0">3</span>, <span class="nu0">1</span>, <span class="nu0">1.5</span><span class="br0">&#41;</span>, <span class="re5">mgp</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=c"><span class="kw3">c</span></a><span class="br0">&#40;</span><span class="nu0">1</span><span class="re5">.5</span>, 0<span class="re5">.5</span>, 0<span class="br0">&#41;</span>, <span class="re5">pch</span> = <span class="nu0">19</span><span class="br0">&#41;</span>
+newton.method<span class="br0">&#40;</span><a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=function"><span class="kw1">function</span></a><span class="br0">&#40;</span>x<span class="br0">&#41;</span> <span class="nu0">5</span> * x^<span class="nu0">3</span> - <span class="nu0">7</span> * x^<span class="nu0">2</span> - <span class="nu0">40</span> *
+    x + <span class="nu0">100</span>, <span class="nu0">7</span><span class="re5">.15</span>, <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=c"><span class="kw3">c</span></a><span class="br0">&#40;</span>-<span class="nu0">6</span><span class="re5">.2</span>, <span class="nu0">7.1</span><span class="br0">&#41;</span>, <span class="re5">main</span> = <span class="st0">&quot;&quot;</span><span class="br0">&#41;</span>
+ani.<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=stop"><span class="kw4">stop</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span>
+ani.<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=options"><span class="kw4">options</span></a><span class="br0">&#40;</span>oopt<span class="br0">&#41;</span></pre>
+</div>
+<!-- SECTION "R code" [314-] -->

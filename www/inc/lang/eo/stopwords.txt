@@ -1,0 +1,19 @@
+# This is a list of words the indexer ignores, one word per line
+# When you edit this file be sure to use UNIX line endings (single newline)
+# No need to include words shorter than 3 chars - these are ignored anyway
+pri
+estas
+kaj
+via
+ili
+ilia
+kun
+por
+kiel
+tiu
+estis
+kio
+kiam
+kie
+kiu
+www

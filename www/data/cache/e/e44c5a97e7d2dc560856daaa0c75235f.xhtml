@@ -1,0 +1,55 @@
+
+
+
+<h1><a name="brownian_motion" id="brownian_motion">Brownian Motion</a></h1>
+<div class="level1">
+
+<p>
+
+The function <code>brownian.motion()</code> has illustrated the phenomenon of <a href="http://en.wikipedia.org/wiki/random_walk" class="interwiki iw_wp" target="_blank" title="http://en.wikipedia.org/wiki/random_walk">Random Walk</a> on the 2D plane. For a point <code>(x, y)</code>, its next location is <code>(x + rnorm(1), y + rnorm(1))</code>.
+</p>
+
+</div>
+<!-- SECTION "Brownian Motion" [1-228] -->
+<h2><a name="r_code" id="r_code">R code</a></h2>
+<div class="level2">
+<pre class="code r"><span class="co3"># create an HTML animation page of Brownian Motion</span>
+<span class="co3"># store the old option to restore it later</span>
+<span class="re5">oopt</span> = ani.options<span class="br0">&#40;</span><span class="re5">interval</span> = <span class="nu0">0</span><span class="re5">.<span class="nu0">05</span></span>, <span class="re5">nmax</span> = <span class="nu0">100</span>, <span class="re4"><span class="re5">ani</span></span><span class="re5">.dev</span> = <span class="re5">png</span>, <span class="re4"><span class="re5">ani</span></span><span class="re5">.type</span> = <span class="st0">"png"</span>,
+    <span class="re5">title</span> = <span class="st0">"Demonstration of Brownian Motion"</span>,
+    <span class="re5">description</span> = <span class="st0">"Random walk on the 2D plane: for each point (x, y), 
+    x = x + rnorm(1) and y = y + rnorm(1)."</span><span class="br0">&#41;</span>
+ani.start<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="re5">opar</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=par"><span class="kw4">par</span></a><span class="br0">&#40;</span><span class="re5">mar</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=c"><span class="kw3">c</span></a><span class="br0">&#40;</span><span class="nu0">3</span>, <span class="nu0">3</span>, <span class="nu0">1</span>, <span class="nu0">0</span><span class="re5">.<span class="nu0">5</span></span><span class="br0">&#41;</span>, <span class="re5">mgp</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=c"><span class="kw3">c</span></a><span class="br0">&#40;</span><span class="nu0">2</span>, <span class="re5">.<span class="nu0">5</span></span>, <span class="nu0">0</span><span class="br0">&#41;</span>, <span class="re5">tcl</span> = <span class="nu0">-0</span><span class="re5">.<span class="nu0">3</span></span>,
+    <span class="re4"><span class="re5">cex</span></span><span class="re5">.axis</span> = <span class="nu0">0</span><span class="re5">.<span class="nu0">8</span></span>, <span class="re4"><span class="re5">cex</span></span><span class="re5">.lab</span> = <span class="nu0">0</span><span class="re5">.<span class="nu0">8</span></span>, <span class="re4"><span class="re5">cex</span></span><span class="re5">.main</span> = <span class="nu0">1</span><span class="br0">&#41;</span>
+brownian.motion<span class="br0">&#40;</span><span class="re5">pch</span> = <span class="nu0">21</span>, <span class="re5">cex</span> = <span class="nu0">5</span>, <span class="re5">col</span> = <span class="st0">"red"</span>, <span class="re5">bg</span> = <span class="st0">"yellow"</span><span class="br0">&#41;</span>
+<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=par"><span class="kw4">par</span></a><span class="br0">&#40;</span><span class="re5">opar</span><span class="br0">&#41;</span>
+ani.stop<span class="br0">&#40;</span><span class="br0">&#41;</span>
+ani.options<span class="br0">&#40;</span><span class="re5">oopt</span><span class="br0">&#41;</span></pre>
+</div>
+<!-- SECTION "R code" [229-834] -->
+<h2><a name="animation" id="animation">Animation</a></h2>
+<div class="level2">
+
+<p>
+
+The animation is like this:
+</p>
+
+<p>
+<div align="center" class="anidemo" title="Demonstration of Brownian Motion"><fieldset><legend align="center">Demonstration of Brownian Motion</legend><div id="loadingbm" class="loading">loading animation frames... 0%</div><div id="divPreloadbm" class="divPreload"><script language="JavaScript" type="text/javascript">	var sourcebm = "http://i288.photobucket.com/albums/ll181/xieyihui/brownian_motion/";	var imgtypebm = "png";	var tmpbm = 0;	var nmaxbm=100; 	var nbm=1;	var tbm;	for(i = 1; i <= nmaxbm; i++){		document.write("<div class=\"divFrame\" id=\"divPreload" + "bm" + i + "\"><img src=\"" + sourcebm + i + "." + imgtypebm + "\"" + " id = \"img" + "bm" + i + "\" onload = \"loading(\'bm\')\" onerror = \"loading(\'bm\')\" alt=\"Demonstration of Brownian Motion\" title=\"Demonstration of Brownian Motion\" /></div>");}</script></div><div class="btncontrol"><input name="nmaxbm" type="hidden" id="nmaxbm" value="100" /><input name="heightbm" type="hidden" id="heightbm" value="480" /><input name="btnPlaybm" type="submit" disabled="disabled" class="anibutton" id="btnPlaybm" title="Play" onclick="playAni('bm')" value="  &gt;  " /> <input name="btnPausebm" type="submit" disabled="disabled" class="anibutton" id="btnPausebm" title="Pause" onclick="pauseAni('bm')" value="  O  " /> <input name="btnFastbm" type="submit" disabled="disabled" class="anibutton" id="btnFastbm" title="Speed up" onclick="fastAni('bm',1)" value="  +  " /> <input name="btnSlowbm" type="submit" disabled="disabled" class="anibutton" id="btnSlowbm" title="Slow down" onclick="fastAni('bm',-1)" value="  -  " /> <input name="btnPrevbm" type="submit" disabled="disabled" class="anibutton" id="btnPrevbm" title="Previous frame" onclick="prevAni('bm',1)" value="  &lt;&lt;  " /> <input name="btnNextbm" type="submit" disabled="disabled" class="anibutton" id="btnNextbm" title="Next frame" onclick="prevAni('bm',-1)" value="  &gt;&gt;  " /> <input name="btnFirstbm" type="submit" disabled="disabled" class="anibutton" id="btnFirstbm" title="First frame" onclick="firstAni('bm',true)" value="  |&lt;  " /> <input name="btnLastbm" type="submit" disabled="disabled" class="anibutton" id="btnLastbm" title="Last frame" onclick="firstAni('bm',false)" value="  &gt;|  " /> <input name="btnMorebm" type="submit" disabled="disabled" class="anibutton" id="btnMorebm" title="More controls" onclick="btnMore('bm')" value="  &lt;&gt;  " /></div><div id="moreParbm" class="morepar"><label title="Which frame to go?" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">View frame <input name="txtFramebm" type="text" id="txtFramebm" onblur="txtFrame(this.value, 'bm')" value="1" size="4" class="text" />/100</label> <label title="Loop or not?" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'"><input name="checkLoopbm" type="checkbox" id="checkLoopbm" checked="checked"/>Loop</label> <label title="Time interval for the animation (in sec)" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">Time Interval: <input name="txtIntervalbm" type="text" id="txtIntervalbm" onblur="txtInterval(this)" value="0.05" size="4" class="text" /></label> <label title="Increment in time interval" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">Step: <input name="txtStepbm" type="text" id="txtStepbm" onblur="txtInterval(this)" value="0.1" size="4" class="text" /></label></div><hr /><div class="description">
+Random walk on the 2D plane: for each point (x, y), x = x + rnorm(1) and y = y + rnorm(1).
+</div></fieldset></div>
+</p>
+
+</div>
+<!-- SECTION "Animation" [835-1111] -->
+<h2><a name="other_resources" id="other_resources">Other resources</a></h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> I find this Java applet is much more interesting than my function: <a href="http://galileoandeinstein.physics.virginia.edu/more_stuff/Applets/brownian/brownian.html" class="urlextern" target="_blank" title="http://galileoandeinstein.physics.virginia.edu/more_stuff/Applets/brownian/brownian.html"  rel="nofollow">Einstein&#039;s Explanation of Brownian Motion</a></div>
+</li>
+</ul>
+
+</div>
+<!-- SECTION "Other resources" [1112-] -->

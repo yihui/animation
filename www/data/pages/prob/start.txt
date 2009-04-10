@@ -1,0 +1,25 @@
+====== Animations in Probability Theory ======
+
+Animations can demonstrate the certainty in uncertainty.
+
+===== Introduction to Probability Theory =====
+
+[[wp>Probability_theory|Probability theory]] is the branch of mathematics concerned with analysis of random phenomena. The central objects of probability theory are random variables, stochastic processes, and events: mathematical abstractions of non-deterministic events or measured quantities that may either be single occurrences or evolve over time in an apparently random fashion. Although [[flipping_coins|an individual coin toss or the roll of a die]] is a random event, if repeated many times the sequence of random events will exhibit certain statistical patterns, which can be studied and predicted. Two representative mathematical results describing such patterns are [[law_of_large_numbers|the law of large numbers]] and [[central_limit_theorem|the central limit theorem]].
+
+As a mathematical foundation for statistics, probability theory is essential to many human activities that involve quantitative analysis of large sets of data. Methods of probability theory also apply to description of complex systems given only partial knowledge of their state, as in statistical mechanics. A great discovery of twentieth century physics was the probabilistic nature of physical phenomena at atomic scales, described in quantum mechanics.
+
+===== What can animations do =====
+
+As probability theory is closely related to randomness, we may use animations to demonstrate this kind of randomness based on random numbers. For example, we can generate a series of random numbers in a probability experiment and create a plot to illustrate the result of this experiment; by repeating this step over and over again, we can probably observe interesting phenomena in the changes of animation frames.
+
+===== List of animations =====
+
+^ topic ^ description ^ preview ^ 
+| [[flipping_coins]] | specify the true probability of the occurrence of each face, and do the simulation of flipping an object. | [[flipping_coins|{{http://s288.photobucket.com/albums/ll181/xieyihui/flipping_coins/50.png?200x200}}]] |
+| [[brownian_motion]] | a trivial demonstration of the Brownian Motion; you can see some circles moving randomly on the 2D plane. | [[brownian_motion|{{http://i288.photobucket.com/albums/ll181/xieyihui/brownian_motion/100.png?200x200}}]] |
+| [[buffon_s_needle]] | present the scenario of dropping needles and estimate the value of $\pi$. | [[buffon_s_needle|{{http://s288.photobucket.com/albums/ll181/xieyihui/buffon_s_needle/100.png?200x200}}]] |
+| [[bean_machine]] | The bean machine, also known as the quincunx or Galton box, is a device invented by Sir Francis Galton to demonstrate the law of error and the normal distribution. | [[bean_machine|{{http://animation.r-forge.r-project.org/frames/quincunx/200.png?200x200}}]] |
+| [[law_of_large_numbers]] | as the sample size grows, the sample mean will converge to the population mean. | [[law_of_large_numbers|{{http://s288.photobucket.com/albums/ll181/xieyihui/law_of_large_numbers/100.png?200x200}}]] |
+| [[central_limit_theorem]] | as the sample size grows, the distribution of the sample mean will converge to the Normal distribution; a histogram will illustrate the density of the sample mean and the Shapiro's test will be performed to check the normality (P-values will be plotted). | [[central_limit_theorem|{{http://s288.photobucket.com/albums/ll181/xieyihui/central_limit_theorem/100.png?200x200}}]] |
+
+

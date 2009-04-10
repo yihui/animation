@@ -1,0 +1,38 @@
+
+
+
+<h1><a name="the_law_of_large_numbers" id="the_law_of_large_numbers">The Law of Large Numbers</a></h1>
+<div class="level1">
+
+<p>
+
+The sample mean converges to the population mean. <img src="/lib/images/smileys/fixme.gif" class="middle" alt="FIXME" />
+</p>
+
+</div>
+<!-- SECTION "The Law of Large Numbers" [1-97] -->
+<h2><a name="animation" id="animation">Animation</a></h2>
+<div class="level2">
+
+<p>
+
+<div align="center" class="anidemo" title="Demonstration of the Law of Large Numbers"><fieldset><legend align="center">Demonstration of the Law of Large Numbers</legend><div id="loadinglln" class="loading">loading animation frames... 0%</div><div id="divPreloadlln" class="divPreload"><script language="JavaScript" type="text/javascript">	var sourcelln = "http://s288.photobucket.com/albums/ll181/xieyihui/law_of_large_numbers/";	var imgtypelln = "png";	var tmplln = 0;	var nmaxlln=100; 	var nlln=1;	var tlln;	for(i = 1; i <= nmaxlln; i++){		document.write("<div class=\"divFrame\" id=\"divPreload" + "lln" + i + "\"><img src=\"" + sourcelln + i + "." + imgtypelln + "\"" + " id = \"img" + "lln" + i + "\" onload = \"loading(\'lln\')\" onerror = \"loading(\'lln\')\" alt=\"Demonstration of the Law of Large Numbers\" title=\"Demonstration of the Law of Large Numbers\" /></div>");}</script></div><div class="btncontrol"><input name="nmaxlln" type="hidden" id="nmaxlln" value="100" /><input name="heightlln" type="hidden" id="heightlln" value="480" /><input name="btnPlaylln" type="submit" disabled="disabled" class="anibutton" id="btnPlaylln" title="Play" onclick="playAni('lln')" value="  &gt;  " /> <input name="btnPauselln" type="submit" disabled="disabled" class="anibutton" id="btnPauselln" title="Pause" onclick="pauseAni('lln')" value="  O  " /> <input name="btnFastlln" type="submit" disabled="disabled" class="anibutton" id="btnFastlln" title="Speed up" onclick="fastAni('lln',1)" value="  +  " /> <input name="btnSlowlln" type="submit" disabled="disabled" class="anibutton" id="btnSlowlln" title="Slow down" onclick="fastAni('lln',-1)" value="  -  " /> <input name="btnPrevlln" type="submit" disabled="disabled" class="anibutton" id="btnPrevlln" title="Previous frame" onclick="prevAni('lln',1)" value="  &lt;&lt;  " /> <input name="btnNextlln" type="submit" disabled="disabled" class="anibutton" id="btnNextlln" title="Next frame" onclick="prevAni('lln',-1)" value="  &gt;&gt;  " /> <input name="btnFirstlln" type="submit" disabled="disabled" class="anibutton" id="btnFirstlln" title="First frame" onclick="firstAni('lln',true)" value="  |&lt;  " /> <input name="btnLastlln" type="submit" disabled="disabled" class="anibutton" id="btnLastlln" title="Last frame" onclick="firstAni('lln',false)" value="  &gt;|  " /> <input name="btnMorelln" type="submit" disabled="disabled" class="anibutton" id="btnMorelln" title="More controls" onclick="btnMore('lln')" value="  &lt;&gt;  " /></div><div id="moreParlln" class="morepar"><label title="Which frame to go?" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">View frame <input name="txtFramelln" type="text" id="txtFramelln" onblur="txtFrame(this.value, 'lln')" value="1" size="4" class="text" />/100</label> <label title="Loop or not?" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'"><input name="checkLooplln" type="checkbox" id="checkLooplln" checked="checked"/>Loop</label> <label title="Time interval for the animation (in sec)" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">Time Interval: <input name="txtIntervallln" type="text" id="txtIntervallln" onblur="txtInterval(this)" value="0.1" size="4" class="text" /></label> <label title="Increment in time interval" onmouseover="this.style.backgroundColor='#8cacbb'" onmouseout="this.style.backgroundColor='#ffffff'">Step: <input name="txtSteplln" type="text" id="txtSteplln" onblur="txtInterval(this)" value="0.1" size="4" class="text" /></label></div><hr /><div class="description">
+The sample mean approaches to the population mean as the sample size <img src="http://www.forkosh.dreamhost.com/mimetex.cgi?\normalsize n" alt="\normalsize n" title="\normalsize n"  class="math"/> grows.
+</div></fieldset></div>
+</p>
+
+</div>
+<!-- SECTION "Animation" [98-348] -->
+<h2><a name="r_code" id="r_code">R code</a></h2>
+<div class="level2">
+<pre class="code r"><span class="re5">oopt</span> = ani.options<span class="br0">&#40;</span><span class="re4"><span class="re5">ani</span></span><span class="re5">.height</span> = <span class="nu0">480</span>, <span class="re4"><span class="re5">ani</span></span><span class="re5">.width</span> = <span class="nu0">600</span>, <span class="re5">outdir</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=getwd"><span class="kw4">getwd</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span>, <span class="re5">nmax</span> = <span class="nu0">100</span>,
+    <span class="re5">interval</span> = <span class="nu0">0</span><span class="re5">.<span class="nu0">1</span></span>, <span class="re5">title</span> = <span class="st0">"Demonstration of the Law of Large Numbers"</span>,
+    <span class="re5">description</span> = <span class="st0">"The sample mean approaches to the population mean as
+    the sample size n grows."</span><span class="br0">&#41;</span>
+ani.start<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=par"><span class="kw4">par</span></a><span class="br0">&#40;</span><span class="re5">mar</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=c"><span class="kw3">c</span></a><span class="br0">&#40;</span><span class="nu0">3</span>, <span class="nu0">3</span>, <span class="nu0">1</span>, <span class="nu0">0</span><span class="re5">.<span class="nu0">5</span></span><span class="br0">&#41;</span>, <span class="re5">mgp</span> = <a target="_blank"  href="http://wiki.r-project.org/rwiki/rhelp.php?id=c"><span class="kw3">c</span></a><span class="br0">&#40;</span><span class="nu0">1</span><span class="re5">.<span class="nu0">5</span></span>, <span class="nu0">0</span><span class="re5">.<span class="nu0">5</span></span>, <span class="nu0">0</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+lln.ani<span class="br0">&#40;</span><span class="re5">cex</span> = <span class="nu0">0</span><span class="re5">.<span class="nu0">6</span></span><span class="br0">&#41;</span>
+ani.stop<span class="br0">&#40;</span><span class="br0">&#41;</span>
+ani.options<span class="br0">&#40;</span><span class="re5">oopt</span><span class="br0">&#41;</span></pre>
+</div>
+<!-- SECTION "R code" [349-] -->

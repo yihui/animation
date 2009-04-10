@@ -1,0 +1,7 @@
+<span class="co3"># 100 frames of brownian motion</span>
+ani.options<span class="br0">&#40;</span><span class="re5">nmax</span> = <span class="nu0">100</span><span class="br0">&#41;</span>
+brownian.motion<span class="br0">&#40;</span><span class="re5">pch</span> = <span class="nu0">21</span>, <span class="re5">cex</span> = <span class="nu0">5</span>, <span class="re5">col</span> = <span class="st0">"red"</span>, <span class="re5">bg</span> = <span class="st0">"yellow"</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co3"># too slow? OK, faster: interval = 0.02</span>
+ani.options<span class="br0">&#40;</span><span class="re5">interval</span> = <span class="nu0">0</span><span class="re5">.<span class="nu0">02</span></span><span class="br0">&#41;</span>
+brownian.motion<span class="br0">&#40;</span><span class="re5">pch</span> = <span class="nu0">21</span>, <span class="re5">cex</span> = <span class="nu0">5</span>, <span class="re5">col</span> = <span class="st0">"red"</span>, <span class="re5">bg</span> = <span class="st0">"yellow"</span><span class="br0">&#41;</span>

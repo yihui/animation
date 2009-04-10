@@ -1,0 +1,23 @@
+====== Cluster Sampling ======
+
+Sometimes it is cheaper to 'cluster' the sample in some way e.g. by selecting respondents from certain areas only, or certain time-periods only. (Nearly all samples are in some sense 'clustered' in time -- although this is rarely taken into account in the analysis.)
+
+===== Animation =====
+
+<ani cs http://s288.photobucket.com/albums/ll181/xieyihui/cluster_sampling/ png 30 350 1|Demonstration of the cluster sampling>
+Once a cluster is sampled, all its elements will be chosen.
+</ani>
+
+===== R code =====
+
+<code r>
+oopt = ani.options(ani.height = 350, ani.width = 500, outdir = getwd(), nmax = 30,
+    interval = 1, title = "Demonstration of the cluster sampling",
+    description = "Once a cluster is sampled, all its elements will be
+    chosen.")
+ani.start()
+par(mar = rep(1, 4))
+sample.cluster(col = c("bisque", "white"))
+ani.stop()
+ani.options(oopt)
+</code>
