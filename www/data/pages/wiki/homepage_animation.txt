@@ -1,9 +1,0 @@
-====== Homepage animation ======
-
-The animation in the homepage will be changed aperiodically. All of the animations which were once used are listed in this page. If you want to submit one, please contact [[wiki:yihui_xie|Yihui Xie]] first. The size of the image(s) had better be 400x400 px. The format should be GIF.
-
-===== Gradient Descent Algorithm =====
-
-Used from May 26, 2008 to now.
-
-{{ :ani_frontpage.gif |Gradient Descent Algorithm}}

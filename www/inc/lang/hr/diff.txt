@@ -1,3 +1,0 @@
-====== Razlike ======
-
-Slijede sve razlike između odabrane i trenutne verzije dokumenta

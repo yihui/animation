@@ -1,9 +1,0 @@
-<span class="coMULTI">/** 
- * The HelloWorldApp class implements an application that
- * simply displays &quot;Hello World!&quot; to the standard output.
- */</span>
-<span class="kw2">class</span> HelloWorldApp <span class="br0">&#123;</span>
-    <span class="kw2">public</span> <span class="kw2">static</span> <span class="kw4">void</span> main<span class="br0">&#40;</span><a target="_blank"  href="http://www.google.com/search?q=allinurl%3AString+java.sun.com&amp;bntl=1"><span class="kw3">String</span></a><span class="br0">&#91;</span><span class="br0">&#93;</span> args<span class="br0">&#41;</span> <span class="br0">&#123;</span>
-        <a target="_blank"  href="http://www.google.com/search?q=allinurl%3ASystem+java.sun.com&amp;bntl=1"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span><span class="st0">"Hello World!"</span><span class="br0">&#41;</span>; <span class="co1">//Display the string.</span>
-    <span class="br0">&#125;</span>
-<span class="br0">&#125;</span>

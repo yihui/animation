@@ -1,4 +1,0 @@
-====== Index ======
-
-Acesta e un index al tuturor paginilor ordonat după [[doku>namespaces|namespaces]].
-
