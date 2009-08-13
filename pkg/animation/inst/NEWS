@@ -1,6 +1,6 @@
 	**************************************************
 	*						 *
-	*	       1.0-4 NEWS			 *
+	*	       1.0-5 NEWS			 *
 	*						 *
 	**************************************************
 
@@ -12,8 +12,22 @@ NEW FEATURES
 
     o new demo 'Sierpinski' for Sierpinski triangle;
   see demo(Sierpinski).
+    o ani.options('footer') was changed to allow
+  a custom string to be written in the HTML page
+  as the footer information. (Thanks, Jorge Nieves)
 
+SIGNIFICANT CHANGES
 
+    o tidy.source2() was merged into tidy.source().
+
+TO APPEAR 
+    
+    o A function boot.loess() added to show the
+  bootstrapping effects on loess().
+    o A function cart.ani() to show the splitting
+  process of classification and regression trees.
+    o saveLatex() to embed the animation into a
+  LaTeX document (with LaTeX package 'animate').
 
 
 	**************************************************
@@ -36,14 +50,6 @@ MINOR CHANGES
     o fixed a bug for normalizePath() in saveMovie() 
   and saveSWF().
   
-TO APPEAR 
-    
-    o A function boot.loess() added to show the
-  bootstrapping effects on loess().
-    o A function cart.ani() to show the splitting
-  process of classification and regression trees.
-    o saveLatex() to embed the animation into a
-  LaTeX document (with LaTeX package 'animate').
 
   
 	**************************************************
