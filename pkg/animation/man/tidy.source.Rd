@@ -16,12 +16,17 @@ tidy.source(source = "clipboard", keep.comment = TRUE,
   \item{\dots}{ other arguments passed to \code{\link[base]{cat}}, e.g. \code{file} }
 }
 \details{
-  This function helps the user to tidy up his source code in a sense that necessary indents and spaces will be added, etc. See \code{\link[base]{parse}}. But comments which are in single lines will be preserved if \code{keep.comment = TRUE} (inline comments will be removed).
+  This function helps the users to tidy up their source code in a sense that necessary indents and spaces will be added, etc. See \code{\link[base]{parse}}. But comments which are in single lines will be preserved if \code{keep.comment = TRUE} (inline comments will be removed).
   
   The method to preserve comments is to protect them as strings in disguised assignments: combine \code{end.comment} to the end of a comment line and 'assign' the whole line to \code{begin.comment}, so the comment line will not be removed when parsed. At last, we remove the identifiers \code{begin.comment} and \code{end.comment}.
 }
 \value{
-The parsed code as a character vector. Note that 'clean' code will be printed in the console unless the output is redirected by \code{\link[base]{sink}}, and we can also write the clean code to a file. 
+A list with components
+  \item{text.tidy}{The parsed code as a character vector.}
+  \item{text.mask}{The code containing comments, which are masked in assignments.}
+  \item{begin.comment, end.comment}{ identifiers used to mark the comments }
+  
+Note that 'clean' code will be printed in the console unless the output is redirected by \code{\link[base]{sink}}, and we can also write the clean code to a file. 
 }
 
 \author{ Yihui Xie }

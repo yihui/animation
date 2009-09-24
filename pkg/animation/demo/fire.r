@@ -25,4 +25,5 @@ Fire <- function(row = 100, col = 100, time = 500, fade = 0.03, ...) {
   };
   NULL;
 }
+par(mar = rep(0, 4))
 Fire(50)
