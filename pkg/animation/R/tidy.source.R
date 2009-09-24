@@ -34,13 +34,14 @@
         if (any(blank.line) & keep.blank.line) 
             text.lines[blank.line] = sprintf("%s=\"%s\"", begin.comment, 
                 end.comment)
-        text.tidy = tidy.block(text.lines)
+        text.mask = tidy.block(text.lines)
         text.tidy = gsub(sprintf("%s = \"|%s\"", begin.comment, 
-            end.comment), "", text.tidy)
+            end.comment), "", text.mask)
     }
     else {
-        text.tidy = tidy.block(text.lines)
+        text.tidy = text.mask = tidy.block(text.lines)
     }
     cat(paste(text.tidy, collapse = "\n"), "\n", ...)
-    invisible(text.tidy)
+    invisible(list(text.tidy = text.tidy, text.mask = text.mask, 
+        begin.comment = begin.comment, end.comment = end.comment))
 } 
