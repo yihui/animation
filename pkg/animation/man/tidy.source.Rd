@@ -13,6 +13,7 @@ tidy.source(source = "clipboard", keep.comment = TRUE,
   \item{keep.comment}{ logical value: whether to keep comments or not? }
   \item{keep.blank.line}{ logical value: whether to keep blank lines or not? }
   \item{begin.comment, end.comment}{ identifiers to mark the comments }
+  \item{output}{ output to the console or a file using \code{\link[base]{cat}}? }
   \item{\dots}{ other arguments passed to \code{\link[base]{cat}}, e.g. \code{file} }
 }
 \details{
