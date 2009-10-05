@@ -1,11 +1,11 @@
 `tidy.source` <- function(source = "clipboard", keep.comment = TRUE, 
-    keep.blank.line = FALSE, begin.comment, end.comment, ...) {
+    keep.blank.line = FALSE, begin.comment, end.comment, output = TRUE, ...) {
     tidy.block = function(block.text) {
-        exprs = parse(text = block.text)
+        exprs = base::parse(text = block.text)
         n = length(exprs)
         res = character(n)
         for (i in 1:n) {
-            dep = paste(deparse(exprs[i]), collapse = "\n")
+            dep = paste(base::deparse(exprs[i]), collapse = "\n")
             res[i] = substring(dep, 12, nchar(dep) - 1)
         }
         return(res)
@@ -40,8 +40,9 @@
     }
     else {
         text.tidy = text.mask = tidy.block(text.lines)
+        begin.comment = end.comment = ""
     }
-    cat(paste(text.tidy, collapse = "\n"), "\n", ...)
+    if (output) cat(paste(text.tidy, collapse = "\n"), "\n", ...)
     invisible(list(text.tidy = text.tidy, text.mask = text.mask, 
         begin.comment = begin.comment, end.comment = end.comment))
 } 
