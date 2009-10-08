@@ -6,7 +6,8 @@
 }
 \usage{
 tidy.source(source = "clipboard", keep.comment = TRUE, 
-    keep.blank.line = FALSE, begin.comment, end.comment, ...)
+    keep.blank.line = FALSE, begin.comment, end.comment, 
+    output = TRUE, ...)
 }
 \arguments{
   \item{source}{ a string: location of the source code }
