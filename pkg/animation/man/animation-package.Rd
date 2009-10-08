@@ -16,10 +16,10 @@ Version: \tab 1.0\cr
 Date: \tab 2008-07-07\cr
 License: \tab GPL-2 | GPL-3\cr
 }
-This package mainly makes use of HTML \& JavaScript and R windows graphics devices (such as \code{\link[grDevices:windows]{x11}}) to demonstrate animations in statistics; other kinds of output such as Flash (SWF) or GIF/MPG animations are also available if necessary software has been installed.
+This package mainly makes use of HTML \& JavaScript and R windows graphics devices (such as \code{\link[grDevices]{x11}}) to demonstrate animations in statistics; other kinds of output such as Flash (SWF) or GIF/MPG animations are also available if necessary software has been installed.
 }
 \author{
-Yihui Xie <\url{http://www.yihui.name}>
+Yihui Xie <\url{http://yihui.name}>
 }
 \references{
 AniWiki: Animations in Statistics \url{http://animation.yihui.name}; created and maintained by Yihui Xie

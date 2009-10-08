@@ -9,8 +9,8 @@ brownian.motion(n = 10, xlim = c(-20, 20), ylim = c(-20, 20), ...)
 }
 \arguments{
   \item{n}{ Number of points in the scatterplot }
-  \item{xlim, ylim}{ Arguments passed to \code{\link[graphics:plotdefault]{plot.default}} to control the apperance of the scatterplot (title, points, etc), see \code{\link[graphics:points]{points}} for details.}
-  \item{\dots}{ other arguments passed to \code{\link[graphics:plotdefault]{plot.default}}}
+  \item{xlim, ylim}{ Arguments passed to \code{\link[graphics]{plot.default}} to control the apperance of the scatterplot (title, points, etc), see \code{\link[graphics]{points}} for details.}
+  \item{\dots}{ other arguments passed to \code{\link[graphics]{plot.default}}}
 }
 \details{
   Brownian motion, or random walk, can be regarded as the trace of some cumulative normal random numbers: the location of the next step is just ``current location + random Gaussian numbers'', i.e.,
@@ -26,7 +26,7 @@ None (invisible `\code{NULL}').
 \url{http://animation.yihui.name/prob:brownian_motion}
 }
 \author{ Yihui Xie}
-\seealso{ \code{\link[stats:Normal]{rnorm}} }
+\seealso{ \code{\link[stats]{rnorm}} }
 \examples{
 # show an animation in (Windows/X Window...) a graphics device 
 # unless you have opened an invisible device like png(), pdf(), ... 
