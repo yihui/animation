@@ -5,7 +5,7 @@
 	**************************************************
 
 
-		CHANGES IN animation VERSION 1.0-4
+		CHANGES IN animation VERSION 1.0-5
 
 
 NEW FEATURES
@@ -18,7 +18,11 @@ NEW FEATURES
 
 SIGNIFICANT CHANGES
 
-    o tidy.source2() was merged into tidy.source().
+    o tidy.source2() was merged into tidy.source(),
+  and tidy.source() now returns a list of character
+  vectors and also gains an argument 'output' to 
+  decide whether to output the tidied code (to 
+  R console or a file).
 
 TO APPEAR 
     
