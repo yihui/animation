@@ -1,6 +1,6 @@
 `ani.stop` <- function() {
     if (isTRUE(ani.options("footer")))
-        footer = paste("<div class=\"footer\">Created by R package \"<a href=\"http://cran.r-project.org/package=animation\" target=\"_blank\">animation</a>\" written by <a href=\"http://www.yihui.name/\" target=\"_blank\">Yihui XIE</a>.<br>",
+        footer = paste("<div class=\"footer\">Created by R package \"<a href=\"http://cran.r-project.org/package=animation\" target=\"_blank\">animation</a>\" written by <a href=\"http://yihui.name/\" target=\"_blank\">Yihui XIE</a>.<br>",
             Sys.time(), "</div>", sep = "")
     else footer = ifelse(is.character(footer), sprintf("<div class=\"footer\">%s</div>", footer), "")
     ani.file = file.path(ani.options("outdir")[1], ani.options("filename"))
