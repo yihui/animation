@@ -6,11 +6,11 @@
 }
 \usage{
 tidy.source(source = "clipboard", keep.comment = TRUE, 
-    keep.blank.line = FALSE, begin.comment, end.comment, 
+    keep.blank.line = TRUE, begin.comment, end.comment, 
     output = TRUE, ...)
 }
 \arguments{
-  \item{source}{ a string: location of the source code }
+  \item{source}{ a string: location of the source code (default to be the clipboard; this means we can copy the code to clipboard and use \code{tidy.souce()} without specifying the argument \code{source})}
   \item{keep.comment}{ logical value: whether to keep comments or not? }
   \item{keep.blank.line}{ logical value: whether to keep blank lines or not? }
   \item{begin.comment, end.comment}{ identifiers to mark the comments }
@@ -30,7 +30,9 @@ A list with components
   
 Note that 'clean' code will be printed in the console unless the output is redirected by \code{\link[base]{sink}}, and we can also write the clean code to a file. 
 }
-
+\note{ 
+For Mac users, this function will automatically set \code{source} to be \code{pipe("pbpaste")} so that we still don't need to specify this argument if we want to rea the code form the clipboard. 
+}
 \author{ Yihui Xie }
 \references{\url{http://animation.yihui.name/animation:misc\#tidy_up_r_source}}
 \seealso{ \code{\link[base]{parse}}, \code{\link[base]{cat}} }
