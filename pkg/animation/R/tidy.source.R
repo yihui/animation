@@ -1,5 +1,8 @@
 `tidy.source` <- function(source = "clipboard", keep.comment = TRUE, 
-    keep.blank.line = FALSE, begin.comment, end.comment, output = TRUE, ...) {
+    keep.blank.line = TRUE, begin.comment, end.comment, output = TRUE, ...) {
+    if (source == "clipboard" && grep("apple", .Platform$OS.type)) {
+        source = pipe("pbpaste")
+    }
     tidy.block = function(block.text) {
         exprs = base::parse(text = block.text)
         n = length(exprs)
