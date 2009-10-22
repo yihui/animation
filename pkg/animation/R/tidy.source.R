@@ -1,6 +1,6 @@
 `tidy.source` <- function(source = "clipboard", keep.comment = TRUE, 
     keep.blank.line = TRUE, begin.comment, end.comment, output = TRUE, ...) {
-    if (source == "clipboard" && grep("apple", .Platform$OS.type)) {
+    if (source == "clipboard" && length(grep("apple", .Platform$OS.type))) {
         source = pipe("pbpaste")
     }
     tidy.block = function(block.text) {
