@@ -13,7 +13,7 @@ Various functions for animations in statistics which could probably aid in teach
 Package: \tab animation\cr
 Type: \tab Package\cr
 Version: \tab 1.0\cr
-Date: \tab 2008-10-10\cr
+Date: \tab 2009-10-30\cr
 License: \tab GPL-2 | GPL-3\cr
 }
 This package mainly makes use of HTML \& JavaScript and R windows graphics devices (such as \code{\link[grDevices]{x11}}) to demonstrate animations in statistics; other kinds of output such as Flash (SWF) or GIF/MPG animations are also available if necessary software has been installed.
