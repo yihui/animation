@@ -33,36 +33,9 @@ A list containing the following components:
 }
 \references{
 }
-\author{
-}
-\note{
-%%  ~~further notes~~
-}
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\author{Hui Lin and Yihui Xie
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function(x, y, rho = 0, conf.level = 0.95, 
-    ...) {
-    n = length(x)
-    r = cor(x, y, ...)
-    estimate = 0.5 * log((1 + r)/(1 - r))
-    rho0 = 0.5 * log((1 + rho)/(1 - rho))
-    conf.int = sapply(exp(2 * (estimate + c(-1, 1) * qnorm(1 - 
-        (1 - conf.level)/2) * sqrt(1/(n - 3)))), function(s) (s - 
-        1)/(s + 1))
-    names(conf.int) = c("lwr", "upr")
-    list(estimate = estimate, p.value = 2 * pnorm(sqrt(n - 3) * 
-        (estimate - rho0), lower.tail = FALSE), conf.int = conf.int)
-  }
+fisher.trans(longley[,1],longley[,2],rho=0.5)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{htest}
