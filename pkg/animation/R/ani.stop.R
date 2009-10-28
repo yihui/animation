@@ -1,8 +1,8 @@
 `ani.stop` <- function() {
     if (isTRUE(ani.options("footer")))
-        footer = paste("<div class=\"footer\">Created by R package \"<a href=\"http://cran.r-project.org/package=animation\" target=\"_blank\">animation</a>\" written by <a href=\"http://yihui.name/\" target=\"_blank\">Yihui XIE</a>.<br>",
+        footer = paste("<div class=\"footer\">Created by R package \"<a href=\"http://cran.r-project.org/package=animation\" target=\"_blank\">animation ", packageDescription("animation", fields = "Version"), "</a>\" written by <a href=\"http://yihui.name/\" target=\"_blank\">Yihui XIE</a>.<br>",
             Sys.time(), "</div>", sep = "")
-    else footer = ifelse(is.character(footer), sprintf("<div class=\"footer\">%s</div>", footer), "")
+    else footer = ifelse(is.character(ani.options("footer")), sprintf("<div class=\"footer\">%s</div>", ani.options("footer")), "")
     ani.file = file.path(ani.options("outdir")[1], ani.options("filename"))
     html = paste("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /><title>",
         ani.options("title"), "</title><script language=\"JavaScript\" type=\"text/javascript\" src=\"FUN.js\"></script><link href=\"ANI.css\" rel=\"stylesheet\" type=\"text/css\" /></head><body onload=loading('ANIR')>",
