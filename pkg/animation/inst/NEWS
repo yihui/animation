@@ -12,6 +12,13 @@ NEW FEATURES
 
     o 
 
+MINOR CHANGES
+
+    o fixed a bug for in ani.stop(): when 
+  ani.options(footer = FALSE), ani.stop() will report
+  an error for non-existent object 'footer'; I should
+  have used the value ani.options("footer") in the code.
+  Thanks, Marcin Kozak!
 
 TO APPEAR 
     
