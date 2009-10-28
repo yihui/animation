@@ -3,7 +3,7 @@
         ani.height = 480, outdir = tempdir(), filename = "index.htm",
         withprompt = "ANI> ", ani.type = "png", ani.dev = png,
         title = "Statistical Animations Using R", description = "This is an animation.",
-        footer = TRUE, autobrowse = TRUE)
+        footer = TRUE, loop = TRUE, autobrowse = TRUE)
     if (is.null(getOption("ani")))
         options(ani = mf)
     else mf = getOption("ani")

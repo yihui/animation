@@ -19,6 +19,10 @@ MINOR CHANGES
   an error for non-existent object 'footer'; I should
   have used the value ani.options("footer") in the code.
   Thanks, Marcin Kozak!
+    o ani.options() gained a new argument 'loop' to 
+  control the iteration of the animation in an HTML
+  page: TRUE to interate for infinite times, and FALSE
+  not to interate (only play once). Thanks, Marcin Kozak!
 
 TO APPEAR 
     
