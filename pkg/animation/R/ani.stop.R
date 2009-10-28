@@ -30,6 +30,7 @@
     options(prompt = ani.options("withprompt")[1])
     ani.options(withprompt = ani.options("withprompt")[2])
     dev.off()
+    if (file.exists("images")) ani.options(nmax = length(list.files("images")))
     cat(ani.options("nmax"), "animation frames recorded.\n")
     cat("HTML animation page created:", normalizePath(ani.file),
         "\n")
