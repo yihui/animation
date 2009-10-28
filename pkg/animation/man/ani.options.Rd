@@ -35,6 +35,7 @@ When parameters are set, their former values are returned in an
   \item{title}{character: the title of animation }
   \item{description}{character: a description about the animation }
   \item{footer}{ logical or character: if \code{TRUE}, write a foot part in the HTML page containing information such as date/time of creation; if given a character string, it will be used as the footer message; in other cases, the footer of the page will be blank.}
+  \item{loop}{whether to iterate or not (default \code{TRUE} to interate for infinite times)}
   \item{autobrowse}{logical: whether auto-browse the animation page immediately after it is created?}
 }
 }
