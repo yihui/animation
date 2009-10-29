@@ -1,7 +1,7 @@
 .anidemo {
 	width: auto;
 	margin: auto;
-	font-family: "Bitstream Vera Sans Mono", "Courier New", monospace;
+	font-family: sans-serif;
 	font-size: 12px;
 }
 .anidemo input{
