@@ -18,7 +18,7 @@ The full text of speech: \url{http://cpc.people.com.cn/GB/64093/64094/8544901.ht
 \examples{
 data(HuSpeech)
 # clear pattern: 1/3 short, 1/3 long, 1/3 short again
-plot(n, type = "b", pch = 20, xlab = "paragraph index", 
+plot(HuSpeech, type = "b", pch = 20, xlab = "paragraph index", 
     ylab = "word count")
 # see ?moving.block for an animation example
 }

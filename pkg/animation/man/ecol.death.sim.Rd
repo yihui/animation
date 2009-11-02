@@ -1,0 +1,49 @@
+\name{ecol.death.sim}
+\alias{ecol.death.sim}
+\title{
+A Simulation of Death of Two Species
+}
+\description{
+Suppose there are two plant species in a field: A and B. One of them will die at each time and a new plant will grow in the place where the old plant died; the species of the new plant depends on the proportions of two species: the larger the proportion is, the greater the probability for this species to come up will be.
+}
+\usage{
+ecol.death.sim(nr = 10, nc = 10, col.sp = c(1, 2), 
+    pch.sp = c(1, 2), col.die = 1, pch.die = 4, cex = 3)
+}
+\arguments{
+  \item{nr, nc}{
+number of rows and columns of the field (plants grow on a \code{nr} x \code{nc} grid)
+}
+  \item{col.sp}{
+colors and point symbols of the two species respectively
+}
+  \item{col.die, pch.die, cex}{
+the color, point symbol and magnification to annotate the plant which dies (symbol default to be an `X')
+}
+}
+\details{
+}
+\value{
+a numeric vector containing 1's and 2's, denoting the plants finally survived
+}
+\references{
+This animation is motivated by a question raised from a student in biology to show the evolution of two species. 
+
+The original post is in the forum of the ``Capital of Statistics'': \url{http://cos.name/bbs/read.php?tid=14093} (in Chinese)                               
+}
+\author{
+Yihui Xie <\url{http://yihui.name}>
+}
+\examples{
+oopt = ani.options(nmax = 50, interval = 0.3)
+par(ann = FALSE, mar = rep(0, 4))
+ecol.death.sim()
+\dontrun{
+## large scale simulation
+ani.options(nmax = 1000, interval = 0.02)
+ecol.death.sim(col.sp = c(8, 2), pch.sp = c(20, 17)) 
+}
+ani.options(oopt)
+}
+\keyword{ dynamic }
+\keyword{ distribution }
