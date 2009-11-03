@@ -7,12 +7,15 @@ A Simulation of Death of Two Species
 Suppose there are two plant species in a field: A and B. One of them will die at each time and a new plant will grow in the place where the old plant died; the species of the new plant depends on the proportions of two species: the larger the proportion is, the greater the probability for this species to come up will be.
 }
 \usage{
-ecol.death.sim(nr = 10, nc = 10, col.sp = c(1, 2), 
+ecol.death.sim(nr = 10, nc = 10, num.sp = c(50, 50), col.sp = c(1, 2), 
     pch.sp = c(1, 2), col.die = 1, pch.die = 4, cex = 3)
 }
 \arguments{
   \item{nr, nc}{
 number of rows and columns of the field (plants grow on a \code{nr} x \code{nc} grid)
+}
+  \item{num.sp}{
+number of two plants respectively
 }
   \item{col.sp}{
 colors and point symbols of the two species respectively
@@ -24,7 +27,7 @@ the color, point symbol and magnification to annotate the plant which dies (symb
 \details{
 }
 \value{
-a numeric vector containing 1's and 2's, denoting the plants finally survived
+a vector (factor) containing 1's and 2's, denoting the plants finally survived
 }
 \references{
 This animation is motivated by a question raised from a student in biology to show the evolution of two species. 
