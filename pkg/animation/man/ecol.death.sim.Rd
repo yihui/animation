@@ -8,7 +8,7 @@ Suppose there are two plant species in a field: A and B. One of them will die at
 }
 \usage{
 ecol.death.sim(nr = 10, nc = 10, num.sp = c(50, 50), col.sp = c(1, 2), 
-    pch.sp = c(1, 2), col.die = 1, pch.die = 4, cex = 3)
+    pch.sp = c(1, 2), col.die = 1, pch.die = 4, cex = 3, ...)
 }
 \arguments{
   \item{nr, nc}{
@@ -17,14 +17,16 @@ number of rows and columns of the field (plants grow on a \code{nr} x \code{nc} 
   \item{num.sp}{
 number of two plants respectively
 }
-  \item{col.sp}{
+  \item{col.sp,pch.sp}{
 colors and point symbols of the two species respectively
 }
   \item{col.die, pch.die, cex}{
 the color, point symbol and magnification to annotate the plant which dies (symbol default to be an `X')
 }
+  \item{\dots}{
+other arguments passed to \code{\link[graphics]{plot}} to set up the plot  
 }
-\details{
+
 }
 \value{
 a vector (factor) containing 1's and 2's, denoting the plants finally survived
