@@ -43,7 +43,7 @@ Please make sure ImageMagick has been installed in your system: \url{http://www.
 \dontrun{
 
 saveMovie(for(i in 1:10) plot(runif(10), ylim = 0:1), loop = 1)
-oopt = ani.options(interval = 0.05, nmax = 100)
+oopt = ani.options(nmax = 100)
 saveMovie(brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow"),
     width = 600, height = 600)
 ani.options(oopt)

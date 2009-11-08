@@ -2,13 +2,15 @@
     movietype = "gif", loop = 0, dev = png, filename = "Rplot", 
     fmt = "%03d", outdir = tempdir(), para = par(no.readonly = TRUE),
     ...) {
-    olddir <- setwd(outdir)
+    olddir = setwd(outdir)
     on.exit(setwd(olddir))
+    oopt = ani.options(interval = 0)
     dev(filename = paste(filename, fmt, ".", deparse(substitute(dev)), 
         sep = ""), ...)
     par(para)
     eval(expr)
     dev.off()
+    ani.options(oopt)
     if (.Platform$OS.type == "windows") 
         system <- shell
     version <- system("convert --version", intern = TRUE)
