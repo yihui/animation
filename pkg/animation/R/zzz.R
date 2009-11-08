@@ -1,5 +1,5 @@
 .First.lib <- function(lib, pkg) {
-    options(demo.ask = FALSE)
+    options(demo.ask = FALSE, example.ask = FALSE)
     cat("animation: Demonstrate Animations in Statistics (Version ", 
         packageDescription("animation", fields = "Version"), 
         ")\nSee http://animation.yihui.name for online examples;\n", 

@@ -44,6 +44,8 @@ When parameters are set, their former values are returned in an
 Please note that \code{nmax} is usually equal to the number of animation frames (e.g. for \code{\link{brownian.motion}}) but not \emph{always}! The reason is that sometimes there are more than one frame recorded in a single step of a loop, for instance, there are 2 frames generated in each step of \code{\link{kmeans.ani}}, and 4 frames in \code{\link{knn.ani}}, etc. 
 
 This function can be used for almost all the animation functions such as \code{\link{brownian.motion}}, \code{\link{boot.iid}}, \code{\link{buffon.needle}}, \code{\link{cv.ani}}, \code{\link{flip.coin}}, \code{\link{kmeans.ani}}, \code{\link{knn.ani}}, etc. All the parameters will affect the behaviour of HTML animations, but only \code{interval} will affect animations in windows graphics device.
+
+When R is not running interactively, \code{interval} will be set to 0 because it does not make much sense to let R wait for a possibly very long time when we cannot watch the animations in real time.
 }
 \seealso{
 \code{\link[base]{options}}
