@@ -34,14 +34,14 @@ Please download the SWF Tools before using this function: \url{http://www.swftoo
 \seealso{ \code{\link{saveMovie}}, \code{\link[base]{system}}, \code{\link[grDevices:png]{png}}, \code{\link[grDevices:png]{jpeg}}, \code{\link[grDevices]{pdf}} }
 \examples{
 \dontrun{
-oopt = ani.options(interval = 0, nmax = 50)
+oopt = ani.options(nmax = 50)
 # from png
 saveSWF(knn.ani(test = matrix(rnorm(16), ncol = 2),
     cl.pch = c(16, 2)), 1.5, dev = "png", para = list(mar = c(3,
     3, 1, 1.5), mgp = c(1.5, 0.5, 0)), swfname = "kNN.swf")
 
 # from pdf (vector plot!)
-ani.options(interval = 0, nmax = 50)
+ani.options(nmax = 50)
 saveSWF(brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow"),
     0.2, "brownian.swf", "pdf", fmt = "")
 

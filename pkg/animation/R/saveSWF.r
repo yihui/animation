@@ -2,13 +2,15 @@
     dev = c("png", "jpeg", "pdf"), filename = "Rplot", fmt = "%03d", 
     outdir = tempdir(), swftools = NULL, para = par(no.readonly = TRUE),
     ...) {
-    olddir <- setwd(outdir)
+    olddir = setwd(outdir)
     on.exit(setwd(olddir))
+    oopt = ani.options(interval = 0)
     anidev = switch(dev, png = png, jpeg = jpeg, pdf = pdf)
     anidev(paste(filename, fmt, ".", dev, sep = ""), ...)
     par(para)
     eval(expr)
     dev.off()
+    ani.options(oopt)
     tool = ifelse(is.null(swftools), paste(dev, "2swf", sep = ""), 
         shQuote(file.path(swftools, paste(dev, "2swf", sep = ""))))
     if (.Platform$OS.type == "windows") 
