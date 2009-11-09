@@ -1,11 +1,11 @@
 `write.rss` <- function(file = "feed.xml", entry = "rss.csv", 
-    xmlver = "1.0", rssver = "2.0", title = "What's New?", link = "http://R.yihui.name", 
-    description = "Animated Statistics Using R", language = "en-us", 
-    copyright = "Copyright 2007, Yihui Xie", pubDate = Sys.time(), 
-    lastBuildDate = Sys.time(), docs = "http://R.yihui.name", 
+    xmlver = "1.0", rssver = "2.0", title = "What's New?", link = "http://yihui.name", 
+    description = "A Website", language = "en-us", 
+    copyright = "Copyright 2009, Yihui Xie", pubDate = Sys.time(), 
+    lastBuildDate = Sys.time(), docs = "http://yihui.name", 
     generator = "Function write.rss() in R package animation", 
-    managingEditor = "xieyihui[at]gmail.com", 
-    webMaster = "xieyihui[at]gmail.com", 
+    managingEditor = "xie@yihui.name", 
+    webMaster = "xie@yihui.name", 
     maxitem = 10, ...) {
     x = read.csv(entry, stringsAsFactors = FALSE, colClasses = "character")
     if (nrow(x) > maxitem) 

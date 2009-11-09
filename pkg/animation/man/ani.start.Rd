@@ -13,7 +13,7 @@ ani.start(...)
 \value{
 None (invisible `\code{NULL}').
 }
-\author{Yihui Xie}
+\author{Yihui Xie <\url{http://yihui.name}>}
 \note{ 
 After calling \code{\link{ani.start}}, either animation functions in this package or R script of your own can be used to generate \& save animated pictures using proper graphics devices (specified as \code{ani.dev} in \code{\link{ani.options}}), then watch your animation by \code{\link{ani.stop}()}.
 

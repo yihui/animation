@@ -68,7 +68,6 @@ moving.block(dat = HuSpeech, FUN = function(..., dat = dat,
 }, type = "o", pch = 20) 
 
 \dontrun{
-
 ## sunspot data: observe the 11-year cycles
 #  block = 11 years x 12 months/year = 132
 #  set interval greater than 0 if your computer really rocks!

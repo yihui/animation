@@ -2,7 +2,7 @@
 \alias{quincunx}
 \title{ Demonstration of the Quincunx (Bean Machine/Galton Box) }
 \description{
-  The bean machine, also known as the quincunx or Galton box, is a device invented by Sir Francis Galton to demonstrate the law of error and the normal distribution. This function simulates the quincunx with ``balls'' (beans) falling through several layers (denoted by triangles) and the distribution of the final locations at which the balls hit is denoted by a histogram.
+This function simulates the quincunx with ``balls'' (beans) falling through several layers (denoted by triangles) and the distribution of the final locations at which the balls hit is denoted by a histogram.
 }
 \usage{
 quincunx(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, 
@@ -15,6 +15,8 @@ quincunx(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19,
   \item{pch.balls, col.balls, cex.balls}{ point character, colors and magnification of balls }
 }
 \details{
+  The bean machine, also known as the quincunx or Galton box, is a device invented by Sir Francis Galton to demonstrate the law of error and the normal distribution. 
+  
   When a ball falls through a layer, it can either go to the right or left side with the probability 0.5. At last the location of all the balls will show us the bell-shaped distribution.
 }
 \value{
@@ -25,7 +27,7 @@ quincunx(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19,
 
 \url{http://animation.yihui.name/prob:bean_machine}
 }
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}> }
 \note{ 
 The maximum number of animation frames is controlled by \code{ani.options("nmax")} as usual, but it is strongly recommended that \code{ani.options(nmax = balls + layers -2)}, in which case all the balls will just fall through all the layers and there will be no redundant animation frames.
 }
@@ -38,15 +40,13 @@ freq = quincunx(balls = 200, col.balls = rainbow(200))
 barplot(freq, space = 0)
 
 \dontrun{
-
-ani.options(ani.height = 500, ani.width = 600, outdir = getwd(), 
+ani.options(ani.height = 500, ani.width = 600, 
     interval = 0.03, nmax = 213, title = "Demonstration of the Galton Box", 
     description = "Balls falling through pins will show you the Normal
     distribution.")
 ani.start()
 quincunx()
 ani.stop()
-
 }
 }
 \keyword{ dynamic }

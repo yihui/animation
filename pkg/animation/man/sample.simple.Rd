@@ -22,7 +22,7 @@ Cochran, W G (1977) \emph{Sampling Techniques}, Wiley, ISBN 0-471-16240-X
 
 \url{http://animation.yihui.name/samp:srswr}
 }
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}> }
 \seealso{ \code{\link[base]{sample}} }
 \examples{
 oopt = ani.options(interval = 1, nmax = 30)
@@ -32,8 +32,7 @@ par(op)
 \dontrun{
 
 # HTML animation page
-ani.options(ani.height = 350, ani.width = 500, outdir = getwd(), nmax = 30,
-    interval = 1,
+ani.options(ani.height = 350, ani.width = 500, nmax = 30, interval = 1,
     title = "Demonstration of the simple random sampling without replacement",
     description = "Each member of the population has an equal and known chance
     of being selected.")

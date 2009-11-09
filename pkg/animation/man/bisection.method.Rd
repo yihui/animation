@@ -2,7 +2,7 @@
 \alias{bisection.method}
 \title{ Demonstration of the Bisection Method for Root-finding on an Interval }
 \description{
-  In mathematics, the bisection method is a root-finding algorithm which works by repeatedly dividing an interval in half and then selecting the subinterval in which a root exists. This function gives a visual demonstration of this process of finding the root of an equation \eqn{f(x) = 0}.
+  A visual demonstration of finding the root of an equation \eqn{f(x) = 0} on an interval using the Bisection Method.
 }
 \usage{
 bisection.method(FUN = function(x) x^2 - 4, rg = c(-1, 10), tol = 0.001,
@@ -32,18 +32,18 @@ bisection.method(FUN = function(x) x^2 - 4, rg = c(-1, 10), tol = 0.001,
 
 \url{http://animation.yihui.name/compstat:bisection_method}
 }
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}>}
 \seealso{ \code{\link[stats]{deriv}}, \code{\link[stats]{uniroot}} }
 \examples{
 # default example 
 xx = bisection.method() 
 xx$root  # solution
 
-\dontrun{
- 
 # a cubic curve 
 f = function(x) x^3 - 7 * x - 10 
 xx = bisection.method(f, c(-3, 5)) 
+
+\dontrun{
 # interaction: use your mouse to select the end-points 
 bisection.method(f, c(-3, 5), interact = TRUE) 
 
@@ -56,7 +56,6 @@ ani.start(nmax = 50, ani.height = 400, ani.width = 600, interval = 1,
 par(mar = c(4, 4, 1, 2))
 bisection.method(main = "")
 ani.stop() 
-
 }
 }
 \keyword{ optimize }

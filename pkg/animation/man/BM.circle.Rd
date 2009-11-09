@@ -2,7 +2,7 @@
 \alias{BM.circle}
 \title{ Brownian Motion in a Circle }
 \description{
-  Several points moving in a circle.
+  Several points moving randomly in a circle.
 }
 \usage{
 BM.circle(n = 20, col = rainbow(n), ...)
@@ -19,23 +19,21 @@ This is a solution to the question raised in R-help: \url{https://stat.ethz.ch/p
 Invisible \code{NULL}.
 }
 \references{ \url{http://animation.yihui.name/prob:brownian_motion_circle} }
-\author{ Yihui Xie }
-\seealso{ \code{\link{brownian.motion}}, \code{\link[stats:Normal]{rnorm}} }
+\author{ Yihui Xie <\url{http://yihui.name}> }
+\seealso{ \code{\link{brownian.motion}}, \code{\link[stats]{rnorm}} }
 \examples{
 oopt = ani.options(interval = 0.1, nmax = 300)
 opar = par(mar = rep(0.5, 4))
 BM.circle(cex = 2, pch = 19)
 
 \dontrun{
-
-ani.options(ani.height = 450, ani.width = 450, outdir = getwd(), 
+ani.options(ani.height = 450, ani.width = 450, 
     interval = 0.05, nmax = 100, title = "Brownian Motion in a Circle", 
     description = "Brownian Motion in a circle.")
 ani.start()
 par(mar = rep(0.5, 4))
 BM.circle(cex = 2, pch = 19)
 ani.stop()
-
 }
 
 par(opar)

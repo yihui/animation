@@ -27,11 +27,11 @@ An integer indicating failure (-1) or success (0) of the converting (refer to \c
 \references{
 \url{http://animation.yihui.name/animation:start\#create_flash_animations}
 }
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}> }
 \note{
 Please download the SWF Tools before using this function: \url{http://www.swftools.org}
 }
-\seealso{ \code{\link{saveMovie}}, \code{\link[base]{system}}, \code{\link[grDevices:png]{png}}, \code{\link[grDevices:png]{jpeg}}, \code{\link[grDevices]{pdf}} }
+\seealso{ \code{\link{saveMovie}}, \code{\link[base]{system}}, \code{\link[grDevices]{png}}, \code{\link[grDevices]{jpeg}}, \code{\link[grDevices]{pdf}} }
 \examples{
 \dontrun{
 oopt = ani.options(nmax = 50)

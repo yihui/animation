@@ -3,13 +3,13 @@
 \docType{data}
 \title{ Data of page view from Sep 21, 2007 for Yihui's website}
 \description{
-  Page view data for Yihui's website from Sep 21, 2007 to a recent date. 
+  Page view data for Yihui's website from Sep 21, 2007 to Dec 2, 2007. 
 }
 \usage{data(pageview)}
 \format{
   A data frame with 73 observations on the following 5 variables.
   \describe{
-    \item{\code{day}}{Date starts from Sep 21, 2007 to a recent date.}
+    \item{\code{day}}{Date starts from Sep 21, 2007 to Dec 2, 2007.}
     \item{\code{visits}}{number of visits: a new visit is defined as each new \emph{incoming visitor} (viewing or browsing a page) who was not connected to the site during last \emph{60 min}.}
     \item{\code{pages}}{number of times a \emph{page} of the site is viewed (sum for all visitors for all visits).
     This piece of data differs from ``files'' in that it counts only HTML pages and excludes images and other files.}
@@ -18,10 +18,10 @@
   }
 }
 \details{
-  The data is collected by Awstats for the website \url{http://www.yihui.name}. 
+  The data is collected by Awstats for the website \url{http://yihui.name}. 
 }
 \source{
-  \url{http://www.yihui.name/cgi-bin/awstats/awstats.pl?month=10&year=2007&output=main&config=yihuiname&framename=index} 
+  \url{http://yihui.name} 
 }
 \examples{
 data(pageview)

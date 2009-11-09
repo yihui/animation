@@ -55,7 +55,7 @@ And the length of \code{x} and \code{y} should be equal to the number of rows of
 
 \url{http://www.ted.com/index.php/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html} 
 }
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}> }
 \seealso{ \code{\link[graphics]{symbols}} }
 \examples{
 opar = par(mar = c(4, 4, 0.2, 0.2))
@@ -67,9 +67,8 @@ Rosling.bubbles()
 Rosling.bubbles(rectangles = matrix(abs(rnorm(50 * 10 * 2)), ncol = 2))
 
 \dontrun{
- 
 # save the animation in HTML pages
-ani.options(ani.height = 450, ani.width = 600, outdir = getwd(),
+ani.options(ani.height = 450, ani.width = 600,
     title = "The Bubbles Animation in Hans Rosling's Talk",
     description = "An imitation of Hans Rosling's moving bubbles.")
 ani.start()
@@ -77,7 +76,6 @@ par(mar = c(4, 4, 0.2, 0.2))
 # with 'years' as the background
 Rosling.bubbles(text = 1951:2000)
 ani.stop()
-
 }
 
 ani.options(oopt)

@@ -5,7 +5,7 @@
 Simulation of QQ plots for Normal distribution
 }
 \description{
-This demo shows the possible QQ plots created by random numbers generated from a Normal distribution so that users can get a vague idea about how to interpret QQ plots when the points are not in a straight line (i.e. don't overinterpret QQ plots when seeing a few ``abnormal'' points).
+This demo shows the possible QQ plots created by random numbers generated from a Normal distribution so that users can get a rough idea about how QQ plots really look like. 
 }
 \usage{
 sim.qqnorm(n = 20, ...)
@@ -39,7 +39,7 @@ par(op)
 \dontrun{
  
 # HTML animation page
-ani.options(ani.height = 500, ani.width = 500, outdir = getwd(), nmax = 100,
+ani.options(ani.height = 500, ani.width = 500, nmax = 100,
     interval = 0.1, title = "Demonstration of Simulated QQ Plots",
     description = "This animation shows the QQ plots of random numbers 
     from a Normal distribution. Does them really look like normally 

@@ -10,7 +10,7 @@ ani.stop()
 \value{
 None (invisible `\code{NULL}'); a string will be printed in the console indicating where is the HTML file.
 }
-\author{ Yihui Xie }
+\author{ Yihui Xie  <\url{http://yihui.name}>}
 \note{
 The content of the HTML file completely depends on the parameters set in \code{\link{ani.options}}.
 }

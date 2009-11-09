@@ -41,7 +41,7 @@ Venables, W. N. and Ripley, B. D. (2002) \emph{Modern Applied Statistics with S}
 
 \url{http://animation.yihui.name/dmml:k-nearest_neighbour_algorithm}
 }
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}> }
 \note{
 There is a special restriction (only two columns) on the training and test data set just for sake of the convenience for making a scatterplot. This is only a rough demonstration; for practical applications, please refer to existing kNN functions such as \code{\link[class]{knn}} in \pkg{class}, etc.
 
@@ -68,7 +68,7 @@ knn.ani(train = x, test = y, cl = rep(c("first", "second", "third"),
 ani.options(nmax = 5)
 knn.ani(interact = TRUE)
 
-ani.options(ani.height = 500, ani.width = 600, outdir = getwd(), nmax = 10,
+ani.options(ani.height = 500, ani.width = 600, nmax = 10,
     interval = 2, title = "Demonstration for kNN Classification",
     description = "For each row of the test set, the k nearest (in Euclidean
     distance) training set vectors are found, and the classification is
@@ -77,8 +77,8 @@ ani.start()
 par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 0))
 knn.ani()
 ani.stop()
-
 }
+
 ani.options(oopt)
 }
 \keyword{ hplot }

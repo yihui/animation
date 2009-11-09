@@ -1,5 +1,39 @@
 	**************************************************
 	*						 *
+	*	       1.0-9 NEWS			 *
+	*						 *
+	**************************************************
+
+
+		CHANGES IN animation VERSION 1.0-9
+
+
+NEW FEATURES
+
+    o ecol.death.sim() to simulate the death of two
+  sepecies in a field
+
+MINOR CHANGES
+
+    o the option 'interval' will be set to 0 if
+  the animation is run in a non-interactive mode;
+  this will save much time typically in 'R CMD check'
+  (Thanks to Prof Ripley)
+    o shortened the descriptions in Rd files and 
+  several changes in documentations 
+    
+TO APPEAR 
+    
+    o A function boot.loess() added to show the
+  bootstrapping effects on loess().
+    o A function cart.ani() to show the splitting
+  process of classification and regression trees.
+    o saveLatex() to embed the animation into a
+  LaTeX document (with LaTeX package 'animate').
+
+
+	**************************************************
+	*						 *
 	*	       1.0-8 NEWS			 *
 	*						 *
 	**************************************************
@@ -13,15 +47,10 @@ NEW FEATURES
     o ecol.death.sim() to simulate the death of two
   sepecies in a field
 
+MINOR CHANGES
 
-TO APPEAR 
-    
-    o A function boot.loess() added to show the
-  bootstrapping effects on loess().
-    o A function cart.ani() to show the splitting
-  process of classification and regression trees.
-    o saveLatex() to embed the animation into a
-  LaTeX document (with LaTeX package 'animate').
+    o fixed an error in the example of HuSpeech
+
 
 
 	**************************************************

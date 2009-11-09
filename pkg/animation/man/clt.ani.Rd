@@ -27,7 +27,7 @@ E. L. Lehmann, \emph{Elements of Large-Sample Theory}. Springer-Verlag, New York
 
 \url{http://animation.yihui.name/prob:central_limit_theorem}
 }
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}> }
 \seealso{ \code{\link[graphics]{hist}}, \code{\link[stats]{density}} }
 \examples{
 
@@ -36,10 +36,9 @@ op = par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 0), tcl = -0.3)
 clt.ani(type = "s")
 par(op)
 
-\dontrun{
- 
+\dontrun{ 
 # HTML animation page
-ani.options(ani.height = 500, ani.width = 600, outdir = getwd(), nmax = 100,
+ani.options(ani.height = 500, ani.width = 600, nmax = 100,
     interval = 0.1, title = "Demonstration of the Central Limit Theorem",
     description = "This animation shows the distribution of the sample
     mean as the sample size grows.")
@@ -48,6 +47,7 @@ par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 0), tcl = -0.3)
 clt.ani(type = "h")
 ani.stop()
 }
+
 ani.options(oopt)
 
 # other distributions: Chi-square with df = 5 

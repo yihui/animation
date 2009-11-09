@@ -31,7 +31,7 @@ Robert A. Meyer, Jr. Estimating coefficients that change over time. \emph{Intern
 
 \url{http://animation.yihui.name/ts:moving_window_ar}
 }
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}> }
 \seealso{  \code{\link[stats]{arima}} }
 \examples{
 # moving window along a sin curve 
@@ -45,10 +45,10 @@ data(pageview)
 mwar.ani(pageview$visits, k = 30)
 
 par(op)
-\dontrun{ 
 
+\dontrun{ 
 # HTML animation page
-ani.options(ani.height = 500, ani.width = 600, outdir = getwd(), nmax = 50,
+ani.options(ani.height = 500, ani.width = 600, nmax = 50,
     title = "Demonstration of Moving Window Auto-Regression",
     description = "Compute the AR(1) coefficient for the data in the
     window and plot the confidence intervals. Repeat this step as the
@@ -57,8 +57,8 @@ ani.start()
 par(mar = c(2, 3, 1, 0.5), mgp = c(1.5, 0.5, 0))
 mwar.ani(lty.rect = 3, pch = 21, col = "red", bg = "yellow",type='o')
 ani.stop()
-
 }
+
 ani.options(oopt)
 }
 \keyword{ dplot }

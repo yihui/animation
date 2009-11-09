@@ -33,7 +33,7 @@ An integer indicating failure (-1) or success (0) of the converting (refer to \c
 
 \url{http://animation.yihui.name/animation:start}
 }
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}> }
 \note{ 
 Please make sure ImageMagick has been installed in your system: \url{http://www.imagemagick.org}
 }
