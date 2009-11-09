@@ -33,7 +33,7 @@ Note that 'clean' code will be printed in the console unless the output is redir
 \note{ 
 For Mac users, this function will automatically set \code{source} to be \code{pipe("pbpaste")} so that we still don't need to specify this argument if we want to rea the code form the clipboard. 
 }
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}> }
 \references{\url{http://animation.yihui.name/animation:misc\#tidy_up_r_source}}
 \seealso{ \code{\link[base]{parse}}, \code{\link[base]{cat}} }
 \examples{
@@ -49,7 +49,10 @@ file.show(x)
 file.show(f)
 ## if you've copied R code into the clipboard 
 \dontrun{
-tidy.source("clipboard")}
+tidy.source("clipboard")
+## write into clipboard again
+tidy.source("clipboard", file = "clipboard")
+}
 }
 
 \keyword{ IO }

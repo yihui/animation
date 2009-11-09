@@ -2,7 +2,7 @@
 \alias{least.squares}
 \title{ Demonstrate the Least Squares }
 \description{
-  This is a simple demonstration of the meaning of least squares in univariate linear regression. With either the intercept or the slope changing, the lines will be moving in the graph and corresponding residuals will be plotted. We can finally see the best estimate of the intercept and the slope from the residual plot.
+  This is a simple demonstration of the meaning of least squares in univariate linear regression.
 }
 \usage{
 least.squares(x, y, n = 15, ani.type = c("slope", "intercept"), a, b, 
@@ -24,6 +24,9 @@ least.squares(x, y, n = 15, ani.type = c("slope", "intercept"), a, b,
   \item{mfrow}{ defines the layout of the graph; see \code{\link[graphics]{par}} }
   \item{\dots}{ other parameters passed to \code{\link[graphics]{plot}} to define the appearance of the scatterplot }
 }
+\details{
+With either the intercept or the slope changing, the lines will be moving in the graph and corresponding residuals will be plotted. We can finally see the best estimate of the intercept and the slope from the residual plot.
+}
 \value{
   The value returned depends on the animation type.
 
@@ -35,7 +38,7 @@ least.squares(x, y, n = 15, ani.type = c("slope", "intercept"), a, b,
   Note the estimate will not be precise generally.
 }
 \references{ \url{http://animation.yihui.name/lm:least_squares} }
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}> }
 \seealso{ \code{\link[stats]{lm}} }
 \examples{
 opar = par(mar = c(5, 4, 0.5, 0.1))
@@ -46,10 +49,10 @@ least.squares()
 least.squares(ani.type = "i")
 
 par(opar)
-\dontrun{
- 
+
+\dontrun{ 
 # save the animation in HTML pages
-ani.options(ani.height = 450, ani.width = 600, outdir = getwd(),
+ani.options(ani.height = 450, ani.width = 600,
     title = "Demonstration of Least Squares",
     description = "We want to find an estimate for the slope
     in 50 candidate slopes, so we just compute the RSS one by one. ")
@@ -57,8 +60,8 @@ ani.start()
 par(mar = c(4, 4, 0.5, 0.1), mgp = c(2, 0.5, 0), tcl = -0.3)
 least.squares()
 ani.stop()
-
 }
+
 ani.options(oopt)
 }
 

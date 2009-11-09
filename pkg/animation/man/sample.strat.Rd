@@ -23,7 +23,7 @@ Cochran, W G (1977) \emph{Sampling Techniques}, Wiley, ISBN 0-471-16240-X
 
 \url{http://animation.yihui.name/samp:stratified_sampling}
 }
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}> }
 \seealso{ \code{\link[base:sample]{sample}} }
 \examples{
 oopt = ani.options(interval = 1, nmax = 30)

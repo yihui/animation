@@ -2,7 +2,7 @@
 \alias{cv.nfeaturesLDA}
 \title{ Cross-validation to find the optimum number of features (variables) in LDA }
 \description{
-  For a classification problem, usually we wish to use as less variables as possible because of difficulties brought by the high dimension. This function has provided an illustration of the process of finding out the optimum number of variables using k-fold cross-validation in a linear discriminant analysis (LDA).
+This function has provided an illustration of the process of finding out the optimum number of variables using k-fold cross-validation in a linear discriminant analysis (LDA).
 }
 \usage{
 cv.nfeaturesLDA(data = matrix(rnorm(600), 60), cl = gl(3, 20),
@@ -16,7 +16,9 @@ cv.nfeaturesLDA(data = matrix(rnorm(600), 60), cl = gl(3, 20),
   \item{col.av}{ the two colors used to respectively denote rates of correct predictions in the i-th fold and the average rates for all k folds }
 }
 \details{
-  The procedure is like this:
+  For a classification problem, usually we wish to use as less variables as possible because of difficulties brought by the high dimension. 
+  
+  The selection procedure is like this:
 
 \itemize{
 \item Split the whole data randomly into \eqn{k} folds:
@@ -46,7 +48,7 @@ Approach}. Cambridge University Press, 2nd edition. pp. 400
 
 \url{http://animation.yihui.name/da:biostat:select_features_via_cv}
 }
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}> }
 \seealso{ \code{\link{kfcv}}, \code{\link{cv.ani}}, \code{\link[MASS]{lda}} }
 \examples{
 op = par(pch = 19, mar = c(3, 3, 0.2, 0.7), mgp = c(1.5, 0.5, 0))
@@ -54,10 +56,8 @@ cv.nfeaturesLDA()
 par(op)
 
 \dontrun{
-
 # save the animation in HTML pages
-oopt = ani.options(ani.height = 480, ani.width = 600, outdir = getwd(),
-    interval = 0.5, nmax = 10,
+oopt = ani.options(ani.height = 480, ani.width = 600, interval = 0.5, nmax = 10,
     title = "Cross-validation to find the optimum number of features in LDA",
     description = "This animation has provided an illustration of the process of
     finding out the optimum number of variables using k-fold cross-validation
@@ -67,7 +67,6 @@ par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 0), tcl = -0.3, pch = 19, cex = 1.5
 cv.nfeaturesLDA()
 ani.stop()
 ani.options(oopt)
-
 }
 
 }

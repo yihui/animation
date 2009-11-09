@@ -33,7 +33,7 @@ George Casella and Roger L. Berger. \emph{Statistical Inference}. Duxbury Press,
 
 \url{http://animation.yihui.name/prob:law_of_large_numbers}
 }
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}> }
 \examples{
 oopt = ani.options(interval = 0.01, nmax = 150)
 lln.ani(pch = ".")
@@ -41,8 +41,7 @@ lln.ani(pch = ".")
 # chi-square distribution; population mean = df
 lln.ani(function(n, mu) rchisq(n, df = mu), mu = 5, cex = 0.6)
 
-\dontrun{
- 
+\dontrun{ 
 # save the animation in HTML pages
 ani.options(ani.height = 480, ani.width = 600, outdir = getwd(), nmax = 100,
     interval = 0.1, title = "Demonstration of the Law of Large Numbers",
@@ -52,7 +51,6 @@ ani.start()
 par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 0))
 lln.ani(cex = 0.6)
 ani.stop()
-
 }
 ani.options(oopt)
 }

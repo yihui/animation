@@ -24,22 +24,24 @@ When parameters are set, their former values are returned in an
 
 \section{Animation Parameters}{
 \describe{
-  \item{interval}{ a positive number to set the time interval of the animation (unit in seconds). }
-  \item{nmax}{ maximum number of steps for a loop (e.g. iterations) to create animation frames. Note: the actual number of frames can be less than this number, depending on specific animations.}
-  \item{ani.width, ani.height}{ width and height of image frames (unit in px); see graphics devices like \code{\link[grDevices]{png}}, \code{\link[grDevices:png]{jpeg}}, ...}
-  \item{outdir}{character: specify the output dir if we want to create HTML animation pages; default to be \code{\link[base:tempfile]{tempdir}}.}
+  \item{interval}{ a positive number to set the time interval of the animation (unit in seconds); default to be 1. }
+  \item{nmax}{ maximum number of steps for a loop (e.g. iterations) to create animation frames. Note: the actual number of frames can be less than this number, depending on specific animations. Default to be 50.}
+  \item{ani.width, ani.height}{ width and height of image frames (unit in px); see graphics devices like \code{\link[grDevices]{png}}, \code{\link[grDevices]{jpeg}}, ...; default to be 480.}
+  \item{outdir}{character: specify the output dir if we want to create HTML animation pages; default to be \code{\link[base]{tempdir}}.}
+  \item{imgdir}{character: the name of the directory for images when creating HTML animation pages; default to be \code{"images"}.}
   \item{filename}{character: name of the target HTML main file}
   \item{withprompt}{character: prompt to display while using \code{\link{ani.start}} (restore with \code{\link{ani.stop}})}
-  \item{ani.type}{character: image format for animation frames, e.g. \code{png}, \code{jpg}, ...}
-  \item{ani.dev}{function: the graphics device; e.g. (\code{\link[grDevices]{png}}, \code{\link[grDevices:png]{jpeg}}, ...)}
+  \item{ani.type}{character: image format for animation frames, e.g. \code{png}, \code{jpg}, ...; default to be \code{"png"}}
+  \item{ani.dev}{a function or a function name: the graphics device; e.g. (\code{\link[grDevices]{png}}, \code{\link[grDevices]{jpeg}}, ...); default to be \code{"png"}}
   \item{title}{character: the title of animation }
   \item{description}{character: a description about the animation }
   \item{footer}{ logical or character: if \code{TRUE}, write a foot part in the HTML page containing information such as date/time of creation; if given a character string, it will be used as the footer message; in other cases, the footer of the page will be blank.}
   \item{loop}{whether to iterate or not (default \code{TRUE} to interate for infinite times)}
   \item{autobrowse}{logical: whether auto-browse the animation page immediately after it is created?}
+  \item{msg}{whether to show messages when animatio options are changed? Default to be \code{interactive()}}
 }
 }
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}>}
 \note{ 
 Please note that \code{nmax} is usually equal to the number of animation frames (e.g. for \code{\link{brownian.motion}}) but not \emph{always}! The reason is that sometimes there are more than one frame recorded in a single step of a loop, for instance, there are 2 frames generated in each step of \code{\link{kmeans.ani}}, and 4 frames in \code{\link{knn.ani}}, etc. 
 
@@ -56,7 +58,7 @@ When R is not running interactively, \code{interval} will be set to 0 because it
 \examples{
 \dontrun{
 # store the old option to restore it later
-oopt = ani.options(interval = 0.05, nmax = 100, ani.dev = png, 
+oopt = ani.options(interval = 0.05, nmax = 100, ani.dev = "png", 
     ani.type = "png")
 ani.start() 
 opar = par(mar = c(3, 3, 2, 0.5), mgp = c(2, .5, 0), tcl = -0.3,

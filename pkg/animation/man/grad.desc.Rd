@@ -38,7 +38,7 @@ grad.desc(FUN = function(x, y) x^2 + 2 * y^2, rg = c(-3, -3, 3, 3),
 
 \url{http://animation.yihui.name/compstat:gradient_descent_algorithm}
 }
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}> }
 \note{ 
 Please make sure the function \code{FUN} provided is differentiable at \code{init}, what's more, it should also be 'differentiable' using \code{\link[stats]{deriv}} (see the help file)! 
 
@@ -52,8 +52,6 @@ xx = grad.desc()
 xx$par  # solution
 xx$persp(col = "lightblue", phi = 30)   # perspective plot 
 
-\dontrun{
- 
 # define more complex functions; a little time-consuming 
 f1 = function(x, y) x^2 + 3 * sin(y) 
 xx = grad.desc(f1, pi * c(-2, -2, 2, 2), c(-2 * pi, 2)) 
@@ -64,6 +62,8 @@ f2 = function(x, y) sin(1/2 * x^2 - 1/4 * y^2 + 3) *
     cos(2 * x + 1 - exp(y))  
 xx = grad.desc(f2, c(-2, -2, 2, 2), c(-1, 0.5), 
     gamma = 0.1, tol = 1e-04)
+
+\dontrun{ 
 # click your mouse to select a start point 
 xx = grad.desc(f2, c(-2, -2, 2, 2), interact = TRUE, 
     tol = 1e-04)
@@ -76,8 +76,8 @@ ani.options(ani.height = 500, ani.width = 500, outdir = getwd(), interval = 0.3,
 ani.start()
 grad.desc()
 ani.stop()
-
 }
+
 ani.options(oopt)
 }
 \keyword{ optimize }

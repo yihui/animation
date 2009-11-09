@@ -2,7 +2,7 @@
 \alias{newton.method}
 \title{ Demonstration of the Newton-Raphson Method for Root-finding }
 \description{
-  Newton's method (also known as the Newton-Raphson method or the Newton-Fourier method) is an efficient algorithm for finding approximations to the zeros (or roots) of a real-valued function f(x). This function provides an illustration of the iterations in Newton's method. 
+  This function provides an illustration of the iterations in Newton's method. 
 }
 \usage{
 newton.method(FUN = function(x) x^2 - 4, init = 10, rg = c(-1, 10),
@@ -20,6 +20,8 @@ newton.method(FUN = function(x) x^2 - 4, init = 10, rg = c(-1, 10),
   \item{\dots}{ other arguments passed to \code{\link[graphics]{curve}} }
 }
 \details{
+Newton's method (also known as the Newton-Raphson method or the Newton-Fourier method) is an efficient algorithm for finding approximations to the zeros (or roots) of a real-valued function f(x).
+
   The iteration goes on in this way:
   
   \deqn{x_{k + 1} = x_{k} - \frac{FUN(x_{k})}{FUN'(x_{k})}}{x[k + 1] = x[k] - FUN(x[k]) / FUN'(x[k])} 
@@ -40,7 +42,7 @@ The algorithm might not converge -- it depends on the starting value. See the ex
 
 \url{http://animation.yihui.name/compstat:newton_s_method}
 }
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}> }
 \seealso{ \code{\link[stats]{optim}} }
 \examples{
 
@@ -56,8 +58,6 @@ ani.options(nmax = 50)
 newton.method(function(x) 5 * x^3 - 7 * x^2 - 40 *
     x + 100, 7.15, c(-6.2, 7.1))
 
-\dontrun{
- 
 # another function 
 ani.options(interval = 0.5, nmax = 50)
 xx = newton.method(function(x) exp(-x) * x, rg = c(0, 
@@ -67,13 +67,15 @@ ani.options(interval = 0.5, nmax = 50)
 xx = newton.method(function(x) atan(x), rg = c(-5, 
     5), init = 1.5) 
 xx$root   # Inf 
+
+\dontrun{
 # interaction: use your mouse to select the starting point
 ani.options(interval = 0.5, nmax = 50)
 xx = newton.method(function(x) atan(x), rg = c(-2, 
     2), interact = TRUE) 
 
 # HTML animation pages 
-ani.options(ani.height = 500, ani.width = 600, outdir = getwd(), nmax = 100,
+ani.options(ani.height = 500, ani.width = 600, nmax = 100,
     interval = 1, title = "Demonstration of the Newton-Raphson Method",
     description = "Go along with the tangent lines and iterate.")
 ani.start()
@@ -81,9 +83,8 @@ par(mar = c(3, 3, 1, 1.5), mgp = c(1.5, 0.5, 0), pch = 19)
 newton.method(function(x) 5 * x^3 - 7 * x^2 - 40 *
     x + 100, 7.15, c(-6.2, 7.1), main = "")
 ani.stop()
-
-
 }
+
 par(op) 
 ani.options(oopt)
 }

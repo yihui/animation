@@ -7,7 +7,6 @@
 \usage{
 kfcv(k, N)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{k}{ number of groups. }
   \item{N}{ total sample size. }
@@ -19,7 +18,7 @@ kfcv(k, N)
   A vector of length \code{k} containing \emph{k} sample sizes. 
 }
 
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}> }
 \seealso{ \code{\link{cv.ani}} }
 \examples{
 # divisible

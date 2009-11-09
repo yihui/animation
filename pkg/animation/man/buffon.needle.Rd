@@ -2,7 +2,7 @@
 \alias{buffon.needle}
 \title{ Simulation of Buffon's Needle }
 \description{
-  This function provides a simulation for the problem of Buffon's Needle, which is one of the oldest problems in the field of geometrical probability. `Needles' are denoted by segments on the 2D plane, and dropped randomly to check whether they cross the parallel lines. Through many times of `dropping' needles, the approximate value of \eqn{\pi} can be calculated out.
+  This function provides a simulation for the problem of Buffon's Needle, which is one of the oldest problems in the field of geometrical probability. 
 }
 \usage{
 buffon.needle(l = 0.8, d = 1, redraw = TRUE, mat = matrix(c(1, 3, 2, 3), 2),
@@ -22,6 +22,8 @@ buffon.needle(l = 0.8, d = 1, redraw = TRUE, mat = matrix(c(1, 3, 2, 3), 2),
 \details{
   This is quite an old problem in probability. For mathematical background, please refer to \url{http://en.wikipedia.org/wiki/Buffon's_needle} or \url{http://www.mste.uiuc.edu/reese/buffon/buffon.html}.
   
+  `Needles' are denoted by segments on the 2D plane, and dropped randomly to check whether they cross the parallel lines. Through many times of `dropping' needles, the approximate value of \eqn{\pi} can be calculated out.
+  
   There are three graphs made in each step: the top-left one is a simulation of the scenario, the top-right one is to help us understand the connection between dropping needles and the mathematical method to estimate \eqn{\pi}, and the bottom one is the result for each dropping.
  
 }
@@ -33,7 +35,7 @@ Ramaley, J. F. (Oct 1969). Buffon's Noodle Problem. \emph{The American Mathemati
 
 \url{http://animation.yihui.name/prob:buffon_s_needle}
 }
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}> }
 \note{ 
 Note that \code{redraw} will affect the speed of the simulation (animation) to a great deal if the control argument \code{nmax} (in \code{\link{ani.options}}) is quite large, so you'd better specify it as \code{FALSE} when doing a large amount of simulations.
 }
@@ -48,11 +50,11 @@ buffon.needle()
 buffon.needle(redraw = FALSE)
 
 par(opar)
-\dontrun{
- 
+
+\dontrun{ 
 # create HTML animation page
 ani.options(nmax = 100, interval = 0.1, ani.height = 500, ani.width = 600,
-    outdir = getwd(), title = "Simulation of Buffon's Needle",
+    title = "Simulation of Buffon's Needle",
     description = "There are three graphs made in each step: the top-left
     one is a simulation of the scenario, the top-right one is to help us
     understand the connection between dropping needles and the mathematical
@@ -62,7 +64,6 @@ ani.start()
 par(mar = c(3, 2.5, 1, 0.2), pch = 20, mgp = c(1.5, 0.5, 0))
 buffon.needle(type = "S")
 ani.stop() 
-
 }
 
 ani.options(oopt)

@@ -2,7 +2,7 @@
 \alias{kmeans.ani}
 \title{ Demonstration of K-Means Cluster Algorithm }
 \description{
-  K-Means cluster algorithm may be regarded as a series of iterations of: finding cluster centers, computing distances between sample points, and redefining cluster membership. This function provides a demo of K-Means cluster algorithm for data containing only two variables (columns). 
+  This function provides a demo of K-Means cluster algorithm for data containing only two variables (columns). 
 }
 \usage{
 kmeans.ani(x = matrix(runif(100), ncol = 2,
@@ -20,10 +20,12 @@ kmeans.ani(x = matrix(runif(100), ncol = 2,
   \item{hints}{ Two text strings indicating the steps of k-means clustering: move the center or find the cluster membership? }
 }
 \details{
+K-Means cluster algorithm may be regarded as a series of iterations of: finding cluster centers, computing distances between sample points, and redefining cluster membership. 
+
   The data given by \code{x} is clustered by the \eqn{k}-means method, which aims to partition the points into \eqn{k} groups such that the sum of squares from points to the assigned cluster centers is minimized. At the minimum, all cluster centres are at the mean of their Voronoi sets (the set of data points which are nearest to the cluster centre).
 }
 \note{
-  For practical applications please refer to \code{\link[stats:kmeans]{kmeans}}.
+  This function is only for demonstration purpose. For practical applications please refer to \code{\link[stats]{kmeans}}.
   
   Note that \code{nmax} is defined as the maximum number of iterations in such a sense: an iteration includes the process of computing distances, redefining membership and finding centers. Thus there should be \code{2*nmax} animation frames in the output if the other condition for stopping the iteration has not yet been met (i.e. the cluster membership will not change any longer).
 }
@@ -37,7 +39,7 @@ Hartigan, J. A. and Wong, M. A. (1979). A K-means clustering algorithm. \emph{Ap
 
 \url{http://animation.yihui.name/mvstat:k-means_cluster_algorithm}
 }
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}> }
 \seealso{ \code{\link[stats:kmeans]{kmeans}} }
 \examples{
 #set larger 'interval' if the speed is too fast
@@ -57,10 +59,10 @@ ani.options(nmax = 50)
 kmeans.ani(x, centers = 3)
 
 par(op)
-\dontrun{
 
+\dontrun{
 # create HTML animation page 
-ani.options(ani.height = 480, ani.width = 480, outdir = getwd(), interval = 2,
+ani.options(ani.height = 480, ani.width = 480, interval = 2,
     nmax = 50, title = "Demonstration of the K-means Cluster Algorithm",
     description = "Move! Average! Cluster! Move! Average! Cluster! ...")
 ani.start()
@@ -71,8 +73,8 @@ x = matrix(x, ncol = 2)
 colnames(x) = c("X1", "X2")
 kmeans.ani(x, centers = 4, pch = 1:4, col = 1:4)
 ani.stop()
-
 }
+
 ani.options(oopt)
 }
 \keyword{ hplot }

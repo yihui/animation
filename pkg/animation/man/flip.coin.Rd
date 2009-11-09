@@ -2,7 +2,7 @@
 \alias{flip.coin}
 \title{ Probability in flipping coins }
 \description{
-  In the first class of learning probability theory, we usually begin with flipping coins or tossing dice. This function provides a simulation to such a process and computes the frequency for `heads' and `tails'. 
+  This function provides a simulation to the process of flipping coins and computes the frequencies for `heads' and `tails'. 
 }
 \usage{
 flip.coin(faces = 2, prob = NULL, border = "white", grid = "white",
@@ -36,7 +36,7 @@ flip.coin(faces = 2, prob = NULL, border = "white", grid = "white",
   \item{nmax }{the total number of tosses}
 }
 
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}> }
 \seealso{ \code{\link{ani.start}}, \code{\link{ani.stop}} }
 \references{
 \url{http://animation.yihui.name/prob:flipping_coins}
@@ -50,10 +50,9 @@ flip.coin(faces = c("Head", "Stand", "Tail"), type = "n",
 
 flip.coin(bg = "yellow")
 
-\dontrun{
- 
+\dontrun{ 
 # HTML animation page
-ani.options(ani.height = 500, ani.width = 600, outdir = getwd(), interval = 0.2,
+ani.options(ani.height = 500, ani.width = 600, interval = 0.2,
     nmax = 50, title = "Probability in flipping coins",
     description = "This animation has provided a simulation of flipping coins,
     which might be helpful in understanding the concept of probability.")
@@ -63,6 +62,7 @@ flip.coin(faces = c("Head", "Stand", "Tail"), type = "n",
     prob = c(0.45, 0.1, 0.45), col =c(1, 2, 4))
 ani.stop()
 }
+
 ani.options(oopt)
 }
 

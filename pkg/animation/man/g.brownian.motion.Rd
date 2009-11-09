@@ -21,13 +21,13 @@ g.brownian.motion(p = 20, start = 1900, digits = 14,
 \references{ 
 \url{http://code.google.com/apis/visualization/}
 
-\url{http://www.yihui.name/en/post/57.htm}
+\url{http://yihui.name/en/2008/11/brownian-motion-using-google-visualization-api-and-r/}
 }
-\author{ Yihui Xie }
+\author{ Yihui Xie <\url{http://yihui.name}> }
 \note{
   The number of frames is controlled by \code{ani.options("nmax")} as usual. 
 }
-\seealso{ \code{\link{brownian.motion}}, \code{\link{BM.circle}}, \code{\link[stats:Normal]{rnorm}} }
+\seealso{ \code{\link{brownian.motion}}, \code{\link{BM.circle}}, \code{\link[stats]{rnorm}} }
 \examples{
 \dontrun{
 g.brownian.motion(15, digits = 2, width = 600, 
