@@ -10,8 +10,6 @@
 
 NEW FEATURES
 
-    o ecol.death.sim() to simulate the death of two
-  sepecies in a field
     o a new option 'imgdir' added to ani.options()
   so that users can specify the name of the image 
   directory
@@ -19,6 +17,8 @@ NEW FEATURES
   'nmax' is changed; this will help users know the
   actual number of images in the current session;
   this message will only show in interactive mode
+    o saveMovie() will try to install ImageMagick
+  automatically if 'convert' not found
 
 MINOR CHANGES
 

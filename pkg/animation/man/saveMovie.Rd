@@ -35,13 +35,13 @@ An integer indicating failure (-1) or success (0) of the converting (refer to \c
 }
 \author{ Yihui Xie <\url{http://yihui.name}> }
 \note{ 
-Please make sure ImageMagick has been installed in your system: \url{http://www.imagemagick.org}
+Please make sure ImageMagick has been installed in your system (go to \url{http://www.imagemagick.org} for details), and \code{convert} is in your \code{'PATH'} variable. If ImageMagick is not found, the function will try to install it automatically (for Windows and Mac users only; I have not tested the installer yet!).
 }
-\seealso{ \code{\link{saveSWF}}, \code{\link[base]{system}}, \code{\link[grDevices]{png}}, \code{\link[grDevices:png]{jpeg}} and \code{\link[grDevices:png]{bmp}} }
+\seealso{ \code{\link{saveSWF}}, \code{\link[base]{system}}, \code{\link[grDevices]{png}}, \code{\link[grDevices]{jpeg}} and \code{\link[grDevices]{bmp}} }
 \examples{
 ## make sure ImageMagick has been installed in your system 
-\dontrun{
 
+\dontrun{
 saveMovie(for(i in 1:10) plot(runif(10), ylim = 0:1), loop = 1)
 oopt = ani.options(nmax = 100)
 saveMovie(brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow"),
