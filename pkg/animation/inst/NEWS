@@ -12,15 +12,30 @@ NEW FEATURES
 
     o ecol.death.sim() to simulate the death of two
   sepecies in a field
+    o a new option 'imgdir' added to ani.options()
+  so that users can specify the name of the image 
+  directory
+    o a message will come up if the animation option
+  'nmax' is changed; this will help users know the
+  actual number of images in the current session;
+  this message will only show in interactive mode
 
 MINOR CHANGES
 
-    o the option 'interval' will be set to 0 if
+    o query ani.options('interval') will return 0 if
   the animation is run in a non-interactive mode;
   this will save much time typically in 'R CMD check'
   (Thanks to Prof Ripley)
+    o the option 'nmax' will be adjusted to the 
+  *actual* number of images in the directory 
+  ani.options('imgdir'), because sometimes the actual
+  number of images does not equal to ani.options('nmax')
     o shortened the descriptions in Rd files and 
   several changes in documentations 
+    o fixed several buglets in ani.stop()
+    o changed the 'while' loop to 'for' loop in
+  brownian.motion(); this will shorten the code by
+  two lines
     
 TO APPEAR 
     
@@ -45,7 +60,7 @@ TO APPEAR
 NEW FEATURES
 
     o ecol.death.sim() to simulate the death of two
-  sepecies in a field
+  species in a field
 
 MINOR CHANGES
 
@@ -66,6 +81,10 @@ MINOR CHANGES
 NEW FEATURES
 
     o moving.block() to plot a subset of data by blocks
+    o ani.options() gained a new argument 'loop' to 
+  control the iteration of the animation in an HTML
+  page: TRUE to interate for infinite times, and FALSE
+  not to interate (only play once). Thanks, Marcin Kozak!
 
 MINOR CHANGES
 
@@ -74,10 +93,6 @@ MINOR CHANGES
   an error for non-existent object 'footer'; I should
   have used the value ani.options("footer") in the code.
   Thanks, Marcin Kozak!
-    o ani.options() gained a new argument 'loop' to 
-  control the iteration of the animation in an HTML
-  page: TRUE to interate for infinite times, and FALSE
-  not to interate (only play once). Thanks, Marcin Kozak!
 
 
 	**************************************************

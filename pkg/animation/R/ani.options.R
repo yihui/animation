@@ -24,7 +24,7 @@ ani.options <- function(...) {
                 mf[pmatch(names(mc), names(mf))] = mc
             options(ani = mf)
             if (!identical(omf$nmax, mf$nmax) & interactive()) {
-                message("animation option 'nmax' changed: ", omf$nmax, "--> ", mf$nmax)
+                message("animation option 'nmax' changed: ", omf$nmax, " --> ", mf$nmax)
             }
             invisible(omf)
         }
