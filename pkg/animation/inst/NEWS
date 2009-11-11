@@ -10,6 +10,8 @@
 
 NEW FEATURES
 
+    o saveLatex() to embed the animation into a
+  LaTeX document (with LaTeX package 'animate').
     o a new option 'imgdir' added to ani.options()
   so that users can specify the name of the image 
   directory
@@ -36,6 +38,8 @@ MINOR CHANGES
     o changed the 'while' loop to 'for' loop in
   brownian.motion(); this will shorten the code by
   two lines
+    o ani.options('ani.dev') can be the name of a
+  function (character), e.g. "png" 
     
 TO APPEAR 
     
@@ -43,8 +47,6 @@ TO APPEAR
   bootstrapping effects on loess().
     o A function cart.ani() to show the splitting
   process of classification and regression trees.
-    o saveLatex() to embed the animation into a
-  LaTeX document (with LaTeX package 'animate').
 
 
 	**************************************************
