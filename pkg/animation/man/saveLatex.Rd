@@ -10,9 +10,9 @@ Record animation frames and insert them into a LaTeX document with the \code{ani
 saveLatex(expr, interval = ani.options("interval"), 
     nmax = ani.options("nmax"), ani.dev = "pdf", 
     outdir = ani.options("outdir"), ani.basename = "Rplot", 
-    ani.ext = "pdf", num = ifelse(ani.ext == "pdf", "", "%d"), 
-    ani.first = par(), ani.opts = "controls,width=0.8\\textwidth", 
-    centering = "\\centering", caption = NULL, 
+    ani.ext = "pdf", num = ifelse(ani.ext == "pdf", "", "\%d"), 
+    ani.first = par(), ani.opts = "controls,width=0.8\\\\textwidth", 
+    centering = "\\\\centering", caption = NULL, 
     label = NULL, pkg.opts = NULL, documentclass = "article", 
     latex.filename = "animation.tex", pdflatex = "pdflatex", ...)
 }
@@ -25,7 +25,7 @@ maximum number of animatio frames and the directory for output (see \code{\link{
   \item{ani.dev}{
 the graphics device to be used to record image frames
 }
-  \item{ani.basename}{
+  \item{ani.basename,ani.ext}{
 basename and extension of file names of animation frames
 }
   \item{num}{
@@ -72,7 +72,7 @@ To know more about the \code{animate} package, please refer to \url{http://www.c
 Yihui Xie <\url{http://yihui.name}>
 }
 \note{
-When using \code{ani.dev = "png"} or other bitmap graphics devices, all the images can be recorded only if a proper \code{num} is provided; typically it must be \code{"%d"}.
+When using \code{ani.dev = "png"} or other bitmap graphics devices, all the images can be recorded only if a proper \code{num} is provided; typically it must be \code{"\%d"}.
 
 PDF devices are recommended because of their high quality and usually they are more friendly to LaTeX. But sometimes the size of PDF files is much larger.
 }
