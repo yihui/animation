@@ -1,7 +1,7 @@
 saveLatex <- function(expr, interval = ani.options("interval"), 
     nmax = ani.options("nmax"), ani.dev = "pdf", outdir = ani.options("outdir"), 
     ani.basename = "Rplot", ani.ext = "pdf", num = ifelse(ani.ext == 
-        "pdf", "", "%d"), ani.first = par(), ani.opts = "controls,width=0.8\\textwidth", 
+        "pdf", "", "%d"), ani.first = par(), ani.opts = "controls,width=\\textwidth", 
     centering = "\\centering", caption = NULL, label = NULL, 
     pkg.opts = NULL, documentclass = "article", latex.filename = "animation.tex", 
     pdflatex = "pdflatex", ...) {
