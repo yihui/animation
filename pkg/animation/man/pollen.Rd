@@ -25,7 +25,8 @@ data(pollen)
 plot(pollen[, 1:2], pch = 20, col = rgb(0, 0, 0, 0.1))
 
 ## check with rgl
-\dontrun{library(rgl)
+\dontrun{
+library(rgl)
 # ajust the view
 uM = matrix(c(-0.370919227600098, -0.513357102870941,
     -0.773877620697021, 0, -0.73050606250763, 0.675815105438232,
@@ -42,6 +43,5 @@ for (i in 1:length(zm)) {
     Sys.sleep(0.01)
 }
 }
-
 }
 \keyword{datasets}

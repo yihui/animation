@@ -4,7 +4,7 @@ saveMovie <- function(expr, interval = 1, moviename = "movie",
     ...) {
     installImageMagick <- function() {
         owd = setwd(Sys.getenv("HOME"))
-        windows_config <- list(magick_url = "http://www.imagemagick.org/download/binaries/ImageMagick-6.5.7-6-Q16-windows-dll.exe", 
+        windows_config <- list(magick_url = "http://www.imagemagick.org/download/binaries/ImageMagick-6.5.7-7-Q16-windows-dll.exe", 
             installer = function(path) {
                 shell(path)
             })
