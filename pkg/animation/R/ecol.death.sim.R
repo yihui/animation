@@ -20,6 +20,7 @@ function(nr = 10, nc = 10, num.sp = c(50, 50), col.sp = c(1,
         p[idx] = sample(1:2, 1, prob = tbl)
         Sys.sleep(interval)
     }
+    ani.options(nmax = 2 * nmax)
     invisible(p)
 }
 

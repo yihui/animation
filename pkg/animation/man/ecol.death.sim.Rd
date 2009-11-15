@@ -30,6 +30,9 @@ other arguments passed to \code{\link[graphics]{plot}} to set up the plot
 \details{
 Suppose there are two plant species in a field: A and B. One of them will die at each time and a new plant will grow in the place where the old plant died; the species of the new plant depends on the proportions of two species: the larger the proportion is, the greater the probability for this species to come up will be.
 }
+\note{
+\code{2 * nmax} image frames will actually be produced, and the option \code{nmax} will be adjusted to \code{2 * nmax} in the end.
+}
 \value{
 a vector (factor) containing 1's and 2's, denoting the plants finally survived
 }
@@ -50,6 +53,7 @@ ecol.death.sim()
 ## large scale simulation
 ani.options(nmax = 1000, interval = 0.02)
 ecol.death.sim(col.sp = c(8, 2), pch.sp = c(20, 17)) 
+
 }
 
 ani.options(oopt)
