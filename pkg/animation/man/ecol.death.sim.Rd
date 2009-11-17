@@ -37,7 +37,7 @@ Suppose there are two plant species in a field: A and B. One of them will die at
 a vector (factor) containing 1's and 2's, denoting the plants finally survived
 }
 \references{
-This animation is motivated by a question raised from a student in biology to show the evolution of two species. 
+This animation is motivated by a question raised from Jing Jiao, a student in biology, to show the evolution of two species. 
 
 The original post is in the forum of the ``Capital of Statistics'': \url{http://cos.name/bbs/read.php?tid=14093} (in Chinese)                               
 }
