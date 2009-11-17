@@ -7,7 +7,8 @@
 \usage{
 saveMovie(expr, interval = 1, moviename = "movie", movietype = "gif", 
     loop = 0, dev = png, filename = "Rplot", fmt = "\%03d", 
-    outdir = tempdir(), para = par(no.readonly = TRUE), ...)
+    outdir = tempdir(), convert = "convert", 
+    ani.first = NULL, para = par(no.readonly = TRUE), ...)
 }
 \arguments{
   \item{expr}{ an expression to generate animations; use either the animation functions (e.g. \code{brownian.motion()}) in this package or a custom expression (e.g. \code{for(i in 1:10) plot(runif(10), ylim = 0:1)}). }
@@ -19,7 +20,9 @@ saveMovie(expr, interval = 1, moviename = "movie", movietype = "gif",
   \item{filename}{ file name of the sequence of images (`pure' name; without any format or extension) }
   \item{fmt}{ a C-style string formatting command, such as \code{\%3d}  }
   \item{outdir}{ the directory for the movie frames and the movie itself }
-  \item{para}{ a list: the graphics parameters to be set before plotting; passed to \code{\link[graphics]{par}} }
+  \item{convert}{ the ImageMagick command to convert images (default to be \code{convert}, but might be \code{imconvert} under some Windows platforms) }
+  \item{ani.first}{an expression to be evaluated before plotting (this will be useful to set graphical parameters in advance, e.g. \code{ani.first = par(pch = 20)}}
+  \item{para}{ a list: the graphics parameters to be set before plotting; passed to \code{\link[graphics]{par}}; note \code{ani.first} can override this argument }
   \item{\dots}{ other arguments passed to the graphical device, such as \code{height} and \code{width}, ... }
 }
 \details{

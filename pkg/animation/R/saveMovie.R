@@ -1,6 +1,7 @@
 saveMovie <- function(expr, interval = 1, moviename = "movie", 
     movietype = "gif", loop = 0, dev = png, filename = "Rplot", 
-    fmt = "%03d", outdir = tempdir(), para = par(no.readonly = TRUE), 
+    fmt = "%03d", outdir = tempdir(), convert = "convert", 
+    ani.first = NULL, para = par(no.readonly = TRUE), 
     ...) {
     installImageMagick <- function() {
         owd = setwd(Sys.getenv("HOME"))
@@ -63,12 +64,13 @@ saveMovie <- function(expr, interval = 1, moviename = "movie",
     dev(filename = paste(filename, fmt, ".", deparse(substitute(dev)), 
         sep = ""), ...)
     par(para)
+    eval(ani.first)
     eval(expr)
     dev.off()
     ani.options(oopt)
     if (.Platform$OS.type == "windows") 
         system <- shell
-    version <- system("convert --version", intern = TRUE)
+    version <- system(sprintf("%s --version", convert), intern = TRUE)
     if (!length(grep("ImageMagick", version))) {
         message("ImageMagick not found; I will try to install it.")
         installImageMagick()
@@ -76,7 +78,7 @@ saveMovie <- function(expr, interval = 1, moviename = "movie",
     moviename <- paste(moviename, ".", movietype, sep = "")
     wildcard <- paste(filename, "*.", deparse(substitute(dev)), 
         sep = "")
-    convert <- paste("convert -delay", interval * 100, "-loop", 
+    convert <- paste(sprintf("%s -delay", convert), interval * 100, "-loop", 
         loop, wildcard, moviename)
     cat("Executing: ", convert, "\n")
     cmd = system(convert)
