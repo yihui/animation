@@ -1,0 +1,119 @@
+%% LyX 1.6.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{book}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,lmargin=3cm,rmargin=3cm}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{color}
+\usepackage{babel}
+
+\usepackage[authoryear]{natbib}
+\usepackage[unicode=true, 
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=3,
+ breaklinks=true,pdfborder={0 0 1},backref=false,colorlinks=true]
+ {hyperref}
+\hypersetup{pdftitle={ISU.Stat500: An R Package for the Course Stat500 },
+ pdfauthor={Yihui Xie, Hui Lin, Tengfei Yin},
+ pdfsubject={Statistics},
+ pdfkeywords={R, package, statistical methods, Iowa State University},
+ pdfstartview=FitH}
+ 
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+%\VignetteIndexEntry{ISU.Stat500: An R Package for the Course Stat500 ``Statistical Methods''}
+\usepackage{ae}
+\usepackage{animate}
+\renewcommand{\rmdefault}{ppl}
+\renewcommand{\sfdefault}{aess}
+\renewcommand{\ttdefault}{aett}
+\newcommand{\pkg}[1]{\textbf{\textsf{#1}}}
+\newcommand{\fun}[1]{\textit{#1}}
+
+\makeatother
+
+\begin{document}
+
+\title{ISU.Stat500: An R Package for the Course Stat500 {}``Statistical
+Methods''}
+
+
+\author{Yihui Xie %
+\thanks{Department of Statistics, Iowa State University. Email: \protect\href{mailto:xie@iastate.edu}{xie@iastate.edu}.
+This document is based on the course STAT500 taught by \protect\href{http://www.public.iastate.edu/~pdixon}{Dr Dixon}
+in Fall 2009. We warmly welcome comments on this document.%
+} \and Hui Lin %
+\thanks{Department of Statistics, Iowa State University. Email: \protect\href{mailto:hlin@iastate.edu}{hlin@iastate.edu}.%
+} \and Tengfei Yin %
+\thanks{BCB (Bioinformatics and Computational Biology) Graduate Program, Iowa
+State University. Email: \protect\href{mailto:tengfei@iastate.edu}{tengfei@iastate.edu}.%
+}}
+
+\maketitle
+\tableofcontents{}
+
+\listoffigures
+
+
+<<echo=FALSE,results=hide>>=
+options(prompt = "R> ")
+source("commentSweave.r")
+@
+
+
+
+
+\chapter{Comparative Studies}
+
+
+\section{t-test}
+
+
+\section{Analysis of Variance}
+
+
+\chapter{Linear Regression}
+
+
+\chapter{Multifactor Studies}
+
+
+\section{Factorial Designs}
+
+
+\section{Random Effects}
+
+
+\chapter{Misc Functions}
+
+We have also collected some functions which are of no direct interest
+to statistical methods, but they might be helpful for us to save time.
+
+
+\section{Dynamic access to course materials}
+
+The function \fun{listLinks()} can list all the hyper-links under
+a web directory with the help of the \pkg{XML} package \citep{templelang09}.
+For example, we obtain the names of SAS programs and output files:
+
+<<eval=FALSE>>=
+listLinks("http://pdixon.public.iastate.edu/stat500/sas/", "\\.lst$|\\.sas$") 
+## will get: 
+#  [1] "http://pdixon.public.iastate.edu/stat500/sas/ancova.sas"
+#  [2] "http://pdixon.public.iastate.edu/stat500/sas/bacillus.lst"
+#  [3] "http://pdixon.public.iastate.edu/stat500/sas/bacillus.sas"
+#  ....
+## data files are under "http://www.public.iastate.edu/~pdixon/stat500/data/"
+@
+
+We can further download these files automatically using R. There are
+several examples in the help page; see \texttt{?listLinks}.
+
+\bibliographystyle{jss}
+\cleardoublepage\addcontentsline{toc}{chapter}{\bibname}\bibliography{ISU-Stat500-intro}
+
+\end{document}

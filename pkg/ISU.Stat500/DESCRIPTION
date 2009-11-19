@@ -3,9 +3,9 @@ Type: Package
 Title: Misc Functions and Data for the Course Stat500 (Statistical Methods) in ISU
 Version: 0.1-0
 Date: 2009-10-16
-Author: Hui Lin and Yihui Xie
+Author: Hui Lin, Tengfei Yin and Yihui Xie
 Maintainer: Hui Lin <hlin@iasate.edu>
-Depends: animation
+Depends: animation, XML
 Description: Functions for the permutation test, bootstrapping, computing the sample size based on CI width/s.e./power, data transformation for equal variance in t-test and ANOVA, model diagnostics (e.g. normality), inference for contrasts, various demos for linear regressions; the data sets from the book "The Statistical Sleuth" used in the class are included in this package.
 License: GPL-2 | GPL-3
 LazyLoad: yes

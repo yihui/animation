@@ -14,7 +14,7 @@ This package is written to support the course Stat500 (Statistical Methods) in t
 Package: \tab ISU.Stat500\cr
 Type: \tab Package\cr
 Version: \tab 0.1-0\cr
-Date: \tab 2009-10-16\cr
+Date: \tab 2009-11-25\cr
 License: \tab GPL-2 | GPL-3\cr
 LazyLoad: \tab yes\cr
 }
@@ -22,7 +22,7 @@ LazyLoad: \tab yes\cr
 
 }
 \author{
-Hui Lin and Yihui Xie
+Hui Lin, Tengfei Yin and Yihui Xie
 
 Maintainer: Hui Lin <hlin@iastate.edu>
 

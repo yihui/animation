@@ -1,0 +1,366 @@
+#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass literate-book
+\begin_preamble
+%\VignetteIndexEntry{ISU.Stat500: An R Package for the Course Stat500 ``Statistical Methods''}
+\usepackage{ae}
+\usepackage{animate}
+\renewcommand{\rmdefault}{ppl}
+\renewcommand{\sfdefault}{aess}
+\renewcommand{\ttdefault}{aett}
+\newcommand{\pkg}[1]{\textbf{\textsf{#1}}}
+\newcommand{\fun}[1]{\textit{#1}}
+\end_preamble
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "ISU.Stat500: An R Package for the Course Stat500 "
+\pdf_author "Yihui Xie, Hui Lin, Tengfei Yin"
+\pdf_subject "Statistics"
+\pdf_keywords "R, package, statistical methods, Iowa State University"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks true
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle false
+\pdf_quoted_options "pdfstartview=FitH"
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine natbib_authoryear
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 3cm
+\rightmargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+ISU.Stat500: An R Package for the Course Stat500 
+\begin_inset Quotes eld
+\end_inset
+
+Statistical Methods
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+Yihui Xie 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Department of Statistics, Iowa State University.
+ Email: 
+\begin_inset CommandInset href
+LatexCommand href
+name "xie@iastate.edu"
+target "xie@iastate.edu"
+type "mailto:"
+
+\end_inset
+
+.
+ This document is based on the course STAT500 taught by 
+\begin_inset CommandInset href
+LatexCommand href
+name "Dr Dixon"
+target "http://www.public.iastate.edu/~pdixon"
+
+\end_inset
+
+ in Fall 2009.
+ We warmly welcome comments on this document.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Hui Lin 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Department of Statistics, Iowa State University.
+ Email: 
+\begin_inset CommandInset href
+LatexCommand href
+name "hlin@iastate.edu"
+target "hlin@iastate.edu"
+type "mailto:"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Tengfei Yin 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+BCB (Bioinformatics and Computational Biology) Graduate Program, Iowa State
+ University.
+ Email: 
+\begin_inset CommandInset href
+LatexCommand href
+name "tengfei@iastate.edu"
+target "tengfei@iastate.edu"
+type "mailto:"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Scrap
+<<echo=FALSE,results=hide>>=
+\begin_inset Newline newline
+\end_inset
+
+options(prompt = "R> ")
+\begin_inset Newline newline
+\end_inset
+
+source("commentSweave.r")
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Chapter
+Comparative Studies
+\end_layout
+
+\begin_layout Section
+t-test
+\end_layout
+
+\begin_layout Section
+Analysis of Variance
+\end_layout
+
+\begin_layout Chapter
+Linear Regression
+\end_layout
+
+\begin_layout Chapter
+Multifactor Studies
+\end_layout
+
+\begin_layout Section
+Factorial Designs
+\end_layout
+
+\begin_layout Section
+Random Effects
+\end_layout
+
+\begin_layout Chapter
+Misc Functions
+\end_layout
+
+\begin_layout Standard
+We have also collected some functions which are of no direct interest to
+ statistical methods, but they might be helpful for us to save time.
+\end_layout
+
+\begin_layout Section
+Dynamic access to course materials
+\end_layout
+
+\begin_layout Standard
+The function 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fun{listLinks()}
+\end_layout
+
+\end_inset
+
+ can list all the hyper-links under a web directory with the help of the
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{XML}
+\end_layout
+
+\end_inset
+
+ package 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "templelang09"
+
+\end_inset
+
+.
+ For example, we obtain the names of SAS programs and output files:
+\end_layout
+
+\begin_layout Scrap
+<<eval=FALSE>>=
+\begin_inset Newline newline
+\end_inset
+
+listLinks("http://pdixon.public.iastate.edu/stat500/sas/", "
+\backslash
+
+\backslash
+.lst$|
+\backslash
+
+\backslash
+.sas$") 
+\begin_inset Newline newline
+\end_inset
+
+## will get: 
+\begin_inset Newline newline
+\end_inset
+
+#  [1] "http://pdixon.public.iastate.edu/stat500/sas/ancova.sas"
+\begin_inset Newline newline
+\end_inset
+
+#  [2] "http://pdixon.public.iastate.edu/stat500/sas/bacillus.lst"
+\begin_inset Newline newline
+\end_inset
+
+#  [3] "http://pdixon.public.iastate.edu/stat500/sas/bacillus.sas"
+\begin_inset Newline newline
+\end_inset
+
+#  ....
+\begin_inset Newline newline
+\end_inset
+
+## data files are under "http://www.public.iastate.edu/~pdixon/stat500/data/"
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Standard
+We can further download these files automatically using R.
+ There are several examples in the help page; see 
+\family typewriter
+?listLinks
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "ISU-Stat500-intro"
+options "bibtotoc,jss"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
