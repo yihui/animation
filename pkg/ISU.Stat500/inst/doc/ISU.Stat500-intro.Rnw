@@ -12,10 +12,11 @@
 \usepackage{color}
 \usepackage{babel}
 
+\usepackage{url}
 \usepackage[authoryear]{natbib}
 \usepackage[unicode=true, 
  bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=3,
- breaklinks=true,pdfborder={0 0 1},backref=false,colorlinks=true]
+ breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=true]
  {hyperref}
 \hypersetup{pdftitle={ISU.Stat500: An R Package for the Course Stat500 },
  pdfauthor={Yihui Xie, Hui Lin, Tengfei Yin},
@@ -112,6 +113,22 @@ listLinks("http://pdixon.public.iastate.edu/stat500/sas/", "\\.lst$|\\.sas$")
 
 We can further download these files automatically using R. There are
 several examples in the help page; see \texttt{?listLinks}.
+
+
+\section[Reshaping data]{Reshaping data between wide and long formats}
+
+The function \fun{reshape()} in the \pkg{stats} package can reshape
+data between {}``wide'' and {}``long'' formats. For the rat weight
+data, one single line of R code is enough for the transformation%
+\footnote{Explanations can be found at \url{http://cos.name/en/topic/reshape-the-ratweight-data-into-long-format-stat500}
+if needed.%
+}.
+
+<<eval=FALSE>>=
+rat = read.table("http://pdixon.public.iastate.edu/stat500/data/ratweight.txt",
+     col.names = c("amount", "type", rep("gain", 10))) 
+rat2 = reshape(rat, varying = list(3:12), idvar = 1:2, direction = "long") 
+@
 
 \bibliographystyle{jss}
 \cleardoublepage\addcontentsline{toc}{chapter}{\bibname}\bibliography{ISU-Stat500-intro}

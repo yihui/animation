@@ -37,7 +37,7 @@
 \pdf_bookmarksnumbered true
 \pdf_bookmarksopen true
 \pdf_bookmarksopenlevel 3
-\pdf_breaklinks true
+\pdf_breaklinks false
 \pdf_pdfborder false
 \pdf_colorlinks true
 \pdf_backref false
@@ -349,6 +349,109 @@ We can further download these files automatically using R.
 ?listLinks
 \family default
 .
+\end_layout
+
+\begin_layout Section
+\begin_inset OptArg
+status open
+
+\begin_layout Plain Layout
+Reshaping data
+\end_layout
+
+\end_inset
+
+Reshaping data between wide and long formats
+\end_layout
+
+\begin_layout Standard
+The function 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fun{reshape()}
+\end_layout
+
+\end_inset
+
+ in the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{stats}
+\end_layout
+
+\end_inset
+
+ package can reshape data between 
+\begin_inset Quotes eld
+\end_inset
+
+wide
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+long
+\begin_inset Quotes erd
+\end_inset
+
+ formats.
+ For the rat weight data, one single line of R code is enough for the transforma
+tion
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Explanations can be found at 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://cos.name/en/topic/reshape-the-ratweight-data-into-long-format-stat500
+\end_layout
+
+\end_inset
+
+ if needed.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Scrap
+<<eval=FALSE>>=
+\begin_inset Newline newline
+\end_inset
+
+rat = read.table("http://pdixon.public.iastate.edu/stat500/data/ratweight.txt",
+\begin_inset Newline newline
+\end_inset
+
+     col.names = c("amount", "type", rep("gain", 10))) 
+\begin_inset Newline newline
+\end_inset
+
+rat2 = reshape(rat, varying = list(3:12), idvar = 1:2, direction = "long")
+ 
+\begin_inset Newline newline
+\end_inset
+
+@
 \end_layout
 
 \begin_layout Standard
