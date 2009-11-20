@@ -234,6 +234,78 @@ Analysis of Variance
 Linear Regression
 \end_layout
 
+\begin_layout Section
+Model diagnostics
+\end_layout
+
+\begin_layout Subsection
+Linearity
+\end_layout
+
+\begin_layout Standard
+LOWESS/LOESS is almost equivalent to the linear model
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+linear
+\begin_inset Quotes erd
+\end_inset
+
+ here is in terms of X variables instead of parameters.
+\end_layout
+
+\end_inset
+
+ when we set the degree of smoothing to be infinitely large.
+ A tutorial we find useful to further understand LOESS is one of the lecture
+ notes by William Jacoby
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://polisci.msu.edu/jacoby/icpsr/regress3/lectures/week4/15.Loess.pdf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, and there is also an intuitive demo in the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{TeachingDemos}
+\end_layout
+
+\end_inset
+
+ package 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "snow09"
+
+\end_inset
+
+ which shows the weights actually assigned to each data point for local
+ fitting.
+\end_layout
+
 \begin_layout Chapter
 Multifactor Studies
 \end_layout
