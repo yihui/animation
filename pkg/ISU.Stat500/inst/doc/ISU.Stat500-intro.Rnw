@@ -80,6 +80,22 @@ source("commentSweave.r")
 \chapter{Linear Regression}
 
 
+\section{Model diagnostics}
+
+
+\subsection{Linearity}
+
+LOWESS/LOESS is almost equivalent to the linear model%
+\footnote{{}``linear'' here is in terms of X variables instead of parameters.%
+} when we set the degree of smoothing to be infinitely large. A tutorial
+we find useful to further understand LOESS is one of the lecture notes
+by William Jacoby%
+\footnote{\url{http://polisci.msu.edu/jacoby/icpsr/regress3/lectures/week4/15.Loess.pdf}%
+}, and there is also an intuitive demo in the \pkg{TeachingDemos}
+package \citep{snow09} which shows the weights actually assigned
+to each data point for local fitting.
+
+
 \chapter{Multifactor Studies}
 
 
