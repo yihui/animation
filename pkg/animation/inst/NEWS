@@ -10,7 +10,13 @@
 
 NEW FEATURES
 
-    o 
+    o a new function MC.hitormiss() to demonstrate
+  the 'hit or miss' Monte Carlo integration
+    o a new function MC.samplemean() to demonstrate
+  the 'sample mean' Monte Carlo integration
+    o a new function price.ani() to demonstrate 
+  the stock prices changing within a time span
+  (inspired by Shen Dai)
 
 MINOR CHANGES
 
