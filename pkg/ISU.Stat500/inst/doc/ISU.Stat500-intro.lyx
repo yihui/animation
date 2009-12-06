@@ -1,3 +1,938 @@
+<<<<<<< .mine
+#LyX 1.6.4.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass literate-book
+\begin_preamble
+%\VignetteIndexEntry{ISU.Stat500: An R Package for the Course Stat500 ``Statistical Methods''}
+\usepackage{ae}
+\usepackage{animate}
+\renewcommand{\rmdefault}{ppl}
+\renewcommand{\sfdefault}{aess}
+\renewcommand{\ttdefault}{aett}
+\newcommand{\pkg}[1]{\textbf{\textsf{#1}}}
+\newcommand{\fun}[1]{\textit{#1}}
+\end_preamble
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "ISU.Stat500: An R Package for the Course Stat500 "
+\pdf_author "Yihui Xie, Hui Lin, Tengfei Yin"
+\pdf_subject "Statistics"
+\pdf_keywords "R, package, statistical methods, Iowa State University"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks true
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle false
+\pdf_quoted_options "pdfstartview=FitH"
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine natbib_authoryear
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 3cm
+\rightmargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+ISU.Stat500: An R Package for the Course Stat500 
+\begin_inset Quotes eld
+\end_inset
+
+Statistical Methods
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+Yihui Xie 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Department of Statistics, Iowa State University.
+ Email: 
+\begin_inset CommandInset href
+LatexCommand href
+name "xie@iastate.edu"
+target "xie@iastate.edu"
+type "mailto:"
+
+\end_inset
+
+.
+ This document is based on the course STAT500 taught by 
+\begin_inset CommandInset href
+LatexCommand href
+name "Dr Dixon"
+target "http://www.public.iastate.edu/~pdixon"
+
+\end_inset
+
+ in Fall 2009.
+ We warmly welcome comments on this document.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Hui Lin 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Department of Statistics, Iowa State University.
+ Email: 
+\begin_inset CommandInset href
+LatexCommand href
+name "hlin@iastate.edu"
+target "hlin@iastate.edu"
+type "mailto:"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Tengfei Yin 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+BCB (Bioinformatics and Computational Biology) Graduate Program, Iowa State
+ University.
+ Email: 
+\begin_inset CommandInset href
+LatexCommand href
+name "tengfei@iastate.edu"
+target "tengfei@iastate.edu"
+type "mailto:"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Scrap
+<<echo=FALSE,results=hide>>=
+\begin_inset Newline newline
+\end_inset
+
+options(prompt = "R> ")
+\begin_inset Newline newline
+\end_inset
+
+source("commentSweave.r")
+\begin_inset Newline newline
+\end_inset
+
+options(useFancyQuotes='TeX')
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SweaveOpts{prefix.string=fig,eps=FALSE}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setkeys{Gin}{width=.85
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Chapter
+Comparative Studies
+\end_layout
+
+\begin_layout Section
+t-test
+\end_layout
+
+\begin_layout Enumerate
+How to use R do t-test.
+\end_layout
+
+\begin_deeper
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+x=read.table('platelet.txt',TRUE)
+\begin_inset Newline newline
+\end_inset
+
+head(x)
+\begin_inset Newline newline
+\end_inset
+
+fit=t.test(x$before,x$after,paired=TRUE)
+\begin_inset Newline newline
+\end_inset
+
+fit
+\begin_inset Newline newline
+\end_inset
+
+#get confidence interval
+\begin_inset Newline newline
+\end_inset
+
+fit$conf.int
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Model diagnostics
+\end_layout
+
+\begin_layout Subsection
+Normality
+\end_layout
+
+\begin_layout Enumerate
+Shapiro-Wilk normality test
+\end_layout
+
+\begin_deeper
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+rainfall=read.table("rainfall.txt", header = TRUE)
+\begin_inset Newline newline
+\end_inset
+
+head(rainfall)
+\begin_inset Newline newline
+\end_inset
+
+tapply(rainfall$rain,rainfall$treatment,function(xx)shapiro.test(xx)$p.value)
+ 
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Standard
+The p-values are close to 0, so the normal distribution is not reasonable.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Q-Q plot
+\end_layout
+
+\begin_layout Enumerate
+Wilcoxon rank-sum test
+\end_layout
+
+\begin_deeper
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+wilcox.test(rain~treatment,rainfall,exact=FALSE)$p.value
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Equal Variance
+\end_layout
+
+\begin_layout Enumerate
+Levene's test
+\end_layout
+
+\begin_deeper
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+library(car) 
+\begin_inset Newline newline
+\end_inset
+
+(lvtest=levene.test(rain~treatment,data=rainfall))
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+The p-value is 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{round(lvtest$'Pr(>F)'[1],3)}
+\end_layout
+
+\end_inset
+
+, which shows an evidence of heteroscedasticity (although not very strong).
+\end_layout
+
+\begin_layout Subsection
+Remedies
+\end_layout
+
+\begin_layout Enumerate
+power transformation (HW3, 4(a))
+\end_layout
+
+\begin_layout Section
+Analysis of Variance
+\end_layout
+
+\begin_layout Enumerate
+ANOVA with blocks
+\end_layout
+
+\begin_deeper
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+platelet=read.table('platelet2.txt',TRUE)
+\begin_inset Newline newline
+\end_inset
+
+platelet 
+\begin_inset Newline newline
+\end_inset
+
+summary(aov(aggreg~time+factor(subject),platelet)) 
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Contrast 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Data: Fat in Diets,
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Interest in whether there is a diﬀerence between the extremely low and fairly
+ low diets
+\end_layout
+
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+dietfat=read.table('dietfat.txt',TRUE,colClasses=c('factor','factor','numeric'))
+\begin_inset Newline newline
+\end_inset
+
+dietfat
+\begin_inset Newline newline
+\end_inset
+
+#install.packages("gmodel")
+\begin_inset Newline newline
+\end_inset
+
+library(gmodels)
+\begin_inset Newline newline
+\end_inset
+
+cmat = rbind(`EL vs FL` = c(1,-1,0))
+\begin_inset Newline newline
+\end_inset
+
+fit=lm(lipid~fat+block, dietfat, contrasts = list(fat = make.contrasts(cmat)))
+\begin_inset Newline newline
+\end_inset
+
+coef(summary(fit))
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Chapter
+Linear Regression
+\end_layout
+
+\begin_layout Section
+Model checking
+\end_layout
+
+\begin_layout Subsection
+Linearity
+\end_layout
+
+\begin_layout Enumerate
+Loess
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+By comparing linear regression model with loess method to test for non-linearity
+\end_layout
+
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+temp=read.table('temperature.txt',TRUE)
+\begin_inset Newline newline
+\end_inset
+
+#span=100,degree=1 stands for linear regression model
+\begin_inset Newline newline
+\end_inset
+
+loess.temp.lm<-loess(temp~.,temp,span=100,degree=1)
+\begin_inset Newline newline
+\end_inset
+
+loess.temp<-loess(temp~.,temp)
+\begin_inset Newline newline
+\end_inset
+
+anova(loess.temp,loess.temp.lm)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Enumerate
+Added variable plots
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Use package: car
+\end_layout
+
+\begin_layout Scrap
+<<fig=TRUE,height=3.5>>=
+\begin_inset Newline newline
+\end_inset
+
+website<-read.table("website.txt",T)
+\begin_inset Newline newline
+\end_inset
+
+lm.web<-lm(deliver~backlog+experience+process+year,website)
+\begin_inset Newline newline
+\end_inset
+
+library(car)
+\begin_inset Newline newline
+\end_inset
+
+av.plots(lm.web,"experience",identify.points=F)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+Independent / uncorrelated errors
+\end_layout
+
+\begin_layout Enumerate
+Durbin-Watson
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Example: Test for a significant lag-1 correlation using the Durbin-Watson
+ test.
+\end_layout
+
+\begin_layout Standard
+Use package: lmtest
+\end_layout
+
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+#install.packages("lmtest")
+\begin_inset Newline newline
+\end_inset
+
+library(lmtest)
+\begin_inset Newline newline
+\end_inset
+
+lm.temp=lm(temp~year,temp)
+\begin_inset Newline newline
+\end_inset
+
+dwtest(lm.temp)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Enumerate
+Estimation in an AR(1) model
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Use package: nlme
+\end_layout
+
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+#install.packages("nlme")
+\begin_inset Newline newline
+\end_inset
+
+library(nlme)
+\begin_inset Newline newline
+\end_inset
+
+gls.temp<-gls(temp~year,temp,correlation = corAR1())
+\begin_inset Newline newline
+\end_inset
+
+summary(gls.temp)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+Constant variance
+\end_layout
+
+\begin_layout Enumerate
+Use residual plots.
+\end_layout
+
+\begin_deeper
+\begin_layout Scrap
+<<fig=TRUE,height=3.5>>=
+\begin_inset Newline newline
+\end_inset
+
+plot(lm.temp,which=1)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Standard
+Six plots (selectable by which) are currently available: a plot of residuals
+ against fitted values, a Scale-Location plot of 
+\backslash
+sqrt{| residuals |} against fitted values, a Normal Q-Q plot, a plot of
+ Cook's distances versus row labels, a plot of residuals against leverages,
+ and a plot of Cook's distances against leverage/(1-leverage).
+ By default, the first three and 5 are provided.
+\end_layout
+
+\begin_layout Enumerate
+Breusch-Pagan
+\end_layout
+
+\begin_deeper
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+library(lmtest)
+\begin_inset Newline newline
+\end_inset
+
+bptest(lm.web,~experience,data=website)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Section
+Model building
+\end_layout
+
+\begin_layout Subsection
+Polynomial
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $Y_{i}=\beta_{0}+\beta_{1}x_{i}+\beta_{2}x_{i}^{2}+\beta_{3}x_{i}^{3}+...+\beta_{p}x_{i}^{p}+\epsilon_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $Y_{i}=\beta_{0}+\beta_{1}x_{i1}+\beta_{2}x_{i2}+\beta_{11}x_{i1}^{2}+\beta_{22}x_{i2}^{2}+\beta_{12}x_{i1}x_{i2}+\epsilon_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+avp=read.table("avp.txt",T)
+\begin_inset Newline newline
+\end_inset
+
+full.avp<-lm(y~x1+x2+x3+x1*x2+x1*x3+x2*x3+I(x1^2)+I(x2^2)+I(x3^2),data=avp)
+\begin_inset Newline newline
+\end_inset
+
+summary(full.avp)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Inference on 
+\begin_inset Formula $X_{max}$
+\end_inset
+
+ for model: 
+\begin_inset Formula $Y_{i}=\beta_{0}+\beta_{1}X_{i}+\beta_{2}X_{i}^{2}+\epsilon_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+self-function
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Categorical variables
+\end_layout
+
+\begin_layout Itemize
+use package: nnet
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The function "class.ind" is used to generate indicator variables
+\end_layout
+
+\begin_layout Itemize
+example
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Model selection
+\end_layout
+
+\begin_layout Enumerate
+Stepwise--By 
+\begin_inset Formula $C_{p},AIC,BIC,p-value$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Press-xie sir 10th HW
+\end_layout
+
+\begin_layout Chapter
+Multifactor Studies
+\end_layout
+
+\begin_layout Section
+Factorial Designs
+\end_layout
+
+\begin_layout Section
+Random Effects
+\end_layout
+
+\begin_layout Chapter
+Misc Functions
+\end_layout
+
+\begin_layout Standard
+We have also collected some functions which are of no direct interest to
+ statistical methods, but they might be helpful for us to save time.
+\end_layout
+
+\begin_layout Section
+Dynamic access to course materials
+\end_layout
+
+\begin_layout Standard
+The function 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fun{listLinks()}
+\end_layout
+
+\end_inset
+
+ can list all the hyper-links under a web directory with the help of the
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{XML}
+\end_layout
+
+\end_inset
+
+ package 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "templelang09"
+
+\end_inset
+
+.
+ For example, we obtain the names of SAS programs and output files:
+\end_layout
+
+\begin_layout Scrap
+<<eval=FALSE>>=
+\begin_inset Newline newline
+\end_inset
+
+listLinks("http://pdixon.public.iastate.edu/stat500/sas/", "
+\backslash
+
+\backslash
+.lst$|
+\backslash
+
+\backslash
+.sas$") 
+\begin_inset Newline newline
+\end_inset
+
+## will get: 
+\begin_inset Newline newline
+\end_inset
+
+#  [1] "http://pdixon.public.iastate.edu/stat500/sas/ancova.sas"
+\begin_inset Newline newline
+\end_inset
+
+#  [2] "http://pdixon.public.iastate.edu/stat500/sas/bacillus.lst"
+\begin_inset Newline newline
+\end_inset
+
+#  [3] "http://pdixon.public.iastate.edu/stat500/sas/bacillus.sas"
+\begin_inset Newline newline
+\end_inset
+
+#  ....
+\begin_inset Newline newline
+\end_inset
+
+## data files are under "http://www.public.iastate.edu/~pdixon/stat500/data/"
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Standard
+We can further download these files automatically using R.
+ There are several examples in the help page; see 
+\family typewriter
+?listLinks
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "ISU-Stat500-intro"
+options "bibtotoc,jss"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
+=======
 #LyX 1.6.4 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
@@ -539,3 +1474,4 @@ options "bibtotoc,jss"
 
 \end_body
 \end_document
+>>>>>>> .r115
