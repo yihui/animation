@@ -1,5 +1,26 @@
 	**************************************************
 	*						 *
+	*	       1.1-0 NEWS			 *
+	*						 *
+	**************************************************
+
+
+		CHANGES IN animation VERSION 1.1-0
+
+
+NEW FEATURES
+
+    
+TO APPEAR 
+    
+    o A function boot.loess() added to show the
+  bootstrapping effects on loess().
+    o A function cart.ani() to show the splitting
+  process of classification and regression trees.
+
+
+	**************************************************
+	*						 *
 	*	       1.0-10 NEWS			 *
 	*						 *
 	**************************************************
@@ -23,13 +44,6 @@ MINOR CHANGES
     o we can specify the 'convert' command in 
   saveMovie(); e.g. 'imconvert' under some Windows
   platforms (Thanks, James Pustejovsky)
-    
-TO APPEAR 
-    
-    o A function boot.loess() added to show the
-  bootstrapping effects on loess().
-    o A function cart.ani() to show the splitting
-  process of classification and regression trees.
 
 
 	**************************************************
