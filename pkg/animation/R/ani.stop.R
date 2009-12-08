@@ -24,7 +24,7 @@
         ani.options("description"), "</div></fieldset>", footer,
         "</div>", "</body></html>", sep = "")
     cat(html, file = ani.file)
-    ani.options(interval = ani.options("interval")[2])
+    ani.options(interval = ani.options()$interval[2])
     if (ani.options("autobrowse"))
         on.exit(browseURL(paste("file://", ani.file, sep = "")),
             add = TRUE)
