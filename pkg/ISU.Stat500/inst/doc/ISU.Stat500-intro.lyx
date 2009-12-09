@@ -669,6 +669,162 @@ Linear Regression
 \end_layout
 
 \begin_layout Section
+Estimation and inference
+\end_layout
+
+\begin_layout Standard
+Model: 
+\begin_inset Formula $Y_{i}=\beta_{0}+\beta_{1}X_{i}+\epsilon_{i}$
+\end_inset
+
+; the goal is to minimize 
+\begin_inset Formula $g(\beta_{0},\beta_{1})=\sum_{i=1}^{n}(Y_{i}-(\beta_{0}+\beta_{1}x_{i}))^{2}$
+\end_inset
+
+.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:OLS-slope"
+
+\end_inset
+
+ has illustrated the meaning of minimizing SSE by changing the values of
+ 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+ with 
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+ fixed.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Scrap
+<<OLS-slope,eval=FALSE,fig=TRUE,width=6,height=4,include=FALSE>>=
+\begin_inset Newline newline
+\end_inset
+
+library(animation)
+\begin_inset Newline newline
+\end_inset
+
+par(mar = c(3.8, 3.5, 0.6, 0.1),mgp=c(1.9,.8,0)) 
+\begin_inset Newline newline
+\end_inset
+
+ani.options(interval = 0, nmax = 50) 
+\begin_inset Newline newline
+\end_inset
+
+## default animation: with slope changing 
+\begin_inset Newline newline
+\end_inset
+
+least.squares() 
+\begin_inset Newline newline
+\end_inset
+
+## we can also let the intercept change
+\begin_inset Newline newline
+\end_inset
+
+## least.squares(ani.type = "i") 
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+animategraphics[controls,width=.8
+\backslash
+textwidth]{5}{fig-OLS-slope}{}{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset OptArg
+status open
+
+\begin_layout Plain Layout
+Illustration of least squares by chaning 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+A demo of finding the slope by OLS with 
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+ fixed.
+ Cirles denote data pairs 
+\begin_inset Formula $(x_{i},y_{i})$
+\end_inset
+
+; the gray line is the real regression line with 
+\begin_inset Formula $\beta_{1}=1$
+\end_inset
+
+; the slope of the black line is changing in order to find a 
+\begin_inset Formula $\hat{\beta}_{1}$
+\end_inset
+
+ such that the sum of squared errors (residuals, denoted by dashed vertical
+ red lines) reaches its minimum.
+ SSE for the 
+\begin_inset Formula $i$
+\end_inset
+
+-th step is drawn in the right plot (50 steps in total).
+ As the black line approaches to the gray line, the corresponding SSE becomes
+ smaller.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:OLS-slope"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Model diagnostics
 \end_layout
 
@@ -1112,11 +1268,11 @@ bptest(lm.web,~experience,data=website)
 \end_layout
 
 \begin_layout Section
-Model building
+Other types of linear models
 \end_layout
 
 \begin_layout Subsection
-Polynomial
+Polynomial regression
 \end_layout
 
 \begin_layout Enumerate
@@ -1213,20 +1369,33 @@ example
 \end_layout
 
 \end_deeper
+\begin_layout Subsection
+Analysis of covariance
+\end_layout
+
 \begin_layout Section
 Model selection
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Standard
 Stepwise -- By 
-\begin_inset Formula $C_{p},AIC,BIC,p-value$
+\begin_inset Formula $C_{p}$
 \end_inset
 
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+, AIC, BIC, p-value
 \end_layout
 
-\begin_layout Enumerate
-Press-xie sir 10th HW
+\begin_layout Standard
+TODO-XIE: selection by PRESS (10th HW)
 \end_layout
 
 \begin_layout Chapter

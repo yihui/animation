@@ -206,6 +206,42 @@ coef(summary(fit))
 \chapter{Linear Regression}
 
 
+\section{Estimation and inference}
+
+Model: $Y_{i}=\beta_{0}+\beta_{1}X_{i}+\epsilon_{i}$; the goal is
+to minimize $g(\beta_{0},\beta_{1})=\sum_{i=1}^{n}(Y_{i}-(\beta_{0}+\beta_{1}x_{i}))^{2}$.
+Figure \ref{fig:OLS-slope} has illustrated the meaning of minimizing
+SSE by changing the values of $\beta_{1}$ with $\beta_{0}$ fixed.
+
+%
+\begin{figure}
+<<OLS-slope,eval=FALSE,fig=TRUE,width=6,height=4,include=FALSE>>=
+library(animation)
+par(mar = c(3.8, 3.5, 0.6, 0.1),mgp=c(1.9,.8,0)) 
+ani.options(interval = 0, nmax = 50) 
+## default animation: with slope changing 
+least.squares() 
+## we can also let the intercept change
+## least.squares(ani.type = "i") 
+@
+
+\begin{centering}
+\animategraphics[controls,width=.8\textwidth]{5}{fig-OLS-slope}{}{}
+\par\end{centering}
+
+\caption[Illustration of least squares by chaning $\beta_{1}$]{A demo of finding the slope by OLS with $\beta_{0}$ fixed. Cirles
+denote data pairs $(x_{i},y_{i})$; the gray line is the real regression
+line with $\beta_{1}=1$; the slope of the black line is changing
+in order to find a $\hat{\beta}_{1}$ such that the sum of squared
+errors (residuals, denoted by dashed vertical red lines) reaches its
+minimum. SSE for the $i$-th step is drawn in the right plot (50 steps
+in total). As the black line approaches to the gray line, the corresponding
+SSE becomes smaller.\label{fig:OLS-slope}}
+
+\end{figure}
+
+
+
 \section{Model diagnostics}
 
 
@@ -329,10 +365,10 @@ bptest(lm.web,~experience,data=website)
 @
 
 
-\section{Model building}
+\section{Other types of linear models}
 
 
-\subsection{Polynomial}
+\subsection{Polynomial regression}
 \begin{enumerate}
 \item $Y_{i}=\beta_{0}+\beta_{1}x_{i}+\beta_{2}x_{i}^{2}+\beta_{3}x_{i}^{3}+...+\beta_{p}x_{i}^{p}+\epsilon_{i}$
 
@@ -365,11 +401,15 @@ indicator variables
 \end{itemize}
 \end{itemize}
 
+\subsection{Analysis of covariance}
+
+
 \section{Model selection}
-\begin{enumerate}
-\item Stepwise -- By $C_{p},AIC,BIC,p-value$
-\item Press-xie sir 10th HW
-\end{enumerate}
+
+Stepwise -- By $C_{p}$, AIC, BIC, p-value
+
+TODO-XIE: selection by PRESS (10th HW)
+
 
 \chapter{Multifactor Studies}
 
