@@ -10,6 +10,13 @@
 
 NEW FEATURES
 
+MINOR CHANGES
+
+    o fixed a bug for the option 'interval': in the
+  non-interactive environment, ani.start() and
+  ani.stop() should use ani.options()$interval
+  to obtain the REAL 'interval' (other than 0)
+
     
 TO APPEAR 
     
