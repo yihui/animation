@@ -228,7 +228,7 @@ commentCodeRunner <- function(evalFunc = RweaveEvalWithOpt) {
                   stop(err)
             }
             if (options$include) {
-                cat("\\centering\n\\includegraphics{", chunkprefix, "}\n", 
+                cat("\\begin{center}\\includegraphics{", chunkprefix, "}\\end{center}\n", 
                   sep = "", file = object$output, append = TRUE)
                 linesout[thisline + 1L] <- srcline
                 thisline <- thisline + 1L

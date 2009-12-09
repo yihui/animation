@@ -1,939 +1,4 @@
-<<<<<<< .mine
-#LyX 1.6.4.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 345
-\begin_document
-\begin_header
-\textclass literate-book
-\begin_preamble
-%\VignetteIndexEntry{ISU.Stat500: An R Package for the Course Stat500 ``Statistical Methods''}
-\usepackage{ae}
-\usepackage{animate}
-\renewcommand{\rmdefault}{ppl}
-\renewcommand{\sfdefault}{aess}
-\renewcommand{\ttdefault}{aett}
-\newcommand{\pkg}[1]{\textbf{\textsf{#1}}}
-\newcommand{\fun}[1]{\textit{#1}}
-\end_preamble
-\use_default_options true
-\language english
-\inputencoding auto
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_default_family default
-\font_sc false
-\font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
-
-\graphics default
-\paperfontsize default
-\spacing single
-\use_hyperref true
-\pdf_title "ISU.Stat500: An R Package for the Course Stat500 "
-\pdf_author "Yihui Xie, Hui Lin, Tengfei Yin"
-\pdf_subject "Statistics"
-\pdf_keywords "R, package, statistical methods, Iowa State University"
-\pdf_bookmarks true
-\pdf_bookmarksnumbered true
-\pdf_bookmarksopen true
-\pdf_bookmarksopenlevel 3
-\pdf_breaklinks true
-\pdf_pdfborder false
-\pdf_colorlinks true
-\pdf_backref false
-\pdf_pdfusetitle false
-\pdf_quoted_options "pdfstartview=FitH"
-\papersize default
-\use_geometry true
-\use_amsmath 1
-\use_esint 1
-\cite_engine natbib_authoryear
-\use_bibtopic false
-\paperorientation portrait
-\leftmargin 3cm
-\rightmargin 3cm
-\secnumdepth 3
-\tocdepth 3
-\paragraph_separation indent
-\defskip medskip
-\quotes_language english
-\papercolumns 1
-\papersides 2
-\paperpagestyle fancy
-\tracking_changes false
-\output_changes false
-\author "" 
-\author "" 
-\end_header
-
-\begin_body
-
-\begin_layout Title
-ISU.Stat500: An R Package for the Course Stat500 
-\begin_inset Quotes eld
-\end_inset
-
-Statistical Methods
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\begin_layout Author
-Yihui Xie 
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Department of Statistics, Iowa State University.
- Email: 
-\begin_inset CommandInset href
-LatexCommand href
-name "xie@iastate.edu"
-target "xie@iastate.edu"
-type "mailto:"
-
-\end_inset
-
-.
- This document is based on the course STAT500 taught by 
-\begin_inset CommandInset href
-LatexCommand href
-name "Dr Dixon"
-target "http://www.public.iastate.edu/~pdixon"
-
-\end_inset
-
- in Fall 2009.
- We warmly welcome comments on this document.
-\end_layout
-
-\end_inset
-
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-and
-\end_layout
-
-\end_inset
-
- Hui Lin 
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Department of Statistics, Iowa State University.
- Email: 
-\begin_inset CommandInset href
-LatexCommand href
-name "hlin@iastate.edu"
-target "hlin@iastate.edu"
-type "mailto:"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-and
-\end_layout
-
-\end_inset
-
- Tengfei Yin 
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-BCB (Bioinformatics and Computational Biology) Graduate Program, Iowa State
- University.
- Email: 
-\begin_inset CommandInset href
-LatexCommand href
-name "tengfei@iastate.edu"
-target "tengfei@iastate.edu"
-type "mailto:"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset toc
-LatexCommand tableofcontents
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset FloatList figure
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Scrap
-<<echo=FALSE,results=hide>>=
-\begin_inset Newline newline
-\end_inset
-
-options(prompt = "R> ")
-\begin_inset Newline newline
-\end_inset
-
-source("commentSweave.r")
-\begin_inset Newline newline
-\end_inset
-
-options(useFancyQuotes='TeX')
-\begin_inset Newline newline
-\end_inset
-
-@
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-SweaveOpts{prefix.string=fig,eps=FALSE}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-setkeys{Gin}{width=.85
-\backslash
-textwidth}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\end_layout
-
-\begin_layout Chapter
-Comparative Studies
-\end_layout
-
-\begin_layout Section
-t-test
-\end_layout
-
-\begin_layout Enumerate
-How to use R do t-test.
-\end_layout
-
-\begin_deeper
-\begin_layout Scrap
-<<>>=
-\begin_inset Newline newline
-\end_inset
-
-x=read.table('platelet.txt',TRUE)
-\begin_inset Newline newline
-\end_inset
-
-head(x)
-\begin_inset Newline newline
-\end_inset
-
-fit=t.test(x$before,x$after,paired=TRUE)
-\begin_inset Newline newline
-\end_inset
-
-fit
-\begin_inset Newline newline
-\end_inset
-
-#get confidence interval
-\begin_inset Newline newline
-\end_inset
-
-fit$conf.int
-\begin_inset Newline newline
-\end_inset
-
-@
-\end_layout
-
-\end_deeper
-\begin_layout Section
-Model diagnostics
-\end_layout
-
-\begin_layout Subsection
-Normality
-\end_layout
-
-\begin_layout Enumerate
-Shapiro-Wilk normality test
-\end_layout
-
-\begin_deeper
-\begin_layout Scrap
-<<>>=
-\begin_inset Newline newline
-\end_inset
-
-rainfall=read.table("rainfall.txt", header = TRUE)
-\begin_inset Newline newline
-\end_inset
-
-head(rainfall)
-\begin_inset Newline newline
-\end_inset
-
-tapply(rainfall$rain,rainfall$treatment,function(xx)shapiro.test(xx)$p.value)
- 
-\begin_inset Newline newline
-\end_inset
-
-@
-\end_layout
-
-\begin_layout Standard
-The p-values are close to 0, so the normal distribution is not reasonable.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Q-Q plot
-\end_layout
-
-\begin_layout Enumerate
-Wilcoxon rank-sum test
-\end_layout
-
-\begin_deeper
-\begin_layout Scrap
-<<>>=
-\begin_inset Newline newline
-\end_inset
-
-wilcox.test(rain~treatment,rainfall,exact=FALSE)$p.value
-\begin_inset Newline newline
-\end_inset
-
-@
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Equal Variance
-\end_layout
-
-\begin_layout Enumerate
-Levene's test
-\end_layout
-
-\begin_deeper
-\begin_layout Scrap
-<<>>=
-\begin_inset Newline newline
-\end_inset
-
-library(car) 
-\begin_inset Newline newline
-\end_inset
-
-(lvtest=levene.test(rain~treatment,data=rainfall))
-\begin_inset Newline newline
-\end_inset
-
-@
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-The p-value is 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(lvtest$'Pr(>F)'[1],3)}
-\end_layout
-
-\end_inset
-
-, which shows an evidence of heteroscedasticity (although not very strong).
-\end_layout
-
-\begin_layout Subsection
-Remedies
-\end_layout
-
-\begin_layout Enumerate
-power transformation (HW3, 4(a))
-\end_layout
-
-\begin_layout Section
-Analysis of Variance
-\end_layout
-
-\begin_layout Enumerate
-ANOVA with blocks
-\end_layout
-
-\begin_deeper
-\begin_layout Scrap
-<<>>=
-\begin_inset Newline newline
-\end_inset
-
-platelet=read.table('platelet2.txt',TRUE)
-\begin_inset Newline newline
-\end_inset
-
-platelet 
-\begin_inset Newline newline
-\end_inset
-
-summary(aov(aggreg~time+factor(subject),platelet)) 
-\begin_inset Newline newline
-\end_inset
-
-@
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Contrast 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Data: Fat in Diets,
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Interest in whether there is a diﬀerence between the extremely low and fairly
- low diets
-\end_layout
-
-\begin_layout Scrap
-<<>>=
-\begin_inset Newline newline
-\end_inset
-
-dietfat=read.table('dietfat.txt',TRUE,colClasses=c('factor','factor','numeric'))
-\begin_inset Newline newline
-\end_inset
-
-dietfat
-\begin_inset Newline newline
-\end_inset
-
-#install.packages("gmodel")
-\begin_inset Newline newline
-\end_inset
-
-library(gmodels)
-\begin_inset Newline newline
-\end_inset
-
-cmat = rbind(`EL vs FL` = c(1,-1,0))
-\begin_inset Newline newline
-\end_inset
-
-fit=lm(lipid~fat+block, dietfat, contrasts = list(fat = make.contrasts(cmat)))
-\begin_inset Newline newline
-\end_inset
-
-coef(summary(fit))
-\begin_inset Newline newline
-\end_inset
-
-@
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Chapter
-Linear Regression
-\end_layout
-
-\begin_layout Section
-Model checking
-\end_layout
-
-\begin_layout Subsection
-Linearity
-\end_layout
-
-\begin_layout Enumerate
-Loess
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-By comparing linear regression model with loess method to test for non-linearity
-\end_layout
-
-\begin_layout Scrap
-<<>>=
-\begin_inset Newline newline
-\end_inset
-
-temp=read.table('temperature.txt',TRUE)
-\begin_inset Newline newline
-\end_inset
-
-#span=100,degree=1 stands for linear regression model
-\begin_inset Newline newline
-\end_inset
-
-loess.temp.lm<-loess(temp~.,temp,span=100,degree=1)
-\begin_inset Newline newline
-\end_inset
-
-loess.temp<-loess(temp~.,temp)
-\begin_inset Newline newline
-\end_inset
-
-anova(loess.temp,loess.temp.lm)
-\begin_inset Newline newline
-\end_inset
-
-@
-\end_layout
-
-\begin_layout Enumerate
-Added variable plots
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Use package: car
-\end_layout
-
-\begin_layout Scrap
-<<fig=TRUE,height=3.5>>=
-\begin_inset Newline newline
-\end_inset
-
-website<-read.table("website.txt",T)
-\begin_inset Newline newline
-\end_inset
-
-lm.web<-lm(deliver~backlog+experience+process+year,website)
-\begin_inset Newline newline
-\end_inset
-
-library(car)
-\begin_inset Newline newline
-\end_inset
-
-av.plots(lm.web,"experience",identify.points=F)
-\begin_inset Newline newline
-\end_inset
-
-@
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Subsection
-Independent / uncorrelated errors
-\end_layout
-
-\begin_layout Enumerate
-Durbin-Watson
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Example: Test for a significant lag-1 correlation using the Durbin-Watson
- test.
-\end_layout
-
-\begin_layout Standard
-Use package: lmtest
-\end_layout
-
-\begin_layout Scrap
-<<>>=
-\begin_inset Newline newline
-\end_inset
-
-#install.packages("lmtest")
-\begin_inset Newline newline
-\end_inset
-
-library(lmtest)
-\begin_inset Newline newline
-\end_inset
-
-lm.temp=lm(temp~year,temp)
-\begin_inset Newline newline
-\end_inset
-
-dwtest(lm.temp)
-\begin_inset Newline newline
-\end_inset
-
-@
-\end_layout
-
-\begin_layout Enumerate
-Estimation in an AR(1) model
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Use package: nlme
-\end_layout
-
-\begin_layout Scrap
-<<>>=
-\begin_inset Newline newline
-\end_inset
-
-#install.packages("nlme")
-\begin_inset Newline newline
-\end_inset
-
-library(nlme)
-\begin_inset Newline newline
-\end_inset
-
-gls.temp<-gls(temp~year,temp,correlation = corAR1())
-\begin_inset Newline newline
-\end_inset
-
-summary(gls.temp)
-\begin_inset Newline newline
-\end_inset
-
-@
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Subsection
-Constant variance
-\end_layout
-
-\begin_layout Enumerate
-Use residual plots.
-\end_layout
-
-\begin_deeper
-\begin_layout Scrap
-<<fig=TRUE,height=3.5>>=
-\begin_inset Newline newline
-\end_inset
-
-plot(lm.temp,which=1)
-\begin_inset Newline newline
-\end_inset
-
-@
-\end_layout
-
-\begin_layout Standard
-Six plots (selectable by which) are currently available: a plot of residuals
- against fitted values, a Scale-Location plot of 
-\backslash
-sqrt{| residuals |} against fitted values, a Normal Q-Q plot, a plot of
- Cook's distances versus row labels, a plot of residuals against leverages,
- and a plot of Cook's distances against leverage/(1-leverage).
- By default, the first three and 5 are provided.
-\end_layout
-
-\begin_layout Enumerate
-Breusch-Pagan
-\end_layout
-
-\begin_deeper
-\begin_layout Scrap
-<<>>=
-\begin_inset Newline newline
-\end_inset
-
-library(lmtest)
-\begin_inset Newline newline
-\end_inset
-
-bptest(lm.web,~experience,data=website)
-\begin_inset Newline newline
-\end_inset
-
-@
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Section
-Model building
-\end_layout
-
-\begin_layout Subsection
-Polynomial
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $Y_{i}=\beta_{0}+\beta_{1}x_{i}+\beta_{2}x_{i}^{2}+\beta_{3}x_{i}^{3}+...+\beta_{p}x_{i}^{p}+\epsilon_{i}$
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-\begin_inset Formula $Y_{i}=\beta_{0}+\beta_{1}x_{i1}+\beta_{2}x_{i2}+\beta_{11}x_{i1}^{2}+\beta_{22}x_{i2}^{2}+\beta_{12}x_{i1}x_{i2}+\epsilon_{i}$
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Scrap
-<<>>=
-\begin_inset Newline newline
-\end_inset
-
-avp=read.table("avp.txt",T)
-\begin_inset Newline newline
-\end_inset
-
-full.avp<-lm(y~x1+x2+x3+x1*x2+x1*x3+x2*x3+I(x1^2)+I(x2^2)+I(x3^2),data=avp)
-\begin_inset Newline newline
-\end_inset
-
-summary(full.avp)
-\begin_inset Newline newline
-\end_inset
-
-@
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Enumerate
-Inference on 
-\begin_inset Formula $X_{max}$
-\end_inset
-
- for model: 
-\begin_inset Formula $Y_{i}=\beta_{0}+\beta_{1}X_{i}+\beta_{2}X_{i}^{2}+\epsilon_{i}$
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-self-function
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Categorical variables
-\end_layout
-
-\begin_layout Itemize
-use package: nnet
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-The function "class.ind" is used to generate indicator variables
-\end_layout
-
-\begin_layout Itemize
-example
-\end_layout
-
-\end_deeper
-\begin_layout Section
-Model selection
-\end_layout
-
-\begin_layout Enumerate
-Stepwise--By 
-\begin_inset Formula $C_{p},AIC,BIC,p-value$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Press-xie sir 10th HW
-\end_layout
-
-\begin_layout Chapter
-Multifactor Studies
-\end_layout
-
-\begin_layout Section
-Factorial Designs
-\end_layout
-
-\begin_layout Section
-Random Effects
-\end_layout
-
-\begin_layout Chapter
-Misc Functions
-\end_layout
-
-\begin_layout Standard
-We have also collected some functions which are of no direct interest to
- statistical methods, but they might be helpful for us to save time.
-\end_layout
-
-\begin_layout Section
-Dynamic access to course materials
-\end_layout
-
-\begin_layout Standard
-The function 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-fun{listLinks()}
-\end_layout
-
-\end_inset
-
- can list all the hyper-links under a web directory with the help of the
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-pkg{XML}
-\end_layout
-
-\end_inset
-
- package 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "templelang09"
-
-\end_inset
-
-.
- For example, we obtain the names of SAS programs and output files:
-\end_layout
-
-\begin_layout Scrap
-<<eval=FALSE>>=
-\begin_inset Newline newline
-\end_inset
-
-listLinks("http://pdixon.public.iastate.edu/stat500/sas/", "
-\backslash
-
-\backslash
-.lst$|
-\backslash
-
-\backslash
-.sas$") 
-\begin_inset Newline newline
-\end_inset
-
-## will get: 
-\begin_inset Newline newline
-\end_inset
-
-#  [1] "http://pdixon.public.iastate.edu/stat500/sas/ancova.sas"
-\begin_inset Newline newline
-\end_inset
-
-#  [2] "http://pdixon.public.iastate.edu/stat500/sas/bacillus.lst"
-\begin_inset Newline newline
-\end_inset
-
-#  [3] "http://pdixon.public.iastate.edu/stat500/sas/bacillus.sas"
-\begin_inset Newline newline
-\end_inset
-
-#  ....
-\begin_inset Newline newline
-\end_inset
-
-## data files are under "http://www.public.iastate.edu/~pdixon/stat500/data/"
-\begin_inset Newline newline
-\end_inset
-
-@
-\end_layout
-
-\begin_layout Standard
-We can further download these files automatically using R.
- There are several examples in the help page; see 
-\family typewriter
-?listLinks
-\family default
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset bibtex
-LatexCommand bibtex
-bibfiles "ISU-Stat500-intro"
-options "bibtotoc,jss"
-
-\end_inset
-
-
-\end_layout
-
-\end_body
-\end_document
-=======
-#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -1041,7 +106,7 @@ target "http://www.public.iastate.edu/~pdixon"
 \end_inset
 
  in Fall 2009.
- We warmly welcome comments on this document.
+ Comments on this document are warmly welcome.
 \end_layout
 
 \end_inset
@@ -1138,7 +203,16 @@ LatexCommand tableofcontents
 \begin_inset Newline newline
 \end_inset
 
-options(prompt = "R> ")
+options(prompt = "R> ",useFancyQuotes='TeX', SweaveHooks=list(fig=function()
+ {
+\begin_inset Newline newline
+\end_inset
+
+    par(las=1,mar=c(4,4,.1,.1),cex.lab=.95,cex.axis=.9,mgp=c(1.9,.7,0),tcl=-.3)
+\begin_inset Newline newline
+\end_inset
+
+}))
 \begin_inset Newline newline
 \end_inset
 
@@ -1146,11 +220,175 @@ source("commentSweave.r")
 \begin_inset Newline newline
 \end_inset
 
+set.seed(0731) # the date I came to US :)
+\begin_inset Newline newline
+\end_inset
+
 @
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
 
+\begin_layout Plain Layout
+
+
+\backslash
+SweaveOpts{prefix.string=fig, eps=FALSE}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setkeys{Gin}{width=.85
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Introduction
+\end_layout
+
+\begin_layout Standard
+The R package 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{ISU.Stat500}
+\end_layout
+
+\end_inset
+
+ is created to wrap up R code chunks as functions which might be useful
+ to the course 
+\begin_inset Quotes eld
+\end_inset
+
+Statistical Methods
+\begin_inset Quotes erd
+\end_inset
+
+ and illustrate the usage of R in several examples which are included in
+ the 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+Examples
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+ section of R help pages.
+ The content of this document covers t-test, ANOVA, linear regression with
+ their diagnostics, multifactor studies and categorical data methods.
+\end_layout
+
+\begin_layout Standard
+To play with this package, please install it from CRAN if it is not already
+ in your library, and then load it into R:
+\end_layout
+
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+## install if it does not exist: install.packages("ISU.Stat500")
+\begin_inset Newline newline
+\end_inset
+
+library(ISU.Stat500)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Standard
+This document is written in Sweave 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "leisch02"
+
+\end_inset
+
+, which makes it reproducible.
+ To reproduce this PDF document, just run Sweave on the file 
+\family typewriter
+ISU.Stat500-intro.Rnw
+\family default
+, e.g.
+ 
+\family typewriter
+R CMD Sweave ISU.Stat500-intro.Rnw
+\family default
+ or 
+\family typewriter
+Sweave("ISU.Stat500-intro.Rnw")
+\family default
+ in R console and run 
+\family typewriter
+pdflatex ISU.Stat500-intro.tex
+\family default
+.
+ As there are a few very computer-intensive and time-consuming code chunks,
+ we've turned off their execution by setting the option 
+\family typewriter
+eval = FALSE
+\family default
+, i.e.
+ when you run Sweave, these code chunks will not be evaluated; Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:binom-norm-approx"
+
+\end_inset
+
+ is such an example.
+ As a convention of notation and typesetting, input R code is denoted in
+ 
+\family typewriter
+\emph on
+monospaced italics
+\family default
+\emph default
+ and begins with a prefix 
+\family typewriter
+\emph on
+R>
+\family default
+\emph default
+, and output lines are using 
+\family typewriter
+normal monospaced font
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+We greatly appreciate Dr Dixon's excellent teaching in this semester and
+ we benefited a lot from his invaluable experience in statistical practice.
 \end_layout
 
 \begin_layout Chapter
@@ -1158,13 +396,274 @@ Comparative Studies
 \end_layout
 
 \begin_layout Section
-t-test
+Two-sample t-test
+\end_layout
+
+\begin_layout Subsection
+Hypothesis test and confidence intervals
+\end_layout
+
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+x=read.table('platelet.txt',TRUE)
+\begin_inset Newline newline
+\end_inset
+
+head(x)
+\begin_inset Newline newline
+\end_inset
+
+fit=t.test(x$before,x$after,paired=TRUE)
+\begin_inset Newline newline
+\end_inset
+
+fit
+\begin_inset Newline newline
+\end_inset
+
+#get confidence interval
+\begin_inset Newline newline
+\end_inset
+
+fit$conf.int
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Subsection
+Model diagnostics
+\end_layout
+
+\begin_layout Subsubsection
+Normality
+\end_layout
+
+\begin_layout Enumerate
+Shapiro-Wilk normality test
+\end_layout
+
+\begin_deeper
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+rainfall=read.table("rainfall.txt", header = TRUE)
+\begin_inset Newline newline
+\end_inset
+
+head(rainfall)
+\begin_inset Newline newline
+\end_inset
+
+tapply(rainfall$rain,rainfall$treatment,function(xx)shapiro.test(xx)$p.value)
+ 
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Standard
+The p-values are close to 0, so the normal distribution is not reasonable.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Q-Q plot
+\end_layout
+
+\begin_layout Enumerate
+Wilcoxon rank-sum test
+\end_layout
+
+\begin_deeper
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+wilcox.test(rain~treatment,rainfall,exact=FALSE)$p.value
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Equal Variance
+\end_layout
+
+\begin_layout Standard
+Levene's test; 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{car}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "fox09"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+library(car) 
+\begin_inset Newline newline
+\end_inset
+
+(lvtest=levene.test(rain~treatment,data=rainfall))
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Standard
+The p-value is 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{round(lvtest$'Pr(>F)'[1],3)}
+\end_layout
+
+\end_inset
+
+, which shows an evidence of heteroscedasticity (although not very strong).
+\end_layout
+
+\begin_layout Subsubsection
+Remedies
+\end_layout
+
+\begin_layout Enumerate
+power transformation (HW3, 4(a))
 \end_layout
 
 \begin_layout Section
 Analysis of Variance
 \end_layout
 
+\begin_layout Standard
+ANOVA with blocks
+\end_layout
+
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+platelet=read.table('platelet2.txt',TRUE)
+\begin_inset Newline newline
+\end_inset
+
+platelet 
+\begin_inset Newline newline
+\end_inset
+
+summary(aov(aggreg~time+factor(subject),platelet)) 
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Standard
+Contrast 
+\end_layout
+
+\begin_layout Enumerate
+Data: Fat in Diets,
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Interest in whether there is a diﬀerence between the extremely low and fairly
+ low diets; 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{gmodels}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "warnes09"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+dietfat=read.table('dietfat.txt',TRUE,colClasses=c('factor','factor','numeric'))
+\begin_inset Newline newline
+\end_inset
+
+dietfat
+\begin_inset Newline newline
+\end_inset
+
+#install.packages("gmodel")
+\begin_inset Newline newline
+\end_inset
+
+library(gmodels)
+\begin_inset Newline newline
+\end_inset
+
+cmat = rbind(`EL vs FL` = c(1,-1,0))
+\begin_inset Newline newline
+\end_inset
+
+fit=lm(lipid~fat+block, dietfat, contrasts = list(fat = make.contrasts(cmat)))
+\begin_inset Newline newline
+\end_inset
+
+coef(summary(fit))
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\end_deeper
 \begin_layout Chapter
 Linear Regression
 \end_layout
@@ -1178,7 +677,17 @@ Linearity
 \end_layout
 
 \begin_layout Standard
-LOWESS/LOESS is almost equivalent to the linear model
+LOWESS/LOESS can capture local characteristics of data, and 
+\begin_inset Quotes eld
+\end_inset
+
+linearity
+\begin_inset Quotes erd
+\end_inset
+
+ is a global characteristic.
+ When linearity holds globally, it must hold locally too.
+ Therefore, we can compare the global fitting (linear models
 \begin_inset Foot
 status open
 
@@ -1195,7 +704,10 @@ linear
 
 \end_inset
 
- when we set the degree of smoothing to be infinitely large.
+) to the local fitting (LOESS) to assess departure from linearity.
+ LOESS is almost equivalent to the linear modelwhen we set the smoothing
+ parameter to be infinitely large and fit local linear regressions (polynomials
+ with degree 1).
  A tutorial we find useful to further understand LOESS is one of the lecture
  notes by William Jacoby
 \begin_inset Foot
@@ -1238,7 +750,483 @@ key "snow09"
 \end_inset
 
  which shows the weights actually assigned to each data point for local
- fitting.
+ fitting (see 
+\family typewriter
+?loess.demo
+\family default
+).
+\end_layout
+
+\begin_layout Standard
+The objects returned by the function 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fun{loess()}
+\end_layout
+
+\end_inset
+
+ can be compared by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fun{anova()}
+\end_layout
+
+\end_inset
+
+.
+ We take the 
+\family typewriter
+temperature
+\family default
+ data as an example:
+\end_layout
+
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+temp=read.table('temperature.txt',TRUE)
+\begin_inset Newline newline
+\end_inset
+
+## span -> Inf, degree = 1: LOESS <==> linear regression model
+\begin_inset Newline newline
+\end_inset
+
+loess.temp.lm=loess(temp~.,temp,span=10000,degree=1)
+\begin_inset Newline newline
+\end_inset
+
+loess.temp=loess(temp~.,temp)
+\begin_inset Newline newline
+\end_inset
+
+anova(loess.temp,loess.temp.lm)
+\begin_inset Newline newline
+\end_inset
+
+## to show the effect of span = 10000, degree = 1, we fit a linear model
+\begin_inset Newline newline
+\end_inset
+
+## and see the difference in fitted values (ideally should be 0)
+\begin_inset Newline newline
+\end_inset
+
+loess.lm=lm(temp~.,temp) 
+\begin_inset Newline newline
+\end_inset
+
+## within a tolerance of 1e-7, they are equal
+\begin_inset Newline newline
+\end_inset
+
+all.equal(unname(fitted(loess.temp.lm)),unname(fitted(loess.lm)),tolerance=1e-7)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Standard
+Added variable plots
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Scrap
+<<addvar-plot,fig=TRUE,height=4,width=4,include=FALSE>>=
+\begin_inset Newline newline
+\end_inset
+
+website<-read.table("website.txt",T)
+\begin_inset Newline newline
+\end_inset
+
+lm.web<-lm(deliver~backlog+experience+process+year,website)
+\begin_inset Newline newline
+\end_inset
+
+library(car)
+\begin_inset Newline newline
+\end_inset
+
+av.plots(lm.web,"experience",identify.points=FALSE,main='')
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-addvar-plot.pdf
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Added variable plot for the 
+\family typewriter
+website
+\family default
+ data
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Independent / uncorrelated errors
+\end_layout
+
+\begin_layout Standard
+Durbin-Watson
+\end_layout
+
+\begin_layout Standard
+Example: Test for a significant lag-1 correlation using the Durbin-Watson
+ test.
+\end_layout
+
+\begin_layout Standard
+Use package: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{lmtest}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "zeileis02"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+library(lmtest)
+\begin_inset Newline newline
+\end_inset
+
+lm.temp=lm(temp~year,temp)
+\begin_inset Newline newline
+\end_inset
+
+dwtest(lm.temp)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Standard
+Estimation in an AR(1) model
+\end_layout
+
+\begin_layout Standard
+Use package: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{nlme}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "pinheiro09"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+library(nlme)
+\begin_inset Newline newline
+\end_inset
+
+gls.temp<-gls(temp~year,temp,correlation = corAR1())
+\begin_inset Newline newline
+\end_inset
+
+summary(gls.temp)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Subsection
+Constant variance
+\end_layout
+
+\begin_layout Standard
+Use residual plots.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Scrap
+<<temp-residual,fig=TRUE,height=4,width=4,include=FALSE>>=
+\begin_inset Newline newline
+\end_inset
+
+plot(lm.temp,which=1)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-temp-residual.pdf
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Residual plot for the 
+\family typewriter
+temperature
+\family default
+ data
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Scrap
+
+\end_layout
+
+\begin_layout Standard
+Six plots (selectable by which) are currently available: a plot of residuals
+ against fitted values, a Scale-Location plot of 
+\backslash
+sqrt{| residuals |} against fitted values, a Normal Q-Q plot, a plot of
+ Cook's distances versus row labels, a plot of residuals against leverages,
+ and a plot of Cook's distances against leverage/(1-leverage).
+ By default, the first three and 5 are provided.
+\end_layout
+
+\begin_layout Standard
+Breusch-Pagan
+\end_layout
+
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+library(lmtest)
+\begin_inset Newline newline
+\end_inset
+
+bptest(lm.web,~experience,data=website)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Section
+Model building
+\end_layout
+
+\begin_layout Subsection
+Polynomial
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $Y_{i}=\beta_{0}+\beta_{1}x_{i}+\beta_{2}x_{i}^{2}+\beta_{3}x_{i}^{3}+...+\beta_{p}x_{i}^{p}+\epsilon_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $Y_{i}=\beta_{0}+\beta_{1}x_{i1}+\beta_{2}x_{i2}+\beta_{11}x_{i1}^{2}+\beta_{22}x_{i2}^{2}+\beta_{12}x_{i1}x_{i2}+\epsilon_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+avp=read.table("avp.txt",T)
+\begin_inset Newline newline
+\end_inset
+
+full.avp<-lm(y~x1+x2+x3+x1*x2+x1*x3+x2*x3+I(x1^2)+I(x2^2)+I(x3^2),data=avp)
+\begin_inset Newline newline
+\end_inset
+
+summary(full.avp)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Inference on 
+\begin_inset Formula $X_{max}$
+\end_inset
+
+ for model: 
+\begin_inset Formula $Y_{i}=\beta_{0}+\beta_{1}X_{i}+\beta_{2}X_{i}^{2}+\epsilon_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+self-function
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Categorical variables
+\end_layout
+
+\begin_layout Itemize
+use package: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{nnet}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "venables02"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The function "class.ind" is used to generate indicator variables
+\end_layout
+
+\begin_layout Itemize
+example
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Model selection
+\end_layout
+
+\begin_layout Enumerate
+Stepwise -- By 
+\begin_inset Formula $C_{p},AIC,BIC,p-value$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Press-xie sir 10th HW
 \end_layout
 
 \begin_layout Chapter
@@ -1253,15 +1241,837 @@ Factorial Designs
 Random Effects
 \end_layout
 
+\begin_layout Standard
+TODO-XIE: extract variance components in an 
+\family typewriter
+mer
+\family default
+ object
+\end_layout
+
+\begin_layout Chapter
+Categorical Data Methods
+\end_layout
+
+\begin_layout Section
+Inference for a single proportion
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:single-proportion"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We want to make inference on the proportion parameter 
+\begin_inset Formula $\pi$
+\end_inset
+
+ from iid 
+\begin_inset Formula $Y_{i}\sim\text{Bernoulli}(\pi),\, i=1,2,\cdots,n$
+\end_inset
+
+.
+ The sample mean (proportion) is 
+\begin_inset Formula $p=\sum_{i=1}^{n}Y_{i}/n$
+\end_inset
+
+.
+ We know 
+\begin_inset Formula $\sum Y_{i}\sim\text{Bin}(n,\pi)$
+\end_inset
+
+, so 
+\begin_inset Formula $E(p)=\pi$
+\end_inset
+
+ and 
+\begin_inset Formula $Var(p)=\pi(1-\pi)/n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Approximation from Binomial to Normal distribution
+\end_layout
+
+\begin_layout Standard
+The inference on 
+\begin_inset Formula $\pi$
+\end_inset
+
+ can be based on the asymptotic Normal distribution 
+\begin_inset Formula $N(\pi,\pi(1-\pi)/n)$
+\end_inset
+
+.
+ We may ask how good the approximation really is, and Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:binom-norm-approx"
+
+\end_inset
+
+ gives an illustration on this issue.
+ The quality of approximation is characterized by P-values from KS test:
+ larger P-values indicate better approximation.
+ The rough idea we get from the graph is we need larger 
+\begin_inset Formula $n$
+\end_inset
+
+ (recall the Central Limit Theorem), but we can also use relatively small
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ with a 
+\begin_inset Formula $\pi$
+\end_inset
+
+ near 
+\begin_inset Formula $0.5$
+\end_inset
+
+ (say, 
+\begin_inset Formula $n=50$
+\end_inset
+
+ and 
+\begin_inset Formula $\pi=0.6$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Scrap
+<<binom-norm-approx,eval=FALSE,fig=TRUE,width=7,height=6,include=FALSE>>=
+\begin_inset Newline newline
+\end_inset
+
+par(mar=c(4,4,.5,1.5))
+\begin_inset Newline newline
+\end_inset
+
+# n from 1 to 100, pi from 0 to 1 (very intensive computation!)
+\begin_inset Newline newline
+\end_inset
+
+pval<-binom.norm.approx(1:100,seq(0,1,.005),xlab='n (number of trials)',ylab=expres
+sion(pi~'(probability of success)'))
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-binom-norm-approx.pdf
+	width 80line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset OptArg
+status open
+
+\begin_layout Plain Layout
+P-values from KS test to check normality of Bernoulli means
+\end_layout
+
+\end_inset
+
+P-values from Kolmogorov-Smirnov distribution test: for each combination
+ of 
+\begin_inset Formula $n$
+\end_inset
+
+ and 
+\begin_inset Formula $\pi$
+\end_inset
+
+, we can generate 
+\begin_inset Formula $n$
+\end_inset
+
+ Bernoulli random numbers (i.e.
+ 0's and 1's) and compute the sample mean; repeat this procedure for 
+\family typewriter
+nrep
+\family default
+ times and we will get 
+\family typewriter
+nrep
+\family default
+ sample mean values.
+ Then we can perform a Normal distribution test on these sample means.
+ Finally we obtain p-values for all combinations of 
+\begin_inset Formula $n$
+\end_inset
+
+ and 
+\begin_inset Formula $\pi$
+\end_inset
+
+, which are visualized in a colored contour plot with colors changing from
+ cyan to pink, denoting p-values from small to large.
+ The breaks chosen for the contour plot are 
+\family typewriter
+c(0, 0.01, 0.05, 0.1, 0.2, 1)
+\family default
+ so we roughly know the approximation to Normal distribution is good in
+ the light pink and pink area (where 
+\begin_inset Formula $n$
+\end_inset
+
+ is relatively large and 
+\begin_inset Formula $\pi$
+\end_inset
+
+ is not too close to 
+\begin_inset Formula $0$
+\end_inset
+
+ or 
+\begin_inset Formula $1$
+\end_inset
+
+, but as 
+\begin_inset Formula $n$
+\end_inset
+
+ grows larger and larger, the restriction on 
+\begin_inset Formula $\pi$
+\end_inset
+
+ becomes less important).
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:binom-norm-approx"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A rule of thumb to guarantee a good approximation as mentioned in this course
+ is 
+\begin_inset Formula $n\pi\geq5$
+\end_inset
+
+ and 
+\begin_inset Formula $n(1-\pi)\geq5$
+\end_inset
+
+ (equivalently 
+\begin_inset Formula $5\leq n\pi\leq n-5$
+\end_inset
+
+), and we can see what are the P-values corresponding to this rule in Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:binom-norm-condition"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Scrap
+<<binom-norm-condition,eval=FALSE,fig=TRUE,width=7,height=6,include=FALSE>>=
+\begin_inset Newline newline
+\end_inset
+
+# n * pi and n * (1 - pi)
+\begin_inset Newline newline
+\end_inset
+
+np=c(outer(1:100, seq(0,1,.005), '*')) 
+\begin_inset Newline newline
+\end_inset
+
+n1p=c(outer(1:100, 1-seq(0,1,.005), '*')) 
+\begin_inset Newline newline
+\end_inset
+
+# condition for good approximation
+\begin_inset Newline newline
+\end_inset
+
+cond=(np>=5) & (n1p>=5) 
+\begin_inset Newline newline
+\end_inset
+
+# plot with semi-transparent colors: green if cond == TRUE, red else
+\begin_inset Newline newline
+\end_inset
+
+plot(np,c(pval),pch=20,col=ifelse(cond,rgb(0,1,0,.2),rgb(1,0,0,.2)), xlab=expressi
+on('n *'~pi), ylab = 'P-value') 
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig-binom-norm-condition.pdf
+	width 80line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset OptArg
+status open
+
+\begin_layout Plain Layout
+A rule of thumb to approximate the Normal distribution well
+\end_layout
+
+\end_inset
+
+A rule of thumb to approximate the Normal distribution well: we plot the
+ P-values against 
+\begin_inset Formula $np$
+\end_inset
+
+ and mark out the points with 
+\begin_inset Formula $5\leq np\leq n-5$
+\end_inset
+
+ in green; obviously this rule has removed the combinations of 
+\begin_inset Formula $n$
+\end_inset
+
+ and 
+\begin_inset Formula $\pi$
+\end_inset
+
+ which generates small P-values.
+ Note there are some points in the bottom-left corner whose P-values are
+ large but still get removed (a closer look at the these points reveals
+ that either their 
+\begin_inset Formula $\pi$
+\end_inset
+
+'s are close to 0 or 1 and 
+\begin_inset Formula $n$
+\end_inset
+
+'s are very large, or 
+\begin_inset Formula $\pi$
+\end_inset
+
+'s close to 0.5 and 
+\begin_inset Formula $n$
+\end_inset
+
+ is small).
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:binom-norm-condition"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When the Normal distribution is a reasonable approximation, we can compute
+ confidence intervals for 
+\begin_inset Formula $\pi$
+\end_inset
+
+ based on 
+\begin_inset Formula $p$
+\end_inset
+
+ and perform hypothesis tests like 
+\begin_inset Formula $\pi=\pi_{0}$
+\end_inset
+
+ (bear in mind that 
+\begin_inset Formula $(p-E(p))/\sqrt{Var(p)}\sim N(0,1)$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection
+Sample size computation
+\end_layout
+
+\begin_layout Standard
+Let the half-width of CI be 
+\begin_inset Formula $\delta=z_{1-\alpha/2}\sqrt{\pi(1-\pi)/n}\Rightarrow n=z_{1-\alpha/2}^{2}\pi(1-\pi)/\delta^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+alpha=.05;p=.1;delta=.1/2
+\begin_inset Newline newline
+\end_inset
+
+(n=qnorm(1-alpha/2)^2*p*(1-p)/delta^2)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Standard
+Let the power of test 
+\begin_inset Formula $\pi=\pi_{0}$
+\end_inset
+
+ be 
+\begin_inset Formula $1-\beta$
+\end_inset
+
+ and the true proportion is 
+\begin_inset Formula $\pi_{a}$
+\end_inset
+
+, then under confidence level 
+\begin_inset Formula $1-\alpha$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+n=\frac{(z_{1-\alpha}\sqrt{\pi_{0}(1-\pi_{0})}+z_{1-\alpha}\sqrt{\pi_{a}(1-\pi_{a})})^{2}}{(\pi_{0}-\pi_{a})^{2}}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+p0=.1;pa=.15;beta=.2;alpha=.05
+\begin_inset Newline newline
+\end_inset
+
+(n=(qnorm(1-alpha)*sqrt(p0*(1-p0))+qnorm(1-beta)*sqrt(pa*(1-pa)))^2/(p0-pa)^2)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Section
+Inference for two proportions
+\end_layout
+
+\begin_layout Standard
+Similar to Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:single-proportion"
+
+\end_inset
+
+: 
+\begin_inset Formula $p_{1}-p_{2}\sim N(\pi_{1}-\pi_{2},\frac{\pi_{1}(1-\pi_{1})}{n_{1}}+\frac{\pi_{2}(1-\pi_{2})}{n_{2}})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Odds and odds ratio
+\end_layout
+
+\begin_layout Standard
+Odds is the ratio of success rate to failure rate: 
+\begin_inset Formula $\pi/(1-\pi)$
+\end_inset
+
+; odds ratio is the ratio of two odds 
+\begin_inset Formula $\phi=(\pi_{1}/(1-\pi_{1}))/(\pi_{2}/(1-\pi_{2}))$
+\end_inset
+
+; 
+\begin_inset Formula $\log\phi$
+\end_inset
+
+ is commonly used.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\log\hat{\phi}\sim N(\log\phi,\frac{1}{n_{1}\pi_{1}(1-\pi_{1})}+\frac{1}{n_{2}\pi_{2}(1-\pi_{2})})\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\hat{Var}\log\hat{\phi}=\frac{1}{Y_{1}}+\frac{1}{n_{1}-Y_{1}}+\frac{1}{Y_{2}}+\frac{1}{n_{2}-Y_{2}}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Odds lies in 
+\begin_inset Formula $(0,+\infty)$
+\end_inset
+
+ while 
+\begin_inset Formula $\pi\in[0,1]$
+\end_inset
+
+, which makes odds 
+\begin_inset Quotes eld
+\end_inset
+
+safer
+\begin_inset Quotes erd
+\end_inset
+
+ in prediction than the original proportion (predicted 
+\begin_inset Formula $\pi$
+\end_inset
+
+ might exceed the range 
+\begin_inset Formula $[0,1]$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Section
+Contingency tables
+\end_layout
+
 \begin_layout Chapter
 Misc Functions
 \end_layout
 
 \begin_layout Standard
-We have also collected some functions which are of no direct interest to
- statistical methods, but they might be helpful for us to save time.
+We have also collected some functions in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{ISU.Stat500}
 \end_layout
 
+\end_inset
+
+ which are of no direct interest to statistical methods, but they might
+ be helpful for us to save time, and we will also give some tips on the
+ usage of existing functions in base R.
+\end_layout
+
+\begin_layout Section
+Making better use of 
+\family typewriter
+read.table()
+\end_layout
+
+\begin_layout Standard
+The function 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fun{read.table()}
+\end_layout
+
+\end_inset
+
+ (or 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fun{read.csv()}
+\end_layout
+
+\end_inset
+
+ and other 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fun{read.*()}
+\end_layout
+
+\end_inset
+
+ functions) is usually used to read pure text data into R.
+ Here are some tips on making more advantage of them:
+\end_layout
+
+\begin_layout Enumerate
+specify column classes 
+\family typewriter
+colClasses
+\family default
+ if you already know them: it will save your time explicitly converting
+ some columns to factors
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+R will convert characters to factors by default; to stop this conversion,
+ use 
+\family typewriter
+read.table(..., stringsAsFactors = FALSE)
+\end_layout
+
+\end_inset
+
+ or characters, etc and keep the code neat.
+ For example, we know the first 4 columns of the data 
+\family typewriter
+freeway.txt
+\family default
+ are categorical variables and the last column is numeric:
+\end_layout
+
+\begin_deeper
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+str(freeway1 <- read.table("freeway.txt", TRUE, colClasses = c(rep("factor",
+ 4), "double")))
+\begin_inset Newline newline
+\end_inset
+
+# or explicitly convert:
+\begin_inset Newline newline
+\end_inset
+
+freeway = read.table("freeway.txt", TRUE)
+\begin_inset Newline newline
+\end_inset
+
+freeway$rod = factor(freeway$rod)
+\begin_inset Newline newline
+\end_inset
+
+freeway$segment = factor(freeway$segment)
+\begin_inset Newline newline
+\end_inset
+
+freeway$lane = factor(freeway$lane)
+\begin_inset Newline newline
+\end_inset
+
+freeway$location = factor(freeway$location)
+\begin_inset Newline newline
+\end_inset
+
+# do the two approaches get exactly the same data?
+\begin_inset Newline newline
+\end_inset
+
+identical(freeway1, freeway)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+we can skip a certain number of rows and read a limited number of rows of
+ a data file: this can be useful when both data and its explanations are
+ mixed in one file.
+ For example, we know the real data in 
+\family typewriter
+lab1bigex1.txt
+\family default
+ starts from the 4th row and lasts for 50 rows, then begins again from 57th
+ row till the end of the file, so we can read the numbers like this:
+\end_layout
+
+\begin_deeper
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+# check the first 5 lines
+\begin_inset Newline newline
+\end_inset
+
+readLines('lab1bigex1.txt',5)
+\begin_inset Newline newline
+\end_inset
+
+# we only need a vector of values, so the low-level scan() suffices
+\begin_inset Newline newline
+\end_inset
+
+str(scan('lab1bigex1.txt', skip=3,nlines=50))
+\begin_inset Newline newline
+\end_inset
+
+str(scan('lab1bigex1.txt', skip=57))
+\begin_inset Newline newline
+\end_inset
+
+# 'nrows' defines the number of rows in read.table():
+\begin_inset Newline newline
+\end_inset
+
+# read.table('lab1bigex1.txt', skip = 3, nrows = 50)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+the argument 
+\family typewriter
+fill
+\family default
+ can help us fill blank cells (useful when some data lines are not complete);
+\end_layout
+
+\begin_layout Enumerate
+we can specify a certain column to be the row names by 
+\family typewriter
+row.names
+\family default
+, e.g.
+ 
+\family typewriter
+row.names = 1
+\family default
+ (the 1st column); and we can also set 
+\family typewriter
+col.names
+\family default
+ to be column names of the data (useful when there is no header line but
+ we know the variable names already; otherwise use 
+\family typewriter
+colnames(dat) = ...
+
+\family default
+ after 
+\family typewriter
+dat = read.table()
+\family default
+);
+\end_layout
+
+\begin_layout Enumerate
+the first argument 
+\family typewriter
+file
+\family default
+ can be very flexible, e.g.
+ a file in the local drive, a URL, a compressed gzip file (which can save
+ space and reading will not be much slower than uncompressed files);
+\end_layout
+
+\begin_deeper
+\begin_layout Scrap
+<<eval=FALSE>>=
+\begin_inset Newline newline
+\end_inset
+
+read.table('http://pdixon.public.iastate.edu/stat500/data/creat.txt')
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Dynamic access to course materials
 \end_layout
@@ -1441,20 +2251,25 @@ http://cos.name/en/topic/reshape-the-ratweight-data-into-long-format-stat500
 \end_layout
 
 \begin_layout Scrap
-<<eval=FALSE>>=
+<<>>=
 \begin_inset Newline newline
 \end_inset
 
-rat = read.table("http://pdixon.public.iastate.edu/stat500/data/ratweight.txt",
-\begin_inset Newline newline
-\end_inset
-
-     col.names = c("amount", "type", rep("gain", 10))) 
+rat = read.table("ratweight.txt", col.names = c("amount", "type", rep("gain",
+ 10))) 
 \begin_inset Newline newline
 \end_inset
 
 rat2 = reshape(rat, varying = list(3:12), idvar = 1:2, direction = "long")
  
+\begin_inset Newline newline
+\end_inset
+
+head(rat,5)
+\begin_inset Newline newline
+\end_inset
+
+head(rat2,5)
 \begin_inset Newline newline
 \end_inset
 
@@ -1474,4 +2289,3 @@ options "bibtotoc,jss"
 
 \end_body
 \end_document
->>>>>>> .r115

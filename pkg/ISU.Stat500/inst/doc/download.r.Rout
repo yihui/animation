@@ -1,0 +1,37 @@
+
+R version 2.10.0 (2009-10-26)
+Copyright (C) 2009 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> library(ISU.Stat500)
+Loading required package: animation
+Loading required package: MASS
+Loading required package: XML
+> txt.links = listLinks("http://www.public.iastate.edu/~pdixon/stat500/data/", 
++     "\\.txt$")
+> txt.links = txt.links[!(basename(txt.links) %in% list.files(getwd(), 
++     "\\.txt$"))]
+> if (length(txt.links) > 0) {
++     for (i in txt.links) download.file(i, file.path(getwd(), 
++         basename(i)))
++ } 
+> 
+> proc.time()
+   user  system elapsed 
+   1.62    0.06    4.53 

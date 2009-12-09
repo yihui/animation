@@ -1,0 +1,23 @@
+subject time aggreg
+ 1 before 25 
+ 2 before 25 
+ 3 before 27 
+ 4 before 44 
+ 5 before 30 
+ 6 before 67 
+ 7 before 53 
+ 8 before 53 
+ 9 before 52 
+10 before 60 
+11 before 28 
+ 1 after 24
+ 2 after 29
+ 3 after 37
+ 4 after 56
+ 5 after 46
+ 6 after 82
+ 7 after 57
+ 8 after 80
+ 9 after 61
+10 after 59
+11 after 43

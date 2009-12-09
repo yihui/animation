@@ -1,0 +1,22 @@
+tonnage crew power
+236 8 wind
+739 16 steam
+970 15 steam
+2371 25 steam
+309 5 steam
+679 13 steam
+26 4 wind
+1272 19 steam
+3246 33 steam
+1904 19 steam
+357 10 steam
+1080 16 steam
+1027 22 steam
+28 2 wind
+2507 22 steam
+138 2 wind
+502 18 steam
+1501 21 steam
+2750 24 steam
+192 9 steam
+

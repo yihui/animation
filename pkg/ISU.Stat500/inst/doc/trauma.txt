@@ -1,0 +1,17 @@
+group metab
+non 18.7
+non 46.3
+non 21.7
+non 17.8
+non 21.5
+non 19.4
+non 19.5
+non 21.3
+trauma 25.1
+trauma 28.4 
+trauma 23.2
+trauma 26.4 
+trauma 25.7
+trauma 20.3
+trauma 21.4
+trauma 24.7
