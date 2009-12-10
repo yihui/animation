@@ -73,8 +73,6 @@ set.seed(0731) # the date I came to US :)
 \SweaveOpts{prefix.string=fig, eps=FALSE}
 \setkeys{Gin}{width=.85\textwidth}
 
-\clearpage{}
-
 
 \chapter{Introduction}
 
@@ -101,10 +99,12 @@ in R console and run \texttt{pdflatex ISU.Stat500-intro.tex}. As there
 are a few very computer-intensive and time-consuming code chunks,
 we've turned off their execution by setting the option \texttt{eval
 = FALSE}, i.e. when you run Sweave, these code chunks will not be
-evaluated; Figure \ref{fig:binom-norm-approx} is such an example.
+evaluated; Figure \ref{fig:binom-norm-approx} is such an example. 
+
 As a convention of notation and typesetting, input R code is denoted
 in \texttt{\emph{monospaced italics}} and begins with a prefix \texttt{\emph{R>}},
-and output lines are using \texttt{normal monospaced font}.
+and output lines are using \texttt{normal monospaced font}. R package
+names are in \textbf{bold font}, and function names in \textit{italics}.
 
 We greatly appreciate Dr Dixon's excellent teaching in this semester
 and we benefited a lot from his invaluable experience in statistical
@@ -203,6 +203,40 @@ coef(summary(fit))
 
 \end{enumerate}
 
+\subsection{Multiple comparisons}
+
+
+\subsubsection{Multiple comparison procedures}
+
+LSD, Scheffe, Bonferroni, Tukey-Kramer
+
+
+\subsubsection{Adjusting p-values}
+
+There are several methods for adjusting p-values provided in the function
+\fun{p.ajust()} (in \pkg{stats}), whose names are stored in \texttt{p.adjust.methods}:
+
+<<>>=
+p.adjust.methods 
+@
+
+Benjamini \& Hochberg's method for controlling the False Discovery
+Rate (FDR) is mentioned in this course; adjusted p-values can be directly
+computed as \texttt{p {*} length(p) / rank(p)} where \texttt{p} is
+the vector of original p-values%
+\footnote{this simple computation might be problematic as the result p-values
+can be larger than 1, so we recommend using \fun{p.ajust()}; you
+may read its source code to learn how to do {}``safe'' programming.%
+}), or we may use \fun{p.ajust()}:
+
+<<>>=
+fdrA = read.table("fdrA.txt", TRUE)
+## method = 'fdr' is equivalenty to 'BH'
+## find out the marker with adjusted p-values less than 0.05
+fdrA$marker[p.adjust(fdrA$pvalue,method='BH')<=.05] 
+@
+
+
 \chapter{Linear Regression}
 
 
@@ -236,7 +270,8 @@ in order to find a $\hat{\beta}_{1}$ such that the sum of squared
 errors (residuals, denoted by dashed vertical red lines) reaches its
 minimum. SSE for the $i$-th step is drawn in the right plot (50 steps
 in total). As the black line approaches to the gray line, the corresponding
-SSE becomes smaller.\label{fig:OLS-slope}}
+SSE becomes smaller. See \texttt{?least.squares} in \pkg{animation}
+\citep{xie09}.\label{fig:OLS-slope}}
 
 \end{figure}
 

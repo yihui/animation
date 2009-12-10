@@ -252,13 +252,6 @@ textwidth}
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage clearpage
-\end_inset
-
-
-\end_layout
-
 \begin_layout Chapter
 Introduction
 \end_layout
@@ -366,7 +359,11 @@ reference "fig:binom-norm-approx"
 \end_inset
 
  is such an example.
- As a convention of notation and typesetting, input R code is denoted in
+ 
+\end_layout
+
+\begin_layout Standard
+As a convention of notation and typesetting, input R code is denoted in
  
 \family typewriter
 \emph on
@@ -383,6 +380,15 @@ R>
 \family typewriter
 normal monospaced font
 \family default
+.
+ R package names are in 
+\series bold
+bold font
+\series default
+, and function names in 
+\shape italic
+italics
+\shape default
 .
 \end_layout
 
@@ -664,6 +670,152 @@ coef(summary(fit))
 \end_layout
 
 \end_deeper
+\begin_layout Subsection
+Multiple comparisons
+\end_layout
+
+\begin_layout Subsubsection
+Multiple comparison procedures
+\end_layout
+
+\begin_layout Standard
+LSD, Scheffe, Bonferroni, Tukey-Kramer
+\end_layout
+
+\begin_layout Subsubsection
+Adjusting p-values
+\end_layout
+
+\begin_layout Standard
+There are several methods for adjusting p-values provided in the function
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fun{p.ajust()}
+\end_layout
+
+\end_inset
+
+ (in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{stats}
+\end_layout
+
+\end_inset
+
+), whose names are stored in 
+\family typewriter
+p.adjust.methods
+\family default
+:
+\end_layout
+
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+p.adjust.methods 
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Standard
+Benjamini & Hochberg's method for controlling the False Discovery Rate (FDR)
+ is mentioned in this course; adjusted p-values can be directly computed
+ as 
+\family typewriter
+p * length(p) / rank(p)
+\family default
+ where 
+\family typewriter
+p
+\family default
+ is the vector of original p-values
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+this simple computation might be problematic as the result p-values can
+ be larger than 1, so we recommend using 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fun{p.ajust()}
+\end_layout
+
+\end_inset
+
+; you may read its source code to learn how to do 
+\begin_inset Quotes eld
+\end_inset
+
+safe
+\begin_inset Quotes erd
+\end_inset
+
+ programming.
+\end_layout
+
+\end_inset
+
+), or we may use 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fun{p.ajust()}
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+fdrA = read.table("fdrA.txt", TRUE)
+\begin_inset Newline newline
+\end_inset
+
+## method = 'fdr' is equivalenty to 'BH'
+\begin_inset Newline newline
+\end_inset
+
+## find out the marker with adjusted p-values less than 0.05
+\begin_inset Newline newline
+\end_inset
+
+fdrA$marker[p.adjust(fdrA$pvalue,method='BH')<=.05] 
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
 \begin_layout Chapter
 Linear Regression
 \end_layout
@@ -805,6 +957,31 @@ A demo of finding the slope by OLS with
 -th step is drawn in the right plot (50 steps in total).
  As the black line approaches to the gray line, the corresponding SSE becomes
  smaller.
+ See 
+\family typewriter
+?least.squares
+\family default
+ in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{animation}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "xie09"
+
+\end_inset
+
+.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:OLS-slope"
