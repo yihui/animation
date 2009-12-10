@@ -1530,12 +1530,12 @@ par(mar=c(4,4,.5,1.5))
 \begin_inset Newline newline
 \end_inset
 
-# n from 1 to 100, pi from 0 to 1 (very intensive computation!)
+## n from 1 to 100, pi from 0 to 1 (very intensive computation!)
 \begin_inset Newline newline
 \end_inset
 
-pval<-binom.norm.approx(1:100,seq(0,1,.005),xlab='n (number of trials)',ylab=expres
-sion(pi~'(probability of success)'))
+pval=binom.norm.approx(1:100,seq(0,1,.005),xlab='n (number of trials)',ylab=express
+ion(pi~'(probability of success)'))
 \begin_inset Newline newline
 \end_inset
 
@@ -1630,6 +1630,33 @@ c(0, 0.01, 0.05, 0.1, 0.2, 1)
 \end_inset
 
  becomes less important).
+ See the help page of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fun{binom.norm.approx()}
+\end_layout
+
+\end_inset
+
+ in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{ISU.Stat500}
+\end_layout
+
+\end_inset
+
+ for details.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:binom-norm-approx"
@@ -1685,19 +1712,19 @@ status open
 \begin_inset Newline newline
 \end_inset
 
-# n * pi and n * (1 - pi)
+## n * pi and n * (1 - pi)
 \begin_inset Newline newline
 \end_inset
 
-np=c(outer(1:100, seq(0,1,.005), '*')) 
+np=c(outer(pval$n, pval$p, '*')) 
 \begin_inset Newline newline
 \end_inset
 
-n1p=c(outer(1:100, 1-seq(0,1,.005), '*')) 
+n1p=c(outer(pval$n, 1-pval$p, '*')) 
 \begin_inset Newline newline
 \end_inset
 
-# condition for good approximation
+## condition for good approximation
 \begin_inset Newline newline
 \end_inset
 
@@ -1705,12 +1732,12 @@ cond=(np>=5) & (n1p>=5)
 \begin_inset Newline newline
 \end_inset
 
-# plot with semi-transparent colors: green if cond == TRUE, red else
+## plot with semi-transparent colors: green if cond == TRUE, red else
 \begin_inset Newline newline
 \end_inset
 
-plot(np,c(pval),pch=20,col=ifelse(cond,rgb(0,1,0,.2),rgb(1,0,0,.2)), xlab=expressi
-on('n *'~pi), ylab = 'P-value') 
+plot(np,c(pval$p.value),pch=20,col=ifelse(cond,rgb(0,1,0,.2),rgb(1,0,0,.2)),
+ xlab=expression('n *'~pi), ylab = 'P-value') 
 \begin_inset Newline newline
 \end_inset
 
@@ -2096,7 +2123,7 @@ str(freeway1 <- read.table("freeway.txt", TRUE, colClasses = c(rep("factor",
 \begin_inset Newline newline
 \end_inset
 
-# or explicitly convert:
+## or explicitly convert:
 \begin_inset Newline newline
 \end_inset
 
@@ -2120,7 +2147,7 @@ freeway$location = factor(freeway$location)
 \begin_inset Newline newline
 \end_inset
 
-# do the two approaches get exactly the same data?
+## do the two approaches get exactly the same data?
 \begin_inset Newline newline
 \end_inset
 
@@ -2158,7 +2185,7 @@ readLines('lab1bigex1.txt',5)
 \begin_inset Newline newline
 \end_inset
 
-# we only need a vector of values, so the low-level scan() suffices
+## we only need a vector of values, so the low-level scan() suffices
 \begin_inset Newline newline
 \end_inset
 
@@ -2170,11 +2197,11 @@ str(scan('lab1bigex1.txt', skip=57))
 \begin_inset Newline newline
 \end_inset
 
-# 'nrows' defines the number of rows in read.table():
+## 'nrows' defines the number of rows in read.table():
 \begin_inset Newline newline
 \end_inset
 
-# read.table('lab1bigex1.txt', skip = 3, nrows = 50)
+## read.table('lab1bigex1.txt', skip = 3, nrows = 50)
 \begin_inset Newline newline
 \end_inset
 

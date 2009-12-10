@@ -448,8 +448,8 @@ near $0.5$ (say, $n=50$ and $\pi=0.6$).
 \begin{figure}
 <<binom-norm-approx,eval=FALSE,fig=TRUE,width=7,height=6,include=FALSE>>=
 par(mar=c(4,4,.5,1.5))
-# n from 1 to 100, pi from 0 to 1 (very intensive computation!)
-pval<-binom.norm.approx(1:100,seq(0,1,.005),xlab='n (number of trials)',ylab=expression(pi~'(probability of success)'))
+## n from 1 to 100, pi from 0 to 1 (very intensive computation!)
+pval=binom.norm.approx(1:100,seq(0,1,.005),xlab='n (number of trials)',ylab=expression(pi~'(probability of success)'))
 @
 
 \begin{centering}
@@ -468,7 +468,9 @@ The breaks chosen for the contour plot are \texttt{c(0, 0.01, 0.05,
 0.1, 0.2, 1)} so we roughly know the approximation to Normal distribution
 is good in the light pink and pink area (where $n$ is relatively
 large and $\pi$ is not too close to $0$ or $1$, but as $n$ grows
-larger and larger, the restriction on $\pi$ becomes less important).\label{fig:binom-norm-approx}}
+larger and larger, the restriction on $\pi$ becomes less important).
+See the help page of \fun{binom.norm.approx()} in \pkg{ISU.Stat500}
+for details.\label{fig:binom-norm-approx}}
 
 \end{figure}
 
@@ -481,13 +483,13 @@ Figure \ref{fig:binom-norm-condition}.
 %
 \begin{figure}
 <<binom-norm-condition,eval=FALSE,fig=TRUE,width=7,height=6,include=FALSE>>=
-# n * pi and n * (1 - pi)
-np=c(outer(1:100, seq(0,1,.005), '*')) 
-n1p=c(outer(1:100, 1-seq(0,1,.005), '*')) 
-# condition for good approximation
+## n * pi and n * (1 - pi)
+np=c(outer(pval$n, pval$p, '*')) 
+n1p=c(outer(pval$n, 1-pval$p, '*')) 
+## condition for good approximation
 cond=(np>=5) & (n1p>=5) 
-# plot with semi-transparent colors: green if cond == TRUE, red else
-plot(np,c(pval),pch=20,col=ifelse(cond,rgb(0,1,0,.2),rgb(1,0,0,.2)), xlab=expression('n *'~pi), ylab = 'P-value') 
+## plot with semi-transparent colors: green if cond == TRUE, red else
+plot(np,c(pval$p.value),pch=20,col=ifelse(cond,rgb(0,1,0,.2),rgb(1,0,0,.2)), xlab=expression('n *'~pi), ylab = 'P-value') 
 @
 
 \begin{centering}
@@ -587,13 +589,13 @@ and the last column is numeric:
 
 <<>>=
 str(freeway1 <- read.table("freeway.txt", TRUE, colClasses = c(rep("factor", 4), "double")))
-# or explicitly convert:
+## or explicitly convert:
 freeway = read.table("freeway.txt", TRUE)
 freeway$rod = factor(freeway$rod)
 freeway$segment = factor(freeway$segment)
 freeway$lane = factor(freeway$lane)
 freeway$location = factor(freeway$location)
-# do the two approaches get exactly the same data?
+## do the two approaches get exactly the same data?
 identical(freeway1, freeway)
 @
 
@@ -608,11 +610,11 @@ this:
 <<>>=
 # check the first 5 lines
 readLines('lab1bigex1.txt',5)
-# we only need a vector of values, so the low-level scan() suffices
+## we only need a vector of values, so the low-level scan() suffices
 str(scan('lab1bigex1.txt', skip=3,nlines=50))
 str(scan('lab1bigex1.txt', skip=57))
-# 'nrows' defines the number of rows in read.table():
-# read.table('lab1bigex1.txt', skip = 3, nrows = 50)
+## 'nrows' defines the number of rows in read.table():
+## read.table('lab1bigex1.txt', skip = 3, nrows = 50)
 @
 
 \item the argument \texttt{fill} can help us fill blank cells (useful when
