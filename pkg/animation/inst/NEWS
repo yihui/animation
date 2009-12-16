@@ -10,6 +10,10 @@
 
 NEW FEATURES
 
+    o three demos to illustrate recursion added: see 
+  demo('recur.leaf'), demo('recur.snow') and
+  demo('recur.tree'); thanks, Taiyun!
+
 MINOR CHANGES
 
     o fixed a bug for the option 'interval': in the
