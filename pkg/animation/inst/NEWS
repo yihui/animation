@@ -28,6 +28,8 @@ TO APPEAR
   bootstrapping effects on loess().
     o A function cart.ani() to show the splitting
   process of classification and regression trees.
+    o Yixuan is working on porting SWF Tools into
+  R.
 
 
 	**************************************************
