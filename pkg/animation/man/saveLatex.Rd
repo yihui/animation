@@ -81,13 +81,14 @@ PDF devices are recommended because of their high quality and usually they are m
 }
 \examples{
 \dontrun{
+
 oopt = ani.options(interval = 0.1, nmax = 100)
-## brownian motion: note the 'loop' option and how to set graphics 
-#    parameters with 'ani.first'
+## brownian motion: note the 'loop' option in ani.opts
+##     and how to set graphics parameters with 'ani.first'
 saveLatex({
     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow", 
         main = "Demonstration of Brownian Motion")
-}, ani.basename = "BM", ani.opts = "controls,loop,width=0.8\\textwidth", 
+}, ani.basename = "BM", ani.opts = "controls,loop,width=0.8\\\\textwidth", 
     ani.first = par(mar = c(3, 3, 1, 0.5), mgp = c(2, 0.5, 0), 
         tcl = -0.3, cex.axis = 0.8, cex.lab = 0.8, cex.main = 1), 
     latex.filename = "brownian.motion.tex")
