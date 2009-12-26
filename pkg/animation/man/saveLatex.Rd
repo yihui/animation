@@ -14,7 +14,8 @@ saveLatex(expr, interval = ani.options("interval"),
     ani.first = par(), ani.opts = "controls,width=\\\\textwidth", 
     centering = "\\\\centering", caption = NULL, 
     label = NULL, pkg.opts = NULL, documentclass = "article", 
-    latex.filename = "animation.tex", pdflatex = "pdflatex", ...)
+    latex.filename = "animation.tex", pdflatex = "pdflatex", 
+    install.animate = TRUE, ...)
 }
 \arguments{
   \item{expr}{ an expression to generate animations; use either the animation functions (e.g. \code{brownian.motion()}) in this package or a custom expression (e.g. \code{for(i in 1:10) plot(runif(10), ylim = 0:1)}). }
@@ -54,6 +55,9 @@ file name of the LaTeX document; if an empty string \code{""}, the LaTeX code wi
 }
   \item{pdflatex}{
 the command for pdfLaTeX (set to \code{NULL} to ignore the compiling)
+}
+  \item{install.animate}{
+copy the LaTeX style files \file{animate.sty} and \file{animfp.sty} to \code{outdir}? If you have not installed the LaTeX package \code{animate}, it suffices just to copy these to files.
 }
   \item{\dots}{
 other arguments passed to the graphics device \code{ani.dev}, e.g. height and width

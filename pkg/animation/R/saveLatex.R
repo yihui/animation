@@ -4,7 +4,7 @@ saveLatex <- function(expr, interval = ani.options("interval"),
         "pdf", "", "%d"), ani.first = par(), ani.opts = "controls,width=\\textwidth", 
     centering = "\\centering", caption = NULL, label = NULL, 
     pkg.opts = NULL, documentclass = "article", latex.filename = "animation.tex", 
-    pdflatex = "pdflatex", ...) {
+    pdflatex = "pdflatex", install.animate = TRUE, ...) {
     odir = setwd(outdir)
     interval = interval
     oopt = ani.options(interval = 0)
@@ -16,6 +16,12 @@ saveLatex <- function(expr, interval = ani.options("interval"),
     eval(ani.first)
     eval(expr)
     dev.off()
+    if (install.animate) {
+        file.copy(system.file("js", "animate.sty", package = "animation"),
+            "animate.sty", overwrite = TRUE)
+        file.copy(system.file("js", "animfp.sty", package = "animation"),
+            "animfp.sty", overwrite = TRUE)    
+    }
     cat(sprintf(paste("\\documentclass{%s}", "\\usepackage%s{animate}", 
         "\\begin{document}", "\\begin{figure}", "%s", "\\animategraphics[%s]{%s}{%s}{%d}{%d}%s%s", 
         "\\end{figure}", "\\end{document}", sep = "\n"), documentclass, 
@@ -38,7 +44,7 @@ saveLatex <- function(expr, interval = ani.options("interval"),
         }
         else message("An error occurred while compiling the LaTeX document; \nyou should probably take a look at the log file: ", 
             sprintf("%s.log", sub("([^.]+)\\.[[:alnum:]]+$", 
-                "\\1", latex.filename)), " under %s", getwd())
+                "\\1", latex.filename)), " under ", getwd())
     }
     invisible(NULL)
 }
