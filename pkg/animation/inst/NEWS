@@ -20,6 +20,8 @@ MINOR CHANGES
   non-interactive environment, ani.start() and
   ani.stop() should use ani.options()$interval
   to obtain the REAL 'interval' (other than 0)
+    o a new argument 'install.animate' for saveLatex()
+  to install the LaTeX 'animate' if it does not exist
 
     
 TO APPEAR 
