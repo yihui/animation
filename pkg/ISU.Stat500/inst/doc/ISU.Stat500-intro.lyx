@@ -220,6 +220,10 @@ source("commentSweave.r")
 \begin_inset Newline newline
 \end_inset
 
+source("beta.estimate.R")
+\begin_inset Newline newline
+\end_inset
+
 set.seed(0731) # the date I came to US :)
 \begin_inset Newline newline
 \end_inset
@@ -498,7 +502,7 @@ Normal Q-Q Plot
 \end_layout
 
 \begin_layout Scrap
-<<fig=TRUE,height=4,width=4>>=
+<<fig=TRUE,height=3,width=3>>=
 \begin_inset Newline newline
 \end_inset
 
@@ -640,14 +644,19 @@ Use variance-mean relationship to estimate trasformation of Y.
 \end_deeper
 \begin_layout Itemize
 We can use function 
-\begin_inset Quotes eld
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fun{beta.estimate()}
+\end_layout
+
 \end_inset
 
-beta.estimate
-\begin_inset Quotes erd
-\end_inset
-
- in 
+ ( in 
 \begin_inset ERT
 status open
 
@@ -660,7 +669,7 @@ pkg{ISU.Stat500}
 
 \end_inset
 
- to estimate 
+) to estimate 
 \begin_inset Formula $\beta$
 \end_inset
 
@@ -671,10 +680,6 @@ pkg{ISU.Stat500}
 \begin_deeper
 \begin_layout Scrap
 <<>>=
-\end_layout
-
-\begin_layout Scrap
-library(ISU.Stat500)
 \begin_inset Newline newline
 \end_inset
 
@@ -1742,6 +1747,175 @@ str(ind.var<-data.frame(ind.var))
 Analysis of covariance
 \end_layout
 
+\begin_layout Enumerate
+Why use Ancova?
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+If we have the following two groups of data.
+ group1 is define on x from 1 to 15 and group2 is defined on x from 16 to
+ 20.
+ 
+\end_layout
+
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+x=c(1:20)
+\begin_inset Newline newline
+\end_inset
+
+group1=x[1:15]*3+1
+\begin_inset Newline newline
+\end_inset
+
+group2=x[6:20]*3
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Scrap
+<<why use ancova?,fig=TRUE,height=4,width=4,include=FALSE>>=
+\begin_inset Newline newline
+\end_inset
+
+boxplot(list(group1,group2),names=c("group1","group2"),col=2:5, horizontal=T,
+ notch=T,varwith=T)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Unfinished.work/ISU.Stat500/inst/doc/box.for.ancova.pdf
+	width 80page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Box-plot for the two groups.
+ we can see that group2 has larger mean averaging over x but in fact: 
+\begin_inset Formula $group1=3x+1$
+\end_inset
+
+, 
+\begin_inset Formula $group2=3x$
+\end_inset
+
+.
+ So care and thought are needed when x's not same in the two groups.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Box-plot-for-the"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Box-plot-for-the"
+
+\end_inset
+
+ we can see that group2 has larger mean averaging over x but in fact:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+group1=3x+1\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+group2=3x\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So in the case, we need to compare the two groups with fixed x.
+ It reminds us that care and thought are needed when x's not same in the
+ two groups.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Example: Side effects of drugs, data is 
+\begin_inset Quotes eld
+\end_inset
+
+heart.txt
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Use PRE drug data as a covariate.
+ Assume a linear regression with the same slope for all drugs.
+ Study the effects of the drugs on heart function.
+\end_layout
+
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+heart<-read.table("heart.txt",T)
+\begin_inset Newline newline
+\end_inset
+
+summary(aov(post ~ drug + pre, heart))
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Model selection
 \end_layout
@@ -1778,6 +1952,49 @@ Factorial Designs
 \begin_layout Standard
 Here we only focus on complete factorial design (design sonsinders all possible
  combinations of levels of the factors)
+\end_layout
+
+\begin_layout Enumerate
+RCB expt.
+ design, 1 way treatment design
+\end_layout
+
+\begin_layout Enumerate
+2 way Factorial: 
+\begin_inset Formula $a\times b$
+\end_inset
+
+ levels, n reps per treatment 
+\end_layout
+
+\begin_layout Enumerate
+3 way Factorial: 
+\begin_inset Formula $a\times b\times c$
+\end_inset
+
+ levels
+\end_layout
+
+\begin_layout Enumerate
+Nested:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+One random eﬀect (a levels, n reps)
+\end_layout
+
+\begin_layout Enumerate
+Two random eﬀects (a levels, b levels, n reps)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Subsampling
+\end_layout
+
+\begin_layout Enumerate
+Split plot: n main plot reps, no blocks
 \end_layout
 
 \begin_layout Section
