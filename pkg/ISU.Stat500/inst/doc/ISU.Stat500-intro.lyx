@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.4.1 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -484,6 +484,32 @@ The p-values are close to 0, so the normal distribution is not reasonable.
 Q-Q plot
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+An example to show how to do 
+\begin_inset Quotes eld
+\end_inset
+
+Normal Q-Q Plot
+\begin_inset Quotes erd
+\end_inset
+
+ in R:
+\end_layout
+
+\begin_layout Scrap
+<<fig=TRUE,height=4,width=4>>=
+\begin_inset Newline newline
+\end_inset
+
+qqnorm(rainfall$rain)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 Wilcoxon rank-sum test
 \end_layout
@@ -567,10 +593,120 @@ Sexpr{round(lvtest$'Pr(>F)'[1],3)}
 Remedies
 \end_layout
 
-\begin_layout Enumerate
-power transformation (HW3, 4(a))
+\begin_layout Itemize
+Power transformation
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+Use variance-mean relationship to estimate trasformation of Y.
+ Here we only focus on two-group case say group A and group B.
+ Regress log sd(
+\begin_inset Formula $Y$
+\end_inset
+
+) on log
+\begin_inset Formula $\bar{Y}$
+\end_inset
+
+, slope=
+\begin_inset Formula $\beta$
+\end_inset
+
+ and use transformation 
+\begin_inset Formula $Y^{\lambda}$
+\end_inset
+
+ with 
+\begin_inset Formula $\lambda=1-\beta$
+\end_inset
+
+.
+ i.e:
+\begin_inset Formula \[
+\hat{\beta}=\frac{log(sd_{B})-log(sd_{A})}{log(mean_{B})-log(mean_{A})}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\hat{\lambda}=1-\hat{\beta}\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+We can use function 
+\begin_inset Quotes eld
+\end_inset
+
+beta.estimate
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{ISU.Stat500}
+\end_layout
+
+\end_inset
+
+ to estimate 
+\begin_inset Formula $\beta$
+\end_inset
+
+ in two-group case.
+ For example:
+\end_layout
+
+\begin_deeper
+\begin_layout Scrap
+<<>>=
+\end_layout
+
+\begin_layout Scrap
+library(ISU.Stat500)
+\begin_inset Newline newline
+\end_inset
+
+x=read.table('fishHg.txt',header=TRUE)
+\begin_inset Newline newline
+\end_inset
+
+str(x)
+\begin_inset Newline newline
+\end_inset
+
+beta.estimate(x$Hg,x$group)
+\begin_inset Newline newline
+\end_inset
+
+@
+\end_layout
+
+\begin_layout Standard
+So in this case, 
+\begin_inset Formula $\hat{\lambda}=1-\hat{\beta}=-0.378943$
+\end_inset
+
+ and we do transformation 
+\begin_inset Formula $Hg^{-0.378943}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Analysis of Variance
 \end_layout
@@ -682,7 +818,7 @@ Multiple comparison procedures
 LSD, Scheffe, Bonferroni, Tukey-Kramer
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subparagraph
 Adjusting p-values
 \end_layout
 
@@ -816,7 +952,7 @@ fdrA$marker[p.adjust(fdrA$pvalue,method='BH')<=.05]
 @
 \end_layout
 
-\begin_layout Chapter
+\begin_layout Standard
 Linear Regression
 \end_layout
 
@@ -1541,8 +1677,64 @@ key "venables02"
 The function "class.ind" is used to generate indicator variables
 \end_layout
 
-\begin_layout Itemize
-example
+\begin_layout Scrap
+<<>>=
+\begin_inset Newline newline
+\end_inset
+
+#install.packages("nnet") 
+\begin_inset Newline newline
+\end_inset
+
+library(nnet)
+\begin_inset Newline newline
+\end_inset
+
+sub_swine<-read.csv("sub_swine.csv")
+\begin_inset Newline newline
+\end_inset
+
+str(sub_swine,vec.len=1) 
+\begin_inset Newline newline
+\end_inset
+
+name<-colnames(sub_swine) 
+\begin_inset Newline newline
+\end_inset
+
+ind.var<-NULL
+\begin_inset Newline newline
+\end_inset
+
+#give new colnames
+\begin_inset Newline newline
+\end_inset
+
+for (k in 1:ncol(sub_swine)) { 
+\begin_inset Newline newline
+\end_inset
+
+tmp=class.ind(sub_swine[,k])
+\begin_inset Newline newline
+\end_inset
+
+colnames(tmp)=paste(name[k],colnames(tmp))
+\begin_inset Newline newline
+\end_inset
+
+ind.var=cbind(ind.var,tmp) 
+\begin_inset Newline newline
+\end_inset
+
+}
+\begin_inset Newline newline
+\end_inset
+
+str(ind.var<-data.frame(ind.var))
+\begin_inset Newline newline
+\end_inset
+
+@
 \end_layout
 
 \end_deeper
@@ -1581,6 +1773,11 @@ Multifactor Studies
 
 \begin_layout Section
 Factorial Designs
+\end_layout
+
+\begin_layout Standard
+Here we only focus on complete factorial design (design sonsinders all possible
+ combinations of levels of the factors)
 \end_layout
 
 \begin_layout Section
