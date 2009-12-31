@@ -7,7 +7,7 @@
 \usage{
 tidy.source(source = "clipboard", keep.comment = TRUE, 
     keep.blank.line = TRUE, begin.comment, end.comment, 
-    output = TRUE, ...)
+    output = TRUE, width.cutoff = 60L, ...)
 }
 \arguments{
   \item{source}{ a string: location of the source code (default to be the clipboard; this means we can copy the code to clipboard and use \code{tidy.souce()} without specifying the argument \code{source})}
@@ -15,6 +15,8 @@ tidy.source(source = "clipboard", keep.comment = TRUE,
   \item{keep.blank.line}{ logical value: whether to keep blank lines or not? }
   \item{begin.comment, end.comment}{ identifiers to mark the comments }
   \item{output}{ output to the console or a file using \code{\link[base]{cat}}? }
+  \item{width.cutoff}{ passed to \code{\link[base]{deparse}}: integer in [20, 500] determining the cutoff at which line-breaking is tried
+ }
   \item{\dots}{ other arguments passed to \code{\link[base]{cat}}, e.g. \code{file} }
 }
 \details{
@@ -35,7 +37,7 @@ For Mac users, this function will automatically set \code{source} to be \code{pi
 }
 \author{ Yihui Xie <\url{http://yihui.name}> with substantial contribution from Yixuan Qiu <\url{http://yixuan.cos.name}>}
 \references{\url{http://animation.yihui.name/animation:misc\#tidy_up_r_source}}
-\seealso{ \code{\link[base]{parse}}, \code{\link[base]{cat}} }
+\seealso{ \code{\link[base]{parse}}, \code{\link[base]{deparse}}, \code{\link[base]{cat}} }
 \examples{
 ## tidy up the source code of image demo 
 x = file.path(system.file(package = "graphics"), "demo", "image.R") 
