@@ -13,6 +13,7 @@ NEW FEATURES
     o three demos to illustrate recursion added: see 
   demo('recur.leaf'), demo('recur.snow') and
   demo('recur.tree'); thanks, Taiyun!
+    o demo('Xmas') added
 
 MINOR CHANGES
 
@@ -22,6 +23,8 @@ MINOR CHANGES
   to obtain the REAL 'interval' (other than 0)
     o a new argument 'install.animate' for saveLatex()
   to install the LaTeX 'animate' if it does not exist
+    o a new argument 'width.cutoff' for tidy.source()
+  to decide the width of deparsed code
 
     
 TO APPEAR 

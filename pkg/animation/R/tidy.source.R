@@ -1,5 +1,6 @@
 `tidy.source` <- function(source = "clipboard", keep.comment = TRUE, 
-    keep.blank.line = TRUE, begin.comment, end.comment, output = TRUE, ...) {
+    keep.blank.line = TRUE, begin.comment, end.comment, output = TRUE, 
+    width.cutoff = 60L, ...) {
     if (source == "clipboard" && Sys.info()["sysname"] == "Darwin") {
         source = pipe("pbpaste")
     }
@@ -8,7 +9,7 @@
         n = length(exprs)
         res = character(n)
         for (i in 1:n) {
-            dep = paste(base::deparse(exprs[i]), collapse = "\n")
+            dep = paste(base::deparse(exprs[i], width.cutoff), collapse = "\n")
             res[i] = substring(dep, 12, nchar(dep) - 1)
         }
         return(res)
