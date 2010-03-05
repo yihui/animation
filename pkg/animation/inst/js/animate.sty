@@ -12,7 +12,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 
-\def\@anim@version{2009/10/08}
+\def\@anim@version{2010/01/22}
 \ProvidesPackage{animate}
 [\@anim@version\space PDF animations from files and inline graphics]
 
@@ -75,15 +75,18 @@
     }%
   \fi
   %load MP to PDF converter
+  \InputIfFileExists{supp-pdf.mkii}{}{%
   \InputIfFileExists{supp-pdf}{}{%
     \PackageWarningNoLine{animate}{%
-      File `supp-pdf.tex', which is part of ConTeXt, is not%
+      Neither of the files `supp-pdf.mkii' and `supp-pdf.tex',%
       \MessageBreak%
-      available. Therefore, MetaPost generated PS files%
+      which are part of ConTeXt, could be found.%
       \MessageBreak%
-      cannot be embedded using pdfTeX%
+      Therefore, MetaPost generated PS files cannot%
+      \MessageBreak%
+      be embedded using pdfTeX%
     }
-  }
+  }}
 \else
   \if@anim@@dvipdfmx\else % dvips
     %if geometry package is loaded, execute `\geometry{dvips}' right before
@@ -185,10 +188,6 @@
     to the preamble of your document%
   }{}%
 }
-
-\newboolean{@anim@powerdot} %to cope with some powerdot oddity
-\setboolean{@anim@powerdot}{false}
-\@ifclassloaded{powerdot}{\setboolean{@anim@powerdot}{true}}{}%
 
 \newboolean{@anim@grxloaded}
 \setboolean{@anim@grxloaded}{false}
@@ -396,7 +395,7 @@
       \global\setbox\@anim@box=\hbox{%
         \raisebox{-\dp#3}[\@anim@frameheight\p@][\@anim@framedepth\p@]{\box#3}%
       }%
-      \immediate\pdfxform\@anim@box%
+      \immediate\pdfxform resources {\the\pdfpageresources}\@anim@box%
       \xdef\@anim@lastxform{\the\pdflastxform}%
       %keep a record of XObject number
       \@anim@newkey{img@#2}{\@anim@lastxform\space 0 R}%
@@ -467,14 +466,11 @@
         \endgroup%
         \special{ps:
           gsave
-          %translate graphics to lower left page corner
-          \if@anim@powerdot\else%
-            {%
-              frame@llx neg frame@lly neg translate
-              one@inch@x DVImag div neg one@inch@y DVImag div neg translate
-              0 paper@height DVImag div translate
-            }?pdfmark
-          \fi%
+          %translate graphics to upper left page corner
+          {%
+            frame@llx neg frame@ury neg translate
+            one@inch@x DVImag div neg one@inch@y DVImag div neg translate%
+          }?pdfmark
           %distill graphics into XObject
           mark
             /_objdef {@anim@frm@#1@#2}
