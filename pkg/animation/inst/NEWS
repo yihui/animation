@@ -25,6 +25,11 @@ MINOR CHANGES
   to install the LaTeX 'animate' if it does not exist
     o a new argument 'width.cutoff' for tidy.source()
   to decide the width of deparsed code
+    o removed the code to install ImageMagick in
+  saveMovie()
+    o changed shell() to system() in saveMovie()
+  (thanks, R. Woodrow Setzer)
+    o updated the LaTeX package 'animate'
 
     
 TO APPEAR 
