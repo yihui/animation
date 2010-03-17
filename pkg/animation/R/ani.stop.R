@@ -4,7 +4,7 @@
         footer = paste("<div class=\"footer\">Created by R package \"<a href=\"http://cran.r-project.org/package=animation\" target=\"_blank\">animation ", packageDescription("animation", fields = "Version"), "</a>\" written by <a href=\"http://yihui.name/\" target=\"_blank\">Yihui XIE</a>.<br>",
             Sys.time(), "</div>", sep = "")
     else footer = ifelse(is.character(ani.options("footer")), sprintf("<div class=\"footer\">%s</div>", ani.options("footer")), "")
-    ani.file = file.path(ani.options("outdir")[1], ani.options("filename"))
+    ani.file = file.path(getwd(), ani.options("filename"))
     imgdir = ani.options("imgdir")
     if (file.exists(imgdir)) ani.options(nmax = length(list.files(imgdir)))
     html = paste("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /><title>",

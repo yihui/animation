@@ -13,10 +13,10 @@ Various functions for animations in statistics which could probably aid in teach
 Package: \tab animation\cr
 Type: \tab Package\cr
 Version: \tab 1.1\cr
-Date: \tab 2010-03-06\cr
+Date: \tab 2010-03-18\cr
 License: \tab GPL-2 | GPL-3\cr
 }
-This package mainly makes use of HTML \& JavaScript and R windows graphics devices (such as \code{\link[grDevices]{x11}}) to demonstrate animations in statistics; other kinds of output such as Flash (SWF) or GIF/MPG animations are also available if required software packages have been installed.
+This package mainly makes use of HTML \& JavaScript and R windows graphics devices (such as \code{\link[grDevices]{x11}}) to demonstrate animations in statistics; other kinds of output such as Flash (SWF) or GIF/MPG animations or PDF animations are also available if required software packages have been installed.
 }
 \author{
 Yihui Xie <\url{http://yihui.name}>
@@ -69,6 +69,18 @@ oopt = ani.options(nmax = 100, interval = 0)
 saveSWF(buffon.needle(type = "S"), para = list(mar = c(3, 2.5, 1, 0.2),
     pch = 20, mgp = c(1.5, 0.5, 0)), dev = "pdf", swfname = "buffon.swf",
     outdir = getwd(), interval = 0.1)
+ani.options(oopt)
+
+#############################################################
+# (5) PDF animations
+oopt = ani.options(interval = 0.1, nmax = 100)
+saveLatex({
+    brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow",
+        main = "Brownian Motion")
+}, ani.basename = "BM", ani.opts = "controls,loop,width=0.8\\textwidth",
+    ani.first = par(mar = c(3, 3, 1, 0.5), mgp = c(2, 0.5, 0),
+        tcl = -0.3, cex.axis = 0.8, cex.lab = 0.8, cex.main = 1),
+    latex.filename = "brownian.motion.tex")
 ani.options(oopt)
 }
 }
