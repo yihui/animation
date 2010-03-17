@@ -1,5 +1,42 @@
 	**************************************************
 	*						 *
+	*	       1.1-1 NEWS			 *
+	*						 *
+	**************************************************
+
+
+		CHANGES IN animation VERSION 1.1-1
+
+
+NEW FEATURES
+
+    o saveMovie() gained two new options: 'clean' to
+  determin whether to delete individual image frames
+  after conversion; 'cmd.fun' to decide which function
+  to be used to invoke the OS command (system or
+  shell)
+
+MINOR CHANGES
+
+    o improved the way to find 'convert' for saveMovie()
+  under Windows which is a long-lasting confusing
+  problem for Windows users (thanks, Yishuo Deng)
+    o fixed a bug caused by the 'outdir' option in
+  ani.options() when 'outdir' is a relative path
+  which makes ani.stop() fail (thanks, Paul Murrell)
+
+TO APPEAR
+
+    o A function boot.loess() added to show the
+  bootstrapping effects on loess().
+    o A function cart.ani() to show the splitting
+  process of classification and regression trees.
+    o Yixuan is working on porting SWF Tools into
+  R.
+
+
+	**************************************************
+	*						 *
 	*	       1.1-0 NEWS			 *
 	*						 *
 	**************************************************
@@ -30,16 +67,6 @@ MINOR CHANGES
     o changed shell() to system() in saveMovie()
   (thanks, R. Woodrow Setzer)
     o updated the LaTeX package 'animate'
-
-    
-TO APPEAR 
-    
-    o A function boot.loess() added to show the
-  bootstrapping effects on loess().
-    o A function cart.ani() to show the splitting
-  process of classification and regression trees.
-    o Yixuan is working on porting SWF Tools into
-  R.
 
 
 	**************************************************
