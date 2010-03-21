@@ -21,7 +21,7 @@ saveMovie(expr, interval = 1, moviename = "movie", movietype = "gif",
   \item{fmt}{ a C-style string formatting command, such as \code{\%3d}  }
   \item{outdir}{ the directory for the movie frames and the movie itself }
   \item{convert}{ the ImageMagick command to convert images (default to be \code{convert}, but might be \code{imconvert} under some Windows platforms); see the 'Note' section for details }
-  \item{cmd.fun}{a function to invoke the OS command; by default, \code{\link[base]{shell}} under Windows and \code{\link[base]{system}} under other OS}
+  \item{cmd.fun}{a function to invoke the OS command; by default, \code{shell} under Windows and \code{\link[base]{system}} under other OS}
   \item{clean}{whether to delete the individual image frames}
   \item{ani.first}{an expression to be evaluated before plotting (this will be useful to set graphical parameters in advance, e.g. \code{ani.first = par(pch = 20)}}
   \item{para}{ a list: the graphics parameters to be set before plotting; passed to \code{\link[graphics]{par}}; note \code{ani.first} can override this argument }

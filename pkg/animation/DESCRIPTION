@@ -2,7 +2,7 @@ Package: animation
 Type: Package
 Title: Demonstrate Animations in Statistics 
 Version: 1.1-1
-Date: 2010-03-18
+Date: 2010-03-21
 Author: Yihui Xie 
 Maintainer: Yihui Xie <xie@yihui.name>
 Description: This package consists of various functions for animations in

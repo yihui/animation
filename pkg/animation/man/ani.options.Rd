@@ -29,7 +29,7 @@ When parameters are set, their former values are returned in an
   \item{ani.width, ani.height}{ width and height of image frames (unit in px); see graphics devices like \code{\link[grDevices]{png}}, \code{\link[grDevices]{jpeg}}, ...; default to be 480.}
   \item{outdir}{character: specify the output dir if we want to create HTML animation pages; default to be \code{\link[base]{tempdir}}.}
   \item{imgdir}{character: the name of the directory (a relative path) for images when creating HTML animation pages; default to be \code{"images"}.}
-  \item{filename}{character: name of the target HTML main file}
+  \item{filename}{character: name of the target HTML main file (without path name; basename only)}
   \item{withprompt}{character: prompt to display while using \code{\link{ani.start}} (restore with \code{\link{ani.stop}})}
   \item{ani.type}{character: image format for animation frames, e.g. \code{png}, \code{jpg}, ...; default to be \code{"png"}}
   \item{ani.dev}{a function or a function name: the graphics device; e.g. (\code{\link[grDevices]{png}}, \code{\link[grDevices]{jpeg}}, ...); default to be \code{"png"}}
