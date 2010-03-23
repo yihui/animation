@@ -1,5 +1,29 @@
 	**************************************************
 	*						 *
+	*	       1.1-2 NEWS			 *
+	*						 *
+	**************************************************
+
+
+		CHANGES IN animation VERSION 1.1-2
+
+
+NEW FEATURES
+
+    o demo('hanoi') will demonstrate the Tower of
+  Hanoi game (contributed by Linlin Yan)
+
+TO APPEAR
+
+    o A function boot.loess() added to show the
+  bootstrapping effects on loess().
+    o A function cart.ani() to show the splitting
+  process of classification and regression trees.
+    o Yixuan is working on porting SWF Tools into
+  R.
+
+	**************************************************
+	*						 *
 	*	       1.1-1 NEWS			 *
 	*						 *
 	**************************************************
@@ -24,15 +48,6 @@ MINOR CHANGES
     o fixed a bug caused by the 'outdir' option in
   ani.options() when 'outdir' is a relative path
   which makes ani.stop() fail (thanks, Paul Murrell)
-
-TO APPEAR
-
-    o A function boot.loess() added to show the
-  bootstrapping effects on loess().
-    o A function cart.ani() to show the splitting
-  process of classification and regression trees.
-    o Yixuan is working on porting SWF Tools into
-  R.
 
 
 	**************************************************
