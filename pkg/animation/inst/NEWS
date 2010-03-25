@@ -12,6 +12,9 @@ NEW FEATURES
 
     o demo('hanoi') will demonstrate the Tower of
   Hanoi game (contributed by Linlin Yan)
+    o A new function sample.ratio() to demonstrate
+  the advantage of ratio estimation in sampling
+  survey. (thanks, Amber Watkins)
 
 TO APPEAR
 
