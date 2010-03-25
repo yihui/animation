@@ -23,7 +23,9 @@ Cochran, W G (1977) \emph{Sampling Techniques}, Wiley, ISBN 0-471-16240-X
 \url{http://animation.yihui.name/samp:systematic_sampling}
 }
 \author{ Yihui Xie <\url{http://yihui.name}> }
-\seealso{ \code{\link[base:sample]{sample}} }
+\seealso{
+\code{\link[base]{sample}}, \code{\link{sample.simple}}, \code{\link{sample.cluster}}, \code{\link{sample.ratio}}, \code{\link{sample.strat}}
+}
 \examples{
 oopt = ani.options(interval = 1, nmax = 30)
 op = par(mar = rep(1, 4), lwd = 2)
