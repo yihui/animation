@@ -1,6 +1,8 @@
 bugs.options <-
 function(...) {
     if (is.null(getOption("iBUGS"))) {
+	bugs.directory = ""
+	program = ""
         ## looking for (Win|Open)BUGS
         if (.Platform$OS.type == "windows") {
             if (nzchar(prog <- Sys.getenv("ProgramFiles")) &&

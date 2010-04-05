@@ -1,5 +1,6 @@
 iBUGS <- function() {
     options(guiToolkit = "RGtk2")
+    if (.Platform$OS.type == "unix") galert('iBUGS does not support *nix yet!', 'Warning', delay = 5)
     g = ggroup(horizontal = FALSE, container = gwindow("iBUGS - Intelligent (Open|Win)BUGS Interface"))
     g1 = ggroup(container = g, expand = TRUE)
     g2 = ggroup(container = g)
@@ -137,7 +138,7 @@ iBUGS <- function() {
     })
     gbutton("Help", container = g2, handler = function(h, ...) {
         gmessage(paste(1:7, ". ", c("Write the BUGS model in the textbox;",
-            "Make sure data objects are in R;", "Click the Preference button and set the options;",
+            "Make sure data objects are in the current R session;", "Click the Preference button and set the options;",
             "Execute!", "Or you can try the demo first;", "I might crash R if certain options were not correctly specified! (to be improved on error-catching...)",
             "For more information, see the help page ?iBUGS. Feedback and collaboration always welcome -- xie@yihui.name"),
             sep = "", collapse = "\n"), "Help")
