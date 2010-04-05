@@ -1,0 +1,11 @@
+Package: iBUGS
+Type: Package
+Title: An Interface to R2WinBUGS by gWidgets
+Version: 0.1-0
+Date: 2010-04-05
+Author: Yihui Xie
+Maintainer: Yihui Xie <xie@yihui.name>
+Description: This package has provided an interface to WinBUGS/OpenBUGS via R2WinBUGS. Some options will be intelligently guessed, e.g. the path to WinBUGS/OpenBUGS and the data/parameter list. Users can specify all the options in a GUI.
+License: GPL-2 | GPL-3
+LazyLoad: yes
+Depends: R2WinBUGS, BRugs, gWidgetsRGtk2

@@ -29,6 +29,15 @@ saveMovie <- function(expr, interval = 1, moviename = "movie",
                 message("but I can find it from the Registry Hive: ",
                   magick.path)
             }
+            else if (nzchar(prog <- Sys.getenv("ProgramFiles")) &&
+                length(magick.dir <- list.files(prog, "^ImageMagick.*")) &&
+                length(magick.path <- list.files(file.path(prog,
+                  magick.dir), pattern = "^convert\\.exe$", full.names = TRUE,
+                  recursive = TRUE))) {
+                convert = shQuote(normalizePath(magick.path[1]))
+                message("but I can find it from the 'Program Files' directory: ",
+                  magick.path)
+            }
             else stop("ImageMagick not installed yet!")
         }
         else {

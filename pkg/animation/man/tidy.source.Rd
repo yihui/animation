@@ -36,7 +36,7 @@ Note that 'clean' code will be printed in the console unless the output is redir
 For Mac users, this function will automatically set \code{source} to be \code{pipe("pbpaste")} so that we still don't need to specify this argument if we want to rea the code form the clipboard. 
 }
 \author{ Yihui Xie <\url{http://yihui.name}> with substantial contribution from Yixuan Qiu <\url{http://yixuan.cos.name}>}
-\references{\url{http://animation.yihui.name/animation:misc\#tidy_up_r_source}}
+\references{\url{http://animation.yihui.name/animation:misc#tidy_up_r_source}}
 \seealso{ \code{\link[base]{parse}}, \code{\link[base]{deparse}}, \code{\link[base]{cat}} }
 \examples{
 ## tidy up the source code of image demo 

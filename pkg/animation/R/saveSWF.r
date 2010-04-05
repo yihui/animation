@@ -31,7 +31,7 @@
         message("Executing: ", convert)
         cmd = system(convert)
     }
-    if (cmd == 0) message("Flash has been created at: ", normalizePath(file.path(outdir,
+    if (cmd == 0) message("\n\nFlash has been created at: ", normalizePath(file.path(outdir,
         swfname)))
     invisible(cmd)
 } 
