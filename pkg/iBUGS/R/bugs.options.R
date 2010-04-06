@@ -1,8 +1,7 @@
-bugs.options <-
-function(...) {
+bugs.options <- function(...) {
     if (is.null(getOption("iBUGS"))) {
-	bugs.directory = ""
-	program = ""
+        bugs.directory = ""
+        program = ""
         ## looking for (Win|Open)BUGS
         if (.Platform$OS.type == "windows") {
             if (nzchar(prog <- Sys.getenv("ProgramFiles")) &&
@@ -16,6 +15,13 @@ function(...) {
                 ## ignore multiple directories if BUGS installed in multiple places
                 bugs.directory = bugs.exe[grep(program, bugs.exe)][1]
             }
+        }
+        else gmessage("I'm not intelligent for Linux and Mac for the time being... \nPlease specify the 'bugs.directory' and 'program' arguments manually in the 'Preference' panel.\nI'm considering using JAGS under Linux. Would anyone help me?",
+            "Stupid iBUGS")
+        if (program == "OpenBUGS" && !require(BRugs)) {
+            galert("I need the BRugs package to call OpenBUGS",
+                "Install BRugs")
+            install.packages("BRugs")
         }
         data = unlist(sapply(grep("^[^(package:)]", search(),
             value = TRUE), ls))

@@ -1,12 +1,15 @@
 iBUGS <- function() {
     options(guiToolkit = "RGtk2")
-    if (.Platform$OS.type == "unix") galert('iBUGS does not support *nix yet!', 'Warning', delay = 5)
+    if (.Platform$OS.type == "unix")
+        galert("iBUGS does not support *nix yet!", "Warning",
+            delay = 5)
     g = ggroup(horizontal = FALSE, container = gwindow("iBUGS - Intelligent (Open|Win)BUGS Interface"))
     g1 = ggroup(container = g, expand = TRUE)
     g2 = ggroup(container = g)
-    txt = gtext("model\n{\n\n}", container = g1, wrap = FALSE,
-        font.attr = c(family = "monospace", size = "large", styles = "normal",
-            weights = "light"), expand = TRUE)
+    txt = gtext("model\n{\n\t## likelihood\n\tfor (i in 1:N) {\n\t\t\n\t}\n\t## prior\n\n}",
+        container = g1, wrap = FALSE, font.attr = c(family = "monospace",
+            size = "large", styles = "normal", weights = "light"),
+        expand = TRUE)
     gbutton("Open", container = g2, handler = function(h, ...) {
         s = gfile("Open Model", initialfilename = basename(bugs.options("model.file")))
         if (!is.na(s)) {
@@ -26,6 +29,7 @@ iBUGS <- function() {
             bugs.options(model.file = s)
             tag(txt, "src.file") = s
             tooltip(txt) = s
+            galert(paste("BUGS model saved to", s))
         }
     })
     gbutton("Preferences", container = g2, handler = function(h,
@@ -53,6 +57,8 @@ iBUGS <- function() {
                 model.line[(b[length(b) - 1] + 1):(b[length(b)] -
                   1)], value = TRUE))
         }
+        else galert("I cannot find any parameters in your model!",
+            "Warning")
         par.list = unique(c(bugs.options("parameters.to.save"),
             par.list))
         par.list = par.list[nzchar(par.list)]
@@ -65,7 +71,7 @@ iBUGS <- function() {
             ...) focus(h$obj))
         addhandlerdoubleclick(g.parameters.to.save, handler = function(h,
             ...) {
-            gi = ginput("Well, you beat me! It seems I have not figured out all the parameter names... Please manually input them here:",
+            gi = ginput("Well, you beat me! It seems I have not figured out all the parameter names in your model... Please manually input them here:",
                 title = "Parameters to Save", icon = "question")
             if (!is.na(gi) && gi != "")
                 g.parameters.to.save[, ] = c(g.parameters.to.save[],
@@ -91,6 +97,7 @@ iBUGS <- function() {
                     eval(parse(text = sprintf("bugs.options(%s = if (!nzchar(v)) NULL else ifelse(!is.na(as.integer(v)),  as.integer(v), ifelse(!is.na(as.logical(v)), as.logical(v), v)))",
                       id(h$obj))))
                     options(warn = warn.level)
+                    ## need validation here
                   })
                   addHandlerMouseMotion(tmp, handler = function(h,
                     ...) focus(h$obj))
@@ -111,25 +118,29 @@ iBUGS <- function() {
     gbutton("Execute", container = g2, handler = function(h,
         ...) {
         writeLines(svalue(txt), bugs.options("model.file"))
-        assign(bugs.options("model.name"), with(bugs.options(), {
-            bugs(data, if (!is.null(bugs.options("inits")))
-                eval(parse(text = bugs.options("inits")))
-            else NULL, parameters.to.save, model.file, n.chains,
-                n.iter, n.burnin, n.thin, n.sims, bin, debug,
-                DIC, digits, codaPkg, bugs.directory, program,
-                working.directory, clearWD, useWINE, WINE, newWINE,
-                WINEPATH, bugs.seed, summary.only, save.history,
-                over.relax)
-        }), envir = .GlobalEnv)
-        message("(*) Returned values have been saved to the R object '",
-            bugs.options("model.name"), "'")
+        assign(bugs.options("model.name"), with(bugs.options(),
+            {
+                bugs(data, if (!is.null(bugs.options("inits")))
+                  eval(parse(text = bugs.options("inits")))
+                else NULL, parameters.to.save, model.file, n.chains,
+                  n.iter, n.burnin, n.thin, n.sims, bin, debug,
+                  DIC, digits, codaPkg, bugs.directory, program,
+                  working.directory, clearWD, useWINE, WINE,
+                  newWINE, WINEPATH, bugs.seed, summary.only,
+                  save.history, over.relax)
+            }), envir = .GlobalEnv)
+        message(sprintf("(*) Returned values saved to the R object '%s';\n    you may play with '%s' now, e.g. plot(%s)",
+            bugs.options("model.name"), bugs.options("model.name"),
+            bugs.options("model.name")))
     })
     gbutton("Demo", container = g2, handler = function(h, ...) {
         if (isTRUE(gconfirm("I will overwrite the current model and show the demo. Do you want to continue?"))) {
             assign("Ex.Y", rnorm(100, mean = rnorm(1, mean = 5)),
                 envir = .GlobalEnv)
             assign("Ex.N", 100, envir = .GlobalEnv)
-            svalue(txt) = c("model", "{", "  ## sampling distribution: Normal(mu, 1)",
+            svalue(txt) = c("## I have created two objects ",
+                "##   in your R session: Ex.Y, Ex.N", "model",
+                "{", "  ## sampling distribution: Normal(mu, 1)",
                 "  for(i in 1:Ex.N){", "    Ex.Y[i] ~ dnorm(mu,1)",
                 "  }", "  ## prior: Normal(5, 1)", "  mu ~ dnorm(5, 1)",
                 "}")
@@ -137,9 +148,10 @@ iBUGS <- function() {
         }
     })
     gbutton("Help", container = g2, handler = function(h, ...) {
-        gmessage(paste(1:7, ". ", c("Write the BUGS model in the textbox;",
-            "Make sure data objects are in the current R session;", "Click the Preference button and set the options;",
-            "Execute!", "Or you can try the demo first;", "I might crash R if certain options were not correctly specified! (to be improved on error-catching...)",
+        gmessage(paste(c(1:3, rep("*", 3)), ". ", c("Write the BUGS model in the textbox;",
+            "Click the 'Preference' button and set the options;",
+            "Execute! Done!\n\n", "Or you can try the demo first;",
+            "I might crash R if certain options were not correctly specified! (to be improved...)",
             "For more information, see the help page ?iBUGS. Feedback and collaboration always welcome -- xie@yihui.name"),
             sep = "", collapse = "\n"), "Help")
     })
