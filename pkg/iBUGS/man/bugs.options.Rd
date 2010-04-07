@@ -28,6 +28,7 @@ The only option that is not in \code{\link[R2WinBUGS]{bugs}} is \sQuote{model.na
 }
 \examples{
 \dontrun{
+
 ## list all the options
 bugs.options()
 

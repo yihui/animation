@@ -27,6 +27,7 @@ Yihui Xie <\url{http://yihui.name}>
 }
 \examples{
 \dontrun{
+
 iBUGS()
 
 }

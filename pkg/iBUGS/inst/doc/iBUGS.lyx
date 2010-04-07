@@ -1,0 +1,909 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass literate-article
+\begin_preamble
+\usepackage[font=it]{caption}
+\usepackage{ae}
+\renewcommand{\rmdefault}{ppl}
+\renewcommand{\sfdefault}{aess}
+\renewcommand{\ttdefault}{aett}
+\setlength{\parskip}{\smallskipamount}
+\end_preamble
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "An Introduction to iBUGS"
+\pdf_author "Yihui Xie"
+\pdf_subject "Bayesian Statistics, R, GUI"
+\pdf_keywords "WinBUGS, OpenBUGS, R2WinBUGS, BRugs, gWidgets"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 2
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "pdfstartview=FitH"
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine natbib_authoryear
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+An Introduction to 
+\series bold
+iBUGS
+\end_layout
+
+\begin_layout Author
+Yihui Xie 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Department of Statistics, Iowa State University.
+ Email: 
+\begin_inset CommandInset href
+LatexCommand href
+name "xie@yihui.name"
+target "xie@yihui.name"
+type "mailto:"
+
+\end_inset
+
+ (or 
+\begin_inset CommandInset href
+LatexCommand href
+name "xie@iastate.edu"
+target "xie@iastate.edu"
+type "mailto:"
+
+\end_inset
+
+).
+ Homepage: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://yihui.name
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Scrap
+<<setup,echo=FALSE>>=
+\end_layout
+
+\begin_layout Scrap
+options(width=65)
+\end_layout
+
+\begin_layout Scrap
+program="";bugs.directory=""
+\end_layout
+
+\begin_layout Scrap
+@
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+iBUGS
+\series default
+ is an R package which aims to make it easier to call WinBUGS and OpenBUGS
+ in R.
+ The computation is done by 
+\series bold
+R2WinBUGS
+\series default
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "R2WinBUGS"
+
+\end_inset
+
+ and 
+\series bold
+BRugs
+\series default
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "BRugs"
+
+\end_inset
+
+, and the GUI is created by 
+\series bold
+gWidgetsRGtk2
+\series default
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "gWidgetsRGtk2"
+
+\end_inset
+
+.
+ To start the GUI, simply type 
+\family typewriter
+library(iBUGS)
+\family default
+ in R.
+ In case you close the window carelessly, you may start it again by 
+\family typewriter
+iBUGS()
+\family default
+.
+\end_layout
+
+\begin_layout Scrap
+<<start-iBUGS,eval=FALSE>>=
+\end_layout
+
+\begin_layout Scrap
+## the GUI will show up once the package is loaded
+\end_layout
+
+\begin_layout Scrap
+library(iBUGS)
+\end_layout
+
+\begin_layout Scrap
+## or call iBUGS() to generate another GUI
+\end_layout
+
+\begin_layout Scrap
+iBUGS()
+\end_layout
+
+\begin_layout Scrap
+@
+\end_layout
+
+\begin_layout Section
+Motivation
+\end_layout
+
+\begin_layout Standard
+I was thinking about writing this package when I saw the default value for
+ the argument 
+\family typewriter
+bugs.directory
+\family default
+ was 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+c:/Program Files/WinBUGS14/
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+ in the main function 
+\emph on
+bugs()
+\emph default
+ of 
+\series bold
+R2WinBUGS
+\series default
+, as I believe it is not a too difficult task to use R to find the installation
+ directories of WinBUGS and OpenBUGS for most Windows users.
+ I tried the Windows registry approach
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://yihui.name/en/2010/03/looking-for-software-paths-in-windows-registry/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ but found it was not general enough, so I switched to another 
+\begin_inset Quotes eld
+\end_inset
+
+brute-force
+\begin_inset Quotes erd
+\end_inset
+
+ way: searching for WinBUGS and OpenBUGS in the directory defined by the
+ environment variable 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+ProgramFiles
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Most Windows users will install programs in this directory, so we no longer
+ need to manually specify 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+bugs.directory = c:/Program Files/WinBUGS14/
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Based on this trivial motivation, I think we can also make other arguments
+ easier to specify.
+ For instance, we can analyze the BUGS model code and guess the parameter
+ names using regular expressions; then put them in a list and select the
+ ones we are interested in.
+ In this case, we do not need to type the names of parameters one by one,
+ which will otherwise be tedious in R or WinBUGS/OpenBUGS.
+ When I was new to WinBUGS
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+In fact, I'm still new to WinBUGS, because now I mainly use R and 
+\series bold
+iBUGS
+\series default
+...
+\end_layout
+
+\end_inset
+
+, I often forgot to specify the parameters (node) to monitor in the 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family sans
+Sampler Monitor Tool
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+ panel, and the consequence was I got nothing after a long long waiting
+ and began to regret clicking the 
+\begin_inset Quotes eld
+\end_inset
+
+Update
+\begin_inset Quotes erd
+\end_inset
+
+ menu too fast.
+\end_layout
+
+\begin_layout Section
+The GUI
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figure/main-interface.png
+	width 4.1in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The main interface of 
+\series bold
+iBUGS
+\series default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:main-interface"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The main interface of 
+\series bold
+iBUGS
+\series default
+ looks quite simple as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:main-interface"
+
+\end_inset
+
+.
+ The button 
+\begin_inset Quotes eld
+\end_inset
+
+Open
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+ can be used to open and save a BUGS model respectively.
+ There will be a tooltip hanging around the text box and showing the path
+ of the current file when you move the mouse over it (the tooltip will be
+ empty if you didn't open a model and have not saved the current one).
+ The text box is the place to write the model; it comes with a default sketch
+ of the model.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figure/preference.png
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The preference panel
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:preference"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When you finished writing the model, you need to make sure the data objects
+ you mentioned in the model are already in the current R session.
+ Then open the 
+\begin_inset Quotes eld
+\end_inset
+
+Preferences
+\begin_inset Quotes erd
+\end_inset
+
+ panel (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:preference"
+
+\end_inset
+
+): all the arguments for the function 
+\emph on
+bugs()
+\emph default
+ are listed there.
+ If you are familiar with the function 
+\emph on
+bugs()
+\emph default
+, I will not need to explain anything here.
+ The 
+\family typewriter
+data
+\family default
+ list is read from R's workspace; note it even includes the names from the
+ objects that are 
+\emph on
+attach()
+\emph default
+ed to the R session.
+ For example, the code below can make the two objects 
+\family typewriter
+x
+\family default
+ and 
+\family typewriter
+y
+\family default
+ in 
+\family typewriter
+dat
+\family default
+ visible to 
+\series bold
+iBUGS
+\series default
+:
+\end_layout
+
+\begin_layout Scrap
+<<attach-ex,eval=FALSE>>=
+\end_layout
+
+\begin_layout Scrap
+dat = list(x=1:3,y=rnorm(5))
+\end_layout
+
+\begin_layout Scrap
+## personally I don't recommend attaching R objects 
+\end_layout
+
+\begin_layout Scrap
+## that is a bad habit
+\end_layout
+
+\begin_layout Scrap
+attach(dat)
+\end_layout
+
+\begin_layout Scrap
+@
+\end_layout
+
+\begin_layout Standard
+The parameter names, as introduced before, can be found out automatically
+ from the BUGS model.
+ In case it failed to identify certain parameter names, you can also double
+ click on the list box and manually add the names to the list.
+ Other options are from the parameters of the 
+\emph on
+bugs()
+\emph default
+ function.
+\end_layout
+
+\begin_layout Standard
+Note that in the preference panel, there is an additional option 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+model.name
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+ (default to be 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+bugs.model
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+); the results will be saved to an R object with this name, so that you
+ can do further analysis with this object.
+\end_layout
+
+\begin_layout Standard
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Execute
+\begin_inset Quotes erd
+\end_inset
+
+ to run the model.
+ There is also a simple demo and you can test if 
+\series bold
+iBUGS
+\series default
+ works for you.
+\end_layout
+
+\begin_layout Section
+Technical Details
+\end_layout
+
+\begin_layout Subsection
+WinBUGS / OpenBUGS directory
+\end_layout
+
+\begin_layout Standard
+Most Windows system comes with an environment variable 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+ProgramFiles
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+, which records the default directory to install new software packages.
+ We can search in this directory for WinBUGS or OpenBUGS.
+ Using file manipulation functions such as list.files() as well as regular
+ expressions, we can test if any BUGS package has been installed; e.g.
+\end_layout
+
+\begin_layout Scrap
+<<bugs-directory>>=
+\end_layout
+
+\begin_layout Scrap
+if (nzchar(prog <- Sys.getenv("ProgramFiles")) && 
+\end_layout
+
+\begin_layout Scrap
+    length(bugs.dir <- list.files(prog, "^(Open|Win)BUGS.*")) && 
+\end_layout
+
+\begin_layout Scrap
+    length(bugs.exe <- dirname(list.files(file.path(prog, bugs.dir), 
+\end_layout
+
+\begin_layout Scrap
+        pattern = "(Open|Win)BUGS.*
+\backslash
+
+\backslash
+.exe$", full.names = TRUE, 
+\end_layout
+
+\begin_layout Scrap
+        recursive = TRUE)))) {
+\end_layout
+
+\begin_layout Scrap
+    ## if I can find OpenBUGS, use it prior to WinBUGS
+\end_layout
+
+\begin_layout Scrap
+    program = ifelse(length(grep("OpenBUGS", bugs.exe)), "OpenBUGS", 
+\end_layout
+
+\begin_layout Scrap
+        "WinBUGS")
+\end_layout
+
+\begin_layout Scrap
+    ## ignore multiple directories if (several versions of) BUGS 
+\end_layout
+
+\begin_layout Scrap
+    ##    installed in multiple places
+\end_layout
+
+\begin_layout Scrap
+    bugs.directory = bugs.exe[grep(program, bugs.exe)][1]
+\end_layout
+
+\begin_layout Scrap
+}
+\end_layout
+
+\begin_layout Scrap
+program
+\end_layout
+
+\begin_layout Scrap
+bugs.directory
+\end_layout
+
+\begin_layout Scrap
+@
+\end_layout
+
+\begin_layout Standard
+Note if both WinBUGS and OpenBUGS are detected, 
+\series bold
+iBUGS
+\series default
+ will prefer OpenBUGS, as we know the development of WinBUGS has stopped.
+\end_layout
+
+\begin_layout Subsection
+GUI construction
+\end_layout
+
+\begin_layout Standard
+Building a GUI in R with the 
+\series bold
+gWidgets
+\series default
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "gWidgets"
+
+\end_inset
+
+ package is quite easy.
+ What's more, it is even 
+\emph on
+dynamic
+\emph default
+! That means you can generate GUI components dynamically whenever you need
+ them.
+ The 
+\series bold
+gWidgets
+\series default
+ package comes with 4 types of interface, namely GTK+ (
+\series bold
+gWidgetsRGtk2
+\series default
+), tcltk (
+\series bold
+gWidgetstcltk
+\series default
+), Java (
+\series bold
+gWidgetsrJava
+\series default
+) and WWW (
+\series bold
+gWidgetsWWW
+\series default
+).
+ You don't need to deal with these four specific packages -- just play with
+ 
+\series bold
+gWidgets
+\series default
+ and specify your GUI type.
+ Personally I like the GTK+ interface most, so I made it the default one
+ for 
+\series bold
+iBUGS
+\series default
+.
+ Here is a short demo:
+\end_layout
+
+\begin_layout Scrap
+<<gui-demo,eval=FALSE>>=
+\end_layout
+
+\begin_layout Scrap
+library(gWidgets)
+\end_layout
+
+\begin_layout Scrap
+options(guiToolkit = "RGtk2")
+\end_layout
+
+\begin_layout Scrap
+## create a window and add a button to it
+\end_layout
+
+\begin_layout Scrap
+gw=gwindow('GUI Demo')
+\end_layout
+
+\begin_layout Scrap
+gb=gbutton('Click me!', container=gw, handler=function(h,...)svalue(h$obj)=paste(sv
+alue(h$obj),'haha!'))
+\end_layout
+
+\begin_layout Scrap
+@
+\end_layout
+
+\begin_layout Standard
+In 
+\series bold
+gWidgets
+\series default
+, there are several widgets available (text boxes, buttons, drop-down list,
+ ...), and you just need to think about how to arrange them.
+ You can attach an event (handler) to a widget so that this event will be
+ called when users take an action to the widget.
+\end_layout
+
+\begin_layout Section
+Future Work
+\end_layout
+
+\begin_layout Standard
+A list of things in my mind:
+\end_layout
+
+\begin_layout Enumerate
+Dynamically read the help page of 
+\emph on
+bugs()
+\emph default
+ and add the explanations of all arguments to the widgets, so users do not
+ need to turn to 
+\family typewriter
+?bugs
+\family default
+ each time they use it;
+\end_layout
+
+\begin_layout Enumerate
+Add support for Linux -- possibly with JAGS
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Just Another Gibbs Sampler: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www-fis.iarc.fr/~martyn/software/jags/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ (R packages like 
+\series bold
+rjags
+\series default
+, 
+\series bold
+R2jags
+\series default
+ or 
+\series bold
+runjags
+\series default
+); I know little about Mac, but I guess with proper Wine emulation specification
+s, iBUGS can also work (but not so intelligent); I'll appreciate help from
+ Mac users;
+\end_layout
+
+\begin_layout Enumerate
+I have not made up my mind yet: is it worth providing a menu for diagnostics?
+ (e.g.
+ Plot \SpecialChar \menuseparator
+ Gelman-Rubin-Brooks) Sounds like I'm re-inventing the wheel...
+\end_layout
+
+\begin_layout Enumerate
+Intelligent enough to automatically judge convergence and adaptively select
+ parameters?...
+\end_layout
+
+\begin_layout Section*
+Acknowledgment
+\end_layout
+
+\begin_layout Standard
+I'd like to thank Prof Di Cook for her support and ideas, Ted Peterson for
+ the IT support, and Dr Alyson Wilson for introducing me to the Bayesian
+ world.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "iBUGS"
+options "jss"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

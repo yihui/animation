@@ -87,8 +87,8 @@ iBUGS <- function() {
             for (j in 1:3) {
                 if (3 * i - (3 - j) <= length(opt.names)) {
                   g2[i, 2 * j - 1] = opt.names[3 * i - (3 - j)]
-                  g2[i, 2 * j] = (tmp <- gedit(bugs.options(opt.names[3 *
-                    i - (3 - j)]), container = g2))
+                  g2[i, 2 * j, expand = TRUE] = (tmp <- gedit(bugs.options(opt.names[3 *
+                    i - (3 - j)]), container = g2, expand = TRUE))
                   id(tmp) = opt.names[3 * i - (3 - j)]
                   addhandlerblur(tmp, handler = function(h, ...) {
                     v = svalue(h$obj)
@@ -148,12 +148,15 @@ iBUGS <- function() {
         }
     })
     gbutton("Help", container = g2, handler = function(h, ...) {
-        gmessage(paste(c(1:3, rep("*", 3)), ". ", c("Write the BUGS model in the textbox;",
-            "Click the 'Preference' button and set the options;",
-            "Execute! Done!\n\n", "Or you can try the demo first;",
-            "I might crash R if certain options were not correctly specified! (to be improved...)",
-            "For more information, see the help page ?iBUGS. Feedback and collaboration always welcome -- xie@yihui.name"),
-            sep = "", collapse = "\n"), "Help")
+        if (isTRUE(gconfirm(paste(c(1:3, rep("*", 3)), ". ",
+            c("Write the BUGS model in the textbox;", "Click the 'Preference' button and set the options;",
+                "Execute! Done!\n\n", "Or you can try the demo first;",
+                "I might crash R if certain options were not correctly specified! (to be improved...)",
+                sprintf("Do you want to view the package vignette (%s) now?",
+                  system.file("doc", "iBUGS.pdf", package = "iBUGS"))),
+            sep = "", collapse = "\n"), "Help")))
+            system(paste(getOption("pdfviewer"), system.file("doc",
+                "iBUGS.pdf", package = "iBUGS")))
     })
     invisible(NULL)
 }
