@@ -10,7 +10,7 @@ newton.method(FUN = function(x) x^2 - 4, init = 10, rg = c(-1, 10),
     main, xlab, ylab, ...)
 }
 \arguments{
-  \item{FUN}{ the function in the equation to solve (univariate) }
+  \item{FUN}{ the function in the equation to solve (univariate), which has to be defined without braces like the default one (otherwise the derivative cannot be computed) }
   \item{init}{ the starting point }
   \item{rg}{ the range for plotting the curve }
   \item{tol}{ the desired accuracy (convergence tolerance) }

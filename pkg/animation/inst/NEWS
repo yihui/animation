@@ -16,6 +16,12 @@ NEW FEATURES
   the advantage of ratio estimation in sampling
   survey. (thanks, Amber Watkins)
 
+MINOR CHANGES
+
+    o added a note for the function newton.method()
+  that the argument 'FUN' needs to be defined 
+  without braces. (thanks, Peter Ehlers)
+    
 TO APPEAR
 
     o A function boot.loess() added to show the
@@ -28,7 +34,8 @@ TO APPEAR
 	**************************************************
 	*						 *
 	*	       1.1-1 NEWS			 *
-	*						 *
+	*kage for statistical
+animations. R News, 8(2):23-27, October 2008.						 *
 	**************************************************
 
 
