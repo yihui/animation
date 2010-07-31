@@ -79,6 +79,8 @@ Yihui Xie <\url{http://yihui.name}>
 When using \code{ani.dev = "png"} or other bitmap graphics devices, all the images can be recorded only if a proper \code{num} is provided; typically it must be \code{"\%d"}.
 
 PDF devices are recommended because of their high quality and usually they are more friendly to LaTeX. But sometimes the size of PDF files is much larger.
+
+As far as we know, only Acrobat Reader supports animations in PDF, so Linux users may need to install 'acroread' and set \code{options(pdfviewer = 'acroread')}.
 }
 \seealso{
 \code{\link{saveMovie}} to convert image frames to a single GIF/MPEG file; \code{\link{saveSWF}} to convert images to Flash

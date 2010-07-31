@@ -21,6 +21,9 @@ MINOR CHANGES
     o added a note for the function newton.method()
   that the argument 'FUN' needs to be defined 
   without braces. (thanks, Peter Ehlers)
+    o fixed a bug in saveLatex(): the frame number
+  should start with 0 instead of 1. (thanks,
+  Taiyun)
     
 TO APPEAR
 
