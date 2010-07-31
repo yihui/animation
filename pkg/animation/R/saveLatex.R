@@ -26,7 +26,7 @@ saveLatex <- function(expr, interval = ani.options("interval"),
         "\\begin{document}", "\\begin{figure}", "%s", "\\animategraphics[%s]{%s}{%s}{%d}{%d}%s%s", 
         "\\end{figure}", "\\end{document}", sep = "\n"), documentclass, 
         ifelse(is.null(pkg.opts), "", sprintf("[%s]", pkg.opts)), 
-        centering, ani.opts, 1/interval, ani.basename, 1, nmax, 
+        centering, ani.opts, 1/interval, ani.basename, 0, nmax - 1, 
         ifelse(is.null(caption), "", sprintf("\\caption{%s}", 
             caption)), ifelse(is.null(label), "", sprintf("\\label{%s}", 
             label))), "\n", file = latex.filename)
