@@ -80,10 +80,10 @@ When using \code{ani.dev = "png"} or other bitmap graphics devices, all the imag
 
 PDF devices are recommended because of their high quality and usually they are more friendly to LaTeX. But sometimes the size of PDF files is much larger.
 
-As far as we know, only Acrobat Reader supports animations in PDF, so Linux users may need to install 'acroread' and set \code{options(pdfviewer = 'acroread')}.
+So far animations created by the LaTeX package \code{animate} can only be viewed with Acrobat Reader (Windows) or acroread (Linux). Other PDF views may not support JavaScript (in fact the PDF animation is done by JavaScript). Linux users may need to install 'acroread' and set \code{options(pdfviewer = 'acroread')}.
 }
 \seealso{
-\code{\link{saveMovie}} to convert image frames to a single GIF/MPEG file; \code{\link{saveSWF}} to convert images to Flash
+\code{\link{saveMovie}} to convert image frames to a single GIF/MPEG file; \code{\link{saveSWF}} to convert images to Flash; \code{\link{ani.start}} and \code{\link{ani.stop}} to create an HTML page containing the animation
 }
 \examples{
 \dontrun{

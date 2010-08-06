@@ -1,10 +1,3 @@
-	**************************************************
-	*						 *
-	*	       1.1-2 NEWS			 *
-	*						 *
-	**************************************************
-
-
 		CHANGES IN animation VERSION 1.1-2
 
 
@@ -34,14 +27,7 @@ TO APPEAR
     o Yixuan is working on porting SWF Tools into
   R.
 
-	**************************************************
-	*						 *
-	*	       1.1-1 NEWS			 *
-	*kage for statistical
-animations. R News, 8(2):23-27, October 2008.						 *
-	**************************************************
-
-
+ 
 		CHANGES IN animation VERSION 1.1-1
 
 
@@ -61,13 +47,6 @@ MINOR CHANGES
     o fixed a bug caused by the 'outdir' option in
   ani.options() when 'outdir' is a relative path
   which makes ani.stop() fail (thanks, Paul Murrell)
-
-
-	**************************************************
-	*						 *
-	*	       1.1-0 NEWS			 *
-	*						 *
-	**************************************************
 
 
 		CHANGES IN animation VERSION 1.1-0
@@ -97,12 +76,6 @@ MINOR CHANGES
     o updated the LaTeX package 'animate'
 
 
-	**************************************************
-	*						 *
-	*	       1.0-10 NEWS			 *
-	*						 *
-	**************************************************
-
 
 		CHANGES IN animation VERSION 1.0-10
 
@@ -123,12 +96,6 @@ MINOR CHANGES
   saveMovie(); e.g. 'imconvert' under some Windows
   platforms (Thanks, James Pustejovsky)
 
-
-	**************************************************
-	*						 *
-	*	       1.0-9 NEWS			 *
-	*						 *
-	**************************************************
 
 
 		CHANGES IN animation VERSION 1.0-9
@@ -168,12 +135,6 @@ MINOR CHANGES
   function (character), e.g. "png" 
 
 
-	**************************************************
-	*						 *
-	*	       1.0-8 NEWS			 *
-	*						 *
-	**************************************************
-
 
 		CHANGES IN animation VERSION 1.0-8
 
@@ -188,12 +149,6 @@ MINOR CHANGES
     o fixed an error in the example of HuSpeech
 
 
-
-	**************************************************
-	*						 *
-	*	       1.0-7 NEWS			 *
-	*						 *
-	**************************************************
 
 
 		CHANGES IN animation VERSION 1.0-7
@@ -216,11 +171,6 @@ MINOR CHANGES
   Thanks, Marcin Kozak!
 
 
-	**************************************************
-	*						 *
-	*	       1.0-6 NEWS			 *
-	*						 *
-	**************************************************
 
 
 		CHANGES IN animation VERSION 1.0-6
@@ -232,12 +182,6 @@ NEW FEATURES
   QQ plots for random numbers from Normal dist'n.
 
 
-
-	**************************************************
-	*						 *
-	*	       1.0-5 NEWS			 *
-	*						 *
-	**************************************************
 
 
 		CHANGES IN animation VERSION 1.0-5
@@ -260,11 +204,6 @@ SIGNIFICANT CHANGES
   R console or a file).
 
 
-	**************************************************
-	*						 *
-	*	       1.0-4 NEWS			 *
-	*						 *
-	**************************************************
 
 
 		CHANGES IN animation VERSION 1.0-4
@@ -282,11 +221,6 @@ MINOR CHANGES
   
 
   
-	**************************************************
-	*						 *
-	*	       1.0-3 NEWS			 *
-	*						 *
-	**************************************************
 
 
 		CHANGES IN animation VERSION 1.0-3
@@ -323,11 +257,6 @@ MINOR CHANGES
   (Thanks, zhoulvjun)
 
 
-	**************************************************
-	*						 *
-	*	       1.0-2 NEWS			 *
-	*						 *
-	**************************************************
 
 
 		CHANGES IN animation VERSION 1.0-2
@@ -346,11 +275,6 @@ MINOR CHANGES
   path contains spaces. (Thanks, Geng Yang)
 
 
-	**************************************************
-	*						 *
-	*	       1.0-1 NEWS			 *
-	*						 *
-	**************************************************
 
 
 		CHANGES IN animation VERSION 1.0-1
@@ -370,11 +294,6 @@ MINOR CHANGES
   the graphics parameters can be set for the device.
 
 
-	**************************************************
-	*						 *
-	*	       1.0-0 NEWS			 *
-	*						 *
-	**************************************************
 
 
 		CHANGES IN animation VERSION 1.0-0
@@ -416,11 +335,6 @@ SIGNIFICANT CHANGES
  
 
 
-	**************************************************
-	*						 *
-	*	       0.2-0 NEWS			 *
-	*						 *
-	**************************************************
 
 
 		CHANGES IN animation VERSION 0.2-0
@@ -447,12 +361,6 @@ SIGNIFICANT CHANGES
  
 
 
-	**************************************************
-	*						 *
-	*	       0.1-8 NEWS			 *
-	*						 *
-	**************************************************
-
 
 		CHANGES IN animation VERSION 0.1-8
 
@@ -464,11 +372,6 @@ MINOR CHANGES
   in the graph can be controlled)
  
 
-	**************************************************
-	*						 *
-	*	       0.1-7 NEWS			 *
-	*						 *
-	**************************************************
 
 
 		CHANGES IN animation VERSION 0.1-7 
@@ -495,11 +398,6 @@ MINOR CHANGES
   so the code is modified to avoid suspending in this case. 
 
 
-	**************************************************
-	*						 *
-	*	       0.1-6 NEWS			 *
-	*						 *
-	**************************************************
 
 
 		CHANGES IN animation VERSION 0.1-6 
@@ -515,11 +413,6 @@ MINOR CHANGES
     o The number of tosses is added to the plot in flip.coin(). 
 
 
-	**************************************************
-	*						 *
-	*	       0.1-5 NEWS			 *
-	*						 *
-	**************************************************
 
 
 		CHANGES IN animation VERSION 0.1-5 
@@ -538,11 +431,6 @@ MINOR CHANGES
   control of the output. 
 
 
-	**************************************************
-	*						 *
-	*	       0.1-4 NEWS			 *
-	*						 *
-	**************************************************
 
 
 		CHANGES IN animation VERSION 0.1-4
@@ -562,11 +450,6 @@ MINOR CHANGES
   'ANIenv' was fixed. 
 
 
-	**************************************************
-	*						 *
-	*	       0.1-3 NEWS			 *
-	*						 *
-	**************************************************
 
 
 		CHANGES IN animation VERSION 0.1-3
@@ -593,11 +476,6 @@ MINOR CHANGES
     o The vignette was supplemented and modified accordingly. 
 
 
-	**************************************************
-	*						 *
-	*	       0.1-2 NEWS			 *
-	*						 *
-	**************************************************
 
 
 		CHANGES IN animation VERSION 0.1-2
@@ -622,11 +500,7 @@ SIGNIFICANT CHANGES
   animation functions will also be better. All the animation 
   functions are chanaged accordingly. 
 
-	**************************************************
-	*						 *
-	*	       0.1-1 NEWS			 *
-	*						 *
-	**************************************************
+
 
 
 		CHANGES IN animation VERSION 0.1-1
@@ -651,14 +525,9 @@ MINOR CHANGES
 
 
 
-	**************************************************
-	*						 *
-	*	       0.1-0 NEWS			 *
-	*						 *
-	**************************************************
 
 
-    CONSTITUTION OF animation VERSION 0.1-0 
+		CHANGES IN animation VERSION 0.1-0 
     
     o ani.start() to start an HTML page for animations.
     o ani.stop() to complete the HTML animation page.
