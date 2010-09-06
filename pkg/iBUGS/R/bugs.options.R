@@ -22,6 +22,7 @@ bugs.options <- function(...) {
             galert("I need the BRugs package to call OpenBUGS",
                 "Install BRugs")
             install.packages("BRugs")
+            library(iBUGS)
         }
         data = unlist(sapply(grep("^[^(package:)]", search(),
             value = TRUE), ls))

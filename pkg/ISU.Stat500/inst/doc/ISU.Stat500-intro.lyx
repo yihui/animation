@@ -1,4 +1,4 @@
-#LyX 1.6.4.1 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -199,7 +199,7 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Scrap
-<<echo=FALSE,results=hide>>=
+<<setup,echo=FALSE,results=hide>>=
 \begin_inset Newline newline
 \end_inset
 
@@ -216,11 +216,7 @@ options(prompt = "R> ",useFancyQuotes='TeX', SweaveHooks=list(fig=function()
 \begin_inset Newline newline
 \end_inset
 
-source("commentSweave.r")
-\begin_inset Newline newline
-\end_inset
-
-source("beta.estimate.R")
+#source("commentSweave.r")
 \begin_inset Newline newline
 \end_inset
 
@@ -239,12 +235,12 @@ status open
 
 
 \backslash
-SweaveOpts{prefix.string=fig, eps=FALSE}
+SweaveOpts{prefix.string=fig, eps=FALSE, cache=FALSE}
 \end_layout
 
 \begin_layout Plain Layout
 
-
+%
 \backslash
 setkeys{Gin}{width=.85
 \backslash
@@ -414,27 +410,23 @@ Hypothesis test and confidence intervals
 \end_layout
 
 \begin_layout Scrap
-<<>>=
+<<platelet-ttest>>=
 \begin_inset Newline newline
 \end_inset
 
-x=read.table('platelet.txt',TRUE)
+data(creativity) 
 \begin_inset Newline newline
 \end_inset
 
-head(x)
+str(creativity)
 \begin_inset Newline newline
 \end_inset
 
-fit=t.test(x$before,x$after,paired=TRUE)
+(fit=t.test(score ~ code, data = creativity))
 \begin_inset Newline newline
 \end_inset
 
-fit
-\begin_inset Newline newline
-\end_inset
-
-#get confidence interval
+# get confidence interval
 \begin_inset Newline newline
 \end_inset
 
@@ -815,7 +807,7 @@ coef(summary(fit))
 Multiple comparisons
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Standard
 Multiple comparison procedures
 \end_layout
 
@@ -823,7 +815,7 @@ Multiple comparison procedures
 LSD, Scheffe, Bonferroni, Tukey-Kramer
 \end_layout
 
-\begin_layout Subparagraph
+\begin_layout Standard
 Adjusting p-values
 \end_layout
 
@@ -959,6 +951,21 @@ fdrA$marker[p.adjust(fdrA$pvalue,method='BH')<=.05]
 
 \begin_layout Standard
 Linear Regression
+\end_layout
+
+\begin_layout Standard
+Andrew Gelman's thoughts on m.c.p might be interesting: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.stat.columbia.edu/~gelman/presentations/multiple_martintalk.pdf
+\end_layout
+
+\end_inset
+
+ (note there is a video of this talk in his website)
 \end_layout
 
 \begin_layout Section
@@ -1558,10 +1565,12 @@ temperature
 \begin_layout Standard
 Six plots (selectable by which) are currently available: a plot of residuals
  against fitted values, a Scale-Location plot of 
-\backslash
-sqrt{| residuals |} against fitted values, a Normal Q-Q plot, a plot of
- Cook's distances versus row labels, a plot of residuals against leverages,
- and a plot of Cook's distances against leverage/(1-leverage).
+\begin_inset Formula $\sqrt{|\text{residuals}|}$
+\end_inset
+
+ against fitted values, a Normal Q-Q plot, a plot of Cook's distances versus
+ row labels, a plot of residuals against leverages, and a plot of Cook's
+ distances against leverage/(1-leverage).
  By default, the first three and 5 are provided.
 \end_layout
 
@@ -1583,6 +1592,18 @@ bptest(lm.web,~experience,data=website)
 \end_inset
 
 @
+\end_layout
+
+\begin_layout Standard
+TODO: 
+\emph on
+sim.qqnorm()
+\emph default
+ in 
+\series bold
+animation
+\series default
+.
 \end_layout
 
 \begin_layout Section
@@ -1800,7 +1821,7 @@ boxplot(list(group1,group2),names=c("group1","group2"),col=2:5, horizontal=T,
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Unfinished.work/ISU.Stat500/inst/doc/box.for.ancova.pdf
+	filename E:/Unfinished.work/ISU.Stat500/inst/doc/box.for.ancova.pdf
 	width 80page%
 
 \end_inset

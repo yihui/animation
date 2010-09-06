@@ -7,3 +7,6 @@
       iBUGS()
     }
 }
+.Last.lib <- function(lib) {
+    options(iBUGS = NULL)
+}
