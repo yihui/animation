@@ -1,3 +1,24 @@
+		CHANGES IN animation VERSION 1.1-3
+
+
+NEW FEATURES
+
+    o demo('jumpingHorse') shows a horse jumping
+  on the chess board (contributed by Linlin Yan)
+
+MINOR CHANGES
+
+    
+TO APPEAR
+
+    o A function boot.loess() added to show the
+  bootstrapping effects on loess().
+    o A function cart.ani() to show the splitting
+  process of classification and regression trees.
+    o Yixuan is working on porting SWF Tools into
+  R.
+
+
 		CHANGES IN animation VERSION 1.1-2
 
 
@@ -18,14 +39,6 @@ MINOR CHANGES
   should start with 0 instead of 1. (thanks,
   Taiyun)
     
-TO APPEAR
-
-    o A function boot.loess() added to show the
-  bootstrapping effects on loess().
-    o A function cart.ani() to show the splitting
-  process of classification and regression trees.
-    o Yixuan is working on porting SWF Tools into
-  R.
 
  
 		CHANGES IN animation VERSION 1.1-1
