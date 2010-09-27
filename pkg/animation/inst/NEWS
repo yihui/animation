@@ -5,18 +5,35 @@ NEW FEATURES
 
     o demo('jumpingHorse') shows a horse jumping
   on the chess board (contributed by Linlin Yan)
+    o A new function im.convert() which comes
+  from saveMovie() but serves as a more general-
+  purpose function; it can convert a series of
+  files (not necessarily produced in R) to
+  GIF/MPEG, and tries its best to find ImageMagick
+  automatically (even you only have LyX installed)
+  Thanks, Kelvin Lam.
 
 MINOR CHANGES
 
-    
+    o saveMovie() gained a new argument 'fileext'
+  to specify the file extension of the image
+  frames (the old approach to get the file ext
+  is not appropriate if we use other graphics
+  devices, e.g. Cairo); meanwhile, saveMovie()
+  now uses im.convert() to convert images to
+  an animation file.
+    o saveMovie() now generate the image frames
+  in a temp directory and output the animation 
+  to the working directory by default (thanks,
+  Thomas Julou)
+
 TO APPEAR
 
+    o Changes made by Thomas Julou (using ffmpeg)
     o A function boot.loess() added to show the
   bootstrapping effects on loess().
     o A function cart.ani() to show the splitting
   process of classification and regression trees.
-    o Yixuan is working on porting SWF Tools into
-  R.
 
 
 		CHANGES IN animation VERSION 1.1-2
@@ -33,14 +50,14 @@ NEW FEATURES
 MINOR CHANGES
 
     o added a note for the function newton.method()
-  that the argument 'FUN' needs to be defined 
+  that the argument 'FUN' needs to be defined
   without braces. (thanks, Peter Ehlers)
     o fixed a bug in saveLatex(): the frame number
   should start with 0 instead of 1. (thanks,
   Taiyun)
-    
 
- 
+
+
 		CHANGES IN animation VERSION 1.1-1
 
 
@@ -67,7 +84,7 @@ MINOR CHANGES
 
 NEW FEATURES
 
-    o three demos to illustrate recursion added: see 
+    o three demos to illustrate recursion added: see
   demo('recur.leaf'), demo('recur.snow') and
   demo('recur.tree'); thanks, Taiyun!
     o demo('Xmas') added
@@ -99,13 +116,13 @@ NEW FEATURES
   the 'hit or miss' Monte Carlo integration
     o a new function MC.samplemean() to demonstrate
   the 'sample mean' Monte Carlo integration
-    o a new function price.ani() to demonstrate 
+    o a new function price.ani() to demonstrate
   the stock prices changing within a time span
   (inspired by Shen Dai)
 
 MINOR CHANGES
 
-    o we can specify the 'convert' command in 
+    o we can specify the 'convert' command in
   saveMovie(); e.g. 'imconvert' under some Windows
   platforms (Thanks, James Pustejovsky)
 
@@ -119,7 +136,7 @@ NEW FEATURES
     o saveLatex() to embed the animation into a
   LaTeX document (with LaTeX package 'animate').
     o a new option 'imgdir' added to ani.options()
-  so that users can specify the name of the image 
+  so that users can specify the name of the image
   directory
     o a message will come up if the animation option
   'nmax' is changed; this will help users know the
@@ -134,18 +151,18 @@ MINOR CHANGES
   the animation is run in a non-interactive mode;
   this will save much time typically in 'R CMD check'
   (Thanks to Prof Ripley)
-    o the option 'nmax' will be adjusted to the 
-  *actual* number of images in the directory 
+    o the option 'nmax' will be adjusted to the
+  *actual* number of images in the directory
   ani.options('imgdir'), because sometimes the actual
   number of images does not equal to ani.options('nmax')
-    o shortened the descriptions in Rd files and 
-  several changes in documentations 
+    o shortened the descriptions in Rd files and
+  several changes in documentations
     o fixed several buglets in ani.stop()
     o changed the 'while' loop to 'for' loop in
   brownian.motion(); this will shorten the code by
   two lines
     o ani.options('ani.dev') can be the name of a
-  function (character), e.g. "png" 
+  function (character), e.g. "png"
 
 
 
@@ -170,14 +187,14 @@ MINOR CHANGES
 NEW FEATURES
 
     o moving.block() to plot a subset of data by blocks
-    o ani.options() gained a new argument 'loop' to 
+    o ani.options() gained a new argument 'loop' to
   control the iteration of the animation in an HTML
   page: TRUE to interate for infinite times, and FALSE
   not to interate (only play once). Thanks, Marcin Kozak!
 
 MINOR CHANGES
 
-    o fixed a bug for in ani.stop(): when 
+    o fixed a bug for in ani.stop(): when
   ani.options(footer = FALSE), ani.stop() will report
   an error for non-existent object 'footer'; I should
   have used the value ani.options("footer") in the code.
@@ -191,7 +208,7 @@ MINOR CHANGES
 
 NEW FEATURES
 
-    o new function sim.qqnorm() to demonstrate 
+    o new function sim.qqnorm() to demonstrate
   QQ plots for random numbers from Normal dist'n.
 
 
@@ -212,8 +229,8 @@ SIGNIFICANT CHANGES
 
     o tidy.source2() was merged into tidy.source(),
   and tidy.source() now returns a list of character
-  vectors and also gains an argument 'output' to 
-  decide whether to output the tidied code (to 
+  vectors and also gains an argument 'output' to
+  decide whether to output the tidied code (to
   R console or a file).
 
 
@@ -229,11 +246,11 @@ NEW FEATURES
 
 MINOR CHANGES
 
-    o fixed a bug for normalizePath() in saveMovie() 
+    o fixed a bug for normalizePath() in saveMovie()
   and saveSWF().
-  
 
-  
+
+
 
 
 		CHANGES IN animation VERSION 1.0-3
@@ -244,14 +261,14 @@ NEW FEATURES
     o The famous 'pollen' data added. See the example
   for finding the letters hidden in the data.
     o A function quincunx() added to simulate the
-  Galton box or Bean Machine. (Thanks for the 
+  Galton box or Bean Machine. (Thanks for the
   inspiration from Roger Koenker)
-    o A function least.squares() added to show the 
+    o A function least.squares() added to show the
   ordinary least square process. (Thanks for the
-  inspiration from Daniel Goldstein) 
+  inspiration from Daniel Goldstein)
     o A function BM.circle() added to show the
   Brownian Motion in a circle.
-    o A function g.brownian.motion() added to 
+    o A function g.brownian.motion() added to
   demonstrate the Brownian Motion using Google
   Visulization API.
 
@@ -265,8 +282,8 @@ MINOR CHANGES
   lines and arrows freely; the graphical parameters
   are no longer specified within the function using
   par().
-    o The path of SWF Tools in saveSWF() will be 
-  quoted by shQuote() instead of dQuote(). 
+    o The path of SWF Tools in saveSWF() will be
+  quoted by shQuote() instead of dQuote().
   (Thanks, zhoulvjun)
 
 
@@ -278,7 +295,7 @@ MINOR CHANGES
 NEW FEATURES
 
     o A new function Rosling.bubbles() added to show the
-  bubbles animations like those used in Hans Rosling's 
+  bubbles animations like those used in Hans Rosling's
   talk.
 
 MINOR CHANGES
@@ -339,13 +356,13 @@ SIGNIFICANT CHANGES
   the wiki http://animation.yihui.name will be used instead.
     o The way to create HTML animations is significantly
   changed for the sake of a better interface and more
-  flexible control of animations. Read the help files 
+  flexible control of animations. Read the help files
   for ani.control(), ani.start(), ani.stop().
     o The function savePNG() removed. The new way to
   create animation frames allows ANY graphics devices.
     o ani.control() and checkargs() removed. The new
   way to control animation parameters is more flexible.
- 
+
 
 
 
@@ -357,7 +374,7 @@ NEW FEATURES
 
     o cv.nfeaturesLDA() to illustrate the process of k-fold
   cross-validation to find the optimum number of features
-  in LDA. 
+  in LDA.
 
 MINOR CHANGES
 
@@ -370,8 +387,8 @@ MINOR CHANGES
 SIGNIFICANT CHANGES
 
     o The code for clt.ani() has been modified to make
-  better illustrations for the CLT. 
- 
+  better illustrations for the CLT.
+
 
 
 
@@ -381,67 +398,67 @@ SIGNIFICANT CHANGES
 MINOR CHANGES
 
     o the function flip.coin() is slightly modified (a new
-  argument 'grid' added and the digits of probabilities 
+  argument 'grid' added and the digits of probabilities
   in the graph can be controlled)
- 
 
 
 
-		CHANGES IN animation VERSION 0.1-7 
+
+		CHANGES IN animation VERSION 0.1-7
 
 
 NEW FEATURES
 
-    o conf.int() to illustrate the concept of confidence 
-  intervals. 
-    o lln.ani() to illustrate the Law of Large Numbers. 
+    o conf.int() to illustrate the concept of confidence
+  intervals.
+    o lln.ani() to illustrate the Law of Large Numbers.
     o grad.desc() for the Gradient Descent Algorithm.
-    o bisection.method() for the illustration of the 
+    o bisection.method() for the illustration of the
   Bisection method.
     o newton.method() for the demonstration of Newton-Raphson
-  method. 
- 
+  method.
+
 
 MINOR CHANGES
 
-    o A special function checkargs() is added to validate 
-  animation arguments, which can promote the efficiency 
-  of animation functions. 
+    o A special function checkargs() is added to validate
+  animation arguments, which can promote the efficiency
+  of animation functions.
     o It doesn't need Sys.sleep() when creating HTML pages,
-  so the code is modified to avoid suspending in this case. 
+  so the code is modified to avoid suspending in this case.
 
 
 
 
-		CHANGES IN animation VERSION 0.1-6 
+		CHANGES IN animation VERSION 0.1-6
 
 
 NEW FEATURES
 
-    o saveMovie() to create single movies using ImageMagick. 
- 
+    o saveMovie() to create single movies using ImageMagick.
+
 
 MINOR CHANGES
 
-    o The number of tosses is added to the plot in flip.coin(). 
+    o The number of tosses is added to the plot in flip.coin().
 
 
 
 
-		CHANGES IN animation VERSION 0.1-5 
+		CHANGES IN animation VERSION 0.1-5
 
 
 NEW FEATURES
 
     o cli.ani() to illustrate the Centrol Limit Theorem (CLT).
     o vi.grid.illusion() to illustrate two kinds of grid
-  illusions (Scintillating grid illusion and Hermann grid illusion). 
- 
+  illusions (Scintillating grid illusion and Hermann grid illusion).
+
 
 MINOR CHANGES
 
-    o Argument '...' added to tidy.source() for more flexible 
-  control of the output. 
+    o Argument '...' added to tidy.source() for more flexible
+  control of the output.
 
 
 
@@ -452,15 +469,15 @@ MINOR CHANGES
 NEW FEATURES
 
     o write.rss() for creating RSS feed files from a CSV file
-  containing RSS items. 
-    o vi.lilac.chaser() for the visual illusion 'Lilac Chaser'. 
+  containing RSS items.
+    o vi.lilac.chaser() for the visual illusion 'Lilac Chaser'.
 
 MINOR CHANGES
 
     o The capability of PNG device is checked before creating png
   image files in savePNG().
     o A bug in the assigning of 'interval' in the environment
-  'ANIenv' was fixed. 
+  'ANIenv' was fixed.
 
 
 
@@ -476,17 +493,17 @@ NEW FEATURES
     o sample.simple() for simple random sampling without replacement.
     o sample.strat() for stratified sampling.
     o sample.cluster for cluster sampling.
-    o sample.system() for systematic sampling. 
+    o sample.system() for systematic sampling.
 
-MINOR CHANGES 
+MINOR CHANGES
 
     o The string 'file://' was added before the path of the HTML
   animation page to avoid the error caused by browseURL in ani.stop().
-    o File 'ANI.css' and 'FUN.js' were moved to the directory 'js' 
+    o File 'ANI.css' and 'FUN.js' were moved to the directory 'js'
   (because they are not 'data'). Both files were modified slightly.
     o The parameter for time interval can be passed to the HTML
   animation page now.
-    o The vignette was supplemented and modified accordingly. 
+    o The vignette was supplemented and modified accordingly.
 
 
 
@@ -494,15 +511,15 @@ MINOR CHANGES
 		CHANGES IN animation VERSION 0.1-2
 
 
-MINOR CHANGES 
+MINOR CHANGES
 
-    o An argument 'col' added to flip.coin() to control colors of 
-  each face of the coin. 
+    o An argument 'col' added to flip.coin() to control colors of
+  each face of the coin.
     o The 'pageview' data updated to Dec 3, 2007.
     o Points that have already been classified in knn.ani() are
   marked out in later steps of classification for the rest points.
     o The values of PI are silently returned in buffon.needle().
-    o The result for the test set can be returned in knn.ani(). 
+    o The result for the test set can be returned in knn.ani().
 
 SIGNIFICANT CHANGES
 
@@ -510,8 +527,8 @@ SIGNIFICANT CHANGES
   sizes will be more 'uniformly' allocated.
     o A new function ani.control() added so that the controlling
   parameters can be more uniform and the scalability of the
-  animation functions will also be better. All the animation 
-  functions are chanaged accordingly. 
+  animation functions will also be better. All the animation
+  functions are chanaged accordingly.
 
 
 
@@ -523,29 +540,29 @@ NEW FEATURES
 
     o A news-reading function ani.news() added so that changes will
   be conveniently known.
-    o boot.iid() is available for demonstration of bootstrapping 
-  i.i.d data. 
+    o boot.iid() is available for demonstration of bootstrapping
+  i.i.d data.
 
 
-MINOR CHANGES 
+MINOR CHANGES
 
     o The arguments ... is added in animation functions to control
-  PNG image files. 
+  PNG image files.
     o The sample data is permuted before cv.ani() so that every time
   we do cross-validation, the splitting of trainig set and test set
-  will change (instead of splitting 1:n into k parts). The tick 
-  marks of x-axis will change accordingly. 
+  will change (instead of splitting 1:n into k parts). The tick
+  marks of x-axis will change accordingly.
 
 
 
 
 
-		CHANGES IN animation VERSION 0.1-0 
-    
+		CHANGES IN animation VERSION 0.1-0
+
     o ani.start() to start an HTML page for animations.
     o ani.stop() to complete the HTML animation page.
-    o brownian.motion() to demonstrate Brownian motion in the 2D 
-  plane. 
+    o brownian.motion() to demonstrate Brownian motion in the 2D
+  plane.
     o buffon.needle() to simulate the process of Buffon's needle.
     o cv.ani() to demonstrate k-fold cross validation.
     o flip.coin() to simulate tossing 'coins'.
@@ -554,6 +571,6 @@ MINOR CHANGES
     o knn.ani() to show k-Nearest Neighbor algorithm.
     o savePNG() to save PNG image files which constitute the basic
   animation frames in the HTML page.
-    o tidy.source() is a trivial function to 'tidy up' R code 
-  using the internal R function parse(). 
-    o 'pageview' is a daily page view data of my personal website. 
+    o tidy.source() is a trivial function to 'tidy up' R code
+  using the internal R function parse().
+    o 'pageview' is a daily page view data of my personal website.

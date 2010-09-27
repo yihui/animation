@@ -39,7 +39,7 @@ ani.options(oopt)
 # create an HTML animation page
 # store the old option to restore it later
 oopt = ani.options(interval = 0.05, nmax = 100, ani.dev = png,
-    ani.type = "png",
+    ani.type = "png", outdir = getwd(),
     title = "Demonstration of Brownian Motion",
     description = "Random walk on the 2D plane: for each point
     (x, y), x = x + rnorm(1) and y = y + rnorm(1).")
