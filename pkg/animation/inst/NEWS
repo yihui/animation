@@ -1,3 +1,27 @@
+		CHANGES IN animation VERSION 1.1-4
+
+
+NEW FEATURES
+
+    o demo('Mandelbrot') shows the Mandelbrot set
+
+MINOR CHANGES
+
+	o the MASS package is imported instead of
+  being attached; in fact only lda() in MASS is 
+  used in the animation package.
+    o fixed a buglet in saveMovie(): outdir
+  does not actually work.
+  
+TO APPEAR
+
+    o Changes made by Thomas Julou (using ffmpeg)
+    o A function boot.loess() added to show the
+  bootstrapping effects on loess().
+    o A function cart.ani() to show the splitting
+  process of classification and regression trees.
+
+  
 		CHANGES IN animation VERSION 1.1-3
 
 
@@ -27,13 +51,6 @@ MINOR CHANGES
   to the working directory by default (thanks,
   Thomas Julou)
 
-TO APPEAR
-
-    o Changes made by Thomas Julou (using ffmpeg)
-    o A function boot.loess() added to show the
-  bootstrapping effects on loess().
-    o A function cart.ani() to show the splitting
-  process of classification and regression trees.
 
 
 		CHANGES IN animation VERSION 1.1-2
