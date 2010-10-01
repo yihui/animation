@@ -5,7 +5,8 @@ saveMovie <-
              convert = "convert", cmd.fun, clean = TRUE,
              ani.first = NULL, para = par(no.readonly = TRUE),
              ...) {
-        ## create images in the temp dir
+        force(outdir)
+		## create images in the temp dir
         tmpdir = setwd(tempdir())
         on.exit(setwd(tmpdir))
 

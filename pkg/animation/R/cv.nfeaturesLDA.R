@@ -31,10 +31,10 @@
             slct = order(aovF(as.matrix(trdat[, -ncol(trdat)]),
                 trdat[, ncol(trdat)]), decreasing = TRUE) <=
                 j
-            fit = lda(as.formula(paste(colnames(dat)[ncol(dat)],
+            fit = MASS::lda(as.formula(paste(colnames(dat)[ncol(dat)],
                 "~", paste(colnames(dat)[-ncol(dat)][slct], collapse = "+"))),
                 data = dat)
-            pred = predict(fit, dat[idx, ], dimen = 2)
+            pred = MASS:::predict.lda(fit, dat[idx, ], dimen = 2)
             acc[i - 1, j] = mean(dat[idx, ncol(dat)] == pred$class)
             plot(1, xlim = c(1, nmax), ylim = c(0, k), type = "n",
                 xlab = "Number of Features", ylab = "Fold", yaxt = "n",
