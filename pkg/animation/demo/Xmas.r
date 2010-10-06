@@ -2,7 +2,7 @@
 # see: http://yihui.name/en/2009/12/merry-christmas-using-r/
 n = length(speed <- runif(angle <- runif(x <- strsplit("MERRY CHRISTMAS", 
     "")[[1]], 0, 360), 0, 15))
-x11(10, 3)
+x11(width = 10, height = 3)
 par(mar = rep(0, 4), bg = "black")
 for (j in 1:1000) {
     angle = angle + speed

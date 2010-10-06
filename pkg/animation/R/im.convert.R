@@ -115,8 +115,13 @@ im.convert = function(files, interval = ani.options("interval"),
         message("Output at: ", output.path)
         if (clean)
             unlink(files)
-        if (.Platform$OS.type == "windows" & interactive())
-            try(shell.exec(output.path))
+        if (interactive()) {
+			switch(.Platform$OS.type, 
+				windows = try(shell.exec(output.path)),
+				unix = try(system(paste('xdg-open ', output.path)), TRUE))
+			if (Sys.info()["sysname"] == "Darwin")
+				try(system(paste('open ', output.path)), TRUE)
+			}
         return(invisible(output.path))
     }
     else {

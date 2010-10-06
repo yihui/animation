@@ -12,6 +12,9 @@ MINOR CHANGES
   used in the animation package.
     o fixed a buglet in saveMovie(): outdir
   does not actually work.
+	o im.convert() will try to open the output
+  using the default application in the OS (e.g.
+  using command 'xdg-open', or 'open')
   
 TO APPEAR
 
