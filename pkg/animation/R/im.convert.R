@@ -19,7 +19,10 @@
 ##' \code{shell} under Windows and \code{\link[base]{system}} under
 ##' other OS
 ##' @param clean logical: delete the input \code{files} or not
-##' @return the path of the output if the command was successfully executed; otherwise a failure message
+##' @return The path of the output if the command was successfully executed; otherwise a failure message.
+##'
+##' If \code{ani.options('autobrowse') == TRUE}, this function will also try to
+##' open the output automatically.
 ##' @note If \code{files} is a character vector, please make sure the order of filenames is correct! The first animation frame will be \code{files[1]}, the second frame will be \code{files[2]}, ...
 ##'
 ##' Most Windows users do not have read the boring notes below after they have installed ImageMagick. For the rest:
@@ -115,8 +118,8 @@ im.convert = function(files, interval = ani.options("interval"),
         message("Output at: ", output.path)
         if (clean)
             unlink(files)
-        if (interactive()) {
-			switch(.Platform$OS.type, 
+        if (interactive() & ani.options('autobrowse')) {
+			switch(.Platform$OS.type,
 				windows = try(shell.exec(output.path)),
 				unix = try(system(paste('xdg-open ', output.path)), TRUE))
 			if (Sys.info()["sysname"] == "Darwin")

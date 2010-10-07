@@ -6,7 +6,10 @@
     convert="convert", cmd.fun, clean=FALSE)}
 \description{A Wrapper for the `convert' Utility of ImageMagick}
 \details{This function simply wraps the arguments of the \command{convert} utility of ImageMagick to make it easier to call \command{convert} in R.}
-\value{the path of the output if the command was successfully executed; otherwise a failure message}
+\value{The path of the output if the command was successfully executed; otherwise a failure message.
+
+If \code{ani.options('autobrowse') == TRUE}, this function will also try to
+open the output automatically.}
 \note{If \code{files} is a character vector, please make sure the order of filenames is correct! The first animation frame will be \code{files[1]}, the second frame will be \code{files[2]}, ...
 
 Most Windows users do not have read the boring notes below after they have installed ImageMagick. For the rest:
