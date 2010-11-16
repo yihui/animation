@@ -1,0 +1,9 @@
+This package contains various functions for animations in
+statistics, covering many areas such as probability theory, mathematical
+statistics, multivariate statistics, nonparametric statistics, sampling
+survey, linear models, time series, computational statistics, data mining
+and machine learning. These functions might be of help in teaching
+statistics and data analysis. Also provided in this package are several
+approaches to save animations to various formats, e.g. Flash, GIF, HTML
+page and PDF.
+
