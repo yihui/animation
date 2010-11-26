@@ -22,7 +22,8 @@ When parameters are set, their former values are returned in an
 
 }
 
-\section{Animation Parameters}{
+\details{
+The supported animation parameters:
 \describe{
   \item{interval}{ a positive number to set the time interval of the animation (unit in seconds); default to be 1. }
   \item{nmax}{ maximum number of steps for a loop (e.g. iterations) to create animation frames. Note: the actual number of frames can be less than this number, depending on specific animations. Default to be 50.}
