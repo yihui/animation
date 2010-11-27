@@ -1,7 +1,5 @@
 moving.block <- function(dat = runif(100), block, 
-    FUN = function(..., dat = dat, i = i, block = block) {
-        plot(...)
-    }, ...) {
+    FUN, ...) {
     nmax = ani.options("nmax")
     n = ifelse(is.null(dim(dat)), length(dat), nrow(dat))
     if (missing(block)) 
@@ -11,7 +9,11 @@ moving.block <- function(dat = runif(100), block,
     if (block != n - nmax + 1) {
         warning(sprintf("block length is too %s; try to adjust 'block' or ani.options('nmax')", 
             ifelse(block > n - nmax + 1, "long", "short")))
-    }    
+    }
+	if (missing(FUN)) 
+		FUN = function(..., dat = dat, i = i, block = block) {
+			plot(...)
+		}
     for (i in seq_len(nmax) - 1) {
         FUN(subset(dat, seq_len(n) %in% (i + 1:block)), dat = dat, 
             i = i, block = block, ...)
