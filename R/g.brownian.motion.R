@@ -1,3 +1,35 @@
+
+
+#' Brownian Motion Using Google Visualization API
+#' We can use R to generate random numbers from the Normal distribution and
+#' write them into an HTML document, then the Google Visualization gadget
+#' ``motionchart'' will prepare the animation for us (a Flash animation with
+#' several buttons).
+#' 
+#' 
+#' @param p number of points
+#' @param start start "year"; it has no practical meaning in this animation but
+#'   it's the required by the Google gadget
+#' @param digits the precision to round the numbers
+#' @param file the file name
+#' @param width, height width and height of the animation
+#' @return \code{NULL}. An HTML page will be opened as the side effect.
+#' @note The number of frames is controlled by \code{ani.options("nmax")} as
+#'   usual.
+#' @author Yihui Xie <\url{http://yihui.name}>
+#' @seealso \code{\link{brownian.motion}}, \code{\link{BM.circle}},
+#'   \code{\link{rnorm}}
+#' @references \url{http://code.google.com/apis/visualization/}
+#' 
+#' \url{http://yihui.name/en/2008/11/brownian-motion-using-google-visualization-api-and-r/}
+#' @keywords dynamic IO
+#' @examples
+#' 
+#' \dontrun{
+#' g.brownian.motion(15, digits = 2, width = 600, 
+#'     height = 500) 
+#' }
+#' 
 `g.brownian.motion` <-
 function(p = 20, start = 1900, 
     digits = 14, file = "brownian.motion.html", width = 800, 

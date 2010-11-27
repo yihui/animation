@@ -1,3 +1,29 @@
+
+
+#' Demonstrate Stock Prices in Animation
+#' This function can display the frequencies of stock prices in a certain time
+#' span with the span changing.
+#' 
+#' 
+#' @param price stock prices
+#' @param time time corresponding to prices
+#' @param time.begin the time for the animation to begin (default to be the
+#'   minimum \code{time})
+#' @param span time span (unit in seconds; default to be 15 minutes)
+#' @param \dots other arguments passed to \code{\link{plot}}
+#' @param xlab,ylab,xlim,ylim,main they are passed to \code{\link{plot}} with
+#'   reasonable default values
+#' @return invisible \code{NULL}
+#' @author Yihui Xie <\url{http://yihui.name}>
+#' @keywords dynamic hplot
+#' @examples
+#' 
+#' ## see more examples in ?vanke1127
+#' data(vanke1127)
+#' with(vanke1127, {
+#'     price.ani(price, time, lwd = 2)
+#' })
+#' 
 price.ani <-
 function(price, time, time.begin = min(time), 
     span = 15 * 60, ..., xlab = "price", ylab = "frequency", 
