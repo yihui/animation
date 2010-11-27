@@ -1,30 +1,30 @@
 
 
-#' Create R definition file for the software Highlight
-#' The default definition file for R in Highlight is incomplete, and this
-#' function is to dynamically generate such a file according to packages in the
-#' search path.
-#' 
-#' First all the functions are listed out by \code{\link{ls}}; then some
-#' constants and operators are removed from this long list; at last these
-#' characters are written into the \file{file}.
-#' 
-#' @param file the path of the output definition file.
-#' @return None.
-#' @author Yihui Xie <\url{http://yihui.name}>
-#' @seealso \code{\link{ls}}, \code{\link{cat}}
-#' @references Highlight by Andre Simon: \url{http://www.andre-simon.de/}
-#' @keywords IO
-#' @examples
-#' 
-#' # generate the definition file in getwd() 
-#' highlight.def()
-#' 
-#' # include functions in package 'animation'
-#' library(animation) 
-#' highlight.def()
-#'  
-#' 
+##' Create R definition file for the software Highlight
+##' The default definition file for R in Highlight is incomplete, and this
+##' function is to dynamically generate such a file according to packages in
+##' the search path.
+##' 
+##' First all the functions are listed out by \code{\link{ls}}; then some
+##' constants and operators are removed from this long list; at last these
+##' characters are written into the \file{file}.
+##' 
+##' @param file the path of the output definition file.
+##' @return None.
+##' @author Yihui Xie <\url{http://yihui.name}>
+##' @seealso \code{\link{ls}}, \code{\link{cat}}
+##' @references Highlight by Andre Simon: \url{http://www.andre-simon.de/}
+##' @keywords IO
+##' @examples
+##' 
+##' # generate the definition file in getwd() 
+##' highlight.def()
+##' 
+##' # include functions in package 'animation'
+##' library(animation) 
+##' highlight.def()
+##'  
+##' 
 `highlight.def` <-
 function(file = "r.lang") {
     cat(c("# R language definition file", "#", "# Author: Andre Simon", 
@@ -58,4 +58,3 @@ function(file = "r.lang") {
         file = file, append = TRUE)
     cat("R language definition file completed in ", file, "\n")
 }
-

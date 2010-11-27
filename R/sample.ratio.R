@@ -1,64 +1,64 @@
 
 
-#' Demonstrate the Ratio Estimation in Sampling Survey
-#' Demonstrate the advantage of ratio estimation when further information
-#' (ratio) about x and y is available.
-#' 
-#' From this demonstration we can clearly see that the ratio estimation is
-#' generally better than the simple sample average when the ratio \bold{R}
-#' really exists, otherwise ratio estimation may not help.
-#' 
-#' @param X the X variable (ancillary)
-#' @param R the population ratio Y/X
-#' @param Y the Y variable (whose mean we what to estimate)
-#' @param size sample size
-#' @param p.col,p.cex,p.pch point colors, magnification and symbols for the
-#'   population and sample respectively
-#' @param m.col color for the horizontal line to denote the sample mean of Y
-#' @param legend.loc legend location: topleft, topright, bottomleft,
-#'   bottomright, ... (see \code{\link{legend}})
-#' @param \dots other arguments passed to \code{\link{plot.default}}
-#' @return A list containing \item{XX population} \item{YY population}
-#'   \item{Rpopulation ratio} \item{rratio calculated from samples}
-#'   \item{Ybarpopulation mean of Y} \item{ybar.simplesimple sample mean of Y}
-#'   \item{ybar.ratiosample mean of Y via ratio estimation}
-#' @author Yihui Xie <\url{http://yihui.name}>
-#' @seealso \code{\link{sample}}, \code{\link{sample.simple}},
-#'   \code{\link{sample.cluster}}, \code{\link{sample.strat}},
-#'   \code{\link{sample.system}}
-#' @references \url{http://animation.yihui.name/samp:ratio_estimation}
-#' @keywords dynamic
-#' @examples
-#' 
-#' oopt = ani.options(interval = 2, nmax = 50)
-#' ## observe the location of the red line (closer to the population mean)
-#' res = sample.ratio()
-#' ## absolute difference with the true mean
-#' matplot(abs(cbind(res$ybar.ratio, res$ybar.simple) -
-#'     res$Ybar), type = "l")
-#' legend("topleft", c("Ratio Estimation", "Sample Average"),
-#'     lty = 1:2, col = 1:2)
-#' 
-#' ## if the ratio does not actually exist:
-#' sample.ratio(X = rnorm(50), Y = rnorm(50))
-#' ## ratio estimation may not be better than the simple average
-#' 
-#' \dontrun{
-#' 
-#' ## HTML animation page
-#' ani.options(ani.height = 400, ani.width = 500, nmax = 50,
-#'     interval = 2, title = "Demonstration of the Ratio Estimation",
-#'     description = "Estimate the mean of Y, making use of the ratio
-#'     Y/X which will generally improve the estimation.")
-#' ani.start()
-#' par(mar = c(4, 4, 1, 0.5), mgp = c(2, 1, 0))
-#' sample.ratio()
-#' ani.stop()
-#' 
-#' }
-#' ani.options(oopt)
-#' 
-#' 
+##' Demonstrate the Ratio Estimation in Sampling Survey
+##' Demonstrate the advantage of ratio estimation when further information
+##' (ratio) about x and y is available.
+##' 
+##' From this demonstration we can clearly see that the ratio estimation is
+##' generally better than the simple sample average when the ratio \bold{R}
+##' really exists, otherwise ratio estimation may not help.
+##' 
+##' @param X the X variable (ancillary)
+##' @param R the population ratio Y/X
+##' @param Y the Y variable (whose mean we what to estimate)
+##' @param size sample size
+##' @param p.col,p.cex,p.pch point colors, magnification and symbols for the
+##'   population and sample respectively
+##' @param m.col color for the horizontal line to denote the sample mean of Y
+##' @param legend.loc legend location: topleft, topright, bottomleft,
+##'   bottomright, ... (see \code{\link{legend}})
+##' @param \dots other arguments passed to \code{\link{plot.default}}
+##' @return A list containing \item{XX population} \item{YY population}
+##'   \item{Rpopulation ratio} \item{rratio calculated from samples}
+##'   \item{Ybarpopulation mean of Y} \item{ybar.simplesimple sample mean of Y}
+##'   \item{ybar.ratiosample mean of Y via ratio estimation}
+##' @author Yihui Xie <\url{http://yihui.name}>
+##' @seealso \code{\link{sample}}, \code{\link{sample.simple}},
+##'   \code{\link{sample.cluster}}, \code{\link{sample.strat}},
+##'   \code{\link{sample.system}}
+##' @references \url{http://animation.yihui.name/samp:ratio_estimation}
+##' @keywords dynamic
+##' @examples
+##' 
+##' oopt = ani.options(interval = 2, nmax = 50)
+##' ## observe the location of the red line (closer to the population mean)
+##' res = sample.ratio()
+##' ## absolute difference with the true mean
+##' matplot(abs(cbind(res$ybar.ratio, res$ybar.simple) -
+##'     res$Ybar), type = "l")
+##' legend("topleft", c("Ratio Estimation", "Sample Average"),
+##'     lty = 1:2, col = 1:2)
+##' 
+##' ## if the ratio does not actually exist:
+##' sample.ratio(X = rnorm(50), Y = rnorm(50))
+##' ## ratio estimation may not be better than the simple average
+##' 
+##' \dontrun{
+##' 
+##' ## HTML animation page
+##' ani.options(ani.height = 400, ani.width = 500, nmax = 50,
+##'     interval = 2, title = "Demonstration of the Ratio Estimation",
+##'     description = "Estimate the mean of Y, making use of the ratio
+##'     Y/X which will generally improve the estimation.")
+##' ani.start()
+##' par(mar = c(4, 4, 1, 0.5), mgp = c(2, 1, 0))
+##' sample.ratio()
+##' ani.stop()
+##' 
+##' }
+##' ani.options(oopt)
+##' 
+##' 
 sample.ratio <-
 function(X = runif(50, 0, 5), R = 1, 
     Y = R * X + rnorm(X), size = length(X)/2, p.col = c("blue", 
