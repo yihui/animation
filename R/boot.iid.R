@@ -1,19 +1,19 @@
 
 
-##' Bootstrapping the i.i.d data
-##' Demonstrate bootstrapping for i.i.d data: use a sunflower scatter plot to
+##' Demonstrate bootstrapping for iid data.
+##' Use a sunflower scatter plot to
 ##' illustrate the results of sampling, and a histogram to show the
 ##' distribution of the statistic of interest.
-##' 
+##'
 ##' This is actually a very naive version of bootstrapping but may be useful
 ##' for novices. By default, the circles denote the original dataset, while the
 ##' red sunflowers (probably) with leaves denote the points being resampled;
 ##' the number of leaves just means how many times these points are resampled,
 ##' as bootstrap samples \emph{with} replacement.
-##' 
+##'
 ##' The whole process has illustrated the steps of resampling, computing the
 ##' statistic and plotting its distribution based on bootstrapping.
-##' 
+##'
 ##' @param x a numerical vector (the original data).
 ##' @param statistic A function which returns a value of the statistic of
 ##'   interest when applied to the data x.
@@ -36,32 +36,32 @@
 ##' @seealso \code{\link[graphics]{sunflowerplot}}
 ##' @references There are many references explaining the bootstrap and its
 ##'   variations. For a relatively complete one, you may just refer to:
-##' 
+##'
 ##' Efron, B. and Tibshirani, R. (1993) \emph{An Introduction to the
 ##'   Bootstrap}. Chapman \& Hall.
-##' 
+##'
 ##' \url{http://animation.yihui.name/dmml:bootstrap_i.i.d}
 ##' @keywords nonparametric dynamic dplot
 ##' @examples
-##' 
+##'
 ##' # bootstrap for 20 random numbers from U(0, 1)
 ##' opar = par(mar = c(1.5, 3, 1, 0.1), cex.lab = 0.8, cex.axis = 0.8,
 ##'     mgp = c(2, 0.5, 0), tcl = -0.3)
 ##' oopt = ani.options(interval = 0.5, nmax = 40)
 ##' # don't want the titles
 ##' boot.iid(main = c("", ""))
-##' 
-##' # for the median of 15 points from chi-square(5) 
+##'
+##' # for the median of 15 points from chi-square(5)
 ##' boot.iid(x = rchisq(15, 5), statistic = median, main = c("", ""))
-##' 
+##'
 ##' # change the layout; or you may try 'mat = matrix(1:2, 1)'
 ##' par(mar = c(1.5, 3, 2.5, 0.1), cex.main = 1)
 ##' boot.iid(heights = c(1, 2))
-##' 
+##'
 ##' par(opar)
-##' 
+##'
 ##' \dontrun{
-##'  
+##'
 ##' # save the animation in HTML pages
 ##' ani.options(ani.height = 500, ani.width = 600, outdir = getwd(),
 ##'     title = "Bootstrapping the i.i.d data",
@@ -71,22 +71,22 @@
 ##' par(mar = c(2.5, 4, 0.5, 0.5))
 ##' boot.iid(main = c("", ""), heights = c(1, 2))
 ##' ani.stop()
-##' 
+##'
 ##' }
-##' 
+##'
 ##' ani.options(oopt)
-##' 
+##'
 `boot.iid` <- function(x = runif(20), statistic = mean,
     m = length(x), mat = matrix(1:2, 2), widths = rep(1, ncol(mat)),
     heights = rep(1, nrow(mat)), col = c("black", "red", "bisque",
-        "red", "gray"), cex = c(1.5, 0.8), main = c("Bootstrapping the i.i.d data",
-        "Density of bootstrap estimates"), ...) {
+        "red", "gray"), cex = c(1.5, 0.8), main, ...) {
     idx = replicate(ani.options("nmax"), sample(length(x), m,
         TRUE))
     xx = matrix(x[idx], nrow = m)
     xest = apply(xx, 2, statistic)
     xrg = range(hist(xest, plot = FALSE)$breaks)
     layout(mat, widths, heights)
+    if (missing(main)) main = c("Bootstrap sample", "Density of bootstrap estimates")
     interval = ani.options("interval")
     for (i in 1:ani.options("nmax")) {
         sunflowerplot(idx[, i], xx[, i], col = col[2], cex = cex[2],

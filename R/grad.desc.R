@@ -27,7 +27,7 @@
 ##'   for contours)
 ##' @param interact logical; whether choose the starting values by cliking on
 ##'   the contour plot directly?
-##' @param col.contour, ol.arrow colors for the contour lines and arrows
+##' @param col.contour,col.arrow colors for the contour lines and arrows
 ##'   respectively (default to be red and blue)
 ##' @return A list containing \item{par }{the solution for the local minimum}
 ##'   \item{value }{the value of the objective function corresponding to
