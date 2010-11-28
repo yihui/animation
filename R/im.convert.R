@@ -18,7 +18,7 @@
 ##' @param outdir the output directory
 ##' @param convert the \command{convert} command; see Details
 ##' @param cmd.fun a function to invoke the OS command; by default,
-##'   \code{shell} under Windows and \code{\link{system}} under other OS
+##'   \code{shell} under Windows and \code{\link[base]{system}} under other OS
 ##' @param clean logical: delete the input \code{files} or not
 ##' @return The path of the output if the command was successfully executed;
 ##'   otherwise a failure message.
@@ -43,8 +43,8 @@
 ##'   \code{readRegistry('SOFTWARE\ImageMagick\Current')$BinPath}, thus you
 ##'   might not really need to modify your \code{'PATH'} variable. Anyway, the
 ##'   full path will work in most cases, but bear in mind that if your path
-##'   contains spaces, you have to use \code{\link{shQuote}} to quote your path
-##'   string, e.g. \code{convert = shQuote(normalizePath('C:/Programe
+##'   contains spaces, you have to use \code{\link[base]{shQuote}} to quote
+##'   your path string, e.g. \code{convert = shQuote(normalizePath('C:/Programe
 ##'   Files/ImageMagick/convert.exe'))}.
 ##' 
 ##' For Windows users who have installed LyX, I will also try to find the

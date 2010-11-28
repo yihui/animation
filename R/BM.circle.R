@@ -8,10 +8,10 @@
 ##' 
 ##' @param n number of points
 ##' @param col colors of points
-##' @param \dots other parameters passed to \code{\link{points}}
+##' @param \dots other parameters passed to \code{\link[graphics]{points}}
 ##' @return Invisible \code{NULL}.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{brownian.motion}}, \code{\link{rnorm}}
+##' @seealso \code{\link{brownian.motion}}, \code{\link[stats]{rnorm}}
 ##' @references \url{http://animation.yihui.name/prob:brownian_motion_circle}
 ##' @keywords dynamic
 ##' @examples
@@ -55,3 +55,4 @@ function(n = 20, col = rainbow(n), ...) {
     }
     invisible(NULL)
 }
+

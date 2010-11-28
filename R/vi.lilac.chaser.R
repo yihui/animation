@@ -16,7 +16,7 @@
 ##'   \emph{blurred}, which is not implemented in this function. If you have
 ##'   any idea, please contact me.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{points}}
+##' @seealso \code{\link[graphics]{points}}
 ##' @references \url{http://en.wikipedia.org/wiki/Lilac_chaser}
 ##' 
 ##' \url{http://animation.yihui.name/animation:misc\#lilac_chaser}

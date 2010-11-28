@@ -19,8 +19,8 @@
 ##'   interest when applied to the data x.
 ##' @param m the sample size for bootstrapping (\eqn{m}-out-of-\eqn{n}
 ##'   bootstrap)
-##' @param mat, widths, heights arguments passed to \code{\link{layout}} to set
-##'   the layout of the two graphs
+##' @param mat,widths,heights arguments passed to
+##'   \code{\link[graphics]{layout}} to set the layout of the two graphs
 ##' @param col a character vector of length 5 specifying the colors of: points
 ##'   of original data, points for the sunflowerplot, rectangles of the
 ##'   histogram, the density line, and the rug.
@@ -28,11 +28,12 @@
 ##'   points and the sunflowerplot points.
 ##' @param main a character vector of length 2: the main titles of the two
 ##'   graphs.
-##' @param \dots other arguments passed to \code{\link{sunflowerplot}}
-##' @return A list containing \item{t0 The observed value of 'statistic'
-##'   applied to 'x'.} \item{tstar Bootstrap versions of the 'statistic'.}
+##' @param \dots other arguments passed to
+##'   \code{\link[graphics]{sunflowerplot}}
+##' @return A list containing \item{t0 }{ The observed value of 'statistic'
+##'   applied to 'x'.} \item{tstar }{Bootstrap versions of the 'statistic'.}
 ##' @author Yihui Xie
-##' @seealso \code{\link{sunflowerplot}}
+##' @seealso \code{\link[graphics]{sunflowerplot}}
 ##' @references There are many references explaining the bootstrap and its
 ##'   variations. For a relatively complete one, you may just refer to:
 ##' 

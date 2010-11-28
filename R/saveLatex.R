@@ -9,10 +9,11 @@
 ##' document uses the LaTeX package called \code{animate} to insert animations
 ##' into PDF's. When we pass an R expression to this function, the expression
 ##' will be evaluated and recorded by a grahpics device (typically
-##' \code{\link{png}} and \code{\link{pdf}}). At last, a LaTeX document will be
-##' created and compiled if an appropriate LaTeX command is provided. And the
-##' final PDF output will be opened with the PDF viewer set in
-##' \code{getOption("pdfviewer")} if \code{ani.options("autobrowse") == TRUE}.
+##' \code{\link[grDevices]{png}} and \code{\link[grDevices]{pdf}}). At last, a
+##' LaTeX document will be created and compiled if an appropriate LaTeX command
+##' is provided. And the final PDF output will be opened with the PDF viewer
+##' set in \code{getOption("pdfviewer")} if \code{ani.options("autobrowse") ==
+##' TRUE}.
 ##' 
 ##' @param expr an expression to generate animations; use either the animation
 ##'   functions (e.g. \code{brownian.motion()}) in this package or a custom
@@ -47,7 +48,7 @@
 ##' @return Invisible \code{NULL}
 ##' @note When using \code{ani.dev = "png"} or other bitmap graphics devices,
 ##'   all the images can be recorded only if a proper \code{num} is provided;
-##'   typically it must be \code{"%d"}.
+##'   typically it must be \code{"\%d"}.
 ##' 
 ##' PDF devices are recommended because of their high quality and usually they
 ##'   are more friendly to LaTeX. But sometimes the size of PDF files is much

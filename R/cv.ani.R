@@ -18,7 +18,8 @@
 ##'   points of the training set.
 ##' @param pch a numeric vector of length 2 specifying the symbols of the test
 ##'   set and training set respectively.
-##' @param \dots other arguments passed to \code{\link{plot}}
+##' @param \dots other arguments passed to
+##'   \code{\link[graphics:plot.default]{plot}}
 ##' @return None (invisible `\code{NULL}').
 ##' @note For the `leave-one-out' cross-validation, just specify \code{k} as
 ##'   \code{length(x)}, then the rectangles will `shrink' into single lines.

@@ -20,16 +20,16 @@
 ##' @param centers Either the number of clusters or a set of initial (distinct)
 ##'   cluster centres.  If a number, a random set of (distinct) rows in
 ##'   \code{x} is chosen as the initial centres.
-##' @param pch, col Symbols and colors for different clusters; the length of
+##' @param pch,col Symbols and colors for different clusters; the length of
 ##'   these two arguments should be equal to the number of clusters, or they
 ##'   will be recycled.
 ##' @param hints Two text strings indicating the steps of k-means clustering:
 ##'   move the center or find the cluster membership?
-##' @return A list with components \item{cluster A vector of integers
-##'   indicating the cluster to which each point is allocated.} \item{centers A
-##'   matrix of cluster centers.}
+##' @return A list with components \item{cluster }{A vector of integers
+##'   indicating the cluster to which each point is allocated.} \item{centers
+##'   }{A matrix of cluster centers.}
 ##' @note This function is only for demonstration purpose. For practical
-##'   applications please refer to \code{\link{kmeans}}.
+##'   applications please refer to \code{\link[stats]{kmeans}}.
 ##' 
 ##' Note that \code{nmax} is defined as the maximum number of iterations in
 ##'   such a sense: an iteration includes the process of computing distances,
@@ -38,7 +38,7 @@
 ##'   stopping the iteration has not yet been met (i.e. the cluster membership
 ##'   will not change any longer).
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{kmeans}}
+##' @seealso \code{\link[stats:kmeans]{kmeans}}
 ##' @references Hartigan, J. A. and Wong, M. A. (1979). A K-means clustering
 ##'   algorithm. \emph{Applied Statistics} \bold{28}, 100-108.
 ##' 

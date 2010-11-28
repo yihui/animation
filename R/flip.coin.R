@@ -28,11 +28,11 @@
 ##'   probabilities.
 ##' @param grid the color for horizontal grid lines in these rectangles
 ##' @param col The colors to annotate different faces of the `coin'.
-##' @param type, pch, bg See \code{\link{points}}.
+##' @param type,pch,bg See \code{\link[graphics:points]{points}}.
 ##' @param digits integer indicating the precision to be used in the annotation
 ##'   of frequencies in the plot
-##' @return A list containing \item{freq A vector of frequencies (simulated
-##'   probabilities)} \item{nmax the total number of tosses}
+##' @return A list containing \item{freq }{A vector of frequencies (simulated
+##'   probabilities)} \item{nmax }{the total number of tosses}
 ##' @note You may change the colors of each face using the argument \code{col}
 ##'   (repeated if shorter than the number of faces).
 ##' @author Yihui Xie <\url{http://yihui.name}>

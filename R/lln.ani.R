@@ -24,7 +24,8 @@
 ##'   means
 ##' @param col.mu the color of the horizontal line which denotes the population
 ##'   mean
-##' @param \dots other arguments passed to \code{\link{points}}
+##' @param \dots other arguments passed to
+##'   \code{\link[graphics:points]{points}}
 ##' @return None (invisible `\code{NULL}').
 ##' @note The argument \code{pch} will influence the speed of plotting, and for
 ##'   a very large sample size (say, 300), it is suggested that this argument

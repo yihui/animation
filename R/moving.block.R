@@ -113,3 +113,6 @@ moving.block <- function(dat = runif(100), block,
         Sys.sleep(ani.options("interval"))
     }
 }
+
+
+

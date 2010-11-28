@@ -4,13 +4,13 @@
 ##' Various functions for animations in statistics which could probably aid in
 ##' teaching statistics and data analysis.
 ##' 
-##' \tabular{ll Package: \tab{} animation\cr{} Type: \tab{} Package\cr{}
-##' Version: \tab{} 1.1\cr{} Date: \tab{} 2010-09-28\cr{} License: \tab{} GPL-2
-##' | GPL-3\cr{} } This package mainly makes use of HTML \& JavaScript and R
-##' windows graphics devices (such as \code{\link{x11}}) to demonstrate
-##' animations in statistics; other kinds of output such as Flash (SWF) or
-##' GIF/MPG animations or PDF animations are also available if required
-##' software packages have been installed.
+##' \tabular{ll}{ Package: \tab animation\cr Type: \tab Package\cr Version:
+##' \tab 1.1\cr Date: \tab 2010-09-28\cr License: \tab GPL-2 | GPL-3\cr } This
+##' package mainly makes use of HTML \& JavaScript and R windows graphics
+##' devices (such as \code{\link[grDevices]{x11}}) to demonstrate animations in
+##' statistics; other kinds of output such as Flash (SWF) or GIF/MPG animations
+##' or PDF animations are also available if required software packages have
+##' been installed.
 ##' 
 ##' @name animation-package
 ##' @aliases animation-package animation
@@ -117,16 +117,16 @@ NULL
 ##' @name pageview
 ##' @docType data
 ##' @format A data frame with 73 observations on the following 5 variables.
-##'   \describe{ \item{\code{day}Date starts from Sep 21, 2007 to Dec 2, 2007.}
-##'   \item{\code{visits}number of visits: a new visit is defined as each new
-##'   \emph{incoming visitor} (viewing or browsing a page) who was not
+##'   \describe{ \item{list("day")}{Date starts from Sep 21, 2007 to Dec 2,
+##'   2007.} \item{list("visits")}{number of visits: a new visit is defined as
+##'   each new \emph{incoming visitor} (viewing or browsing a page) who was not
 ##'   connected to the site during last \emph{60 min}.}
-##'   \item{\code{pages}number of times a \emph{page} of the site is viewed
+##'   \item{list("pages")}{number of times a \emph{page} of the site is viewed
 ##'   (sum for all visitors for all visits).  This piece of data differs from
 ##'   ``files'' in that it counts only HTML pages and excludes images and other
-##'   files.} \item{\code{files}number of times a \emph{page, image, file} of
-##'   the site is viewed or downloaded by someone.}
-##'   \item{\code{bandwidth}amount of data downloaded by all \emph{pages},
+##'   files.} \item{list("files")}{number of times a \emph{page, image, file}
+##'   of the site is viewed or downloaded by someone.}
+##'   \item{list("bandwidth")}{amount of data downloaded by all \emph{pages},
 ##'   \emph{images} and \emph{files} within the site (units in MegaBytes).} }
 ##' @source \url{http://yihui.name}
 ##' @keywords datasets
@@ -153,9 +153,10 @@ NULL
 ##' @name pollen
 ##' @docType data
 ##' @format A data frame with 3848 observations on the following 5 variables.
-##'   \describe{ \item{\code{RIDGE}a numeric vector} \item{\code{NUB}a numeric
-##'   vector} \item{\code{CRACK}a numeric vector} \item{\code{WEIGHT}a numeric
-##'   vector} \item{\code{DENSITY}a numeric vector} }
+##'   \describe{ \item{list("RIDGE")}{a numeric vector} \item{list("NUB")}{a
+##'   numeric vector} \item{list("CRACK")}{a numeric vector}
+##'   \item{list("WEIGHT")}{a numeric vector} \item{list("DENSITY")}{a numeric
+##'   vector} }
 ##' @source Collected from Statlib Datasets Archive:
 ##'   \url{http://stat.cmu.edu/datasets/}
 ##' @keywords datasets
@@ -198,8 +199,8 @@ NULL
 ##' @name vanke1127
 ##' @docType data
 ##' @format A data frame with 2831 observations on the following 2 variables.
-##'   \describe{ \item{\code{time}POSIXt: the time corresponding to stock
-##'   prices} \item{\code{price}a numeric vector: stock prices} }
+##'   \describe{ \item{list("time")}{POSIXt: the time corresponding to stock
+##'   prices} \item{list("price")}{a numeric vector: stock prices} }
 ##' @source This data can be obtained from most stock websites.
 ##' @keywords datasets
 ##' @examples

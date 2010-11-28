@@ -9,13 +9,13 @@
 ##' @param pop a vector for the size of each stratum in the population.
 ##' @param size a corresponding vector for the sample size in each stratum
 ##'   (recycled if necessary).
-##' @param p.col, p.cex different colors /magnification rate to annotate the
+##' @param p.col,p.cex different colors /magnification rate to annotate the
 ##'   population and the sample
-##' @param \dots other arguments passed to \code{\link{rect}} to annotate the
-##'   ``strata''
+##' @param \dots other arguments passed to \code{\link[graphics]{rect}} to
+##'   annotate the ``strata''
 ##' @return None (invisible `\code{NULL}').
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{sample}}, \code{\link{sample.simple}},
+##' @seealso \code{\link[base]{sample}}, \code{\link{sample.simple}},
 ##'   \code{\link{sample.cluster}}, \code{\link{sample.ratio}},
 ##'   \code{\link{sample.system}}
 ##' @references Cochran, W G (1977) \emph{Sampling Techniques}, Wiley, ISBN

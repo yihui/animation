@@ -7,18 +7,19 @@
 ##' cumulative normal random numbers: the location of the next step is just
 ##' ``current location + random Gaussian numbers'', i.e.,
 ##' 
-##' \deqn{x_{k + 1} = x_{k} + rnorm(1);\;\; y_{k + 1} = y_{k} + rnorm(1)x[k +
-##' 1] = x[k] + rnorm(1)\cr y[k + 1] = y[k] + rnorm(1)} where \emph{(x, y)}
-##' stands for the location of a point.
+##' \deqn{x_{k + 1} = x_{k} + rnorm(1);\;\; }{x[k + 1] = x[k] + rnorm(1)\cr y[k
+##' + 1] = y[k] + rnorm(1)}\deqn{ y_{k + 1} = y_{k} + rnorm(1)}{x[k + 1] = x[k]
+##' + rnorm(1)\cr y[k + 1] = y[k] + rnorm(1)} where \emph{(x, y)} stands for
+##' the location of a point.
 ##' 
 ##' @param n Number of points in the scatterplot
-##' @param xlim, ylim Arguments passed to \code{\link{plot.default}} to control
-##'   the apperance of the scatterplot (title, points, etc), see
-##'   \code{\link{points}} for details.
-##' @param \dots other arguments passed to \code{\link{plot.default}}
+##' @param xlim,ylim Arguments passed to \code{\link[graphics]{plot.default}}
+##'   to control the apperance of the scatterplot (title, points, etc), see
+##'   \code{\link[graphics]{points}} for details.
+##' @param \dots other arguments passed to \code{\link[graphics]{plot.default}}
 ##' @return None (invisible `\code{NULL}').
 ##' @author Yihui Xie
-##' @seealso \code{\link{rnorm}}
+##' @seealso \code{\link[stats]{rnorm}}
 ##' @references \url{http://animation.yihui.name/prob:brownian_motion}
 ##' @keywords dplot dynamic
 ##' @examples

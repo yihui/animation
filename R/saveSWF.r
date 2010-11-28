@@ -13,8 +13,8 @@
 ##' @param interval duration between animation frames (unit in seconds)
 ##' @param swfname file name of the Flash file
 ##' @param dev character: the graphics device to be used. Three choices are
-##'   available: \code{\link{png}}, \code{\link{jpeg}} and \code{\link{pdf}},
-##'   etc.
+##'   available: \code{\link[grDevices:png]{png}},
+##'   \code{\link[grDevices:png]{jpeg}} and \code{\link[grDevices]{pdf}}, etc.
 ##' @param filename file name of the sequence of images (`pure' name; without
 ##'   any format or extension)
 ##' @param fmt a C-style string formatting command, such as `\code{%3d}'
@@ -24,16 +24,17 @@
 ##'   \code{pdf2swf} can be executed correctly. If it is \code{NULL}, it should
 ##'   be guaranteed that these commands can be executed without the path.
 ##' @param para a list: the graphics parameters to be set before plotting;
-##'   passed to \code{\link{par}}
+##'   passed to \code{\link[graphics]{par}}
 ##' @param \dots other arguments passed to the graphical device, such as
 ##'   \code{height} and \code{width}, ...
 ##' @return An integer indicating failure (-1) or success (0) of the converting
-##'   (refer to \code{\link{system}}).
+##'   (refer to \code{\link[base]{system}}).
 ##' @note Please download the SWF Tools before using this function:
 ##'   \url{http://www.swftools.org}
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{saveMovie}}, \code{\link{system}}, \code{\link{png}},
-##'   \code{\link{jpeg}}, \code{\link{pdf}}
+##' @seealso \code{\link{saveMovie}}, \code{\link[base]{system}},
+##'   \code{\link[grDevices]{png}}, \code{\link[grDevices]{jpeg}},
+##'   \code{\link[grDevices]{pdf}}
 ##' @references
 ##'   \url{http://animation.yihui.name/animation:start\#create_flash_animations}
 ##' @keywords dynamic device utilities

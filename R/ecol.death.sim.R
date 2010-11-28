@@ -9,15 +9,15 @@
 ##' species: the larger the proportion is, the greater the probability for this
 ##' species to come up will be.
 ##' 
-##' @param nr, nc number of rows and columns of the field (plants grow on a
+##' @param nr,nc number of rows and columns of the field (plants grow on a
 ##'   \code{nr} x \code{nc} grid)
 ##' @param num.sp number of two plants respectively
 ##' @param col.sp,pch.sp colors and point symbols of the two species
 ##'   respectively
-##' @param col.die, pch.die, cex the color, point symbol and magnification to
+##' @param col.die,pch.die,cex the color, point symbol and magnification to
 ##'   annotate the plant which dies (symbol default to be an `X')
-##' @param \dots other arguments passed to \code{\link{plot}} to set up the
-##'   plot
+##' @param \dots other arguments passed to \code{\link[graphics]{plot}} to set
+##'   up the plot
 ##' @return a vector (factor) containing 1's and 2's, denoting the plants
 ##'   finally survived
 ##' @note \code{2 * nmax} image frames will actually be produced, and the
@@ -69,3 +69,4 @@ function(nr = 10, nc = 10, num.sp = c(50, 50), col.sp = c(1,
     ani.options(nmax = 2 * nmax)
     invisible(p)
 }
+

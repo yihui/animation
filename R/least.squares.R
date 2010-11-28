@@ -15,32 +15,33 @@
 ##'   of y (\code{x = 1:n} and \code{y = a + b * x + rnorm(n)})
 ##' @param ani.type \code{"slope"}: the slope is changing with the intercept
 ##'   fixed; \code{"intercept"}: intercept changing and slope fixed
-##' @param a, b the fixed intercept and slope; depending on \code{ani.type}, we
+##' @param a,b the fixed intercept and slope; depending on \code{ani.type}, we
 ##'   only need to specify one of them; e.g. when \code{ani.type == "slope"},
 ##'   we need to specify the value of \code{a}
-##' @param a.range, b.range a vector of length 2 to define the range of the
+##' @param a.range,b.range a vector of length 2 to define the range of the
 ##'   intercept and the slope; only one of them need to be specified; see above
 ##' @param ab.col the colors of two lines: the real regression line and the
 ##'   moving line with either intercept or slope changing
 ##' @param est.pch the point character of the "estimated" values given \code{x}
-##' @param v.col, v.lty the color and line type of the vetical lines which
+##' @param v.col,v.lty the color and line type of the vetical lines which
 ##'   demonstrate the residuals
-##' @param rss.pch, rss.type the point character and plot type of the residual
+##' @param rss.pch,rss.type the point character and plot type of the residual
 ##'   plot
-##' @param mfrow defines the layout of the graph; see \code{\link{par}}
-##' @param \dots other parameters passed to \code{\link{plot}} to define the
-##'   appearance of the scatterplot
+##' @param mfrow defines the layout of the graph; see
+##'   \code{\link[graphics]{par}}
+##' @param \dots other parameters passed to \code{\link[graphics]{plot}} to
+##'   define the appearance of the scatterplot
 ##' @return The value returned depends on the animation type.
 ##' 
 ##' If it is a slope animation, the value will be a list containing \item{lmfit
-##'   the estimates of the intercept and slope with \code{\link{lm}} }
-##'   \item{anifit the estimate of the slope in the animation } If it is an
-##'   intercept animation, the second component of the above list will be the
-##'   estimate of the intercept.
+##'   }{ the estimates of the intercept and slope with \code{\link[stats]{lm}}
+##'   } \item{anifit }{ the estimate of the slope in the animation } If it is
+##'   an intercept animation, the second component of the above list will be
+##'   the estimate of the intercept.
 ##' 
 ##' Note the estimate will not be precise generally.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{lm}}
+##' @seealso \code{\link[stats]{lm}}
 ##' @references \url{http://animation.yihui.name/lm:least_squares}
 ##' @keywords dynamic models
 ##' @examples
@@ -125,3 +126,4 @@ function(x, y, n = 15, ani.type = c("slope",
     }
     else warning("Incorrect animation type!")
 }
+

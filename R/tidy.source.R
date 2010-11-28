@@ -3,12 +3,12 @@
 ##' `Tidy up' R Code and Partially Preserve Comments
 ##' Actually this function has nothing to do with code optimization; it just
 ##' returns parsed source code, but some comments can be preserved, which is
-##' different with \code{\link{parse}}. See `Details'.
+##' different with \code{\link[base]{parse}}. See `Details'.
 ##' 
 ##' This function helps the users to tidy up their source code in a sense that
-##' necessary indents and spaces will be added, etc. See \code{\link{parse}}.
-##' But comments which are in single lines will be preserved if
-##' \code{keep.comment = TRUE} (inline comments will be removed).
+##' necessary indents and spaces will be added, etc. See
+##' \code{\link[base]{parse}}. But comments which are in single lines will be
+##' preserved if \code{keep.comment = TRUE} (inline comments will be removed).
 ##' 
 ##' The method to preserve comments is to protect them as strings in disguised
 ##' assignments: combine \code{end.comment} to the end of a comment line and
@@ -21,25 +21,28 @@
 ##'   \code{tidy.souce()} without specifying the argument \code{source})
 ##' @param keep.comment logical value: whether to keep comments or not?
 ##' @param keep.blank.line logical value: whether to keep blank lines or not?
-##' @param begin.comment, end.comment identifiers to mark the comments
-##' @param output output to the console or a file using \code{\link{cat}}?
-##' @param width.cutoff passed to \code{\link{deparse}}: integer in [20, 500]
-##'   determining the cutoff at which line-breaking is tried
-##' @param \dots other arguments passed to \code{\link{cat}}, e.g. \code{file}
-##' @return A list with components \item{text.tidyThe parsed code as a
-##'   character vector.} \item{text.maskThe code containing comments, which are
-##'   masked in assignments.} \item{begin.comment, end.comment identifiers used
-##'   to mark the comments }
+##' @param begin.comment,end.comment identifiers to mark the comments
+##' @param output output to the console or a file using
+##'   \code{\link[base]{cat}}?
+##' @param width.cutoff passed to \code{\link[base]{deparse}}: integer in [20,
+##'   500] determining the cutoff at which line-breaking is tried
+##' @param \dots other arguments passed to \code{\link[base]{cat}}, e.g.
+##'   \code{file}
+##' @return A list with components \item{text.tidy}{The parsed code as a
+##'   character vector.} \item{text.mask}{The code containing comments, which
+##'   are masked in assignments.} \item{begin.comment, end.comment}{
+##'   identifiers used to mark the comments }
 ##' 
 ##' Note that 'clean' code will be printed in the console unless the output is
-##'   redirected by \code{\link{sink}}, and we can also write the clean code to
-##'   a file.
+##'   redirected by \code{\link[base]{sink}}, and we can also write the clean
+##'   code to a file.
 ##' @note For Mac users, this function will automatically set \code{source} to
 ##'   be \code{pipe("pbpaste")} so that we still don't need to specify this
 ##'   argument if we want to rea the code form the clipboard.
 ##' @author Yihui Xie <\url{http://yihui.name}> with substantial contribution
 ##'   from Yixuan Qiu <\url{http://yixuan.cos.name}>
-##' @seealso \code{\link{parse}}, \code{\link{deparse}}, \code{\link{cat}}
+##' @seealso \code{\link[base]{parse}}, \code{\link[base]{deparse}},
+##'   \code{\link[base]{cat}}
 ##' @references
 ##'   \url{http://animation.yihui.name/animation:misc#tidy_up_r_source}
 ##' @keywords IO

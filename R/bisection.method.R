@@ -25,15 +25,15 @@
 ##' @param tol the desired accuracy (convergence tolerance)
 ##' @param interact logical; whether choose the end-points by cliking on the
 ##'   curve (for two times) directly?
-##' @param xlab, ylab, main axis and main titles to be used in the plot
-##' @param \dots other arguments passed to \code{\link{curve}}
-##' @return A list containing \item{root the root found by the algorithm}
-##'   \item{value the value of \code{FUN(root)}} \item{iternumber of
+##' @param xlab,ylab,main axis and main titles to be used in the plot
+##' @param \dots other arguments passed to \code{\link[graphics]{curve}}
+##' @return A list containing \item{root }{the root found by the algorithm}
+##'   \item{value }{the value of \code{FUN(root)}} \item{iter}{number of
 ##'   iterations; if it is equal to \code{ani.options('nmax')}, it's quite
 ##'   likely that the root is not reliable because the maximum number of
 ##'   iterations has been reached}
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{deriv}}, \code{\link{uniroot}}
+##' @seealso \code{\link[stats]{deriv}}, \code{\link[stats]{uniroot}}
 ##' @references \url{http://en.wikipedia.org/wiki/Bisection_method}
 ##' 
 ##' \url{http://animation.yihui.name/compstat:bisection_method}

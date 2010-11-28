@@ -12,13 +12,13 @@
 ##'   but it's the required by the Google gadget
 ##' @param digits the precision to round the numbers
 ##' @param file the file name
-##' @param width, height width and height of the animation
+##' @param width,height width and height of the animation
 ##' @return \code{NULL}. An HTML page will be opened as the side effect.
 ##' @note The number of frames is controlled by \code{ani.options("nmax")} as
 ##'   usual.
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link{brownian.motion}}, \code{\link{BM.circle}},
-##'   \code{\link{rnorm}}
+##'   \code{\link[stats]{rnorm}}
 ##' @references \url{http://code.google.com/apis/visualization/}
 ##' 
 ##' \url{http://yihui.name/en/2008/11/brownian-motion-using-google-visualization-api-and-r/}
@@ -62,3 +62,4 @@ function(p = 20, start = 1900,
         c("  </body>", "</html>"), file = file, sep = "\n")
     browseURL(file.path(getwd(), file))
 }
+

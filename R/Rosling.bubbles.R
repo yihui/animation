@@ -6,10 +6,10 @@
 ##' best stats you've ever seen'', he used a lot of bubble plots to illustrate
 ##' trends behind the data over time. This function gives an imitation of those
 ##' moving bubbles, besides, as this function is based on
-##' \code{\link{symbols}}, we can also make use of other symbols such as
-##' squares, rectangles, thermometers, etc.
+##' \code{\link[graphics]{symbols}}, we can also make use of other symbols such
+##' as squares, rectangles, thermometers, etc.
 ##' 
-##' Suppose we have observations of \eqn{nn} individuals over
+##' Suppose we have observations of \eqn{n}{n} individuals over
 ##' \code{ani.options("nmax")} years. In this animation, the data of each year
 ##' will be shown in the bubbles (symbols) plot; as time goes on, certain
 ##' trends will be revealed (like those in Rosling's talk). Please note that
@@ -25,25 +25,23 @@
 ##' And the length of \code{x} and \code{y} should be equal to the number of
 ##' rows of this matrix.
 ##' 
-##' @param x, y the x and y co-ordinates for the centres of the bubbles
+##' @param x,y the x and y co-ordinates for the centres of the bubbles
 ##'   (symbols). Default to be 10 uniform random numbers in [0, 1] for each
 ##'   single image frame (so the length should be 10 *
 ##'   \code{ani.options("nmax")})
-##' @param circles, squares, rectangles, stars, thermometers, boxplots
-##'   different symbols; see \code{\link{symbols}}. Default to be
+##' @param circles,squares,rectangles,stars,thermometers,boxplots
+##'   different symbols; see \code{\link[graphics]{symbols}}. Default to be
 ##'   \code{circles}.
-##' @param c("inches, fg, bg, xlab, ylab, main, xlim, ylim, see
-##'   \\code{\\link{symbols}}. Note that \\code{bg} has default values \n
-##'   taking semi-transparent colors. ", "list() see \\code{\\link{symbols}}.
-##'   Note that \\code{bg} has default values \n taking semi-transparent
-##'   colors. ")
+##' @param inches,fg,bg,xlab,ylab,main,xlim,ylim,\dots see 
+##' \code{\link[graphics]{symbols}}. Note that \code{bg} has default 
+##' values taking semi-transparent colors.
 ##' @param grid logical; add a grid to the plot?
 ##' @param text a character vector to be added to the plot one by one (e.g. the
 ##'   year in Rosling's talk)
-##' @param text.col, text.cex color and magnification of the background text
+##' @param text.col,text.cex color and magnification of the background text
 ##' @return \code{NULL}.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{symbols}}
+##' @seealso \code{\link[graphics]{symbols}}
 ##' @references \url{http://animation.yihui.name/da:ts:hans_rosling_s_talk}
 ##' 
 ##' \url{http://www.ted.com/index.php/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html}
@@ -143,3 +141,4 @@ function(x, y, circles, squares,
         Sys.sleep(interval)
     }
 }
+

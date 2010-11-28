@@ -12,16 +12,16 @@
 ##' @param from,to the limits of integration
 ##' @param col.points,pch.points colors and point characters for points which
 ##'   ``hit'' or ``miss'' the area under the curve
-##' @param \dots other arguments passed to \code{\link{points}}
-##' @return A list containing \item{x1 the Uniform random numbers generated on
-##'   x-axis} \item{x2 the Uniform random numbers generated on y-axis} \item{y
-##'   function values evaluated at \code{x1} } \item{n number of points drawn
-##'   from the Uniform distribtion } \item{est the estimated value of the
-##'   integral }
+##' @param \dots other arguments passed to \code{\link[graphics]{points}}
+##' @return A list containing \item{x1}{ the Uniform random numbers generated
+##'   on x-axis} \item{x2}{ the Uniform random numbers generated on y-axis}
+##'   \item{y}{ function values evaluated at \code{x1} } \item{n}{ number of
+##'   points drawn from the Uniform distribtion } \item{est}{ the estimated
+##'   value of the integral }
 ##' @note This function is for demonstration purpose only; the integral might
 ##'   be very inaccurate when \code{n} is small.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{integrate}}
+##' @seealso \code{\link[stats]{integrate}}
 ##' @references
 ##'   \url{http://animation.yihui.name/compstat:hit_or_miss_monte_carlo}
 ##' @keywords dynamic hplot
@@ -72,3 +72,4 @@ function(FUN = function(x) x - x^2,
     invisible(list(x1 = x1, x2 = x2, y = y, n = nmax, est = mean(x2 < 
         y) * ((to - from) * (ymax - ymin))))
 }
+

@@ -2,12 +2,12 @@
 
 ##' Demonstration of the Central Limit Theorem
 ##' First of all, a number of \code{obs} observations are generated from a
-##' certain distribution for each variable \eqn{X_j}, \eqn{j = 1, 2, \cdots, nj
-##' = 1, 2, ..., n}, and \eqn{n = 1, 2, \cdots, nmaxn = 1, 2, ..., nmax}, then
-##' the sample means are computed, and at last the density of these sample
-##' means is plotted as the sample size \eqn{n} increases, besides, the
-##' p-values from the normality test \code{\link{shapiro.test}} are computed
-##' for each \eqn{n} and plotted at the same time.
+##' certain distribution for each variable \eqn{X_j}, \eqn{j = 1, 2, \cdots,
+##' n}{j = 1, 2, ..., n}, and \eqn{n = 1, 2, \cdots, nmax}{n = 1, 2, ...,
+##' nmax}, then the sample means are computed, and at last the density of these
+##' sample means is plotted as the sample size \eqn{n} increases, besides, the
+##' p-values from the normality test \code{\link[stats]{shapiro.test}} are
+##' computed for each \eqn{n} and plotted at the same time.
 ##' 
 ##' As long as the conditions of the Central Limit Theorem (CLT) are satisfied,
 ##' the distribution of the sample mean will be approximate to the Normal
@@ -21,12 +21,12 @@
 ##'   distribution
 ##' @param col a vector of length 2 specifying the colors of the histogram and
 ##'   the density line
-##' @param mat, widths, heights arguments passed to \code{\link{layout}} to set
-##'   the layout of the two graphs.
-##' @param \dots other arguments passed to \code{\link{hist}}
+##' @param mat,widths,heights arguments passed to
+##'   \code{\link[graphics]{layout}} to set the layout of the two graphs.
+##' @param \dots other arguments passed to \code{\link[graphics]{hist}}
 ##' @return None.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{hist}}, \code{\link{density}}
+##' @seealso \code{\link[graphics]{hist}}, \code{\link[stats]{density}}
 ##' @references E. L. Lehmann, \emph{Elements of Large-Sample Theory}.
 ##'   Springer-Verlag, New York, 1999.
 ##' 

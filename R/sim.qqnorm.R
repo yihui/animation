@@ -11,10 +11,10 @@
 ##' don't overinterpret the QQ plots.
 ##' 
 ##' @param n integer: sample size
-##' @param \dots other arguments passed to \code{\link{qqnorm}}
+##' @param \dots other arguments passed to \code{\link[stats]{qqnorm}}
 ##' @return \code{NULL}
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{qqnorm}}
+##' @seealso \code{\link[stats]{qqnorm}}
 ##' @keywords dynamic distribution dplot
 ##' @examples
 ##' 
@@ -45,3 +45,4 @@ function(n = 20, ...) {
         Sys.sleep(ani.options("interval"))
     }
 }
+

@@ -10,12 +10,12 @@
 ##' 
 ##' The iteration goes on in this way:
 ##' 
-##' \deqn{x_{k + 1} = x_{k} - \frac{FUN(x_{k})}{FUN'(x_{k})}x[k + 1] = x[k] -
+##' \deqn{x_{k + 1} = x_{k} - \frac{FUN(x_{k})}{FUN'(x_{k})}}{x[k + 1] = x[k] -
 ##' FUN(x[k]) / FUN'(x[k])}
 ##' 
 ##' From the starting value \eqn{x_0}, vertical lines and points are plotted to
 ##' show the location of the sequence of iteration values \eqn{x_1, x_2,
-##' \ldotsx1, x2, \dots}; tangent lines are drawn to illustrate the
+##' \ldots}{x1, x2, \dots}; tangent lines are drawn to illustrate the
 ##' relationship between successive iterations; the iteration values are in the
 ##' right margin of the plot.
 ##' 
@@ -29,18 +29,18 @@
 ##'   the curve (for 1 time) directly?
 ##' @param col.lp a vector of length 3 specifying the colors of: vertical
 ##'   lines, tangent lines and points
-##' @param main, xlab, ylab titles of the plot; there are default values for
+##' @param main,xlab,ylab titles of the plot; there are default values for
 ##'   them (depending on the form of the function \code{FUN})
-##' @param \dots other arguments passed to \code{\link{curve}}
-##' @return A list containing \item{root the root found by the algorithm}
-##'   \item{value the value of \code{FUN(root)}} \item{iternumber of
+##' @param \dots other arguments passed to \code{\link[graphics]{curve}}
+##' @return A list containing \item{root }{the root found by the algorithm}
+##'   \item{value }{the value of \code{FUN(root)}} \item{iter}{number of
 ##'   iterations; if it is equal to \code{control$nmax}, it's quite likely that
 ##'   the root is not reliable because the maximum number of iterations has
 ##'   been reached}
 ##' @note The algorithm might not converge -- it depends on the starting value.
 ##'   See the examples below.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{optim}}
+##' @seealso \code{\link[stats]{optim}}
 ##' @references \url{http://en.wikipedia.org/wiki/Newton's_method}
 ##' 
 ##' \url{http://animation.yihui.name/compstat:newton_s_method}

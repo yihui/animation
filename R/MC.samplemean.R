@@ -27,15 +27,15 @@
 ##'   If \code{TRUE}, the rectangles will be laid side by side and it is
 ##'   informative for us to assess the total area of the rectangles, otherwise
 ##'   the rectangles will be laid at their exact locations.
-##' @param \dots other arguments passed to \code{\link{rect}}
-##' @return A list containing \item{x the Uniform random numbers } \item{y
-##'   function values evaluated at \code{x} } \item{n number of points drawn
-##'   from the Uniform distribtion } \item{est the estimated value of the
+##' @param \dots other arguments passed to \code{\link[graphics]{rect}}
+##' @return A list containing \item{x}{ the Uniform random numbers } \item{y}{
+##'   function values evaluated at \code{x} } \item{n}{ number of points drawn
+##'   from the Uniform distribtion } \item{est}{ the estimated value of the
 ##'   integral }
 ##' @note This function is for demonstration purpose only; the integral might
 ##'   be very inaccurate when \code{n} is small.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{integrate}}
+##' @seealso \code{\link[stats]{integrate}}
 ##' @references
 ##'   \url{http://animation.yihui.name/compstat:sample_mean_monte_carlo}
 ##' @keywords dynamic hplot
@@ -88,3 +88,4 @@ function(FUN = function(x) x - x^2,
     ani.options(nmax = nmax)
     invisible(list(x = x, y = y, n = nmax, est = mean(y)))
 }
+

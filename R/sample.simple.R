@@ -10,11 +10,11 @@
 ##' @param nrow the desired number of rows of the sample frame.
 ##' @param ncol the desired number of columns of the sample frame.
 ##' @param size the sample size.
-##' @param p.col, p.cex different colors /magnification rate to annotate the
+##' @param p.col,p.cex different colors /magnification rate to annotate the
 ##'   population and the sample
 ##' @return None (invisible `\code{NULL}').
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{sample}}, \code{\link{sample.ratio}},
+##' @seealso \code{\link[base]{sample}}, \code{\link{sample.ratio}},
 ##'   \code{\link{sample.cluster}}, \code{\link{sample.strat}},
 ##'   \code{\link{sample.system}}
 ##' @references Cochran, W G (1977) \emph{Sampling Techniques}, Wiley, ISBN

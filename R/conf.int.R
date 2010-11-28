@@ -23,10 +23,11 @@
 ##' @param size the sample size for drawing samples from N(0, 1)
 ##' @param cl two different colors to annotate whether the confidence intervals
 ##'   cover the true mean (\code{cl[1]}: yes; \code{cl[2]}: no)
-##' @param \dots other arguments passed to \code{\link{plot}}
-##' @return A list containing \item{level confidence level} \item{size sample
-##'   size} \item{CIa matrix of confidence intervals for each sample}
-##'   \item{CRcoverage rate}
+##' @param \dots other arguments passed to
+##'   \code{\link[graphics:plot.default]{plot}}
+##' @return A list containing \item{level }{confidence level} \item{size
+##'   }{sample size} \item{CI}{a matrix of confidence intervals for each
+##'   sample} \item{CR}{coverage rate}
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @references George Casella and Roger L. Berger. \emph{Statistical
 ##'   Inference}. Duxbury Press, 2th edition, 2001.

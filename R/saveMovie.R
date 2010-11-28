@@ -24,34 +24,36 @@
 ##' @param loop iterations of the movie; set iterations to zero to repeat the
 ##'   animation an infinite number of times, otherwise the animation repeats
 ##'   itself up to \code{loop} times (N.B. for GIF only!)
-##' @param dev a function for a graphical device such as \code{\link{png}},
-##'   \code{\link{jpeg}} and \code{\link{bmp}}, etc.
+##' @param dev a function for a graphical device such as
+##'   \code{\link[grDevices:png]{png}}, \code{\link[grDevices:png]{jpeg}} and
+##'   \code{\link[grDevices:png]{bmp}}, etc.
 ##' @param filename file name of the sequence of images (`pure' name; without
 ##'   any format or extension)
-##' @param fmt a C-style string formatting command, such as \code{%3d}
+##' @param fmt a C-style string formatting command, such as \code{\%3d}
 ##' @param fileext the file extensions of the image frames
 ##' @param outdir the directory for the movie frames
 ##' @param convert the ImageMagick command to convert images (default to be
 ##'   \code{convert}, but might be \code{imconvert} under some Windows
 ##'   platforms); see the 'Note' section for details
 ##' @param cmd.fun a function to invoke the OS command; by default,
-##'   \code{shell} under Windows and \code{\link{system}} under other OS
+##'   \code{shell} under Windows and \code{\link[base]{system}} under other OS
 ##' @param clean whether to delete the individual image frames
 ##' @param ani.first an expression to be evaluated before plotting (this will
 ##'   be useful to set graphical parameters in advance, e.g. \code{ani.first =
 ##'   par(pch = 20)}
 ##' @param para a list: the graphics parameters to be set before plotting;
-##'   passed to \code{\link{par}}; note \code{ani.first} can override this
-##'   argument
+##'   passed to \code{\link[graphics]{par}}; note \code{ani.first} can override
+##'   this argument
 ##' @param \dots other arguments passed to the graphical device, such as
 ##'   \code{height} and \code{width}, ...
 ##' @return An integer indicating failure (-1) or success (0) of the converting
-##'   (refer to \code{\link{system}} and \code{\link{im.convert}}).
+##'   (refer to \code{\link[base]{system}} and \code{\link{im.convert}}).
 ##' @note See \code{\link{im.convert}} for details on the configuration of
 ##'   ImageMagick (typically for Windows users).
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link{im.convert}}, \code{\link{saveSWF}},
-##'   \code{\link{system}}, \code{\link{png}}, \code{\link{jpeg}}
+##'   \code{\link[base]{system}}, \code{\link[grDevices]{png}},
+##'   \code{\link[grDevices]{jpeg}}
 ##' @references \url{http://www.imagemagick.org/script/convert.php}
 ##' 
 ##' \url{http://animation.yihui.name/animation:start}
@@ -78,9 +80,12 @@ saveMovie <-
 		## create images in the temp dir
         tmpdir = setwd(tempdir())
         on.exit(setwd(tmpdir))
+
         wildcard = paste(filename, "*.", fileext, sep = "")
+
         ## clean up the files first
         unlink(wildcard)
+
         ## draw the plots and record them in image files
         oopt = ani.options(interval = 0)
         dev(paste(filename, fmt, ".", fileext, sep = ""), ...)
@@ -89,10 +94,12 @@ saveMovie <-
         eval(expr)
         dev.off()
         ani.options(oopt)
+
         if (missing(cmd.fun))
             cmd.fun = if (.Platform$OS.type == "windows")
                 shell
             else system
+
         ## convert to animations
         im.convert(wildcard, interval = interval, loop = loop,
                    output = moviename, outdir = outdir, convert = convert,

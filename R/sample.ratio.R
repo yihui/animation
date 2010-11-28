@@ -16,14 +16,14 @@
 ##'   population and sample respectively
 ##' @param m.col color for the horizontal line to denote the sample mean of Y
 ##' @param legend.loc legend location: topleft, topright, bottomleft,
-##'   bottomright, ... (see \code{\link{legend}})
-##' @param \dots other arguments passed to \code{\link{plot.default}}
-##' @return A list containing \item{XX population} \item{YY population}
-##'   \item{Rpopulation ratio} \item{rratio calculated from samples}
-##'   \item{Ybarpopulation mean of Y} \item{ybar.simplesimple sample mean of Y}
-##'   \item{ybar.ratiosample mean of Y via ratio estimation}
+##'   bottomright, ... (see \code{\link[graphics]{legend}})
+##' @param \dots other arguments passed to \code{\link[graphics]{plot.default}}
+##' @return A list containing \item{X}{X population} \item{Y}{Y population}
+##'   \item{R}{population ratio} \item{r}{ratio calculated from samples}
+##'   \item{Ybar}{population mean of Y} \item{ybar.simple}{simple sample mean
+##'   of Y} \item{ybar.ratio}{sample mean of Y via ratio estimation}
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{sample}}, \code{\link{sample.simple}},
+##' @seealso \code{\link[base]{sample}}, \code{\link{sample.simple}},
 ##'   \code{\link{sample.cluster}}, \code{\link{sample.strat}},
 ##'   \code{\link{sample.system}}
 ##' @references \url{http://animation.yihui.name/samp:ratio_estimation}

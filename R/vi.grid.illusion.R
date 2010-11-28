@@ -20,7 +20,7 @@
 ##' @return None.
 ##' @note In fact there isn't any animation!
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{points}}, \code{\link{abline}}
+##' @seealso \code{\link[graphics]{points}}, \code{\link[graphics]{abline}}
 ##' @references \url{http://en.wikipedia.org/wiki/Grid_illusion}
 ##' 
 ##' \url{http://animation.yihui.name/animation:misc\#visual_illusions}
@@ -47,3 +47,4 @@ function(nrow = 8, ncol = 8, lwd = 8,
             cex = cex, pch = 20)
     par(op)
 }
+

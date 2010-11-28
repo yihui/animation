@@ -17,7 +17,7 @@
 ##' @param layers number of layers
 ##' @param pch.layers point character of layers; triangles (\code{pch = 2}) are
 ##'   recommended
-##' @param pch.balls, col.balls, cex.balls point character, colors and
+##' @param pch.balls,col.balls,cex.balls point character, colors and
 ##'   magnification of balls
 ##' @return A named vector: the frequency table for the locations of the balls.
 ##'   Note the names of the vector are the locations: 1.5, 2.5, ..., layers -
@@ -28,7 +28,7 @@
 ##'   will just fall through all the layers and there will be no redundant
 ##'   animation frames.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{rbinom}}
+##' @seealso \code{\link[stats:Binomial]{rbinom}}
 ##' @references \url{http://en.wikipedia.org/wiki/Bean_machine}
 ##' 
 ##' \url{http://animation.yihui.name/prob:bean_machine}
@@ -98,3 +98,4 @@ function(balls = 200, layers = 15, pch.layers = 2,
     par(op)
     return(invisible(c(table(finalx))))
 }
+

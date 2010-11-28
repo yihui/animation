@@ -7,24 +7,24 @@
 ##' are computed for data points inside the ``windows'' during the process of
 ##' moving.
 ##' 
-##' The AR(1) coefficients are computed by \code{\link{arima}}.
+##' The AR(1) coefficients are computed by \code{\link[stats]{arima}}.
 ##' 
 ##' @param x univariate time-series (a single numerical vector); default to be
 ##'   \code{sin(seq(0, 2 * pi, length = 50)) + rnorm(50, sd = 0.2)}
 ##' @param k an integer of the window width
 ##' @param conf a positive number: the confidence intervals are computed as
 ##'   [ar1 - conf*s.e., ar1 + conf*s.e.]
-##' @param mat, widths, heights arguments passed to \code{\link{layout}} to
-##'   divide the device into 2 parts
+##' @param mat,widths,heights arguments passed to
+##'   \code{\link[graphics]{layout}} to divide the device into 2 parts
 ##' @param lty.rect the line type of the rectangles respresenting the moving
 ##'   ``windows''
-##' @param \dots other arguments passed to \code{\link{points}} in the bottom
-##'   plot (the centers of the arrows)
-##' @return A list containing \item{phi the AR(1) coefficients} \item{L lower
-##'   bound of the confidence interval} \item{U upper bound of the confidence
-##'   interval}
+##' @param \dots other arguments passed to \code{\link[graphics]{points}} in
+##'   the bottom plot (the centers of the arrows)
+##' @return A list containing \item{phi }{the AR(1) coefficients} \item{L
+##'   }{lower bound of the confidence interval} \item{U }{upper bound of the
+##'   confidence interval}
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{arima}}
+##' @seealso \code{\link[stats]{arima}}
 ##' @references Robert A. Meyer, Jr. Estimating coefficients that change over
 ##'   time. \emph{International Economic Review}, 13(3):705-710, 1972.
 ##' 

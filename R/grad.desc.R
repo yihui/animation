@@ -22,31 +22,31 @@
 ##' @param init starting values
 ##' @param gamma size of a step
 ##' @param tol tolerance to stop the iterations, i.e. the minimum difference
-##'   between \eqn{F(x_i)F(x[i])} and \eqn{F(x_{i+1})F(x[i+1])}
+##'   between \eqn{F(x_i)}{F(x[i])} and \eqn{F(x_{i+1})}{F(x[i+1])}
 ##' @param len desired length of the independent sequences (to compute z values
 ##'   for contours)
 ##' @param interact logical; whether choose the starting values by cliking on
 ##'   the contour plot directly?
-##' @param col.contour, col.arrow colors for the contour lines and arrows
+##' @param col.contour, ol.arrow colors for the contour lines and arrows
 ##'   respectively (default to be red and blue)
-##' @return A list containing \item{par the solution for the local minimum}
-##'   \item{value the value of the objective function corresponding to
-##'   \code{par}} \item{iterthe number of iterations; if it is equal to
+##' @return A list containing \item{par }{the solution for the local minimum}
+##'   \item{value }{the value of the objective function corresponding to
+##'   \code{par}} \item{iter}{the number of iterations; if it is equal to
 ##'   \code{control$nmax}, it's quite likely that the solution is not reliable
 ##'   because the maximum number of iterations has been reached}
-##'   \item{gradientthe gradient function of the objective function; it is
-##'   returned by \code{\link{deriv}}} \item{perspa function to make the
-##'   perspective plot of the objective function; can accept further arguments
-##'   from \code{\link{persp}} (see the examples below)}
+##'   \item{gradient}{the gradient function of the objective function; it is
+##'   returned by \code{\link[stats]{deriv}}} \item{persp}{a function to make
+##'   the perspective plot of the objective function; can accept further
+##'   arguments from \code{\link[graphics]{persp}} (see the examples below)}
 ##' @note Please make sure the function \code{FUN} provided is differentiable
 ##'   at \code{init}, what's more, it should also be 'differentiable' using
-##'   \code{\link{deriv}} (see the help file)!
+##'   \code{\link[stats]{deriv}} (see the help file)!
 ##' 
 ##' If the arrows cannot reach the local minimum, the maximum number of
 ##'   iterations \code{nmax} in \code{\link{ani.options}} may be increased.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{deriv}}, \code{\link{persp}}, \code{\link{contour}},
-##'   \code{\link{optim}}
+##' @seealso \code{\link[stats]{deriv}}, \code{\link[graphics]{persp}},
+##'   \code{\link[graphics]{contour}}, \code{\link[stats]{optim}}
 ##' @references \url{http://en.wikipedia.org/wiki/Gradient_descent}
 ##' 
 ##' \url{http://animation.yihui.name/compstat:gradient_descent_algorithm}

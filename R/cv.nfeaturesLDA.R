@@ -10,15 +10,15 @@
 ##' 
 ##' The selection procedure is like this:
 ##' 
-##' \itemize{ \item{} Split the whole data randomly into \eqn{k} folds:
-##' \itemize{ \item{} For the number of features \eqn{g = 1, 2, \cdots,
-##' g_{max}g = 1, 2, ..., gmax}, choose \eqn{g} features that have the largest
-##' discriminatory power (measured by the F-statistic in ANOVA): \itemize{
-##' \item{} For the fold \eqn{i} (\eqn{i = 1, 2, \cdots, ki = 1, 2, ..., k}):
-##' \itemize{ \item{} Train a LDA model without the \eqn{i}-th fold data, and
-##' predict with the \eqn{i}-th fold for a proportion of correct predictions
-##' \eqn{p_{gi}p[gi]}; } } \item{} Average the \eqn{k} proportions to get the
-##' correct rate \eqn{p_gp[g]}; } \item{} Determine the optimum number of
+##' \itemize{ \item Split the whole data randomly into \eqn{k} folds: \itemize{
+##' \item For the number of features \eqn{g = 1, 2, \cdots, g_{max}}{g = 1, 2,
+##' ..., gmax}, choose \eqn{g} features that have the largest discriminatory
+##' power (measured by the F-statistic in ANOVA): \itemize{ \item For the fold
+##' \eqn{i} (\eqn{i = 1, 2, \cdots, k}{i = 1, 2, ..., k}): \itemize{ \item
+##' Train a LDA model without the \eqn{i}-th fold data, and predict with the
+##' \eqn{i}-th fold for a proportion of correct predictions
+##' \eqn{p_{gi}}{p[gi]}; } } \item Average the \eqn{k} proportions to get the
+##' correct rate \eqn{p_g}{p[g]}; } \item Determine the optimum number of
 ##' features with the largest \eqn{p}. }
 ##' 
 ##' Note that \eqn{g_{max}} is set by \code{ani.options("nmax")}.
@@ -30,13 +30,13 @@
 ##'   the plot
 ##' @param col.av the two colors used to respectively denote rates of correct
 ##'   predictions in the i-th fold and the average rates for all k folds
-##' @return A list containing \item{accuracy a matrix in which the element in
+##' @return A list containing \item{accuracy }{a matrix in which the element in
 ##'   the i-th row and j-th column is the rate of correct predictions based on
 ##'   LDA, i.e. build a LDA model with j variables and predict with data in the
-##'   i-th fold (the test set) } \item{optimum the optimum number of features
+##'   i-th fold (the test set) } \item{optimum }{the optimum number of features
 ##'   based on the cross-validation}
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{kfcv}}, \code{\link{cv.ani}}, \code{\link{lda}}
+##' @seealso \code{\link{kfcv}}, \code{\link{cv.ani}}, \code{\link[MASS]{lda}}
 ##' @references Maindonald J, Braun J (2007). \emph{Data Analysis and Graphics
 ##'   Using R - An Example-Based Approach}. Cambridge University Press, 2nd
 ##'   edition. pp. 400

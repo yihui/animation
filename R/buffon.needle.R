@@ -23,8 +23,8 @@
 ##' @param d numerical. distances between lines; it should be longer than
 ##'   \code{l}.
 ##' @param redraw logical. redraw former `needles' or not for each drop.
-##' @param mat, heights arguments passed to \code{\link{layout}} to set the
-##'   layout of the three graphs.
+##' @param mat,heights arguments passed to \code{\link[graphics]{layout}} to
+##'   set the layout of the three graphs.
 ##' @param col a character vector of length 7 specifying the colors of:
 ##'   background of the area between parallel lines, the needles, the sin
 ##'   curve, points below / above the sin curve, estimated \eqn{\pi} values,
@@ -32,10 +32,11 @@
 ##' @param expand a numerical value defining the expanding range of the y-axis
 ##'   when plotting the estimated \eqn{\pi} values: the \code{ylim} will be
 ##'   \code{(1 +/- expand) * pi}.
-##' @param type an argument passed to \code{\link{plot}} when plotting the
-##'   estimated \eqn{\pi} values (default to be lines).
-##' @param \dots other arguments passed to \code{\link{plot}} when plotting the
-##'   values of estimated \eqn{\pi}.
+##' @param type an argument passed to \code{\link[graphics:plot.default]{plot}}
+##'   when plotting the estimated \eqn{\pi} values (default to be lines).
+##' @param \dots other arguments passed to
+##'   \code{\link[graphics:plot.default]{plot}} when plotting the values of
+##'   estimated \eqn{\pi}.
 ##' @return The values of estimated \eqn{\pi} are returned as a numerical
 ##'   vector (of length \code{nmax}).
 ##' @note Note that \code{redraw} will affect the speed of the simulation

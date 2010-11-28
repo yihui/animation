@@ -9,11 +9,10 @@
 ##' majority vote, with ties broken at random. For a single test sample point,
 ##' the basic steps are:
 ##' 
-##' \enumerate{ \item{} locate the test point \item{} compute the distances
-##' between the test point and all points in the training set \item{} find
-##' \eqn{k} shortest distances and the corresponding training set points
-##' \item{} vote for the result (find the maximum in the table for the true
-##' classifications) }
+##' \enumerate{ \item locate the test point \item compute the distances between
+##' the test point and all points in the training set \item find \eqn{k}
+##' shortest distances and the corresponding training set points \item vote for
+##' the result (find the maximum in the table for the true classifications) }
 ##' 
 ##' As there are four steps in an iteration, the total number of animation
 ##' frames should be \code{4 * min(nrow(test), ani.options("nmax"))} at last.
@@ -32,20 +31,20 @@
 ##' @param tt.col a vector of length 2 specifying the colors for the training
 ##'   data and test data.
 ##' @param cl.pch a vector specifying symbols for each class
-##' @param dist.lty, dist.col the line type and color to annotate the distances
+##' @param dist.lty,dist.col the line type and color to annotate the distances
 ##' @param knn.col the color to annotate the k-nearest neighbour points using a
 ##'   polygon
 ##' @return A vector of class labels for the test set.
 ##' @note There is a special restriction (only two columns) on the training and
 ##'   test data set just for sake of the convenience for making a scatterplot.
 ##'   This is only a rough demonstration; for practical applications, please
-##'   refer to existing kNN functions such as \code{\link{knn}} in \pkg{class},
-##'   etc.
+##'   refer to existing kNN functions such as \code{\link[class]{knn}} in
+##'   \pkg{class}, etc.
 ##' 
 ##' If either one of \code{train} and \code{test} is missing, there'll be
 ##'   random matrices prepared for them. (It's the same for \code{cl}.)
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{knn}}
+##' @seealso \code{\link[class]{knn}}
 ##' @references Venables, W. N. and Ripley, B. D. (2002) \emph{Modern Applied
 ##'   Statistics with S}. Fourth edition. Springer.
 ##' 

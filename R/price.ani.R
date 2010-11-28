@@ -10,9 +10,9 @@
 ##' @param time.begin the time for the animation to begin (default to be the
 ##'   minimum \code{time})
 ##' @param span time span (unit in seconds; default to be 15 minutes)
-##' @param \dots other arguments passed to \code{\link{plot}}
-##' @param xlab,ylab,xlim,ylim,main they are passed to \code{\link{plot}} with
-##'   reasonable default values
+##' @param \dots other arguments passed to \code{\link[graphics]{plot}}
+##' @param xlab,ylab,xlim,ylim,main they are passed to
+##'   \code{\link[graphics]{plot}} with reasonable default values
 ##' @return invisible \code{NULL}
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @keywords dynamic hplot
@@ -62,3 +62,4 @@ function(price, time, time.begin = min(time),
         Sys.sleep(ani.options("interval"))
     }
 }
+
