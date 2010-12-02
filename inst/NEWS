@@ -10,17 +10,17 @@ SIGNIFICANT CHANGES
     o the package is now maintained on GitHub
   (https://github.com/yihui/animation) and using
   roxygen to document functions
-	o the function write.rss() was removed from 
-  this package because it is irrelevant
+    o the functions highlight.def() and write.rss() 
+  were defunct because they are irrelevant
 
 MINOR CHANGES
 
-	o the MASS package is imported instead of
+    o the MASS package is imported instead of
   being attached; in fact only lda() in MASS is 
   used in the animation package.
     o fixed a buglet in saveMovie(): outdir
   does not actually work.
-	o im.convert() will try to open the output
+    o im.convert() will try to open the output
   using the default application in the OS (e.g.
   using command 'xdg-open', or 'open')
   
