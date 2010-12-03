@@ -1,13 +1,11 @@
-
-
-##' Start the generation of an HTML animation page
-##' Copy JavaScript file \file{FUN.js} and CSS file \file{ANI.css} to the same
-##' directory as the HTML animation page, create a directory \file{images} and
-##' open a graphics device in this directory (the device is specified as
-##' \code{ani.dev} in \code{\link{ani.options}}). The prompt of the current R
-##' session is modified (by default \code{ANI> }).
-##' 
-##' 
+##' Start the generation of an HTML animation page.
+##' This function copies JavaScript file \file{FUN.js} and CSS file \file{ANI.css}
+##' to the same directory as the HTML animation page, create a directory
+##' \file{images} and open a graphics device in this directory (the device is
+##' specified as \code{ani.dev} in \code{\link{ani.options}}). The prompt of the
+##' current R session is modified (by default \code{ANI> }).
+##'
+##'
 ##' @param \dots arguments passed to \code{\link{ani.options}} to set animation
 ##'   parameters
 ##' @return None (invisible `\code{NULL}').
@@ -16,7 +14,7 @@
 ##'   animated pictures using proper graphics devices (specified as
 ##'   \code{ani.dev} in \code{\link{ani.options}}), then watch your animation
 ##'   by \code{\link{ani.stop}()}.
-##' 
+##'
 ##' Note that former image files in the directory \file{images} will be
 ##'   removed.
 ##' @author Yihui Xie <\url{http://yihui.name}>
@@ -25,18 +23,18 @@
 ##'   \url{http://animation.yihui.name/animation:create_html_animation_page}
 ##' @keywords utilities
 ##' @examples
-##' 
+##'
 ##' \dontrun{
-##'  
-##' # save the animation in HTML pages and auto-browse it 
+##'
+##' # save the animation in HTML pages and auto-browse it
 ##' ani.options(ani.width = 600, ani.height = 500, interval = 0.2)
 ##' ani.start()
 ##' boot.iid()
 ##' ani.stop()
-##' 
+##'
 ##' }
-##' 
-`ani.start` <- function(...) {
+##'
+ani.start = function(...) {
     ani.options(...)
     ani.options(withprompt = c(options(prompt = ani.options("withprompt"))$prompt,
         ani.options("withprompt")))

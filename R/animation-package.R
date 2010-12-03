@@ -1,31 +1,29 @@
-
-
-##' Statistical Animations Using R
+##' Statistical Animations Using R.
 ##' Various functions for animations in statistics which could probably aid in
 ##' teaching statistics and data analysis.
-##' 
+##'
 ##' \tabular{ll}{ Package: \tab animation\cr Type: \tab Package\cr Version:
 ##' \tab 1.1\cr Date: \tab 2010-09-28\cr License: \tab GPL-2 | GPL-3\cr } This
 ##' package mainly makes use of HTML \& JavaScript and R windows graphics
 ##' devices (such as \code{\link[grDevices]{x11}}) to demonstrate animations in
-##' statistics; other kinds of output such as Flash (SWF) or GIF/MPG animations
+##' statistics; other kinds of output such as Flash (SWF) or GIF animations
 ##' or PDF animations are also available if required software packages have
 ##' been installed.
-##' 
+##'
 ##' @name animation-package
 ##' @aliases animation-package animation
 ##' @docType package
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @references AniWiki: Animations in Statistics
-##'   \url{http://animation.yihui.name}; created and maintained by Yihui Xie
+##'   \url{http://animation.yihui.name}
 ##' @keywords package dynamic device dplot
 ##' @examples
-##' 
+##'
 ##' \dontrun{
 ##' #############################################################
 ##' # (1) Animations in HTML pages
-##' # create an animation page in the tempdir() and auto-browse it 
-##' # Brownian Motion 
+##' # create an animation page in the tempdir() and auto-browse it
+##' # Brownian Motion
 ##' oopt = ani.options(interval = 0.05, nmax = 100, ani.dev = png,
 ##'     ani.type = "png",
 ##'     title = "Demonstration of Brownian Motion",
@@ -39,21 +37,21 @@
 ##' par(opar)
 ##' ani.stop()
 ##' ani.options(oopt)
-##' 
+##'
 ##' #############################################################
 ##' # (2) Animations inside R windows graphics devices
 ##' # Bootstrapping
 ##' oopt = ani.options(interval = 0.3, nmax = 50)
 ##' boot.iid()
 ##' ani.options(oopt)
-##' 
+##'
 ##' #############################################################
 ##' # (3) GIF animations
 ##' oopt = ani.options(interval = 0, nmax = 100)
 ##' saveMovie(brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow"),
 ##'     interval = 0.05, outdir = getwd(), width = 600, height = 600)
 ##' ani.options(oopt)
-##' 
+##'
 ##' #############################################################
 ##' # (4) Flash animations
 ##' oopt = ani.options(nmax = 100, interval = 0)
@@ -61,7 +59,7 @@
 ##'     pch = 20, mgp = c(1.5, 0.5, 0)), dev = "pdf", swfname = "buffon.swf",
 ##'     outdir = getwd(), interval = 0.1)
 ##' ani.options(oopt)
-##' 
+##'
 ##' #############################################################
 ##' # (5) PDF animations
 ##' oopt = ani.options(interval = 0.1, nmax = 100)
@@ -74,21 +72,20 @@
 ##'     latex.filename = "brownian.motion.tex")
 ##' ani.options(oopt)
 ##' }
-##' 
+##'
 NULL
 
 
 
 
 
-##' Word Counts of a Speech by Chinese President Hu
-##' Word Counts of a Speech by Chinese President Hu on the 30th anniversary of
-##' China's economic reform in 1978.
-##' 
+##' Word Counts of a Speech by Chinese President Hu.
+##' This speech came on the 30th anniversary of China's economic reform in 1978.
+##'
 ##' On Dec 18, 2008, Chinese President Hu gave a speech on the 30th anniversary
 ##' of China's economic reform in 1978, and this data has recorded the number
 ##' of words used in each paragraph of his speech.
-##' 
+##'
 ##' @name HuSpeech
 ##' @docType data
 ##' @format The format is: int [1:75] 119 175 222 204 276 168 257 89 61 288 ...
@@ -96,24 +93,23 @@ NULL
 ##'   \url{http://cpc.people.com.cn/GB/64093/64094/8544901.html}
 ##' @keywords datasets
 ##' @examples
-##' 
+##'
 ##' data(HuSpeech)
 ##' # clear pattern: 1/3 short, 1/3 long, 1/3 short again
-##' plot(HuSpeech, type = "b", pch = 20, xlab = "paragraph index", 
+##' plot(HuSpeech, type = "b", pch = 20, xlab = "paragraph index",
 ##'     ylab = "word count")
 ##' # see ?moving.block for an animation example
-##' 
+##'
 NULL
 
 
 
 
 
-##' Data of page view from Sep 21, 2007 for Yihui's website
-##' Page view data for Yihui's website from Sep 21, 2007 to Dec 2, 2007.
-##' 
+##' Page views from Sep 21, 2007 to Dec 2, 2007 of Yihui's website.
+##'
 ##' The data is collected by Awstats for the website \url{http://yihui.name}.
-##' 
+##'
 ##' @name pageview
 ##' @docType data
 ##' @format A data frame with 73 observations on the following 5 variables.
@@ -131,13 +127,13 @@ NULL
 ##' @source \url{http://yihui.name}
 ##' @keywords datasets
 ##' @examples
-##' 
+##'
 ##' data(pageview)
-##' plot(pageview[,1:2], type = "b", col = "red", 
+##' plot(pageview[,1:2], type = "b", col = "red",
 ##'   main = "Number of Visits in Yihui's Web")
-##' # partial auto-correlation 
-##' pacf(pageview$visits) 
-##' 
+##' # partial auto-correlation
+##' pacf(pageview$visits)
+##'
 NULL
 
 
@@ -145,11 +141,9 @@ NULL
 
 
 ##' Synthetic dataset about the geometric features of pollen grains
-##' Synthetic dataset about the geometric features of pollen grains. There are
-##' 3848 observations on 5 variables. From the 1986 ASA Data Exposition
+##' There are 3848 observations on 5 variables. From the 1986 ASA Data Exposition
 ##' dataset, made up by David Coleman of RCA Labs.
-##' 
-##' 
+##'
 ##' @name pollen
 ##' @docType data
 ##' @format A data frame with 3848 observations on the following 5 variables.
@@ -161,11 +155,11 @@ NULL
 ##'   \url{http://stat.cmu.edu/datasets/}
 ##' @keywords datasets
 ##' @examples
-##' 
+##'
 ##' data(pollen)
 ##' ## some dense points in the center?
 ##' plot(pollen[, 1:2], pch = 20, col = rgb(0, 0, 0, 0.1))
-##' 
+##'
 ##' ## check with rgl
 ##' \dontrun{
 ##' library(rgl)
@@ -185,17 +179,16 @@ NULL
 ##'     Sys.sleep(0.01)
 ##' }
 ##' }
-##' 
+##'
 NULL
 
 
 
 
 
-##' Stock prices of Vanke Co., Ltd on 2009/11/27
+##' Stock prices of Vanke Co., Ltd on 2009/11/27.
 ##' This is a sample of stock prices of the Vanke Co., Ltd on 2009/11/27.
-##' 
-##' 
+##'
 ##' @name vanke1127
 ##' @docType data
 ##' @format A data frame with 2831 observations on the following 2 variables.
@@ -204,37 +197,37 @@ NULL
 ##' @source This data can be obtained from most stock websites.
 ##' @keywords datasets
 ##' @examples
-##' 
+##'
 ##' data(vanke1127)
 ##' with(vanke1127, {
 ##'     tab.price = table(price)
-##'     plot(as.numeric(names(tab.price)), tab.price, type = "h", 
+##'     plot(as.numeric(names(tab.price)), tab.price, type = "h",
 ##'         xlab = "price", ylab = "frequency")
-##' }) 
-##' 
+##' })
+##'
 ##' \dontrun{
 ##' ani.options(interval = 0.5, loop = FALSE)
-##' 
+##'
 ##' with(vanke1127, {
 ##'     ## a series of HTML animations with different time spans
 ##'     ani.start(title = "Prices changing along with time interval 15 min")
 ##'     price.ani(price, time, lwd = 2)
 ##'     ani.stop()
-##'     
+##'
 ##'     ani.start(title = "Prices changing along with time interval 30 min")
 ##'     price.ani(price, time, span = 30 * 60, lwd = 3)
 ##'     ani.stop()
-##'     
+##'
 ##'     ani.start(title = "Prices changing along with time interval 5 min")
 ##'     price.ani(price, time, span = 5 * 60, lwd = 2)
 ##'     ani.stop()
-##'     
+##'
 ##'     ## GIF animation
-##'     saveMovie(price.ani(price, time, lwd = 2), interval = 1, 
+##'     saveMovie(price.ani(price, time, lwd = 2), interval = 1,
 ##'         moviename = "price", loop = 1)
-##' }) 
+##' })
 ##' }
-##' 
+##'
 NULL
 
 
