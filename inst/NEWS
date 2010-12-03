@@ -10,8 +10,11 @@ SIGNIFICANT CHANGES
     o the package is now maintained on GitHub
   (https://github.com/yihui/animation) and using
   roxygen to document functions
-    o the functions highlight.def() and write.rss() 
-  were defunct because they are irrelevant
+    o the functions highlight.def(), write.rss() 
+  and tidy.source() were defunct because they are 
+  irrelevant
+    o ani.news() was removed from the package;
+  we can use news(package = 'animation') instead
 
 MINOR CHANGES
 
