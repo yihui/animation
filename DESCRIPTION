@@ -16,3 +16,4 @@ Description: This package contains various functions for animations in
 Imports: MASS
 License: GPL-2 | GPL-3
 URL: http://animation.yihui.name
+BugReports: https://github.com/yihui/animation/issues
