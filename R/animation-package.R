@@ -13,6 +13,7 @@
 ##' @name animation-package
 ##' @aliases animation-package animation
 ##' @docType package
+##' @exportPattern "^[^\\.]"
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @references AniWiki: Animations in Statistics
 ##'   \url{http://animation.yihui.name}
