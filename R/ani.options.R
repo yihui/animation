@@ -4,35 +4,56 @@
 ##' This function is based on \code{\link[base]{options}} to set an option
 ##' \code{ani} which is a list containing the animation parameters.
 ##'
-##' The supported animation parameters: \describe{ \item{interval}{ a positive
+##' The supported animation parameters:
+##' \describe{
+##'
+##' \item{interval}{ a positive
 ##' number to set the time interval of the animation (unit in seconds); default
-##' to be 1. } \item{nmax}{ maximum number of steps for a loop (e.g.
+##' to be 1. }
+##'
+##' \item{nmax}{ maximum number of steps for a loop (e.g.
 ##' iterations) to create animation frames. Note: the actual number of frames
 ##' can be less than this number, depending on specific animations. Default to
-##' be 50.} \item{ani.width, ani.height}{ width and height of image frames
+##' be 50.}
+##'
+##' \item{ani.width, ani.height}{ width and height of image frames
 ##' (unit in px); see graphics devices like \code{\link[grDevices]{png}},
 ##' \code{\link[grDevices]{jpeg}}, ...; default to be 480.}
+##'
 ##' \item{outdir}{character: specify the output dir if we want to create HTML
 ##' animation pages; default to be \code{\link[base]{tempdir}}.}
+##'
 ##' \item{imgdir}{character: the name of the directory (a relative path) for
 ##' images when creating HTML animation pages; default to be \code{"images"}.}
+##'
 ##' \item{filename}{character: name of the target HTML main file (without path
 ##' name; basename only; default to be \code{"index.htm"})}
+##'
 ##' \item{withprompt}{character: prompt to display while
 ##' using \code{\link{ani.start}} (restore with \code{\link{ani.stop}})}
+##'
 ##' \item{ani.type}{character: image format for animation frames, e.g.
-##' \code{png}, \code{jpg}, ...; default to be \code{"png"}} \item{ani.dev}{a
+##' \code{png}, \code{jpg}, ...; default to be \code{"png"}}
+##'
+##' \item{ani.dev}{a
 ##' function or a function name: the graphics device; e.g.
 ##' (\code{\link[grDevices]{png}}, \code{\link[grDevices]{jpeg}}, ...); default
 ##' to be \code{"png"}} \item{title}{character: the title of animation }
+##'
 ##' \item{description}{character: a description about the animation }
+##'
 ##' \item{footer}{ logical or character: if \code{TRUE}, write a foot part in
 ##' the HTML page containing information such as date/time of creation; if
 ##' given a character string, it will be used as the footer message; in other
-##' cases, the footer of the page will be blank.} \item{loop}{whether to
+##' cases, the footer of the page will be blank.}
+##'
+##' \item{loop}{whether to
 ##' iterate or not (default \code{TRUE} to interate for infinite times)}
+##'
 ##' \item{autobrowse}{logical: whether auto-browse the animation page
-##' immediately after it is created?} }
+##' immediately after it is created?}
+##'
+##' }
 ##'
 ##' @param \dots arguments in \code{tag = value} form, or a list of tagged
 ##'   values.  The tags must come from the animation parameters described

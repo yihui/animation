@@ -1,20 +1,17 @@
-
-
-##' Convert Images to Flash Animations
+##' Convert images to Flash animations.
 ##' This function opens a graphical device first to generate a sequence of
 ##' images based on \code{expr}, then makes use of the commands in `SWF Tools'
 ##' (\code{png2swf}, \code{jpeg2swf}, \code{pdf2swf}) to convert these images
 ##' to a single Flash animation.
-##' 
-##' 
+##'
 ##' @param expr an expression to generate animations; use either the animation
 ##'   functions (e.g. \code{brownian.motion()}) in this package or a custom
 ##'   expression (e.g. \code{for(i in 1:10) plot(runif(10), ylim = 0:1)}).
 ##' @param interval duration between animation frames (unit in seconds)
 ##' @param swfname file name of the Flash file
 ##' @param dev character: the graphics device to be used. Three choices are
-##'   available: \code{\link[grDevices:png]{png}},
-##'   \code{\link[grDevices:png]{jpeg}} and \code{\link[grDevices]{pdf}}, etc.
+##'   available: \code{\link[grDevices]{png}},
+##'   \code{\link[grDevices]{jpeg}} and \code{\link[grDevices]{pdf}}, etc.
 ##' @param filename file name of the sequence of images (`pure' name; without
 ##'   any format or extension)
 ##' @param fmt a C-style string formatting command, such as `\code{%3d}'
@@ -39,24 +36,24 @@
 ##'   \url{http://animation.yihui.name/animation:start\#create_flash_animations}
 ##' @keywords dynamic device utilities
 ##' @examples
-##' 
+##'
 ##' \dontrun{
 ##' oopt = ani.options(nmax = 50)
 ##' # from png
 ##' saveSWF(knn.ani(test = matrix(rnorm(16), ncol = 2),
 ##'     cl.pch = c(16, 2)), 1.5, dev = "png", para = list(mar = c(3,
 ##'     3, 1, 1.5), mgp = c(1.5, 0.5, 0)), swfname = "kNN.swf")
-##' 
+##'
 ##' # from pdf (vector plot!)
 ##' ani.options(nmax = 50)
 ##' saveSWF(brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow"),
 ##'     0.2, "brownian.swf", "pdf", fmt = "")
-##' 
+##'
 ##' ani.options(oopt)
 ##' }
-##' 
-`saveSWF` <- function(expr, interval = 1, swfname = "movie.swf", 
-    dev = c("png", "jpeg", "pdf"), filename = "Rplot", fmt = "%03d", 
+##'
+saveSWF = function(expr, interval = 1, swfname = "movie.swf",
+    dev = c("png", "jpeg", "pdf"), filename = "Rplot", fmt = "%03d",
     outdir = tempdir(), swftools = NULL, para = par(no.readonly = TRUE),
     ...) {
     olddir = setwd(outdir)
@@ -68,12 +65,12 @@
     eval(expr)
     dev.off()
     ani.options(oopt)
-    tool = ifelse(is.null(swftools), paste(dev, "2swf", sep = ""), 
+    tool = ifelse(is.null(swftools), paste(dev, "2swf", sep = ""),
         shQuote(file.path(swftools, paste(dev, "2swf", sep = ""))))
-    if (.Platform$OS.type == "windows") 
+    if (.Platform$OS.type == "windows")
         system = shell
     version = system(tool, intern = TRUE)
-    if (length(version) < 10) 
+    if (length(version) < 10)
         stop("swftools not found; please install swftools first: http://www.swftools.org")
     wildcard = paste(filename, "*.", dev, sep = "")
     convert = paste(tool, wildcard, "-o", swfname)
@@ -91,4 +88,4 @@
     if (cmd == 0) message("\n\nFlash has been created at: ", normalizePath(file.path(outdir,
         swfname)))
     invisible(cmd)
-} 
+}

@@ -1,9 +1,7 @@
-
-
-##' Demonstration of the Bisection Method for Root-finding on an Interval
-##' A visual demonstration of finding the root of an equation \eqn{f(x) = 0} on
+##' Demonstration of the Bisection Method for root-finding on an interval.
+##' This is a visual demonstration of finding the root of an equation \eqn{f(x) = 0} on
 ##' an interval using the Bisection Method.
-##' 
+##'
 ##' Suppose we want to solve the equation \eqn{f(x) = 0}. Given two points a
 ##' and b such that \eqn{f(a)} and \eqn{f(b)} have opposite signs, we know by
 ##' the intermediate value theorem that \eqn{f} must have at least one root in
@@ -13,12 +11,12 @@
 ##' and \eqn{f(c)} have opposite signs, or \eqn{f(c)} and \eqn{f(b)} have
 ##' opposite signs. The bisection algorithm is then applied recursively to the
 ##' sub-interval where the sign change occurs.
-##' 
+##'
 ##' During the process of searching, the mid-point of subintervals are
 ##' annotated in the graph by both texts and blue straight lines, and the
 ##' end-points are denoted in dashed red lines. The root of each iteration is
 ##' also plotted in the right margin of the graph.
-##' 
+##'
 ##' @param FUN the function in the equation to solve (univariate)
 ##' @param rg a vector containing the end-points of the interval to be searched
 ##'   for the root; in a \code{c(a, b)} form
@@ -35,24 +33,24 @@
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link[stats]{deriv}}, \code{\link[stats]{uniroot}}
 ##' @references \url{http://en.wikipedia.org/wiki/Bisection_method}
-##' 
+##'
 ##' \url{http://animation.yihui.name/compstat:bisection_method}
 ##' @keywords optimize dynamic dplot
 ##' @examples
-##' 
-##' # default example 
-##' xx = bisection.method() 
+##'
+##' # default example
+##' xx = bisection.method()
 ##' xx$root  # solution
-##' 
-##' # a cubic curve 
-##' f = function(x) x^3 - 7 * x - 10 
-##' xx = bisection.method(f, c(-3, 5)) 
-##' 
+##'
+##' # a cubic curve
+##' f = function(x) x^3 - 7 * x - 10
+##' xx = bisection.method(f, c(-3, 5))
+##'
 ##' \dontrun{
-##' # interaction: use your mouse to select the end-points 
-##' bisection.method(f, c(-3, 5), interact = TRUE) 
-##' 
-##' # HTML animation pages 
+##' # interaction: use your mouse to select the end-points
+##' bisection.method(f, c(-3, 5), interact = TRUE)
+##'
+##' # HTML animation pages
 ##' ani.start(nmax = 50, ani.height = 400, ani.width = 600, interval = 1,
 ##'     title = "The Bisection Method for Root-finding on an Interval",
 ##'     description = "The bisection method is a root-finding algorithm
@@ -60,10 +58,10 @@
 ##'     selecting the subinterval in which a root exists.")
 ##' par(mar = c(4, 4, 1, 2))
 ##' bisection.method(main = "")
-##' ani.stop() 
+##' ani.stop()
 ##' }
-##' 
-`bisection.method` <- function(FUN = function(x) x^2 -
+##'
+bisection.method = function(FUN = function(x) x^2 -
     4, rg = c(-1, 10), tol = 0.001, interact = FALSE, main, xlab,
     ylab, ...) {
     if (interact) {

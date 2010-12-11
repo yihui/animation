@@ -1,14 +1,11 @@
-
-
-##' A Simulation of Death of Two Species
 ##' A simulation of the death of two species with certain probabilities.
-##' 
+##'
 ##' Suppose there are two plant species in a field: A and B. One of them will
 ##' die at each time and a new plant will grow in the place where the old plant
 ##' died; the species of the new plant depends on the proportions of two
 ##' species: the larger the proportion is, the greater the probability for this
 ##' species to come up will be.
-##' 
+##'
 ##' @param nr,nc number of rows and columns of the field (plants grow on a
 ##'   \code{nr} x \code{nc} grid)
 ##' @param num.sp number of two plants respectively
@@ -25,27 +22,26 @@
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @references This animation is motivated by a question raised from Jing
 ##'   Jiao, a student in biology, to show the evolution of two species.
-##' 
+##'
 ##' The original post is in the forum of the ``Capital of Statistics'':
 ##'   \url{http://cos.name/bbs/read.php?tid=14093} (in Chinese)
 ##' @keywords dynamic distribution
 ##' @examples
-##' 
+##'
 ##' oopt = ani.options(nmax = 50, interval = 0.3)
 ##' par(ann = FALSE, mar = rep(0, 4))
 ##' ecol.death.sim()
-##' 
+##'
 ##' \dontrun{
 ##' ## large scale simulation
 ##' ani.options(nmax = 1000, interval = 0.02)
-##' ecol.death.sim(col.sp = c(8, 2), pch.sp = c(20, 17)) 
-##' 
+##' ecol.death.sim(col.sp = c(8, 2), pch.sp = c(20, 17))
+##'
 ##' }
-##' 
+##'
 ##' ani.options(oopt)
-##' 
-ecol.death.sim <-
-function(nr = 10, nc = 10, num.sp = c(50, 50), col.sp = c(1, 
+##'
+ecol.death.sim = function(nr = 10, nc = 10, num.sp = c(50, 50), col.sp = c(1,
     2), pch.sp = c(1, 2), col.die = 1, pch.die = 4, cex = 3, ...) {
     x = rep(1:nc, nr)
     y = rep(1:nr, each = nc)
@@ -53,13 +49,13 @@ function(nr = 10, nc = 10, num.sp = c(50, 50), col.sp = c(1,
     nmax = ani.options("nmax")
     interval = ani.options("interval")
     for (i in 1:nmax) {
-        plot(1:nc, 1:nr, type = "n", xlim = c(0.5, nc + 0.5), 
+        plot(1:nc, 1:nr, type = "n", xlim = c(0.5, nc + 0.5),
             ylim = c(0.5, nr + 0.5), ...)
         abline(h = 1:nr, v = 1:nc, col = "lightgray", lty = 3)
         points(x, y, col = col.sp[p], pch = pch.sp[p], cex = cex)
         Sys.sleep(interval)
         idx = sample(nr * nc, 1)
-        points(x[idx], y[idx], pch = pch.die, col = col.die, 
+        points(x[idx], y[idx], pch = pch.die, col = col.die,
             cex = cex, lwd = 3)
         tbl = as.vector(table(p))
         tbl = tbl + if (as.integer(p[idx]) > 1) c(0, -1) else c(-1, 0)

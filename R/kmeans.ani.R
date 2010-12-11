@@ -1,19 +1,17 @@
-
-
-##' Demonstration of K-Means Cluster Algorithm
-##' This function provides a demo of K-Means cluster algorithm for data
+##' Demonstration of k-Means clustering algorithm.
+##' This function provides a demo of k-Means cluster algorithm for data
 ##' containing only two variables (columns).
-##' 
+##'
 ##' K-Means cluster algorithm may be regarded as a series of iterations of:
 ##' finding cluster centers, computing distances between sample points, and
 ##' redefining cluster membership.
-##' 
+##'
 ##' The data given by \code{x} is clustered by the \eqn{k}-means method, which
 ##' aims to partition the points into \eqn{k} groups such that the sum of
 ##' squares from points to the assigned cluster centers is minimized. At the
 ##' minimum, all cluster centres are at the mean of their Voronoi sets (the set
 ##' of data points which are nearest to the cluster centre).
-##' 
+##'
 ##' @param x A numercal matrix or an object that can be coerced to such a
 ##'   matrix (such as a numeric vector or a data frame with all numeric
 ##'   columns) containing \emph{only} 2 columns.
@@ -30,7 +28,7 @@
 ##'   }{A matrix of cluster centers.}
 ##' @note This function is only for demonstration purpose. For practical
 ##'   applications please refer to \code{\link[stats]{kmeans}}.
-##' 
+##'
 ##' Note that \code{nmax} is defined as the maximum number of iterations in
 ##'   such a sense: an iteration includes the process of computing distances,
 ##'   redefining membership and finding centers. Thus there should be
@@ -41,31 +39,31 @@
 ##' @seealso \code{\link[stats:kmeans]{kmeans}}
 ##' @references Hartigan, J. A. and Wong, M. A. (1979). A K-means clustering
 ##'   algorithm. \emph{Applied Statistics} \bold{28}, 100-108.
-##' 
+##'
 ##' \url{http://animation.yihui.name/mvstat:k-means_cluster_algorithm}
 ##' @keywords hplot dynamic multivariate cluster
 ##' @examples
-##' 
+##'
 ##' #set larger 'interval' if the speed is too fast
 ##' oopt = ani.options(interval = 2, nmax = 50)
 ##' op = par(mar = c(3, 3, 1, 1.5), mgp = c(1.5, 0.5, 0))
 ##' kmeans.ani()
-##' 
+##'
 ##' ani.options(nmax = 50)
 ##' # the kmeans() example; very fast to converge!
 ##' x = rbind(matrix(rnorm(100, sd = 0.3), ncol = 2),
 ##'           matrix(rnorm(100, mean = 1, sd = 0.3), ncol = 2))
 ##' colnames(x) = c("x", "y")
 ##' kmeans.ani(x, centers = 2)
-##' 
+##'
 ##' # what if we cluster them into 3 groups?
 ##' ani.options(nmax = 50)
 ##' kmeans.ani(x, centers = 3)
-##' 
+##'
 ##' par(op)
-##' 
+##'
 ##' \dontrun{
-##' # create HTML animation page 
+##' # create HTML animation page
 ##' ani.options(ani.height = 480, ani.width = 480, interval = 2,
 ##'     nmax = 50, title = "Demonstration of the K-means Cluster Algorithm",
 ##'     description = "Move! Average! Cluster! Move! Average! Cluster! ...")
@@ -78,10 +76,10 @@
 ##' kmeans.ani(x, centers = 4, pch = 1:4, col = 1:4)
 ##' ani.stop()
 ##' }
-##' 
+##'
 ##' ani.options(oopt)
-##' 
-`kmeans.ani` <- function(x = matrix(runif(100), ncol = 2,
+##'
+kmeans.ani = function(x = matrix(runif(100), ncol = 2,
     dimnames = list(NULL, c("X1", "X2"))), centers = 3, pch = 1:3,
     col = 1:3, hints = c("Move centers!", "Find cluster?")) {
     x = as.matrix(x)

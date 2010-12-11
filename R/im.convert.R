@@ -9,6 +9,7 @@
 ##' \code{gm.convert}). The main purpose of this function is to create GIF animations.
 ##'
 ##' @aliases im.convert gm.convert
+##' @rdname convert
 ##' @param files either a character vector of file names, or a single string
 ##'   containing wildcards (e.g. \file{Rplot*.png})
 ##' @param interval time to pause between image frames in seconds (can be
@@ -164,6 +165,7 @@ im.convert = function(files, interval = ani.options("interval"),
     }
 }
 
-gm.convert = function(..., convert = c("gm convert", "convert")) {
-    im.convert(..., convert = 'gm convert')
+##' @rdname convert
+gm.convert = function(..., convert = "gm convert") {
+    im.convert(..., convert = convert)
 }

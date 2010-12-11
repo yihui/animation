@@ -1,18 +1,16 @@
-
-
-##' Demonstration of Law of Large Numbers
+##' Demonstration of Law of Large Numbers.
 ##' This function plots the sample mean as the sample size grows to check
 ##' whether the sample mean approaches to the population mean.
-##' 
+##'
 ##' \code{np} points are plotted to denote the distribution of the sample mean;
 ##' we will observe that the range of the sample mean just becomes smaller and
 ##' smaller as the sample size increases and ultimately there will be an
 ##' obvious trend that the sample mean converges to the population mean
 ##' \code{mu}.
-##' 
+##'
 ##' The parameter \code{nmax} in \code{\link{ani.options}} means the maximum
 ##' sample size.
-##' 
+##'
 ##' @param FUN a function to generate random numbers from a certain
 ##'   distribution: \code{function(n, mu)}
 ##' @param mu population mean; passed to \code{FUN}
@@ -33,18 +31,18 @@
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @references George Casella and Roger L. Berger. \emph{Statistical
 ##'   Inference}. Duxbury Press, 2th edition, 2001.
-##' 
+##'
 ##' \url{http://animation.yihui.name/prob:law_of_large_numbers}
 ##' @keywords dynamic dplot distribution
 ##' @examples
-##' 
+##'
 ##' oopt = ani.options(interval = 0.01, nmax = 150)
 ##' lln.ani(pch = ".")
-##' 
+##'
 ##' # chi-square distribution; population mean = df
 ##' lln.ani(function(n, mu) rchisq(n, df = mu), mu = 5, cex = 0.6)
-##' 
-##' \dontrun{ 
+##'
+##' \dontrun{
 ##' # save the animation in HTML pages
 ##' ani.options(ani.height = 480, ani.width = 600, outdir = getwd(), nmax = 100,
 ##'     interval = 0.1, title = "Demonstration of the Law of Large Numbers",
@@ -56,8 +54,8 @@
 ##' ani.stop()
 ##' }
 ##' ani.options(oopt)
-##' 
-`lln.ani` <- function(FUN = rnorm, mu = 0, np = 30,
+##'
+lln.ani = function(FUN = rnorm, mu = 0, np = 30,
     pch = 20, col.poly = "bisque", col.mu = "gray", ...) {
     n = ani.options("nmax")
     m = x = NULL

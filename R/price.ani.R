@@ -1,10 +1,7 @@
-
-
-##' Demonstrate Stock Prices in Animation
+##' Demonstrate stock prices in animations.
 ##' This function can display the frequencies of stock prices in a certain time
 ##' span with the span changing.
-##' 
-##' 
+##'
 ##' @param price stock prices
 ##' @param time time corresponding to prices
 ##' @param time.begin the time for the animation to begin (default to be the
@@ -17,16 +14,15 @@
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @keywords dynamic hplot
 ##' @examples
-##' 
+##'
 ##' ## see more examples in ?vanke1127
 ##' data(vanke1127)
 ##' with(vanke1127, {
 ##'     price.ani(price, time, lwd = 2)
 ##' })
-##' 
-price.ani <-
-function(price, time, time.begin = min(time), 
-    span = 15 * 60, ..., xlab = "price", ylab = "frequency", 
+##'
+price.ani = function(price, time, time.begin = min(time),
+    span = 15 * 60, ..., xlab = "price", ylab = "frequency",
     xlim, ylim, main) {
     time1 = time.begin
     miss.main = missing(main)
@@ -39,9 +35,9 @@ function(price, time, time.begin = min(time),
         }
         time1 = time2
     }
-    if (missing(xlim)) 
+    if (missing(xlim))
         xlim = range(price)
-    if (missing(ylim)) 
+    if (missing(ylim))
         ylim = c(0, tab.max)
     time1 = time.begin
     while (time1 < max(time)) {
@@ -49,10 +45,10 @@ function(price, time, time.begin = min(time),
         sub.price = price[time >= time1 & time <= time2]
         if (length(sub.price) > 0) {
             tab.price = table(sub.price)
-            if (miss.main) 
+            if (miss.main)
                 main = paste(time1, time2, sep = " - ")
-            plot(as.numeric(names(tab.price)), tab.price, type = "h", 
-                ..., xlab = xlab, ylab = ylab, xlim = xlim, ylim = ylim, 
+            plot(as.numeric(names(tab.price)), tab.price, type = "h",
+                ..., xlab = xlab, ylab = ylab, xlim = xlim, ylim = ylim,
                 main = main, panel.first = grid())
         }
         else {

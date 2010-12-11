@@ -1,28 +1,35 @@
-
-
-##' Cross-validation to find the optimum number of features (variables) in LDA
-##' This function has provided an illustration of the process of finding out
+##' Cross-validation to find the optimum number of features (variables) in LDA.
+##' This function provids an illustration of the process of finding out
 ##' the optimum number of variables using k-fold cross-validation in a linear
 ##' discriminant analysis (LDA).
-##' 
+##'
 ##' For a classification problem, usually we wish to use as less variables as
 ##' possible because of difficulties brought by the high dimension.
-##' 
+##'
 ##' The selection procedure is like this:
-##' 
-##' \itemize{ \item Split the whole data randomly into \eqn{k} folds: \itemize{
-##' \item For the number of features \eqn{g = 1, 2, \cdots, g_{max}}{g = 1, 2,
+##'
+##' \itemize{
+##'   \item Split the whole data randomly into \eqn{k} folds:
+##'     \itemize{
+##'       \item For the number of features \eqn{g = 1, 2, \cdots, g_{max}}{g = 1, 2,
 ##' ..., gmax}, choose \eqn{g} features that have the largest discriminatory
-##' power (measured by the F-statistic in ANOVA): \itemize{ \item For the fold
-##' \eqn{i} (\eqn{i = 1, 2, \cdots, k}{i = 1, 2, ..., k}): \itemize{ \item
+##' power (measured by the F-statistic in ANOVA):
+##'         \itemize{
+##'           \item For the fold \eqn{i} (\eqn{i = 1, 2, \cdots, k}{i = 1, 2, ..., k}):
+##'            \itemize{
+##'              \item
 ##' Train a LDA model without the \eqn{i}-th fold data, and predict with the
 ##' \eqn{i}-th fold for a proportion of correct predictions
-##' \eqn{p_{gi}}{p[gi]}; } } \item Average the \eqn{k} proportions to get the
-##' correct rate \eqn{p_g}{p[g]}; } \item Determine the optimum number of
-##' features with the largest \eqn{p}. }
-##' 
+##' \eqn{p_{gi}}{p[gi]};
+##'            }
+##'          }
+##'       \item Average the \eqn{k} proportions to get the correct rate \eqn{p_g}{p[g]};
+##'     }
+##'   \item Determine the optimum number of features with the largest \eqn{p}.
+##' }
+##'
 ##' Note that \eqn{g_{max}} is set by \code{ani.options("nmax")}.
-##' 
+##'
 ##' @param data a data matrix containg the predictors in columns
 ##' @param cl a factor indicating the classification of the rows of \code{data}
 ##' @param k the number of folds
@@ -40,15 +47,15 @@
 ##' @references Maindonald J, Braun J (2007). \emph{Data Analysis and Graphics
 ##'   Using R - An Example-Based Approach}. Cambridge University Press, 2nd
 ##'   edition. pp. 400
-##' 
+##'
 ##' \url{http://animation.yihui.name/da:biostat:select_features_via_cv}
 ##' @keywords multivariate dynamic dplot classif
 ##' @examples
-##' 
+##'
 ##' op = par(pch = 19, mar = c(3, 3, 0.2, 0.7), mgp = c(1.5, 0.5, 0))
 ##' cv.nfeaturesLDA()
 ##' par(op)
-##' 
+##'
 ##' \dontrun{
 ##' # save the animation in HTML pages
 ##' oopt = ani.options(ani.height = 480, ani.width = 600, interval = 0.5, nmax = 10,
@@ -62,9 +69,9 @@
 ##' ani.stop()
 ##' ani.options(oopt)
 ##' }
-##' 
-##' 
-`cv.nfeaturesLDA` <- function(data = matrix(rnorm(600),
+##'
+##'
+cv.nfeaturesLDA = function(data = matrix(rnorm(600),
     60), cl = gl(3, 20), k = 5, cex.rg = c(0.5, 3), col.av = c("blue",
     "red")) {
     nmax = min(ncol(data), ani.options("nmax"))

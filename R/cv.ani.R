@@ -1,15 +1,13 @@
-
-
 ##' Demonstration for the process of cross-validation
 ##' This function uses rectangles to illustrate the \eqn{k} folds and mark the
 ##' test set \& the training set with different colors.
-##' 
+##'
 ##' Briefly speaking, the process of cross-validation is just to split the
 ##' whole data set into several parts and select one part as the test set and
 ##' the rest parts as the training set.
-##' 
+##'
 ##' The computation of sample sizes is base on \code{\link{kfcv}}.
-##' 
+##'
 ##' @param x a numerical vector which stands for the sample points.
 ##' @param k an integer: how many parts should we split the data into? (comes
 ##'   from the \eqn{k}-fold cross-validation.)
@@ -23,10 +21,10 @@
 ##' @return None (invisible `\code{NULL}').
 ##' @note For the `leave-one-out' cross-validation, just specify \code{k} as
 ##'   \code{length(x)}, then the rectangles will `shrink' into single lines.
-##' 
+##'
 ##' The final number of animation frames is the smaller one of \code{nmax} and
 ##'   \code{k}.
-##' 
+##'
 ##' This function has nothing to do with specific models used in
 ##'   cross-validation.
 ##' @author Yihui Xie <\url{http://yihui.name}>
@@ -34,14 +32,14 @@
 ##' @references \url{http://animation.yihui.name/dmml:k-fold_cross-validation}
 ##' @keywords hplot dynamic classif
 ##' @examples
-##' 
+##'
 ##' oopt = ani.options(interval = 2, nmax = 10)
 ##' cv.ani(main = "Demonstration of the k-fold Cross Validation", bty = "l")
-##' 
-##' # leave-one-out CV 
-##' cv.ani(x = runif(15), k = 15) 
-##' 
-##' \dontrun{ 
+##'
+##' # leave-one-out CV
+##' cv.ani(x = runif(15), k = 15)
+##'
+##' \dontrun{
 ##' # save the animation in HTML pages
 ##' ani.options(ani.height = 400, ani.width = 600, interval = 2,
 ##'     nmax = 10, title = "Demonstration of the k-fold Cross Validation",
@@ -54,10 +52,10 @@
 ##' cv.ani(bty = "l")
 ##' ani.stop()
 ##' }
-##' 
+##'
 ##' ani.options(oopt)
-##' 
-`cv.ani` <- function(x = runif(150), k = 10, col = c("green",
+##'
+cv.ani = function(x = runif(150), k = 10, col = c("green",
     "red", "blue"), pch = c(4, 1), ...) {
     N = length(x)
     n = sample(N)

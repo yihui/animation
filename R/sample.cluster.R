@@ -1,11 +1,8 @@
-
-
-##' Demonstration for cluster sampling
-##' Every rectangle stands for a cluster, and the simple random sampling
+##' Demonstration for the cluster sampling.
+##' Each rectangle stands for a cluster, and the simple random sampling
 ##' without replacement is performed for each cluster. All points in the
 ##' clusters being sampled will be drawn out.
-##' 
-##' 
+##'
 ##' @param pop a vector for the size of each cluster in the population.
 ##' @param size the number of clusters to be drawn out.
 ##' @param p.col,p.cex different colors / magnification rate to annotate the
@@ -17,20 +14,15 @@
 ##' @seealso \code{\link[base]{sample}}, \code{\link{sample.simple}},
 ##'   \code{\link{sample.ratio}}, \code{\link{sample.strat}},
 ##'   \code{\link{sample.system}}
-##' @references Cochran, W G (1977) \emph{Sampling Techniques}, Wiley, ISBN
-##'   0-471-16240-X
-##' 
-##' \url{http://animation.yihui.name/samp:cluster_sampling}
+##' @references \url{http://animation.yihui.name/samp:cluster_sampling}
 ##' @keywords distribution dynamic
 ##' @examples
-##' 
-##' 
 ##' oopt = ani.options(interval = 1, nmax = 30)
 ##' op = par(mar = rep(1, 4))
 ##' sample.cluster(col = c("bisque", "white"))
 ##' par(op)
-##' \dontrun{ 
-##' 
+##' \dontrun{
+##'
 ##' # HTML animation page
 ##' ani.options(ani.height = 350, ani.width = 500, nmax = 30,
 ##'     interval = 1, title = "Demonstration of the cluster sampling",
@@ -40,11 +32,11 @@
 ##' par(mar = rep(1, 4), lwd = 2)
 ##' sample.cluster(col = c("bisque", "white"))
 ##' ani.stop()
-##' 
+##'
 ##' }
 ##' ani.options(oopt)
-##' 
-`sample.cluster` <- function(pop = ceiling(10 * runif(10,
+##'
+sample.cluster = function(pop = ceiling(10 * runif(10,
     0.2, 1)), size = 3, p.col = c("blue", "red"), p.cex = c(1,
     3), ...) {
     if (size > length(pop))

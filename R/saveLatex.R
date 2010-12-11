@@ -1,5 +1,3 @@
-
-
 ##' Insert animations into a LaTeX document and compile it.
 ##' Record animation frames and insert them into a LaTeX document with the
 ##' \code{animate} package. Compile the document if an appropriate LaTeX
@@ -72,7 +70,6 @@
 ##'   \code{pkg.opts}.
 ##' @keywords dynamic device utilities
 ##' @examples
-##'
 ##' \dontrun{
 ##'
 ##' oopt = ani.options(interval = 0.1, nmax = 100)
@@ -88,7 +85,7 @@
 ##' ani.options(oopt)
 ##' }
 ##'
-saveLatex <- function(expr, interval = ani.options("interval"),
+saveLatex = function(expr, interval = ani.options("interval"),
     nmax = ani.options("nmax"), ani.dev = "pdf", outdir = ani.options("outdir"),
     ani.basename = "Rplot", ani.ext = "pdf", num = ifelse(ani.ext ==
         "pdf", "", "%d"), ani.first = par(), ani.opts,

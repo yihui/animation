@@ -1,13 +1,11 @@
-
-
-##' Demonstrate the Ratio Estimation in Sampling Survey
-##' Demonstrate the advantage of ratio estimation when further information
+##' Demonstrate the ratio estimation in sampling survey.
+##' This function demonstrates the advantage of ratio estimation when further information
 ##' (ratio) about x and y is available.
-##' 
+##'
 ##' From this demonstration we can clearly see that the ratio estimation is
 ##' generally better than the simple sample average when the ratio \bold{R}
 ##' really exists, otherwise ratio estimation may not help.
-##' 
+##'
 ##' @param X the X variable (ancillary)
 ##' @param R the population ratio Y/X
 ##' @param Y the Y variable (whose mean we what to estimate)
@@ -29,7 +27,7 @@
 ##' @references \url{http://animation.yihui.name/samp:ratio_estimation}
 ##' @keywords dynamic
 ##' @examples
-##' 
+##'
 ##' oopt = ani.options(interval = 2, nmax = 50)
 ##' ## observe the location of the red line (closer to the population mean)
 ##' res = sample.ratio()
@@ -38,13 +36,13 @@
 ##'     res$Ybar), type = "l")
 ##' legend("topleft", c("Ratio Estimation", "Sample Average"),
 ##'     lty = 1:2, col = 1:2)
-##' 
+##'
 ##' ## if the ratio does not actually exist:
 ##' sample.ratio(X = rnorm(50), Y = rnorm(50))
 ##' ## ratio estimation may not be better than the simple average
-##' 
+##'
 ##' \dontrun{
-##' 
+##'
 ##' ## HTML animation page
 ##' ani.options(ani.height = 400, ani.width = 500, nmax = 50,
 ##'     interval = 2, title = "Demonstration of the Ratio Estimation",
@@ -54,15 +52,14 @@
 ##' par(mar = c(4, 4, 1, 0.5), mgp = c(2, 1, 0))
 ##' sample.ratio()
 ##' ani.stop()
-##' 
+##'
 ##' }
 ##' ani.options(oopt)
-##' 
-##' 
-sample.ratio <-
-function(X = runif(50, 0, 5), R = 1, 
-    Y = R * X + rnorm(X), size = length(X)/2, p.col = c("blue", 
-        "red"), p.cex = c(1, 3), p.pch = c(20, 21), m.col = c("black", 
+##'
+##'
+sample.ratio = function(X = runif(50, 0, 5), R = 1,
+    Y = R * X + rnorm(X), size = length(X)/2, p.col = c("blue",
+        "red"), p.cex = c(1, 3), p.pch = c(20, 21), m.col = c("black",
         "gray"), legend.loc = "topleft", ...) {
     nmax = ani.options("nmax")
     interval = ani.options("interval")
@@ -70,7 +67,7 @@ function(X = runif(50, 0, 5), R = 1,
     r = est1 = est2 = numeric(nmax)
     for (i in 1:nmax) {
         idx = sample(N, size)
-        plot(X, Y, col = p.col[1], pch = p.pch[1], cex = p.cex[1], 
+        plot(X, Y, col = p.col[1], pch = p.pch[1], cex = p.cex[1],
             ...)
         points(X[idx], Y[idx], col = p.col[2], pch = p.pch[2],
             cex = p.cex[2])
@@ -78,12 +75,12 @@ function(X = runif(50, 0, 5), R = 1,
             col = m.col, lty = c(2, 1))
         abline(h = est2[i] <- mean(X) * (r[i] <- est1[i]/mean(X[idx])),
             col = p.col[2])
-        legend(legend.loc, expression(bar(X), bar(x), bar(X) %.% 
-            (bar(y)/bar(x)), bar(Y), bar(y)), lty = c(2, 1, 1, 
-            2, 1), col = c(m.col[c(1, 2)], p.col[2], m.col[c(1, 
+        legend(legend.loc, expression(bar(X), bar(x), bar(X) %.%
+            (bar(y)/bar(x)), bar(Y), bar(y)), lty = c(2, 1, 1,
+            2, 1), col = c(m.col[c(1, 2)], p.col[2], m.col[c(1,
             2)]), bty = "n", ncol = 2)
         Sys.sleep(interval)
     }
-    invisible(list(X = X, Y = Y, R = R, r = r, Ybar = mean(Y), 
+    invisible(list(X = X, Y = Y, R = R, r = r, Ybar = mean(Y),
         ybar.simple = est1, ybar.ratio = est2))
 }

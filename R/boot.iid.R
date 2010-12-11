@@ -1,5 +1,3 @@
-
-
 ##' Demonstrate bootstrapping for iid data.
 ##' Use a sunflower scatter plot to
 ##' illustrate the results of sampling, and a histogram to show the
