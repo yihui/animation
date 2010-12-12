@@ -166,6 +166,7 @@ im.convert = function(files, interval = ani.options("interval"),
 }
 
 ##' @rdname convert
+##' @param ... arguments to be passed to \code{\link{im.convert}}
 gm.convert = function(..., convert = "gm convert") {
     im.convert(..., convert = convert)
 }

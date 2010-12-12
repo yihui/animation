@@ -1,3 +1,19 @@
+		CHANGES IN animation VERSION 1.1-5
+
+
+NEW FEATURES
+
+    o the package has a NAMESPACE now
+
+TO APPEAR
+
+    o Changes made by Thomas Julou (using ffmpeg)
+    o A function boot.loess() added to show the
+  bootstrapping effects on loess().
+    o A function cart.ani() to show the splitting
+  process of classification and regression trees.
+
+
 		CHANGES IN animation VERSION 1.1-4
 
 
@@ -10,8 +26,8 @@ SIGNIFICANT CHANGES
     o the package is now maintained on GitHub
   (https://github.com/yihui/animation) and using
   roxygen to document functions
-    o the functions highlight.def(), write.rss() 
-  and tidy.source() were defunct because they are 
+    o the functions highlight.def(), write.rss()
+  and tidy.source() were defunct because they are
   irrelevant
     o ani.news() was removed from the package;
   we can use news(package = 'animation') instead
@@ -19,23 +35,16 @@ SIGNIFICANT CHANGES
 MINOR CHANGES
 
     o the MASS package is imported instead of
-  being attached; in fact only lda() in MASS is 
+  being attached; in fact only lda() in MASS is
   used in the animation package.
     o fixed a buglet in saveMovie(): outdir
   does not actually work.
     o im.convert() will try to open the output
   using the default application in the OS (e.g.
   using command 'xdg-open', or 'open')
-  
-TO APPEAR
 
-    o Changes made by Thomas Julou (using ffmpeg)
-    o A function boot.loess() added to show the
-  bootstrapping effects on loess().
-    o A function cart.ani() to show the splitting
-  process of classification and regression trees.
 
-  
+
 		CHANGES IN animation VERSION 1.1-3
 
 
@@ -61,7 +70,7 @@ MINOR CHANGES
   now uses im.convert() to convert images to
   an animation file.
     o saveMovie() now generate the image frames
-  in a temp directory and output the animation 
+  in a temp directory and output the animation
   to the working directory by default (thanks,
   Thomas Julou)
 

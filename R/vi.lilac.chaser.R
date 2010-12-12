@@ -17,7 +17,7 @@
 ##' @seealso \code{\link[graphics]{points}}
 ##' @references \url{http://en.wikipedia.org/wiki/Lilac_chaser}
 ##'
-##' \url{http://animation.yihui.name/animation:misc\#lilac_chaser}
+##' \url{http://animation.yihui.name/animation:misc#lilac_chaser}
 ##' @keywords dynamic
 ##' @examples
 ##' oopt = ani.options(interval = 0.05, nmax = 20)

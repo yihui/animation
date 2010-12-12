@@ -79,8 +79,8 @@
 ##'
 ##' ani.options(oopt)
 ##'
-kmeans.ani = function(x = matrix(runif(100), ncol = 2,
-    dimnames = list(NULL, c("X1", "X2"))), centers = 3, pch = 1:3,
+kmeans.ani = function(x = cbind(X1 = runif(50), X2 = runif(50)),
+    centers = 3, pch = 1:3,
     col = 1:3, hints = c("Move centers!", "Find cluster?")) {
     x = as.matrix(x)
     ocluster = sample(centers, nrow(x), replace = TRUE)
