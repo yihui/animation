@@ -131,9 +131,13 @@ saveLatex = function(expr, interval = ani.options("interval"),
                   sprintf("%s.pdf", sub("([^.]+)\\.[[:alnum:]]+$",
                     "\\1", latex.filename))))
         }
-        else message("An error occurred while compiling the LaTeX document; \nyou should probably take a look at the log file: ",
+        else {
+            message("An error occurred while compiling the LaTeX document; \nyou should probably take a look at the log file: ",
             sprintf("%s.log", sub("([^.]+)\\.[[:alnum:]]+$",
                 "\\1", latex.filename)), " under ", getwd())
+            if (Sys.info()["sysname"] == "Darwin")
+                message("Mac OS users may also consider saveLatex(..., pdflatex = '/usr/texbin/pdflatex') if pdflatex is not in your PATH variable.")
+        }
     }
     invisible(NULL)
 }
