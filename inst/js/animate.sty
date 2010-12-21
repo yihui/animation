@@ -12,7 +12,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 
-\def\@anim@version{2010/01/22}
+\def\@anim@version{2010/09/28}
 \ProvidesPackage{animate}
 [\@anim@version\space PDF animations from files and inline graphics]
 
@@ -149,7 +149,7 @@
 %on their MD5 digest (in order to avoid multiple inclusion); if it is not
 %available, hashing will be based on the file name
 \expandafter\ifx\csname pdfmdfivesum\endcsname\relax
-  \def\pdfmdfivesum file #1{#1}
+  \def\pdfmdfivesum file#1{#1}
 \fi
 
 %creating and using global definitions
@@ -188,6 +188,10 @@
     to the preamble of your document%
   }{}%
 }
+
+\newboolean{@anim@powerdot} %to cope with some powerdot oddity
+\setboolean{@anim@powerdot}{false}
+\@ifclassloaded{powerdot}{\setboolean{@anim@powerdot}{true}}{}%
 
 \newboolean{@anim@grxloaded}
 \setboolean{@anim@grxloaded}{false}
@@ -281,11 +285,11 @@
 %of xobj, otherwise returns `!'
 \def\@anim@fileknown#1#2{% #1 file name, pdf: #2 page No. ps: #2 @anim@num
   %identify file by md5sum
-  \ifcsname file:\pdfmdfivesum file {#1}.#2\endcsname%
-    \@anim@getkeyval{file:\pdfmdfivesum file {#1}.#2}\else!\fi%
+  \ifcsname file:\pdfmdfivesum file{#1}.#2\endcsname%
+    \@anim@getkeyval{file:\pdfmdfivesum file{#1}.#2}\else!\fi%
 }
 \def\@anim@makefileknown#1#2#3{%#1 file name, pdf: #2 page No. ps: #2 @anim@num,
-  \@anim@newkey{file:\pdfmdfivesum file {#1}.#2}{#3}%   #3 Form XObj ID
+  \@anim@newkey{file:\pdfmdfivesum file{#1}.#2}{#3}%   #3 Form XObj ID
 }
 
 %helper macro that typesets graphics file into savebox
@@ -457,20 +461,17 @@
               origin@x sub /one@inch@x exch def
             }%
           }%
-          \put(0,\strip@pt\paperheight){%
-            \special{ps:
-              currentpoint origin@y exch sub /paper@height exch def pop
-            }%
-          }%
           \end{picture}%
         \endgroup%
         \special{ps:
           gsave
           %translate graphics to upper left page corner
+          \if@anim@powerdot\else%
           {%
             frame@llx neg frame@ury neg translate
             one@inch@x DVImag div neg one@inch@y DVImag div neg translate%
           }?pdfmark
+          \fi%
           %distill graphics into XObject
           mark
             /_objdef {@anim@frm@#1@#2}
@@ -1186,7 +1187,7 @@
 
 %determines file type of the sequence
 \ifpdf
-  \def\@anim@getext#1{%
+  \def\@anim@getpath#1{%
     \gdef\@anim@ext{.pdf}% we start with `pdf'
     \IfFileExists{#1\@anim@ext}{}{%
     \gdef\@anim@ext{.mps}%
@@ -1223,10 +1224,12 @@
         Wrong file type? Mis-spelled file name?%
       }{}%
     }}}}}}}}}}%
+    \edef\@filef@und{\@filef@und\space}%
+    \xdef\@anim@pathtofile{\expandafter\zap@space\@filef@und\@empty}%
   }%
 \else
   \if@anim@@dvipdfmx %XeLaTeX, dvipdfmx
-    \def\@anim@getext#1{%
+    \def\@anim@getpath#1{%
       \gdef\@anim@ext{.pdf}% we start with `pdf'
       \IfFileExists{#1\@anim@ext}{}{%
       \gdef\@anim@ext{.mps}%
@@ -1257,9 +1260,11 @@
           Wrong file type? Mis-spelled file name?%
         }{}%
       }}}}}}}}%
+      \edef\@filef@und{\@filef@und\space}%
+      \xdef\@anim@pathtofile{\expandafter\zap@space\@filef@und\@empty}%
     }%
   \else %dvips
-    \def\@anim@getext#1{%
+    \def\@anim@getpath#1{%
       \gdef\@anim@ext{.eps}% we start with `eps'
       \IfFileExists{#1\@anim@ext}{}{%
       \gdef\@anim@ext{.mps}%
@@ -1275,6 +1280,8 @@
           Wrong file type? Mis-spelled file name?%
         }{}%
       }}}%
+      \edef\@filef@und{\@filef@und\space}%
+      \xdef\@anim@pathtofile{\expandafter\zap@space\@filef@und\@empty}%
     }%
   \fi
 \fi
@@ -1368,7 +1375,9 @@
       }%
     }%
     \if@anim@multipage%
-      \@anim@filebox{#1\@anim@ext}{1}%
+      \edef\@filef@und{\@filef@und\space}%
+      \xdef\@anim@pathtofile{\expandafter\zap@space\@filef@und\@empty}%
+      \@anim@filebox{\@anim@pathtofile}{1}%
       \@anim@curframe=\pdflastximagepages%
       \advance\@anim@curframe by -\@ne%since \pdfximagepages is 1-based
       \edef\@anim@lastpage{\the\@anim@curframe}%
@@ -1404,7 +1413,9 @@
         \gdef\@anim@ext{.pdf}%
       }{}%
       \if@anim@multipage%
-        \@anim@curframe=\XeTeXpdfpagecount "#1.pdf"%
+        \edef\@filef@und{\@filef@und\space}%
+        \xdef\@anim@pathtofile{\expandafter\zap@space\@filef@und\@empty}%
+        \@anim@curframe=\XeTeXpdfpagecount "\@anim@pathtofile"%
         \advance\@anim@curframe by -\@ne%since XeTeXpdfpagecount is 1-based
         \edef\@anim@lastpage{\the\@anim@curframe}%
         \ifx\@anim@first\@empty%
@@ -1462,6 +1473,11 @@
     \fi%
   \fi%
   \@anim@reset% to default settings
+  \begingroup% make use of graphic[xs] search path
+  \ifcsname Ginput@path\endcsname%
+    \let\input@path\Ginput@path%
+  \fi%
+  %
   \setkeys{anim@user}{#1}%
   \ifthenelse{\boolean{@anim@autoplay}\OR\boolean{@anim@autoresume}}{%
     \setboolean{@anim@autoplayorresume}{true}%
@@ -1500,11 +1516,11 @@
   \if@anim@draft%
     \if@anim@multipage%
       %store file in a box
-      \@anim@filebox{\@anim@base\@anim@ext}{\@anim@first}%
+      \@anim@filebox{\@anim@pathtofile}{\@anim@first}%
     \else%
       %get file name extension
-      \@anim@getext{\@anim@base\@anim@first}%
-      \@anim@filebox{\@anim@base\@anim@first\@anim@ext}{1}%
+      \@anim@getpath{\@anim@base\@anim@first}%
+      \@anim@filebox{\@anim@pathtofile}{1}%
     \fi%
     \@anim@getsize{\@anim@box}%
     \@anim@scale{\@anim@box}%
@@ -1534,16 +1550,15 @@
       \if@anim@multipage%
         %embed graphics
         \@anim@ximage{\the\@anim@num}{\the\@anim@curframe@zb}{%
-          \@anim@base\@anim@ext}{\the\@anim@curframe}%
+          \@anim@pathtofile}{\the\@anim@curframe}%
       \else%
-        %get file name extension of current file
-        \@anim@getext{%
+        %get path to current file end its extension
+        \@anim@getpath{%
           \@anim@base\@anim@pad{\@anim@first}{\the\@anim@curframe}%
         }%
         %embed graphics
         \@anim@ximage{\the\@anim@num}{\the\@anim@curframe@zb}{%
-          \@anim@base\@anim@pad{\@anim@first}{\the\@anim@curframe}\@anim@ext%
-        }{1}%
+          \@anim@pathtofile}{1}%
       \fi%
       \global\advance\@anim@curframe by \@anim@every%
       \global\advance\@anim@curframe@zb by \@ne%
@@ -1558,6 +1573,7 @@
     \@anim@insertwidgets{\the\@anim@num}{%
       \@anim@getkeyval{btncol:\@anim@bgcolour:\@anim@fgcolour}}%
   \fi%
+  \endgroup%
   \global\advance\@anim@num by \@ne%
   \catcode`\:=\@anim@colon\catcode`\;=\@anim@semicolon%
   \catcode`\*=\@anim@star\catcode`\,=\@anim@comma%
@@ -1921,6 +1937,10 @@
   \leavevmode%
   \setboolean{@anim@inside}{true}%
   \@anim@reset% to default settings
+  \begingroup% make use of graphic[xs] search path
+  \ifcsname Ginput@path\endcsname%
+    \let\input@path\Ginput@path%
+  \fi%
   \setkeys{anim@user}{#1}%
   \ifthenelse{\boolean{@anim@autoplay}\OR\boolean{@anim@autoresume}}{%
     \setboolean{@anim@autoplayorresume}{true}%
@@ -1971,6 +1991,7 @@
     \@anim@insertwidgets{\the\@anim@num}{%
       \@anim@getkeyval{btncol:\@anim@bgcolour:\@anim@fgcolour}}%
   \fi%
+  \endgroup%
   \global\advance\@anim@num by \@ne%
   \catcode`\:=\@anim@colon\catcode`\;=\@anim@semicolon%
   \catcode`\*=\@anim@star\catcode`\,=\@anim@comma%
@@ -2117,8 +2138,8 @@
   \fi%
 }
 
-%user command for building loops around parameterized frame content, just like
-%\multido (package multido) with embedded \newframe
+%user command for building loops around parameterized frame content, somewhat
+%like \multido (package multido) with embedded \newframe
 \newcount\@anim@mulframecnt %takes current loop No. of \multiframe
 \newboolean{@anim@insidemulti} % for checking whether we are inside \multiframe
 \setboolean{@anim@insidemulti}{false}
@@ -2183,11 +2204,14 @@
     \expandafter\edef\csname#1\endcsname{\number\@anim@tmpdima sp}%
     %global copy that saves current variable value between loops
     \expandafter\xdef\csname#1@old\endcsname{\number\@anim@tmpdima sp}%
+    \setlength{\@anim@tmpdimb}{#3}%
+    %global copy of increment
+    \expandafter\xdef\csname#1@inc\endcsname{\number\@anim@tmpdimb sp}%
     %append script for updating variable to \@anim@updatevars macro
     \g@addto@macro\@anim@updatevars{%
       %new value
       \setlength{\@anim@tmpdima}{\csname#1@old\endcsname}%
-      \addtolength{\@anim@tmpdima}{#3}%
+      \addtolength{\@anim@tmpdima}{\csname#1@inc\endcsname}%
       \expandafter\edef\csname#1\endcsname{\number\@anim@tmpdima sp}%
       %global copy
       \expandafter\xdef\csname#1@old\endcsname{\number\@anim@tmpdima sp}%
@@ -2200,7 +2224,7 @@
       %initialize variable
       \expandafter\@anim@add\csname#1\endcsname{#2}{0.0}%
       %global copy that saves current variable value between loops
-      \expandafter\gdef\csname#1@old\endcsname{#2}%
+      \expandafter\xdef\csname#1@old\endcsname{#2}%
       %append script for updating variable to \@anim@updatevars macro
       \g@addto@macro\@anim@updatevars{%
         %new value
@@ -2212,14 +2236,18 @@
       \ifthenelse{\equal{\@anim@vartype}{i}\OR\equal{\@anim@vartype}{I}}{%
         % integers, prefix i, I
         %initialize variable
-        \expandafter\edef\csname#1\endcsname{#2}%
+        \setcounter{@anim@tmpcnt}{#2}%
+        \expandafter\edef\csname#1\endcsname{\the@anim@tmpcnt}%
         %global copy that saves current variable value between loops
-        \expandafter\gdef\csname#1@old\endcsname{#2}%
+        \expandafter\xdef\csname#1@old\endcsname{\the@anim@tmpcnt}%
+        \setcounter{@anim@tmpcnt}{#3}%
+        %global copy of increment
+        \expandafter\xdef\csname#1@inc\endcsname{\the@anim@tmpcnt}%
         %append script for updating variable to \@anim@updatevars macro
         \g@addto@macro\@anim@updatevars{%
           %new value
           \expandafter\global\expandafter\@anim@tmpcnt\csname#1@old\endcsname%
-          \global\advance\@anim@tmpcnt by #3%
+          \global\advance\@anim@tmpcnt by \csname#1@inc\endcsname%
           \expandafter\edef\csname#1\endcsname{\the\@anim@tmpcnt}%
           %global copy
           \expandafter\xdef\csname#1@old\endcsname{\the\@anim@tmpcnt}%
@@ -2283,6 +2311,7 @@
 \newread\@anim@@tmlnfile
 \newboolean{@anim@eof}
 \newcount\@anim@tmpcnt %scratch counter for different uses
+\newcounter{@anim@tmpcnt} %scratch LaTeX counter for different uses
 \newcount\@anim@curlayer %takes the number of the current layer being processed
 \newcount\@anim@lineno %current input line No.
 
@@ -2327,7 +2356,7 @@
   \edef\@anim@inputline{\expandafter\zap@space\@anim@inputline\@empty}%
   \ifeof\@anim@@tmlnfile\setboolean{@anim@eof}{true}\else%
     \setboolean{@anim@eof}{false}\fi%
-  \message{<building timeline a#1:}%
+  \message{<building timeline a#1 from file `\@anim@tmlnfile':}%
   \whiledo{\NOT\boolean{@anim@eof}}{%
     \global\advance\@anim@lineno by \@ne%
     \ifthenelse{\equal{\@anim@inputline}{}}{}{%
@@ -2370,6 +2399,7 @@
       \@anim@newkey{trlst@\the\@anim@curframe@zb}{}%
       \@anim@newkey{frmxobject@\the\@anim@curframe@zb}{}%
       \@anim@newkey{frmcontent@\the\@anim@curframe@zb}{}%
+      \message{.}%
       \global\advance\@anim@curframe@zb by \@ne%
     }%
     \read\@anim@@tmlnfile to \@anim@inputline%
@@ -2377,8 +2407,8 @@
     \edef\@anim@inputline{\expandafter\zap@space\@anim@inputline\@empty}%
     \ifeof\@anim@@tmlnfile\setboolean{@anim@eof}{true}\else%
       \setboolean{@anim@eof}{false}\fi%
-    \message{.}%
   }%
+  \message{\the\@anim@curframe@zb\space frames built}%
   \closein\@anim@@tmlnfile%
   %check for unused transparencies
   \global\@anim@tmpcnt=\z@%
@@ -2746,7 +2776,8 @@
 }
 \define@key{anim@user}{timeline}{%
   \IfFileExists{#1}{%
-    \gdef\@anim@tmlnfile{#1}%
+    \edef\@filef@und{\@filef@und\space}%
+    \xdef\@anim@tmlnfile{\expandafter\zap@space\@filef@und\@empty}%
     \setboolean{@anim@timeline}{true}%
   }{%
     \PackageError{animate}{timeline file `#1' cannot be opened for reading%
