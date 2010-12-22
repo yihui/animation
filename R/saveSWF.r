@@ -67,8 +67,6 @@ saveSWF = function(expr, interval = 1, swfname = "movie.swf",
     ani.options(oopt)
     tool = ifelse(is.null(swftools), paste(dev, "2swf", sep = ""),
         shQuote(file.path(swftools, paste(dev, "2swf", sep = ""))))
-    if (.Platform$OS.type == "windows")
-        system = shell
     version = system(tool, intern = TRUE)
     if (length(version) < 10)
         stop("swftools not found; please install swftools first: http://www.swftools.org")
