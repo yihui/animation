@@ -33,7 +33,7 @@
 ##'   \code{\link[grDevices]{png}}, \code{\link[grDevices]{jpeg}},
 ##'   \code{\link[grDevices]{pdf}}
 ##' @references
-##'   \url{http://animation.yihui.name/animation:start\#create_flash_animations}
+##'   \url{http://animation.yihui.name/animation:start#create_flash_animations}
 ##' @keywords dynamic device utilities
 ##' @examples
 ##'
