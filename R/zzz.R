@@ -1,6 +1,6 @@
-.First.lib <- function(lib, pkg) {
+.onLoad <- function(lib, pkg) {
     options(demo.ask = FALSE, example.ask = FALSE)
 }
-.Last.lib <- function(lib) {
+.onUnload <- function(lib) {
     options(ani = NULL)
 }
