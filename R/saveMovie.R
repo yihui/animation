@@ -46,11 +46,19 @@
 ##'   (refer to \code{\link[base]{system}} and \code{\link{im.convert}}).
 ##' @note See \code{\link{im.convert}} for details on the configuration of
 ##'   ImageMagick (typically for Windows users).
+##'
+##' It is recommended to use \code{ani.options('interval')} to specify the time
+##' interval in \code{expr}, because this argument will be temporarily set to 0
+##' when \code{expr} is being evaluated, and it will be restored in the end.
+##' See the demo \code{'Xmas2'} for example (\code{demo('Xmas2', package = 'animation')}).
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link{im.convert}}, \code{\link{gm.convert}}, \code{\link{saveSWF}},
 ##'   \code{\link[base]{system}}, \code{\link[grDevices]{png}},
 ##'   \code{\link[grDevices]{jpeg}}
-##' @references \url{http://www.imagemagick.org/script/convert.php}
+##' @references
+##' ImageMagick: \url{http://www.imagemagick.org/script/convert.php}
+##'
+##' GraphicsMagick: \url{http://www.graphicsmagick.org}
 ##'
 ##' \url{http://animation.yihui.name/animation:start}
 ##' @keywords dynamic device utilities
