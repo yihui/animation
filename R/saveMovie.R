@@ -40,9 +40,6 @@
 ##' @param ani.first an expression to be evaluated before plotting (this will
 ##'   be useful to set graphical parameters in advance, e.g. \code{ani.first =
 ##'   par(pch = 20)}
-##' @param para a list: the graphics parameters to be set before plotting;
-##'   passed to \code{\link[graphics]{par}}; note \code{ani.first} can override
-##'   this argument
 ##' @param \dots other arguments passed to the graphical device, such as
 ##'   \code{height} and \code{width}, ...
 ##' @return An integer indicating failure (-1) or success (0) of the converting
@@ -72,8 +69,7 @@ saveMovie = function(expr, interval = 1, moviename = "animation.gif",
              loop = 0, dev = png, filename = "Rplot",
              fmt = "%03d", fileext = "png", outdir = getwd(),
              convert = "convert", cmd.fun, clean = TRUE,
-             ani.first = NULL, para = par(no.readonly = TRUE),
-             ...) {
+             ani.first = NULL, ...) {
     force(outdir)
     ## create images in the temp dir
     tmpdir = setwd(tempdir())
@@ -87,7 +83,6 @@ saveMovie = function(expr, interval = 1, moviename = "animation.gif",
     ## draw the plots and record them in image files
     oopt = ani.options(interval = 0)
     dev(paste(filename, fmt, ".", fileext, sep = ""), ...)
-    par(para)
     eval(ani.first)
     eval(expr)
     dev.off()
