@@ -6,6 +6,12 @@ NEW FEATURES
     o a new demo 'Xmas2': Merry Christmas with
   snowflakes (see demo('Xmas2', 'animation'))
 
+MINOR CHANGES
+
+    o the argument 'para' in saveMovie() was removed;
+  'para' in saveSWF() was replaced by 'ani.first'
+  (more flexible and of general use)
+
 TO APPEAR
 
     o Changes made by Thomas Julou (using ffmpeg)

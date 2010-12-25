@@ -20,8 +20,9 @@
 ##'   argument is to make sure that \code{png2swf}, \code{jpeg2swf} and
 ##'   \code{pdf2swf} can be executed correctly. If it is \code{NULL}, it should
 ##'   be guaranteed that these commands can be executed without the path.
-##' @param para a list: the graphics parameters to be set before plotting;
-##'   passed to \code{\link[graphics]{par}}
+##' @param ani.first an expression to be evaluated before plotting (this will
+##'   be useful to set graphical parameters in advance, e.g. \code{ani.first =
+##'   par(pch = 20)}
 ##' @param \dots other arguments passed to the graphical device, such as
 ##'   \code{height} and \code{width}, ...
 ##' @return An integer indicating failure (-1) or success (0) of the converting
@@ -41,7 +42,7 @@
 ##' oopt = ani.options(nmax = 50)
 ##' # from png
 ##' saveSWF(knn.ani(test = matrix(rnorm(16), ncol = 2),
-##'     cl.pch = c(16, 2)), 1.5, dev = "png", para = list(mar = c(3,
+##'     cl.pch = c(16, 2)), 1.5, dev = "png", ani.first = par(mar = c(3,
 ##'     3, 1, 1.5), mgp = c(1.5, 0.5, 0)), swfname = "kNN.swf")
 ##'
 ##' # from pdf (vector plot!)
@@ -54,14 +55,14 @@
 ##'
 saveSWF = function(expr, interval = 1, swfname = "movie.swf",
     dev = c("png", "jpeg", "pdf"), filename = "Rplot", fmt = "%03d",
-    outdir = tempdir(), swftools = NULL, para = par(no.readonly = TRUE),
+    outdir = tempdir(), swftools = NULL, ani.first = NULL,
     ...) {
     olddir = setwd(outdir)
     on.exit(setwd(olddir))
     oopt = ani.options(interval = 0)
     anidev = switch(dev, png = png, jpeg = jpeg, pdf = pdf)
     anidev(paste(filename, fmt, ".", dev, sep = ""), ...)
-    par(para)
+    eval(ani.first)
     eval(expr)
     dev.off()
     ani.options(oopt)
