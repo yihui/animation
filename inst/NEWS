@@ -3,7 +3,19 @@
 
 NEW FEATURES
 
-    o the package has a NAMESPACE now
+    o the package has a NAMESPACE now (so .First.lib
+  was changed to .onLoad accordingly)
+    o im.convert() and gm.convert() can accept
+  a vector of time intervals now (i.e. the time
+  interval between image frames does not have to be
+  a constant any more)
+    o added a dataset 'iatemp' (yearly average
+  temperature of central Iowa)
+
+MINOR CHANGES
+
+    o saveSWF() is using system() instead of shell()
+  to call *2swf commands now
 
 TO APPEAR
 
