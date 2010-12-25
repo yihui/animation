@@ -17,24 +17,30 @@
 ##'   functions (e.g. \code{brownian.motion()}) in this package or a custom
 ##'   expression (e.g. \code{for(i in 1:10) plot(runif(10), ylim = 0:1)}).
 ##' @param interval duration between animation frames (unit in seconds)
-##' @param nmax,outdir maximum number of animatio frames and the directory for
-##'   output (see \code{\link{ani.options}})
+##' @param nmax maximum number of animatio frames (if missing and the graphics
+##' device is a bitmap device, this number will be automatically calculated);
+##' note that we do not have to specify \code{nmax} when using PDF devices.
+##' @param outdir the directory for output (default to be the current working
+##' directory)
 ##' @param ani.dev the graphics device to be used to record image frames
 ##' @param ani.basename,ani.ext basename and extension of file names of
-##'   animation frames
+##'   animation frames; see the Note section for a possible adjustment on
+##' \code{ani.basename}
 ##' @param num the format for page numbers
 ##' @param ani.first an expression to be evaluated before plotting (this will
 ##'   be useful to set graphical parameters in advance, e.g. \code{ani.first =
 ##'   par(pch = 20)})
 ##' @param ani.opts options to control the behavior of the animation (passed to
 ##'   the LaTeX macro \code{"\\animategraphics"}; default to be
-##' \code{"controls,width=\\textwidth"})
-##' @param centering the macro to center the graph (can be \code{NULL};
-##' default to be \code{"\\centering"})
+##' \code{"controls,width=\\linewidth"})
+##' @param centering logical: whether to center the graph using the LaTeX
+##' environment \verb{\begin{center}} and \verb{\end{center}}
 ##' @param caption,label caption and label for the graphics in the figure
 ##'   environment
 ##' @param pkg.opts global options for the \code{animate} package
-##' @param documentclass LaTeX document class
+##' @param documentclass LaTeX document class; if \code{NULL}, the output
+##' will not be a complete LaTeX document (only the code to generate the
+##' PDF animation will be printed in the console)
 ##' @param latex.filename file name of the LaTeX document; if an empty string
 ##'   \code{""}, the LaTeX code will be printed in the console and hence not
 ##'   compiled
@@ -43,10 +49,21 @@
 ##' @param install.animate copy the LaTeX style files \file{animate.sty} and
 ##'   \file{animfp.sty} to \code{outdir}? If you have not installed the LaTeX
 ##'   package \code{animate}, it suffices just to copy these to files.
+##' @param overwrite whether to overwrite the existing image frames
 ##' @param \dots other arguments passed to the graphics device \code{ani.dev},
 ##'   e.g. height and width
 ##' @return Invisible \code{NULL}
-##' @note When using \code{ani.dev = "png"} or other bitmap graphics devices,
+##' @note
+##' This function will detect if it was called in a Sweave environment --
+##' if so, \code{ani.basename} will be automatically adjusted to
+##' \code{prefix.string-label}, and the LaTeX output will not be a complete
+##' document, but rather a single line like
+##' \verb{\animategraphics[ani.opts]{1/interval}{ani.basename}{}{}}
+##'
+##' This automatic feature can be useful to Sweave users (but remember to
+##' set the Sweave option \code{results=tex}).
+##'
+##' When using \code{ani.dev = "png"} or other bitmap graphics devices,
 ##'   all the images can be recorded only if a proper \code{num} is provided;
 ##'   typically it must be \code{"\%d"}.
 ##'
@@ -54,11 +71,11 @@
 ##'   are more friendly to LaTeX. But sometimes the size of PDF files is much
 ##'   larger.
 ##'
-##' So far animations created by the LaTeX package \code{animate} can only be
-##'   viewed with Acrobat Reader (Windows) or acroread (Linux). Other PDF views
-##'   may not support JavaScript (in fact the PDF animation is done by
-##'   JavaScript). Linux users may need to install 'acroread' and set
-##'   \code{options(pdfviewer = 'acroread')}.
+##' So far animations created by the LaTeX package \pkg{animate} can only be
+##'   viewed with Acrobat Reader (Windows) or \command{acroread} (Linux).
+##' Other PDF viewers may not support JavaScript (in fact the PDF animation is
+##' driven by JavaScript). Linux users may need to install \command{acroread}
+##' and set \code{options(pdfviewer = 'acroread')}.
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link{saveMovie}} to convert image frames to a single
 ##'   GIF/MPEG file; \code{\link{saveSWF}} to convert images to Flash;
@@ -85,59 +102,111 @@
 ##' ani.options(oopt)
 ##' }
 ##'
-saveLatex = function(expr, interval = ani.options("interval"),
-    nmax = ani.options("nmax"), ani.dev = "pdf", outdir = ani.options("outdir"),
+saveLatex = function(expr, interval = 1,
+    nmax, ani.dev = "pdf", outdir = '.',
     ani.basename = "Rplot", ani.ext = "pdf", num = ifelse(ani.ext ==
-        "pdf", "", "%d"), ani.first = par(), ani.opts,
-    centering, caption = NULL, label = NULL,
+        "pdf", "", "%d"), ani.first = NULL, ani.opts,
+    centering = TRUE, caption = NULL, label = NULL,
     pkg.opts = NULL, documentclass = "article", latex.filename = "animation.tex",
-    pdflatex = "pdflatex", install.animate = TRUE, ...) {
+    pdflatex = "pdflatex", install.animate = TRUE, overwrite = TRUE, ...) {
+    ## detect if I'm in a Sweave environment
+    in.sweave = FALSE
+    if (length(sys.parents()) >= 3) {
+        if ('chunkopts' %in% ls(envir = sys.frame(2))) {
+            chunkopts = get('chunkopts', envir = sys.frame(2))
+            if (all(c('prefix.string', 'label') %in% names(chunkopts))) {
+                ## yes, I'm in Sweave w.p. 95%
+                ani.basename = paste(chunkopts$prefix.string, chunkopts$label, sep = '-')
+                outdir = '.'
+                in.sweave = TRUE
+            }
+        }
+    }
+
+    ## generate the image frames
     odir = setwd(outdir)
-    interval = interval
     oopt = ani.options(interval = 0)
     on.exit(setwd(odir))
     on.exit(ani.options(oopt), add = TRUE)
     if (is.character(ani.dev))
         ani.dev = get(ani.dev)
-    ani.dev(sprintf("%s%s.%s", ani.basename, num, ani.ext), ...)
-    eval(ani.first)
-    eval(expr)
-    dev.off()
-    if (missing(ani.opts)) ani.opts = "controls,width=\\textwidth"
-    if (missing(centering)) centering = "\\centering"
-    if (install.animate) {
-        file.copy(system.file("js", "animate.sty", package = "animation"),
-            "animate.sty", overwrite = TRUE)
-        file.copy(system.file("js", "animfp.sty", package = "animation"),
-            "animfp.sty", overwrite = TRUE)
+    ani.files.len = length(list.files(path = dirname(ani.basename), pattern =
+                           sprintf('^%s.*\\.%s$', ani.basename, ani.ext)))
+    if (overwrite || !ani.files.len) {
+        ani.dev(sprintf("%s%s.%s", ani.basename, num, ani.ext), ...)
+        eval(ani.first)
+        eval(expr)
+        dev.off()
     }
-    cat(sprintf(paste("\\documentclass{%s}", "\\usepackage%s{animate}",
-        "\\begin{document}", "\\begin{figure}", "%s", "\\animategraphics[%s]{%s}{%s}{%d}{%d}%s%s",
-        "\\end{figure}", "\\end{document}", sep = "\n"), documentclass,
-        ifelse(is.null(pkg.opts), "", sprintf("[%s]", pkg.opts)),
-        centering, ani.opts, 1/interval, ani.basename, 0, nmax - 1,
-        ifelse(is.null(caption), "", sprintf("\\caption{%s}",
-            caption)), ifelse(is.null(label), "", sprintf("\\label{%s}",
-            label))), "\n", file = latex.filename)
-    message("LaTeX document created at: ", file.path(getwd(),
-        latex.filename))
-    if ((latex.filename != "") & !is.null(pdflatex)) {
-        if (system(sprintf("%s %s", pdflatex, latex.filename),
-            show.output.on.console = FALSE) == 0) {
-            message(sprintf("successfully compiled: %s %s", pdflatex,
-                latex.filename))
-            if (ani.options("autobrowse"))
-                system(sprintf("%s %s", getOption("pdfviewer"),
-                  sprintf("%s.pdf", sub("([^.]+)\\.[[:alnum:]]+$",
-                    "\\1", latex.filename))))
+
+    if (missing(nmax)) {
+        ## count the number of images generated
+        start.num = ifelse(ani.ext == 'pdf', '', 1)
+        end.num = ifelse(ani.ext == 'pdf', '', ani.files.len)
+    } else {
+        ## PDF animations should start from 0 to nmax-1
+        start.num = ifelse(ani.ext == 'pdf', 0, 1)
+        end.num = ifelse(ani.ext == 'pdf', nmax - 1, nmax)
+    }
+
+    if (missing(ani.opts)) ani.opts = "controls,width=\\linewidth"
+
+    if (install.animate && !in.sweave && length(documentclass)) {
+        file.copy(system.file("js", "animate.sty", package = "animation"),
+                  "animate.sty", overwrite = TRUE)
+        file.copy(system.file("js", "animfp.sty", package = "animation"),
+                  "animfp.sty", overwrite = TRUE)
+    }
+
+    if (!in.sweave && length(documentclass)) {
+        cat(sprintf("
+\\documentclass{%s}
+\\usepackage%s{animate}
+\\begin{document}
+\\begin{figure}
+%s
+\\animategraphics[%s]{%s}{%s}{%s}{%s}%s%s
+%s
+\\end{figure}
+\\end{document}
+", documentclass,
+                    ifelse(is.null(pkg.opts), "", sprintf("[%s]", pkg.opts)),
+                    ifelse(centering, '\\begin{center}', ''),
+                    ani.opts,
+                    1/interval, ani.basename, start.num, end.num,
+                    ifelse(is.null(caption), "", sprintf("\\caption{%s}", caption)),
+                    ifelse(is.null(label), "", sprintf("\\label{%s}", label)),
+                    ifelse(centering, '\\end{center}', '')),
+            "\n", file = latex.filename)
+        if ((latex.filename != "") & !is.null(pdflatex)) {
+            message("LaTeX document created at: ", file.path(getwd(),
+                                                             latex.filename))
+            if (system(sprintf("%s %s", pdflatex, latex.filename),
+                       show.output.on.console = FALSE) == 0) {
+                message(sprintf("successfully compiled: %s %s", pdflatex,
+                                latex.filename))
+                if (ani.options("autobrowse"))
+                    system(sprintf("%s %s", getOption("pdfviewer"),
+                                   sprintf("%s.pdf", sub("([^.]+)\\.[[:alnum:]]+$",
+                                                         "\\1", latex.filename))))
+            }
+            else {
+                message("An error occurred while compiling the LaTeX document; \nyou should probably take a look at the log file: ",
+                        sprintf("%s.log", sub("([^.]+)\\.[[:alnum:]]+$",
+                                              "\\1", latex.filename)), " under ", getwd())
+                if (Sys.info()["sysname"] == "Darwin")
+                    message("Mac OS users may also consider saveLatex(..., pdflatex = '/usr/texbin/pdflatex') if pdflatex is not in your PATH variable.")
+            }
         }
-        else {
-            message("An error occurred while compiling the LaTeX document; \nyou should probably take a look at the log file: ",
-            sprintf("%s.log", sub("([^.]+)\\.[[:alnum:]]+$",
-                "\\1", latex.filename)), " under ", getwd())
-            if (Sys.info()["sysname"] == "Darwin")
-                message("Mac OS users may also consider saveLatex(..., pdflatex = '/usr/texbin/pdflatex') if pdflatex is not in your PATH variable.")
-        }
+    } else {
+        cat(sprintf("
+%s
+\\animategraphics[%s]{%s}{%s}{%s}{%s}
+%s
+", ifelse(centering, '\\begin{center}', ''),
+                    ani.opts,
+                    1/interval, ani.basename, start.num, end.num,
+                    ifelse(centering, '\\end{center}', '')))
     }
     invisible(NULL)
 }

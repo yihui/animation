@@ -11,6 +11,10 @@ NEW FEATURES
   a constant any more)
     o added a dataset 'iatemp' (yearly average
   temperature of central Iowa)
+    o saveLatex() can be used in Sweave to dynamically
+  insert PDF animations now -- it will automatically
+  detect if it was called in Sweave and output the
+  relevant LaTeX code to the LaTeX document
 
 MINOR CHANGES
 
