@@ -26,5 +26,6 @@ pp <- function(N) {
         Sys.sleep(interval)
     }
 }
-saveMovie(pp(100), 0.1)
+pp(100)
+## saveMovie(pp(100), 0.1)
 ani.options(oopt)
