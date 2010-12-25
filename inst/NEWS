@@ -1,3 +1,20 @@
+		CHANGES IN animation VERSION 1.1-6
+
+
+NEW FEATURES
+
+    o a new demo 'Xmas2': Merry Christmas with
+  snowflakes (see demo('Xmas2', 'animation'))
+
+TO APPEAR
+
+    o Changes made by Thomas Julou (using ffmpeg)
+    o A function boot.loess() added to show the
+  bootstrapping effects on loess().
+    o A function cart.ani() to show the splitting
+  process of classification and regression trees.
+
+
 		CHANGES IN animation VERSION 1.1-5
 
 
@@ -21,13 +38,6 @@ MINOR CHANGES
     o saveSWF() is using system() instead of shell()
   to call *2swf commands now
 
-TO APPEAR
-
-    o Changes made by Thomas Julou (using ffmpeg)
-    o A function boot.loess() added to show the
-  bootstrapping effects on loess().
-    o A function cart.ani() to show the splitting
-  process of classification and regression trees.
 
 
 		CHANGES IN animation VERSION 1.1-4
