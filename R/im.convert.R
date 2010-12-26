@@ -22,8 +22,8 @@
 ##' @param extra.opts additional options to be passed to \command{convert}
 ##' @param outdir the output directory
 ##' @param convert the \command{convert} command; see Details
-##' @param cmd.fun a function to invoke the OS command; by default,
-##'   \code{shell} under Windows and \code{\link[base]{system}} under other OS
+##' @param cmd.fun a function to invoke the OS command; by default
+##' \code{\link[base]{system}}
 ##' @param clean logical: delete the input \code{files} or not
 ##' @return The path of the output if the command was successfully executed;
 ##'   otherwise a failure message.
@@ -84,10 +84,7 @@ im.convert = function(files, interval = ani.options("interval"),
     loop = 0, output = "animation.gif", extra.opts = "", outdir = getwd(),
     convert = c("convert", "gm convert"), cmd.fun, clean = FALSE) {
     output.path = file.path(outdir, output)
-    if (missing(cmd.fun))
-        cmd.fun = if (.Platform$OS.type == "windows")
-            shell
-        else system
+    if (missing(cmd.fun)) cmd.fun = system
     interval = head(interval, length(files))
     convert = match.arg(convert)
     if (convert == 'convert') {
@@ -142,11 +139,15 @@ im.convert = function(files, interval = ani.options("interval"),
         }
     }
     input = paste(files, collapse = " ")
-    convert = sprintf("%s -loop %s %s %s %s", convert, loop, extra.opts, paste('-delay', interval * 100, files, collapse = ' '), output.path)
+    convert = sprintf("%s -loop %s %s %s %s", convert, loop, extra.opts, paste('-delay', interval * 100, files, collapse = ' '), shQuote(output.path))
 
     message("Executing: ", convert)
     flush.console()
     cmd = cmd.fun(convert)
+    ## if fails on Windows using shell(), try system() instead of shell()
+    if (cmd == 0 && .Platform$OS.type == "windows" && identical(cmd.fun, shell)) {
+        cmd = system(convert)
+    }
     if (cmd == 0) {
         message("Output at: ", output.path)
         if (clean)

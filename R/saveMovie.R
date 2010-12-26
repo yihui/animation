@@ -34,8 +34,8 @@
 ##' @param convert the ImageMagick command to convert images (default to be
 ##'   \code{convert}, but might be \code{imconvert} under some Windows
 ##'   platforms); see the 'Note' section for details
-##' @param cmd.fun a function to invoke the OS command; by default,
-##'   \code{shell} under Windows and \code{\link[base]{system}} under other OS
+##' @param cmd.fun a function to invoke the OS command; by default
+##' \code{\link[base]{system}}
 ##' @param clean whether to delete the individual image frames
 ##' @param ani.first an expression to be evaluated before plotting (this will
 ##'   be useful to set graphical parameters in advance, e.g. \code{ani.first =
@@ -76,7 +76,7 @@
 saveMovie = function(expr, interval = 1, moviename = "animation.gif",
              loop = 0, dev = png, filename = "Rplot",
              fmt = "%03d", fileext = "png", outdir = getwd(),
-             convert = "convert", cmd.fun, clean = TRUE,
+             convert = "convert", cmd.fun = system, clean = TRUE,
              ani.first = NULL, ...) {
     force(outdir)
     ## create images in the temp dir
@@ -95,11 +95,6 @@ saveMovie = function(expr, interval = 1, moviename = "animation.gif",
     eval(expr)
     dev.off()
     ani.options(oopt)
-
-    if (missing(cmd.fun))
-        cmd.fun = if (.Platform$OS.type == "windows")
-            shell
-        else system
 
     ## convert to animations
     im.convert(wildcard, interval = interval, loop = loop,
