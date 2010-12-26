@@ -124,7 +124,7 @@ im.convert = function(files, interval = ani.options("interval"),
                     } else stop("No way to find ImageMagick!")
                 }
                 else stop("ImageMagick not installed yet!")
-                Sys.setenv(PATH = paste(dirname(gsub('(^[\"\']|[\"\']$)', '', convert)), Sys.getenv('PATH'), sep = ';'))
+                Sys.setenv(PATH = paste(unique(c(dirname(gsub('(^[\"\']|[\"\']$)', '', convert)), strsplit(Sys.getenv('PATH'), ';')[[1]])), sep = ';'))
             }
             else {
                 stop("Please install ImageMagick first or put its bin path into the system PATH variable")
