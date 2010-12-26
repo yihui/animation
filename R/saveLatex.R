@@ -152,9 +152,9 @@ saveLatex = function(expr, interval = 1,
     if (missing(ani.opts)) ani.opts = "controls,width=\\linewidth"
 
     if (install.animate && !in.sweave && length(documentclass)) {
-        file.copy(system.file("js", "animate", "animate.sty", package = "animation"),
+        file.copy(system.file("misc", "animate", "animate.sty", package = "animation"),
                   "animate.sty", overwrite = TRUE)
-        file.copy(system.file("js", "animate", "animfp.sty", package = "animation"),
+        file.copy(system.file("misc", "animate", "animfp.sty", package = "animation"),
                   "animfp.sty", overwrite = TRUE)
     }
 

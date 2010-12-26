@@ -46,9 +46,9 @@ ani.start = function(...) {
     else {
         file.remove(list.files(imgdir, full.names = TRUE))
     }
-    file.copy(system.file("js", "ANI.css", package = "animation"),
+    file.copy(system.file("misc", "ANI.css", package = "animation"),
         "ANI.css", overwrite = TRUE)
-    file.copy(system.file("js", "FUN.js", package = "animation"),
+    file.copy(system.file("misc", "FUN.js", package = "animation"),
         "FUN.js", overwrite = TRUE)
     ani.options(interval = c(0, ani.options()$interval))
     dev = ani.options("ani.dev")
