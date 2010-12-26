@@ -67,7 +67,7 @@
 ##' saveLatex({
 ##'     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow",
 ##'         main = "Brownian Motion")
-##' }, ani.basename = "BM", ani.opts = "controls,loop,width=0.8\textwidth",
+##' }, ani.basename = "BM", ani.opts = "controls,loop,width=0.8\\textwidth",
 ##'     ani.first = par(mar = c(3, 3, 1, 0.5), mgp = c(2, 0.5, 0),
 ##'         tcl = -0.3, cex.axis = 0.8, cex.lab = 0.8, cex.main = 1),
 ##'     latex.filename = "brownian.motion.tex")

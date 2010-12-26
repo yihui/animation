@@ -4,7 +4,8 @@
 NEW FEATURES
 
     o a new demo 'Xmas2': Merry Christmas with
-  snowflakes (see demo('Xmas2', 'animation'))
+  snowflakes (see demo('Xmas2', 'animation');
+  thanks, Jing Jiao)
 
 MINOR CHANGES
 
@@ -14,6 +15,11 @@ MINOR CHANGES
     o the path of the output in im.convert() and
   gm.convert() will be quoted, because sometimes
   users might supply a path containing spaces
+  (thanks, Phalkun Chheng)
+    o the option 'filename' in ani.options() was
+  renamed to 'htmlfile' so that the meaning of this
+  option is more clear; 'footer' was renamed to
+  'verbose' too
 
 TO APPEAR
 

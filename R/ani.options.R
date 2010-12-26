@@ -26,8 +26,8 @@
 ##' \item{imgdir}{character: the name of the directory (a relative path) for
 ##' images when creating HTML animation pages; default to be \code{"images"}.}
 ##'
-##' \item{filename}{character: name of the target HTML main file (without path
-##' name; basename only; default to be \code{"index.htm"})}
+##' \item{htmlfile}{character: name of the target HTML main file (without path
+##' name; basename only; default to be \code{"index.html"})}
 ##'
 ##' \item{withprompt}{character: prompt to display while
 ##' using \code{\link{ani.start}} (restore with \code{\link{ani.stop}})}
@@ -42,13 +42,13 @@
 ##'
 ##' \item{description}{character: a description about the animation }
 ##'
-##' \item{footer}{ logical or character: if \code{TRUE}, write a foot part in
-##' the HTML page containing information such as date/time of creation; if
+##' \item{verbose}{ logical or character: if \code{TRUE}, write a footer part in
+##' the HTML page containing detailed technical information; if
 ##' given a character string, it will be used as the footer message; in other
 ##' cases, the footer of the page will be blank.}
 ##'
 ##' \item{loop}{whether to
-##' iterate or not (default \code{TRUE} to interate for infinite times)}
+##' iterate or not (default \code{TRUE} to iterate for infinite times)}
 ##'
 ##' \item{autobrowse}{logical: whether auto-browse the animation page
 ##' immediately after it is created?}
@@ -102,10 +102,10 @@
 ##'
 ani.options = function(...) {
     mf = list(interval = 1, nmax = 50, ani.width = 480, ani.height = 480,
-        outdir = tempdir(), imgdir = "images", filename = "index.htm",
+        outdir = tempdir(), imgdir = "images", htmlfile = "index.html",
         withprompt = "ANI> ", ani.type = "png", ani.dev = "png",
         title = "Statistical Animations Using R", description = "This is an animation.",
-        footer = TRUE, loop = TRUE, autobrowse = TRUE)
+        verbose = TRUE, loop = TRUE, autobrowse = TRUE)
     if (is.null(getOption("ani")))
         options(ani = mf)
     else mf = getOption("ani")
@@ -135,3 +135,13 @@ ani.options = function(...) {
         getOption("ani")
     }
 }
+
+
+.ani.opts =
+    list(interval = 1, nmax = 50, ani.width = 480, ani.height = 480,
+         outdir = tempdir(), imgdir = "images", htmlfile = "index.html",
+         withprompt = "ANI> ", ani.type = "png", ani.dev = "png",
+         title = "Statistical Animations Using R",
+         description = paste("Animations generated in", R.version.string,
+         'using the package animation', packageVersion('animation')),
+         verbose = TRUE, loop = TRUE, autobrowse = TRUE)
