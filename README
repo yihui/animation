@@ -12,7 +12,7 @@ The repository on GitHub is not a complete R package -- it has no
 'man' directory. To install this 'package' here, it is recommended that
 you install R2roxygen first; then run rab() on this source package.
 
-install.packages('Rd2roxygen')
+install.packages(c('Rd2roxygen', 'formatR'))
 library(Rd2roxygen)
 ## make sure getwd() is right above the animation directory
 rab('./animation', install=TRUE)
