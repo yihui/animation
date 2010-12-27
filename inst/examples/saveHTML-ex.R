@@ -10,6 +10,8 @@ saveHTML({
          title = 'Demo of 20 uniform random numbers',
          description = c('This is a silly example.\n\n', 'You can describe it in more detail.', 'For example, bla bla...'))
 
+
+
 ## we can merge another animation into the former page
 ##   as long as 'htmlfile' is the same
 ## this time I don't want the animation to autoplay, and will use
@@ -28,6 +30,8 @@ saveHTML({
          title = 'Demo of 50 Normal random numbers',
          description = c('When you write a long long long long description,', 'R will try to wrap the words automatically.', 'Oh, really?!'))
 
+
+
 ## use the function brownian.motion() in this package
 ## note this page is created in 'index.html' under ani.options('outdir')
 saveHTML({
@@ -39,6 +43,8 @@ saveHTML({
          interval = 0.05, nmax = 150,
          description = c('Random walk of 10 points on the 2D plane:', 'for each point (x, y),', 'x = x + rnorm(1) and y = y + rnorm(1).'))
 
+
+
 ## we may feel that the navigation panel is too wide, so let's remove it next
 ## the default value of 'controls' is:
 ## ['first', 'previous', 'play', 'next', 'last', 'navigator', 'loop', 'speed']
@@ -49,6 +55,7 @@ saveHTML({
     ani.options(interval = 0.05, nmax = 150)
     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")
 }, imgname = 'brownian_motion_b',
+         htmlfile = 'index.html', interval = 0.05,
          single.opts = "'controls': ['first', 'previous', 'play', 'next', 'last', 'loop', 'speed'], 'delayMin': 0",
-         htmlfile = 'index.html', interval = 0.05, nmax = 150,
+         nmax = 150,
          description = c('Random walk of 10 points on the 2D plane', '(without the navigation panel)'))
