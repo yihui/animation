@@ -41,15 +41,14 @@ saveHTML({
 
 ## we may feel that the navigation panel is too wide, so let's remove it next
 ## the default value of 'controls' is:
-## ['first', 'previous', 'play', 'next', 'last', 'navigator', 'loopMode', 'speed']
-## unfortunately this method does not actually work for the time being; I'm
-##   waiting for the reply from the author of SciAnimator
+## ['first', 'previous', 'play', 'next', 'last', 'navigator', 'loop', 'speed']
+## we need to remove 'navigator'
 saveHTML({
     par(mar = c(3, 3, 1, 0.5), mgp = c(2, 0.5, 0), tcl = -0.3,
         cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)
     ani.options(interval = 0.05, nmax = 150)
     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")
 }, imgname = 'brownian_motion_b',
-         single.opts = "'controls': ['first', 'previous', 'play', 'next', 'last', 'loopMode', 'speed']",
+         single.opts = "'controls': ['first', 'previous', 'play', 'next', 'last', 'loop', 'speed'], 'delayMin': 0",
          htmlfile = 'index.html', interval = 0.05, nmax = 150,
          description = 'Random walk of 10 points on the 2D plane (without the navigation panel)')
