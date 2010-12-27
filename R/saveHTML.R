@@ -108,7 +108,7 @@ saveHTML = function(expr, imgname = 'Rplot',
     js.temp = sprintf(js.temp, global.opts, imgname,
                       paste(shQuote(imglist, 'sh'), collapse = ', '),
                       ani.options('ani.height'), ani.options('ani.width'),
-                      1000 * ani.options()$interval,
+                      1000 * ani.options('interval'),
                       ifelse(ani.options('loop'), 'loop', 'none'),
                       ifelse(nzchar(single.opts), paste(',\n', single.opts), ''),
                       imgname

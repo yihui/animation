@@ -79,10 +79,6 @@
 ##'   etc. All the parameters will affect the behaviour of HTML animations, but
 ##'   only \code{interval} will affect animations in windows graphics device.
 ##'
-##' When R is not running with an interactive graphics device, \code{interval}
-##' will be set to 0 because it does not make much sense to let R wait for
-##' a possibly very long time when we cannot watch the animations in real time.
-##' Use \code{ani.options()$interval} to query the real \code{interval}.
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link[grDevices]{dev.interactive}}
 ##' @references \url{http://animation.yihui.name/animation:options}
@@ -109,9 +105,7 @@ ani.options = function(...) {
     if (length(lst)) {
         if (is.null(names(lst)) && !is.list(lst[[1]])) {
             lst = unlist(lst)
-            if (identical(lst, "interval") && !dev.interactive())
-                0
-            else if (length(lst) == 1) .ani.opts[[lst]] else .ani.opts[lst]
+            if (length(lst) == 1) .ani.opts[[lst]] else .ani.opts[lst]
         } else {
             omf = .ani.opts
             if (is.list(lst[[1]]))

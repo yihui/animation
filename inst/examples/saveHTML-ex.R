@@ -3,6 +3,7 @@ saveHTML({
     par(mar = c(4, 4, .5, .5))
     for (i in 1:20) {
         plot(runif(20), ylim = c(0, 1))
+        ani.pause()
     }
 }, imgname = 'unif_plot', imgdir = 'unif_dir', htmlfile = 'random.html',
          autobrowse = FALSE,
@@ -15,8 +16,10 @@ saveHTML({
 ##   text labels for the buttons (instead of UTF-8 symbols)
 saveHTML({
     par(mar = c(4, 4, .5, .5))
+    ani.options(interval = 0.5)
     for (i in 1:10) {
         plot(rnorm(50), ylim = c(-3, 3))
+        ani.pause()
     }
 }, imgname = 'norm_plot', single.opts = "'utf8': false",
          autoplay = FALSE, interval = 0.5,
@@ -30,6 +33,7 @@ saveHTML({
 saveHTML({
     par(mar = c(3, 3, 1, 0.5), mgp = c(2, 0.5, 0), tcl = -0.3,
         cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)
+    ani.options(interval = 0.05, nmax = 150)
     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")
 }, imgname = 'brownian_motion_a', htmlfile = 'index.html',
          interval = 0.05, nmax = 150,
@@ -43,6 +47,7 @@ saveHTML({
 saveHTML({
     par(mar = c(3, 3, 1, 0.5), mgp = c(2, 0.5, 0), tcl = -0.3,
         cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)
+    ani.options(interval = 0.05, nmax = 150)
     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")
 }, imgname = 'brownian_motion_b',
          single.opts = "'controls': ['first', 'previous', 'play', 'next', 'last', 'loopMode', 'speed']",
