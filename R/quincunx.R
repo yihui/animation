@@ -56,7 +56,6 @@ quincunx = function(balls = 200, layers = 15, pch.layers = 2,
     if (ani.options("nmax") != (balls + layers - 2))
         warning("It's strongly recommended that ani.options(nmax = balls + layers -2)")
     nmax = max(balls + layers - 2, ani.options("nmax"))
-    interval = ani.options("interval")
     layerx = layery = NULL
     for (i in 1:layers) {
         layerx = c(layerx, seq(0.5 * (i + 1), layers - 0.5 *
@@ -90,7 +89,7 @@ quincunx = function(balls = 200, layers = 15, pch.layers = 2,
         else hist(finalx[1:(i - layers + 2)], breaks = 1:layers,
             xlim = rgx, ylim = rgy, main = "", xlab = "", ylab = "",
             ann = FALSE, axes = FALSE)
-        Sys.sleep(interval)
+        ani.pause()
     }
     par(op)
     return(invisible(c(table(finalx))))

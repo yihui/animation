@@ -80,7 +80,7 @@ MC.samplemean = function(FUN = function(x) x - x^2,
         curve(FUN, from = 0, to = 1, add = TRUE)
         rug(x)
         rug(x[i], lwd = 2, side = 3, col = col.rect[2])
-        Sys.sleep(ani.options("interval"))
+        ani.pause()
     }
     ani.options(nmax = nmax)
     invisible(list(x = x, y = y, n = nmax, est = mean(y)))

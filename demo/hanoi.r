@@ -31,7 +31,7 @@ hanoi <- function(n, color = rainbow(n), interval = 0.5,
             tower[[to]] <<- c(tower[[from]][1], tower[[to]])
             tower[[from]] <<- tower[[from]][-1]
             draw.hanoi()
-            Sys.sleep(interval)
+            ani.pause()
         }
     }
     draw.hanoi()

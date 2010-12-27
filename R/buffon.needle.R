@@ -85,7 +85,6 @@ buffon.needle = function(l = 0.8, d = 1, redraw = TRUE,
     PI = rep(NA, ani.options("nmax"))
     x = y = x0 = y0 = phi = ctr = NULL
     layout(mat, heights = heights)
-    interval = ani.options("interval")
     while (j <= length(PI)) {
         plot(1, xlim = c(-0.5 * l, 1.5 * l), ylim = c(0, 2 *
             d), type = "n", xlab = "", ylab = "", axes = FALSE)
@@ -136,7 +135,7 @@ buffon.needle = function(l = 0.8, d = 1, redraw = TRUE,
         legend("topright", legend = eval(substitute(expression(hat(pi) ==
                 pihat), list(pihat = format(PI[j], nsmall = 7, digits = 7)))),
                 bty = "n", cex = 1.3)
-        Sys.sleep(interval)
+        ani.pause()
         j = j + 1
     }
     invisible(PI)

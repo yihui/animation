@@ -55,7 +55,7 @@ price.ani = function(price, time, time.begin = min(time),
             message("no prices between ", time1, " and ", time2)
         }
         time1 = time2
-        Sys.sleep(ani.options("interval"))
+        ani.pause()
     }
 }
 

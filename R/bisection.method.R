@@ -83,7 +83,6 @@ bisection.method = function(FUN = function(x) x^2 -
     if (missing(main))
         main = eval(substitute(expression("Root-finding by Bisection Method:" ~
             y == 0), list(y = body(FUN))))
-    interval = ani.options("interval")
     while (abs(mid) > tol & i <= ani.options("nmax")) {
         curve(FUN, min(rg), max(rg), xlab = xlab, ylab = ylab,
             main = main, ...)
@@ -98,7 +97,7 @@ bisection.method = function(FUN = function(x) x^2 -
         bd = c(bd, (l + u)/2)
         assign(ifelse(mid * FUN(l) > 0, "l", "u"), (l + u)/2)
         mid = FUN((l + u)/2)
-        Sys.sleep(interval)
+        ani.pause()
         i = i + 1
     }
     ani.options(nmax = i - 1)

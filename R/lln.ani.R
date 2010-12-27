@@ -66,7 +66,6 @@ lln.ani = function(FUN = rnorm, mu = 0, np = 30,
     }
     rg = range(m)
     xax = pretty(1:n)
-    interval = ani.options("interval")
     for (i in 1:n) {
         plot(1:n, ylim = rg, type = "n", xlab = paste("n =", i),
             ylab = expression(bar(x)), xaxt = "n")
@@ -75,6 +74,6 @@ lln.ani = function(FUN = rnorm, mu = 0, np = 30,
             col = col.poly)
         points(rep(1:i, each = np), m[1:(i * np)], pch = pch, ...)
         abline(h = mu, col = col.mu)
-        Sys.sleep(interval)
+        ani.pause()
     }
 }

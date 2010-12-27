@@ -65,7 +65,6 @@ conf.int = function(level = 0.95, size = 50, cl = c("red",
     rg = range(c(y0, y1))
     cvr = y0 < 0 & y1 > 0
     xax = pretty(1:n)
-    interval = ani.options("interval")
     for (i in 1:n) {
         plot(1:n, ylim = rg, type = "n", xlab = "Samples", ylab = expression("CI: [" ~
             bar(x) - z[alpha/2] * sigma/sqrt(n) ~ ", " ~ bar(x) +
@@ -81,7 +80,7 @@ conf.int = function(level = 0.95, size = 50, cl = c("red",
             ncol = 2)
         legend("topleft", legend = paste("coverage rate:", format(round(mean(cvr[1:i]),
             3), nsmall = 3)), bty = "n")
-        Sys.sleep(interval)
+        ani.pause()
     }
     CI = cbind(y0, y1)
     colnames(CI) = paste(round(c((1 - level)/2, 1 - (1 - level)/2),

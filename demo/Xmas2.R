@@ -23,7 +23,7 @@ pp <- function(N) {
         points(x1[i], y1[i], col = N - i, cex = 3)
         points(x1[i + 1], y1[i + 1], col = N - i - 1, cex = 2.5)
         text(N/2, N/2, "Merry Christmas", srt = 360 * i/N, col = rainbow(N)[i], cex = 4.5 * i/N)
-        Sys.sleep(interval)
+        ani.pause()
     }
 }
 pp(100)

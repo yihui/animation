@@ -48,7 +48,6 @@ sample.strat = function(pop = ceiling(10 * runif(10,
     nrow = length(pop)
     size = rep(size, length = nrow)
     nmax = ani.options("nmax")
-    interval = ani.options("interval")
     for (i in 1:nmax) {
         plot(1, axes = FALSE, ann = FALSE, type = "n", xlim = c(0.5,
             ncol + 0.5), ylim = c(0.5, nrow + 0.5), xaxs = "i",
@@ -61,7 +60,7 @@ sample.strat = function(pop = ceiling(10 * runif(10,
             points(sample(pop[j], size[j]), rep(j, size[j]),
                 col = p.col[2], cex = p.cex[2])
         }
-        Sys.sleep(interval)
+        ani.pause()
     }
     invisible(NULL)
 }

@@ -92,14 +92,13 @@ kmeans.ani = function(x = cbind(X1 = runif(50), X2 = runif(50)),
     j = 1
     pch = rep(pch, length = numcent)
     col = rep(col, length = numcent)
-    interval = ani.options("interval")
     while (j <= ani.options("nmax")) {
         plot(x, pch = pch[ocluster], col = col[ocluster], panel.first = grid())
         mtext(hints[1], 4)
         points(centers, pch = pch[1:numcent], cex = 3,
             lwd = 2, col = col[1:numcent])
         j = j + 1
-        Sys.sleep(interval)
+        ani.pause()
         for (i in 1:numcent) {
             dst[, i] = sqrt(apply((t(t(x) - unlist(centers[i,
                 ])))^2, 1, sum))
@@ -119,7 +118,7 @@ kmeans.ani = function(x = cbind(X1 = runif(50), X2 = runif(50)),
         points(ocenters, cex = 3, col = col[1:numcent],
             pch = pch[1:numcent], lwd = 2)
         j = j + 1
-        Sys.sleep(interval)
+        ani.pause()
         if (all(ncluster == ocluster))
             break
         ocluster = ncluster

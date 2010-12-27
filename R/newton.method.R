@@ -109,7 +109,6 @@ newton.method = function(FUN = function(x) x^2 -
         main = eval(substitute(expression("Root-finding by Newton-Raphson Method:" ~
             y == 0), list(y = body(FUN))))
     nmax = ani.options("nmax")
-    interval = ani.options("interval")
     while (abs(gap) > tol & i <= nmax & !is.na(x[i + 1])) {
         curve(FUN, min(rg), max(rg), main = main, xlab = xlab,
             ylab = ylab, ...)
@@ -123,7 +122,7 @@ newton.method = function(FUN = function(x) x^2 -
         gap = FUN(x[i + 1])
         x = c(x, x[i + 1] - FUN(x[i + 1])/attr(grad(x[i + 1]),
             "gradient"))
-        Sys.sleep(interval)
+        ani.pause()
         i = i + 1
     }
     rtx = par("usr")[4]

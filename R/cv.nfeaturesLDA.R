@@ -96,7 +96,6 @@ cv.nfeaturesLDA = function(data = matrix(rnorm(600),
     acc = matrix(nrow = k, ncol = nmax)
     loc = cbind(rep(1:nmax, each = k), rep(1:k, nmax))
     op = par(mfrow = c(1, 2))
-    interval = ani.options("interval")
     for (j in 1:nmax) {
         for (i in 2:(k + 1)) {
             idx = kf[i - 1]:(kf[i] - 1)
@@ -130,7 +129,7 @@ cv.nfeaturesLDA = function(data = matrix(rnorm(600),
                 fill = 1:2, bty = "n", cex = 0.8)
             legend("bottomleft", legend = levels(dat[idx, ncol(dat)])[unique(styl.pch)],
                 pch = unique(styl.pch), bty = "n", cex = 0.8)
-            Sys.sleep(interval)
+            ani.pause()
         }
     }
     ani.options(nmax = k * nmax)

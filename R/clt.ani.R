@@ -60,7 +60,6 @@
 clt.ani = function(obs = 300, FUN = rexp, col = c("bisque",
     "red", "black"), mat = matrix(1:2, 2), widths = rep(1, ncol(mat)),
     heights = rep(1, nrow(mat)), ...) {
-    interval = ani.options("interval")
     nmax = ani.options("nmax")
     x = matrix(nrow = nmax, ncol = obs)
     for (i in 1:nmax) x[i, ] = apply(matrix(replicate(obs,
@@ -75,7 +74,7 @@ clt.ani = function(obs = 300, FUN = rexp, col = c("bisque",
             3), nsmall = 3)), bty = "n")
         plot(pvalue[1:i], xlim = c(1, nmax), ylim = range(pvalue),
             xlab = "n", ylab = "P-value", col = col[3], ...)
-        Sys.sleep(interval)
+        ani.pause()
     }
     invisible(data.frame(n = 1:nmax, p.value = pvalue))
 }

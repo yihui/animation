@@ -71,7 +71,6 @@ least.squares = function(x, y, n = 15, ani.type = c("slope",
     "intercept"), a, b, a.range, b.range, ab.col = c("gray",
     "black"), est.pch = 19, v.col = "red", v.lty = 2, rss.pch = 19,
     rss.type = "o", mfrow = c(1, 2), ...) {
-    interval = ani.options("interval")
     nmax = ani.options("nmax")
     if (missing(x))
         x = 1:n
@@ -99,7 +98,7 @@ least.squares = function(x, y, n = 15, ani.type = c("slope",
             plot(1:nmax, rss, xlab = paste("Slope =", round(bseq[i],
                 3)), ylab = "Residual Sum of Squares", pch = rss.pch,
                 type = rss.type)
-            Sys.sleep(interval)
+            ani.pause()
         }
         return(invisible(list(lmfit = fit, anifit = c(x = bseq[which.min(rss)]))))
     }
@@ -117,7 +116,7 @@ least.squares = function(x, y, n = 15, ani.type = c("slope",
             plot(1:nmax, rss, xlab = paste("Intercept =", round(aseq[i],
                 3)), ylab = "Residual Sum of Squares", pch = rss.pch,
                 type = rss.type)
-            Sys.sleep(interval)
+            ani.pause()
         }
         return(invisible(list(lmfit = fit, anifit = c("(Intercept)" = aseq[which.min(rss)]))))
     }

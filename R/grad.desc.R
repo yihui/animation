@@ -90,7 +90,6 @@ grad.desc = function(FUN = function(x, y) x^2 + 2 *
     tol = 0.001, len = 50, interact = FALSE, col.contour = "red",
     col.arrow = "blue") {
     nmax = ani.options("nmax")
-    interval = ani.options("interval")
     x = seq(rg[1], rg[3], length = len)
     y = seq(rg[2], rg[4], length = len)
     nms = names(formals(FUN))
@@ -118,7 +117,7 @@ grad.desc = function(FUN = function(x, y) x^2 + 2 *
             2], length = par("din")[1] / 50, col = col.arrow)
         gap = abs(FUN(newxy[i + 1, 1], newxy[i + 1, 2]) - FUN(xy[i +
             1, 1], xy[i + 1, 2]))
-        Sys.sleep(interval)
+        ani.pause()
         i = i + 1
     }
     ani.options(nmax = i -1)

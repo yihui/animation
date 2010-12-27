@@ -59,13 +59,11 @@ saveSWF = function(expr, interval = 1, swfname = "movie.swf",
     ...) {
     olddir = setwd(outdir)
     on.exit(setwd(olddir))
-    oopt = ani.options(interval = 0)
     anidev = switch(dev, png = png, jpeg = jpeg, pdf = pdf)
     anidev(paste(filename, fmt, ".", dev, sep = ""), ...)
-    eval(ani.first)
-    eval(expr)
+    ani.first
+    expr
     dev.off()
-    ani.options(oopt)
     tool = ifelse(is.null(swftools), paste(dev, "2swf", sep = ""),
         shQuote(file.path(swftools, paste(dev, "2swf", sep = ""))))
     version = system(tool, intern = TRUE)

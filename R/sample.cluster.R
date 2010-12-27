@@ -44,7 +44,6 @@ sample.cluster = function(pop = ceiling(10 * runif(10,
     ncol = max(pop)
     nrow = length(pop)
     nmax = ani.options("nmax")
-    interval = ani.options("interval")
     for (i in 1:nmax) {
         plot(1, axes = FALSE, ann = FALSE, type = "n", xlim = c(0.5,
             ncol + 0.5), ylim = c(0.5, nrow + 0.5), xaxs = "i",
@@ -59,7 +58,7 @@ sample.cluster = function(pop = ceiling(10 * runif(10,
                 points(1:pop[j], rep(j, pop[j]), col = p.col[2],
                   cex = p.cex[2])
         }
-        Sys.sleep(interval)
+        ani.pause()
     }
     invisible(NULL)
 }

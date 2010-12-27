@@ -50,7 +50,6 @@ ani.start = function(...) {
         "ANI.css", overwrite = TRUE)
     file.copy(system.file("misc", "FUN.js", package = "animation"),
         "FUN.js", overwrite = TRUE)
-    ani.options(interval = c(0, ani.options()$interval))
     dev = ani.options("ani.dev")
     if (is.character(dev)) dev = get(dev)
     dev(filename = paste(imgdir, "/%d", ".", ani.options("ani.type"), sep = ""),

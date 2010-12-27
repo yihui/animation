@@ -85,7 +85,6 @@
     xrg = range(hist(xest, plot = FALSE)$breaks)
     layout(mat, widths, heights)
     if (missing(main)) main = c("Bootstrap sample", "Density of bootstrap estimates")
-    interval = ani.options("interval")
     for (i in 1:ani.options("nmax")) {
         sunflowerplot(idx[, i], xx[, i], col = col[2], cex = cex[2],
             xlim = c(1, length(x)), ylim = range(x) + c(-1, 1) *
@@ -97,7 +96,7 @@
         if (i > 1) lines(density(xest[1:i]), col = col[4]) else axis(2)
         rug(xest[1:i], col = col[5])
         axis(1)
-        Sys.sleep(interval)
+        ani.pause()
     }
     invisible(list(t0 = statistic(x), tstar = xx))
 }

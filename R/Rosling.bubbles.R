@@ -116,7 +116,6 @@ Rosling.bubbles = function(x, y, circles, squares,
         y = runif(n) + sort(rnorm(n * nmax, 0, 0.02))
     if (missing(bg))
         bg = rgb(runif(n), runif(n), runif(n), 0.5)
-    interval = ani.options("interval")
     md = c(mean(xlim), mean(ylim))
     for (i in 1:nmax) {
         xy = xy.coords(x[((i - 1) * n + 1):(n * i)], y[((i -
@@ -132,7 +131,7 @@ Rosling.bubbles = function(x, y, circles, squares,
             }, ...)
         .Internal(symbols(xi, yi, type, data[((i - 1) * n + 1):(n *
             i), ], inches, bg, fg, ...))
-        Sys.sleep(interval)
+        ani.pause()
     }
 }
 

@@ -89,12 +89,10 @@ saveMovie = function(expr, interval = 1, moviename = "animation.gif",
     unlink(wildcard)
 
     ## draw the plots and record them in image files
-    oopt = ani.options(interval = 0)
     dev(paste(filename, fmt, ".", fileext, sep = ""), ...)
-    eval(ani.first)
-    eval(expr)
+    ani.first
+    expr
     dev.off()
-    ani.options(oopt)
 
     ## convert to animations
     im.convert(wildcard, interval = interval, loop = loop,

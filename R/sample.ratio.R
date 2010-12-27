@@ -62,7 +62,6 @@ sample.ratio = function(X = runif(50, 0, 5), R = 1,
         "red"), p.cex = c(1, 3), p.pch = c(20, 21), m.col = c("black",
         "gray"), legend.loc = "topleft", ...) {
     nmax = ani.options("nmax")
-    interval = ani.options("interval")
     N = length(X)
     r = est1 = est2 = numeric(nmax)
     for (i in 1:nmax) {
@@ -79,7 +78,7 @@ sample.ratio = function(X = runif(50, 0, 5), R = 1,
             (bar(y)/bar(x)), bar(Y), bar(y)), lty = c(2, 1, 1,
             2, 1), col = c(m.col[c(1, 2)], p.col[2], m.col[c(1,
             2)]), bty = "n", ncol = 2)
-        Sys.sleep(interval)
+        ani.pause()
     }
     invisible(list(X = X, Y = Y, R = R, r = r, Ybar = mean(Y),
         ybar.simple = est1, ybar.ratio = est2))

@@ -61,7 +61,6 @@ mwar.ani = function(x, k = 15, conf = 2, mat = matrix(1:2,
     2), widths = rep(1, ncol(mat)), heights = rep(1, nrow(mat)),
     lty.rect = 2, ...) {
     nmax = ani.options("nmax")
-    interval = ani.options("interval")
     if (missing(x))
         x = sin(seq(0, 2 * pi, length = 50)) + rnorm(50, sd = 0.2)
     n = length(x)
@@ -98,7 +97,7 @@ mwar.ani = function(x, k = 15, conf = 2, mat = matrix(1:2,
             angle = 90, code = 3, length = par("din")[1]/n *
                 0.4, col = 1:i)
         points(1:i + k/2 - 0.5, phi[1:i], ...)
-        Sys.sleep(interval)
+        ani.pause()
         j = j + 1
     }
     ani.options(nmax = j - 1)

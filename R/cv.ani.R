@@ -62,7 +62,6 @@ cv.ani = function(x = runif(150), k = 10, col = c("green",
     x = x[n]
     kf = cumsum(c(1, kfcv(k, N)))
     j = 1
-    interval = ani.options("interval")
     for (i in 2:length(kf)) {
         if (j > ani.options("nmax"))
             break
@@ -84,7 +83,7 @@ cv.ani = function(x = runif(150), k = 10, col = c("green",
             lwd = 1)
         text(mean(seq(N)[-idx]), quantile(x, prob = 0.25), "Training Set",
             cex = 1.5, col = col[3])
-        Sys.sleep(interval)
+        ani.pause()
         j = j + 1
     }
     ani.options(nmax = j - 1)

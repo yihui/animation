@@ -44,14 +44,13 @@ sample.simple = function(nrow = 10, ncol = 10, size = 15,
         stop("sample size must be smaller than the population")
     x = cbind(rep(1:ncol, nrow), gl(nrow, ncol))
     nmax = ani.options("nmax")
-    interval = ani.options("interval")
     for (i in 1:nmax) {
         plot(x, pch = 19, col = p.col[1], cex = p.cex[1], axes = FALSE,
             ann = FALSE, xlab = "", ylab = "")
         points(x[sample(nrow * ncol, size), ], col = p.col[2],
             cex = p.cex[2])
         box(lwd = 1)
-        Sys.sleep(interval)
+        ani.pause()
     }
     invisible(NULL)
 }

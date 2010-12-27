@@ -84,7 +84,6 @@ flip.coin = function(faces = 2, prob = NULL, border = "white",
     col = rep(col, length = n)
     y0 = numeric(n)
     s = seq(0, ylm, 1/nmax)
-    interval = ani.options("interval")
     for (i in 1:nmax) {
         plot(1, xlim = c(0, 2), ylim = c(0, ylm * 1.04), type = "n",
             axes = FALSE, xlab = "", ylab = "", xaxs = "i", yaxs = "i")
@@ -107,7 +106,7 @@ flip.coin = function(faces = 2, prob = NULL, border = "white",
             0.5, 0))
         axis(1, 1.5, paste("Number of Tosses:", i), tcl = 0)
         box()
-        Sys.sleep(interval)
+        ani.pause()
     }
     invisible(list(freq = as.matrix(frq)[, 1], nmax = i))
 }

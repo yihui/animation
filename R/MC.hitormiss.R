@@ -63,7 +63,7 @@ MC.hitormiss = function(FUN = function(x) x - x^2,
             y[1:i]) + 1], pch = pch.points[(x2[1:i] > y[1:i]) +
             1], ...)
         curve(FUN, from = from, to = to, add = TRUE)
-        Sys.sleep(ani.options("interval"))
+        ani.pause()
     }
     ani.options(nmax = nmax)
     invisible(list(x1 = x1, x2 = x2, y = y, n = nmax, est = mean(x2 <

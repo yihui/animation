@@ -85,7 +85,6 @@ knn.ani = function(train, test, cl, k = 10, interact = FALSE,
     tt.col = c("blue", "red"), cl.pch = seq_along(unique(cl)),
     dist.lty = 2, dist.col = "gray", knn.col = "green") {
     nmax = ani.options("nmax")
-    interval = ani.options("interval")
     if (missing(train)) {
         train = matrix(c(rnorm(40, mean = -1), rnorm(40, mean = 1)),
             ncol = 2, byrow = TRUE)
@@ -141,7 +140,7 @@ knn.ani = function(train, test, cl, k = 10, interact = FALSE,
     nmax = min(nmax, nrow(test))
     for (i in 1:nmax) {
         pre.plot(i)
-        Sys.sleep(interval)
+        ani.pause()
         idx = rank(apply(train, 1, function(x) sqrt(sum((x -
             test[i, ])^2))), ties.method = "random") %in% seq(k)
         vote = cl[idx]
@@ -149,7 +148,7 @@ knn.ani = function(train, test, cl, k = 10, interact = FALSE,
             labels = levels(clf)))
         pre.plot(i, segments(train[, 1], train[, 2], test[i,
             1], test[i, 2], lty = dist.lty, col = dist.col))
-        Sys.sleep(interval)
+        ani.pause()
         bd = train[idx, 1:2]
         pre.plot(i, {
             segments(train[, 1], train[, 2], test[i, 1], test[i,
@@ -162,7 +161,7 @@ knn.ani = function(train, test, cl, k = 10, interact = FALSE,
                   cex = 2, lwd = 2)
             }
         })
-        Sys.sleep(interval)
+        ani.pause()
         pre.plot(i, {
             segments(train[, 1], train[, 2], test[i, 1], test[i,
                 2], lty = dist.lty, col = dist.col)
@@ -176,7 +175,7 @@ knn.ani = function(train, test, cl, k = 10, interact = FALSE,
             points(test[i, 1], test[i, 2], col = tt.col[2], pch = cl.pch[unclass(res)[i]],
                 cex = 3, lwd = 2)
         }, FALSE)
-        Sys.sleep(interval)
+        ani.pause()
     }
     ani.options(nmax = 4 * nmax)
     invisible(levels(clf)[res])

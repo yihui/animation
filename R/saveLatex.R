@@ -125,17 +125,15 @@ saveLatex = function(expr, interval = 1,
 
     ## generate the image frames
     odir = setwd(outdir)
-    oopt = ani.options(interval = 0)
     on.exit(setwd(odir))
-    on.exit(ani.options(oopt), add = TRUE)
     if (is.character(ani.dev))
         ani.dev = get(ani.dev)
     ani.files.len = length(list.files(path = dirname(ani.basename), pattern =
                            sprintf('^%s.*\\.%s$', ani.basename, ani.ext)))
     if (overwrite || !ani.files.len) {
         ani.dev(sprintf("%s%s.%s", ani.basename, num, ani.ext), ...)
-        eval(ani.first)
-        eval(expr)
+        ani.first
+        expr
         dev.off()
     }
 

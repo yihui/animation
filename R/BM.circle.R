@@ -36,7 +36,6 @@ BM.circle = function(n = 20, col = rainbow(n), ...) {
     par(pty = "s", ann = FALSE, xaxt = "n", yaxt = "n", bty = "n")
     theta = seq(0, 2 * pi, length = 512)
     nmax = ani.options("nmax")
-    interval = ani.options("interval")
     x = runif(n, -1, 1)
     y = runif(n, -1, 1)
     for (i in 1:nmax) {
@@ -48,7 +47,7 @@ BM.circle = function(n = 20, col = rainbow(n), ...) {
         x[cond] = x[cond]/r/1.1
         y[cond] = y[cond]/r/1.1
         points(x, y, col = col, ...)
-        Sys.sleep(interval)
+        ani.pause()
     }
     invisible(NULL)
 }
