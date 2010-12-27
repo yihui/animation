@@ -13,7 +13,11 @@
 ##'
 ##' Optionally the source code and some session information can be added
 ##' below the animations for the sake of reproducibility (specified by the
-##' option \code{ani.options('verbose')}).
+##' option \code{ani.options('verbose')} -- if \code{TRUE}, the description,
+##' loaded packages, the code to produce the animation, as well as a part
+##' of \code{sessionInfo()} will be written in the bottom of the animation;
+##' the R code will be highlighted using the SyntaxHighlighter library for
+##' better reading experience).
 ##'
 ##' @param expr an R expresion to be evaluated to create a sequence of images
 ##' @param imgname the filename of the images (the real output will be like
@@ -37,6 +41,8 @@
 ##' IE); or (2) tell IE that you allow the blocked content.
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @references \url{https://github.com/brentertz/scianimator}
+##' @seealso \code{\link{ani.start}}, \code{\link{ani.stop}} (early versions of
+##' HTML animations)
 ##' @example animation/inst/examples/saveHTML-ex.R
 saveHTML = function(expr, imgname = 'Rplot',
                     global.opts = '', single.opts = '', ...) {
@@ -45,15 +51,17 @@ saveHTML = function(expr, imgname = 'Rplot',
     ## deparse the expression and form the verbose description
     .dexpr = NULL
     if (isTRUE(ani.options('verbose'))) {
+        info = sessionInfo()
         .dexpr = deparse(substitute(expr))
         if (length(.dexpr) >=3 && .dexpr[1] == '{' && tail(.dexpr, 1) == '}') {
             .dexpr = sub('^[ ]{4}', '', .dexpr[-c(1, length(.dexpr))])
         }
-        .dexpr = append(.dexpr, strwrap(paste(ani.options('description'), collapse = ' '),
+        .dexpr = append(.dexpr, c(strwrap(paste(ani.options('description'),
+                                                collapse = ' '),
                         width = ani.options('ani.width')/8, exdent = 2,
-                        prefix = '## '), 0)
+                        prefix = '## '),
+                               sprintf('library(%s)', names(info$otherPkgs))), 0)
         ## append sessionInfo()
-        info = sessionInfo()
         .dexpr = append(.dexpr, paste('##', c(R.version.string,
                                       paste('Platform:', info$platform),
                  strwrap(paste('Other packages:',
