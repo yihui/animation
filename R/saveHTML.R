@@ -39,6 +39,9 @@
 ##' If this happens, you have two choices: (1) abandon the well-known fragile
 ##' IE and try some really secure web browsers such as Firefox (or anything but
 ##' IE); or (2) tell IE that you allow the blocked content.
+##'
+##' When you want to publish the HTML page on the web, you have to make sure
+##' to upload the associated \file{css} and \file{js} folders with the HTML file.
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @references \url{https://github.com/brentertz/scianimator}
 ##' @seealso \code{\link{ani.start}}, \code{\link{ani.stop}} (early versions of
