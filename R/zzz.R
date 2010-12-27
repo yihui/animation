@@ -6,7 +6,7 @@
              withprompt = "ANI> ", ani.type = "png", ani.dev = "png",
              title = "Animations Using the R Language",
              description = paste("Animations generated in", R.version.string,
-             'using the package animation', packageVersion('animation')),
+             'using the package animation'),
              verbose = TRUE, loop = TRUE, autobrowse = interactive(),
              autoplay = TRUE)
 }
