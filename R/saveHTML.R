@@ -19,7 +19,7 @@
 ##' @param imgname the filename of the images (the real output will be like
 ##' \file{imgname1.png}, \file{imgname2.png}, ...); this name has to be
 ##' different for different animations, since it will be used as the identifiers
-##' for each animation
+##' for each animation; make it as unique as possible
 ##' @param global.opts a string: the global options of the animation; e.g. we
 ##' can specify the default theme to be blue using
 ##' \verb{$.fn.scianimator.defaults.theme = 'blue';}
@@ -43,6 +43,7 @@ saveHTML = function(expr, imgname = 'Rplot',
     oopt = ani.options(...)
 
     ## deparse the expression and form the verbose description
+    .dexpr = NULL
     if (isTRUE(ani.options('verbose'))) {
         .dexpr = deparse(substitute(expr))
         if (length(.dexpr) >=3 && .dexpr[1] == '{' && tail(.dexpr, 1) == '}') {
@@ -58,13 +59,16 @@ saveHTML = function(expr, imgname = 'Rplot',
                  strwrap(paste('Other packages:',
                                paste(sapply(info$otherPkgs, function(x)
                         paste(x$Package, x$Version)), collapse = ', '))))))
+        .dexpr = paste('	<div class="scianimator" style="width: ',
+                       ani.options('ani.width'), 'px;"><pre class="brush: r">',
+                       paste(.dexpr, collapse = '\n'), '</pre></div>', sep = '')
     }
 
     ani.type = ani.options('ani.type')
     ani.dev = ani.options('ani.dev')
     if (is.character(ani.dev)) ani.dev = get(ani.dev)
     imgdir = file.path(ani.options('outdir'), ani.options('imgdir'))
-    dir.create(imgdir, showWarnings = FALSE)
+    dir.create(imgdir, showWarnings = FALSE, recursive = TRUE)
     ani.dev(file.path(imgdir, paste(imgname, '%d', '.', ani.type, sep = '')),
             width = ani.options('ani.width'), height = ani.options('ani.height'))
     expr
@@ -91,13 +95,15 @@ saveHTML = function(expr, imgname = 'Rplot',
     div.str = sprintf('	<div id="%s"></div>', imgname)
     js.str = sprintf('	<script src="js/%s.js"></script>', imgname)
     ## make sure there are no duplicate div/scripts
-    if (!any(grepl(div.str, html, fixed = TRUE)) &&
-        !any(grepl(js.str, html, fixed = TRUE))) {
-        html = append(html, c(div.str, if (ani.options('verbose')) {
-            paste('	<div class="scianimator" style="width: ',
-                  ani.options('ani.width'), 'px;"><pre class="brush: r">',
-                  paste(.dexpr, collapse = '\n'), '</pre></div>', sep = '')
-        } else NULL, js.str), n - 1)
+    if (!length(div.pos <- grep(div.str, html, fixed = TRUE)) &
+        !length(js.pos <- grep(js.str, html, fixed = TRUE))) {
+        html = append(html, c(div.str, .dexpr, js.str), n - 1)
+    } else {
+        if (js.pos - div.pos > 1) {
+            ## remove the old session info
+            html = html[-seq(div.pos + 1, js.pos - 1)]
+            html = append(html, .dexpr, div.pos)
+        }
     }
     js.temp = readLines(system.file('misc', 'scianimator', 'js', 'template.js',
                               package = 'animation'))
