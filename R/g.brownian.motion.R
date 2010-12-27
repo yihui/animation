@@ -14,6 +14,11 @@
 ##' @return \code{NULL}. An HTML page will be opened as the side effect.
 ##' @note The number of frames is controlled by \code{ani.options("nmax")} as
 ##'   usual.
+##'
+##' Due to the ``security settings'' of Adobe Flash player, you might not be
+##' able to view the generated Flash animation locally, i.e. using an address
+##' like \url{file:///C:/Temp/index.html}. In this case, you can upload the
+##' HTML file to a webserver and use the http address to view the Flash file.
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link{brownian.motion}}, \code{\link{BM.circle}},
 ##'   \code{\link[stats]{rnorm}}
@@ -23,13 +28,13 @@
 ##' @keywords dynamic IO
 ##' @examples
 ##'
-##' \dontrun{
-##' g.brownian.motion(15, digits = 2, width = 600,
-##'     height = 500)
-##' }
+##' g.brownian.motion(15, digits = 2, width = 600, height = 500)
+##'
+##' unlink(file.path(ani.options('outdir'), ani.options('htmlfile')))
 ##'
 g.brownian.motion = function(p = 20, start = 1900,
-    digits = 14, file = "brownian.motion.html", width = 800,
+    digits = 14, file = file.path(ani.options('outdir'),
+                 ani.options('htmlfile')), width = 800,
     height = 600) {
     n = ani.options("nmax")
     x = round(c(t(apply(matrix(rnorm(p * n), p, n), 1, cumsum))),
@@ -53,10 +58,11 @@ g.brownian.motion = function(p = 20, start = 1900,
             ", ", rep(0:3, p * n), ", ", tmp, ");", sep = "",
             collapse = "\n"), c("        var chart = new google.visualization.MotionChart(document.getElementById('chart_div'));"),
         paste("        chart.draw(data, {width: ", width, ", height: ",
-            height, "});\", \"      }", sep = ""), c("    </script>",
+            height, "});\n      }", sep = ""), c("    </script>",
             "  </head>", "", "  <body>"), paste("    <div id=\"chart_div\" style=\"width: ",
             width, "px; height: ", height, "px;\"></div>", sep = ""),
         c("  </body>", "</html>"), file = file, sep = "\n")
-    browseURL(file.path(getwd(), file))
+    if (ani.options('autobrowse'))
+        browseURL(paste('file:///', normalizePath(file), sep = ''))
 }
 

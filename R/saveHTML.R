@@ -117,7 +117,7 @@ saveHTML = function(expr, imgname = 'Rplot',
     writeLines(html, con = htmlfile)
 
     if (ani.options('autobrowse'))
-        browseURL(paste('file://', normalizePath(htmlfile), sep = ''))
+        browseURL(paste('file:///', normalizePath(htmlfile), sep = ''))
     ani.options(oopt)
     invisible(htmlfile)
 }
