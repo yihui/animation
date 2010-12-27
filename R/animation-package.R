@@ -87,9 +87,9 @@ NULL
 ##' of China's economic reform in 1978, and this data has recorded the number
 ##' of words used in each paragraph of his speech.
 ##'
+##' The format is: int [1:75] 119 175 222 204 276 168 257 89 61 288 ...
 ##' @name HuSpeech
 ##' @docType data
-##' @format The format is: int [1:75] 119 175 222 204 276 168 257 89 61 288 ...
 ##' @source The full text of speech:
 ##'   \url{http://cpc.people.com.cn/GB/64093/64094/8544901.html}
 ##' @keywords datasets
@@ -111,20 +111,20 @@ NULL
 ##'
 ##' The data is collected by Awstats for the website \url{http://yihui.name}.
 ##'
-##' @name pageview
-##' @docType data
-##' @format A data frame with 73 observations on the following 5 variables.
-##'   \describe{ \item{list("day")}{Date starts from Sep 21, 2007 to Dec 2,
-##'   2007.} \item{list("visits")}{number of visits: a new visit is defined as
+##' Format: a data frame with 73 observations on the following 5 variables.
+##'   \describe{ \item{day}{Date starts from Sep 21, 2007 to Dec 2,
+##'   2007.} \item{visits}{number of visits: a new visit is defined as
 ##'   each new \emph{incoming visitor} (viewing or browsing a page) who was not
 ##'   connected to the site during last \emph{60 min}.}
-##'   \item{list("pages")}{number of times a \emph{page} of the site is viewed
+##'   \item{pages}{number of times a \emph{page} of the site is viewed
 ##'   (sum for all visitors for all visits).  This piece of data differs from
 ##'   ``files'' in that it counts only HTML pages and excludes images and other
-##'   files.} \item{list("files")}{number of times a \emph{page, image, file}
+##'   files.} \item{files}{number of times a \emph{page, image, file}
 ##'   of the site is viewed or downloaded by someone.}
-##'   \item{list("bandwidth")}{amount of data downloaded by all \emph{pages},
+##'   \item{bandwidth}{amount of data downloaded by all \emph{pages},
 ##'   \emph{images} and \emph{files} within the site (units in MegaBytes).} }
+##' @name pageview
+##' @docType data
 ##' @source \url{http://yihui.name}
 ##' @keywords datasets
 ##' @examples
@@ -145,13 +145,13 @@ NULL
 ##' There are 3848 observations on 5 variables. From the 1986 ASA Data Exposition
 ##' dataset, made up by David Coleman of RCA Labs.
 ##'
+##' Format: a data frame with 3848 observations on the following 5 variables.
+##'   \describe{ \item{RIDGE}{a numeric vector} \item{NUB}{a
+##'   numeric vector} \item{CRACK}{a numeric vector}
+##'   \item{WEIGHT}{a numeric vector} \item{DENSITY}{a numeric
+##'   vector} }
 ##' @name pollen
 ##' @docType data
-##' @format A data frame with 3848 observations on the following 5 variables.
-##'   \describe{ \item{list("RIDGE")}{a numeric vector} \item{list("NUB")}{a
-##'   numeric vector} \item{list("CRACK")}{a numeric vector}
-##'   \item{list("WEIGHT")}{a numeric vector} \item{list("DENSITY")}{a numeric
-##'   vector} }
 ##' @source Collected from Statlib Datasets Archive:
 ##'   \url{http://stat.cmu.edu/datasets/}
 ##' @keywords datasets
@@ -190,11 +190,11 @@ NULL
 ##' Stock prices of Vanke Co., Ltd on 2009/11/27.
 ##' This is a sample of stock prices of the Vanke Co., Ltd on 2009/11/27.
 ##'
+##' Format: a data frame with 2831 observations on the following 2 variables.
+##'   \describe{ \item{time}{POSIXt: the time corresponding to stock
+##'   prices} \item{price}{a numeric vector: stock prices} }
 ##' @name vanke1127
 ##' @docType data
-##' @format A data frame with 2831 observations on the following 2 variables.
-##'   \describe{ \item{list("time")}{POSIXt: the time corresponding to stock
-##'   prices} \item{list("price")}{a numeric vector: stock prices} }
 ##' @source This data can be obtained from most stock websites.
 ##' @keywords datasets
 ##' @examples
@@ -235,11 +235,11 @@ NULL
 
 ##' Average yearly temperatures in central Iowa.
 ##'
-##' @name iatemp
-##' @docType data
-##' @format The format is:
+##' The format is:
 ##'
 ##' Time-Series [1:116] from 1895 to 2010: 32.7 27.8 32.7 30.4 42.6 31.9 34.5 39.8 32.6 39.6 ...
+##' @name iatemp
+##' @docType data
 ##' @source \url{http://www.wrcc.dri.edu/cgi-bin/divplot1_form.pl?1305}
 ##' @keywords datasets
 ##' @examples data(iatemp)
