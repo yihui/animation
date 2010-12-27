@@ -8,7 +8,7 @@ saveHTML({
 }, imgname = 'unif_plot', imgdir = 'unif_dir', htmlfile = 'random.html',
          autobrowse = FALSE,
          title = 'Demo of 20 uniform random numbers',
-         description = 'This is a silly example.\n\nYou can describe it in more detail. For example, bla bla...')
+         description = c('This is a silly example.\n\n', 'You can describe it in more detail.', 'For example, bla bla...'))
 
 ## we can merge another animation into the former page
 ##   as long as 'htmlfile' is the same
@@ -26,7 +26,7 @@ saveHTML({
          imgdir = 'norm_dir', htmlfile = 'random.html',
          ani.height = 400, ani.width = 600,
          title = 'Demo of 50 Normal random numbers',
-         description = 'When you write a long long long long description, R will try to wrap the words automatically. Oh, really?!')
+         description = c('When you write a long long long long description,', 'R will try to wrap the words automatically.', 'Oh, really?!'))
 
 ## use the function brownian.motion() in this package
 ## note this page is created in 'index.html' under ani.options('outdir')
@@ -37,7 +37,7 @@ saveHTML({
     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")
 }, imgname = 'brownian_motion_a', htmlfile = 'index.html',
          interval = 0.05, nmax = 150,
-         description = 'Random walk of 10 points on the 2D plane: for each point (x, y), x = x + rnorm(1) and y = y + rnorm(1).')
+         description = c('Random walk of 10 points on the 2D plane:', 'for each point (x, y),', 'x = x + rnorm(1) and y = y + rnorm(1).'))
 
 ## we may feel that the navigation panel is too wide, so let's remove it next
 ## the default value of 'controls' is:
@@ -51,4 +51,4 @@ saveHTML({
 }, imgname = 'brownian_motion_b',
          single.opts = "'controls': ['first', 'previous', 'play', 'next', 'last', 'loop', 'speed'], 'delayMin': 0",
          htmlfile = 'index.html', interval = 0.05, nmax = 150,
-         description = 'Random walk of 10 points on the 2D plane (without the navigation panel)')
+         description = c('Random walk of 10 points on the 2D plane', '(without the navigation panel)'))

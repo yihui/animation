@@ -49,7 +49,7 @@ saveHTML = function(expr, imgname = 'Rplot',
         if (length(.dexpr) >=3 && .dexpr[1] == '{' && tail(.dexpr, 1) == '}') {
             .dexpr = sub('^[ ]{4}', '', .dexpr[-c(1, length(.dexpr))])
         }
-        .dexpr = append(.dexpr, strwrap(ani.options('description'),
+        .dexpr = append(.dexpr, strwrap(paste(ani.options('description'), collapse = ' '),
                         width = ani.options('ani.width')/8, exdent = 2,
                         prefix = '## '), 0)
         ## append sessionInfo()
