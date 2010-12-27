@@ -7,7 +7,8 @@
 ##' @note The content of the HTML file completely depends on the parameters set
 ##'   in \code{\link{ani.options}}.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{ani.options}}, \code{\link{ani.start}}
+##' @seealso \code{\link{saveHTML}} (the recommended way to create HTML pages),
+##' \code{\link{ani.options}}, \code{\link{ani.start}}
 ##' @references
 ##'   \url{http://animation.yihui.name/animation:create_html_animation_page}
 ##' @keywords utilities
@@ -28,7 +29,7 @@ ani.stop = function() {
     if (isTRUE(ani.options("verbose")))
         footer = paste("<div class=\"footer\">Created by R package \"<a href=\"http://cran.r-project.org/package=animation\" target=\"_blank\">animation ", packageVersion("animation"), "</a>\" written by <a href=\"http://yihui.name/\" target=\"_blank\">Yihui XIE</a>.<br>",
             Sys.time(), "</div>", sep = "")
-    else footer = ifelse(is.character(ani.options("footer")), sprintf("<div class=\"footer\">%s</div>", ani.options("footer")), "")
+    else footer = ifelse(is.character(ani.options("verbose")), sprintf("<div class=\"footer\">%s</div>", ani.options("verbose")), "")
     ani.file = file.path(getwd(), ani.options("htmlfile"))
     imgdir = ani.options("imgdir")
     if (file.exists(imgdir)) ani.options(nmax = length(list.files(imgdir)))
@@ -50,7 +51,7 @@ ani.stop = function() {
         "</div>", "</body></html>", sep = "")
     cat(html, file = ani.file)
     if (ani.options("autobrowse"))
-        on.exit(browseURL(paste("file://", ani.file, sep = "")),
+        on.exit(browseURL(paste("file:///", ani.file, sep = "")),
             add = TRUE)
     options(prompt = ani.options("withprompt")[1])
     ani.options(withprompt = ani.options("withprompt")[2])

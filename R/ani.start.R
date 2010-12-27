@@ -10,7 +10,7 @@
 ##'   parameters
 ##' @return None (invisible `\code{NULL}').
 ##' @note After calling \code{\link{ani.start}}, either animation functions in
-##'   this package or R script of your own can be used to generate \& save
+##'   this package or R script of your own can be used to generate & save
 ##'   animated pictures using proper graphics devices (specified as
 ##'   \code{ani.dev} in \code{\link{ani.options}}), then watch your animation
 ##'   by \code{\link{ani.stop}()}.
@@ -18,7 +18,8 @@
 ##' Note that former image files in the directory \file{images} will be
 ##'   removed.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{ani.options}}, \code{\link{ani.stop}}
+##' @seealso \code{\link{saveHTML}} (the recommended way to create HTML pages),
+##' \code{\link{ani.options}}, \code{\link{ani.stop}}
 ##' @references
 ##'   \url{http://animation.yihui.name/animation:create_html_animation_page}
 ##' @keywords utilities
