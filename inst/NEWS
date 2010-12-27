@@ -6,6 +6,17 @@ NEW FEATURES
     o a new demo 'Xmas2': Merry Christmas with
   snowflakes (see demo('Xmas2', 'animation');
   thanks, Jing Jiao)
+    o a new function saveHTML() to insert animations
+  into HTML pages (this was designed to replace
+  the old ani.start() and ani.stop(); the output
+  is much more appealing; the JavaScript is based
+  on the SciAnimator library and jQuery)
+    o ani.options() gained a new option 'autoplay'
+  to indicate whether to autoplay the animation
+  in the HTML page created by saveHTML()
+    o in fact ani.options() was rewritten, but
+  this should not have any influence on users; the
+  usage is the same
 
 MINOR CHANGES
 
@@ -20,6 +31,10 @@ MINOR CHANGES
   renamed to 'htmlfile' so that the meaning of this
   option is more clear; 'footer' was renamed to
   'verbose' too
+    o when querying the option 'interval' using
+  ani.options() in a non-interactive graphics
+  device, the value of 'interval' will be 0 to save
+  time
 
 TO APPEAR
 

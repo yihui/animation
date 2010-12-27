@@ -1,8 +1,6 @@
-##' Set or query animation parameters.
+##' Set or query animation options.
 ##' There are various parameters that control the behaviour of the
 ##' animation, such as time interval, maximum frames, height and width, etc.
-##' This function is based on \code{\link[base]{options}} to set an option
-##' \code{ani} which is a list containing the animation parameters.
 ##'
 ##' The supported animation parameters:
 ##' \describe{
@@ -51,13 +49,17 @@
 ##' iterate or not (default \code{TRUE} to iterate for infinite times)}
 ##'
 ##' \item{autobrowse}{logical: whether auto-browse the animation page
-##' immediately after it is created?}
+##' immediately after it is created? (default to be \code{interactive()})}
+##'
+##' \item{autoplay}{logical: whether to autoplay the animation when the HTML
+##' page is loaded (default to be \code{TRUE}); only applicable to
+##' \code{\link{saveHTML}}}
 ##'
 ##' }
 ##'
-##' @param \dots arguments in \code{tag = value} form, or a list of tagged
-##'   values.  The tags must come from the animation parameters described
-##'   below.
+##' @param ... arguments in \code{tag = value} form, or a list of tagged
+##' values.  The tags must come from the animation parameters described
+##' below.
 ##' @return a list containing the options.
 ##'
 ##' When parameters are set, their former values are returned in an invisible
@@ -77,11 +79,12 @@
 ##'   etc. All the parameters will affect the behaviour of HTML animations, but
 ##'   only \code{interval} will affect animations in windows graphics device.
 ##'
-##' When R is not running interactively, \code{interval} will be set to 0
-##'   because it does not make much sense to let R wait for a possibly very
-##'   long time when we cannot watch the animations in real time.
+##' When R is not running with an interactive graphics device, \code{interval}
+##' will be set to 0 because it does not make much sense to let R wait for
+##' a possibly very long time when we cannot watch the animations in real time.
+##' Use \code{ani.options()$interval} to query the real \code{interval}.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link[base]{options}}
+##' @seealso \code{\link[grDevices]{dev.interactive}}
 ##' @references \url{http://animation.yihui.name/animation:options}
 ##' @keywords misc
 ##' @examples
@@ -101,47 +104,40 @@
 ##' }
 ##'
 ani.options = function(...) {
-    mf = list(interval = 1, nmax = 50, ani.width = 480, ani.height = 480,
-        outdir = tempdir(), imgdir = "images", htmlfile = "index.html",
-        withprompt = "ANI> ", ani.type = "png", ani.dev = "png",
-        title = "Statistical Animations Using R", description = "This is an animation.",
-        verbose = TRUE, loop = TRUE, autobrowse = TRUE)
-    if (is.null(getOption("ani")))
-        options(ani = mf)
-    else mf = getOption("ani")
     lst = list(...)
+    .ani.opts = .ani.env$.ani.opts
     if (length(lst)) {
-        if (is.null(names(lst)) & !is.list(lst[[1]])) {
-            if (identical(unlist(lst), "interval") & !interactive())
+        if (is.null(names(lst)) && !is.list(lst[[1]])) {
+            lst = unlist(lst)
+            if (identical(lst, "interval") && !dev.interactive())
                 0
-            else getOption("ani")[unlist(lst)][[1]]
-
-        }
-        else {
-            omf = mf
-            mc = list(...)
-            if (is.list(mc[[1]]))
-                mc = mc[[1]]
-            if (length(mc) > 0)
-                mf[pmatch(names(mc), names(mf))] = mc
-            options(ani = mf)
-            if (!identical(omf$nmax, mf$nmax) & interactive()) {
-                message("animation option 'nmax' changed: ", omf$nmax, " --> ", mf$nmax)
+            else if (length(lst) == 1) .ani.opts[[lst]] else .ani.opts[lst]
+        } else {
+            omf = .ani.opts
+            if (is.list(lst[[1]]))
+                lst = lst[[1]]
+            if (length(lst) > 0) {
+                .ani.opts[pmatch(names(lst), names(.ani.opts))] = lst
+                .ani.env$.ani.opts = .ani.opts
+                if (!identical(omf$nmax, lst$nmax) && interactive()) {
+                    message("animation option 'nmax' changed: ", omf$nmax,
+                            " --> ", lst$nmax)
+                }
             }
             invisible(omf)
         }
-    }
-    else {
-        getOption("ani")
+    } else {
+        .ani.opts
     }
 }
 
-
-.ani.opts =
+## create an environment to store animation options
+.ani.env = new.env()
+.ani.env$.ani.opts =
     list(interval = 1, nmax = 50, ani.width = 480, ani.height = 480,
          outdir = tempdir(), imgdir = "images", htmlfile = "index.html",
          withprompt = "ANI> ", ani.type = "png", ani.dev = "png",
-         title = "Statistical Animations Using R",
+         title = "Animations Using the R Language",
          description = paste("Animations generated in", R.version.string,
          'using the package animation', packageVersion('animation')),
-         verbose = TRUE, loop = TRUE, autobrowse = TRUE)
+         verbose = TRUE, loop = TRUE, autobrowse = interactive(), autoplay = TRUE)
