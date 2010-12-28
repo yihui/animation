@@ -1,29 +1,21 @@
 ##' A wrapper for the `convert' utility of ImageMagick or GraphicsMagick.
+##' The main purpose of these two functions is to create GIF animations.
 ##'
-##' The function \code{im.convert} simply wraps the arguments of the
+##' the function \code{im.convert} simply wraps the arguments of the
 ##' \command{convert} utility of ImageMagick to make it easier to call
-##' ImageMagick in R; similarly, the function \code{gm.convert} is a wrapper for
-##' the command \command{gm convert} of GraphicsMagick. These two functions are
-##' nearly identical -- the only difference is the default value for the \code{convert}
-##' argument (\code{'convert'} for \code{im.convert}, and \code{'gm convert'} for
-##' \code{gm.convert}). The main purpose of this function is to create GIF animations.
+##' ImageMagick in R;
 ##'
 ##' @aliases im.convert gm.convert
 ##' @rdname convert
 ##' @param files either a character vector of file names, or a single string
 ##'   containing wildcards (e.g. \file{Rplot*.png})
-##' @param interval time to pause between image frames in seconds (can be
-##' a vector, which specifies the time intervals between successive frames)
-##' @param loop iterations of the movie; set iterations to 0 to play the
-##'   animation for an infinite number of times, otherwise the animation
-##'   repeats itself up to \code{loop} times (N.B. for GIF only!)
 ##' @param output the file name of the output (with proper extensions, e.g.
 ##'   gif)
-##' @param extra.opts additional options to be passed to \command{convert}
-##' @param outdir the output directory
-##' @param convert the \command{convert} command; see Details
+##' @param convert the \command{convert} command; it can be pre-specified
+##' as an option in \code{\link{ani.options}('convert')}; see Details
 ##' @param cmd.fun a function to invoke the OS command; by default
 ##' \code{\link[base]{system}}
+##' @param extra.opts additional options to be passed to \command{convert}
 ##' @param clean logical: delete the input \code{files} or not
 ##' @return The path of the output if the command was successfully executed;
 ##'   otherwise a failure message.
@@ -37,9 +29,10 @@
 ##' Most Windows users do not have read the boring notes below after they have
 ##'   installed ImageMagick or GraphicsMagick. For the rest:
 ##'
-##' ImageMagick users -- please install ImageMagick from
-##'   \url{http://www.imagemagick.org}, and make sure the the path to \command{convert.exe}
-##' is in your \code{'PATH'} variable, in which case the command
+##' \describe{
+##' \item{\strong{ImageMagick users}}{Please install ImageMagick from
+##'   \url{http://www.imagemagick.org}, and make sure the the path to
+##' \command{convert.exe} is in your \code{'PATH'} variable, in which case the command
 ##'   \command{convert} can be called without the full path.
 ##'   Windows users are often very confused
 ##'   about the ImageMagick and \code{'PATH'} setting, so I'll try to search
@@ -52,43 +45,59 @@
 ##'   not really have to install ImageMagick if LyX exists in their system
 ##' (of course, the LyX should be installed with ImageMagick).
 ##'
-##' GraphicsMagick users -- during the installation of GraphicsMagick, you will
-##' be asked if you allow it to change the PATH variable; please do check the option.
+##' Once the \command{convert} utility is found, the animation option \code{'convert'}
+##' will be set (\code{ani.options(convert = 'path/to/convert.exe')}); this can save
+##' time for searching for \command{convert} in the operating system next time.
+##' }
 ##'
-##' A reported problem is \code{cmd.fun = shell} might not work under
-##'   Windows but \code{cmd.fun = system} works fine. Try this option in case of failures.
+##' \item{\strong{GraphicsMagick users}}{During the installation of GraphicsMagick,
+##' you will be asked if you allow it to change the PATH variable; please do check
+##' the option.
+##' }
+##' }
+##'
+##' A reported problem is \code{cmd.fun = shell} might not work under Windows
+##' but \code{cmd.fun = system} works fine. Try this option in case of failures.
 ##' @author Yihui Xie <\url{http://yihui.name}>
+##' @seealso \code{\link{saveMovie}}
 ##' @references
 ##' ImageMagick: \url{http://www.imagemagick.org/script/convert.php}
 ##'
 ##' GraphicsMagick: \url{http://www.graphicsmagick.org}
 ##' @examples
-##' \dontrun{
-##' png(file.path(tempdir(), "bm%03d.png"))
-##' ani.options(interval = 0, nmax = 50)
+##' ## generate some images
+##' owd = setwd(tempdir())
+##' png("bm%03d.png")
+##' oopt = ani.options(interval = 0, nmax = 50)
 ##' brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow",
 ##' main = "Demonstration of Brownian Motion")
+##' ani.options(oopt)
 ##' dev.off()
 ##'
 ##' ## filenames with a wildcard *
-##' bm.files = paste(tempdir(), "bm*.png", sep = .Platform$file.sep)
-##' im.convert(files = bm.files, interval = 0.05, output = "bm-animation1.gif")
+##' im.convert("bm*.png", interval = 0.05, output = "bm-animation1.gif")
 ##' ## use GraphicsMagick
-##' gm.convert(files = bm.files, interval = 0.05, output = "bm-animation2.gif")
+##' gm.convert("bm*.png", interval = 0.05, output = "bm-animation2.gif")
 ##'
 ##' ## or a filename vector
-##' bm.files = file.path(tempdir(), sprintf("bm%03d.png", 1:50))
+##' bm.files = sprintf("bm%03d.png", 1:50)
 ##' im.convert(files = bm.files, interval = 0.05, output = "bm-animation3.gif")
-##' }
-im.convert = function(files, interval = ani.options("interval"),
-    loop = 0, output = "animation.gif", extra.opts = "", outdir = getwd(),
-    convert = c("convert", "gm convert"), cmd.fun, clean = FALSE) {
-    output.path = file.path(outdir, output)
-    if (missing(cmd.fun)) cmd.fun = system
-    interval = head(interval, length(files))
+##'
+im.convert = function(files, output = "animation.gif", convert = c("convert",
+                                                       "gm convert"),
+                      cmd.fun = system, extra.opts = "", clean = FALSE) {
+    output.path = file.path(ani.options('outdir'), output)
+    interval = head(ani.options('interval'), length(files))
     convert = match.arg(convert)
     if (convert == 'convert') {
-        version = cmd.fun(sprintf("%s --version", convert), intern = TRUE)
+        version = ''
+        if (!is.null(ani.options('convert'))) {
+            version = cmd.fun(sprintf("%s --version", ani.options('convert')),
+                              intern = TRUE)
+        }
+        if (!length(grep("ImageMagick", version))) {
+            version = cmd.fun(sprintf("%s --version", convert), intern = TRUE)
+        } else convert = ani.options('convert')
         ## try to look for ImageMagick in the Windows Registry Hive,
         ## the Program Files directory and the LyX installation
         if (!length(grep("ImageMagick", version))) {
@@ -121,27 +130,39 @@ im.convert = function(files, interval = ani.options("interval"),
                     if (length(convert)) {
                         convert = shQuote(normalizePath(convert))
                         message("but I can find it from the LyX installation: ", dirname(convert))
-                    } else stop("No way to find ImageMagick!")
+                    } else {
+                        warning("No way to find ImageMagick!")
+                        return()
+                    }
+                } else {
+                    warning("ImageMagick not installed yet!")
+                    return()
                 }
-                else stop("ImageMagick not installed yet!")
-                Sys.setenv(PATH = paste(unique(c(dirname(gsub('(^[\"\']|[\"\']$)', '', convert)), strsplit(Sys.getenv('PATH'), ';')[[1]])), sep = ';'))
+                ## write it into ani.options() to save future efforts
+                ani.options(convert = convert)
             }
             else {
-                stop("Please install ImageMagick first or put its bin path into the system PATH variable")
+                warning("Please install ImageMagick first or put its bin path into the system PATH variable")
+                return()
             }
         }
     } else {
         ## GraphicsMagick
         version = cmd.fun(sprintf("%s -version", convert), intern = TRUE)
         if (!length(grep("GraphicsMagick", version))) {
-            stop("I cannot find GraphicsMagick with convert = ", shQuote(convert),
+            warning("I cannot find GraphicsMagick with convert = ", shQuote(convert),
                  "; you may have to put the path of GraphicsMagick in the PATH variable.")
+            return()
         }
     }
-    input = paste(files, collapse = " ")
-    convert = sprintf("%s -loop %s %s %s %s", convert, loop, extra.opts, paste('-delay', interval * 100, files, collapse = ' '), shQuote(output.path))
 
-    message("Executing: ", convert)
+    loop = ifelse(isTRUE(ani.options('loop')), 0, 1)
+    convert = sprintf("%s -loop %s %s %s %s", convert, loop, extra.opts,
+                      paste('-delay', interval * 100,
+                            if (length(interval) == 1)
+                            paste(files, collapse = ' ') else files,
+                            collapse = ' '), shQuote(output.path))
+    message("Executing: ", strwrap(convert, exdent = 4, prefix = '\n'))
     flush.console()
     cmd = cmd.fun(convert)
     ## if fails on Windows using shell(), try system() instead of shell()
@@ -152,7 +173,7 @@ im.convert = function(files, interval = ani.options("interval"),
         message("Output at: ", output.path)
         if (clean)
             unlink(files)
-        if (interactive() && ani.options('autobrowse')) {
+        if (ani.options('autobrowse')) {
             switch(.Platform$OS.type,
                    windows = try(shell.exec(output.path)),
                    unix = try(system(paste('xdg-open ', output.path)), TRUE))
@@ -166,6 +187,10 @@ im.convert = function(files, interval = ani.options("interval"),
     }
 }
 
+##' A wrapper for the `gm convert' utility of GraphicsMagick.
+##'
+##' the function \code{gm.convert} is a wrapper for the command
+##' \command{gm convert} of GraphicsMagick;
 ##' @rdname convert
 ##' @param ... arguments to be passed to \code{\link{im.convert}}
 gm.convert = function(..., convert = "gm convert") {

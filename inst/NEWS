@@ -45,6 +45,12 @@ MINOR CHANGES
   renamed to 'htmlfile' so that the meaning of this
   option is more clear; 'footer' was renamed to
   'verbose' too
+    o ani.options() can accept any arguments now
+    o im.convert() and gm.convert() will no longer
+  stop() when the convert utility cannot be found;
+  instead, they only issue warnings; a hidden option
+  ani.options('convert') can be used to specify the
+  location of convert.exe in ImageMagick
 
 
 TO APPEAR
