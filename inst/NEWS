@@ -35,8 +35,10 @@ SIGNIFICANT CHANGES
 MINOR CHANGES
 
     o the argument 'para' in saveMovie() was removed;
-  'para' in saveSWF() was replaced by 'ani.first'
-  (more flexible and of general use)
+  the argument 'ani.first' was also removed from all
+  the save*() functions, because this can be written
+  in 'expr' and there is no need to provide an
+  additional argument
     o the path of the output in im.convert() and
   gm.convert() will be quoted, because sometimes
   users might supply a path containing spaces
