@@ -6,7 +6,8 @@
 ##' package is GraphicsMagick (use \code{convert = 'gm convert'}), which is
 ##' smaller than ImageMagick.
 ##'
-##' This function calls \code{\link{im.convert}} to convert images to a single
+##' This function calls \code{\link{im.convert}} (or \code{\link{gm.convert}},
+##' depending on the argument \code{convert}) to convert images to a single
 ##' animation.
 ##'
 ##' The advantage of this function is that it can create a single movie file,
@@ -58,13 +59,16 @@
 ##' @examples
 ##'
 ##' ## make sure ImageMagick has been installed in your system
-##' \dontrun{
 ##' saveMovie({for(i in 1:10) plot(runif(10), ylim = 0:1)})
-##' oopt = ani.options(nmax = 100)
-##' saveMovie(brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow"),
-##'     interval = 0.1, ani.width = 600, ani.height = 600)
-##' ani.options(oopt)
-##' }
+##'
+##' ## if the above conversion was successful, the option 'convert' should
+##' ##    not be NULL
+##' ani.options('convert')
+##' ## like "C:/Software/LyX/etc/ImageMagick/convert.exe"
+##'
+##' saveMovie({brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")},
+##'     movie.name = 'brownian_motion.gif',
+##'     interval = 0.1, nmax = 30, ani.width = 600, ani.height = 600)
 ##'
 saveMovie = function(expr, movie.name = "animation.gif", img.name = "Rplot",
              convert = "convert", cmd.fun = system, clean = TRUE, ...) {
