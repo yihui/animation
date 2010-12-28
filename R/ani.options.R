@@ -114,9 +114,9 @@ ani.options = function(...) {
             if (length(lst) > 0) {
                 .ani.opts[pmatch(names(lst), names(.ani.opts))] = lst
                 .ani.env$.ani.opts = .ani.opts
-                if (!identical(omf$nmax, lst$nmax) && interactive()) {
+                if (!identical(omf$nmax, .ani.opts$nmax) && interactive()) {
                     message("animation option 'nmax' changed: ", omf$nmax,
-                            " --> ", lst$nmax)
+                            " --> ", .ani.opts$nmax)
                 }
             }
             invisible(omf)
