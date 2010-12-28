@@ -59,8 +59,9 @@
 ##' }
 ##'
 ##' @param ... arguments in \code{tag = value} form, or a list of tagged
-##' values.  The tags must come from the animation parameters described
-##' below.
+##' values.  The tags usually come from the animation parameters described
+##' below, but they are not restricted to these tags (any tag can be used;
+##' this is similar to \code{\link[base]{options}}).
 ##' @return a list containing the options.
 ##'
 ##' When parameters are set, their former values are returned in an invisible
@@ -112,7 +113,7 @@ ani.options = function(...) {
             if (is.list(lst[[1]]))
                 lst = lst[[1]]
             if (length(lst) > 0) {
-                .ani.opts[pmatch(names(lst), names(.ani.opts))] = lst
+                .ani.opts[names(lst)] = lst
                 .ani.env$.ani.opts = .ani.opts
                 if (!identical(omf$nmax, .ani.opts$nmax) && interactive()) {
                     message("animation option 'nmax' changed: ", omf$nmax,
