@@ -5,7 +5,7 @@ saveHTML({
         plot(runif(20), ylim = c(0, 1))
         ani.pause()
     }
-}, imgname = 'unif_plot', imgdir = 'unif_dir', htmlfile = 'random.html',
+}, img.name = 'unif_plot', imgdir = 'unif_dir', htmlfile = 'random.html',
          autobrowse = FALSE,
          title = 'Demo of 20 uniform random numbers',
          description = c('This is a silly example.\n\n', 'You can describe it in more detail.', 'For example, bla bla...'))
@@ -23,7 +23,7 @@ saveHTML({
         plot(rnorm(50), ylim = c(-3, 3))
         ani.pause()
     }
-}, imgname = 'norm_plot', single.opts = "'utf8': false",
+}, img.name = 'norm_plot', single.opts = "'utf8': false",
          autoplay = FALSE, interval = 0.5,
          imgdir = 'norm_dir', htmlfile = 'random.html',
          ani.height = 400, ani.width = 600,
@@ -39,7 +39,7 @@ saveHTML({
         cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)
     ani.options(interval = 0.05, nmax = 150)
     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")
-}, imgname = 'brownian_motion_a', htmlfile = 'index.html',
+}, img.name = 'brownian_motion_a', htmlfile = 'index.html',
          interval = 0.05, nmax = 150,
          description = c('Random walk of 10 points on the 2D plane:', 'for each point (x, y),', 'x = x + rnorm(1) and y = y + rnorm(1).'))
 
@@ -54,7 +54,7 @@ saveHTML({
         cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)
     ani.options(interval = 0.05, nmax = 150)
     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")
-}, imgname = 'brownian_motion_b',
+}, img.name = 'brownian_motion_b',
          htmlfile = 'index.html', interval = 0.05,
          single.opts = "'controls': ['first', 'previous', 'play', 'next', 'last', 'loop', 'speed'], 'delayMin': 0",
          nmax = 150,

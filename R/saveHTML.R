@@ -20,8 +20,8 @@
 ##' better reading experience).
 ##'
 ##' @param expr an R expresion to be evaluated to create a sequence of images
-##' @param imgname the filename of the images (the real output will be like
-##' \file{imgname1.png}, \file{imgname2.png}, ...); this name has to be
+##' @param img.name the filename of the images (the real output will be like
+##' \file{img.name1.png}, \file{img.name2.png}, ...); this name has to be
 ##' different for different animations, since it will be used as the identifiers
 ##' for each animation; make it as unique as possible
 ##' @param global.opts a string: the global options of the animation; e.g. we
@@ -47,7 +47,7 @@
 ##' @seealso \code{\link{ani.start}}, \code{\link{ani.stop}} (early versions of
 ##' HTML animations)
 ##' @example animation/inst/examples/saveHTML-ex.R
-saveHTML = function(expr, imgname = 'Rplot',
+saveHTML = function(expr, img.name = 'Rplot',
                     global.opts = '', single.opts = '', ...) {
     oopt = ani.options(...)
 
@@ -80,7 +80,7 @@ saveHTML = function(expr, imgname = 'Rplot',
     if (is.character(ani.dev)) ani.dev = get(ani.dev)
     imgdir = file.path(ani.options('outdir'), ani.options('imgdir'))
     dir.create(imgdir, showWarnings = FALSE, recursive = TRUE)
-    ani.dev(file.path(imgdir, paste(imgname, '%d', '.', ani.type, sep = '')),
+    ani.dev(file.path(imgdir, paste(img.name, '%d', '.', ani.type, sep = '')),
             width = ani.options('ani.width'), height = ani.options('ani.height'))
     expr
     dev.off()
@@ -103,8 +103,8 @@ saveHTML = function(expr, imgname = 'Rplot',
               sprintf('<meta name="generator" content="R package animation %s">',
                       packageVersion('animation')), html)
     n = grep('<!-- highlight R code -->', html, fixed = TRUE)
-    div.str = sprintf('	<div id="%s"></div>', imgname)
-    js.str = sprintf('	<script src="js/%s.js"></script>', imgname)
+    div.str = sprintf('	<div id="%s"></div>', img.name)
+    js.str = sprintf('	<script src="js/%s.js"></script>', img.name)
     ## make sure there are no duplicate div/scripts
     if (!length(div.pos <- grep(div.str, html, fixed = TRUE)) &
         !length(js.pos <- grep(js.str, html, fixed = TRUE))) {
@@ -120,17 +120,17 @@ saveHTML = function(expr, imgname = 'Rplot',
                               package = 'animation'))
     if (!ani.options('autoplay')) js.temp = js.temp[-11]
     js.temp = paste(js.temp, collapse = '\n')
-    imglen = length(list.files(imgdir, pattern = paste(imgname, '[0-9]+\\.', ani.type, sep = '')))
-    imglist = file.path(ani.options('imgdir'), sprintf(paste(imgname, '%d.', ani.type, sep = ''), seq_len(imglen)))
-    js.temp = sprintf(js.temp, global.opts, imgname,
+    imglen = length(list.files(imgdir, pattern = paste(img.name, '[0-9]+\\.', ani.type, sep = '')))
+    imglist = file.path(ani.options('imgdir'), sprintf(paste(img.name, '%d.', ani.type, sep = ''), seq_len(imglen)))
+    js.temp = sprintf(js.temp, global.opts, img.name,
                       paste(shQuote(imglist, 'sh'), collapse = ', '),
                       ani.options('ani.height'), ani.options('ani.width'),
                       1000 * ani.options('interval'),
                       ifelse(ani.options('loop'), 'loop', 'none'),
                       ifelse(nzchar(single.opts), paste(',\n', single.opts), ''),
-                      imgname
+                      img.name
     )
-    writeLines(js.temp, file.path(dirname(htmlfile), 'js', paste(imgname, 'js', sep = '.')))
+    writeLines(js.temp, file.path(dirname(htmlfile), 'js', paste(img.name, 'js', sep = '.')))
     writeLines(html, con = htmlfile)
 
     if (ani.options('autobrowse'))
