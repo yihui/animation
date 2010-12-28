@@ -1,6 +1,7 @@
 ##' Set or query animation options.
 ##' There are various parameters that control the behaviour of the
-##' animation, such as time interval, maximum frames, height and width, etc.
+##' animation, such as time interval, maximum number of animation frames,
+##' height and width, etc.
 ##'
 ##' The supported animation parameters:
 ##' \describe{
@@ -31,12 +32,12 @@
 ##' using \code{\link{ani.start}} (restore with \code{\link{ani.stop}})}
 ##'
 ##' \item{ani.type}{character: image format for animation frames, e.g.
-##' \code{png}, \code{jpg}, ...; default to be \code{"png"}}; this will be
-##' used as the file extension of images
+##' \code{png}, \code{jpeg}, ...; default to be \code{"png"}; this will be
+##' used as the file extension of images}
 ##'
 ##' \item{ani.dev}{a
 ##' function or a function name: the graphics device; e.g.
-##' (\code{\link[grDevices]{png}}, \code{\link[grDevices]{jpeg}}, ...); default
+##' (\code{\link[grDevices]{png}}, \code{\link[grDevices]{pdf}}, ...); default
 ##' to be \code{"png"}} \item{title}{character: the title of animation }
 ##'
 ##' \item{description}{character: a description about the animation }
@@ -62,11 +63,15 @@
 ##' values.  The tags usually come from the animation parameters described
 ##' below, but they are not restricted to these tags (any tag can be used;
 ##' this is similar to \code{\link[base]{options}}).
-##' @return a list containing the options.
-##'
-##' When parameters are set, their former values are returned in an invisible
+##' @return \code{ani.options()} returns a list containing the options:
+##' when parameters are set, their former values are returned in an invisible
 ##'   named list.  Such a list can be passed as an argument to
 ##'   \code{\link{ani.options}} to restore the parameter values.
+##'
+##' \code{ani.options('tag')} returns the value of the option \code{'tag'}.
+##'
+##' \code{ani.options(c('tag1', 'tag2'))} returns a list containing the
+##' corresponding options.
 ##' @note Please note that \code{nmax} is usually equal to the number of
 ##'   animation frames (e.g. for \code{\link{brownian.motion}}) but not
 ##'   \emph{always}! The reason is that sometimes there are more than one frame
@@ -82,7 +87,7 @@
 ##'   only \code{interval} will affect animations in windows graphics device.
 ##'
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link[grDevices]{dev.interactive}}
+##' @seealso \code{\link[base]{options}}, \code{\link[grDevices]{dev.interactive}}
 ##' @references \url{http://animation.yihui.name/animation:options}
 ##' @keywords misc
 ##' @examples
