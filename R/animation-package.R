@@ -8,7 +8,52 @@
 ##' devices (such as \code{\link[grDevices]{x11}}) to demonstrate animations in
 ##' statistics; other kinds of output such as Flash (SWF) or GIF animations
 ##' or PDF animations are also available if required software packages have
-##' been installed.
+##' been installed. See below for details on each type of animation.
+##'
+##' \describe{
+##' \item{\strong{On-screen Animations}}{
+##' It's natural and easy to create an animation in R using the windows graphics
+##' device, e.g. in \code{x11()} or \code{windows()}. A basic scheme is like
+##' the Example 1 (see below).
+##'
+##' On-screen animations do not depend on any third-party software, but the
+##' rendering speed of the windows graphics devices is often slow, so the
+##' animation might not be smooth (especially under Linux and Mac OS).
+##' }
+##'
+##' \item{\strong{HTML Pages}}{
+##' The generation of HTML animation pages does not rely on any third-party
+##' software either, and we only need a web browser to watch the animation.
+##' This package has two sets of functions to create HTML pages:
+##' \code{\link{saveHTML}} and \code{\link{ani.start}}/\code{\link{ani.stop}}.
+##' The former one is recommended, since it can include the source code into
+##' the HTML page and is much more visually appealing.
+##'
+##' The HTML interface is just like a movie player -- it comes with a series
+##' of buttons to control the animation (play, stop, next, previous, ...).
+##' }
+##'
+##' \item{\strong{GIF Animations}}{
+##' If ImageMagick or GraphicsMagick has been installed, we can use
+##' \code{\link{im.convert}} or \code{\link{gm.convert}} to create a GIF
+##' animation (combining several R plots together).
+##' }
+##'
+##' \item{\strong{Flash Animations}}{
+##' If SWF Tools has been installed, we can use \code{\link{saveSWF}} to
+##' create a Flash animation (again, combining R plots).
+##' }
+##'
+##' \item{\strong{PDF Animations}}{
+##' If LaTeX is present in the system, we can use \code{\link{saveLatex}}
+##' to insert animations into a PDF document and watch the animation
+##' using the Adobe reader.
+##'
+##' The animation is created by the LaTeX package \code{animate}.
+##' }
+##' }
+##' This package also contains several functions to create animations
+##' for various statistical topics.
 ##'
 ##' @name animation-package
 ##' @aliases animation-package animation
@@ -18,61 +63,7 @@
 ##' @references AniWiki: Animations in Statistics
 ##'   \url{http://animation.yihui.name}
 ##' @keywords package dynamic device dplot
-##' @examples
-##'
-##' \dontrun{
-##' #############################################################
-##' # (1) Animations in HTML pages
-##' # create an animation page in the tempdir() and auto-browse it
-##' # Brownian Motion
-##' oopt = ani.options(interval = 0.05, nmax = 100, ani.dev = png,
-##'     ani.type = "png",
-##'     title = "Demonstration of Brownian Motion",
-##'     description = "Random walk on the 2D plane: for each point
-##'     (x, y), x = x + rnorm(1) and y = y + rnorm(1).")
-##' ani.start()
-##' opar = par(mar = c(3, 3, 2, 0.5), mgp = c(2, .5, 0), tcl = -0.3,
-##'     cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)
-##' brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow",
-##'     main = "Demonstration of Brownian Motion")
-##' par(opar)
-##' ani.stop()
-##' ani.options(oopt)
-##'
-##' #############################################################
-##' # (2) Animations inside R windows graphics devices
-##' # Bootstrapping
-##' oopt = ani.options(interval = 0.3, nmax = 50)
-##' boot.iid()
-##' ani.options(oopt)
-##'
-##' #############################################################
-##' # (3) GIF animations
-##' oopt = ani.options(interval = 0, nmax = 100)
-##' saveMovie(brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow"),
-##'     interval = 0.05, outdir = getwd(), width = 600, height = 600)
-##' ani.options(oopt)
-##'
-##' #############################################################
-##' # (4) Flash animations
-##' oopt = ani.options(nmax = 100, interval = 0)
-##' saveSWF(buffon.needle(type = "S"), para = list(mar = c(3, 2.5, 1, 0.2),
-##'     pch = 20, mgp = c(1.5, 0.5, 0)), dev = "pdf", swfname = "buffon.swf",
-##'     outdir = getwd(), interval = 0.1)
-##' ani.options(oopt)
-##'
-##' #############################################################
-##' # (5) PDF animations
-##' oopt = ani.options(interval = 0.1, nmax = 100)
-##' saveLatex({
-##'     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow",
-##'         main = "Brownian Motion")
-##' }, ani.basename = "BM", ani.opts = "controls,loop,width=0.8\\textwidth",
-##'     ani.first = par(mar = c(3, 3, 1, 0.5), mgp = c(2, 0.5, 0),
-##'         tcl = -0.3, cex.axis = 0.8, cex.lab = 0.8, cex.main = 1),
-##'     latex.filename = "brownian.motion.tex")
-##' ani.options(oopt)
-##' }
+##' @example animation/inst/examples/animation-package-Ex.R
 ##'
 NULL
 
