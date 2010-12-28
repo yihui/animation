@@ -86,20 +86,29 @@
 ##' @references \url{http://animation.yihui.name/animation:options}
 ##' @keywords misc
 ##' @examples
+##' ## see the first example in help(animation) on how to set and restore
+##' ##   animation options
 ##'
-##' \dontrun{
-##' # store the old option to restore it later
-##' oopt = ani.options(interval = 0.05, nmax = 100, ani.dev = "png",
-##'     ani.type = "png")
-##' ani.start()
-##' opar = par(mar = c(3, 3, 2, 0.5), mgp = c(2, .5, 0), tcl = -0.3,
-##'     cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)
-##' brownian.motion( pch = 21, cex = 5, col = "red", bg = "yellow",
-##'     main = "Demonstration of Brownian Motion",)
-##' par(opar)
-##' ani.stop()
-##' ani.options(oopt)
+##' ## use the PDF device: remember to set 'ani.type' accordingly
+##' oopt = ani.options(ani.dev = 'pdf', ani.type = 'pdf', ani.height = 5, ani.width = 7)
+##'
+##' ## use the Cairo PDF device
+##' if (require('Cairo')) {
+##' ani.options(ani.dev = CairoPDF, ani.type = 'pdf', ani.height = 6, ani.width = 6)
 ##' }
+##'
+##' ## change outdir to the current working directory
+##' ani.options(outdir = getwd())
+##'
+##' ## don't loop for GIF/HTML animations
+##' ani.options(loop = FALSE)
+##'
+##' ## don't try to open the output automatically
+##' ani.options(autobrowse = FALSE)
+##'
+##' ## it's a good habit to restore the options in the end so that
+##' ##   other code will not be affected
+##' ani.options(oopt)
 ##'
 ani.options = function(...) {
     lst = list(...)
