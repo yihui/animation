@@ -16,20 +16,11 @@
 ##' @param expr an expression to generate animations; use either the animation
 ##'   functions (e.g. \code{brownian.motion()}) in this package or a custom
 ##'   expression (e.g. \code{for(i in 1:10) plot(runif(10), ylim = 0:1)}).
-##' @param interval duration between animation frames (unit in seconds)
-##' @param nmax maximum number of animatio frames (if missing and the graphics
+##' @param nmax maximum number of animation frames (if missing and the graphics
 ##' device is a bitmap device, this number will be automatically calculated);
 ##' note that we do not have to specify \code{nmax} when using PDF devices.
-##' @param outdir the directory for output (default to be the current working
-##' directory)
-##' @param ani.dev the graphics device to be used to record image frames
-##' @param ani.basename,ani.ext basename and extension of file names of
-##'   animation frames; see the Note section for a possible adjustment on
-##' \code{ani.basename}
-##' @param num the format for page numbers
-##' @param ani.first an expression to be evaluated before plotting (this will
-##'   be useful to set graphical parameters in advance, e.g. \code{ani.first =
-##'   par(pch = 20)})
+##' @param img.name basename of file names of animation frames; see the Note
+##' section for a possible adjustment on \code{img.name}
 ##' @param ani.opts options to control the behavior of the animation (passed to
 ##'   the LaTeX macro \code{"\\animategraphics"}; default to be
 ##' \code{"controls,width=\\linewidth"})
@@ -47,29 +38,26 @@
 ##' @param pdflatex the command for pdfLaTeX (set to \code{NULL} to ignore the
 ##'   compiling)
 ##' @param install.animate copy the LaTeX style files \file{animate.sty} and
-##'   \file{animfp.sty} to \code{outdir}? If you have not installed the LaTeX
-##'   package \code{animate}, it suffices just to copy these to files.
+##' \file{animfp.sty} to \code{ani.options('outdir')}? If you have not installed
+##' the LaTeX package \code{animate}, it suffices just to copy these to files.
 ##' @param overwrite whether to overwrite the existing image frames
 ##' @param \dots other arguments passed to the graphics device \code{ani.dev},
 ##'   e.g. height and width
 ##' @return Invisible \code{NULL}
 ##' @note
 ##' This function will detect if it was called in a Sweave environment --
-##' if so, \code{ani.basename} will be automatically adjusted to
+##' if so, \code{img.name} will be automatically adjusted to
 ##' \code{prefix.string-label}, and the LaTeX output will not be a complete
 ##' document, but rather a single line like
-##' \verb{\animategraphics[ani.opts]{1/interval}{ani.basename}{}{}}
+##' \verb{\animategraphics[ani.opts]{1/interval}{img.name}{}{}}
 ##'
 ##' This automatic feature can be useful to Sweave users (but remember to
 ##' set the Sweave option \code{results=tex}).
 ##'
-##' When using \code{ani.dev = "png"} or other bitmap graphics devices,
-##'   all the images can be recorded only if a proper \code{num} is provided;
-##'   typically it must be \code{"\%d"}.
-##'
 ##' PDF devices are recommended because of their high quality and usually they
-##'   are more friendly to LaTeX. But sometimes the size of PDF files is much
-##'   larger.
+##' are more friendly to LaTeX. But sometimes the size of PDF files is much
+##' larger. Use \code{ani.options(ani.dev = 'pdf', ani.type = 'pdf')} to
+##' set the PDF device.
 ##'
 ##' So far animations created by the LaTeX package \pkg{animate} can only be
 ##'   viewed with Acrobat Reader (Windows) or \command{acroread} (Linux).
@@ -79,36 +67,33 @@
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link{saveMovie}} to convert image frames to a single
 ##'   GIF/MPEG file; \code{\link{saveSWF}} to convert images to Flash;
-##'   \code{\link{ani.start}} and \code{\link{ani.stop}} to create an HTML page
-##'   containing the animation
+##'   \code{\link{saveHTML}} to create an HTML page containing the animation
 ##' @references To know more about the \code{animate} package, please refer to
 ##'   \url{http://www.ctan.org/tex-archive/macros/latex/contrib/animate/}.
 ##'   There are a lot of options can be set in \code{ani.opts} and
 ##'   \code{pkg.opts}.
 ##' @keywords dynamic device utilities
 ##' @examples
-##' \dontrun{
 ##'
-##' oopt = ani.options(interval = 0.1, nmax = 100)
 ##' ## brownian motion: note the 'loop' option in ani.opts
-##' ##     and how to set graphics parameters with 'ani.first'
 ##' saveLatex({
+##'     par(mar = c(3, 3, 1, 0.5), mgp = c(2, 0.5, 0),
+##'         tcl = -0.3, cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)
 ##'     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow",
 ##'         main = "Demonstration of Brownian Motion")
-##' }, ani.basename = "BM", ani.opts = "controls,loop,width=0.8\\\\textwidth",
-##'     ani.first = par(mar = c(3, 3, 1, 0.5), mgp = c(2, 0.5, 0),
-##'         tcl = -0.3, cex.axis = 0.8, cex.lab = 0.8, cex.main = 1),
-##'     latex.filename = "brownian.motion.tex")
-##' ani.options(oopt)
-##' }
+##' }, img.name = "BM", ani.opts = "controls,loop,width=0.8\\\\textwidth",
+##'     latex.filename = ifelse(interactive(), "brownian_motion.tex", ""),
+##'     interval = 0.1, nmax = 10,
+##'     ani.dev = 'pdf', ani.type = 'pdf', ani.width = 7, ani.height = 7)
 ##'
-saveLatex = function(expr, interval = 1,
-    nmax, ani.dev = "pdf", outdir = '.',
-    ani.basename = "Rplot", ani.ext = "pdf", num = ifelse(ani.ext ==
-        "pdf", "", "%d"), ani.first = NULL, ani.opts,
+saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
     centering = TRUE, caption = NULL, label = NULL,
     pkg.opts = NULL, documentclass = "article", latex.filename = "animation.tex",
     pdflatex = "pdflatex", install.animate = TRUE, overwrite = TRUE, ...) {
+    oopt = ani.options(...)
+    if (!missing(nmax)) ani.options(nmax = nmax)
+    on.exit(ani.options(oopt))
+    outdir = ani.options('outdir')
     ## detect if I'm in a Sweave environment
     in.sweave = FALSE
     if (length(sys.parents()) >= 3) {
@@ -116,26 +101,32 @@ saveLatex = function(expr, interval = 1,
             chunkopts = get('chunkopts', envir = sys.frame(2))
             if (all(c('prefix.string', 'label') %in% names(chunkopts))) {
                 ## yes, I'm in Sweave w.p. 95%
-                ani.basename = paste(chunkopts$prefix.string, chunkopts$label, sep = '-')
+                img.name = paste(chunkopts$prefix.string, chunkopts$label, sep = '-')
                 outdir = '.'
                 in.sweave = TRUE
             }
         }
     }
 
+    interval = ani.options('interval')
     ## generate the image frames
     odir = setwd(outdir)
-    on.exit(setwd(odir))
+    on.exit(setwd(odir), add = TRUE)
+    ani.dev = ani.options('ani.dev')
+    ani.ext = ani.options('ani.type')
+    num = ifelse(ani.ext == "pdf", "", "%d")
     if (is.character(ani.dev))
         ani.dev = get(ani.dev)
-    ani.files.len = length(list.files(path = dirname(ani.basename), pattern =
-                           sprintf('^%s.*\\.%s$', ani.basename, ani.ext)))
+    ani.files.len = length(list.files(path = dirname(img.name), pattern =
+                           sprintf('^%s.*\\.%s$', img.name, ani.ext)))
     if (overwrite || !ani.files.len) {
-        ani.dev(sprintf("%s%s.%s", ani.basename, num, ani.ext), ...)
-        ani.first
+        ani.dev(sprintf("%s%s.%s", img.name, num, ani.ext),
+                width = ani.options('ani.width'), height = ani.options('ani.height'))
         expr
         dev.off()
     }
+    ani.files.len = length(list.files(path = dirname(img.name), pattern =
+                           sprintf('^%s.*\\.%s$', img.name, ani.ext)))
 
     if (missing(nmax)) {
         ## count the number of images generated
@@ -171,7 +162,7 @@ saveLatex = function(expr, interval = 1,
                     ifelse(is.null(pkg.opts), "", sprintf("[%s]", pkg.opts)),
                     ifelse(centering, '\\begin{center}', ''),
                     ani.opts,
-                    1/interval, ani.basename, start.num, end.num,
+                    1/interval, img.name, start.num, end.num,
                     ifelse(is.null(caption), "", sprintf("\\caption{%s}", caption)),
                     ifelse(is.null(label), "", sprintf("\\label{%s}", label)),
                     ifelse(centering, '\\end{center}', '')),
@@ -184,7 +175,7 @@ saveLatex = function(expr, interval = 1,
                 message(sprintf("successfully compiled: %s %s", pdflatex,
                                 latex.filename))
                 if (ani.options("autobrowse"))
-                    system(sprintf("%s %s", getOption("pdfviewer"),
+                    system(sprintf("%s %s", shQuote(normalizePath(getOption("pdfviewer"))),
                                    sprintf("%s.pdf", sub("([^.]+)\\.[[:alnum:]]+$",
                                                          "\\1", latex.filename))))
             }
@@ -203,7 +194,7 @@ saveLatex = function(expr, interval = 1,
 %s
 ", ifelse(centering, '\\begin{center}', ''),
                     ani.opts,
-                    1/interval, ani.basename, start.num, end.num,
+                    1/interval, img.name, start.num, end.num,
                     ifelse(centering, '\\end{center}', '')))
     }
     invisible(NULL)
