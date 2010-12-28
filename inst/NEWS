@@ -25,6 +25,13 @@ NEW FEATURES
   animation now -- all the functions in this
   package has been adjusted to use ani.pause()
 
+SIGNIFICANT CHANGES
+
+    o several arguments in saveMovie(), im.convert(),
+  saveSWF() and saveLatex() were removed, because
+  they can be specified by ani.options(); this can
+  simplify the usage of these functions
+
 MINOR CHANGES
 
     o the argument 'para' in saveMovie() was removed;

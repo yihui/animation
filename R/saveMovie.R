@@ -1,60 +1,53 @@
 ##' Convert images to a single animation file (typically GIF).
-##' This function opens a graphical device first to generate a sequence of
-##' images based on \code{expr}, then makes use of the command \code{convert}
-##' in `ImageMagick' to convert these images to a single animated movie (in
-##' formats such as GIF and MPG, etc). An alternative software package is
-##' GraphicsMagick, which is smaller than ImageMagick.
+##' This function opens a graphical device (specified in \code{ani.options('ani.dev')})
+##' first to generate a sequence of images based on \code{expr}, then makes use
+##' of the command \command{convert} in `ImageMagick' to convert these images to
+##' a single animated movie (as a GIF or MPG file). An alternative software
+##' package is GraphicsMagick (use \code{convert = 'gm convert'}), which is
+##' smaller than ImageMagick.
 ##'
 ##' This function calls \code{\link{im.convert}} to convert images to a single
 ##' animation.
 ##'
-##' The convenience of this function is that it can create a single movie file,
-##' however, there are two problems too: (1) we need a special (free)
-##' software ImageMagick; (2) the speed of the animation cannot be conveniently
-##' controlled, as we have specified a fixed \code{interval}. Other approaches
+##' The advantage of this function is that it can create a single movie file,
+##' however, there are two problems too: (1) we need a special (free) software
+##' ImageMagick or GraphicsMagick; (2) the speed of the animation will be beyond
+##' our control, as the \code{interval} option is fixed. Other approaches
 ##' in this package may have greater flexibilities, e.g. the HTML approach (see
-##' \code{\link{ani.start}}).
+##' \code{\link{saveHTML}}).
 ##'
+##' See \code{\link{ani.options}} for the options that may affect the output, e.g.
+##' the graphics device (including the height/width specifications), the file
+##' extension of image frames, and the time interval between image frames, etc.
+##' Note that \code{ani.options('interval')} can be a numeric vector!
 ##' @param expr an expression to generate animations; use either the animation
 ##'   functions (e.g. \code{brownian.motion()}) in this package or a custom
 ##'   expression (e.g. \code{for(i in 1:10) plot(runif(10), ylim = 0:1)}).
-##' @param interval duration between animation frames (unit in seconds)
-##' @param moviename file name of the movie (with the extension)
-##' @param loop iterations of the movie; set iterations to zero to repeat the
-##'   animation an infinite number of times, otherwise the animation repeats
-##'   itself up to \code{loop} times (N.B. for GIF only!)
-##' @param dev a function for a graphical device such as
-##'   \code{\link[grDevices]{png}}, \code{\link[grDevices]{jpeg}} and
-##'   \code{\link[grDevices]{bmp}}, etc.
-##' @param filename file name of the sequence of images (`pure' name; without
+##' @param movie.name file name of the movie (with the extension)
+##' @param img.name file name of the sequence of images (`pure' name; without
 ##'   any format or extension)
-##' @param fmt a C-style string formatting command, such as \code{\%3d}
-##' @param fileext the file extensions of the image frames
-##' @param outdir the directory for the movie frames
-##' @param convert the ImageMagick command to convert images (default to be
-##'   \code{convert}, but might be \code{imconvert} under some Windows
-##'   platforms); see the 'Note' section for details
+##' @param convert the command to convert images (default to be
+##'   \command{convert} (i.e. use ImageMagick), but might be \command{imconvert}
+##' under some Windows platforms); can be \command{gm convert} in order to use
+##' GraphicsMagick; see the 'Note' section for details
 ##' @param cmd.fun a function to invoke the OS command; by default
 ##' \code{\link[base]{system}}
 ##' @param clean whether to delete the individual image frames
-##' @param ani.first an expression to be evaluated before plotting (this will
-##'   be useful to set graphical parameters in advance, e.g. \code{ani.first =
-##'   par(pch = 20)}
-##' @param \dots other arguments passed to the graphical device, such as
-##'   \code{height} and \code{width}, ...
+##' @param \dots other arguments passed to \code{\link{ani.options}}, e.g.
+##'   \code{ani.height} and \code{ani.width}, ...
 ##' @return An integer indicating failure (-1) or success (0) of the converting
 ##'   (refer to \code{\link[base]{system}} and \code{\link{im.convert}}).
 ##' @note See \code{\link{im.convert}} for details on the configuration of
-##'   ImageMagick (typically for Windows users).
+##'   ImageMagick (typically for Windows users) or GraphicsMagick.
 ##'
-##' It is recommended to use \code{ani.options('interval')} to specify the time
-##' interval in \code{expr}, because this argument will be temporarily set to 0
-##' when \code{expr} is being evaluated, and it will be restored in the end.
+##' It is recommended to use \code{ani.pause()} to pause between animation
+##' frames in \code{expr}, because this function will only pause when called in
+##' a non-interactive graphics device, which can save a lot of time.
 ##' See the demo \code{'Xmas2'} for example (\code{demo('Xmas2', package = 'animation')}).
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link{im.convert}}, \code{\link{gm.convert}}, \code{\link{saveSWF}},
 ##'   \code{\link[base]{system}}, \code{\link[grDevices]{png}},
-##'   \code{\link[grDevices]{jpeg}}
+##'   \code{\link{saveLatex}}, \code{\link{saveHTML}}
 ##' @references
 ##' ImageMagick: \url{http://www.imagemagick.org/script/convert.php}
 ##'
@@ -66,36 +59,37 @@
 ##'
 ##' ## make sure ImageMagick has been installed in your system
 ##' \dontrun{
-##' saveMovie(for(i in 1:10) plot(runif(10), ylim = 0:1), loop = 1)
+##' saveMovie({for(i in 1:10) plot(runif(10), ylim = 0:1)})
 ##' oopt = ani.options(nmax = 100)
 ##' saveMovie(brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow"),
-##'     interval = 0.1, width = 600, height = 600)
+##'     interval = 0.1, ani.width = 600, ani.height = 600)
 ##' ani.options(oopt)
 ##' }
 ##'
-saveMovie = function(expr, interval = 1, moviename = "animation.gif",
-             loop = 0, dev = png, filename = "Rplot",
-             fmt = "%03d", fileext = "png", outdir = getwd(),
-             convert = "convert", cmd.fun = system, clean = TRUE,
-             ani.first = NULL, ...) {
-    force(outdir)
+saveMovie = function(expr, movie.name = "animation.gif", img.name = "Rplot",
+             convert = "convert", cmd.fun = system, clean = TRUE, ...) {
+    oopt = ani.options(...)
+    on.exit(ani.options(oopt))
     ## create images in the temp dir
-    tmpdir = setwd(tempdir())
-    on.exit(setwd(tmpdir))
+    owd = setwd(tempdir())
+    on.exit(setwd(owd), add = TRUE)
 
-    wildcard = paste(filename, "*.", fileext, sep = "")
+    file.ext = ani.options('ani.type')
 
     ## clean up the files first
-    unlink(wildcard)
+    unlink(paste(img.name, "*.", file.ext, sep = ""))
 
     ## draw the plots and record them in image files
-    dev(paste(filename, fmt, ".", fileext, sep = ""), ...)
-    ani.first
+    ani.dev = ani.options('ani.dev')
+    if (is.character(ani.dev)) ani.dev = get(ani.dev)
+    img.fmt = paste(img.name, "%d.", file.ext, sep = "")
+    ani.dev(img.fmt, width = ani.options('ani.width'), height = ani.options('ani.height'))
     expr
     dev.off()
 
+    img.files = sprintf(img.fmt, seq_len(length(list.files(pattern =
+                        paste(img.name, "[0-9]+\\.", file.ext, sep = "")))))
     ## convert to animations
-    im.convert(wildcard, interval = interval, loop = loop,
-               output = moviename, outdir = outdir, convert = convert,
+    im.convert(img.files, output = movie.name, convert = convert,
                cmd.fun = cmd.fun, clean = clean)
 }
