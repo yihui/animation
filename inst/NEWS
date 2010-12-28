@@ -23,7 +23,7 @@ NEW FEATURES
   (usually the off-screen devices); this is the
   recommended way to specify the pause in the
   animation now -- all the functions in this
-  package has been adjusted to use ani.pause()
+  package have been adjusted to use ani.pause()
 
 SIGNIFICANT CHANGES
 
@@ -53,7 +53,9 @@ MINOR CHANGES
   location of convert.exe in ImageMagick
     o saveMovie(), saveHTML(), saveSWF() and saveLatex()
   will try to open the output if ani.options('autobrowse')
-  is TRUE
+  is TRUE; and they will keep the current working
+  directory untouched when evaluating 'expr' (i.e.
+  'expr' will be evaluated under getwd())
 
 
 TO APPEAR

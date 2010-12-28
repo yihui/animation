@@ -110,8 +110,8 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
 
     interval = ani.options('interval')
     ## generate the image frames
-    odir = setwd(outdir)
-    on.exit(setwd(odir), add = TRUE)
+    owd = setwd(outdir)
+    on.exit(setwd(owd), add = TRUE)
     ani.dev = ani.options('ani.dev')
     ani.ext = ani.options('ani.type')
     num = ifelse(ani.ext == "pdf", "", "%d")
@@ -122,7 +122,9 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
     if (overwrite || !ani.files.len) {
         ani.dev(sprintf("%s%s.%s", img.name, num, ani.ext),
                 width = ani.options('ani.width'), height = ani.options('ani.height'))
+        owd1 = setwd(owd)
         expr
+        setwd(owd1)
         dev.off()
     }
     ani.files.len = length(list.files(path = dirname(img.name), pattern =
