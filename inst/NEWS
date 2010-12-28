@@ -51,6 +51,9 @@ MINOR CHANGES
   instead, they only issue warnings; a hidden option
   ani.options('convert') can be used to specify the
   location of convert.exe in ImageMagick
+    o saveMovie(), saveHTML(), saveSWF() and saveLatex()
+  will try to open the output if ani.options('autobrowse')
+  is TRUE
 
 
 TO APPEAR

@@ -1,78 +1,94 @@
 ##' Convert images to Flash animations.
 ##' This function opens a graphical device first to generate a sequence of
 ##' images based on \code{expr}, then makes use of the commands in `SWF Tools'
-##' (\code{png2swf}, \code{jpeg2swf}, \code{pdf2swf}) to convert these images
+##' (\command{png2swf}, \command{jpeg2swf}, \command{pdf2swf}) to convert these images
 ##' to a single Flash animation.
 ##'
 ##' @param expr an expression to generate animations; use either the animation
 ##'   functions (e.g. \code{brownian.motion()}) in this package or a custom
 ##'   expression (e.g. \code{for(i in 1:10) plot(runif(10), ylim = 0:1)}).
-##' @param interval duration between animation frames (unit in seconds)
-##' @param swfname file name of the Flash file
-##' @param dev character: the graphics device to be used. Three choices are
-##'   available: \code{\link[grDevices]{png}},
-##'   \code{\link[grDevices]{jpeg}} and \code{\link[grDevices]{pdf}}, etc.
-##' @param filename file name of the sequence of images (`pure' name; without
+##' @param img.name file name of the sequence of images (`pure' name; without
 ##'   any format or extension)
-##' @param fmt a C-style string formatting command, such as `\code{%3d}'
-##' @param outdir the directory for the animation frames and the Flash file
+##' @param swf.name file name of the Flash file
 ##' @param swftools the path of `SWF Tools', e.g. \file{C:/swftools}. This
 ##'   argument is to make sure that \code{png2swf}, \code{jpeg2swf} and
 ##'   \code{pdf2swf} can be executed correctly. If it is \code{NULL}, it should
-##'   be guaranteed that these commands can be executed without the path.
-##' @param ani.first an expression to be evaluated before plotting (this will
-##'   be useful to set graphical parameters in advance, e.g. \code{ani.first =
-##'   par(pch = 20)}
-##' @param \dots other arguments passed to the graphical device, such as
-##'   \code{height} and \code{width}, ...
+##'   be guaranteed that these commands can be executed without the path; anyway,
+##' this function will try to find SWF Tools from Windows registry even if
+##' it is not in the PATH variable.
+##' @param \dots other arguments passed to \code{\link{ani.options}}, e.g.
+##'   \code{ani.height} and \code{ani.width}, ...
 ##' @return An integer indicating failure (-1) or success (0) of the converting
 ##'   (refer to \code{\link[base]{system}}).
-##' @note Please download the SWF Tools before using this function:
+##' @note Please download and install the SWF Tools before using this function:
 ##'   \url{http://www.swftools.org}
+##'
+##' We can also set the path to SWF Tools by
+##' \code{ani.options(swftools = 'path/to/swftools')}.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{saveMovie}}, \code{\link[base]{system}},
+##' @seealso \code{\link{saveMovie}}, \code{\link{saveLatex}},
+##' \code{\link{saveHTML}}, \code{\link[base]{system}},
 ##'   \code{\link[grDevices]{png}}, \code{\link[grDevices]{jpeg}},
 ##'   \code{\link[grDevices]{pdf}}
 ##' @references
 ##'   \url{http://animation.yihui.name/animation:start#create_flash_animations}
 ##' @keywords dynamic device utilities
 ##' @examples
+##' ## from png to swf
+##' saveSWF({
+##' par(mar = c(3, 3, 1, 1.5), mgp = c(1.5, 0.5, 0))
+##' knn.ani(test = matrix(rnorm(16), ncol = 2),
+##'     cl.pch = c(16, 2))}, swf.name = "kNN.swf", interval = 1.5, nmax=40)
 ##'
-##' \dontrun{
-##' oopt = ani.options(nmax = 50)
-##' # from png
-##' saveSWF(knn.ani(test = matrix(rnorm(16), ncol = 2),
-##'     cl.pch = c(16, 2)), 1.5, dev = "png", ani.first = par(mar = c(3,
-##'     3, 1, 1.5), mgp = c(1.5, 0.5, 0)), swfname = "kNN.swf")
+##' ## from pdf (vector plot) to swf
+##' saveSWF({brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")},
+##'     swf.name = "brownian.swf", interval = 0.2,
+##' nmax = 30, ani.dev = "pdf", ani.type = "pdf",
+##' ani.height = 6, ani.width=6)
 ##'
-##' # from pdf (vector plot!)
-##' ani.options(nmax = 50)
-##' saveSWF(brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow"),
-##'     0.2, "brownian.swf", "pdf", fmt = "")
-##'
-##' ani.options(oopt)
-##' }
-##'
-saveSWF = function(expr, interval = 1, swfname = "movie.swf",
-    dev = c("png", "jpeg", "pdf"), filename = "Rplot", fmt = "%03d",
-    outdir = tempdir(), swftools = NULL, ani.first = NULL,
-    ...) {
+saveSWF = function(expr, img.name = "Rplot", swf.name = "animation.swf",
+    swftools = NULL, ...) {
+    oopt = ani.options(...)
+    on.exit(ani.options(oopt))
+    outdir = ani.options('outdir')
     olddir = setwd(outdir)
-    on.exit(setwd(olddir))
-    anidev = switch(dev, png = png, jpeg = jpeg, pdf = pdf)
-    anidev(paste(filename, fmt, ".", dev, sep = ""), ...)
-    ani.first
+    on.exit(setwd(olddir), add = TRUE)
+
+    ani.dev = ani.options('ani.dev')
+    file.ext = ani.options('ani.type')
+    if (!(file.ext %in% c('pdf', 'png', 'jpeg'))) {
+        warning("ani.options('ani.type') has to be one of 'pdf', 'png' and 'jpeg'")
+        return()
+    }
+    interval = ani.options('interval')
+    if (is.character(ani.dev)) ani.dev = get(ani.dev)
+    num = ifelse(ani.options('ani.type') == 'pdf', '', '%d')
+    img.fmt = paste(img.name, num, ".", file.ext, sep = "")
+    ani.dev(img.fmt, width = ani.options('ani.width'), height = ani.options('ani.height'))
     expr
     dev.off()
-    tool = ifelse(is.null(swftools), paste(dev, "2swf", sep = ""),
-        shQuote(file.path(swftools, paste(dev, "2swf", sep = ""))))
-    version = system(tool, intern = TRUE)
-    if (length(version) < 10)
-        stop("swftools not found; please install swftools first: http://www.swftools.org")
-    wildcard = paste(filename, "*.", dev, sep = "")
-    convert = paste(tool, wildcard, "-o", swfname)
+    if (!is.null(ani.options('swftools'))) {
+        swftools = ani.options('swftools')
+    } else {
+        if (.Platform$OS.type == 'windows' && !inherits(try({
+            swftools = readRegistry("SOFTWARE\\quiss.org\\SWFTools\\InstallPath")[[1]]
+        }, silent = TRUE), "try-error")) {
+            ani.options(swftools = swftools)
+        }
+    }
+    tool = paste(ifelse(is.null(swftools), '', paste(swftools, .Platform$file.sep, sep = '')),
+                 paste(file.ext, "2swf", sep = ""), sep = "")
+    tool = shQuote(normalizePath(paste(tool,
+                   ifelse(.Platform$OS.type == 'windows', '.exe', ''), sep = '')))
+    version = system(paste(tool, '--version'), intern = TRUE)
+    if (!length(grep('swftools', version))) {
+        warning("swftools not found; please install swftools first: http://www.swftools.org")
+        return()
+    }
+    wildcard = paste(img.name, "*.", file.ext, sep = "")
+    convert = paste(tool, wildcard, "-o", swf.name)
     cmd = -1
-    if (dev == "png" | dev == "jpeg") {
+    if (file.ext == "png" || file.ext == "jpeg") {
         convert = paste(convert, "-r", 1/interval)
         message("Executing: ", convert)
         cmd = system(convert)
@@ -82,7 +98,17 @@ saveSWF = function(expr, interval = 1, swfname = "movie.swf",
         message("Executing: ", convert)
         cmd = system(convert)
     }
-    if (cmd == 0) message("\n\nFlash has been created at: ", normalizePath(file.path(outdir,
-        swfname)))
+    if (cmd == 0) {
+        message("\n\nFlash has been created at: ",
+                output.path <- normalizePath(file.path(outdir, swf.name)))
+        if (ani.options('autobrowse')) {
+            switch(.Platform$OS.type,
+                   windows = try(shell.exec(output.path)),
+                   unix = try(system(paste('xdg-open ', output.path)), TRUE))
+            if (Sys.info()["sysname"] == "Darwin")
+                try(system(paste('open ', output.path)), TRUE)
+        }
+
+    }
     invisible(cmd)
 }
