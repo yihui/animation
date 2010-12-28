@@ -31,7 +31,8 @@
 ##' using \code{\link{ani.start}} (restore with \code{\link{ani.stop}})}
 ##'
 ##' \item{ani.type}{character: image format for animation frames, e.g.
-##' \code{png}, \code{jpg}, ...; default to be \code{"png"}}
+##' \code{png}, \code{jpg}, ...; default to be \code{"png"}}; this will be
+##' used as the file extension of images
 ##'
 ##' \item{ani.dev}{a
 ##' function or a function name: the graphics device; e.g.
