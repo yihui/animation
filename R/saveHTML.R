@@ -3,7 +3,7 @@
 ##' images, then inserts them into an HTML page and finally create the animation
 ##' using the SciAnimator library.
 ##'
-##' This is a much better version than \code{ani.start} and \code{ani.stop},
+##' This is a much better version than \code{\link{ani.start}} and \code{\link{ani.stop}},
 ##' and all users are encouraged to try this function when creating HTML
 ##' animation pages. It mainly uses the SciAnimator library, which is based
 ##' on jQuery. It has a neat interface (both technically and visually) and is
@@ -23,7 +23,10 @@
 ##' @param img.name the filename of the images (the real output will be like
 ##' \file{img.name1.png}, \file{img.name2.png}, ...); this name has to be
 ##' different for different animations, since it will be used as the identifiers
-##' for each animation; make it as unique as possible
+##' for each animation; make it as unique as possible; meanwhile, the following
+##' characters in \code{img.name} will be replaced by \code{_} to make it
+##' a legal jQuery string:
+##' \verb{!"#$%&'()*+,./:;?@@[\]^`{|}~}
 ##' @param global.opts a string: the global options of the animation; e.g. we
 ##' can specify the default theme to be blue using
 ##' \verb{$.fn.scianimator.defaults.theme = 'blue';}
@@ -51,11 +54,10 @@ saveHTML = function(expr, img.name = 'Rplot',
                     global.opts = '', single.opts = '', ...) {
     oopt = ani.options(...)
 
-    ## escape special chars first: http://api.jquery.com/category/selectors/
+    ## replace special chars first: http://api.jquery.com/category/selectors/
     spec.chars = strsplit("!\"#$%&'()*+,./:;?@[\\]^`{|}~", '')[[1]]
     img.name0 = strsplit(img.name, '')[[1]]
-    spec.name = img.name0 %in% spec.chars
-    if (any(spec.name)) img.name0[spec.name] = paste('\\\\', img.name0[spec.name], sep = '')
+    img.name0[img.name0 %in% spec.chars] = '_'
     img.name0 = paste(img.name0, collapse = '')
 
     ## deparse the expression and form the verbose description
@@ -110,7 +112,7 @@ saveHTML = function(expr, img.name = 'Rplot',
               sprintf('<meta name="generator" content="R package animation %s">',
                       packageVersion('animation')), html)
     n = grep('<!-- highlight R code -->', html, fixed = TRUE)
-    div.str = sprintf('	<div id="%s"></div>', img.name)
+    div.str = sprintf('	<div id="%s"></div>', img.name0)
     js.str = sprintf('	<script src="js/%s.js"></script>', img.name)
     ## make sure there are no duplicate div/scripts
     if (!length(div.pos <- grep(div.str, html, fixed = TRUE)) &
