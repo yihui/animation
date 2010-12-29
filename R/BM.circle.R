@@ -8,29 +8,28 @@
 ##' @param col colors of points
 ##' @param \dots other parameters passed to \code{\link[graphics]{points}}
 ##' @return Invisible \code{NULL}.
+##' @note The maximum number of steps in the motion is specified in \code{ani.options('nmax')}.
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link{brownian.motion}}, \code{\link[stats]{rnorm}}
 ##' @references \url{http://animation.yihui.name/prob:brownian_motion_circle}
 ##' @keywords dynamic
 ##' @examples
 ##'
-##' oopt = ani.options(interval = 0.1, nmax = 300)
-##' opar = par(mar = rep(0.5, 4))
-##' BM.circle(cex = 2, pch = 19)
-##'
-##' \dontrun{
-##' ani.options(ani.height = 450, ani.width = 450,
-##'     interval = 0.05, nmax = 100, title = "Brownian Motion in a Circle",
-##'     description = "Brownian Motion in a circle.")
-##' ani.start()
+##' oopt = ani.options(interval = 0.1, nmax = ifelse(interactive(), 300, 10))
 ##' par(mar = rep(0.5, 4))
 ##' BM.circle(cex = 2, pch = 19)
-##' ani.stop()
-##' }
 ##'
-##' par(opar)
+##' saveHTML({
+##' par(mar = rep(0.5, 4), pch=19)
+##' ani.options(interval=0.05,nmax=ifelse(interactive(), 100, 10))
+##' BM.circle(cex = 2, pch = 19)
+##' }, img.name='BM.circle', htmlfile='BM.circle.html',
+##' ani.height = 450, ani.width = 450,
+##' single.opts = "'controls': ['first', 'previous', 'play', 'next', 'last', 'loop', 'speed'], 'delayMin': 0",
+##'     title = "Brownian Motion in a Circle",
+##'     description = "Brownian Motion in a circle.")
+##'
 ##' ani.options(oopt)
-##'
 ##'
 BM.circle = function(n = 20, col = rainbow(n), ...) {
     par(pty = "s", ann = FALSE, xaxt = "n", yaxt = "n", bty = "n")

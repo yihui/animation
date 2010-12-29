@@ -18,48 +18,57 @@
 ##' integral.
 ##'
 ##' @param FUN the function to be integrated
-##' @param n number of points to be sampled from the Uniform(0, 1) distribution
-##' @param col.rect colors of rectangles (for the past rectangles and the
-##'   current one)
-##' @param adj.x should the locations of rectangles on the x-axis be adjusted?
-##'   If \code{TRUE}, the rectangles will be laid side by side and it is
-##'   informative for us to assess the total area of the rectangles, otherwise
-##'   the rectangles will be laid at their exact locations.
-##' @param \dots other arguments passed to \code{\link[graphics]{rect}}
-##' @return A list containing \item{x}{ the Uniform random numbers } \item{y}{
-##'   function values evaluated at \code{x} } \item{n}{ number of points drawn
-##'   from the Uniform distribtion } \item{est}{ the estimated value of the
-##'   integral }
-##' @note This function is for demonstration purpose only; the integral might
-##'   be very inaccurate when \code{n} is small.
+##' @param n number of points to be sampled from the Uniform(0, 1)
+##' distribution
+##' @param col.rect colors of rectangles (for the past rectangles and
+##' the current one)
+##' @param adj.x should the locations of rectangles on the x-axis be
+##' adjusted?  If \code{TRUE}, the rectangles will be laid side by
+##' side and it is informative for us to assess the total area of the
+##' rectangles, otherwise the rectangles will be laid at their exact
+##' locations.
+##' @param \dots other arguments passed to
+##' \code{\link[graphics]{rect}}
+##' @return A list containing \item{x}{ the Uniform random numbers }
+##' \item{y}{ function values evaluated at \code{x} } \item{n}{ number
+##' of points drawn from the Uniform distribtion } \item{est}{ the
+##' estimated value of the integral }
+##' @note This function is for demonstration purpose only; the
+##' integral might be very inaccurate when \code{n} is small.
+##'
+##' \code{ani.options('nmax')} specifies the maximum number of trials.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link[stats]{integrate}}
+##' @seealso \code{\link[stats]{integrate}}, \code{\link{MC.hitormiss}}
 ##' @references
-##'   \url{http://animation.yihui.name/compstat:sample_mean_monte_carlo}
+##' \url{http://animation.yihui.name/compstat:sample_mean_monte_carlo}
 ##' @keywords dynamic hplot
 ##' @examples
 ##'
-##' oopt = ani.options(interval = 0.2, nmax = 50)
+##' oopt = ani.options(interval = 0.2, nmax = ifelse(interactive(), 50, 10))
 ##' par(mar = c(4, 4, 1, 1))
+##'
 ##' ## when the number of rectangles is large, use border = NA
 ##' MC.samplemean(border = NA)$est
+##'
 ##' integrate(function(x) x - x^2, 0, 1)
+##'
 ##' ## when adj.x = FALSE, use semi-transparent colors
 ##' MC.samplemean(adj.x = FALSE, col.rect = c(rgb(0, 0,
 ##'     0, 0.3), rgb(1, 0, 0)), border = NA)
+##'
 ##' ## another function to be integrated
 ##' MC.samplemean(FUN = function(x) x^3 - 0.5^3, border = NA)$est
+##'
 ##' integrate(function(x) x^3 - 0.5^3, 0, 1)
 ##'
-##' \dontrun{
 ##' ## HTML animation page
-##' ani.options(interval = 0.5, title = "Sample Mean Monte Carlo Integration",
-##'     description = "Generate Uniform random numbers and compute the average
-##'                   function values.")
-##' ani.start()
+##' saveHTML({
+##' ani.options(interval = 0.3, nmax = ifelse(interactive(), 50, 10))
 ##' MC.samplemean(n = 100, border = NA)
-##' ani.stop()
-##' }
+##' }, img.name='MC.samplemean', htmlfile='MC.samplemean.html',
+##' title = "Sample Mean Monte Carlo Integration",
+##'     description = c('',"Generate Uniform random numbers"," and compute the average",
+##'                   "function values."))
 ##'
 ##' ani.options(oopt)
 ##'
@@ -82,7 +91,6 @@ MC.samplemean = function(FUN = function(x) x - x^2,
         rug(x[i], lwd = 2, side = 3, col = col.rect[2])
         ani.pause()
     }
-    ani.options(nmax = nmax)
     invisible(list(x = x, y = y, n = nmax, est = mean(y)))
 }
 

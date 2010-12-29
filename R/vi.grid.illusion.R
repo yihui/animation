@@ -3,18 +3,21 @@
 ##' Scintillating grid illusions. This function provides illustrations for both
 ##' illusions.
 ##'
-##' A grid illusion is any kind of grid that deceives a person's vision.
+##' A grid illusion is any kind of grid that deceives a person's
+##' vision.
 ##'
-##' This is actually a static image; pay attention to the intersections of the
-##' grid and there seems to be some moving points (non-existent in fact).
+##' This is actually a static image; pay attention to the
+##' intersections of the grid and there seems to be some moving points
+##' (non-existent in fact).
 ##'
 ##' @param nrow number of rows for the grid
 ##' @param ncol number of columns for the grid
 ##' @param lwd line width for grid lines
-##' @param cex magnification for points in Scintillating grid illusions
+##' @param cex magnification for points in Scintillating grid
+##' illusions
 ##' @param col color for grid lines
-##' @param type type of illusions: 's' for Scintillating grid illusions and 'h'
-##'   for Hermann grid illusions
+##' @param type type of illusions: 's' for Scintillating grid
+##' illusions and 'h' for Hermann grid illusions
 ##' @return None.
 ##' @note In fact there isn't any animation!
 ##' @author Yihui Xie <\url{http://yihui.name}>
@@ -24,10 +27,10 @@
 ##' \url{http://animation.yihui.name/animation:misc#visual_illusions}
 ##' @keywords dynamic
 ##' @examples
-##' # default to be Scintillating grid illusions
+##' ## default to be Scintillating grid illusions
 ##' vi.grid.illusion()
 ##'
-##' # set wider lines to see Hermann grid illusions
+##' ## set wider lines to see Hermann grid illusions
 ##' vi.grid.illusion(type = "h", lwd = 22, nrow = 5, ncol = 5,
 ##'     col = "white")
 ##'

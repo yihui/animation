@@ -30,7 +30,8 @@
 ##'   \code{\link[graphics]{sunflowerplot}}
 ##' @return A list containing \item{t0 }{ The observed value of 'statistic'
 ##'   applied to 'x'.} \item{tstar }{Bootstrap versions of the 'statistic'.}
-##' @author Yihui Xie
+##' @note The maximum times of resampling is specified in \code{ani.options('nmax')}.
+##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link[graphics]{sunflowerplot}}
 ##' @references There are many references explaining the bootstrap and its
 ##'   variations. For a relatively complete one, you may just refer to:
@@ -42,35 +43,30 @@
 ##' @keywords nonparametric dynamic dplot
 ##' @examples
 ##'
-##' # bootstrap for 20 random numbers from U(0, 1)
-##' opar = par(mar = c(1.5, 3, 1, 0.1), cex.lab = 0.8, cex.axis = 0.8,
+##' ## bootstrap for 20 random numbers from U(0, 1)
+##' par(mar = c(1.5, 3, 1, 0.1), cex.lab = 0.8, cex.axis = 0.8,
 ##'     mgp = c(2, 0.5, 0), tcl = -0.3)
-##' oopt = ani.options(interval = 0.5, nmax = 40)
-##' # don't want the titles
+##' oopt = ani.options(nmax = ifelse(interactive(), 50, 10))
+##' ## don't want the titles
 ##' boot.iid(main = c("", ""))
 ##'
 ##' # for the median of 15 points from chi-square(5)
 ##' boot.iid(x = rchisq(15, 5), statistic = median, main = c("", ""))
 ##'
-##' # change the layout; or you may try 'mat = matrix(1:2, 1)'
+##' ## change the layout; or you may try 'mat = matrix(1:2, 1)'
 ##' par(mar = c(1.5, 3, 2.5, 0.1), cex.main = 1)
 ##' boot.iid(heights = c(1, 2))
 ##'
-##' par(opar)
-##'
-##' \dontrun{
-##'
-##' # save the animation in HTML pages
-##' ani.options(ani.height = 500, ani.width = 600, outdir = getwd(),
-##'     title = "Bootstrapping the i.i.d data",
-##'     description = "This is a naive version of bootstrapping but
-##'     may be useful for novices.")
-##' ani.start()
+##' ## save the animation in HTML pages
+##' saveHTML({
 ##' par(mar = c(2.5, 4, 0.5, 0.5))
+##' ani.options(nmax = ifelse(interactive(), 50, 10))
 ##' boot.iid(main = c("", ""), heights = c(1, 2))
-##' ani.stop()
-##'
-##' }
+##' },img.name='boot.iid',htmlfile='boot.iid.html',
+##' ani.height = 500, ani.width = 600,
+##'     title = "Bootstrapping the i.i.d data",
+##'     description = c("This is a naive version of bootstrapping but",
+##'     "may be useful for novices."))
 ##'
 ##' ani.options(oopt)
 ##'

@@ -12,47 +12,46 @@
 ##' sample size.
 ##'
 ##' @param FUN a function to generate random numbers from a certain
-##'   distribution: \code{function(n, mu)}
+##' distribution: \code{function(n, mu)}
 ##' @param mu population mean; passed to \code{FUN}
-##' @param np times for sampling from a distribution (not the sample size!); to
-##'   examine the behaviour of the sample mean, we need more times of sampling
-##'   to get a series of mean values
+##' @param np times for sampling from a distribution (not the sample
+##' size!); to examine the behaviour of the sample mean, we need more
+##' times of sampling to get a series of mean values
 ##' @param pch symbols for points; see Details
-##' @param col.poly the color of the polygon to annotate the range of sample
-##'   means
-##' @param col.mu the color of the horizontal line which denotes the population
-##'   mean
+##' @param col.poly the color of the polygon to annotate the range of
+##' sample means
+##' @param col.mu the color of the horizontal line which denotes the
+##' population mean
 ##' @param \dots other arguments passed to
-##'   \code{\link[graphics:points]{points}}
-##' @return None (invisible `\code{NULL}').
-##' @note The argument \code{pch} will influence the speed of plotting, and for
-##'   a very large sample size (say, 300), it is suggested that this argument
-##'   be specified as '\code{.}'.
+##' \code{\link[graphics]{points}}
+##' @return None (invisible \code{NULL}).
+##' @note The argument \code{pch} will influence the speed of
+##' plotting, and for a very large sample size (say, 300), it is
+##' suggested that this argument be specified as `\code{.}'.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @references George Casella and Roger L. Berger. \emph{Statistical
-##'   Inference}. Duxbury Press, 2th edition, 2001.
-##'
+##' @references
 ##' \url{http://animation.yihui.name/prob:law_of_large_numbers}
 ##' @keywords dynamic dplot distribution
 ##' @examples
 ##'
-##' oopt = ani.options(interval = 0.01, nmax = 150)
+##' oopt = ani.options(interval = 0.01, nmax = ifelse(interactive(), 150, 10))
+##'
 ##' lln.ani(pch = ".")
 ##'
-##' # chi-square distribution; population mean = df
-##' lln.ani(function(n, mu) rchisq(n, df = mu), mu = 5, cex = 0.6)
+##' ## chi-square distribution; population mean = df
+##' lln.ani(FUN = function(n, mu) rchisq(n, df = mu), mu = 5, cex = 0.6)
 ##'
-##' \dontrun{
-##' # save the animation in HTML pages
-##' ani.options(ani.height = 480, ani.width = 600, outdir = getwd(), nmax = 100,
-##'     interval = 0.1, title = "Demonstration of the Law of Large Numbers",
-##'     description = "The sample mean approaches to the population mean as
-##'     the sample size n grows.")
-##' ani.start()
+##' ## save the animation in HTML pages
+##' saveHTML({
 ##' par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 0))
+##' ani.options(interval = 0.1, nmax = ifelse(interactive(), 150, 10))
 ##' lln.ani(cex = 0.6)
-##' ani.stop()
-##' }
+##' }, img.name='lln.ani',htmlfile='lln.ani.html',
+##' ani.height = 480, ani.width = 600,
+##'     title = "Demonstration of the Law of Large Numbers",
+##'     description = c("The sample mean approaches to the population mean as",
+##'     "the sample size n grows."))
+##'
 ##' ani.options(oopt)
 ##'
 lln.ani = function(FUN = rnorm, mu = 0, np = 30,

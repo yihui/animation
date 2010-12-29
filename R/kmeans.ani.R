@@ -1,8 +1,8 @@
-##' Demonstration of k-Means clustering algorithm.
-##' This function provides a demo of k-Means cluster algorithm for data
+##' Demonstration of the k-Means clustering algorithm.
+##' This function provides a demo of the k-Means cluster algorithm for data
 ##' containing only two variables (columns).
 ##'
-##' K-Means cluster algorithm may be regarded as a series of iterations of:
+##' The k-Means cluster algorithm may be regarded as a series of iterations of:
 ##' finding cluster centers, computing distances between sample points, and
 ##' redefining cluster membership.
 ##'
@@ -12,70 +12,68 @@
 ##' minimum, all cluster centres are at the mean of their Voronoi sets (the set
 ##' of data points which are nearest to the cluster centre).
 ##'
-##' @param x A numercal matrix or an object that can be coerced to such a
-##'   matrix (such as a numeric vector or a data frame with all numeric
-##'   columns) containing \emph{only} 2 columns.
-##' @param centers Either the number of clusters or a set of initial (distinct)
-##'   cluster centres.  If a number, a random set of (distinct) rows in
-##'   \code{x} is chosen as the initial centres.
-##' @param pch,col Symbols and colors for different clusters; the length of
-##'   these two arguments should be equal to the number of clusters, or they
-##'   will be recycled.
-##' @param hints Two text strings indicating the steps of k-means clustering:
-##'   move the center or find the cluster membership?
-##' @return A list with components \item{cluster }{A vector of integers
-##'   indicating the cluster to which each point is allocated.} \item{centers
-##'   }{A matrix of cluster centers.}
-##' @note This function is only for demonstration purpose. For practical
-##'   applications please refer to \code{\link[stats]{kmeans}}.
+##' @param x A numercal matrix or an object that can be coerced to
+##' such a matrix (such as a numeric vector or a data frame with all
+##' numeric columns) containing \emph{only} 2 columns.
+##' @param centers Either the number of clusters or a set of initial
+##' (distinct) cluster centres.  If a number, a random set of
+##' (distinct) rows in \code{x} is chosen as the initial centres.
+##' @param pch,col Symbols and colors for different clusters; the
+##' length of these two arguments should be equal to the number of
+##' clusters, or they will be recycled.
+##' @param hints Two text strings indicating the steps of k-means
+##' clustering: move the center or find the cluster membership?
+##' @return A list with components \item{cluster }{A vector of
+##' integers indicating the cluster to which each point is allocated.}
+##' \item{centers }{A matrix of cluster centers.}
+##' @note This function is only for demonstration purpose. For
+##' practical applications please refer to
+##' \code{\link[stats]{kmeans}}.
 ##'
-##' Note that \code{nmax} is defined as the maximum number of iterations in
-##'   such a sense: an iteration includes the process of computing distances,
-##'   redefining membership and finding centers. Thus there should be
-##'   \code{2*nmax} animation frames in the output if the other condition for
-##'   stopping the iteration has not yet been met (i.e. the cluster membership
-##'   will not change any longer).
+##' Note that \code{ani.options('nmax')} is defined as the maximum number of
+##' iterations in such a sense: an iteration includes the process of
+##' computing distances, redefining membership and finding
+##' centers. Thus there should be \code{2 * ani.options('nmax')} animation frames in
+##' the output if the other condition for stopping the iteration has
+##' not yet been met (i.e. the cluster membership will not change any
+##' longer).
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link[stats:kmeans]{kmeans}}
-##' @references Hartigan, J. A. and Wong, M. A. (1979). A K-means clustering
-##'   algorithm. \emph{Applied Statistics} \bold{28}, 100-108.
-##'
+##' @seealso \code{\link[stats]{kmeans}}
+##' @references
 ##' \url{http://animation.yihui.name/mvstat:k-means_cluster_algorithm}
 ##' @keywords hplot dynamic multivariate cluster
 ##' @examples
 ##'
-##' #set larger 'interval' if the speed is too fast
-##' oopt = ani.options(interval = 2, nmax = 50)
-##' op = par(mar = c(3, 3, 1, 1.5), mgp = c(1.5, 0.5, 0))
+##' ## set larger 'interval' if the speed is too fast
+##' oopt = ani.options(interval = 2)
+##' par(mar = c(3, 3, 1, 1.5), mgp = c(1.5, 0.5, 0))
 ##' kmeans.ani()
 ##'
-##' ani.options(nmax = 50)
-##' # the kmeans() example; very fast to converge!
+##' ## the kmeans() example; very fast to converge!
 ##' x = rbind(matrix(rnorm(100, sd = 0.3), ncol = 2),
 ##'           matrix(rnorm(100, mean = 1, sd = 0.3), ncol = 2))
 ##' colnames(x) = c("x", "y")
 ##' kmeans.ani(x, centers = 2)
 ##'
-##' # what if we cluster them into 3 groups?
-##' ani.options(nmax = 50)
+##' ## what if we cluster them into 3 groups?
 ##' kmeans.ani(x, centers = 3)
 ##'
-##' par(op)
-##'
-##' \dontrun{
-##' # create HTML animation page
-##' ani.options(ani.height = 480, ani.width = 480, interval = 2,
-##'     nmax = 50, title = "Demonstration of the K-means Cluster Algorithm",
-##'     description = "Move! Average! Cluster! Move! Average! Cluster! ...")
-##' ani.start()
+##' ## create an HTML animation page
+##' saveHTML({
+##' ani.options(interval = 2)
 ##' par(mar = c(3, 3, 1, 1.5), mgp = c(1.5, 0.5, 0))
+##'
 ##' cent = 1.5 * c(1, 1, -1, -1, 1, -1, 1, -1); x = NULL
 ##' for (i in 1:8) x = c(x, rnorm(25, mean = cent[i]))
 ##' x = matrix(x, ncol = 2)
 ##' colnames(x) = c("X1", "X2")
+##'
 ##' kmeans.ani(x, centers = 4, pch = 1:4, col = 1:4)
-##' ani.stop()
-##' }
+##'
+##' }, img.name='kmeans.ani',htmlfile='kmeans.ani.html',
+##' ani.height = 480, ani.width = 480,
+##'     title = "Demonstration of the K-means Cluster Algorithm",
+##'     description = "Move! Average! Cluster! Move! Average! Cluster! ...")
 ##'
 ##' ani.options(oopt)
 ##'
@@ -92,12 +90,11 @@ kmeans.ani = function(x = cbind(X1 = runif(50), X2 = runif(50)),
     j = 1
     pch = rep(pch, length = numcent)
     col = rep(col, length = numcent)
-    while (j <= ani.options("nmax")) {
+    for (j in 1:ani.options("nmax")) {
         plot(x, pch = pch[ocluster], col = col[ocluster], panel.first = grid())
         mtext(hints[1], 4)
         points(centers, pch = pch[1:numcent], cex = 3,
             lwd = 2, col = col[1:numcent])
-        j = j + 1
         ani.pause()
         for (i in 1:numcent) {
             dst[, i] = sqrt(apply((t(t(x) - unlist(centers[i,
@@ -117,12 +114,10 @@ kmeans.ani = function(x = cbind(X1 = runif(50), X2 = runif(50)),
         }
         points(ocenters, cex = 3, col = col[1:numcent],
             pch = pch[1:numcent], lwd = 2)
-        j = j + 1
         ani.pause()
         if (all(ncluster == ocluster))
             break
         ocluster = ncluster
     }
-    ani.options(nmax = j - 1)
     invisible(list(cluster = ncluster, centers = centers))
 }

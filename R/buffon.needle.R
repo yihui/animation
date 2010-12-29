@@ -15,7 +15,7 @@
 ##' There are three graphs made in each step: the top-left one is a simulation
 ##' of the scenario, the top-right one is to help us understand the connection
 ##' between dropping needles and the mathematical method to estimate \eqn{\pi},
-##' and the bottom one is the result for each dropping.
+##' and the bottom one is the result for each drop.
 ##'
 ##' @param l numerical. length of the needle; shorter than \code{d}.
 ##' @param d numerical. distances between lines; it should be longer than
@@ -37,10 +37,12 @@
 ##'   estimated \eqn{\pi}.
 ##' @return The values of estimated \eqn{\pi} are returned as a numerical
 ##'   vector (of length \code{nmax}).
-##' @note Note that \code{redraw} will affect the speed of the simulation
-##'   (animation) to a great deal if the control argument \code{nmax} (in
+##' @note Note that \code{redraw} has great influence on the speed of the simulation
+##'   (animation) if the control argument \code{nmax} (in
 ##'   \code{\link{ani.options}}) is quite large, so you'd better specify it as
 ##'   \code{FALSE} when doing a large amount of simulations.
+##'
+##' The maximum number of drops is specified in \code{ani.options('nmax')}.
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @references Ramaley, J. F. (Oct 1969). Buffon's Noodle Problem. \emph{The
 ##'   American Mathematical Monthly} \bold{76} (8): 916-918.
@@ -49,30 +51,26 @@
 ##' @keywords dplot hplot dynamic math
 ##' @examples
 ##'
-##' # it takes several seconds if 'redraw = TRUE'
-##' oopt = ani.options(nmax = 500, interval = 0)
-##' opar = par(mar = c(3, 2.5, 0.5, 0.2), pch = 20, mgp = c(1.5, 0.5, 0))
+##' ## it takes several seconds if 'redraw = TRUE'
+##' oopt = ani.options(nmax = ifelse(interactive(), 500, 10), interval = 0.05)
+##' par(mar = c(3, 2.5, 0.5, 0.2), pch = 20, mgp = c(1.5, 0.5, 0))
 ##' buffon.needle()
 ##'
 ##' # this will be faster
 ##' buffon.needle(redraw = FALSE)
 ##'
-##' par(opar)
-##'
-##' \dontrun{
-##' # create HTML animation page
-##' ani.options(nmax = 100, interval = 0.1, ani.height = 500, ani.width = 600,
-##'     title = "Simulation of Buffon's Needle",
-##'     description = "There are three graphs made in each step: the top-left
-##'     one is a simulation of the scenario, the top-right one is to help us
-##'     understand the connection between dropping needles and the mathematical
-##'     method to estimate pi, and the bottom one is the result for each
-##'     dropping.")
-##' ani.start()
+##' ## create an HTML animation page
+##' saveHTML({
 ##' par(mar = c(3, 2.5, 1, 0.2), pch = 20, mgp = c(1.5, 0.5, 0))
+##' ani.options(nmax = ifelse(interactive(), 300, 10), interval = 0.1)
 ##' buffon.needle(type = "S")
-##' ani.stop()
-##' }
+##' }, img.name='buffon.needle', htmlfile='buffon.needle.html',
+##' ani.height = 500, ani.width = 600, title = "Simulation of Buffon's Needle",
+##' description = c('There are three graphs made in each step: the',
+##' 'top-left, one is a simulation of the scenario, the top-right one',
+##' 'is to help us understand the connection between dropping needles',
+##' 'and the mathematical method to estimate pi, and the bottom one is',
+##' 'the result for each dropping.'))
 ##'
 ##' ani.options(oopt)
 ##'

@@ -31,40 +31,49 @@
 ##'   likely that the root is not reliable because the maximum number of
 ##'   iterations has been reached}
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link[stats]{deriv}}, \code{\link[stats]{uniroot}}
+##' @note The maximum number of iterations is specified in \code{ani.options('nmax')}.
+##' @seealso \code{\link[stats]{deriv}}, \code{\link[stats]{uniroot}},
+##' \code{\link[graphics]{curve}}
 ##' @references \url{http://en.wikipedia.org/wiki/Bisection_method}
 ##'
 ##' \url{http://animation.yihui.name/compstat:bisection_method}
 ##' @keywords optimize dynamic dplot
 ##' @examples
 ##'
-##' # default example
+##' oopt = ani.options(nmax = 30)
+##'
+##' ## default example
 ##' xx = bisection.method()
 ##' xx$root  # solution
 ##'
-##' # a cubic curve
+##' ## a cubic curve
 ##' f = function(x) x^3 - 7 * x - 10
 ##' xx = bisection.method(f, c(-3, 5))
 ##'
-##' \dontrun{
-##' # interaction: use your mouse to select the end-points
+##' ## interaction: use your mouse to select the two end-points
 ##' bisection.method(f, c(-3, 5), interact = TRUE)
 ##'
-##' # HTML animation pages
-##' ani.start(nmax = 50, ani.height = 400, ani.width = 600, interval = 1,
-##'     title = "The Bisection Method for Root-finding on an Interval",
-##'     description = "The bisection method is a root-finding algorithm
-##'     which works by repeatedly dividing an interval in half and then
-##'     selecting the subinterval in which a root exists.")
+##' ## HTML animation pages
+##' saveHTML({
 ##' par(mar = c(4, 4, 1, 2))
 ##' bisection.method(main = "")
-##' ani.stop()
-##' }
+##' }, img.name='bisection.method', htmlfile = 'bisection.method.html',
+##' ani.height = 400, ani.width = 600, interval = 1,
+##'     title = "The Bisection Method for Root-finding on an Interval",
+##'     description = c("The bisection method is a root-finding algorithm",
+##'     "which works by repeatedly dividing an interval in half and then",
+##'     "selecting the subinterval in which a root exists."))
+##'
+##' ani.options(oopt)
 ##'
 bisection.method = function(FUN = function(x) x^2 -
     4, rg = c(-1, 10), tol = 0.001, interact = FALSE, main, xlab,
     ylab, ...) {
     if (interact) {
+        if (!interactive()) {
+            warning('Not in an interactive session!')
+            return(invisible(NULL))
+        }
         curve(FUN, min(rg), max(rg), xlab = "x", ylab = eval(substitute(expression(f(x) ==
             y), list(y = body(FUN)))), main = "Locate the interval for finding root")
         rg = unlist(locator(2))[1:2]
@@ -72,7 +81,7 @@ bisection.method = function(FUN = function(x) x^2 -
     l = min(rg)
     u = max(rg)
     if (FUN(l) * FUN(u) > 0)
-        stop("The function must have opposite signs at the lower and upper boundof the range!")
+        stop("The function must have opposite signs at the lower and upper bound of the range!")
     mid = FUN((l + u)/2)
     i = 1
     bd = rg
@@ -83,7 +92,7 @@ bisection.method = function(FUN = function(x) x^2 -
     if (missing(main))
         main = eval(substitute(expression("Root-finding by Bisection Method:" ~
             y == 0), list(y = body(FUN))))
-    while (abs(mid) > tol & i <= ani.options("nmax")) {
+    while (abs(mid) > tol && i <= ani.options("nmax")) {
         curve(FUN, min(rg), max(rg), xlab = xlab, ylab = ylab,
             main = main, ...)
         abline(h = 0, col = "gray")
@@ -100,7 +109,6 @@ bisection.method = function(FUN = function(x) x^2 -
         ani.pause()
         i = i + 1
     }
-    ani.options(nmax = i - 1)
     invisible(list(root = (l + u)/2, value = mid, iter = i -
         1))
 }

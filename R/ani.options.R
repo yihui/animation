@@ -17,7 +17,9 @@
 ##'
 ##' \item{ani.width, ani.height}{ width and height of image frames
 ##' (unit in px); see graphics devices like \code{\link[grDevices]{png}},
-##' \code{\link[grDevices]{jpeg}}, ...; default to be 480.}
+##' \code{\link[grDevices]{jpeg}}, ...; default to be 480. NB: for different
+##' graphics devices, the units of these values might be different, e.g.
+##' PDF devices usually use inches, whereas bitmap devices often use pixels.}
 ##'
 ##' \item{outdir}{character: specify the output dir if we want to create HTML
 ##' animation pages; default to be \code{\link[base]{tempdir}}.}
@@ -31,14 +33,15 @@
 ##' \item{withprompt}{character: prompt to display while
 ##' using \code{\link{ani.start}} (restore with \code{\link{ani.stop}})}
 ##'
-##' \item{ani.type}{character: image format for animation frames, e.g.
-##' \code{png}, \code{jpeg}, ...; default to be \code{"png"}; this will be
-##' used as the file extension of images}
-##'
 ##' \item{ani.dev}{a
 ##' function or a function name: the graphics device; e.g.
 ##' (\code{\link[grDevices]{png}}, \code{\link[grDevices]{pdf}}, ...); default
 ##' to be \code{"png"}} \item{title}{character: the title of animation }
+##'
+##' \item{ani.type}{character: image format for animation frames, e.g.
+##' \code{png}, \code{jpeg}, ...; default to be \code{"png"}; this will be
+##' used as the file extension of images, so don't forget to change this
+##' option as well when you changed the option \code{ani.dev}}
 ##'
 ##' \item{description}{character: a description about the animation }
 ##'
@@ -98,9 +101,10 @@
 ##' oopt = ani.options(ani.dev = 'pdf', ani.type = 'pdf', ani.height = 5, ani.width = 7)
 ##'
 ##' ## use the Cairo PDF device
-##' if (require('Cairo')) {
-##' ani.options(ani.dev = CairoPDF, ani.type = 'pdf', ani.height = 6, ani.width = 6)
-##' }
+##' # if (require('Cairo')) {
+##' #     ani.options(ani.dev = CairoPDF, ani.type = 'pdf',
+##' #                 ani.height = 6, ani.width = 6)
+##' # }
 ##'
 ##' ## change outdir to the current working directory
 ##' ani.options(outdir = getwd())

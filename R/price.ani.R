@@ -16,10 +16,14 @@
 ##' @examples
 ##'
 ##' ## see more examples in ?vanke1127
+##' saveHTML({
 ##' data(vanke1127)
 ##' with(vanke1127, {
 ##'     price.ani(price, time, lwd = 2)
 ##' })
+##' },img.name='vanke1127',htmlfile='vanke1127.html',
+##' title='Stock prices of Vanke', description=c('Barplots',
+##' 'of the stock prices of Vanke Co. Ltd', 'on 2009/11/27'))
 ##'
 price.ani = function(price, time, time.begin = min(time),
     span = 15 * 60, ..., xlab = "price", ylab = "frequency",
@@ -29,7 +33,7 @@ price.ani = function(price, time, time.begin = min(time),
     tab.max = 0
     while (time1 < max(time)) {
         time2 = time1 + span
-        sub.price = price[time >= time1 & time <= time2]
+        sub.price = price[time >= time1 && time <= time2]
         if (length(sub.price) > 0) {
             tab.max = max(tab.max, max(table(sub.price)))
         }
@@ -42,7 +46,7 @@ price.ani = function(price, time, time.begin = min(time),
     time1 = time.begin
     while (time1 < max(time)) {
         time2 = time1 + span
-        sub.price = price[time >= time1 & time <= time2]
+        sub.price = price[time >= time1 && time <= time2]
         if (length(sub.price) > 0) {
             tab.price = table(sub.price)
             if (miss.main)

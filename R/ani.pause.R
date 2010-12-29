@@ -1,6 +1,7 @@
 ##' Pause for a while.
 ##' If this function is called in an interactive graphics device, it will
-##' pause for a time interval (specified in \code{ani.options('interval')}).
+##' pause for a time interval (specified in \code{ani.options('interval')});
+##' otherwise it will do nothing.
 ##'
 ##'
 ##' @return Invisible \code{NULL}.
@@ -12,6 +13,8 @@
 ##' plot(runif(10), ylim = c(0, 1))
 ##' ani.pause()
 ##' }
+##' ## see demo('Xmas2', package = 'animation') for another example
+##'
 ani.pause = function() {
     if (dev.interactive()) Sys.sleep(ani.options('interval'))
 }

@@ -1,45 +1,49 @@
-##' Demonstrate the process of k-Nearest Neighbour classification on the 2D
-##' plane.
+##' Demonstrate the process of k-Nearest Neighbour classification on the 2D plane.
 ##'
-##' For each row of the test set, the \eqn{k} nearest (in Euclidean distance)
-##' training set vectors are found, and the classification is decided by
-##' majority vote, with ties broken at random. For a single test sample point,
-##' the basic steps are:
+##' For each row of the test set, the \eqn{k} nearest (in Euclidean
+##' distance) training set vectors are found, and the classification
+##' is decided by majority vote, with ties broken at random. For a
+##' single test sample point, the basic steps are:
 ##'
-##' \enumerate{ \item locate the test point \item compute the distances between
-##' the test point and all points in the training set \item find \eqn{k}
-##' shortest distances and the corresponding training set points \item vote for
-##' the result (find the maximum in the table for the true classifications) }
+##' \enumerate{ \item locate the test point \item compute the
+##' distances between the test point and all points in the training
+##' set \item find \eqn{k} shortest distances and the corresponding
+##' training set points \item vote for the result (find the maximum in
+##' the table for the true classifications) }
 ##'
-##' As there are four steps in an iteration, the total number of animation
-##' frames should be \code{4 * min(nrow(test), ani.options("nmax"))} at last.
+##' As there are four steps in an iteration, the total number of
+##' animation frames should be \code{4 * min(nrow(test),
+##' ani.options("nmax"))} at last.
 ##'
-##' @param train matrix or data frame of training set cases containing only 2
-##'   columns
-##' @param test matrix or data frame of test set cases. A vector will be
-##'   interpreted as a row vector for a single case. It should also contain
-##'   only 2 columns. This data set will be \emph{ignored} if \code{interact =
-##'   TRUE}; see \code{interact} below.
+##' @param train matrix or data frame of training set cases containing
+##' only 2 columns
+##' @param test matrix or data frame of test set cases. A vector will
+##' be interpreted as a row vector for a single case. It should also
+##' contain only 2 columns. This data set will be \emph{ignored} if
+##' \code{interact = TRUE}; see \code{interact} below.
 ##' @param cl factor of true classifications of training set
 ##' @param k number of neighbours considered.
-##' @param interact logical. If \code{TRUE}, the user will have to choose a
-##'   test set for himself using mouse click on the screen; otherwise compute
-##'   kNN classification based on argument \code{test}.
-##' @param tt.col a vector of length 2 specifying the colors for the training
-##'   data and test data.
+##' @param interact logical. If \code{TRUE}, the user will have to
+##' choose a test set for himself using mouse click on the screen;
+##' otherwise compute kNN classification based on argument
+##' \code{test}.
+##' @param tt.col a vector of length 2 specifying the colors for the
+##' training data and test data.
 ##' @param cl.pch a vector specifying symbols for each class
-##' @param dist.lty,dist.col the line type and color to annotate the distances
-##' @param knn.col the color to annotate the k-nearest neighbour points using a
-##'   polygon
+##' @param dist.lty,dist.col the line type and color to annotate the
+##' distances
+##' @param knn.col the color to annotate the k-nearest neighbour
+##' points using a polygon
 ##' @return A vector of class labels for the test set.
-##' @note There is a special restriction (only two columns) on the training and
-##'   test data set just for sake of the convenience for making a scatterplot.
-##'   This is only a rough demonstration; for practical applications, please
-##'   refer to existing kNN functions such as \code{\link[class]{knn}} in
-##'   \pkg{class}, etc.
+##' @note There is a special restriction (only two columns) on the
+##' training and test data set just for sake of the convenience for
+##' making a scatterplot.  This is only a rough demonstration; for
+##' practical applications, please refer to existing kNN functions
+##' such as \code{\link[class]{knn}} in \pkg{class}, etc.
 ##'
-##' If either one of \code{train} and \code{test} is missing, there'll be
-##'   random matrices prepared for them. (It's the same for \code{cl}.)
+##' If either one of \code{train} and \code{test} is missing, there'll
+##' be random matrices prepared for them. (It's the same for
+##' \code{cl}.)
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link[class]{knn}}
 ##' @references Venables, W. N. and Ripley, B. D. (2002) \emph{Modern Applied
@@ -63,21 +67,22 @@
 ##' knn.ani(train = x, test = y, cl = rep(c("first", "second", "third"),
 ##'     each = 15), k = 25, cl.pch = c(2, 3, 19), dist.lty = 3)
 ##'
-##' \dontrun{
-##' # an interactive demo: choose the test set by mouse-clicking
+##' ## an interactive demo: choose the test set by mouse-clicking
+##' if (interactive()) {
 ##' ani.options(nmax = 5)
 ##' knn.ani(interact = TRUE)
+##' }
 ##'
-##' ani.options(ani.height = 500, ani.width = 600, nmax = 10,
-##'     interval = 2, title = "Demonstration for kNN Classification",
-##'     description = "For each row of the test set, the k nearest (in Euclidean
-##'     distance) training set vectors are found, and the classification is
-##'     decided by majority vote, with ties broken at random.")
-##' ani.start()
+##' ## HTML page
+##' saveHTML({
+##' ani.options(nmax = 10,interval = 2)
 ##' par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 0))
 ##' knn.ani()
-##' ani.stop()
-##' }
+##' }, img.name='knn.ani',htmlfile='knn.ani',ani.height = 500, ani.width = 600,
+##'     title = "Demonstration for kNN Classification",
+##'     description = c("For each row of the test set", 'the k nearest (in Euclidean',
+##'     'distance) training set vectors are found, and the classification is',
+##'     "decided by majority vote, with ties broken at random."))
 ##'
 ##' ani.options(oopt)
 ##'
@@ -177,6 +182,5 @@ knn.ani = function(train, test, cl, k = 10, interact = FALSE,
         }, FALSE)
         ani.pause()
     }
-    ani.options(nmax = 4 * nmax)
     invisible(levels(clf)[res])
 }

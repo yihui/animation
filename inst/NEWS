@@ -27,6 +27,9 @@ NEW FEATURES
 
 SIGNIFICANT CHANGES
 
+    o the documentation of this package has been tremendously revised;
+  hopefully it is more clear to read now
+
     o several arguments in saveMovie(), im.convert(), saveSWF() and
   saveLatex() were removed, because they can be specified by
   ani.options(); this can simplify the usage of these functions

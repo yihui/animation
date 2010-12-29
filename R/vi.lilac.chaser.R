@@ -10,9 +10,8 @@
 ##' @param p.cex magnification of points
 ##' @param c.cex magnification of the center cross
 ##' @return None.
-##' @note In fact, points in the original version of `Lilac Chaser' are
-##'   \emph{blurred}, which is not implemented in this function. If you have
-##'   any idea, please contact me.
+##' @note In fact, points in the original version of `Lilac Chaser'
+##' are \emph{blurred}, which is not implemented in this function.
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link[graphics]{points}}
 ##' @references \url{http://en.wikipedia.org/wiki/Lilac_chaser}
@@ -21,21 +20,20 @@
 ##' @keywords dynamic
 ##' @examples
 ##' oopt = ani.options(interval = 0.05, nmax = 20)
-##' op = par(pty = "s")
+##' par(pty = "s")
 ##' vi.lilac.chaser()
 ##'
-##' \dontrun{
-##' # HTML animation page; nmax = 1 is enough!
-##' ani.options(ani.height = 480, ani.width = 480, nmax = 1,
-##'     interval = 0.05, title = "Visual Illusions: Lilac Chaser",
-##'     description = "Stare at the center cross for a few (say 30) seconds
-##'     to experience the phenomena of the illusion.")
-##' ani.start()
+##' ## HTML animation page; nmax = 1 is enough!
+##' saveHTML({
+##' ani.options(interval = 0.05, nmax = 1)
 ##' par(pty = "s", mar = rep(1, 4))
 ##' vi.lilac.chaser()
-##' ani.stop()
-##' }
-##' par(op)
+##' }, img.name='vi.lilac.chaser', htmlfile='vi.lilac.chaser.html',
+##' ani.height = 480, ani.width = 480,
+##'   title = "Visual Illusions: Lilac Chaser",
+##'     description = c("Stare at the center cross for a few (say 30) seconds",
+##'     "to experience the phenomena of the illusion."))
+##'
 ##' ani.options(oopt)
 ##'
 vi.lilac.chaser = function(np = 16, col = "magenta",
@@ -53,7 +51,6 @@ vi.lilac.chaser = function(np = 16, col = "magenta",
             ani.pause()
         }
     }
-    ani.options(nmax = nmax * np)
     par(op)
     invisible(NULL)
 }

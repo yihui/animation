@@ -14,30 +14,32 @@
 ##' customize the function \code{FUN} as we wish.
 ##'
 ##' @param dat a numeric vector or two-column matrix
-##' @param block block length (i.e. how many elements are to be plotted in each
-##'   step)
+##' @param block block length (i.e. how many elements are to be
+##' plotted in each step)
 ##' @param FUN a plot function to be applied to the subset of data
 ##' @param \dots other arguments passed to \code{FUN}
 ##' @return \code{NULL}
-##' @note There will be \code{ani.options("nmax")} image frames created in the
-##'   end. Ideally the relationship between \code{ani.options("nmax")} and
-##'   \code{block} should follow this equality: \code{block = length(x) -
-##'   ani.options("nmax") + 1} (replace \code{length(x)} with \code{nrow(x)}
-##'   when \code{x} is a matrix). The function will compute \code{block}
-##'   according to the equality by default if no block length is specified.
+##' @note There will be \code{ani.options("nmax")} image frames
+##' created in the end. Ideally the relationship between
+##' \code{ani.options("nmax")} and \code{block} should follow this
+##' equality: \code{block = length(x) - ani.options("nmax") + 1}
+##' (replace \code{length(x)} with \code{nrow(x)} when \code{x} is a
+##' matrix). The function will compute \code{block} according to the
+##' equality by default if no block length is specified.
 ##'
-##' The three arguments \code{dat}, \code{i} and \code{block} are passed to
-##'   \code{FUN} in case we want to customize the plotting function, e.g. we
-##'   may want to annonate the x-axis label with \code{i}, or we want to
-##'   compute the mean value of \code{dat[i + 1:block]}, etc. See the examples
-##'   below to learn more about how to make use of these three arguments.
+##' The three arguments \code{dat}, \code{i} and \code{block} are
+##' passed to \code{FUN} in case we want to customize the plotting
+##' function, e.g. we may want to annonate the x-axis label with
+##' \code{i}, or we want to compute the mean value of \code{dat[i +
+##' 1:block]}, etc. See the examples below to learn more about how to
+##' make use of these three arguments.
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @keywords dynamic hplot
 ##' @examples
 ##'
-##' ## Brownian motion
+##' ## (1) Brownian motion
 ##' #  block length: 101 (i.e. 300-200+1)
-##' oopt = ani.options(nmax = 200, interval = 0.1)
+##' oopt = ani.options(nmax = ifelse(interactive(), 200, 10), interval = 0.1)
 ##' #  plot y = dat against x = i + 1:block
 ##' #  customize xlab and ylab with 'i' and 'block'
 ##' #  restrict ylim using the range of 'dat'
@@ -48,9 +50,10 @@
 ##'         i + 1, i + block))
 ##' }, type = "o", pch = 20)
 ##'
-##' ## Word counts of Hu's speech
+##'
+##' ## (2) Word counts of Hu's speech (block = 10; length(HuSpeech) = 75)
 ##' #  see any pattern in the President's speech?
-##' ani.options(nmax = 66, interval = 0.5)
+##' ani.options(nmax = ifelse(interactive(), 66, 20), interval = 0.5)
 ##' data(HuSpeech)
 ##' moving.block(dat = HuSpeech, FUN = function(..., dat = dat,
 ##'     i = i, block = block) {
@@ -58,11 +61,11 @@
 ##'         ylab = sprintf("HuSpeech[%s:%s]", i + 1, i + block))
 ##' }, type = "o", pch = 20)
 ##'
-##' \dontrun{
-##' ## sunspot data: observe the 11-year cycles
+##'
+##' ## (3) sunspot data: observe the 11-year cycles
 ##' #  block = 11 years x 12 months/year = 132
 ##' #  set interval greater than 0 if your computer really rocks!
-##' ani.options(nmax = 2857, interval = 0)
+##' ani.options(nmax = ifelse(interactive(), 2857, 10), interval = 0)
 ##' spt.att = tsp(sunspot.month)
 ##' #  the time index (we need it to correctly draw the ticks of x-axis)
 ##' ts.idx = seq(spt.att[1], spt.att[2], 1/spt.att[3])
@@ -72,11 +75,11 @@
 ##'         block), ylim = range(dat), ylab = sprintf("sunspot.month[%s:%s]",
 ##'         i + 1, i + block))
 ##' }, type = "o", pch = 20)
-##' }
 ##'
-##' ## earth quake: order the data by 'depth' first
+##'
+##' ## (4) earth quake: order the data by 'depth' first
 ##' #  see how the locations change as 'depth' increases
-##' ani.options(nmax = 900, interval = 0.01)
+##' ani.options(nmax = ifelse(interactive(), 900, 10), interval = 0.01)
 ##' #  compute the mean depth for each block of data
 ##' moving.block(quakes[order(quakes$depth), c("long", "lat")],
 ##'     FUN = function(..., dat = dat, i = i, block = block) {

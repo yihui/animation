@@ -2,68 +2,76 @@
 ##' This is a simple demonstration of the meaning of least squares in
 ##' univariate linear regression.
 ##'
-##' With either the intercept or the slope changing, the lines will be moving
-##' in the graph and corresponding residuals will be plotted. We can finally
-##' see the best estimate of the intercept and the slope from the residual
-##' plot.
+##' With either the intercept or the slope changing, the lines will be
+##' moving in the graph and corresponding residuals will be
+##' plotted. We can finally see the best estimate of the intercept and
+##' the slope from the residual plot.
 ##'
 ##' @param x a numeric vector: the independent variable
 ##' @param y a numeric vector: the dependent variable
-##' @param n the sample size: when x and y are missing, we use simulated values
-##'   of y (\code{x = 1:n} and \code{y = a + b * x + rnorm(n)})
-##' @param ani.type \code{"slope"}: the slope is changing with the intercept
-##'   fixed; \code{"intercept"}: intercept changing and slope fixed
-##' @param a,b the fixed intercept and slope; depending on \code{ani.type}, we
-##'   only need to specify one of them; e.g. when \code{ani.type == "slope"},
-##'   we need to specify the value of \code{a}
-##' @param a.range,b.range a vector of length 2 to define the range of the
-##'   intercept and the slope; only one of them need to be specified; see above
-##' @param ab.col the colors of two lines: the real regression line and the
-##'   moving line with either intercept or slope changing
-##' @param est.pch the point character of the "estimated" values given \code{x}
-##' @param v.col,v.lty the color and line type of the vetical lines which
-##'   demonstrate the residuals
-##' @param rss.pch,rss.type the point character and plot type of the residual
-##'   plot
+##' @param n the sample size: when x and y are missing, we use
+##' simulated values of y (\code{x = 1:n} and \code{y = a + b * x +
+##' rnorm(n)})
+##' @param ani.type \code{"slope"}: the slope is changing with the
+##' intercept fixed; \code{"intercept"}: intercept changing and slope
+##' fixed
+##' @param a,b the fixed intercept and slope; depending on
+##' \code{ani.type}, we only need to specify one of them; e.g. when
+##' \code{ani.type == "slope"}, we need to specify the value of
+##' \code{a}
+##' @param a.range,b.range a vector of length 2 to define the range of
+##' the intercept and the slope; only one of them need to be
+##' specified; see above
+##' @param ab.col the colors of two lines: the real regression line
+##' and the moving line with either intercept or slope changing
+##' @param est.pch the point character of the "estimated" values given
+##' \code{x}
+##' @param v.col,v.lty the color and line type of the vetical lines
+##' which demonstrate the residuals
+##' @param rss.pch,rss.type the point character and plot type of the
+##' residual plot
 ##' @param mfrow defines the layout of the graph; see
-##'   \code{\link[graphics]{par}}
-##' @param \dots other parameters passed to \code{\link[graphics]{plot}} to
-##'   define the appearance of the scatterplot
+##' \code{\link[graphics]{par}}
+##' @param \dots other parameters passed to
+##' \code{\link[graphics]{plot}} to define the appearance of the
+##' scatterplot
 ##' @return The value returned depends on the animation type.
 ##'
-##' If it is a slope animation, the value will be a list containing \item{lmfit
-##'   }{ the estimates of the intercept and slope with \code{\link[stats]{lm}}
-##'   } \item{anifit }{ the estimate of the slope in the animation } If it is
-##'   an intercept animation, the second component of the above list will be
-##'   the estimate of the intercept.
+##' If it is a slope animation, the value will be a list containing
+##' \item{lmfit}{ the estimates of the intercept and slope with
+##' \code{\link[stats]{lm}} } \item{anifit}{ the estimate of the
+##' slope in the animation } If it is an intercept animation, the
+##' second component of the above list will be the estimate of the
+##' intercept.
 ##'
 ##' Note the estimate will not be precise generally.
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link[stats]{lm}}
+##' @note \code{ani.options('nmax')} specifies the maximum number of
+##' steps for the slope or intercept to move.
 ##' @references \url{http://animation.yihui.name/lm:least_squares}
 ##' @keywords dynamic models
 ##' @examples
 ##'
-##' opar = par(mar = c(5, 4, 0.5, 0.1))
-##' oopt = ani.options(interval = 0.3, nmax = 50)
-##' # default animation: with slope changing
+##' par(mar = c(5, 4, 0.5, 0.1))
+##' oopt = ani.options(interval = 0.3, nmax = ifelse(interactive(), 50, 10))
+##'
+##' ## default animation: with slope changing
 ##' least.squares()
-##' # intercept changing
-##' least.squares(ani.type = "i")
 ##'
-##' par(opar)
+##' ## intercept changing
+##' least.squares(ani.type = "intercept")
 ##'
-##' \dontrun{
-##' # save the animation in HTML pages
-##' ani.options(ani.height = 450, ani.width = 600,
-##'     title = "Demonstration of Least Squares",
-##'     description = "We want to find an estimate for the slope
-##'     in 50 candidate slopes, so we just compute the RSS one by one. ")
-##' ani.start()
+##' ## save the animation in HTML pages
+##' saveHTML({
+##' ani.options(interval = 0.3, nmax = ifelse(interactive(), 50, 10))
 ##' par(mar = c(4, 4, 0.5, 0.1), mgp = c(2, 0.5, 0), tcl = -0.3)
 ##' least.squares()
-##' ani.stop()
-##' }
+##' }, img.name='least.squares',htmlfile='least.squares.html',
+##' ani.height = 450, ani.width = 600,
+##'     title = "Demonstration of Least Squares",
+##'     description = c("We want to find an estimate for the slope",
+##'     "in 50 candidate slopes, so we just compute the RSS one by one. "))
 ##'
 ##' ani.options(oopt)
 ##'
