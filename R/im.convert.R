@@ -158,7 +158,7 @@ im.convert = function(files, output = "animation.gif", convert = c("convert",
         }
     }
 
-    loop = ifelse(isTRUE(ani.options('loop')), 0, 1)
+    loop = ifelse(isTRUE(ani.options('loop')), 0, ani.options('loop'))
     convert = sprintf("%s -loop %s %s %s %s", convert, loop, extra.opts,
                       paste('-delay', interval * 100,
                             if (length(interval) == 1)
