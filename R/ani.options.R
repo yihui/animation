@@ -10,7 +10,7 @@
 ##' number to set the time interval of the animation (unit in seconds); default
 ##' to be 1. }
 ##'
-##' \item{nmax}{ maximum number of steps for a loop (e.g.
+##' \item{nmax}{ maximum number of steps in a loop (e.g.
 ##' iterations) to create animation frames. Note: the actual number of frames
 ##' can be less than this number, depending on specific animations. Default to
 ##' be 50.}
@@ -75,19 +75,21 @@
 ##'
 ##' \code{ani.options(c('tag1', 'tag2'))} returns a list containing the
 ##' corresponding options.
-##' @note Please note that \code{nmax} is usually equal to the number of
-##'   animation frames (e.g. for \code{\link{brownian.motion}}) but not
-##'   \emph{always}! The reason is that sometimes there are more than one frame
-##'   recorded in a single step of a loop, for instance, there are 2 frames
-##'   generated in each step of \code{\link{kmeans.ani}}, and 4 frames in
-##'   \code{\link{knn.ani}}, etc.
+##' @note Please note that \code{nmax} is not always equal to the
+##' number of animation frames. Sometimes there is more than one
+##' frame recorded in a single step of a loop, for instance, there are
+##' 2 frames generated in each step of \code{\link{kmeans.ani}}, and 4
+##' frames in \code{\link{knn.ani}}, etc; whereas for
+##' \code{\link{newton.method}}, the number of animation frames is not
+##' definite, because there are other criteria to break the loop.
 ##'
-##' This function can be used for almost all the animation functions such as
-##'   \code{\link{brownian.motion}}, \code{\link{boot.iid}},
-##'   \code{\link{buffon.needle}}, \code{\link{cv.ani}},
-##'   \code{\link{flip.coin}}, \code{\link{kmeans.ani}}, \code{\link{knn.ani}},
-##'   etc. All the parameters will affect the behaviour of HTML animations, but
-##'   only \code{interval} will affect animations in windows graphics device.
+##' This function can be used for almost all the animation functions
+##' such as \code{\link{brownian.motion}}, \code{\link{boot.iid}},
+##' \code{\link{buffon.needle}}, \code{\link{cv.ani}},
+##' \code{\link{flip.coin}}, \code{\link{kmeans.ani}},
+##' \code{\link{knn.ani}}, etc. Most of the options here will affect
+##' the behaviour of animations of the formats HTML, GIF, SWF and PDF;
+##' on-screen animations are only affected by \code{interval} and \code{nmax}.
 ##'
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link[base]{options}}, \code{\link[grDevices]{dev.interactive}}
