@@ -92,6 +92,7 @@ NULL
 ##' The format is: int [1:75] 119 175 222 204 276 168 257 89 61 288 ...
 ##' @name HuSpeech
 ##' @docType data
+##' @usage data(HuSpeech)
 ##' @source The full text of speech:
 ##'   \url{http://cpc.people.com.cn/GB/64093/64094/8544901.html}
 ##' @keywords datasets
@@ -127,6 +128,7 @@ NULL
 ##'   \emph{images} and \emph{files} within the site (units in MegaBytes).} }
 ##' @name pageview
 ##' @docType data
+##' @usage data(pageview)
 ##' @source \url{http://yihui.name}
 ##' @keywords datasets
 ##' @examples
@@ -154,6 +156,7 @@ NULL
 ##'   vector} }
 ##' @name pollen
 ##' @docType data
+##' @usage data(pollen)
 ##' @source Collected from Statlib Datasets Archive:
 ##'   \url{http://stat.cmu.edu/datasets/}
 ##' @keywords datasets
@@ -197,6 +200,7 @@ NULL
 ##'   prices} \item{price}{a numeric vector: stock prices} }
 ##' @name vanke1127
 ##' @docType data
+##' @usage data(vanke1127)
 ##' @source This data can be obtained from most stock websites.
 ##' @keywords datasets
 ##' @examples
@@ -242,6 +246,7 @@ NULL
 ##' Time-Series [1:116] from 1895 to 2010: 32.7 27.8 32.7 30.4 42.6 31.9 34.5 39.8 32.6 39.6 ...
 ##' @name iatemp
 ##' @docType data
+##' @usage data(iatemp)
 ##' @source \url{http://www.wrcc.dri.edu/cgi-bin/divplot1_form.pl?1305}
 ##' @keywords datasets
 ##' @examples data(iatemp)
