@@ -51,6 +51,13 @@ saveHTML = function(expr, img.name = 'Rplot',
                     global.opts = '', single.opts = '', ...) {
     oopt = ani.options(...)
 
+    ## escape special chars first: http://api.jquery.com/category/selectors/
+    spec.chars = strsplit("!\"#$%&'()*+,./:;?@[\\]^`{|}~", '')[[1]]
+    img.name = strsplit(img.name, '')[[1]]
+    spec.name = img.name %in% spec.chars
+    if (any(spec.name)) img.name[spec.name] = paste('\\\\', img.name[spec.name], sep = '')
+    img.name = paste(img.name, collapse = '')
+
     ## deparse the expression and form the verbose description
     .dexpr = NULL
     if (isTRUE(ani.options('verbose'))) {
