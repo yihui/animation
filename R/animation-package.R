@@ -62,8 +62,17 @@
 ##' @docType package
 ##' @exportPattern "^[^\\.]"
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @references AniWiki: Animations in Statistics
-##'   \url{http://animation.yihui.name}
+##' @note Bug reports and feature requests can be sent to
+##' \url{https://github.com/yihui/animation/issues}.
+##' @references The associated website for this package:
+##' \url{http://animation.yihui.name}
+##'
+##' Yihui Xie and Xiaoyue Cheng. animation: A package for statistical
+##' animations. \emph{R News}, \bold{8}(2):23--27, October 2008.  URL:
+##' \url{http://CRAN.R-project.org/doc/Rnews/Rnews_2008-2.pdf}
+##'
+##' (NB: some functions mentioned in the above article have been
+##' slightly modified; see the help pages for the up-to-date usage.)
 ##' @keywords package dynamic device dplot
 ##' @example animation/inst/examples/animation-package-Ex.R
 ##'
