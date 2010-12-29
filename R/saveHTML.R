@@ -1,54 +1,77 @@
 ##' Insert animations into an HTML page.
-##' This function first records all the plots in the R expression as bitmap
-##' images, then inserts them into an HTML page and finally create the animation
-##' using the SciAnimator library.
+##' This function first records all the plots in the R expression as
+##' bitmap images, then inserts them into an HTML page and finally
+##' create the animation using the SciAnimator library.
 ##'
-##' This is a much better version than \code{\link{ani.start}} and \code{\link{ani.stop}},
-##' and all users are encouraged to try this function when creating HTML
-##' animation pages. It mainly uses the SciAnimator library, which is based
-##' on jQuery. It has a neat interface (both technically and visually) and is
-##' much easier to use or extend. Moreover, this function allows multiple
-##' animations in a single HTML page -- just use the same filename for the
-##' HTML page (specified in \code{ani.options('htmlfile')}).
+##' This is a much better version than \code{\link{ani.start}} and
+##' \code{\link{ani.stop}}, and all users are encouraged to try this
+##' function when creating HTML animation pages. It mainly uses the
+##' SciAnimator library, which is based on jQuery. It has a neat
+##' interface (both technically and visually) and is much easier to
+##' use or extend. Moreover, this function allows multiple animations
+##' in a single HTML page -- just use the same filename for the HTML
+##' page (specified in \code{ani.options('htmlfile')}).
 ##'
-##' Optionally the source code and some session information can be added
-##' below the animations for the sake of reproducibility (specified by the
-##' option \code{ani.options('verbose')} -- if \code{TRUE}, the description,
-##' loaded packages, the code to produce the animation, as well as a part
-##' of \code{sessionInfo()} will be written in the bottom of the animation;
-##' the R code will be highlighted using the SyntaxHighlighter library for
-##' better reading experience).
+##' Optionally the source code and some session information can be
+##' added below the animations for the sake of reproducibility
+##' (specified by the option \code{ani.options('verbose')} -- if
+##' \code{TRUE}, the description, loaded packages, the code to produce
+##' the animation, as well as a part of \code{sessionInfo()} will be
+##' written in the bottom of the animation; the R code will be
+##' highlighted using the SyntaxHighlighter library for better reading
+##' experience).
 ##'
-##' @param expr an R expresion to be evaluated to create a sequence of images
-##' @param img.name the filename of the images (the real output will be like
-##' \file{img.name1.png}, \file{img.name2.png}, ...); this name has to be
-##' different for different animations, since it will be used as the identifiers
-##' for each animation; make it as unique as possible; meanwhile, the following
-##' characters in \code{img.name} will be replaced by \code{_} to make it
-##' a legal jQuery string:
+##' @param expr an R expresion to be evaluated to create a sequence of
+##' images
+##' @param img.name the filename of the images (the real output will
+##' be like \file{img.name1.png}, \file{img.name2.png}, ...); this
+##' name has to be different for different animations, since it will
+##' be used as the identifiers for each animation; make it as unique
+##' as possible; meanwhile, the following characters in
+##' \code{img.name} will be replaced by \code{_} to make it a legal
+##' jQuery string:
+##'
 ##' \verb{!"#$%&'()*+,./:;?@@[\]^`{|}~}
-##' @param global.opts a string: the global options of the animation; e.g. we
-##' can specify the default theme to be blue using
-##' \verb{$.fn.scianimator.defaults.theme = 'blue';}
-##' note these options must be legal JavaScript expressions (ended by \code{';'})
-##' @param single.opts the options for each single animation (if there are
-##' multiple ones in one HTML page), e.g. \verb{'utf8': false, 'theme': 'dark'}
-##' see the reference for a complete list of available options
-##' @param ... other arguments to be passed to \code{\link{ani.options}} to
-##' animation options such as the time interval between image frames
-##' @return the path of the output
-##' @note Microsoft IE might restrict the HTML page from running JavaScript
-##' and try to ``protect your security'' when you view the animation page.
-##' If this happens, you have two choices: (1) abandon the well-known fragile
-##' IE and try some really secure web browsers such as Firefox (or anything but
-##' IE); or (2) tell IE that you allow the blocked content.
+##' @param global.opts a string: the global options of the animation;
+##' e.g. we can specify the default theme to be blue using
+##' \verb{$.fn.scianimator.defaults.theme = 'blue';} note these
+##' options must be legal JavaScript expressions (ended by \code{';'})
+##' @param single.opts the options for each single animation (if there
+##' are multiple ones in one HTML page), e.g. to use the dark theme
+##' and text labels for buttons:
 ##'
-##' When you want to publish the HTML page on the web, you have to make sure
-##' to upload the associated \file{css} and \file{js} folders with the HTML file.
+##' \verb{'utf8': false, 'theme': 'dark'}
+##'
+##' or to remove the navigator panel (the navigator can affect the
+##' smoothness of the animation when the playing speed is extremely
+##' fast (e.g. \code{interval} less than 0.05 seconds)):
+##'
+##' \verb{'controls': ['first', 'previous', 'play', 'next', 'last', 'loop', 'speed']}
+##'
+##' see the reference for a complete list of available options
+##' @param ... other arguments to be passed to
+##' \code{\link{ani.options}} to animation options such as the time
+##' interval between image frames
+##' @return the path of the output
+##' @note Microsoft IE might restrict the HTML page from running
+##' JavaScript and try to ``protect your security'' when you view the
+##' animation page.  If this happens, you have two choices: (1)
+##' abandon the well-known fragile IE and try some really secure web
+##' browsers such as Firefox (or anything but IE); or (2) tell IE that
+##' you allow the blocked content.
+##'
+##' When you want to publish the HTML page on the web, you have  to
+##' upload the associated \file{css} and \file{js} folders with the
+##' HTML file.
+##'
+##' For \code{\link{saveHTML}}, \code{ani.options('description')} can
+##' be a character vector, in which case this vector will be pasted
+##' into a scalar; use \code{"\n\n"} in the string to separate
+##' paragraphs (see the first example below).
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @references \url{https://github.com/brentertz/scianimator}
-##' @seealso \code{\link{ani.start}}, \code{\link{ani.stop}} (early versions of
-##' HTML animations)
+##' @seealso \code{\link{ani.start}}, \code{\link{ani.stop}} (early
+##' versions of HTML animations)
 ##' @example animation/inst/examples/saveHTML-ex.R
 saveHTML = function(expr, img.name = 'Rplot',
                     global.opts = '', single.opts = '', ...) {
