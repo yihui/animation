@@ -106,14 +106,19 @@ saveHTML = function(expr, img.name = 'Rplot',
         readLines(system.file('misc', 'scianimator', 'index.html',
                               package = 'animation'))
     }
+    n = grep('<!-- highlight R code -->', html, fixed = TRUE)
+    if (!length(n))
+        html = readLines(system.file('misc', 'scianimator', 'index.html',
+                                     package = 'animation'))
+
     html = sub('<title>.*</title>', sprintf('<title>%s</title>',
                                          ani.options('title')), html)
     html = sub('<meta name="generator" content=".*">',
               sprintf('<meta name="generator" content="R package animation %s">',
                       packageVersion('animation')), html)
-    n = grep('<!-- highlight R code -->', html, fixed = TRUE)
     div.str = sprintf('	<div id="%s"></div>', img.name0)
     js.str = sprintf('	<script src="js/%s.js"></script>', img.name)
+    n = grep('<!-- highlight R code -->', html, fixed = TRUE)
     ## make sure there are no duplicate div/scripts
     if (!length(div.pos <- grep(div.str, html, fixed = TRUE)) &
         !length(js.pos <- grep(js.str, html, fixed = TRUE))) {
