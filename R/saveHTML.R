@@ -53,10 +53,10 @@ saveHTML = function(expr, img.name = 'Rplot',
 
     ## escape special chars first: http://api.jquery.com/category/selectors/
     spec.chars = strsplit("!\"#$%&'()*+,./:;?@[\\]^`{|}~", '')[[1]]
-    img.name = strsplit(img.name, '')[[1]]
-    spec.name = img.name %in% spec.chars
-    if (any(spec.name)) img.name[spec.name] = paste('\\\\', img.name[spec.name], sep = '')
-    img.name = paste(img.name, collapse = '')
+    img.name0 = strsplit(img.name, '')[[1]]
+    spec.name = img.name0 %in% spec.chars
+    if (any(spec.name)) img.name0[spec.name] = paste('\\\\', img.name0[spec.name], sep = '')
+    img.name0 = paste(img.name0, collapse = '')
 
     ## deparse the expression and form the verbose description
     .dexpr = NULL
@@ -129,13 +129,13 @@ saveHTML = function(expr, img.name = 'Rplot',
     js.temp = paste(js.temp, collapse = '\n')
     imglen = length(list.files(imgdir, pattern = paste(img.name, '[0-9]+\\.', ani.type, sep = '')))
     imglist = file.path(ani.options('imgdir'), sprintf(paste(img.name, '%d.', ani.type, sep = ''), seq_len(imglen)))
-    js.temp = sprintf(js.temp, global.opts, img.name,
+    js.temp = sprintf(js.temp, global.opts, img.name0,
                       paste(shQuote(imglist, 'sh'), collapse = ', '),
                       ani.options('ani.height'), ani.options('ani.width'),
                       1000 * ani.options('interval'),
                       ifelse(ani.options('loop'), 'loop', 'none'),
                       ifelse(nzchar(single.opts), paste(',\n', single.opts), ''),
-                      img.name
+                      img.name0
     )
     writeLines(js.temp, file.path(dirname(htmlfile), 'js', paste(img.name, 'js', sep = '.')))
     writeLines(html, con = htmlfile)
