@@ -1,6 +1,8 @@
-##' Statistical Animations Using R.
-##' Various functions for animations in statistics which could probably aid in
-##' teaching statistics and data analysis.
+##' A Gallery of Animations in Statistics and Utilities to Create Animations.
+##' This package contains various functions for animations in
+##' statistics which could probably aid in teaching statistics and
+##' data analysis; it also has several utilities to export R animations
+##' to other formats.
 ##'
 ##' \tabular{ll}{ Package: \tab animation\cr Type: \tab Package\cr Version:
 ##' \tab 1.2\cr License: \tab GPL-2 | GPL-3\cr } This
@@ -132,7 +134,7 @@ NULL
 
 
 
-##' Synthetic dataset about the geometric features of pollen grains
+##' Synthetic dataset about the geometric features of pollen grains.
 ##' There are 3848 observations on 5 variables. From the 1986 ASA Data Exposition
 ##' dataset, made up by David Coleman of RCA Labs.
 ##'
