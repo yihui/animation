@@ -34,7 +34,9 @@
 ##' @param pkg.opts global options for the \code{animate} package
 ##' @param documentclass LaTeX document class; if \code{NULL}, the
 ##' output will not be a complete LaTeX document (only the code to
-##' generate the PDF animation will be printed in the console)
+##' generate the PDF animation will be printed in the console);
+##' default to be \code{article}, but we can also provide a complete
+##' statement like \verb{\\documentclass[a5paper]{article}}
 ##' @param latex.filename file name of the LaTeX document; if an empty
 ##' string \code{""}, the LaTeX code will be printed in the console
 ##' and hence not compiled
@@ -172,8 +174,10 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
     }
 
     if (!in.sweave && length(documentclass)) {
+        if (!grepl('^\\\\documentclass', documentclass))
+            documentclass = sprintf('\\documentclass{%s}', documentclass)
         cat(sprintf("
-\\documentclass{%s}
+%s
 \\usepackage%s{animate}
 \\begin{document}
 \\begin{figure}
