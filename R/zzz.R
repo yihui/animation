@@ -8,5 +8,5 @@
              description = paste("Animations generated in", R.version.string,
              'using the package animation'),
              verbose = TRUE, loop = TRUE, autobrowse = interactive(),
-             autoplay = TRUE)
+             autoplay = TRUE, use.dev = TRUE)
 }

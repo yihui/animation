@@ -30,20 +30,17 @@
 ##' \item{htmlfile}{character: name of the target HTML main file (without path
 ##' name; basename only; default to be \code{"index.html"})}
 ##'
-##' \item{withprompt}{character: prompt to display while
-##' using \code{\link{ani.start}} (restore with \code{\link{ani.stop}})}
-##'
-##' \item{ani.dev}{a
-##' function or a function name: the graphics device; e.g.
-##' (\code{\link[grDevices]{png}}, \code{\link[grDevices]{pdf}}, ...); default
-##' to be \code{"png"}} \item{title}{character: the title of animation }
+##' \item{ani.dev}{a function or a function name: the graphics device;
+##' e.g.  (\code{\link[grDevices]{png}}, \code{\link[grDevices]{pdf}},
+##' ...); default to be \code{"png"}}
 ##'
 ##' \item{ani.type}{character: image format for animation frames, e.g.
 ##' \code{png}, \code{jpeg}, ...; default to be \code{"png"}; this will be
 ##' used as the file extension of images, so don't forget to change this
 ##' option as well when you changed the option \code{ani.dev}}
 ##'
-##' \item{description}{character: a description about the animation }
+##' \item{title, description}{character: the title and description of
+##' the animation in the HTML page created by \code{\link{saveHTML}}}
 ##'
 ##' \item{verbose}{ logical or character: if \code{TRUE}, write a footer part in
 ##' the HTML page containing detailed technical information; if
@@ -60,25 +57,72 @@
 ##' page is loaded (default to be \code{TRUE}); only applicable to
 ##' \code{\link{saveHTML}}}
 ##'
+##' \item{use.dev}{ whether to use the graphics device specified in
+##' \code{ani.options('ani.dev')} (default to be \code{TRUE}); if
+##' \code{FALSE}, we need to generate image files by our own
+##' approaches in the expression \code{expr} (see functions
+##' \code{\link{saveHTML}}, \code{\link{saveMovie}},
+##' \code{\link{saveLatex}} and \code{\link{saveSWF}}); this can be
+##' useful when the output cannot be captured by standard R graphics
+##' devices -- a typical example is the \pkg{rgl} graphics (we can use
+##' \code{\link[rgl]{rgl.snapshot}} to capture \pkg{rgl} graphics to
+##' png files, or \code{\link[rgl]{rgl.postscript}} to save plots as
+##' postscript/pdf; see \code{demo('rgl_animation')} for an example or
+##' the last example below)}
+##'
+##' \item{withprompt}{character: prompt to display while using
+##' \code{\link{ani.start}} (will be restored with
+##' \code{\link{ani.stop}})}
+##'
 ##' }
 ##'
+##' There are a couple of ``hidden'' options which are designed to
+##' facilitate the usage of some functions, including:
+##'
+##' \describe{
+##'
+##' \item{convert}{this option will be checked first when calling
+##' \code{\link{im.convert}} (or \code{\link{saveMovie}}) to see if it
+##' contains the path to \file{convert.exe}; we can specify it
+##' beforehand to save the efforts in searching for \file{convert.exe}
+##' in ImageMagick under Windows. For example,
+##' \code{ani.options(convert = shQuote('c:/program
+##' files/imagemagick/convert.exe'))}}
+##'
+##' \item{swftools}{this can help \code{\link{saveSWF}} save the
+##' efforts of searching for the software package ``SWF Tools'' under
+##' Windows; e.g. we can specify \code{ani.options(swftools =
+##' 'c:/program files/swftools')} in advance}
+##'
+##' \item{img.fmt}{the value of this option can be used to determine
+##' the image filename format when we want to use custom graphics
+##' devices to record images, e.g. in \code{\link{saveLatex}}, if
+##' \code{ani.options('use.dev') == FALSE}, then
+##' \code{ani.options('img.fmt')} will be a string like
+##' \code{'path/to/output/img.name\%d.png'}, so we can use it to
+##' generate file names in the argument \code{expr}; see
+##' \code{demo('rgl_animation')} for example or the last example below}
+##'
+##' }
 ##' @param ... arguments in \code{tag = value} form, or a list of tagged
 ##' values.  The tags usually come from the animation parameters described
 ##' below, but they are not restricted to these tags (any tag can be used;
 ##' this is similar to \code{\link[base]{options}}).
-##' @return \code{ani.options()} returns a list containing the options:
-##' when parameters are set, their former values are returned in an invisible
-##'   named list.  Such a list can be passed as an argument to
-##'   \code{\link{ani.options}} to restore the parameter values.
+##' @return \code{ani.options()} returns a list containing the
+##' options: when parameters are set, their former values are returned
+##' in an invisible named list.  Such a list can be passed as an
+##' argument to \code{\link{ani.options}} to restore the parameter
+##' values.
 ##'
-##' \code{ani.options('tag')} returns the value of the option \code{'tag'}.
+##' \code{ani.options('tag')} returns the value of the option
+##' \code{'tag'}.
 ##'
-##' \code{ani.options(c('tag1', 'tag2'))} returns a list containing the
-##' corresponding options.
+##' \code{ani.options(c('tag1', 'tag2'))} or \code{ani.options('tag1',
+##' 'tag2')} returns a list containing the corresponding options.
 ##' @note Please note that \code{nmax} is not always equal to the
-##' number of animation frames. Sometimes there is more than one
-##' frame recorded in a single step of a loop, for instance, there are
-##' 2 frames generated in each step of \code{\link{kmeans.ani}}, and 4
+##' number of animation frames. Sometimes there is more than one frame
+##' recorded in a single step of a loop, for instance, there are 2
+##' frames generated in each step of \code{\link{kmeans.ani}}, and 4
 ##' frames in \code{\link{knn.ani}}, etc; whereas for
 ##' \code{\link{newton.method}}, the number of animation frames is not
 ##' definite, because there are other criteria to break the loop.
@@ -89,7 +133,8 @@
 ##' \code{\link{flip.coin}}, \code{\link{kmeans.ani}},
 ##' \code{\link{knn.ani}}, etc. Most of the options here will affect
 ##' the behaviour of animations of the formats HTML, GIF, SWF and PDF;
-##' on-screen animations are only affected by \code{interval} and \code{nmax}.
+##' on-screen animations are only affected by \code{interval} and
+##' \code{nmax}.
 ##'
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link[base]{options}}, \code{\link[grDevices]{dev.interactive}}
@@ -120,6 +165,14 @@
 ##' ## it's a good habit to restore the options in the end so that
 ##' ##   other code will not be affected
 ##' ani.options(oopt)
+##'
+##' ## how to make use of the hidden option 'img.fmt'
+##' saveHTML(expr = {
+##' png(ani.options('img.fmt'))
+##' for(i in 1:5) plot(runif(10))
+##' dev.off()
+##' }, img.name='custom_plot', use.dev = FALSE, ani.type='png', htmlfile='custom_device.html',
+##' description="Note how we use our own graphics device in 'expr'.")
 ##'
 ani.options = function(...) {
     lst = list(...)

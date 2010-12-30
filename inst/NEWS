@@ -17,6 +17,14 @@ NEW FEATURES
     o in fact ani.options() was rewritten, but this should not have
   any influence on users; the usage is the same
 
+    o ani.options() gained a new option 'use.dev' to decide whether to
+  use the graphics device provided in ani.options('ani.dev') when
+  calling saveHTML(), saveLatex(), saveMovie() and saveSWF()
+
+    o ani.options() has a couple of hidden options ('convert',
+  'swftools', 'img.fmt') which can be useful too; see ?ani.options for
+  details
+
     o a new function ani.pause(): it is a wrapper to
   Sys.sleep(interval) but it will not pause when called in a
   non-interactive graphics device (usually the off-screen devices);

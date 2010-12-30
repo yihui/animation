@@ -112,10 +112,14 @@ saveHTML = function(expr, img.name = 'Rplot',
     if (is.character(ani.dev)) ani.dev = get(ani.dev)
     imgdir = file.path(ani.options('outdir'), ani.options('imgdir'))
     dir.create(imgdir, showWarnings = FALSE, recursive = TRUE)
-    ani.dev(file.path(imgdir, paste(img.name, '%d', '.', ani.type, sep = '')),
+
+    img.fmt = file.path(imgdir, paste(img.name, '%d', '.', ani.type, sep = ''))
+    ani.options(img.fmt = img.fmt)
+    if ((use.dev <- ani.options('use.dev')))
+        ani.dev(img.fmt,
             width = ani.options('ani.width'), height = ani.options('ani.height'))
     expr
-    dev.off()
+    if (use.dev) dev.off()
 
     htmlfile = file.path(ani.options('outdir'), ani.options('htmlfile'))
     file.copy(system.file('misc', 'scianimator', c('js', 'css'),

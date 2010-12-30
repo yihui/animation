@@ -47,15 +47,6 @@
 ##' \code{ani.options('outdir')}? If you have not installed the LaTeX
 ##' package \code{animate}, it suffices just to copy these to files.
 ##' @param overwrite whether to overwrite the existing image frames
-##' @param use.dev whether to use the graphics device specified in
-##' \code{ani.options('ani.dev')}; if \code{FALSE}, we need to
-##' generate image files by our own approaches in the expression
-##' \code{expr}; this can be useful when the output cannot be captured
-##' by standard R graphics devices -- a typical example is the
-##' \pkg{rgl} graphics (we can use \code{\link[rgl]{rgl.snapshot}} to
-##' capture \pkg{rgl} graphics to png files, or
-##' \code{\link[rgl]{rgl.postscript}} to save plots as postscript/pdf;
-##' see \code{demo('rgl_animation')} for an example)
 ##' @param \dots other arguments passed to the graphics device
 ##' \code{ani.options('ani.dev')}, e.g. \code{ani.height}
 ##' and \code{ani.width}
@@ -111,11 +102,13 @@
 saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
     centering = TRUE, caption = NULL, label = NULL,
     pkg.opts = NULL, documentclass = "article", latex.filename = "animation.tex",
-    pdflatex = "pdflatex", install.animate = TRUE, overwrite = TRUE, use.dev = TRUE, ...) {
+    pdflatex = "pdflatex", install.animate = TRUE, overwrite = TRUE, ...) {
     oopt = ani.options(...)
     if (!missing(nmax)) ani.options(nmax = nmax)
     on.exit(ani.options(oopt))
     outdir = ani.options('outdir')
+    ani.ext = ani.options('ani.type')
+    use.dev = ani.options('use.dev')
     ## detect if I'm in a Sweave environment
     in.sweave = FALSE
     if (length(sys.parents()) >= 3) {
@@ -124,7 +117,7 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
             if (all(c('prefix.string', 'label') %in% names(chunkopts))) {
                 ## yes, I'm in Sweave w.p. 95%
                 img.name = paste(chunkopts$prefix.string, chunkopts$label, sep = '-')
-                ani.options(sweave.prefix = img.name)
+                ani.options(img.fmt = file.path(outdir, paste(img.name, '%d.', ani.ext, sep = '')))
                 outdir = '.'
                 in.sweave = TRUE
             }
@@ -136,15 +129,17 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
     owd = setwd(outdir)
     on.exit(setwd(owd), add = TRUE)
     ani.dev = ani.options('ani.dev')
-    ani.ext = ani.options('ani.type')
-    num = ifelse(ani.ext == "pdf", "", "%d")
+    num = ifelse(ani.ext == "pdf" && use.dev, "", "%d")
+    img.fmt = file.path(outdir, sprintf("%s%s.%s", img.name, num, ani.ext))
+    if (!in.sweave)
+        ani.options(img.fmt = img.fmt)
     if (is.character(ani.dev))
         ani.dev = get(ani.dev)
     ani.files.len = length(list.files(path = dirname(img.name), pattern =
                            sprintf('^%s[0-9]+\\.%s$', img.name, ani.ext)))
     if (overwrite || !ani.files.len) {
         if (use.dev)
-            ani.dev(file.path(outdir, sprintf("%s%s.%s", img.name, num, ani.ext)),
+            ani.dev(img.fmt,
                 width = ani.options('ani.width'), height = ani.options('ani.height'))
         owd1 = setwd(owd)
         expr

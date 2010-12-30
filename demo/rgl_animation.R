@@ -21,7 +21,7 @@ if (require('rgl')) {
     saveLatex({
         for (i in 1:length(zm)) {
             par3d(zoom = zm[i])
-            rgl.snapshot(file.path(ani.options('outdir'), sprintf('pollen_demo%d.png', i)))
+            rgl.snapshot(sprintf(ani.options('img.fmt'), i))
         }
         rgl.close()
     }, img.name='pollen_demo', use.dev=FALSE,

@@ -87,12 +87,14 @@ saveMovie = function(expr, movie.name = "animation.gif", img.name = "Rplot",
     ani.dev = ani.options('ani.dev')
     if (is.character(ani.dev)) ani.dev = get(ani.dev)
     img.fmt = paste(img.name, "%d.", file.ext, sep = "")
-    ani.dev(file.path(getwd(), img.fmt), width = ani.options('ani.width'),
-            height = ani.options('ani.height'))
+    img.fmt = file.path(getwd(), img.fmt)
+    if ((use.dev <- ani.options('use.dev')))
+        ani.dev(img.fmt, width = ani.options('ani.width'),
+                height = ani.options('ani.height'))
     owd1 = setwd(owd)
     expr
     setwd(owd1)
-    dev.off()
+    if (use.dev) dev.off()
 
     img.files = sprintf(img.fmt, seq_len(length(list.files(pattern =
                         paste(img.name, "[0-9]+\\.", file.ext, sep = "")))))
