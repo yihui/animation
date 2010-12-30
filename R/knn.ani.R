@@ -54,7 +54,7 @@
 ##' @examples
 ##'
 ##' ## a binary classification problem
-##' oopt = ani.options(interval = 2, nmax = 10)
+##' oopt = ani.options(interval = 2, nmax = ifelse(interactive(), 10, 2))
 ##' x = matrix(c(rnorm(80, mean = -1), rnorm(80, mean = 1)),
 ##'     ncol = 2, byrow = TRUE)
 ##' y = matrix(rnorm(20, mean = 0, sd = 1.2), ncol = 2)
@@ -75,7 +75,7 @@
 ##'
 ##' ## HTML page
 ##' saveHTML({
-##' ani.options(nmax = 10,interval = 2)
+##' ani.options(nmax = ifelse(interactive(), 10, 2),interval = 2)
 ##' par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 0))
 ##' knn.ani()
 ##' }, img.name='knn.ani',htmlfile='knn.ani',ani.height = 500, ani.width = 600,

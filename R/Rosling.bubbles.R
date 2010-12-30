@@ -45,7 +45,7 @@
 ##' @keywords dynamic
 ##' @examples
 ##'
-##' oopt = ani.options(interval = 0.1, nmax = ifelse(interactive(), 50, 10))
+##' oopt = ani.options(interval = 0.1, nmax = ifelse(interactive(), 50, 2))
 ##'
 ##' ## use default arguments (random numbers); you may try to find the real data
 ##' par(mar = c(4, 4, 0.2, 0.2))
@@ -57,7 +57,7 @@
 ##' ## save the animation in HTML pages
 ##' saveHTML({
 ##' par(mar = c(4, 4, 0.2, 0.2))
-##' ani.options(interval = 0.1, nmax = ifelse(interactive(), 50, 10))
+##' ani.options(interval = 0.1, nmax = ifelse(interactive(), 50, 2))
 ##' Rosling.bubbles(text = 1951:2000)
 ##' }, img.name='Rosling.bubbles', htmlfile='Rosling.bubbles.html',
 ##' ani.height = 450, ani.width = 600,

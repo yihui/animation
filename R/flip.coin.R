@@ -39,7 +39,7 @@
 ##' @references \url{http://animation.yihui.name/prob:flipping_coins}
 ##' @keywords hplot dplot distribution dynamic
 ##' @examples
-##' oopt = ani.options(interval = 0.2, nmax = ifelse(interactive(), 100, 10))
+##' oopt = ani.options(interval = 0.2, nmax = ifelse(interactive(), 100, 2))
 ##' ## a coin would stand on the table?? just kidding :)
 ##' flip.coin(faces = c("Head", "Stand", "Tail"), type = "n",
 ##'     prob = c(0.45, 0.1, 0.45), col =c(1, 2, 4))
@@ -48,7 +48,7 @@
 ##'
 ##' ## HTML animation page
 ##' saveHTML({
-##' ani.options(interval = 0.2, nmax = ifelse(interactive(), 100, 10))
+##' ani.options(interval = 0.2, nmax = ifelse(interactive(), 100, 2))
 ##' par(mar = c(2, 3, 2, 1.5), mgp = c(1.5, 0.5, 0))
 ##' flip.coin(faces = c("Head", "Stand", "Tail"), type = "n",
 ##'     prob = c(0.45, 0.1, 0.45), col =c(1, 2, 4))

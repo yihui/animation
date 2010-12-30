@@ -52,7 +52,7 @@
 ##' @examples
 ##'
 ##' ## it takes several seconds if 'redraw = TRUE'
-##' oopt = ani.options(nmax = ifelse(interactive(), 500, 10), interval = 0.05)
+##' oopt = ani.options(nmax = ifelse(interactive(), 500, 2), interval = 0.05)
 ##' par(mar = c(3, 2.5, 0.5, 0.2), pch = 20, mgp = c(1.5, 0.5, 0))
 ##' buffon.needle()
 ##'

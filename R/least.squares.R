@@ -54,7 +54,7 @@
 ##' @examples
 ##'
 ##' par(mar = c(5, 4, 0.5, 0.1))
-##' oopt = ani.options(interval = 0.3, nmax = ifelse(interactive(), 50, 10))
+##' oopt = ani.options(interval = 0.3, nmax = ifelse(interactive(), 50, 2))
 ##'
 ##' ## default animation: with slope changing
 ##' least.squares()
@@ -64,7 +64,7 @@
 ##'
 ##' ## save the animation in HTML pages
 ##' saveHTML({
-##' ani.options(interval = 0.3, nmax = ifelse(interactive(), 50, 10))
+##' ani.options(interval = 0.3, nmax = ifelse(interactive(), 50, 2))
 ##' par(mar = c(4, 4, 0.5, 0.1), mgp = c(2, 0.5, 0), tcl = -0.3)
 ##' least.squares()
 ##' }, img.name='least.squares',htmlfile='least.squares.html',

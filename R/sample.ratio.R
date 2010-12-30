@@ -32,7 +32,7 @@
 ##' @keywords dynamic
 ##' @examples
 ##'
-##' oopt = ani.options(interval = 2, nmax = ifelse(interactive(), 50, 10))
+##' oopt = ani.options(interval = 2, nmax = ifelse(interactive(), 50, 2))
 ##'
 ##' ## observe the location of the red line (closer to the population mean)
 ##' res = sample.ratio()
@@ -51,7 +51,7 @@
 ##' ## HTML animation page
 ##' saveHTML({
 ##' par(mar = c(4, 4, 1, 0.5), mgp = c(2, 1, 0))
-##' ani.options(interval = 2, nmax = ifelse(interactive(), 50, 10))
+##' ani.options(interval = 2, nmax = ifelse(interactive(), 50, 2))
 ##' sample.ratio()
 ##' }, img.name='sample.ratio',htmlfile='sample.ratio.html',
 ##' ani.height = 400, ani.width = 500,

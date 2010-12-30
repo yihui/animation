@@ -15,7 +15,7 @@
 ##' @keywords dynamic
 ##' @examples
 ##'
-##' oopt = ani.options(interval = 0.1, nmax = ifelse(interactive(), 300, 10))
+##' oopt = ani.options(interval = 0.1, nmax = ifelse(interactive(), 300, 2))
 ##' par(mar = rep(0.5, 4))
 ##' BM.circle(cex = 2, pch = 19)
 ##'

@@ -37,10 +37,9 @@ saveHTML({
 saveHTML({
     par(mar = c(3, 3, 1, 0.5), mgp = c(2, 0.5, 0), tcl = -0.3,
         cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)
-    ani.options(interval = 0.05, nmax = 150)
+    ani.options(interval = 0.05, nmax = ifelse(interactive(), 150, 2))
     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")
 }, img.name = 'brownian_motion_a', htmlfile = 'index.html',
-         interval = 0.05, nmax = 150,
          description = c('Random walk of 10 points on the 2D plane:', 'for each point (x, y),', 'x = x + rnorm(1) and y = y + rnorm(1).'))
 
 
@@ -52,10 +51,9 @@ saveHTML({
 saveHTML({
     par(mar = c(3, 3, 1, 0.5), mgp = c(2, 0.5, 0), tcl = -0.3,
         cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)
-    ani.options(interval = 0.05, nmax = 150)
+    ani.options(interval = 0.05, nmax = ifelse(interactive(), 150, 2))
     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")
 }, img.name = 'brownian_motion_b',
-         htmlfile = 'index.html', interval = 0.05,
+         htmlfile = 'index.html',
          single.opts = "'controls': ['first', 'previous', 'play', 'next', 'last', 'loop', 'speed'], 'delayMin': 0",
-         nmax = 150,
          description = c('Random walk of 10 points on the 2D plane', '(without the navigation panel)'))

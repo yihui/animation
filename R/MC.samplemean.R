@@ -44,7 +44,7 @@
 ##' @keywords dynamic hplot
 ##' @examples
 ##'
-##' oopt = ani.options(interval = 0.2, nmax = ifelse(interactive(), 50, 10))
+##' oopt = ani.options(interval = 0.2, nmax = ifelse(interactive(), 50, 2))
 ##' par(mar = c(4, 4, 1, 1))
 ##'
 ##' ## when the number of rectangles is large, use border = NA
@@ -63,7 +63,7 @@
 ##'
 ##' ## HTML animation page
 ##' saveHTML({
-##' ani.options(interval = 0.3, nmax = ifelse(interactive(), 50, 10))
+##' ani.options(interval = 0.3, nmax = ifelse(interactive(), 50, 2))
 ##' MC.samplemean(n = 100, border = NA)
 ##' }, img.name='MC.samplemean', htmlfile='MC.samplemean.html',
 ##' title = "Sample Mean Monte Carlo Integration",

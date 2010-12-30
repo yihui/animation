@@ -34,7 +34,7 @@
 ##' @keywords dynamic dplot distribution
 ##' @examples
 ##'
-##' oopt = ani.options(interval = 0.1, nmax = ifelse(interactive(), 100, 10))
+##' oopt = ani.options(interval = 0.1, nmax = ifelse(interactive(), 100, 2))
 ##' ## 90% interval
 ##' conf.int(0.90, main = "Demonstration of Confidence Intervals")
 ##'

@@ -49,7 +49,7 @@
 ##' @examples
 ##'
 ##'
-##' oopt = ani.options(interval = 1, nmax = 50)
+##' oopt = ani.options(interval = 1, nmax = ifelse(interactive(), 50, 2))
 ##' par(pch = 20)
 ##'
 ##' ## default example
@@ -79,7 +79,7 @@
 ##'
 ##' ## HTML animation pages
 ##' saveHTML({
-##' ani.options(nmax = ifelse(interactive(), 100, 10))
+##' ani.options(nmax = ifelse(interactive(), 100, 2))
 ##' par(mar = c(3, 3, 1, 1.5), mgp = c(1.5, 0.5, 0), pch = 19)
 ##' newton.method(function(x) 5 * x^3 - 7 * x^2 - 40 *
 ##'     x + 100, 7.15, c(-6.2, 7.1), main = "")

@@ -35,7 +35,7 @@
 ##' @keywords dynamic distribution dplot
 ##' @examples
 ##'
-##' oopt = ani.options(interval = 0.1, nmax = ifelse(interactive(), 150, 10))
+##' oopt = ani.options(interval = 0.1, nmax = ifelse(interactive(), 150, 2))
 ##' op = par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 0), tcl = -0.3)
 ##' clt.ani(type = "s")
 ##' par(op)

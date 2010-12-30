@@ -23,7 +23,7 @@
 ##' @keywords dplot dynamic
 ##' @examples
 ##'
-##' oopt = ani.options(interval = 0.05, nmax = ifelse(interactive(), 150, 10))
+##' oopt = ani.options(interval = 0.05, nmax = ifelse(interactive(), 150, 2))
 ##' brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow",
 ##'     main = "Demonstration of Brownian Motion")
 ##' ani.options(oopt)

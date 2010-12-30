@@ -34,7 +34,7 @@
 ##' @examples
 ##'
 ##' ## moving window along a sin curve
-##' oopt = ani.options(interval = 0.1, nmax = ifelse(interactive(), 50, 10))
+##' oopt = ani.options(interval = 0.1, nmax = ifelse(interactive(), 50, 2))
 ##' par(mar = c(2, 3, 1, 0.5), mgp = c(1.5, 0.5, 0))
 ##' mwar.ani(lty.rect = 3, pch = 21, col = "red", bg = "yellow",type='o')
 ##'
@@ -44,7 +44,7 @@
 ##'
 ##' ## HTML animation page
 ##' saveHTML({
-##' ani.options(interval = 0.1, nmax = ifelse(interactive(), 50, 10))
+##' ani.options(interval = 0.1, nmax = ifelse(interactive(), 50, 2))
 ##' par(mar = c(2, 3, 1, 0.5), mgp = c(1.5, 0.5, 0))
 ##' mwar.ani(lty.rect = 3, pch = 21, col = "red", bg = "yellow",type='o')
 ##' }, img.name='mwar.ani',htmlfile='mwar.ani.html',

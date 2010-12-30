@@ -30,7 +30,7 @@
 ##' @keywords dynamic hplot
 ##' @examples
 ##'
-##' oopt = ani.options(interval = 0.2, nmax = ifelse(interactive(), 100, 10))
+##' oopt = ani.options(interval = 0.2, nmax = ifelse(interactive(), 100, 2))
 ##'
 ##' ## should be close to 1/6
 ##' MC.hitormiss()$est
@@ -40,7 +40,7 @@
 ##'
 ##' ## HTML animation page
 ##' saveHTML({
-##' ani.options(interval = 0.5, nmax = ifelse(interactive(), 100, 10))
+##' ani.options(interval = 0.5, nmax = ifelse(interactive(), 100, 2))
 ##' MC.hitormiss()
 ##' }, img.name='MC.hitormiss',htmlfile='MC.hitormiss.html',
 ##' title = "Hit or Miss Monte Carlo Integration",

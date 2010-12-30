@@ -39,7 +39,7 @@
 ##'
 ##' ## (1) Brownian motion
 ##' #  block length: 101 (i.e. 300-200+1)
-##' oopt = ani.options(nmax = ifelse(interactive(), 200, 10), interval = 0.1)
+##' oopt = ani.options(nmax = ifelse(interactive(), 200, 2), interval = 0.1)
 ##' #  plot y = dat against x = i + 1:block
 ##' #  customize xlab and ylab with 'i' and 'block'
 ##' #  restrict ylim using the range of 'dat'
@@ -53,7 +53,7 @@
 ##'
 ##' ## (2) Word counts of Hu's speech (block = 10; length(HuSpeech) = 75)
 ##' #  see any pattern in the President's speech?
-##' ani.options(nmax = ifelse(interactive(), 66, 20), interval = 0.5)
+##' ani.options(nmax = ifelse(interactive(), 66, 2), interval = 0.5)
 ##' data(HuSpeech)
 ##' moving.block(dat = HuSpeech, FUN = function(..., dat = dat,
 ##'     i = i, block = block) {
@@ -65,7 +65,7 @@
 ##' ## (3) sunspot data: observe the 11-year cycles
 ##' #  block = 11 years x 12 months/year = 132
 ##' #  set interval greater than 0 if your computer really rocks!
-##' ani.options(nmax = ifelse(interactive(), 2857, 10), interval = 0)
+##' ani.options(nmax = ifelse(interactive(), 2857, 2), interval = 0)
 ##' spt.att = tsp(sunspot.month)
 ##' #  the time index (we need it to correctly draw the ticks of x-axis)
 ##' ts.idx = seq(spt.att[1], spt.att[2], 1/spt.att[3])
@@ -79,7 +79,7 @@
 ##'
 ##' ## (4) earth quake: order the data by 'depth' first
 ##' #  see how the locations change as 'depth' increases
-##' ani.options(nmax = ifelse(interactive(), 900, 10), interval = 0.01)
+##' ani.options(nmax = ifelse(interactive(), 900, 2), interval = 0.01)
 ##' #  compute the mean depth for each block of data
 ##' moving.block(quakes[order(quakes$depth), c("long", "lat")],
 ##'     FUN = function(..., dat = dat, i = i, block = block) {

@@ -40,7 +40,7 @@
 ##' @keywords optimize dynamic dplot
 ##' @examples
 ##'
-##' oopt = ani.options(nmax = 30)
+##' oopt = ani.options(nmax = ifelse(interactive(), 30, 2))
 ##'
 ##' ## default example
 ##' xx = bisection.method()
@@ -51,6 +51,7 @@
 ##' xx = bisection.method(f, c(-3, 5))
 ##'
 ##' ## interaction: use your mouse to select the two end-points
+##' if (interactive())
 ##' bisection.method(f, c(-3, 5), interact = TRUE)
 ##'
 ##' ## HTML animation pages

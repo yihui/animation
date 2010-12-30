@@ -46,7 +46,7 @@
 ##' ## bootstrap for 20 random numbers from U(0, 1)
 ##' par(mar = c(1.5, 3, 1, 0.1), cex.lab = 0.8, cex.axis = 0.8,
 ##'     mgp = c(2, 0.5, 0), tcl = -0.3)
-##' oopt = ani.options(nmax = ifelse(interactive(), 50, 10))
+##' oopt = ani.options(nmax = ifelse(interactive(), 50, 2))
 ##' ## don't want the titles
 ##' boot.iid(main = c("", ""))
 ##'

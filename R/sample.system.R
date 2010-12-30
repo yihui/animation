@@ -19,14 +19,14 @@
 ##' @keywords distribution dynamic
 ##' @examples
 ##'
-##' oopt = ani.options(nmax = ifelse(interactive(), 50, 10))
+##' oopt = ani.options(nmax = ifelse(interactive(), 50, 2))
 ##' par(mar = rep(1, 4), lwd = 2)
 ##'
 ##' sample.system()
 ##'
 ##' ## HTML animation pages
 ##' saveHTML({
-##' ani.options(interval = 1, nmax = 30)
+##' ani.options(interval = 1, nmax = ifelse(interactive(), 30,2))
 ##' par(mar = rep(1, 4), lwd = 2)
 ##' sample.system()
 ##' }, img.name='sample.system', htmlfile='sample.html',

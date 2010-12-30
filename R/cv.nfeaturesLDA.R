@@ -53,6 +53,7 @@
 ##' @keywords multivariate dynamic dplot classif
 ##' @examples
 ##'
+##' oopt = ani.options(nmax = ifelse(interactive(), 10, 2))
 ##' par(pch = 19, mar = c(3, 3, 0.2, 0.7), mgp = c(1.5, 0.5, 0))
 ##' cv.nfeaturesLDA()
 ##'
@@ -70,6 +71,8 @@
 ##' 'animation has provided an illustration of the process of finding',
 ##' 'out the optimum number of variables using k-fold cross-validation',
 ##' 'in a linear discriminant analysis (LDA).'))
+##'
+##' ani.options(oopt)
 ##'
 cv.nfeaturesLDA = function(data = matrix(rnorm(600),
     60), cl = gl(3, 20), k = 5, cex.rg = c(0.5, 3), col.av = c("blue",

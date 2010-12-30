@@ -59,7 +59,7 @@
 ##' @examples
 ##'
 ##' ## default example
-##' oopt = ani.options(interval = 0.3, nmax = 50)
+##' oopt = ani.options(interval = 0.3, nmax = ifelse(interactive(), 50, 2))
 ##' xx = grad.desc()
 ##' xx$par  # solution
 ##' xx$persp(col = "lightblue", phi = 30)   # perspective plot
@@ -69,7 +69,7 @@
 ##' xx = grad.desc(f1, pi * c(-2, -2, 2, 2), c(-2 * pi, 2))
 ##' xx$persp(col = "lightblue", theta = 30, phi = 30)
 ##' ## or
-##' ani.options(interval = 0, nmax = ifelse(interactive(), 200, 10))
+##' ani.options(interval = 0, nmax = ifelse(interactive(), 200, 2))
 ##' f2 = function(x, y) sin(1/2 * x^2 - 1/4 * y^2 + 3) *
 ##'     cos(2 * x + 1 - exp(y))
 ##' xx = grad.desc(f2, c(-2, -2, 2, 2), c(-1, 0.5),
