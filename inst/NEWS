@@ -30,6 +30,9 @@ NEW FEATURES
     o a new demo('CLEvsLAL') to `replay' the NBA game between CLE and
   LAL on 2009 Christmas (with a new dataset 'CLELAL09')
 
+    o a new demo('fireworks') to set fireworks using R (thanks,
+  Weicheng Zhu)
+
 
 SIGNIFICANT CHANGES
 
