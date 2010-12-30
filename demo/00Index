@@ -14,3 +14,4 @@ pollen			  rgl 3D demo of the pollen data
 CLEvsLAL		  The NBA game between CLE and LAL on 2009 Christmas
 fireworks		  Set fireworks with R to celebrate the new year
 rgl_animation		  A demo on how to insert rgl 3D animations into a LaTeX document
+use_Cairo		  Using the Cairo devices with the animation package

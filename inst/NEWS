@@ -47,6 +47,9 @@ NEW FEATURES
     o a new demo('rgl_animation') to demonstrate how to insert rgl 3D
   animations into a LaTeX document and compile to PDF
 
+    o a new demo('use_Cairo') to show how to use the Cairo device in
+  this package to obtain high-quality output
+
 
 SIGNIFICANT CHANGES
 
