@@ -83,26 +83,28 @@ NULL
 
 
 ##' Word Counts of a Speech by Chinese President Hu.
-##' This speech came on the 30th anniversary of China's economic reform in 1978.
+##' This speech came on the 30th anniversary of China's economic
+##' reform in 1978.
 ##'
-##' On Dec 18, 2008, Chinese President Hu gave a speech on the 30th anniversary
-##' of China's economic reform in 1978, and this data has recorded the number
-##' of words used in each paragraph of his speech.
+##' On Dec 18, 2008, Chinese President Hu gave a speech on the 30th
+##' anniversary of China's economic reform in 1978, and this data has
+##' recorded the number of words used in each paragraph of his speech.
 ##'
 ##' The format is: int [1:75] 119 175 222 204 276 168 257 89 61 288 ...
+##'
+##' Source: The full text of speech is at
+##' \url{http://cpc.people.com.cn/GB/64093/64094/8544901.html}
 ##' @name HuSpeech
 ##' @docType data
 ##' @usage data(HuSpeech)
-##' @source The full text of speech:
-##'   \url{http://cpc.people.com.cn/GB/64093/64094/8544901.html}
 ##' @keywords datasets
 ##' @examples
 ##'
 ##' data(HuSpeech)
-##' # clear pattern: 1/3 short, 1/3 long, 1/3 short again
+##' ## clear pattern: 1/3 short, 1/3 long, 1/3 short again
 ##' plot(HuSpeech, type = "b", pch = 20, xlab = "paragraph index",
 ##'     ylab = "word count")
-##' # see ?moving.block for an animation example
+##' ## see ?moving.block for an animation example
 ##'
 NULL
 
@@ -112,20 +114,22 @@ NULL
 
 ##' Page views from Sep 21, 2007 to Dec 2, 2007 of Yihui's website.
 ##'
-##' The data is collected by Awstats for the website \url{http://yihui.name}.
+##' The data is collected by Awstats for the website
+##' \url{http://yihui.name}.
 ##'
-##' Format: a data frame with 73 observations on the following 5 variables.
-##'   \describe{ \item{day}{Date starts from Sep 21, 2007 to Dec 2,
-##'   2007.} \item{visits}{number of visits: a new visit is defined as
-##'   each new \emph{incoming visitor} (viewing or browsing a page) who was not
-##'   connected to the site during last \emph{60 min}.}
-##'   \item{pages}{number of times a \emph{page} of the site is viewed
-##'   (sum for all visitors for all visits).  This piece of data differs from
-##'   ``files'' in that it counts only HTML pages and excludes images and other
-##'   files.} \item{files}{number of times a \emph{page, image, file}
-##'   of the site is viewed or downloaded by someone.}
-##'   \item{bandwidth}{amount of data downloaded by all \emph{pages},
-##'   \emph{images} and \emph{files} within the site (units in MegaBytes).} }
+##' Format: a data frame with 73 observations on the following 5
+##' variables.  \describe{ \item{day}{Date starts from Sep 21, 2007 to
+##' Dec 2, 2007.} \item{visits}{number of visits: a new visit is
+##' defined as each new \emph{incoming visitor} (viewing or browsing a
+##' page) who was not connected to the site during last \emph{60
+##' min}.}  \item{pages}{number of times a \emph{page} of the site is
+##' viewed (sum for all visitors for all visits).  This piece of data
+##' differs from ``files'' in that it counts only HTML pages and
+##' excludes images and other files.} \item{files}{number of times a
+##' \emph{page, image, file} of the site is viewed or downloaded by
+##' someone.}  \item{bandwidth}{amount of data downloaded by all
+##' \emph{pages}, \emph{images} and \emph{files} within the site
+##' (units in MegaBytes).} }
 ##' @name pageview
 ##' @docType data
 ##' @usage data(pageview)
@@ -136,7 +140,7 @@ NULL
 ##' data(pageview)
 ##' plot(pageview[,1:2], type = "b", col = "red",
 ##'   main = "Number of Visits in Yihui's Web")
-##' # partial auto-correlation
+##' ## partial auto-correlation
 ##' pacf(pageview$visits)
 ##'
 NULL
@@ -146,45 +150,29 @@ NULL
 
 
 ##' Synthetic dataset about the geometric features of pollen grains.
-##' There are 3848 observations on 5 variables. From the 1986 ASA Data Exposition
-##' dataset, made up by David Coleman of RCA Labs.
+##' There are 3848 observations on 5 variables. From the 1986 ASA Data
+##' Exposition dataset, made up by David Coleman of RCA Labs.
 ##'
-##' Format: a data frame with 3848 observations on the following 5 variables.
-##'   \describe{ \item{RIDGE}{a numeric vector} \item{NUB}{a
-##'   numeric vector} \item{CRACK}{a numeric vector}
-##'   \item{WEIGHT}{a numeric vector} \item{DENSITY}{a numeric
-##'   vector} }
+##' Format: a data frame with 3848 observations on the following 5
+##' variables.  \describe{ \item{RIDGE}{a numeric vector} \item{NUB}{a
+##' numeric vector} \item{CRACK}{a numeric vector} \item{WEIGHT}{a
+##' numeric vector} \item{DENSITY}{a numeric vector} }
+##'
+##' Source: collected from Statlib Datasets Archive:
+##' \url{http://stat.cmu.edu/datasets/}
 ##' @name pollen
 ##' @docType data
 ##' @usage data(pollen)
-##' @source Collected from Statlib Datasets Archive:
-##'   \url{http://stat.cmu.edu/datasets/}
 ##' @keywords datasets
 ##' @examples
 ##'
 ##' data(pollen)
+##'
 ##' ## some dense points in the center?
 ##' plot(pollen[, 1:2], pch = 20, col = rgb(0, 0, 0, 0.1))
 ##'
-##' ## check with rgl
-##' \dontrun{
-##' library(rgl)
-##' # ajust the view
-##' uM = matrix(c(-0.370919227600098, -0.513357102870941,
-##'     -0.773877620697021, 0, -0.73050606250763, 0.675815105438232,
-##'     -0.0981751680374146, 0, 0.573396027088165, 0.528906404972076,
-##'     -0.625681936740875, 0, 0, 0, 0, 1), 4, 4)
-##' open3d(userMatrix = uM, windowRect = c(10, 10, 510, 510))
-##' plot3d(pollen[, 1:3])
-##' zm = seq(1, 0.045, length = 200)
-##' par3d(zoom = 1)
-##' for (i in 1:length(zm)) {
-##'     par3d(zoom = zm[i])
-##'     # remove the comment if you want to save the snapshots
-##'     # rgl.snapshot(paste(formatC(i, width = 3, flag = 0), ".png", sep = ""))
-##'     Sys.sleep(0.01)
-##' }
-##' }
+##' ## see demo('pollen', package = 'animation') for a 3D demo;
+##' ##   truth is there!
 ##'
 NULL
 
@@ -208,32 +196,33 @@ NULL
 ##' data(vanke1127)
 ##' with(vanke1127, {
 ##'     tab.price = table(price)
-##'     plot(as.numeric(names(tab.price)), tab.price, type = "h",
+##'     plot(as.numeric(names(tab.price)), as.numeric(tab.price), type = "h",
 ##'         xlab = "price", ylab = "frequency")
 ##' })
 ##'
-##' \dontrun{
-##' ani.options(interval = 0.5, loop = FALSE)
+##' oopt = ani.options(interval = 0.5, loop = FALSE, title='Stock price of Vanke')
 ##'
-##' with(vanke1127, {
 ##'     ## a series of HTML animations with different time spans
-##'     ani.start(title = "Prices changing along with time interval 15 min")
-##'     price.ani(price, time, lwd = 2)
-##'     ani.stop()
+##'     saveHTML({
+##' data(vanke1127)
+##'     price.ani(vanke1127$price, vanke1127$time, lwd = 2)
+##' }, img.name = 'vanke_a', description = "Prices changing along with time interval 15 min")
 ##'
-##'     ani.start(title = "Prices changing along with time interval 30 min")
-##'     price.ani(price, time, span = 30 * 60, lwd = 3)
-##'     ani.stop()
+##'     saveHTML({
+##' data(vanke1127)
+##'     price.ani(vanke1127$price, vanke1127$time, span = 30 * 60, lwd = 3)
+##' }, img.name='vanke_b', description = "Prices changing along with time interval 30 min")
 ##'
-##'     ani.start(title = "Prices changing along with time interval 5 min")
-##'     price.ani(price, time, span = 5 * 60, lwd = 2)
-##'     ani.stop()
+##'     saveHTML({
+##' data(vanke1127)
+##'     price.ani(vanke1127$price, vanke1127$time, span = 5 * 60, lwd = 2)
+##' }, img.name='vanke_c', description = "Prices changing along with time interval 5 min")
 ##'
 ##'     ## GIF animation
-##'     saveMovie(price.ani(price, time, lwd = 2), interval = 1,
-##'         moviename = "price", loop = 1)
-##' })
-##' }
+##'     saveMovie(price.ani(vanke1127$price, vanke1127$time, lwd = 2),
+##'         movie.name = "price.gif", loop = 1)
+##'
+##' ani.options(oopt)
 ##'
 NULL
 
@@ -244,11 +233,49 @@ NULL
 ##' The format is:
 ##'
 ##' Time-Series [1:116] from 1895 to 2010: 32.7 27.8 32.7 30.4 42.6 31.9 34.5 39.8 32.6 39.6 ...
+##' Source: \url{http://www.wrcc.dri.edu/cgi-bin/divplot1_form.pl?1305}
 ##' @name iatemp
 ##' @docType data
 ##' @usage data(iatemp)
-##' @source \url{http://www.wrcc.dri.edu/cgi-bin/divplot1_form.pl?1305}
 ##' @keywords datasets
 ##' @examples data(iatemp)
 ##' plot(iatemp)
+NULL
+
+
+
+##' The NBA game between CLE Cavaliers and LAL Lakers on Dec 25, 2009.
+##'
+##' Cleveland Cavaliers played against Los Angeles Lakers at Staples
+##' Center in LA on Dec 25, 2009 and won the game by 102:87. This data
+##' recorded the locations of players on the court and the results of
+##' the shots.
+##'
+##' Format:
+##'   a data frame with 455 observations on the following 6 variables.
+##'   \describe{
+##'     \item{\code{player}}{a character vector: the current player}
+##'     \item{\code{time}}{a character vector: the time}
+##'     \item{\code{period}}{a numeric vector: the period (1 - 4)}
+##'     \item{\code{realx}}{a numeric vector: the x-axis location}
+##'     \item{\code{realy}}{a numeric vector: the y-axis location}
+##'     \item{\code{result}}{a factor with levels \code{made} \code{missed}}
+##'   }
+##'
+##' Source: \url{http://www.basketballgeek.com/data/} (transformed
+##' based on the original data)
+##' @name CLELAL09
+##' @docType data
+##' @usage data(CLELAL09)
+##' @note We view the court with CLE in the left and LAL in the right:
+##' \code{realx} is the distance to the left border of CLE's court,
+##' and \code{realy} is the distance to the bottom border of the
+##' court; notice that the size of the court is \eqn{94 \times 50}{94
+##' x 50} (feet).
+##' @keywords datasets
+##' @examples library(animation)
+##' data(CLELAL09)
+##' ## see demo('CLEvsLAL', package = 'animation')
+##' ##   for a `replay' of the game
+##'
 NULL

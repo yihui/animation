@@ -24,6 +24,12 @@ NEW FEATURES
   now -- all the functions in this package have been adjusted to use
   ani.pause()
 
+    o a new demo('pollen') to show the hidden 'structure' in a large
+  data (requires the rgl package)
+
+    o a new demo('CLEvsLAL') to `replay' the NBA game between CLE and
+  LAL on 2009 Christmas (with a new dataset 'CLELAL09')
+
 
 SIGNIFICANT CHANGES
 
