@@ -3,75 +3,95 @@
 ##' \code{animate} package. Compile the document if an appropriate LaTeX
 ##' command is provided.
 ##'
-##' This is actually a wrapper to generate a LaTeX document using R. The
-##' document uses the LaTeX package called \code{animate} to insert animations
-##' into PDF's. When we pass an R expression to this function, the expression
-##' will be evaluated and recorded by a grahpics device (typically
-##' \code{\link[grDevices]{png}} and \code{\link[grDevices]{pdf}}). At last, a
-##' LaTeX document will be created and compiled if an appropriate LaTeX command
-##' is provided. And the final PDF output will be opened with the PDF viewer
-##' set in \code{getOption("pdfviewer")} if \code{ani.options("autobrowse") ==
-##' TRUE}.
+##' This is actually a wrapper to generate a LaTeX document using
+##' R. The document uses the LaTeX package called \code{animate} to
+##' insert animations into PDF's. When we pass an R expression to this
+##' function, the expression will be evaluated and recorded by a
+##' grahpics device (typically \code{\link[grDevices]{png}} and
+##' \code{\link[grDevices]{pdf}}). At last, a LaTeX document will be
+##' created and compiled if an appropriate LaTeX command is
+##' provided. And the final PDF output will be opened with the PDF
+##' viewer set in \code{getOption("pdfviewer")} if
+##' \code{ani.options("autobrowse") == TRUE}.
 ##'
-##' @param expr an expression to generate animations; use either the animation
-##'   functions (e.g. \code{brownian.motion()}) in this package or a custom
-##'   expression (e.g. \code{for(i in 1:10) plot(runif(10), ylim = 0:1)}).
-##' @param nmax maximum number of animation frames (if missing and the graphics
-##' device is a bitmap device, this number will be automatically calculated);
-##' note that we do not have to specify \code{nmax} when using PDF devices.
-##' @param img.name basename of file names of animation frames; see the Note
-##' section for a possible adjustment on \code{img.name}
-##' @param ani.opts options to control the behavior of the animation (passed to
-##'   the LaTeX macro \code{"\\animategraphics"}; default to be
-##' \code{"controls,width=\\linewidth"})
-##' @param centering logical: whether to center the graph using the LaTeX
-##' environment \verb{\begin{center}} and \verb{\end{center}}
-##' @param caption,label caption and label for the graphics in the figure
-##'   environment
+##' @param expr an expression to generate animations; use either the
+##' animation functions (e.g. \code{brownian.motion()}) in this
+##' package or a custom expression (e.g. \code{for(i in 1:10)
+##' plot(runif(10), ylim = 0:1)}).
+##' @param nmax maximum number of animation frames (if missing and the
+##' graphics device is a bitmap device, this number will be
+##' automatically calculated); note that we do not have to specify
+##' \code{nmax} when using PDF devices.
+##' @param img.name basename of file names of animation frames; see
+##' the Note section for a possible adjustment on \code{img.name}
+##' @param ani.opts options to control the behavior of the animation
+##' (passed to the LaTeX macro \code{"\\animategraphics"}; default to
+##' be \code{"controls,width=\\linewidth"})
+##' @param centering logical: whether to center the graph using the
+##' LaTeX environment \verb{\begin{center}} and \verb{\end{center}}
+##' @param caption,label caption and label for the graphics in the
+##' figure environment
 ##' @param pkg.opts global options for the \code{animate} package
-##' @param documentclass LaTeX document class; if \code{NULL}, the output
-##' will not be a complete LaTeX document (only the code to generate the
-##' PDF animation will be printed in the console)
-##' @param latex.filename file name of the LaTeX document; if an empty string
-##'   \code{""}, the LaTeX code will be printed in the console and hence not
-##'   compiled
-##' @param pdflatex the command for pdfLaTeX (set to \code{NULL} to ignore the
-##'   compiling)
-##' @param install.animate copy the LaTeX style files \file{animate.sty} and
-##' \file{animfp.sty} to \code{ani.options('outdir')}? If you have not installed
-##' the LaTeX package \code{animate}, it suffices just to copy these to files.
+##' @param documentclass LaTeX document class; if \code{NULL}, the
+##' output will not be a complete LaTeX document (only the code to
+##' generate the PDF animation will be printed in the console)
+##' @param latex.filename file name of the LaTeX document; if an empty
+##' string \code{""}, the LaTeX code will be printed in the console
+##' and hence not compiled
+##' @param pdflatex the command for pdfLaTeX (set to \code{NULL} to
+##' ignore the compiling)
+##' @param install.animate copy the LaTeX style files
+##' \file{animate.sty} and \file{animfp.sty} to
+##' \code{ani.options('outdir')}? If you have not installed the LaTeX
+##' package \code{animate}, it suffices just to copy these to files.
 ##' @param overwrite whether to overwrite the existing image frames
-##' @param \dots other arguments passed to the graphics device \code{ani.dev},
-##'   e.g. height and width
+##' @param use.dev whether to use the graphics device specified in
+##' \code{ani.options('ani.dev')}; if \code{FALSE}, we need to
+##' generate image files by our own approaches in the expression
+##' \code{expr}; this can be useful when the output cannot be captured
+##' by standard R graphics devices -- a typical example is the
+##' \pkg{rgl} graphics (we can use \code{\link[rgl]{rgl.snapshot}} to
+##' capture \pkg{rgl} graphics to png files, or
+##' \code{\link[rgl]{rgl.postscript}} to save plots as postscript/pdf;
+##' see \code{demo('rgl_animation')} for an example)
+##' @param \dots other arguments passed to the graphics device
+##' \code{ani.options('ani.dev')}, e.g. \code{ani.height}
+##' and \code{ani. width}
+##'
 ##' @return Invisible \code{NULL}
-##' @note
-##' This function will detect if it was called in a Sweave environment --
-##' if so, \code{img.name} will be automatically adjusted to
-##' \code{prefix.string-label}, and the LaTeX output will not be a complete
-##' document, but rather a single line like
+##' @note This function will detect if it was called in a Sweave
+##' environment -- if so, \code{img.name} will be automatically
+##' adjusted to \code{prefix.string-label}
+##' (\code{ani.options('sweave.prefix')} will be set to this string,
+##' too), and the LaTeX output will not be a complete document, but
+##' rather a single line like
+##'
 ##' \verb{\animategraphics[ani.opts]{1/interval}{img.name}{}{}}
 ##'
-##' This automatic feature can be useful to Sweave users (but remember to
-##' set the Sweave option \code{results=tex}).
+##' This automatic feature can be useful to Sweave users (but remember
+##' to set the Sweave option \code{results=tex}).
 ##'
-##' PDF devices are recommended because of their high quality and usually they
-##' are more friendly to LaTeX. But sometimes the size of PDF files is much
-##' larger. Use \code{ani.options(ani.dev = 'pdf', ani.type = 'pdf')} to
-##' set the PDF device.
+##' PDF devices are recommended because of their high quality and
+##' usually they are more friendly to LaTeX. But sometimes the size of
+##' PDF files is much larger. Use \code{ani.options(ani.dev = 'pdf',
+##' ani.type = 'pdf')} to set the PDF device.
 ##'
-##' So far animations created by the LaTeX package \pkg{animate} can only be
-##'   viewed with Acrobat Reader (Windows) or \command{acroread} (Linux).
-##' Other PDF viewers may not support JavaScript (in fact the PDF animation is
-##' driven by JavaScript). Linux users may need to install \command{acroread}
-##' and set \code{options(pdfviewer = 'acroread')}.
+##' So far animations created by the LaTeX package \pkg{animate} can
+##' only be viewed with Acrobat Reader (Windows) or \command{acroread}
+##' (Linux).  Other PDF viewers may not support JavaScript (in fact
+##' the PDF animation is driven by JavaScript). Linux users may need
+##' to install \command{acroread} and set \code{options(pdfviewer =
+##' 'acroread')}.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{saveMovie}} to convert image frames to a single
-##'   GIF/MPEG file; \code{\link{saveSWF}} to convert images to Flash;
-##'   \code{\link{saveHTML}} to create an HTML page containing the animation
-##' @references To know more about the \code{animate} package, please refer to
-##'   \url{http://www.ctan.org/tex-archive/macros/latex/contrib/animate/}.
-##'   There are a lot of options can be set in \code{ani.opts} and
-##'   \code{pkg.opts}.
+##' @seealso \code{\link{saveMovie}} to convert image frames to a
+##' single GIF/MPEG file; \code{\link{saveSWF}} to convert images to
+##' Flash; \code{\link{saveHTML}} to create an HTML page containing
+##' the animation
+##' @references To know more about the \code{animate} package, please
+##' refer to
+##' \url{http://www.ctan.org/tex-archive/macros/latex/contrib/animate/}.
+##' There are a lot of options can be set in \code{ani.opts} and
+##' \code{pkg.opts}.
 ##' @keywords dynamic device utilities
 ##' @examples
 ##'
@@ -89,7 +109,7 @@
 saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
     centering = TRUE, caption = NULL, label = NULL,
     pkg.opts = NULL, documentclass = "article", latex.filename = "animation.tex",
-    pdflatex = "pdflatex", install.animate = TRUE, overwrite = TRUE, ...) {
+    pdflatex = "pdflatex", install.animate = TRUE, overwrite = TRUE, use.dev = TRUE, ...) {
     oopt = ani.options(...)
     if (!missing(nmax)) ani.options(nmax = nmax)
     on.exit(ani.options(oopt))
@@ -102,6 +122,7 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
             if (all(c('prefix.string', 'label') %in% names(chunkopts))) {
                 ## yes, I'm in Sweave w.p. 95%
                 img.name = paste(chunkopts$prefix.string, chunkopts$label, sep = '-')
+                ani.options(sweave.prefix = img.name)
                 outdir = '.'
                 in.sweave = TRUE
             }
@@ -118,26 +139,27 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
     if (is.character(ani.dev))
         ani.dev = get(ani.dev)
     ani.files.len = length(list.files(path = dirname(img.name), pattern =
-                           sprintf('^%s.*\\.%s$', img.name, ani.ext)))
+                           sprintf('^%s[0-9]+\\.%s$', img.name, ani.ext)))
     if (overwrite || !ani.files.len) {
-        ani.dev(file.path(outdir, sprintf("%s%s.%s", img.name, num, ani.ext)),
+        if (use.dev)
+            ani.dev(file.path(outdir, sprintf("%s%s.%s", img.name, num, ani.ext)),
                 width = ani.options('ani.width'), height = ani.options('ani.height'))
         owd1 = setwd(owd)
         expr
         setwd(owd1)
-        dev.off()
+        if (use.dev) dev.off()
     }
     ani.files.len = length(list.files(path = dirname(img.name), pattern =
-                           sprintf('^%s.*\\.%s$', img.name, ani.ext)))
+                           sprintf('^%s[0-9]+\\.%s$', img.name, ani.ext)))
 
     if (missing(nmax)) {
         ## count the number of images generated
-        start.num = ifelse(ani.ext == 'pdf', '', 1)
-        end.num = ifelse(ani.ext == 'pdf', '', ani.files.len)
+        start.num = ifelse(ani.ext == 'pdf' && use.dev, '', 1)
+        end.num = ifelse(ani.ext == 'pdf' && use.dev, '', ani.files.len)
     } else {
         ## PDF animations should start from 0 to nmax-1
-        start.num = ifelse(ani.ext == 'pdf', 0, 1)
-        end.num = ifelse(ani.ext == 'pdf', nmax - 1, nmax)
+        start.num = ifelse(ani.ext == 'pdf' && use.dev, 0, 1)
+        end.num = ifelse(ani.ext == 'pdf' && use.dev, nmax - 1, nmax)
     }
 
     if (missing(ani.opts)) ani.opts = "controls,width=\\linewidth"

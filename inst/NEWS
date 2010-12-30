@@ -33,6 +33,12 @@ NEW FEATURES
     o a new demo('fireworks') to set fireworks using R (thanks,
   Weicheng Zhu)
 
+    o saveLatex() can work with the rgl package to produce 3D animations
+  in a PDF document now; see demo('rgl_animation')
+
+    o a new demo('rgl_animation') to demonstrate how to insert rgl 3D
+  animations into a LaTeX document and compile to PDF
+
 
 SIGNIFICANT CHANGES
 

@@ -1,6 +1,6 @@
 library(animation)
 data(pollen)
-oopt = ani.options(interval = 0.01)
+oopt = ani.options(interval = 0.05)
 
 if (require('rgl')) {
     ## ajust the view
