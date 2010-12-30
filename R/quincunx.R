@@ -42,6 +42,7 @@
 ##' ## HTML animation page
 ##' saveHTML({
 ##' ani.options(nmax = ifelse(interactive(), 200 + 15 -2, 2), interval = 0.03)
+##' quincunx(balls = 200, col.balls = rainbow(200))
 ##' }, img.name='quincunx', htmlfile='quincunx.html',
 ##' ani.height = 500, ani.width = 600,
 ##'     title = "Demonstration of the Galton Box",
