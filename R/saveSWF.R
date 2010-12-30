@@ -64,7 +64,8 @@ saveSWF = function(expr, img.name = "Rplot", swf.name = "animation.swf",
     if (is.character(ani.dev)) ani.dev = get(ani.dev)
     num = ifelse(ani.options('ani.type') == 'pdf', '', '%d')
     img.fmt = paste(img.name, num, ".", file.ext, sep = "")
-    ani.dev(img.fmt, width = ani.options('ani.width'), height = ani.options('ani.height'))
+    ani.dev(file.path(outdir, img.fmt), width = ani.options('ani.width'),
+            height = ani.options('ani.height'))
     owd1 = setwd(owd)
     expr
     setwd(owd1)

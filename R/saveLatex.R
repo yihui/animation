@@ -120,7 +120,7 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
     ani.files.len = length(list.files(path = dirname(img.name), pattern =
                            sprintf('^%s.*\\.%s$', img.name, ani.ext)))
     if (overwrite || !ani.files.len) {
-        ani.dev(sprintf("%s%s.%s", img.name, num, ani.ext),
+        ani.dev(file.path(outdir, sprintf("%s%s.%s", img.name, num, ani.ext)),
                 width = ani.options('ani.width'), height = ani.options('ani.height'))
         owd1 = setwd(owd)
         expr
