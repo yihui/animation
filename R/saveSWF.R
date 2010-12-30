@@ -25,6 +25,9 @@
 ##'
 ##' We can also set the path to SWF Tools by
 ##' \code{ani.options(swftools = 'path/to/swftools')}.
+##'
+##' \code{ani.options('ani.type')} can only be one of \code{png},
+##' \code{pdf} and \code{jpeg}.
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link{saveMovie}}, \code{\link{saveLatex}},
 ##' \code{\link{saveHTML}}, \code{\link[base]{system}},
