@@ -1,7 +1,7 @@
 Package: animation
 Type: Package
 Title: A Gallery of Animations in Statistics and Utilities to Create Animations
-Version: 1.2-0
+Version: 2.0-0
 Date: 2011-01-01
 Author: Yihui Xie
 Maintainer: Yihui Xie <xie@yihui.name>
@@ -12,7 +12,8 @@ Description: This package contains various functions for animations in
   and machine learning. These functions might be of help in teaching
   statistics and data analysis. Also provided in this package are several
   approaches to save animations to various formats, e.g. Flash, GIF, HTML
-  page and PDF.
+  page and PDF  (saveSWF(), saveMovie(), saveHTML(), and saveLatex()
+  respectively). PDF animations can be inserted into Sweave easily.
 Imports: MASS
 License: GPL-2 | GPL-3
 URL: http://animation.yihui.name
