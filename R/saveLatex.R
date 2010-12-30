@@ -58,7 +58,7 @@
 ##' see \code{demo('rgl_animation')} for an example)
 ##' @param \dots other arguments passed to the graphics device
 ##' \code{ani.options('ani.dev')}, e.g. \code{ani.height}
-##' and \code{ani. width}
+##' and \code{ani.width}
 ##'
 ##' @return Invisible \code{NULL}
 ##' @note This function will detect if it was called in a Sweave

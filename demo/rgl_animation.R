@@ -11,22 +11,24 @@ if (require('rgl')) {
                nrow = 4, ncol = 4)
 
     ## note the width and height are 500px respectively
-    open3d(userMatrix = uM, windowRect = c(10, 10, 510, 510))
+    open3d(userMatrix = uM, windowRect = c(30, 30, 530, 530))
     plot3d(pollen[, 1:3])
-    zm = c(1, .9, .8, .6, .4, .1)
+    zm = seq(1, .05, length = 20)
     par3d(zoom = 1)
 
     ## the most important argument is use.dev = FALSE!
-    ## and the file extension should be 'pdf', since we are using rgl.postscript()
+    ## and the file extension should be 'png', since we are using rgl.snapshot()
     saveLatex({
         for (i in 1:length(zm)) {
             par3d(zoom = zm[i])
-            rgl.postscript(file.path(ani.options('outdir'), sprintf('pollen_demo%d.pdf', i)),
-                           fmt = 'pdf', drawText=FALSE)
+            rgl.snapshot(file.path(ani.options('outdir'), sprintf('pollen_demo%d.png', i)))
         }
         rgl.close()
     }, img.name='pollen_demo', use.dev=FALSE,
-              ani.type='pdf', interval = 1,
-              latex.filename='rgl_pollen_animation.tex')
+              ani.type='png', interval = .2,
+              latex.filename='rgl_pollen_animation.tex',
+              caption = 'Zoom in a 3D scatter plot to see the truth.')
 
 } else warning('You have to install the rgl package first: install.packages("rgl")')
+
+message('This demo needs rgl >= 0.92.798 and R >= 2.12.1')
