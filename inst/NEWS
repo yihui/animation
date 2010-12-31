@@ -50,6 +50,9 @@ NEW FEATURES
     o a new demo('use_Cairo') to show how to use the Cairo device in
   this package to obtain high-quality output
 
+    o a new demo('Sweave_animation') to show how to insert animations
+  into Sweave documents
+
 
 SIGNIFICANT CHANGES
 

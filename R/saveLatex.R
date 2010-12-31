@@ -62,7 +62,8 @@
 ##' \verb{\animategraphics[ani.opts]{1/interval}{img.name}{}{}}
 ##'
 ##' This automatic feature can be useful to Sweave users (but remember
-##' to set the Sweave option \code{results=tex}).
+##' to set the Sweave option \code{results=tex}). See
+##' \code{demo('Sweave_animation')} for a complete example.
 ##'
 ##' PDF devices are recommended because of their high quality and
 ##' usually they are more friendly to LaTeX. But sometimes the size of
