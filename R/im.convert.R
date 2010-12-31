@@ -193,11 +193,10 @@ im.convert = function(files, output = "animation.gif", convert = c("convert",
         if (clean)
             unlink(files)
         if (ani.options('autobrowse')) {
-            switch(.Platform$OS.type,
-                   windows = try(shell.exec(output.path)),
-                   unix = try(system(paste('xdg-open ', output.path)), TRUE))
-            if (Sys.info()["sysname"] == "Darwin")
-                try(system(paste('open ', output.path)), TRUE)
+            if (.Platform$OS.type == 'windows')
+                try(shell.exec(output.path)) else if (Sys.info()["sysname"] == "Darwin")
+                    try(system(paste('open ', shQuote(output.path))), TRUE) else
+            try(system(paste('xdg-open ', shQuote(output.path))), TRUE)
         }
         return(invisible(output.path))
     }

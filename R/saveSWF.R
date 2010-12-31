@@ -113,13 +113,11 @@ saveSWF = function(expr, img.name = "Rplot", swf.name = "animation.swf",
         message("\n\nFlash has been created at: ",
                 output.path <- normalizePath(file.path(outdir, swf.name)))
         if (ani.options('autobrowse')) {
-            switch(.Platform$OS.type,
-                   windows = try(shell.exec(output.path)),
-                   unix = try(system(paste('xdg-open ', output.path)), TRUE))
-            if (Sys.info()["sysname"] == "Darwin")
-                try(system(paste('open ', output.path)), TRUE)
+            if (.Platform$OS.type == 'windows')
+                try(shell.exec(output.path)) else if (Sys.info()["sysname"] == "Darwin")
+                    try(system(paste('open ', shQuote(output.path))), TRUE) else
+            try(system(paste('xdg-open ', shQuote(output.path))), TRUE)
         }
-
     }
     invisible(cmd)
 }
