@@ -111,15 +111,19 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
     use.dev = ani.options('use.dev')
     ## detect if I'm in a Sweave environment
     in.sweave = FALSE
-    if (length(sys.parents()) >= 3) {
-        if ('chunkopts' %in% ls(envir = sys.frame(2))) {
-            chunkopts = get('chunkopts', envir = sys.frame(2))
-            if (all(c('prefix.string', 'label') %in% names(chunkopts))) {
-                ## yes, I'm in Sweave w.p. 95%
-                img.name = paste(chunkopts$prefix.string, chunkopts$label, sep = '-')
-                ani.options(img.fmt = file.path(outdir, paste(img.name, '%d.', ani.ext, sep = '')))
-                outdir = '.'
-                in.sweave = TRUE
+    if ((n.parents <- length(sys.parents())) >= 3) {
+        for (i in seq_len(n.parents) - 1) {
+            if ('chunkopts' %in% ls(envir = sys.frame(i))) {
+                chunkopts = get('chunkopts', envir = sys.frame(i))
+                if (all(c('prefix.string', 'label') %in% names(chunkopts))) {
+                    ## yes, I'm in Sweave w.p. 95%
+                    img.name = paste(chunkopts$prefix.string, chunkopts$label, sep = '-')
+                    ani.options(img.fmt = file.path(outdir, paste(img.name, '%d.',
+                                ani.ext, sep = '')))
+                    ## outdir = '.'
+                    in.sweave = TRUE
+                    break
+                }
             }
         }
     }
