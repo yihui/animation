@@ -138,7 +138,10 @@
 ##' \code{nmax}.
 ##'
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link[base]{options}}, \code{\link[grDevices]{dev.interactive}}
+##' @seealso \code{\link[base]{options}},
+##' \code{\link[grDevices]{dev.interactive}}, \code{\link{saveHTML}},
+##' \code{\link{saveMovie}}, \code{\link{saveLatex}},
+##' \code{\link{saveSWF}}
 ##' @references \url{http://animation.yihui.name/animation:options}
 ##' @keywords misc
 ##' @examples
