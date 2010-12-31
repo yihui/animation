@@ -116,7 +116,7 @@ im.convert = function(files, output = "animation.gif", convert = c("convert",
             message("I cannot find ImageMagick with convert = ", shQuote(convert))
             if (.Platform$OS.type == "windows") {
                 if (!inherits(try({
-                    magick.path = readRegistry("SOFTWARE\\ImageMagick\\Current")$BinPath
+                    magick.path = utils::readRegistry("SOFTWARE\\ImageMagick\\Current")$BinPath
                 }, silent = TRUE), "try-error")) {
                     if (nzchar(magick.path)) {
                         convert = shQuote(normalizePath(file.path(magick.path,
@@ -135,7 +135,7 @@ im.convert = function(files, output = "animation.gif", convert = c("convert",
                             magick.path)
                 }
                 else if (!inherits(try({
-                    magick.path = readRegistry("LyX.Document\\Shell\\open\\command", "HCR")
+                    magick.path = utils::readRegistry("LyX.Document\\Shell\\open\\command", "HCR")
                 }, silent = TRUE), "try-error")) {
                     convert = file.path(dirname(gsub("(^\"|\" \"%1\"$)", "", magick.path[[1]])), c("..", "../etc"), "imagemagick", "convert.exe")
                     convert = convert[file.exists(convert)]

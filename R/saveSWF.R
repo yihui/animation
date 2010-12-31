@@ -82,7 +82,7 @@ saveSWF = function(expr, img.name = "Rplot", swf.name = "animation.swf",
         swftools = ani.options('swftools')
     } else {
         if (.Platform$OS.type == 'windows' && !inherits(try({
-            swftools = readRegistry("SOFTWARE\\quiss.org\\SWFTools\\InstallPath")[[1]]
+            swftools = utils::readRegistry("SOFTWARE\\quiss.org\\SWFTools\\InstallPath")[[1]]
         }, silent = TRUE), "try-error")) {
             ani.options(swftools = swftools)
         }
