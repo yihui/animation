@@ -91,9 +91,13 @@ saveSWF = function(expr, img.name = "Rplot", swf.name = "animation.swf",
                  paste(file.ext, "2swf", sep = ""), sep = "")
     tool = shQuote(normalizePath(paste(tool,
                    ifelse(.Platform$OS.type == 'windows', '.exe', ''), sep = '')))
-    version = system(paste(tool, '--version'), intern = TRUE)
+    version = try(system(paste(tool, '--version'), intern = TRUE))
+    if (inherits(version, 'try-error')) {
+        warning('The command ', tool, ' was not available. Please install: http://www.swftools.org')
+        return()
+    }
     if (!length(grep('swftools', version))) {
-        warning("swftools not found; please install swftools first: http://www.swftools.org")
+        warning("SWF Tools not found; please install it first: http://www.swftools.org")
         return()
     }
     wildcard = paste(img.name, "*.", file.ext, sep = "")

@@ -104,11 +104,11 @@ im.convert = function(files, output = "animation.gif", convert = c("convert",
     if (convert == 'convert') {
         version = ''
         if (!is.null(ani.options('convert'))) {
-            version = cmd.fun(sprintf("%s --version", ani.options('convert')),
-                              intern = TRUE)
+            version = try(cmd.fun(sprintf("%s --version", ani.options('convert')),
+                              intern = TRUE))
         }
         if (!length(grep("ImageMagick", version))) {
-            version = cmd.fun(sprintf("%s --version", convert), intern = TRUE)
+            version = try(cmd.fun(sprintf("%s --version", convert), intern = TRUE))
         } else convert = ani.options('convert')
         ## try to look for ImageMagick in the Windows Registry Hive,
         ## the Program Files directory and the LyX installation
@@ -162,11 +162,11 @@ im.convert = function(files, output = "animation.gif", convert = c("convert",
         ## GraphicsMagick
         version = ''
         if (!is.null(ani.options('convert'))) {
-            version = cmd.fun(sprintf("%s -version", ani.options('convert')),
-                              intern = TRUE)
+            version = try(cmd.fun(sprintf("%s -version", ani.options('convert')),
+                              intern = TRUE))
         }
         if (!length(grep("GraphicsMagick", version))) {
-            version = cmd.fun(sprintf("%s -version", convert), intern = TRUE)
+            version = try(cmd.fun(sprintf("%s -version", convert), intern = TRUE))
             if (!length(grep("GraphicsMagick", version))) {
                 warning("I cannot find GraphicsMagick with convert = ", shQuote(convert),
                         "; you may have to put the path of GraphicsMagick in the PATH variable.")
