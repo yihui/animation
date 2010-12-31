@@ -16,10 +16,10 @@
 ##' added below the animations for the sake of reproducibility
 ##' (specified by the option \code{ani.options('verbose')} -- if
 ##' \code{TRUE}, the description, loaded packages, the code to produce
-##' the animation, as well as a part of \code{sessionInfo()} will be
-##' written in the bottom of the animation; the R code will be
-##' highlighted using the SyntaxHighlighter library for better reading
-##' experience).
+##' the animation, as well as a part of
+##' \code{\link[utils]{sessionInfo}()} will be written in the bottom
+##' of the animation; the R code will be highlighted using the
+##' SyntaxHighlighter library for better reading experience).
 ##'
 ##' @param expr an R expresion to be evaluated to create a sequence of
 ##' images
@@ -70,8 +70,9 @@
 ##' paragraphs (see the first example below).
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @references \url{https://github.com/brentertz/scianimator}
-##' @seealso \code{\link{saveMovie}}, \code{\link{saveSWF}}, \code{\link{saveLatex}}; \code{\link{ani.start}}, \code{\link{ani.stop}} (early
-##' versions of HTML animations)
+##' @seealso \code{\link{saveMovie}}, \code{\link{saveSWF}},
+##' \code{\link{saveLatex}}; \code{\link{ani.start}},
+##' \code{\link{ani.stop}} (early versions of HTML animations)
 ##' @example animation/inst/examples/saveHTML-ex.R
 saveHTML = function(expr, img.name = 'Rplot',
                     global.opts = '', single.opts = '', ...) {
