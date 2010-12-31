@@ -87,7 +87,8 @@
 ##' beforehand to save the efforts in searching for \file{convert.exe}
 ##' in ImageMagick under Windows. For example,
 ##' \code{ani.options(convert = shQuote('c:/program
-##' files/imagemagick/convert.exe'))}}
+##' files/imagemagick/convert.exe'))}; note this option also works for
+##' Mac and Linux (see \code{help(im.convert)})}
 ##'
 ##' \item{swftools}{this can help \code{\link{saveSWF}} save the
 ##' efforts of searching for the software package ``SWF Tools'' under

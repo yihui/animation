@@ -7,57 +7,67 @@
 ##'
 ##' @aliases im.convert gm.convert
 ##' @rdname convert
-##' @param files either a character vector of file names, or a single string
-##'   containing wildcards (e.g. \file{Rplot*.png})
-##' @param output the file name of the output (with proper extensions, e.g.
-##'   gif)
-##' @param convert the \command{convert} command; it can be pre-specified
-##' as an option in \code{\link{ani.options}('convert')}; see Details
+##' @param files either a character vector of file names, or a single
+##' string containing wildcards (e.g. \file{Rplot*.png})
+##' @param output the file name of the output (with proper extensions,
+##' e.g. \code{gif})
+##' @param convert the \command{convert} command; it must be either
+##' \code{convert} or \code{gm convert}; and it can be pre-specified
+##' as an option in \code{\link{ani.options}('convert')},
+##' e.g. (Windows users) \code{ani.options(convert =
+##' shQuote('c:/program files/imagemagick/convert.exe'))}, or (Mac
+##' users) \code{ani.options(convert = '/opt/local/bin/convert')}; see
+##' the Note section for more details
 ##' @param cmd.fun a function to invoke the OS command; by default
 ##' \code{\link[base]{system}}
-##' @param extra.opts additional options to be passed to \command{convert}
+##' @param extra.opts additional options to be passed to
+##' \command{convert} (or \command{gm convert})
 ##' @param clean logical: delete the input \code{files} or not
-##' @return The path of the output if the command was successfully executed;
-##'   otherwise a failure message.
+##' @return The path of the output if the command was successfully
+##' executed; otherwise a failure message.
 ##'
-##' If \code{ani.options('autobrowse') == TRUE}, this function will also try to
-##'   open the output automatically.
-##' @note If \code{files} is a character vector, please make sure the order of
-##'   filenames is correct! The first animation frame will be \code{files[1]},
-##'   the second frame will be \code{files[2]}, ...
+##' If \code{ani.options('autobrowse') == TRUE}, this function will
+##' also try to open the output automatically.
+##' @note If \code{files} is a character vector, please make sure the
+##' order of filenames is correct! The first animation frame will be
+##' \code{files[1]}, the second frame will be \code{files[2]}, ...
 ##'
-##' Most Windows users do not have read the boring notes below after they have
-##'   installed ImageMagick or GraphicsMagick. For the rest:
+##' Most Windows users do not have read the boring notes below after
+##' they have installed ImageMagick or GraphicsMagick. For the rest of
+##' Windows users:
 ##'
 ##' \describe{
+##'
 ##' \item{\strong{ImageMagick users}}{Please install ImageMagick from
-##'   \url{http://www.imagemagick.org}, and make sure the the path to
-##' \command{convert.exe} is in your \code{'PATH'} variable, in which case the command
-##'   \command{convert} can be called without the full path.
-##'   Windows users are often very confused
-##'   about the ImageMagick and \code{'PATH'} setting, so I'll try to search
-##'   for ImageMagick in the Registry Hive by
-##'   \code{readRegistry('SOFTWARE\ImageMagick\Current')$BinPath}, thus you
-##'   might not really need to modify your \code{'PATH'} variable.
+##' \url{http://www.imagemagick.org}, and make sure the the path to
+##' \command{convert.exe} is in your \code{'PATH'} variable, in which
+##' case the command \command{convert} can be called without the full
+##' path.  Windows users are often very confused about the ImageMagick
+##' and \code{'PATH'} setting, so I'll try to search for ImageMagick
+##' in the Registry Hive by
+##' \code{readRegistry('SOFTWARE\ImageMagick\Current')$BinPath}, thus
+##' you might not really need to modify your \code{'PATH'} variable.
 ##'
-##' For Windows users who have installed LyX, I will also try to find the
-##'   \command{convert} utility in the LyX installation directory, so they do
-##'   not really have to install ImageMagick if LyX exists in their system
-##' (of course, the LyX should be installed with ImageMagick).
+##' For Windows users who have installed LyX, I will also try to find
+##' the \command{convert} utility in the LyX installation directory,
+##' so they do not really have to install ImageMagick if LyX exists in
+##' their system (of course, the LyX should be installed with
+##' ImageMagick).
 ##'
-##' Once the \command{convert} utility is found, the animation option \code{'convert'}
-##' will be set (\code{ani.options(convert = 'path/to/convert.exe')}); this can save
-##' time for searching for \command{convert} in the operating system next time.
+##' Once the \command{convert} utility is found, the animation option
+##' \code{'convert'} will be set (\code{ani.options(convert =
+##' 'path/to/convert.exe')}); this can save time for searching for
+##' \command{convert} in the operating system next time.  }
+##'
+##' \item{\strong{GraphicsMagick users}}{During the installation of
+##' GraphicsMagick, you will be asked if you allow it to change the
+##' PATH variable; please do check the option.  }
+##'
 ##' }
 ##'
-##' \item{\strong{GraphicsMagick users}}{During the installation of GraphicsMagick,
-##' you will be asked if you allow it to change the PATH variable; please do check
-##' the option.
-##' }
-##' }
-##'
-##' A reported problem is \code{cmd.fun = shell} might not work under Windows
-##' but \code{cmd.fun = system} works fine. Try this option in case of failures.
+##' A reported problem is \code{cmd.fun = shell} might not work under
+##' Windows but \code{cmd.fun = system} works fine. Try this option in
+##' case of failures.
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link{saveMovie}}
 ##' @references
@@ -150,12 +160,19 @@ im.convert = function(files, output = "animation.gif", convert = c("convert",
         }
     } else {
         ## GraphicsMagick
-        version = cmd.fun(sprintf("%s -version", convert), intern = TRUE)
-        if (!length(grep("GraphicsMagick", version))) {
-            warning("I cannot find GraphicsMagick with convert = ", shQuote(convert),
-                 "; you may have to put the path of GraphicsMagick in the PATH variable.")
-            return()
+        version = ''
+        if (!is.null(ani.options('convert'))) {
+            version = cmd.fun(sprintf("%s -version", ani.options('convert')),
+                              intern = TRUE)
         }
+        if (!length(grep("GraphicsMagick", version))) {
+            version = cmd.fun(sprintf("%s -version", convert), intern = TRUE)
+            if (!length(grep("GraphicsMagick", version))) {
+                warning("I cannot find GraphicsMagick with convert = ", shQuote(convert),
+                        "; you may have to put the path of GraphicsMagick in the PATH variable.")
+                return()
+            }
+        } else convert = ani.options('convert')
     }
 
     loop = ifelse(isTRUE(ani.options('loop')), 0, ani.options('loop'))
