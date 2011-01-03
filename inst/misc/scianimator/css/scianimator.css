@@ -105,3 +105,4 @@
 	position: absolute;
 	top: 0;
 }
+.scianimator canvas { display: block; }
