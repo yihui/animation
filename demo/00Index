@@ -16,3 +16,4 @@ fireworks		  Set fireworks with R to celebrate the new year
 rgl_animation		  A demo on how to insert rgl 3D animations into a LaTeX document
 use_Cairo		  Using the Cairo devices with the animation package
 Sweave_animation	  A demo on how to insert animations into Sweave documents
+game_of_life		  Game of Life (e.g. Gosper's Glider Gun)

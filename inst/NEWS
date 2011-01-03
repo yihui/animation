@@ -53,6 +53,9 @@ NEW FEATURES
     o a new demo('Sweave_animation') to show how to insert animations
   into Sweave documents
 
+    o a new demo('game_of_life') to demonstrate the (amusing) Game of
+  Life (thanks, Linlin Yan)
+
 
 SIGNIFICANT CHANGES
 
