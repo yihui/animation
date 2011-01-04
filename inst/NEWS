@@ -1,3 +1,22 @@
+		  CHANGES IN animation VERSION 2.0-1
+
+
+NEW FEATURES
+
+    o demo('Xmas_card') contributed by Yuan Huang
+
+TO APPEAR
+
+    o Changes made by Thomas Julou (using ffmpeg)
+
+    o A function boot.loess() added to show the bootstrapping effects
+  on loess().
+
+    o A function cart.ani() to show the splitting process of
+  classification and regression trees.
+
+
+
 		  CHANGES IN animation VERSION 2.0-0
 
 
@@ -94,16 +113,6 @@ MINOR CHANGES
   keep the current working directory untouched when evaluating 'expr'
   (i.e.  'expr' will be evaluated under getwd())
 
-
-TO APPEAR
-
-    o Changes made by Thomas Julou (using ffmpeg)
-
-    o A function boot.loess() added to show the bootstrapping effects
-  on loess().
-
-    o A function cart.ani() to show the splitting process of
-  classification and regression trees.
 
 
 
