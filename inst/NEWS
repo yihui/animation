@@ -5,6 +5,10 @@ NEW FEATURES
 
     o demo('Xmas_card') contributed by Yuan Huang
 
+    o demo('flowers') to show how to download images from the Internet
+  and create an animation
+
+
 TO APPEAR
 
     o Changes made by Thomas Julou (using ffmpeg)

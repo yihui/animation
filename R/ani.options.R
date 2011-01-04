@@ -72,7 +72,11 @@
 ##' \code{\link[rgl]{rgl.snapshot}} to capture \pkg{rgl} graphics to
 ##' png files, or \code{\link[rgl]{rgl.postscript}} to save plots as
 ##' postscript/pdf; see \code{demo('rgl_animation')} or
-##' \code{demo('use_Cairo')} for examples or the last example below)}
+##' \code{demo('use_Cairo')} for examples or the last example
+##' below). Note, however, we do not really have to create the images
+##' using R graphics devices -- see \code{demo('flowers')} on how to
+##' download images from the Internet and create an HTML animation
+##' page!}
 ##'
 ##' \item{withprompt}{character: prompt to display while using
 ##' \code{\link{ani.start}} (will be restored with
