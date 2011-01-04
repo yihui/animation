@@ -15,5 +15,7 @@ you install R2roxygen first; then run rab() on this source package.
 install.packages(c('Rd2roxygen', 'formatR'))
 library(Rd2roxygen)
 ## make sure getwd() is right above the animation directory
-rab('./animation', install=TRUE)
+## e.g. the package is here: D:/pkg/animation, then you need to
+## setwd('D:/pkg') first
+rab('animation', install=TRUE)
 ########################################################
