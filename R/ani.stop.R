@@ -18,7 +18,7 @@
 ani.stop = function() {
     dev.off()
     if (isTRUE(ani.options("verbose")))
-        footer = paste("<div class=\"footer\">Created by R package \"<a href=\"http://cran.r-project.org/package=animation\" target=\"_blank\">animation ", packageVersion("animation"), "</a>\" written by <a href=\"http://yihui.name/\" target=\"_blank\">Yihui XIE</a>.<br>",
+        footer = paste("<div class=\"footer\">Created by R package \"<a href=\"http://cran.r-project.org/package=animation\" target=\"_blank\">animation ", ifelse(getRversion() >= '2.12.0', packageVersion("animation"), ''), "</a>\" written by <a href=\"http://yihui.name/\" target=\"_blank\">Yihui XIE</a>.<br>",
             Sys.time(), "</div>", sep = "")
     else footer = ifelse(is.character(ani.options("verbose")), sprintf("<div class=\"footer\">%s</div>", ani.options("verbose")), "")
     ani.file = file.path(getwd(), ani.options("htmlfile"))
