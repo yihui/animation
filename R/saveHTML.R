@@ -21,7 +21,7 @@
 ##' of the animation; the R code will be highlighted using the
 ##' SyntaxHighlighter library for better reading experience).
 ##'
-##' @param expr an R expresion to be evaluated to create a sequence of
+##' @param expr an R expression to be evaluated to create a sequence of
 ##' images
 ##' @param img.name the filename of the images (the real output will
 ##' be like \file{img.name1.png}, \file{img.name2.png}, ...); this
@@ -119,7 +119,7 @@ saveHTML = function(expr, img.name = 'Rplot',
     if ((use.dev <- ani.options('use.dev')))
         ani.dev(img.fmt,
             width = ani.options('ani.width'), height = ani.options('ani.height'))
-    expr
+    eval(expr)
     if (use.dev) dev.off()
 
     htmlfile = file.path(ani.options('outdir'), ani.options('htmlfile'))

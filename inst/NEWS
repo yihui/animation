@@ -9,6 +9,17 @@ NEW FEATURES
   and create an animation
 
 
+MINOR CHANGES
+
+    o the argument 'expr' in saveHTML(), saveLatex(), saveMovie() and
+  saveSWF() will be evaluated by eval(), so we may pass a real R
+  expression (see ?expression) to 'expr', e.g. saveHTML(expression(for
+  (i in 1:10) plot(runif(30)))); but note this argument does not *have
+  to* be a real R expression -- you can still use an arbitrary R code
+  chunk, e.g. saveHTML(for (i in 1:10) plot(runif(30))) (thanks,
+  Aquery)
+
+
 TO APPEAR
 
     o Changes made by Thomas Julou (using ffmpeg)

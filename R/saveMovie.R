@@ -92,7 +92,7 @@ saveMovie = function(expr, movie.name = "animation.gif", img.name = "Rplot",
         ani.dev(img.fmt, width = ani.options('ani.width'),
                 height = ani.options('ani.height'))
     owd1 = setwd(owd)
-    expr
+    eval(expr)
     setwd(owd1)
     if (use.dev) dev.off()
 

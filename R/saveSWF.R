@@ -74,7 +74,7 @@ saveSWF = function(expr, img.name = "Rplot", swf.name = "animation.swf",
         ani.dev(img.fmt, width = ani.options('ani.width'),
                 height = ani.options('ani.height'))
     owd1 = setwd(owd)
-    expr
+    eval(expr)
     setwd(owd1)
     if (use.dev) dev.off()
 
