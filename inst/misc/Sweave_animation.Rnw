@@ -12,7 +12,7 @@
 %% we don't need to open the pdf or postscript devices
 \SweaveOpts{prefix.string=Sweave_ani_demo, eps=FALSE, pdf=FALSE}
 <<setup,echo=FALSE>>=
-options(continue = ' ', prompt = ' ')
+old.opts = options(continue = ' ', prompt = ' ')
 @
 
 \title{Insert Animations into Sweave with the \textbf{animation} Package}
@@ -42,5 +42,8 @@ saveLatex({
 \caption{An animation created with the package \textbf{animation} in Sweave.}
 \end{figure}
 
-
+<<cleaning,echo=FALSE>>=
+## thanks, Michael :-)
+options(old.opts)
+@
 \end{document}
