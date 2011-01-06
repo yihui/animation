@@ -12,8 +12,7 @@
 ##' or PDF animations are also available if required software packages have
 ##' been installed. See below for details on each type of animation.
 ##'
-##' \describe{
-##' \item{\strong{On-screen Animations}}{
+##' \subsection{On-screen Animations}{
 ##' It's natural and easy to create an animation in R using the windows graphics
 ##' device, e.g. in \code{x11()} or \code{windows()}. A basic scheme is like
 ##' the Example 1 (see below).
@@ -23,7 +22,7 @@
 ##' animation might not be smooth (especially under Linux and Mac OS).
 ##' }
 ##'
-##' \item{\strong{HTML Pages}}{
+##' \subsection{HTML Pages}{
 ##' The generation of HTML animation pages does not rely on any third-party
 ##' software either, and we only need a web browser to watch the animation.
 ##' This package has two sets of functions to create HTML pages:
@@ -35,24 +34,23 @@
 ##' of buttons to control the animation (play, stop, next, previous, ...).
 ##' }
 ##'
-##' \item{\strong{GIF Animations}}{
+##' \subsection{GIF Animations}{
 ##' If ImageMagick or GraphicsMagick has been installed, we can use
 ##' \code{\link{im.convert}} or \code{\link{gm.convert}} to create a GIF
 ##' animation (combining several R plots together).
 ##' }
 ##'
-##' \item{\strong{Flash Animations}}{
+##' \subsection{Flash Animations}{
 ##' If SWF Tools has been installed, we can use \code{\link{saveSWF}} to
 ##' create a Flash animation (again, combining R plots).
 ##' }
 ##'
-##' \item{\strong{PDF Animations}}{
+##' \subsection{PDF Animations}{
 ##' If LaTeX is present in the system, we can use \code{\link{saveLatex}}
 ##' to insert animations into a PDF document and watch the animation
 ##' using the Adobe reader.
 ##'
 ##' The animation is created by the LaTeX package \code{animate}.
-##' }
 ##' }
 ##' This package also contains several functions to create animations
 ##' for various statistical topics.
