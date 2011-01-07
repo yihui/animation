@@ -8,6 +8,9 @@ NEW FEATURES
     o demo('flowers') to show how to download images from the Internet
   and create an animation
 
+    o a new function pdftk() as a wrapper to call the Pdftk toolkit
+  (mainly for compressing PDF graphics output)
+
 
 MINOR CHANGES
 
