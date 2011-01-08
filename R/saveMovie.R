@@ -96,6 +96,13 @@ saveMovie = function(expr, movie.name = "animation.gif", img.name = "Rplot",
     setwd(owd1)
     if (use.dev) dev.off()
 
+    ## compress PDF files
+    if (file.ext == 'pdf' && !is.null(ani.options('pdftk'))) {
+        for (f in list.files(path = dirname(img.name), pattern =
+                             sprintf('^%s[0-9]*\\.pdf$', img.name), full.names = TRUE))
+            pdftk(f)
+    }
+
     img.files = sprintf(img.fmt, seq_len(length(list.files(pattern =
                         paste(img.name, "[0-9]+\\.", file.ext, sep = "")))))
     ## convert to animations

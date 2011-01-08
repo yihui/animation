@@ -11,6 +11,11 @@ NEW FEATURES
     o a new function pdftk() as a wrapper to call the Pdftk toolkit
   (mainly for compressing PDF graphics output)
 
+    o saveLatex(), saveSWF() and saveMovie() can compress the PDF
+  graphics using Pdftk (if available) now; if ani.options('ani.type')
+  is 'pdf' and the 'pdftk' option is set, these functions will try the
+  compression first
+
 
 MINOR CHANGES
 
