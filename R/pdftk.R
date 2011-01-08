@@ -30,11 +30,13 @@
 ##' ani.options(pdftk = 'D:/Installer/pdftk.exe')
 ##' pdftk('huge-plot.pdf', output = 'huge-plot0.pdf')
 ##'
-##' ## Linux
+##' ## Linux (does not work??)
 ##' ani.options(pdftk = 'pdftk')
 ##' pdftk('huge-plot.pdf', output = 'huge-plot1.pdf')
 ##'
 ##' ani.options(pdftk = NULL)
+##'
+##' file.info(c('huge-plot.pdf', 'huge-plot0.pdf', 'huge-plot1.pdf'))['size']
 ##'
 pdftk = function(input, operation = NULL, output, other.opts = 'compress dont_ask') {
     if (!is.null(pdftk.path <- ani.options('pdftk'))) {
@@ -45,7 +47,9 @@ pdftk = function(input, operation = NULL, output, other.opts = 'compress dont_as
             output = file.path(dirname(input), paste('output', basename(input), sep = '-'))
         cmd = paste(pdftk.path, paste(input, collapse = ' '),
                     operation, sprintf('output %s', output), other.opts)
+        message('* Pdftk is handling ', input, '... ', appendLF = FALSE)
         status = system(cmd)
+        message(ifelse(status == 0, 'done!', 'failed (***)'))
         if (auto.output && file.exists(output))
             file.rename(output,
                         file.path(dirname(output), sub('^output-', '', basename(output))))
