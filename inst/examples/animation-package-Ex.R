@@ -5,13 +5,12 @@ oopt = ani.options(interval = 0.2, nmax = 10)
 ## use a loop to create images one by one
 for (i in 1:ani.options('nmax')) {
     plot(rnorm(30))
-    ## pause for a while ('interval')
-    ani.pause()
+    ani.pause()   ## pause for a while ('interval')
 }
 ## restore the options
 ani.options(oopt)
 
-
+## see ?ani.record for an alternative way to set up an animation
 
 ### 2. Animations in HTML pages ###
 saveHTML({

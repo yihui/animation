@@ -16,6 +16,11 @@ NEW FEATURES
   is 'pdf' and the 'pdftk' option is set, these functions will try the
   compression first
 
+    o new functions ani.record() and ani.replay() to record and replay
+  the animations; they can be used to capture the changes in the
+  graphics made by low-level plotting commands (see ?ani.record for
+  examples)
+
 
 MINOR CHANGES
 
