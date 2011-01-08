@@ -117,8 +117,7 @@
 ##' generate file names in the argument \code{expr}; see
 ##' \code{demo('rgl_animation')} for example or the last example below}
 ##'
-##' \item{pdftk}{the path of the program
-##' \href{http://www.pdflabs.com/docs/pdftk-man-page/}{Pdftk},
+##' \item{pdftk}{the path of the program \command{Pdftk},
 ##' e.g. \code{ani.options(pdftk = 'C:/Software/pdftk.exe')} or
 ##' \code{ani.options(pdftk = '/home/john/bin/pdftk')};
 ##' \command{pdftk} will be used to compress the PDF graphics output
@@ -168,6 +167,8 @@
 ##' \code{\link{saveMovie}}, \code{\link{saveLatex}},
 ##' \code{\link{saveSWF}}, \code{\link{pdftk}}
 ##' @references \url{http://animation.yihui.name/animation:options}
+##'
+##' \url{http://www.pdflabs.com/docs/pdftk-man-page/}
 ##' @keywords misc
 ##' @examples
 ##' ## see the first example in help(animation) on how to set and restore
