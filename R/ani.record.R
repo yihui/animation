@@ -18,6 +18,11 @@
 ##' -- we need memory to store the recorded plots, which are usually
 ##' verg large when the plots are complicated (e.g. we draw millions
 ##' of points or polygons in a single plot).
+##'
+##' If we use base graphics, we should bear in mind that the
+##' background colors of the plots might be transparent, which could
+##' lead to problems in HTML animation pages when we use the
+##' \code{\link[grDevices]{png}} device (see the examples below).
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link[grDevices]{recordPlot}} and
 ##' \code{\link[grDevices]{replayPlot}}; \code{\link{ani.pause}}
@@ -28,6 +33,7 @@
 ##' x = sort(rnorm(n))
 ##' y = rnorm(n)
 ##' ## set up an empty frame, then add points one by one
+##' par(bg = 'white')   # ensure the background color is white
 ##' plot(x, y, type = 'n')
 ##'
 ##' ani.record(reset = TRUE)   # clear history before recording
@@ -38,11 +44,13 @@
 ##' }
 ##'
 ##' ## now we can replay it, with an appropriate pause between frames
-##' oopt = ani.options(interval = .5)
+##' oopts = ani.options(interval = .5)
 ##' ani.replay()
 ##'
 ##' ## or export the animation to an HTML page
 ##' saveHTML(ani.replay(), img.name = 'record_plot')
+##'
+##' ani.options(oopts)
 ##'
 ani.record = function(reset = FALSE) {
     if (reset) .ani.env$.images = list() else {
