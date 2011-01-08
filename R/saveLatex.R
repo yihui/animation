@@ -54,21 +54,19 @@
 ##' @return Invisible \code{NULL}
 ##' @note This function will detect if it was called in a Sweave
 ##' environment -- if so, \code{img.name} will be automatically
-##' adjusted to \code{prefix.string-label}
-##' (\code{ani.options('sweave.prefix')} will be set to this string,
-##' too), and the LaTeX output will not be a complete document, but
-##' rather a single line like
-##'
-##' \verb{\animategraphics[ani.opts]{1/interval}{img.name}{}{}}
+##' adjusted to \code{prefix.string-label}, and the LaTeX output will
+##' not be a complete document, but rather a single line like
+##' \preformatted{\animategraphics[ani.opts]{1/interval}{img.name}{}{}}
 ##'
 ##' This automatic feature can be useful to Sweave users (but remember
 ##' to set the Sweave option \code{results=tex}). See
 ##' \code{demo('Sweave_animation')} for a complete example.
 ##'
 ##' PDF devices are recommended because of their high quality and
-##' usually they are more friendly to LaTeX. But sometimes the size of
-##' PDF files is much larger. Use \code{ani.options(ani.dev = 'pdf',
-##' ani.type = 'pdf')} to set the PDF device.
+##' usually they are more friendly to LaTeX, but the size of PDF files
+##' is often much larger; in this case, we may set the option
+##' \code{'pdftk'} to compress the PDF graphics output. To set the PDF
+##' device, use \code{ani.options(ani.dev = 'pdf', ani.type = 'pdf')}
 ##'
 ##' So far animations created by the LaTeX package \pkg{animate} can
 ##' only be viewed with Acrobat Reader (Windows) or \command{acroread}
@@ -80,7 +78,7 @@
 ##' @seealso \code{\link{saveMovie}} to convert image frames to a
 ##' single GIF/MPEG file; \code{\link{saveSWF}} to convert images to
 ##' Flash; \code{\link{saveHTML}} to create an HTML page containing
-##' the animation
+##' the animation; \code{\link{pdftk}} to compress PDF graphics
 ##' @references To know more about the \code{animate} package, please
 ##' refer to
 ##' \url{http://www.ctan.org/tex-archive/macros/latex/contrib/animate/}.
@@ -99,6 +97,10 @@
 ##'     latex.filename = ifelse(interactive(), "brownian_motion.tex", ""),
 ##'     interval = 0.1, nmax = 10,
 ##'     ani.dev = 'pdf', ani.type = 'pdf', ani.width = 7, ani.height = 7)
+##'
+##' ## the PDF graphics output is often too large because it is uncompressed;
+##' ## try the option ani.options('pdftk') to compress the PDF graphics
+##' ##   see ?pdftk and ?ani.options
 ##'
 saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
     centering = TRUE, caption = NULL, label = NULL,
@@ -141,7 +143,7 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
     if (is.character(ani.dev))
         ani.dev = get(ani.dev)
     ani.files.len = length(list.files(path = dirname(img.name), pattern =
-                           sprintf('^%s[0-9]+\\.%s$', img.name, ani.ext)))
+                           sprintf('^%s[0-9]*\\.%s$', img.name, ani.ext)))
     if (overwrite || !ani.files.len) {
         if (use.dev)
             ani.dev(img.fmt,
@@ -150,9 +152,15 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
         eval(expr)
         setwd(owd1)
         if (use.dev) dev.off()
+        ## compress PDF files
+        if (ani.ext == 'pdf' && !is.null(ani.options('pdftk'))) {
+            for (f in list.files(path = dirname(img.name), pattern =
+                                 sprintf('^%s[0-9]*\\.pdf$', img.name), full.names = TRUE))
+                pdftk(f)
+        }
     }
     ani.files.len = length(list.files(path = dirname(img.name), pattern =
-                           sprintf('^%s[0-9]+\\.%s$', img.name, ani.ext)))
+                           sprintf('^%s[0-9]*\\.%s$', img.name, ani.ext)))
 
     if (missing(nmax)) {
         ## count the number of images generated
