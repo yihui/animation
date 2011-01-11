@@ -1,3 +1,23 @@
+		  CHANGES IN animation VERSION 2.0-2
+
+
+NEW FEATURES
+
+    o demo('IBM') to show IBM stock closing prices from 2000 to 2010
+
+
+TO APPEAR
+
+    o Changes made by Thomas Julou (using ffmpeg)
+
+    o A function boot.loess() added to show the bootstrapping effects
+  on loess().
+
+    o A function cart.ani() to show the splitting process of
+  classification and regression trees.
+
+
+
 		  CHANGES IN animation VERSION 2.0-1
 
 
@@ -38,17 +58,6 @@ MINOR CHANGES
   to* be a real R expression -- you can still use an arbitrary R code
   chunk, e.g. saveHTML(for (i in 1:10) plot(runif(30))) (thanks,
   Aquery)
-
-
-TO APPEAR
-
-    o Changes made by Thomas Julou (using ffmpeg)
-
-    o A function boot.loess() added to show the bootstrapping effects
-  on loess().
-
-    o A function cart.ani() to show the splitting process of
-  classification and regression trees.
 
 
 

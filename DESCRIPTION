@@ -1,8 +1,8 @@
 Package: animation
 Type: Package
 Title: A Gallery of Animations in Statistics and Utilities to Create Animations
-Version: 2.0-1
-Date: 2011-01-10
+Version: 2.0-2
+Date: 2011-01-31
 Author: Yihui Xie
 Maintainer: Yihui Xie <xie@yihui.name>
 Description: This package contains various functions for animations in

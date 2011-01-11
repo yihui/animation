@@ -19,3 +19,4 @@ Sweave_animation	  A demo on how to insert animations into Sweave documents
 game_of_life		  Game of Life (e.g. Gosper's Glider Gun)
 Xmas_card		  Christmas and New Year card by Yuan Huang
 flowers			  Download images from the Internet and create an animation
+IBM			  IBM stock closing prices from 2000 to 2010
