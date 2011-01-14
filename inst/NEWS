@@ -5,6 +5,10 @@ NEW FEATURES
 
     o demo('IBM') to show IBM stock closing prices from 2000 to 2010
 
+    o ani.record() gained a new argument 'replay.cur', which can be
+  helpful when we want to capture low-level plot changes without
+  storing all the plots in memory (default behaviour of ani.record())
+
 
 TO APPEAR
 
