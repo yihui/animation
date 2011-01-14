@@ -77,7 +77,7 @@ saveHTML = function(expr, img.name = 'Rplot',
                       ifelse(nzchar(single.opts), paste(',\n', single.opts), ''),
                       img.name0
     )
-    js.temp = c('<script type="text/javascript">', js.tmp, '</script>')
+    js.temp = c('<script type="text/javascript">', js.temp, '</script>')
     html = c(html, js.temp)
     cat(html, sep = '\n', file = '')
 
