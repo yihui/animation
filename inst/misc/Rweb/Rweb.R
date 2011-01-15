@@ -79,7 +79,7 @@ saveHTML = function(expr, img.name = 'Rplot',
     )
     js.temp = c('<script type="text/javascript">', js.temp, '</script>')
     html = c(html, js.temp)
-    cat(html, sep = '\n', file = '')
+    cat('</pre>', html, '<pre>', sep = '\n', file = '')
 
     ani.options(oopt)
 
