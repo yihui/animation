@@ -75,7 +75,7 @@ saveSWF = function(expr, img.name = "Rplot", swf.name = "animation.swf",
     if (is.character(ani.dev)) ani.dev = get(ani.dev)
     num = ifelse(ani.options('ani.type') == 'pdf', '', '%d')
     img.fmt = paste(img.name, num, ".", file.ext, sep = "")
-    img.fmt = file.path(outdir, img.fmt)
+    img.fmt = file.path(tempdir(), img.fmt)
     ani.options(img.fmt = img.fmt)
     if ((use.dev <- ani.options('use.dev')))
         ani.dev(img.fmt, width = ani.options('ani.width'),
@@ -107,7 +107,7 @@ saveSWF = function(expr, img.name = "Rplot", swf.name = "animation.swf",
                    ifelse(.Platform$OS.type == 'windows', '.exe', ''), sep = '')))
     version = try(system(paste(tool, '--version'), intern = TRUE))
     if (inherits(version, 'try-error')) {
-        warning('The command ', tool, ' was not available. Please install: http://www.swftools.org')
+        warning('The command ', tool, ' is not available. Please install: http://www.swftools.org')
         return()
     }
     if (!length(grep('swftools', version))) {

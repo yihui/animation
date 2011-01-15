@@ -10,6 +10,12 @@ NEW FEATURES
   storing all the plots in memory (default behaviour of ani.record())
 
 
+MINOR CHANGES
+
+    o saveSWF() puts all the image frames into the temp dir instead of
+  ani.options('outdir') (similar to saveMovie())
+
+
 TO APPEAR
 
     o Changes made by Thomas Julou (using ffmpeg)
