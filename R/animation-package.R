@@ -60,6 +60,14 @@
 ##'
 ##' The animation is created by the LaTeX package \code{animate}.
 ##' }
+##'
+##' \subsection{Video}{
+##'
+##' The function \code{\link{saveVideo}} can use FFmpeg to convert
+##' images to various video formats (e.g. \file{mp4}, \file{avi} and
+##' \file{wmv}, etc).
+##'
+##' }
 ##' This package also contains several functions to create animations
 ##' for various statistical topics.
 ##'
@@ -79,6 +87,10 @@
 ##'
 ##' (NB: some functions mentioned in the above article have been
 ##' slightly modified; see the help pages for the up-to-date usage.)
+##'
+##' @seealso \code{\link{saveHTML}}, \code{\link{saveGIF}},
+##' \code{\link{saveSWF}}, \code{\link{saveVideo}},
+##' \code{\link{saveLatex}}
 ##' @keywords package dynamic device dplot
 ##' @example animation/inst/examples/animation-package-Ex.R
 ##'
