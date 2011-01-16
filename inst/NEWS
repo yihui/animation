@@ -9,6 +9,9 @@ NEW FEATURES
   helpful when we want to capture low-level plot changes without
   storing all the plots in memory (default behaviour of ani.record())
 
+    o a new function saveVideo() to convert a sequence of images to a
+  video using FFmpeg (thanks, Thomas Julou)
+
 
 MINOR CHANGES
 
@@ -17,8 +20,6 @@ MINOR CHANGES
 
 
 TO APPEAR
-
-    o Changes made by Thomas Julou (using ffmpeg)
 
     o A function boot.loess() added to show the bootstrapping effects
   on loess().

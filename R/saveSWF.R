@@ -37,9 +37,10 @@
 ##' \code{\link{pdftk}}.
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link{saveMovie}}, \code{\link{saveLatex}},
-##' \code{\link{saveHTML}}, \code{\link[base]{system}},
-##' \code{\link[grDevices]{png}}, \code{\link[grDevices]{jpeg}},
-##' \code{\link[grDevices]{pdf}}, \code{\link{pdftk}}
+##' \code{\link{saveHTML}}, \code{\link{saveVideo}},
+##' \code{\link[base]{system}}, \code{\link[grDevices]{png}},
+##' \code{\link[grDevices]{jpeg}}, \code{\link[grDevices]{pdf}},
+##' \code{\link{pdftk}}
 ##' @references
 ##'   \url{http://animation.yihui.name/animation:start#create_flash_animations}
 ##' @keywords dynamic device utilities

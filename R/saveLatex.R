@@ -78,7 +78,8 @@
 ##' @seealso \code{\link{saveMovie}} to convert image frames to a
 ##' single GIF/MPEG file; \code{\link{saveSWF}} to convert images to
 ##' Flash; \code{\link{saveHTML}} to create an HTML page containing
-##' the animation; \code{\link{pdftk}} to compress PDF graphics
+##' the animation; \code{\link{saveVideo}} to convert images to a
+##' video; \code{\link{pdftk}} to compress PDF graphics
 ##' @references To know more about the \code{animate} package, please
 ##' refer to
 ##' \url{http://www.ctan.org/tex-archive/macros/latex/contrib/animate/}.

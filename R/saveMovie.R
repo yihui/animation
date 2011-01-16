@@ -46,9 +46,10 @@
 ##' a non-interactive graphics device, which can save a lot of time.
 ##' See the demo \code{'Xmas2'} for example (\code{demo('Xmas2', package = 'animation')}).
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{im.convert}}, \code{\link{gm.convert}}, \code{\link{saveSWF}},
-##'   \code{\link[base]{system}}, \code{\link[grDevices]{png}},
-##'   \code{\link{saveLatex}}, \code{\link{saveHTML}}
+##' @seealso \code{\link{im.convert}}, \code{\link{gm.convert}},
+##' \code{\link{saveSWF}}, \code{\link{saveVideo}},
+##' \code{\link[base]{system}}, \code{\link[grDevices]{png}},
+##' \code{\link{saveLatex}}, \code{\link{saveHTML}}
 ##' @references
 ##' ImageMagick: \url{http://www.imagemagick.org/script/convert.php}
 ##'
