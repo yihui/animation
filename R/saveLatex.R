@@ -99,8 +99,8 @@
 ##'     latex.filename = ifelse(interactive(), "brownian_motion.tex", ""),
 ##'     interval = 0.1, nmax = 10,
 ##'     ani.dev = 'pdf', ani.type = 'pdf', ani.width = 7, ani.height = 7,
-##' documentclass = paste("\\documentclass{article}",
-##' "\\usepackage[papersize={7in,7in},margin=0.3in]{geometry}", sep = "\n"))
+##' documentclass = paste("\\\\documentclass{article}",
+##' "\\\\usepackage[papersize={7in,7in},margin=0.3in]{geometry}", sep = "\n"))
 ##'
 ##' ## the PDF graphics output is often too large because it is uncompressed;
 ##' ## try the option ani.options('pdftk') to compress the PDF graphics
