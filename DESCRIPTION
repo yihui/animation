@@ -5,15 +5,19 @@ Version: 2.0-2
 Date: 2011-01-31
 Author: Yihui Xie
 Maintainer: Yihui Xie <xie@yihui.name>
+
 Description: This package contains various functions for animations in
-  statistics, covering many areas such as probability theory, mathematical
-  statistics, multivariate statistics, nonparametric statistics, sampling
-  survey, linear models, time series, computational statistics, data mining
-  and machine learning. These functions might be of help in teaching
-  statistics and data analysis. Also provided in this package are several
-  approaches to save animations to various formats, e.g. Flash, GIF, HTML
-  page and PDF  (saveSWF(), saveGIF(), saveHTML(), and saveLatex()
-  respectively). PDF animations can be inserted into Sweave easily.
+  statistics, covering many areas such as probability theory,
+  mathematical statistics, multivariate statistics, nonparametric
+  statistics, sampling survey, linear models, time series,
+  computational statistics, data mining and machine learning. These
+  functions might be of help in teaching statistics and data
+  analysis. Also provided in this package are several approaches to
+  save animations to various formats, e.g. Flash, GIF, HTML pages, PDF
+  and videos (saveSWF(), saveGIF(), saveHTML(), saveLatex(), and
+  saveVideo() respectively). PDF animations can be inserted into
+  Sweave easily.
+
 Imports: MASS
 License: GPL-2 | GPL-3
 URL: http://animation.yihui.name
