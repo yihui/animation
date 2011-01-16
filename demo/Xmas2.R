@@ -27,5 +27,5 @@ pp <- function(N) {
     }
 }
 pp(100)
-## use saveMovie(pp(100), interval = 0.1) to export a GIF animation
+## use saveGIF(pp(100), interval = 0.1) to export a GIF animation
 ani.options(oopt)

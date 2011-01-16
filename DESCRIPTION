@@ -12,7 +12,7 @@ Description: This package contains various functions for animations in
   and machine learning. These functions might be of help in teaching
   statistics and data analysis. Also provided in this package are several
   approaches to save animations to various formats, e.g. Flash, GIF, HTML
-  page and PDF  (saveSWF(), saveMovie(), saveHTML(), and saveLatex()
+  page and PDF  (saveSWF(), saveGIF(), saveHTML(), and saveLatex()
   respectively). PDF animations can be inserted into Sweave easily.
 Imports: MASS
 License: GPL-2 | GPL-3

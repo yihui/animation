@@ -36,7 +36,7 @@
 ##' is installed and \code{ani.options('pdftk')} has been set); see
 ##' \code{\link{pdftk}}.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{saveMovie}}, \code{\link{saveLatex}},
+##' @seealso \code{\link{saveGIF}}, \code{\link{saveLatex}},
 ##' \code{\link{saveHTML}}, \code{\link{saveVideo}},
 ##' \code{\link[base]{system}}, \code{\link[grDevices]{png}},
 ##' \code{\link[grDevices]{jpeg}}, \code{\link[grDevices]{pdf}},

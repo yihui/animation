@@ -26,7 +26,7 @@ saveHTML({
 
 
 ### 3. GIF animations ###
-saveMovie({
+saveGIF({
     ani.options(nmax = 30)
     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")
 }, interval = 0.05, movie.name = 'bm_demo.gif', ani.width = 600, ani.height = 600)

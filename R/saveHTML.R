@@ -78,7 +78,7 @@
 ##' below.
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @references \url{https://github.com/brentertz/scianimator}
-##' @seealso \code{\link{saveMovie}}, \code{\link{saveSWF}},
+##' @seealso \code{\link{saveGIF}}, \code{\link{saveSWF}},
 ##' \code{\link{saveLatex}}, \code{\link{saveVideo}};
 ##' \code{\link{ani.start}}, \code{\link{ani.stop}} (early versions of
 ##' HTML animations)

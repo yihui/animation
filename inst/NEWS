@@ -16,10 +16,17 @@ NEW FEATURES
   system.file('misc', 'Rweb', 'demo.html', package = 'animation')
 
 
+SIGNIFICANT CHANGES
+
+    o saveMovie() was renamed to saveGIF() to better reflect what the
+  function does; this change will not affect users because 'saveMovie'
+  is still an alias to 'saveGIF' (i.e. they are identical)
+
+
 MINOR CHANGES
 
     o saveSWF() puts all the image frames into the temp dir instead of
-  ani.options('outdir') (similar to saveMovie())
+  ani.options('outdir') (similar to saveGIF())
 
 
 TO APPEAR

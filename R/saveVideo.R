@@ -36,7 +36,7 @@
 ##' \file{presets.xml} of WinFF might be a good guide:
 ##' \url{http://code.google.com/p/winff/}.
 ##' @references \url{http://ffmpeg.org/documentation.html}
-##' @seealso \code{\link{saveMovie}}, \code{\link{saveLatex}},
+##' @seealso \code{\link{saveGIF}}, \code{\link{saveLatex}},
 ##' \code{\link{saveHTML}}, \code{\link{saveSWF}}
 ##'
 ##' @examples

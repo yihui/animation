@@ -75,7 +75,7 @@
 ##' to install \command{acroread} and set \code{options(pdfviewer =
 ##' 'acroread')}.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{saveMovie}} to convert image frames to a
+##' @seealso \code{\link{saveGIF}} to convert image frames to a
 ##' single GIF/MPEG file; \code{\link{saveSWF}} to convert images to
 ##' Flash; \code{\link{saveHTML}} to create an HTML page containing
 ##' the animation; \code{\link{saveVideo}} to convert images to a

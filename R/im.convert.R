@@ -69,7 +69,7 @@
 ##' Windows but \code{cmd.fun = system} works fine. Try this option in
 ##' case of failures.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{saveMovie}}
+##' @seealso \code{\link{saveGIF}}
 ##' @references
 ##' ImageMagick: \url{http://www.imagemagick.org/script/convert.php}
 ##'

@@ -41,10 +41,11 @@
 ##' can be helpful when we do not have R or cannot install R.
 ##' }
 ##'
-##' \subsection{GIF Animations}{
-##' If ImageMagick or GraphicsMagick has been installed, we can use
-##' \code{\link{im.convert}} or \code{\link{gm.convert}} to create a GIF
-##' animation (combining several R plots together).
+##' \subsection{GIF Animations}{ If ImageMagick or GraphicsMagick has
+##' been installed, we can use \code{\link{im.convert}} or
+##' \code{\link{gm.convert}} to create a GIF animation (combining
+##' several R plots together), or use \code{\link{saveGIF}} to create
+##' a GIF animation from an R code chunk.
 ##' }
 ##'
 ##' \subsection{Flash Animations}{
@@ -224,7 +225,7 @@ NULL
 ##' }, img.name='vanke_c', description = "Prices changing along with time interval 5 min")
 ##'
 ##'     ## GIF animation
-##'     saveMovie(price.ani(vanke1127$price, vanke1127$time, lwd = 2),
+##'     saveGIF(price.ani(vanke1127$price, vanke1127$time, lwd = 2),
 ##'         movie.name = "price.gif", loop = 1)
 ##'
 ##' ani.options(oopt)
