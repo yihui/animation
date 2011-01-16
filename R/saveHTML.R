@@ -68,6 +68,14 @@
 ##' be a character vector, in which case this vector will be pasted
 ##' into a scalar; use \code{"\n\n"} in the string to separate
 ##' paragraphs (see the first example below).
+##'
+##' For the users who do not have R at hand, there is a demo in
+##' \code{system.file('misc', 'Rweb', 'demo.html', package =
+##' 'animation')} to show how to create animations online without R
+##' being installed locally. It depends, however, on whether the Rweb
+##' service can be provided for public use in a long period (currently
+##' we are using the Rweb at Tama University). See the last example
+##' below.
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @references \url{https://github.com/brentertz/scianimator}
 ##' @seealso \code{\link{saveMovie}}, \code{\link{saveSWF}},

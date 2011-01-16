@@ -57,3 +57,8 @@ saveHTML({
          htmlfile = 'index.html',
          single.opts = "'controls': ['first', 'previous', 'play', 'next', 'last', 'loop', 'speed'], 'delayMin': 0",
          description = c('Random walk of 10 points on the 2D plane', '(without the navigation panel)'))
+
+
+## use Rweb to create animations
+if (interactive())
+    browseURL(system.file('misc', 'Rweb', 'demo.html', package = 'animation'))

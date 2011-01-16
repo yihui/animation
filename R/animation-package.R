@@ -32,6 +32,13 @@
 ##'
 ##' The HTML interface is just like a movie player -- it comes with a series
 ##' of buttons to control the animation (play, stop, next, previous, ...).
+##'
+##' This HTML approach is flexible enough to be used even in Rweb,
+##' which means we do not really have to install R to create
+##' animations! There is a demo in \code{system.file('misc', 'Rweb',
+##' 'demo.html', package = 'animation')}. We can use
+##' \code{\link{saveHTML}} to create animations directly in Rweb; this
+##' can be helpful when we do not have R or cannot install R.
 ##' }
 ##'
 ##' \subsection{GIF Animations}{
