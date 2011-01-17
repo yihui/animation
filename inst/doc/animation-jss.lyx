@@ -1,0 +1,3936 @@
+#LyX 1.6.8 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass literate-jss
+\begin_preamble
+\title{\pkg{animation}: An \proglang{R} Package for Creating Animations and Demonstrating Statistical Methods}
+
+
+\author{Yihui Xie\\
+Department of Statistics \& Statistical Laboratory, Iowa State
+University}
+
+\Plaintitle{animation: An R Package for Creating Animations and Demonstrating Statistical Methods}
+
+\Plainauthor{Yihui Xie}
+
+\Abstract{Animated graphs that demonstrate statistical ideas and methods can both attract interest and assist understanding.  In this paper we first discuss how animations can be related to some statistical topics such as iterative algorithms, random simulations, (re)sampling methods and dynamic trends, then we describe the approaches that may be used to create animations, and give an overview to the \proglang{R} package \pkg{animation} \citep{animation}, including its design, general usage and the statistical topics in the package.  We will show examples of the use of animations in teaching statistics and in the presentation of statistical reports. Animations can add insight and interest to traditional static approaches to teaching statistics, making statistics a more interesting and appealing subject.}
+
+\Keywords{animation, statistical demonstration, simulation, limiting distributions, resampling methods, \proglang{R}}
+
+\Plainkeywords{animation, statistical demonstration, simulation, limiting distributions, resampling methods, R}
+
+\Address{Yihui Xie\\
+102 Snedecor Hall, Ames, IA 50011\\
+United States of America\\
+E-mail: \email{xie@yihui.name}\\
+URL: \url{http://yihui.name}, \url{http://animation.yihui.name}}
+
+%% publication information
+%% NOTE: Typically, this can be left commented and will be filled out by the technical editor
+%% \Volume{}
+%% \Issue{}
+%% \Month{}
+%% \Year{}
+%% \Submitdate{}
+%% \Acceptdate{}
+
+%\usepackage[nogin,noae]{Sweave}
+\usepackage{tikz}
+%\VignetteIndexEntry{animation: An R Package for Creating Animations and Demonstrating Statistical Methods}
+\end_preamble
+\options article
+\use_default_options false
+\language english
+\inputencoding utf8
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine natbib_authoryear
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Flex Sweave Options
+status open
+
+\begin_layout Plain Layout
+
+eps=FALSE,pdf=FALSE,tidy=TRUE,highlight=FALSE,echo=FALSE,external=TRUE,prefix.str
+ing=figure/Rfig
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+The range of statistical methods, models and computer implementations now
+ available is very wide indeed.
+ Both students in statistics, and application area specialists who find
+ that they need to master and use statistical methodology, require effective
+ means of entrance into this extensive body of ideas, theories, and practical
+ computer implementations.
+ Effective visual demonstrations can be useful aids in the mastering of
+ concepts.
+ Statistical analysis uses computer algorithms to process data, with the
+ user then required to interpret results.
+ Even with a good training in mathematics, it can be hard to understand
+ the motivation for a statistical algorithm, or how it works in processing
+ data.
+\end_layout
+
+\begin_layout Standard
+An obvious application is the simulation of limiting distributions.
+ Not only is it possible to illustrate the central limit theorem (CLT);
+ one can show how the CLT fails if the observations come from a population
+ with infinite variance.
+ This can be done moreover, both in a simulation (sampling from a theoretical
+ distribution) and resampling (sampling from an empirical distribution)
+ context.
+ The bootstrap sampling distribution of the mean is a simple use of sampling
+ from an empirical distribution.
+\end_layout
+
+\begin_layout Standard
+Technological advances in data capture and deployment have led to large
+ increases in the size and complexity of data sets.
+ This creates new challenges those who work on the analysis of such data.
+ Often, as for example in the analysis of gene expression data, the challenges
+ have substantial statistical novelty.
+ Consider, as an example, methods that select, on the basis of a measure
+ of discriminatory power, a few genes from among a large, in order to discrimina
+te between previously assigned groups.
+ Simulation, and associated animations, can be an excellent tool for conveying
+ a sense of the extent of the adaptions needed, if classical theory is to
+ account adequately for selection effects.
+\end_layout
+
+\begin_layout Standard
+Traditional static printed statistical reports have severe limitations,
+ for conveying results with some degree of complexity to an audience that
+ is not trained to understand the statistical ideas.
+ Here, an active animated way to present results can help greatly.
+ The human visual cortex is arguably the most powerful computing system
+ to which we have access.
+ Visualization puts information in a form that uses the power of this computing
+ system.
+ By virtue of our visual system we may be able to quickly understand a somewhat
+ complicated method or result, or at least a simplified case.
+\end_layout
+
+\begin_layout Standard
+The literature on animations in demonstrating statistical ideas is, to date,
+ very limited; in contrast, there has been active research in the area of
+ dynamic graphics for decades, which is mainly focused on data analysis.
+ This paper provides both a conceptual framework on how animations can be
+ effectively related to statistical theories and ideas, and a discussion
+ on approaches to the computer implementation of animations, in an 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{R}
+\end_layout
+
+\end_inset
+
+ language environment 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Rlang"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+\begin_inset OptArg
+status open
+
+\begin_layout Plain Layout
+Statistics and Animations
+\end_layout
+
+\end_inset
+
+Statistics and Animations
+\begin_inset CommandInset label
+LatexCommand label
+name "connection"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+An animation is a rapid display of a sequence of images of 2D (or 3D) artwork
+ or model positions in order to create an illusion of movement.
+ It is an optical illusion of motion due to the phenomenon of persistence
+ of vision, and can be created and demonstrated in a number of ways.
+\end_layout
+
+\begin_layout Standard
+Animations can assist in a number of areas.
+ For example, we can monitor the steps of K-Means cluster algorithm in multivari
+ate statistics, simulate the approximation of the sampling distribution
+ of 
+\begin_inset Formula $\bar{X}_{n}$
+\end_inset
+
+ to normal distribution as the sample size 
+\begin_inset Formula $n$
+\end_inset
+
+ increases, or simply show the dynamic trends of the time-series data as
+ time passes by, etc.
+ The common characteristic of these examples is that they all have definitions
+ for a 
+\emph on
+sequence
+\emph default
+, i.e.
+ the fundamental concept for animations.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "rotation"
+
+\end_inset
+
+ is a primitive illustration of how a rotation in an animation is constructed
+ based on a sequence of images.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Scrap
+<<rotation, fig=TRUE, echo=FALSE, height=2.5, width=6>>=
+\end_layout
+
+\begin_layout Scrap
+palette(c("black", "red"))
+\end_layout
+
+\begin_layout Scrap
+op = par(mar = rep(0, 4))
+\end_layout
+
+\begin_layout Scrap
+plot(x <- c(1:4, 4:1), y <- rep(2:1, each = 4), ann = F,
+\end_layout
+
+\begin_layout Scrap
+    type = "n", axes = F, xlim = c(0.55, 4.45), ylim = c(0.55,
+\end_layout
+
+\begin_layout Scrap
+        2.45), xaxs = "i", yaxs = "i")
+\end_layout
+
+\begin_layout Scrap
+rect(x - 0.45, y - 0.45, x + 0.45, y + 0.45, border = "darkgray")
+\end_layout
+
+\begin_layout Scrap
+s = seq(0, 360, length = 8)
+\end_layout
+
+\begin_layout Scrap
+for (i in 1:8) {
+\end_layout
+
+\begin_layout Scrap
+    text(x[i], y[i], "Animation", srtsimple = s[i], col = i,
+\end_layout
+
+\begin_layout Scrap
+        cex = 0.5 + 40 * i/360)
+\end_layout
+
+\begin_layout Scrap
+}
+\end_layout
+
+\begin_layout Scrap
+text(x, y - 0.45, paste("00:0", 1:8, sep = ""), adj = c(0.5,
+\end_layout
+
+\begin_layout Scrap
+    -0.2), col = "darkgray", cex = 0.75, font = 2)
+\end_layout
+
+\begin_layout Scrap
+arrows(c(1:3 + 0.35, 4:2 - 0.35), rep(2:1, each = 3),
+\end_layout
+
+\begin_layout Scrap
+    c(1:3 + 0.65, 4:2 - 0.65), rep(2:1, each = 3), length = 0.15,
+\end_layout
+
+\begin_layout Scrap
+    col = "darkgray")
+\end_layout
+
+\begin_layout Scrap
+arrows(4, 1.55, 4, 1.45, length = 0.1, col = "darkgray")
+\end_layout
+
+\begin_layout Scrap
+par(op)
+\end_layout
+
+\begin_layout Scrap
+palette("default")
+\end_layout
+
+\begin_layout Scrap
+@
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+An illustration of a sequence of images: the basic constitution of an animation.
+\begin_inset CommandInset label
+LatexCommand label
+name "rotation"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After a review of current statistical theories and applications, we think
+ there are generally four types of scenarios as follows in which animations
+ may play a useful and interesting role.
+\end_layout
+
+\begin_layout Subsection
+Iterative Algorithms
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Scrap
+<<>>=
+\end_layout
+
+\begin_layout Scrap
+@
+\end_layout
+
+\begin_layout Scrap
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Gradient Descent Algorithm: 
+\emph on
+grad.desc()
+\emph default
+ in 
+\begin_inset Flex pkg
+status open
+
+\begin_layout Plain Layout
+
+animation
+\end_layout
+
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "grad-desc"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Iterative algorithms are widely used to derive estimates.
+ Animation can help us monitor the detailed progress, inserting pauses as
+ may be needed to follow the changes.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "grad-desc"
+
+\end_inset
+
+ is a demonstration of the 
+\begin_inset Quotes eld
+\end_inset
+
+gradient descent algorithm 
+\begin_inset Quotes erd
+\end_inset
+
+.
+ There are still a large amount of iterative algorithms that can be animated
+ in this way such as Newton-Raphson method for finding roots in numeric
+ analysis, EM algorithm in computational statistics and so on.
+\end_layout
+
+\begin_layout Subsection
+Random Numbers and Simulation
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "random"
+
+\end_inset
+
+ 
+\begin_inset Float figure
+placement t
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Simulation of Buffon's Needle.
+ (1) Top left: simulation of randomly dropping needles with length 
+\begin_inset Formula $L$
+\end_inset
+
+: the crossing angle is 
+\begin_inset Formula $\phi$
+\end_inset
+
+ and the distance between parallel lines is 
+\begin_inset Formula $D$
+\end_inset
+
+; (2) Top right: corresponding point pairs 
+\begin_inset Formula $(\phi,y)$
+\end_inset
+
+, where 
+\begin_inset Formula $y$
+\end_inset
+
+ is the distance from the center of the needle to the nearest parallel line;
+ (3) Bottom: values of 
+\begin_inset Formula $\hat{\pi}$
+\end_inset
+
+ calculated from the above simulations.
+ Actually this is the 
+\begin_inset Formula $150$
+\end_inset
+
+th animation frame taken from the whole process of 
+\begin_inset Formula $200$
+\end_inset
+
+ needle falls.
+ This simulation has been implemented in the function 
+\emph on
+buffon.needle()
+\emph default
+ in 
+\begin_inset Flex pkg
+status open
+
+\begin_layout Plain Layout
+
+animation
+\end_layout
+
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "buffon"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We often need to generate random numbers to do certain simulations, to validate
+ whether our theories can behave in accordance with appropriate random numbers
+ (or 
+\emph on
+not
+\emph default
+).
+ For example, we already know from the CLT that the standardized sample
+ mean 
+\begin_inset Formula $\sqrt{n}(\bar{X}_{n}-\mu)/\sigma$
+\end_inset
+
+ has a limiting standard normal distribution under proper conditions, so
+ we may check how perfectly the distribution of the sample mean approximates
+ to the normal distribution as the sample size 
+\begin_inset Formula $n$
+\end_inset
+
+ increases to a very large number (theoretically infinity).
+ On the other hand, we can also demonstrate effects of departure from theories,
+ e.g.
+ the behaviour of the sample mean when the population variance is infinite,
+ which we will discuss later.
+\end_layout
+
+\begin_layout Standard
+Many experiments, concepts and theorems in probability theory and mathematical
+ statistics can be expressed in the form of animations
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Some trivial animations can be applied to the subject of sampling survey
+ to demonstrate those basic sampling methods, such as simple random sampling,
+ stratified sampling, and systematic sampling, etc.
+ They have also been included in the package 
+\begin_inset Flex pkg
+status open
+
+\begin_layout Plain Layout
+
+animation
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+, including the classical Buffon's Needle 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Ramaley69"
+
+\end_inset
+
+, Law of Large Numbers, Random Walk or Brownian Motion, coin tosses, confidence
+ intervals and so on.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "buffon"
+
+\end_inset
+
+ is a demonstration of the Buffon's Needle problem for approximating the
+ value of 
+\begin_inset Formula $\pi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Resampling Methods
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+ 
+\begin_inset Caption
+
+\begin_layout Plain Layout
+An illustration of bootstrapping for i.i.d data from 
+\begin_inset Formula $U(0,1)$
+\end_inset
+
+: the original data is denoted by blue points, while the resampled data
+ is marked out using red points with 
+\begin_inset Quotes eld
+\end_inset
+
+leaves
+\begin_inset Quotes erd
+\end_inset
+
+; the number of leaves in the sunflower scatter plot just means how many
+ times these points are picked out, as bootstrap methods always sample 
+\emph on
+with
+\emph default
+ replacement.
+ This demonstration has been implemented in the function 
+\emph on
+boot.iid()
+\emph default
+ in 
+\begin_inset Flex pkg
+status open
+
+\begin_layout Plain Layout
+
+animation
+\end_layout
+
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "bootiid"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Instead of sampling from a theoretical distribution (which is usually a
+ common case in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "random"
+
+\end_inset
+
+), there are also a lot of statistical methods that focus on sampling from
+ the empirical distribution.
+ This is often referred to as 
+\begin_inset Quotes eld
+\end_inset
+
+resampling
+\begin_inset Quotes erd
+\end_inset
+
+ in the literature.
+ Typical methods include cross-validation, bootstrapping, and permutation
+ methods 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Boot94"
+
+\end_inset
+
+, etc.
+\end_layout
+
+\begin_layout Standard
+Again, we may use animations to investigate the resampling effects if we
+ keep on sampling from the empirical distribution and demonstrate the correspond
+ing output each time we have obtained a new sample 
+\begin_inset Formula $X^{*}$
+\end_inset
+
+.
+ For example, under certain conditions, the standardized sample mean will
+ converge in distribution to a normal random variable 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Lahiri06"
+
+\end_inset
+
+, so we may generate several bootstrap replications of the sample mean and
+ examine its convergence to normality as the sample size grows, or failing
+ to converge when the original sample comes from a distribution with infinite
+ variance; this is similar to the CLT case in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "random"
+
+\end_inset
+
+.
+ In the bootstrap literature, perhaps the moving blocks bootstrap 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Boot94"
+
+\end_inset
+
+ is a better candidate for animations: each time we have selected some blocks
+ of sample points, we can mark these blocks up one by one to emphasize the
+ block structure, then show the output based on these sample blocks.
+ There are also inappropriate uses of resampling, e.g., the jackknife estimate
+ the standard error of the median, which has proved to be inconsistent;
+ or the sampling distribution of extreme quantiles such as the maximum 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Miller64"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "bootiid"
+
+\end_inset
+
+ has illustrated one of the replications of bootstrapping, and the density
+ curve has indicated the distribution of the sample mean.
+ The plot will be animated if we keep on resampling from the original data
+ points.
+ This is where the sequence of animation frames derives from.
+\end_layout
+
+\begin_layout Subsection
+Dynamic Trends
+\end_layout
+
+\begin_layout Standard
+The idea of animations for dynamic trends is perhaps the most ordinary and
+ natural for us to imagine.
+ The simplest case can be just showing the values of a time series as time
+ passes by.
+ Surely this is not enough in practical applications, so we need to obtain
+ some trends in the data and illustrate their changes via an animation.
+ The definition of the trends in data can be quite flexible, for example,
+ the relationship between income and expenditure in a certain range of time
+ (say, the regression coefficients), or the cluster membership of all countries
+ in the world using two socioeconomic indicators as cluster variables.
+\end_layout
+
+\begin_layout Standard
+Dynamic trends can be observed more clearly with the help of animations,
+ and sometimes we can draw preliminary conclusions from the animation, e.g.
+ there may be a 
+\begin_inset Quotes eld
+\end_inset
+
+breakpoint
+\begin_inset Quotes erd
+\end_inset
+
+ in some year because we feel a significant change in the animation.
+ After such kind of exploratory data analysis, we can do some hypothesis
+ tests to justify these conjectures, such as 
+\begin_inset Quotes eld
+\end_inset
+
+Chow Breakpoint Test
+\begin_inset Quotes erd
+\end_inset
+
+, etc.
+\end_layout
+
+\begin_layout Standard
+In an even more general sense, the meaning of 
+\begin_inset Quotes eld
+\end_inset
+
+dynamic
+\begin_inset Quotes erd
+\end_inset
+
+ does not have to be involved with a 
+\begin_inset Quotes eld
+\end_inset
+
+time
+\begin_inset Quotes erd
+\end_inset
+
+ variable -- we may as well extend this 
+\begin_inset Quotes eld
+\end_inset
+
+time
+\begin_inset Quotes erd
+\end_inset
+
+ variable to any variables as long as they can be sorted.
+ In that case, animations can be created along with the increasing or descending
+ values of this 
+\begin_inset Quotes eld
+\end_inset
+
+time
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Design and Contents
+\end_layout
+
+\begin_layout Standard
+Based on the above ideas in statistics, the 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{R}
+\end_layout
+
+\end_inset
+
+ package 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{animation}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "animation"
+
+\end_inset
+
+ was created.
+ Below is a list of animation tools; some of them have been incorporated
+ into the package 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{animation}
+\end_layout
+
+\end_inset
+
+, while some are from other 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{R}
+\end_layout
+
+\end_inset
+
+ packages..
+\end_layout
+
+\begin_layout Subsection
+Tools for Animation
+\end_layout
+
+\begin_layout Standard
+Many different computer technologies and software are available for making
+ animations or even movies, however, as for statistics, the power of statistical
+ computations and graphics has a more critical role than animation technologies.
+ The 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{R}
+\end_layout
+
+\end_inset
+
+ language is a natural choice as the infrustructure of this animation package,
+ since it provides flexible computing power and graphical facilities, among
+ which those low-level plotting commands are especially useful for generating
+ basic elements of animations 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Murrell05"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The first natural choice is just the 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{R}
+\end_layout
+
+\end_inset
+
+ graphics device.
+ The 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{R}
+\end_layout
+
+\end_inset
+
+ package 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{grDevices}
+\end_layout
+
+\end_inset
+
+ has offered a variety of graphics devices, and it is quite convenient to
+ produce single image files -- there are several choices such as PNG, JPEG,
+ BMP, PDF, PS and WMF, etc.
+ All of them work very well when producing images files one by one, but
+ none of them is able to make animation files 
+\emph on
+directly
+\emph default
+.
+ At most we can only produce a sequence of images.
+\end_layout
+
+\begin_layout Standard
+Nevertheless, we can adapt the Windows graphics devices (under Windows)
+ or X Window System graphics devices (under Linux) or MacOS X Quartz devices
+ (under Mac OS X) inside 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{R}
+\end_layout
+
+\end_inset
+
+ to make animations, i.e.
+ draw graphs one after another in these devices.
+ For example, the code below generates an animation with a word 
+\begin_inset Quotes eld
+\end_inset
+
+animation
+\begin_inset Quotes erd
+\end_inset
+
+ rotating in it
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+It is more continuous than that in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "rotation"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Scrap
+<<wordrotation, eval=FALSE, highlight=TRUE, echo=TRUE>>=
+\end_layout
+
+\begin_layout Scrap
+for (i in 1:360) {
+\end_layout
+
+\begin_layout Scrap
+    plot(1, ann = FALSE, type = "n", axes = FALSE)
+\end_layout
+
+\begin_layout Scrap
+    text(1, 1, "Animation", srt = i, col = rainbow(360)[i], cex = 7 * i/360)
+\end_layout
+
+\begin_layout Scrap
+    Sys.sleep(0.01)
+\end_layout
+
+\begin_layout Scrap
+}
+\end_layout
+
+\begin_layout Scrap
+@
+\end_layout
+
+\begin_layout Standard
+Again, there is an obvious drawback: it is inconvenient for users who don't
+ have 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{R}
+\end_layout
+
+\end_inset
+
+ installed in their computers to watch the animations, as the pictures are
+ displayed 
+\emph on
+inside
+\emph default
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{R}
+\end_layout
+
+\end_inset
+
+ and we need an independent platform to show our animations.
+\end_layout
+
+\begin_layout Standard
+Thus the second choice is to find a common platform, and a convenient one
+ is 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{HTML}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex prolang
+status open
+
+\begin_layout Plain Layout
+
+JavaScript
+\end_layout
+
+\end_inset
+
+.
+ The method is rather naive: we just embed the sequence of images into an
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{HTML}
+\end_layout
+
+\end_inset
+
+ page and then make use of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+JavaScript
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ to animate these images and control their behaviour.
+ There are several advantages for choosing 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{HTML}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+JavaScript
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ as a tool for presenting animations, e.g.,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{R}
+\end_layout
+
+\end_inset
+
+ already has built-in functions for reading and writing text files, so we
+ can create 
+\begin_inset Flex prolang
+status open
+
+\begin_layout Plain Layout
+
+HTML
+\end_layout
+
+\end_inset
+
+ files easily, e.g.
+ use 
+\emph on
+cat()
+\emph default
+ with arguments 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+file
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+append
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+; 
+\end_layout
+
+\begin_layout Itemize
+Although 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{R}
+\end_layout
+
+\end_inset
+
+ has no devices for image formats such as 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+GIF
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+, there are still many other 
+\begin_inset Quotes eld
+\end_inset
+
+static
+\begin_inset Quotes erd
+\end_inset
+
+ image formats which can be perfectly shown in 
+\begin_inset Flex prolang
+status open
+
+\begin_layout Plain Layout
+
+HTML
+\end_layout
+
+\end_inset
+
+ pages, e.g.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+JPEG
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+PNG
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+, ...; 
+\end_layout
+
+\begin_layout Itemize
+Generally speaking, no additional programs or software are needed in order
+ to display the animations, as long as the web browser supports 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+JavaScript
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ -- most browsers can meet such a simple requirement, such as Internet Explorer,
+ Mozilla Firefox, Safari, and Konqueror, etc
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Refer to 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://en.wikipedia.org/wiki/Comparison_of_web_browsers
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Here is some sample code in 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+JavaScript
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ which animates a sequence of images in an 
+\begin_inset Flex prolang
+status open
+
+\begin_layout Plain Layout
+
+HTML
+\end_layout
+
+\end_inset
+
+ page
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The actual 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+JavaScript
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ code is a little different from this in consideration of different 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+JavaScript
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ support of web browsers like Mozilla Firefox and Microsoft Internet Explorer.
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+The third choice is based on special image formats which have internal support
+ for animations, such as 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+SVG
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ (Scalable Vector Graphics) and 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+GIF
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+, etc.
+ The latter one is not well supported by 
+\begin_inset Flex prolang
+status open
+
+\begin_layout Plain Layout
+
+R
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+But the package 
+\begin_inset Flex pkg
+status open
+
+\begin_layout Plain Layout
+
+animation
+\end_layout
+
+\end_inset
+
+ has provided an alternative to generate 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+GIF
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ animations using 
+\begin_inset Quotes eld
+\end_inset
+
+ImageMagick
+\begin_inset Quotes erd
+\end_inset
+
+; see the vignette in the package.
+\end_layout
+
+\end_inset
+
+, and the former one can be supported by a few 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{R}
+\end_layout
+
+\end_inset
+
+ packages such as Cairo, cairoDevice, and RSvgDevice, etc.
+\end_layout
+
+\begin_layout Standard
+A last choice is to make use of other special systems which have convenient
+ facilities for animations.
+ For instance, the GGobi Data Visualization System for exploring high-dimensiona
+l data by highly dynamic and interactive graphics, the OpenGL environment
+ for developing portable, interactive 2D and 3D graphics applications, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Java
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ graphics device which is platform-independent, Cairo graphics library with
+ support for multiple output devices and GTK+ which is a highly usable,
+ feature rich toolkit for creating graphical user interfaces, etc.
+ There have already been a couple of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{R}
+\end_layout
+
+\end_inset
+
+ packages corresponding to these environments now, e.g., 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{rggobi}
+\end_layout
+
+\end_inset
+
+ , rgl , iPlots , rattle and playwith , etc.
+ The features of these tools will be considered in the future development
+ of 
+\begin_inset Flex pkg
+status open
+
+\begin_layout Plain Layout
+
+animation
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Basic Schema and Usage
+\end_layout
+
+\begin_layout Standard
+Currently there are two ways to create animation as described before: one
+ is just to show animations in a graphical device (Windows, X Window, etc),
+ and the other is to make animations in an 
+\begin_inset Flex prolang
+status open
+
+\begin_layout Plain Layout
+
+HTML
+\end_layout
+
+\end_inset
+
+ page so that people without 
+\begin_inset Flex prolang
+status open
+
+\begin_layout Plain Layout
+
+HTML
+\end_layout
+
+\end_inset
+
+ installed are also able to view the animations.
+\end_layout
+
+\begin_layout Standard
+Below is the basic schema for all the animation functions in the package:
+\end_layout
+
+\begin_layout Scrap
+<<schema,eval=FALSE,highlight=TRUE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Scrap
+## set some options first
+\end_layout
+
+\begin_layout Scrap
+oopt = ani.options(interval = 0.2, nmax = 10)
+\end_layout
+
+\begin_layout Scrap
+## use a loop to create images one by one
+\end_layout
+
+\begin_layout Scrap
+for (i in 1:ani.options("nmax")) {
+\end_layout
+
+\begin_layout Scrap
+    plot(rnorm(30))
+\end_layout
+
+\begin_layout Scrap
+    ## pause for a while ('interval')
+\end_layout
+
+\begin_layout Scrap
+    ani.pause()
+\end_layout
+
+\begin_layout Scrap
+}
+\end_layout
+
+\begin_layout Scrap
+## restore the options
+\end_layout
+
+\begin_layout Scrap
+ani.options(oopt)
+\end_layout
+
+\begin_layout Scrap
+@
+\end_layout
+
+\begin_layout Standard
+There are some common arguments in each animation function controlling the
+ way to make animations, for example, whether to save 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+PNG
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ files in order to show in 
+\begin_inset Flex prolang
+status open
+
+\begin_layout Plain Layout
+
+HTML
+\end_layout
+
+\end_inset
+
+ pages (
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+saveANI
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+), the time interval (
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+interval
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+) between each frame of a whole animation, and the 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+height
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+width
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ of the animation frames if they are to be saved.
+ These arguments are controlled by a special function 
+\emph on
+ani.control()
+\emph default
+:
+\end_layout
+
+\begin_layout Standard
+The meaning of these arguments are very easy to understand because the way
+ of making animations is quite naive, e.g., for 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+saveANI
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+The interpretation for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+code{nmax}
+\end_layout
+
+\end_inset
+
+ is not so apparent -- it depends on the specified animation function: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+nmax
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ is usually equal to the number of animation frames (e.g.
+ for 
+\emph on
+brownian.motion()
+\emph default
+) but not 
+\emph on
+always
+\emph default
+! The reason is there may be more than one frame recorded in a single step
+ of a loop, for instance, there are 2 frames generated in each step of 
+\emph on
+kmeans.ani()
+\emph default
+, and 4 frames in 
+\emph on
+knn.ani()
+\emph default
+, etc.
+\end_layout
+
+\begin_layout Standard
+To make an 
+\begin_inset Flex prolang
+status open
+
+\begin_layout Plain Layout
+
+HTML
+\end_layout
+
+\end_inset
+
+ animation page, you have to start a page first by 
+\emph on
+ani.start()
+\emph default
+, then use any animation functions to generate 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+PNG
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ files in the 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+images
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ directory relative the 
+\begin_inset Flex prolang
+status open
+
+\begin_layout Plain Layout
+
+HTML
+\end_layout
+
+\end_inset
+
+ page, and at last use 
+\emph on
+ani.stop()
+\emph default
+ to complete writing the page.
+ By default, 
+\emph on
+ani.stop()
+\emph default
+ will automatically open a web browser to view the 
+\begin_inset Flex prolang
+status open
+
+\begin_layout Plain Layout
+
+HTML
+\end_layout
+
+\end_inset
+
+ animation page
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Use the function 
+\emph on
+browseURL()
+\emph default
+ in package 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+utils
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Here is a sample session:
+\end_layout
+
+\begin_layout Scrap
+<<saveHTML,eval=FALSE,highlight=TRUE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Scrap
+saveHTML({
+\end_layout
+
+\begin_layout Scrap
+    ani.options(interval = 0.05, nmax = 30)
+\end_layout
+
+\begin_layout Scrap
+    par(mar = c(3, 3, 2, 0.5), mgp = c(2, 0.5, 0), tcl = -0.3, 
+\end_layout
+
+\begin_layout Scrap
+        cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)
+\end_layout
+
+\begin_layout Scrap
+    brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow", 
+\end_layout
+
+\begin_layout Scrap
+        main = "Demonstration of Brownian Motion")
+\end_layout
+
+\begin_layout Scrap
+}, imgname = "bm_plot", title = "Demonstration of Brownian Motion", 
+\end_layout
+
+\begin_layout Scrap
+    description = c("Random walk on the 2D plane: for each point", 
+\end_layout
+
+\begin_layout Scrap
+        "(x, y), x = x + rnorm(1) and y = y + rnorm(1)."))
+\end_layout
+
+\begin_layout Scrap
+@
+\end_layout
+
+\begin_layout Standard
+The website 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://animation.yihui.name
+\end_layout
+
+\end_inset
+
+ is built up mainly using the 
+\begin_inset Flex prolang
+status open
+
+\begin_layout Plain Layout
+
+HTML
+\end_layout
+
+\end_inset
+
+ pages generated from this package, so that the terminal audience will be
+ able to watch animations without 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{R}
+\end_layout
+
+\end_inset
+
+ software.
+\end_layout
+
+\begin_layout Subsection
+Contents of the Package
+\end_layout
+
+\begin_layout Standard
+This package consists of various functions for animations in statistics,
+ aiming to cover many areas such as probability theory, mathematical statistics,
+ multivariate statistics, nonparametric statistics, sampling survey, linear
+ models, time series, computational statistics, data mining and machine
+ learning, etc.
+ These functions might be of help both in teaching statistics and in data
+ analysis.
+\end_layout
+
+\begin_layout Standard
+As of version 2.0-0, there are 19 functions covering different topics related
+ to the discipline of statistics: the bisection method for root-finding
+ on an interval, bootstrapping for i.i.d data, Brownian motion on the 2d plane,
+ Buffon's needle, the central limit theorem, the concept of confidence intervals
+, cross-validation, flipping coins, gradient descent algorithm for a 2D
+ case, k-means cluster algorithm, kNN classification algorithm on the 2D
+ plane, the law of large numbers, moving window auto-regression, the Newton-Raph
+son method for root-finding, cluster sampling, simple random sampling without
+ replacement, stratified sampling, and systematic sampling, etc.
+\end_layout
+
+\begin_layout Section
+\begin_inset OptArg
+status open
+
+\begin_layout Plain Layout
+Examples
+\end_layout
+
+\end_inset
+
+Examples
+\begin_inset CommandInset label
+LatexCommand label
+name "example"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Comparison of limiting distributions of the sample mean 
+\begin_inset Formula $\bar{X}_{n}$
+\end_inset
+
+ with 
+\begin_inset Formula $X$
+\end_inset
+
+ from different populations: 
+\begin_inset Formula $\alpha$
+\end_inset
+
+-stable distribution (left) and uniform distribution (right).
+\begin_inset CommandInset label
+LatexCommand label
+name "clt"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section we give two examples illustrating the application of animations
+ to both statistical theories and data analysis.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Example 1 (Limiting distribution of the sample mean)
+\series default
+ In probability theory, the Lévy skew alpha-stable distribution or just
+ stable distribution developed by Paul Lévy is a family of probability distribut
+ions 
+\begin_inset Formula $\mathbf{S}(\alpha,\beta,\gamma,\delta)$
+\end_inset
+
+ which are characterized by four parameters: 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ (index of stability or characteristic exponent), 
+\begin_inset Formula $\beta$
+\end_inset
+
+ (skewness parameter), 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ (scale parameter) and 
+\begin_inset Formula $\delta$
+\end_inset
+
+ (location parameter) 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+citep{Nolan07}
+\end_layout
+
+\end_inset
+
+.
+ If a random variable 
+\begin_inset Formula $X$
+\end_inset
+
+ follows stable distribution, 
+\begin_inset Formula $\mathrm{E}(X)=\delta$
+\end_inset
+
+ when 
+\begin_inset Formula $\alpha\in(1,2]$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathrm{Var}(X)$
+\end_inset
+
+ is infinite except when 
+\begin_inset Formula $\alpha=2$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{R}
+\end_layout
+
+\end_inset
+
+ package 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+fBasics
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ has provided relevant functions for the stable distribution; here we generate
+ i.i.d random numbers from a stable distribution 
+\begin_inset Formula $\mathbf{S}(1.5,0,1,0)$
+\end_inset
+
+ and a uniform distribution 
+\begin_inset Formula $U(0,1)$
+\end_inset
+
+ as a comparison.
+ The function 
+\emph on
+clt.ani()
+\emph default
+ was designed to illustrate the limiting distribution of 
+\begin_inset Formula $\bar{X}_{n}$
+\end_inset
+
+ as 
+\begin_inset Formula $n$
+\end_inset
+
+ increases.
+ In the animation, the density of 
+\begin_inset Formula $\bar{X}_{n}$
+\end_inset
+
+ is estimated from a number of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+obs
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ observed mean values by 
+\emph on
+hist()
+\emph default
+ and 
+\emph on
+density()
+\emph default
+.
+ The whole animation is constructed along with 
+\begin_inset Formula $n=1,2,\cdots$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Scrap
+<<fig=FALSE,echo=TRUE,highlight=TRUE,eval=FALSE>>=
+\end_layout
+
+\begin_layout Scrap
+library(animation)
+\end_layout
+
+\begin_layout Scrap
+library(fBasics)
+\end_layout
+
+\begin_layout Scrap
+clt.ani(FUN = function(i) rstable(i, alpha = 1.5, beta = 0))
+\end_layout
+
+\begin_layout Scrap
+clt.ani(FUN = runif)
+\end_layout
+
+\begin_layout Scrap
+@
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "clt"
+
+\end_inset
+
+ is a comparison for the distribution of the sample mean when 
+\begin_inset Formula $n=50$
+\end_inset
+
+.
+ Obviously, the sample mean of stable distribution with 
+\begin_inset Formula $\alpha=1.5(\in(0,2])$
+\end_inset
+
+ does not converge to the normal distribution (even with larger 
+\begin_inset Formula $n$
+\end_inset
+
+), whereas the uniform sample mean behaves fairly well in convergence.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cltuni"
+
+\end_inset
+
+ has shown four discrete frames of the whole animation, from which we can
+ clearly observe the process of 
+\begin_inset Formula $\bar{X}_{n}$
+\end_inset
+
+ converging to the normal distribution.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The sample mean 
+\begin_inset Formula $\bar{X}_{n}$
+\end_inset
+
+ approximating to normality as the sample size 
+\begin_inset Formula $n$
+\end_inset
+
+ increases from 1, 2, 10 to 100 with 
+\begin_inset Formula $X\sim U(0,1)$
+\end_inset
+
+.
+ Dashed lines denote the theoretical limiting distribution 
+\begin_inset Formula $N(0.5,1/(12n))$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "cltuni"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+ 
+\begin_inset Caption
+
+\begin_layout Plain Layout
+An illustration of the 5-fold cross-validation for finding the optimum number
+ of gene features used in linear discriminant analysis.
+ This plot shows the 28th frame of the animation, i.e.
+ the LDA with 6 features and data in the 3rd fold as the test set.
+ The right plot shows the scores of test cases using 2 discriminant variables;
+ correct predictions and misclassified cases are marked by different colors
+ respectively.
+\begin_inset CommandInset label
+LatexCommand label
+name "golub28"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Example 2 (Classification of gene expression data)
+\series default
+ We know the high dimension of many data can bring us many difficulties,
+ which is, in fact, often called 
+\begin_inset Quotes eld
+\end_inset
+
+curse of dimensionality
+\begin_inset Quotes erd
+\end_inset
+
+.
+ It is very common that the gene expression data is just high-dimensional
+ with variables more than observations.
+ Thus we hope to use as less variables as possible to build statistical
+ models, make exploratory analysis or predictions.
+\end_layout
+
+\begin_layout Standard
+The data sets 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Golub
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+golubInfo
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ used here is from the 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+hddplot
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ package.
+ The aim is to discriminate between three cancer types (
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+allB
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+allT
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+aml
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+) using as less variables as possible from all the 7129 features.
+ Detailed ideas on building models can be found in 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "pp. 400"
+key "Maindonald07"
+
+\end_inset
+
+.
+ In this example, the analysis is not completely the same; we only illustrate
+ the process of cross-validation and corresponding results.
+\end_layout
+
+\begin_layout Standard
+Here we wish to find out the optimum number (say, less than 
+\begin_inset Formula $g_{\mathrm{max}}=10$
+\end_inset
+
+) of features in the linear discriminant analysis (LDA) using a 5-fold cross-val
+idation.
+ The procedure is like this:
+\end_layout
+
+\begin_layout Quote
+Split the whole data randomly into 5 folds: 
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+For the number of features 
+\begin_inset Formula $g=1,2,\cdots,10$
+\end_inset
+
+, choose 
+\begin_inset Formula $g$
+\end_inset
+
+ features that have the largest discriminatory power (measured by the 
+\begin_inset Formula $F$
+\end_inset
+
+-statistic in ANOVA): 
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+For the fold 
+\begin_inset Formula $i$
+\end_inset
+
+ (
+\begin_inset Formula $i=1,2,\cdots,5$
+\end_inset
+
+): 
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+Train a LDA model without the 
+\begin_inset Formula $i$
+\end_inset
+
+-th fold data, and predict with the 
+\begin_inset Formula $i$
+\end_inset
+
+-th fold for a proportion of correct predictions 
+\begin_inset Formula $\bar{p}_{gi}$
+\end_inset
+
+; 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Quote
+Average the 5 proportions to get the correct rate 
+\begin_inset Formula $\bar{p}_{g}$
+\end_inset
+
+; 
+\end_layout
+
+\end_deeper
+\begin_layout Quote
+Determine the optimum number of features with the largest 
+\begin_inset Formula $\bar{p}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+This schema has been implemented in the function 
+\emph on
+cv.nfeaturesLDA()
+\emph default
+ in 
+\begin_inset Flex pkg
+status open
+
+\begin_layout Plain Layout
+
+animation
+\end_layout
+
+\end_inset
+
+; see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "golub28"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "golubfinal"
+
+\end_inset
+
+ for the illustrations.
+ The 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{R}
+\end_layout
+
+\end_inset
+
+ code is as follows (it may take about 2 minutes!):
+\end_layout
+
+\begin_layout Scrap
+<<fig=FALSE,echo=TRUE,highlight=TRUE,eval=FALSE>>=
+\end_layout
+
+\begin_layout Scrap
+library(animation)
+\end_layout
+
+\begin_layout Scrap
+library(hddplot)
+\end_layout
+
+\begin_layout Scrap
+data(Golub)
+\end_layout
+
+\begin_layout Scrap
+data(golubInfo)
+\end_layout
+
+\begin_layout Scrap
+op = par(pch=19)
+\end_layout
+
+\begin_layout Scrap
+x=cv.nfeaturesLDA(t(Golub), cl=golubInfo$cancer,interval=0,k=5,cex.rg=c(0,3),nmax=
+10)
+\end_layout
+
+\begin_layout Scrap
+par(op)
+\end_layout
+
+\begin_layout Scrap
+@
+\end_layout
+
+\begin_layout Scrap
+
+\end_layout
+
+\begin_layout Standard
+In the animation, points with sizes proportional to the rates of correct
+ predictions are moving from bottom to top and left to right, which has
+ just illustrated the process of 
+\begin_inset Formula $k$
+\end_inset
+
+-fold cross-validation (vertical axis, 1 to 
+\begin_inset Formula $k$
+\end_inset
+
+) and the increasing number of features (horizontal axis, 1 to 
+\begin_inset Formula $g_{\mathrm{max}}$
+\end_inset
+
+).
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "golub28"
+
+\end_inset
+
+ is the 28th frame of the whole animation: for a fixed number 
+\begin_inset Formula $g$
+\end_inset
+
+, we demonstrate the rate of correct predictions 
+\begin_inset Formula $p_{gi}$
+\end_inset
+
+ for 
+\begin_inset Formula $i=1,2,\cdots,k$
+\end_inset
+
+ one by one with points moving up, and then move to the next number 
+\begin_inset Formula $g+1$
+\end_inset
+
+.
+ The average rates are computed and denoted at the bottom of the graph;
+ points that marked by 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+?
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+ just denote unknown 
+\begin_inset Formula $p_{gi}$
+\end_inset
+
+, i.e.
+ they have not been computed yet.
+ In the end, we only have to find out the number 
+\begin_inset Formula $g$
+\end_inset
+
+ corresponding to the biggest point at the bottom line (see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "golubfinal"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The final result of determining the optimum number of gene features.
+ Actually this number is 9 (
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+x$optimum
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+), because the average rate of correct predictions with 9 gene features
+ is 
+\begin_inset Formula $78\%$
+\end_inset
+
+ which is the largest value estimated from the 5-fold cross-validation.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "golubfinal"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusions
+\end_layout
+
+\begin_layout Standard
+The simple goal of the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{S}
+\end_layout
+
+\end_inset
+
+ language is 
+\begin_inset Quotes eld
+\end_inset
+
+To turn ideas into software, quickly and faithfully
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Chambers98"
+
+\end_inset
+
+, for the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{animation}
+\end_layout
+
+\end_inset
+
+ package the goal is 
+\begin_inset Quotes eld
+\end_inset
+
+To turn ideas into animation (quickly and faithfully)
+\begin_inset Quotes erd
+\end_inset
+
+, as statistical ideas and animations share some common characteristics,
+ which have been discussed in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "connection"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The package currently allows two different ways to display animations, namely
+ using 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{R}
+\end_layout
+
+\end_inset
+
+ graphics devices, and on 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+proglang{HTML}
+\end_layout
+
+\end_inset
+
+ pages.
+ The programming schema for animation functions is quite simple (even naive)
+ but effective, what's more, animations made from such a schema can help
+ us further understand statistical methods and concepts, and gain insights
+ into data.
+\end_layout
+
+\begin_layout Standard
+The two examples in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "example"
+
+\end_inset
+
+ have shown the advantage of animations in both demonstrating statistical
+ theories and results of data analysis: not only the procedures illustrated
+ step by step are fairly clear, but also the actual effects can be easily
+ observed.
+ In traditional static printed reports and papers (such as this one), however,
+ these dynamic information cannot be conveyed conveniently.
+\end_layout
+
+\begin_layout Standard
+There are also limitations.
+ First of all, the range of its application is limited to only some methods
+ or concepts in statistics.
+ In other words, we are not able to turn all the ideas into animation, and
+ sometimes it is not necessary at all.
+ Secondly, the functionality of this package is currently somewhat inflexible.
+ For example, the time duration between animation frames do not need to
+ be fixed at a certain number, and in some cases, it is even better to use
+ different intervals; an immediate idea is to use faster and faster speed
+ in the demonstration of the Gradient Descent algorithm, which may give
+ a better simulation of approximating to the minimum because we can see
+ the gradient is becoming flatter and flatter.
+\end_layout
+
+\begin_layout Standard
+There are additional tools for interactive graphics that I plan to include,
+ such as 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Tcl/Tk
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+GTK+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+, etc, in order to build a more user-friendly and flexible interface, e.g.
+ the time interval between animation frames might be controlled by a slider
+ in a 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Tk
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ window, or use a checkbox to decide whether to save animation frames to
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+code
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+PNG
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ files, etc.
+ Such a point-and-click interface can bring better experience to practical
+ users.
+ Once appropriate tools have been chosen, the task that remains is just
+ to find creative ideas for animations -- surely there is still a long way
+ to go.
+\end_layout
+
+\begin_layout Section*
+Acknowledgments
+\end_layout
+
+\begin_layout Standard
+I'm especially grateful to John Maindonald for his valuable advice and comments
+ on the manuscript, as well as several suggestions to this 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pkg{animation}
+\end_layout
+
+\end_inset
+
+ package ever since early 2008.
+ I'd also like to thank the anonymous reviewer for the constructive comments.
+ Besides, I appreciate all the suggestions and feedback from the users,
+ without whom this package would not have achieved its current quality and
+ flexibility (see 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+code{news(package = "animation")}
+\end_layout
+
+\end_inset
+
+).
+ Finally, the John M.
+ Chambers Statistical Software Award (
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://stat-computing.org/awards/jmc/
+\end_layout
+
+\end_inset
+
+) in 2009 was a substantial encouragement to the development of this package,
+ and I thank Dr Chambers as well as the award committee.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "animation-jss"
+options "jss"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
