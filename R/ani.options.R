@@ -127,6 +127,11 @@
 ##' \code{\link{saveSWF}} when \code{ani.options('ani.type')} is
 ##' \code{'pdf'}.}
 ##'
+##' \item{ffmpeg}{the path of the progam \command{ffmpeg},
+##' e.g. \code{ani.options(ffmpeg =
+##' 'C:/Software/ffmpeg/bin/ffmpeg.exe')}; FFmpeg is used to convert a
+##' sequence of images to a video. See \code{\link{saveVideo}}}.
+##'
 ##' }
 ##' }
 ##' @param ... arguments in \code{tag = value} form, or a list of tagged
