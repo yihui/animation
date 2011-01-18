@@ -32,15 +32,16 @@
 ##' \code{ani.options('ani.type')} can only be one of \code{png},
 ##' \code{pdf} and \code{jpeg}.
 ##'
-##' Also note that PDF graphics can be compressed using Pdftk (if it
-##' is installed and \code{ani.options('pdftk')} has been set); see
-##' \code{\link{pdftk}}.
+##' Also note that PDF graphics can be compressed using qpdf or Pdftk
+##' (if either one is installed and \code{ani.options('qpdf')} or
+##' \code{ani.options('pdftk')} has been set); see \code{\link{qpdf}}
+##' or \code{\link{pdftk}}.
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link{saveGIF}}, \code{\link{saveLatex}},
 ##' \code{\link{saveHTML}}, \code{\link{saveVideo}},
 ##' \code{\link[base]{system}}, \code{\link[grDevices]{png}},
 ##' \code{\link[grDevices]{jpeg}}, \code{\link[grDevices]{pdf}},
-##' \code{\link{pdftk}}
+##' \code{\link{qpdf}}, \code{\link{pdftk}}
 ##' @references
 ##'   \url{http://animation.yihui.name/animation:start#create_flash_animations}
 ##' @keywords dynamic device utilities
@@ -87,10 +88,12 @@ saveSWF = function(expr, img.name = "Rplot", swf.name = "animation.swf",
     if (use.dev) dev.off()
 
     ## compress PDF files
-    if (file.ext == 'pdf' && !is.null(ani.options('pdftk'))) {
+    if (file.ext == 'pdf' &&
+        ((use.pdftk <- !is.null(ani.options('pdftk'))) ||
+         (use.qpdf <- !is.null(ani.options('qpdf'))))) {
         for (f in list.files(path = dirname(img.name), pattern =
                              sprintf('^%s[0-9]*\\.pdf$', img.name), full.names = TRUE))
-            pdftk(f)
+            if (use.qpdf) qpdf(f) else if (use.pdftk) pdftk(f)
     }
 
     if (!is.null(ani.options('swftools'))) {

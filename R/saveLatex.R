@@ -65,8 +65,9 @@
 ##' PDF devices are recommended because of their high quality and
 ##' usually they are more friendly to LaTeX, but the size of PDF files
 ##' is often much larger; in this case, we may set the option
-##' \code{'pdftk'} to compress the PDF graphics output. To set the PDF
-##' device, use \code{ani.options(ani.dev = 'pdf', ani.type = 'pdf')}
+##' \code{'qpdf'} or \code{'pdftk'} to compress the PDF graphics
+##' output. To set the PDF device, use \code{ani.options(ani.dev =
+##' 'pdf', ani.type = 'pdf')}
 ##'
 ##' So far animations created by the LaTeX package \pkg{animate} can
 ##' only be viewed with Acrobat Reader (Windows) or \command{acroread}
@@ -75,11 +76,11 @@
 ##' to install \command{acroread} and set \code{options(pdfviewer =
 ##' 'acroread')}.
 ##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{saveGIF}} to convert image frames to a
-##' single GIF/MPEG file; \code{\link{saveSWF}} to convert images to
-##' Flash; \code{\link{saveHTML}} to create an HTML page containing
-##' the animation; \code{\link{saveVideo}} to convert images to a
-##' video; \code{\link{pdftk}} to compress PDF graphics
+##' @seealso \code{\link{saveGIF}} to convert image frames to a single
+##' GIF/MPEG file; \code{\link{saveSWF}} to convert images to Flash;
+##' \code{\link{saveHTML}} to create an HTML page containing the
+##' animation; \code{\link{saveVideo}} to convert images to a video;
+##' \code{\link{qpdf}} or \code{\link{pdftk}} to compress PDF graphics
 ##' @references To know more about the \code{animate} package, please
 ##' refer to
 ##' \url{http://www.ctan.org/tex-archive/macros/latex/contrib/animate/}.
@@ -114,7 +115,7 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
     if (!missing(nmax)) ani.options(nmax = nmax)
     on.exit(ani.options(oopt))
     outdir = ani.options('outdir')
-    ani.ext = ani.options('ani.type')
+    file.ext = ani.options('ani.type')
     use.dev = ani.options('use.dev')
     ## detect if I'm in a Sweave environment
     in.sweave = FALSE
@@ -126,7 +127,7 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
                     ## yes, I'm in Sweave w.p. 95%
                     img.name = paste(chunkopts$prefix.string, chunkopts$label, sep = '-')
                     ani.options(img.fmt = file.path(outdir, paste(img.name, '%d.',
-                                ani.ext, sep = '')))
+                                file.ext, sep = '')))
                     ## outdir = '.'
                     in.sweave = TRUE
                     break
@@ -140,14 +141,14 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
     owd = setwd(outdir)
     on.exit(setwd(owd), add = TRUE)
     ani.dev = ani.options('ani.dev')
-    num = ifelse(ani.ext == "pdf" && use.dev, "", "%d")
-    img.fmt = file.path(outdir, sprintf("%s%s.%s", img.name, num, ani.ext))
+    num = ifelse(file.ext == "pdf" && use.dev, "", "%d")
+    img.fmt = file.path(outdir, sprintf("%s%s.%s", img.name, num, file.ext))
     if (!in.sweave)
         ani.options(img.fmt = img.fmt)
     if (is.character(ani.dev))
         ani.dev = get(ani.dev)
     ani.files.len = length(list.files(path = dirname(img.name), pattern =
-                           sprintf('^%s[0-9]*\\.%s$', img.name, ani.ext)))
+                           sprintf('^%s[0-9]*\\.%s$', img.name, file.ext)))
     if (overwrite || !ani.files.len) {
         if (use.dev)
             ani.dev(img.fmt,
@@ -157,23 +158,25 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
         setwd(owd1)
         if (use.dev) dev.off()
         ## compress PDF files
-        if (ani.ext == 'pdf' && !is.null(ani.options('pdftk'))) {
+        if (file.ext == 'pdf' &&
+            ((use.pdftk <- !is.null(ani.options('pdftk'))) ||
+             (use.qpdf <- !is.null(ani.options('qpdf'))))) {
             for (f in list.files(path = dirname(img.name), pattern =
                                  sprintf('^%s[0-9]*\\.pdf$', img.name), full.names = TRUE))
-                pdftk(f)
+                if (use.qpdf) qpdf(f) else if (use.pdftk) pdftk(f)
         }
     }
     ani.files.len = length(list.files(path = dirname(img.name), pattern =
-                           sprintf('^%s[0-9]*\\.%s$', img.name, ani.ext)))
+                           sprintf('^%s[0-9]*\\.%s$', img.name, file.ext)))
 
     if (missing(nmax)) {
         ## count the number of images generated
-        start.num = ifelse(ani.ext == 'pdf' && use.dev, '', 1)
-        end.num = ifelse(ani.ext == 'pdf' && use.dev, '', ani.files.len)
+        start.num = ifelse(file.ext == 'pdf' && use.dev, '', 1)
+        end.num = ifelse(file.ext == 'pdf' && use.dev, '', ani.files.len)
     } else {
         ## PDF animations should start from 0 to nmax-1
-        start.num = ifelse(ani.ext == 'pdf' && use.dev, 0, 1)
-        end.num = ifelse(ani.ext == 'pdf' && use.dev, nmax - 1, nmax)
+        start.num = ifelse(file.ext == 'pdf' && use.dev, 0, 1)
+        end.num = ifelse(file.ext == 'pdf' && use.dev, nmax - 1, nmax)
     }
 
     if (missing(ani.opts)) ani.opts = "controls,width=\\linewidth"

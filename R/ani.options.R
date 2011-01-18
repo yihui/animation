@@ -117,6 +117,14 @@
 ##' generate file names in the argument \code{expr}; see
 ##' \code{demo('rgl_animation')} for example or the last example below}
 ##'
+##' \item{qpdf}{the path of the program \command{qpdf},
+##' e.g. \code{ani.options(qpdf = 'C:/Software/qpdf/bin/qpdf.exe')};
+##' \command{qpdf} is mainly used to compress PDF files in this
+##' package, and it is a smaller tool than \command{pdftk}. It is
+##' recommended over \command{pdftk} especially under Linux, because
+##' tests show that \command{pdftk} does not work well under Linux in
+##' compressing PDF files, while \command{qpdf} is much better.}
+##'
 ##' \item{pdftk}{the path of the program \command{Pdftk},
 ##' e.g. \code{ani.options(pdftk = 'C:/Software/pdftk.exe')} or
 ##' \code{ani.options(pdftk = '/home/john/bin/pdftk')};
@@ -172,6 +180,8 @@
 ##' \code{\link{saveGIF}}, \code{\link{saveLatex}},
 ##' \code{\link{saveSWF}}, \code{\link{pdftk}}
 ##' @references \url{http://animation.yihui.name/animation:options}
+##'
+##' \url{http://qpdf.sourceforge.net/}
 ##'
 ##' \url{http://www.pdflabs.com/docs/pdftk-man-page/}
 ##' @keywords misc
