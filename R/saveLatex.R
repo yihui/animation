@@ -236,7 +236,7 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
 %s
 ", ifelse(centering, '\\begin{center}', ''),
                     ani.opts,
-                    1/interval, img.name, start.num, end.num,
+                    1/interval, normalizePath(file.path(outdir, img.name)), start.num, end.num,
                     ifelse(centering, '\\end{center}', '')))
     }
     invisible(NULL)
