@@ -47,9 +47,9 @@ pdftk = function(input, operation = NULL, output, other.opts = 'compress dont_as
             output = file.path(dirname(input), paste('output', basename(input), sep = '-'))
         cmd = paste(pdftk.path, paste(input, collapse = ' '),
                     operation, sprintf('output %s', output), other.opts)
-        message('* Pdftk is handling ', input, '... ', appendLF = FALSE)
+        message('* Pdftk is running... \n* ', cmd)
         status = system(cmd)
-        message(ifelse(status == 0, 'done!', 'failed (***)'))
+        message(ifelse(status == 0, '* done!', '* failed (***)'))
         if (auto.output && file.exists(output))
             file.rename(output,
                         file.path(dirname(output), sub('^output-', '', basename(output))))
