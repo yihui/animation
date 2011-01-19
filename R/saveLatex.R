@@ -154,7 +154,7 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
     if (is.character(ani.dev))
         ani.dev = get(ani.dev)
     ani.files.len = length(list.files(path = dirname(img.name), pattern =
-                           sprintf('^%s[0-9]*\\.%s$', img.name, file.ext)))
+                           sprintf('^%s[0-9]*\\.%s$', basename(img.name), file.ext)))
     if (overwrite || !ani.files.len) {
         if (use.dev)
             ani.dev(img.fmt,
@@ -173,7 +173,7 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
         }
     }
     ani.files.len = length(list.files(path = dirname(img.name), pattern =
-                           sprintf('^%s[0-9]*\\.%s$', img.name, file.ext)))
+                           sprintf('^%s[0-9]*\\.%s$', basename(img.name), file.ext)))
 
     if (missing(nmax)) {
         ## count the number of images generated
