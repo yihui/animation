@@ -19,6 +19,11 @@ NEW FEATURES
   is mainly used to compress the PDF files (it is recommended over
   Pdftk)
 
+    o saveLatex() gained a new argument 'full.path': when the
+  animation frames are not in the same directory with the LaTeX
+  document, we can set full.path = TRUE to ensure LaTeX can find the
+  image files
+
 
 SIGNIFICANT CHANGES
 

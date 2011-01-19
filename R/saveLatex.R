@@ -47,7 +47,12 @@
 ##' \code{ani.options('outdir')}? If you have not installed the LaTeX
 ##' package \code{animate}, it suffices just to copy these to files.
 ##' @param overwrite whether to overwrite the existing image frames
-##' @param \dots other arguments passed to the graphics device
+##' @param full.path whether to use the full path (\code{TRUE}) or
+##' relative path (\code{FALSE}) for the animation frames; usually the
+##' relative path suffices, but sometimes the images and the LaTeX
+##' document might not be in the same directory, so \code{full.path =
+##' TRUE} could be useful
+##' @param ... other arguments passed to the graphics device
 ##' \code{ani.options('ani.dev')}, e.g. \code{ani.height}
 ##' and \code{ani.width}
 ##'
@@ -110,7 +115,8 @@
 saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
     centering = TRUE, caption = NULL, label = NULL,
     pkg.opts = NULL, documentclass = "article", latex.filename = "animation.tex",
-    pdflatex = "pdflatex", install.animate = TRUE, overwrite = TRUE, ...) {
+    pdflatex = "pdflatex", install.animate = TRUE, overwrite = TRUE,
+    full.path = FALSE, ...) {
     oopt = ani.options(...)
     if (!missing(nmax)) ani.options(nmax = nmax)
     on.exit(ani.options(oopt))
@@ -205,7 +211,9 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
                     ifelse(is.null(pkg.opts), "", sprintf("[%s]", pkg.opts)),
                     ifelse(centering, '\\begin{center}', ''),
                     ani.opts,
-                    1/interval, img.name, start.num, end.num,
+                    1/interval,
+                    ifelse(full.path, normalizePath(file.path(outdir, img.name)), img.name),
+                    start.num, end.num,
                     ifelse(is.null(caption), "", sprintf("\\caption{%s}", caption)),
                     ifelse(is.null(label), "", sprintf("\\label{%s}", label)),
                     ifelse(centering, '\\end{center}', '')),
@@ -236,7 +244,9 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
 %s
 ", ifelse(centering, '\\begin{center}', ''),
                     ani.opts,
-                    1/interval, normalizePath(file.path(outdir, img.name)), start.num, end.num,
+                    1/interval,
+                    ifelse(full.path, normalizePath(file.path(outdir, img.name)), img.name),
+                    start.num, end.num,
                     ifelse(centering, '\\end{center}', '')))
     }
     invisible(NULL)
