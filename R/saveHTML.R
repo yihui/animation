@@ -153,7 +153,7 @@ saveHTML = function(expr, img.name = 'Rplot',
     html = sub('<meta name="generator" content=".*">',
               sprintf('<meta name="generator" content="R package animation %s">',
                       packageVersion('animation')), html)
-    div.str = sprintf('	<div id="%s"></div>', img.name0)
+    div.str = sprintf('	<div class="scianimator"><div id="%s" style="display: inline-block;"></div></div>', img.name0)
     js.str = sprintf('	<script src="js/%s.js"></script>', img.name)
     n = grep('<!-- highlight R code -->', html, fixed = TRUE)
     ## make sure there are no duplicate div/scripts
@@ -169,13 +169,13 @@ saveHTML = function(expr, img.name = 'Rplot',
     }
     js.temp = readLines(system.file('misc', 'scianimator', 'js', 'template.js',
                               package = 'animation'))
-    if (!ani.options('autoplay')) js.temp = js.temp[-11]
+    if (!ani.options('autoplay')) js.temp = js.temp[-10]
     js.temp = paste(js.temp, collapse = '\n')
     imglen = length(list.files(imgdir, pattern = paste(img.name, '[0-9]+\\.', ani.type, sep = '')))
     imglist = file.path(ani.options('imgdir'), sprintf(paste(img.name, '%d.', ani.type, sep = ''), seq_len(imglen)))
     js.temp = sprintf(js.temp, global.opts, img.name0,
                       paste(shQuote(imglist, 'sh'), collapse = ', '),
-                      ani.options('ani.height'), ani.options('ani.width'),
+                      ani.options('ani.width'),
                       1000 * ani.options('interval'),
                       ifelse(ani.options('loop'), 'loop', 'none'),
                       ifelse(nzchar(single.opts), paste(',\n', single.opts), ''),

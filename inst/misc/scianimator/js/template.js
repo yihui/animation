@@ -3,7 +3,6 @@
 	%s
 	$('#%s').scianimator({
 	    'images': [%s],
-	    'height': %s,
 	    'width': %s,
 	    'delay': %s,
 	    'loopMode': '%s'%s

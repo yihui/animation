@@ -12,7 +12,7 @@
 .scianimator.dark a:visited {
 	color: #ccc;
 }
-.scianimator.dark canvas {
+.scianimator.dark {
 	background: #333;
 }
 .scianimator.dark .controls,

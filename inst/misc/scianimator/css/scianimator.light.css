@@ -12,7 +12,7 @@
 .scianimator.light a:visited {
 	color: #555;
 }
-.scianimator.light canvas {
+.scianimator.light {
 	background: #ddd;
 }
 .scianimator.light .controls,

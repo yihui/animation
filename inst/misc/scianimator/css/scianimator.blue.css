@@ -12,7 +12,7 @@
 .scianimator.blue a:visited {
 	color: #3985a8;
 }
-.scianimator.blue canvas {
+.scianimator.blue {
 	background: #ddeef6;
 }
 .scianimator.blue .controls,
