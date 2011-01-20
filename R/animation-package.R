@@ -100,7 +100,7 @@ NULL
 
 
 
-##' Word Counts of a Speech by Chinese President Hu.
+##' Word counts of a speech by the Chinese President Hu.
 ##' This speech came on the 30th anniversary of China's economic
 ##' reform in 1978.
 ##'
@@ -123,6 +123,31 @@ NULL
 ##' plot(HuSpeech, type = "b", pch = 20, xlab = "paragraph index",
 ##'     ylab = "word count")
 ##' ## see ?moving.block for an animation example
+##'
+NULL
+
+
+
+
+
+##' Word counts of a speech by the US President Obama.
+##' This data recorded the number of words in each paragraph of Barack
+##' Obama's speech in Chicago after winning the presidential election.
+##'
+##' The format is: int [1:59] 2 45 52 53 11 48 28 15 50 29 ...
+##'
+##' Source: The full text of speech is at
+##' \url{http://www.baltimoresun.com/news/nation-world/bal-text1105,0,5055673,full.story}
+##' @name ObamaSpeech
+##' @docType data
+##' @usage data(ObamaSpeech)
+##' @keywords datasets
+##' @examples
+##'
+##' data(ObamaSpeech)
+##' ## pattern: longer paragraph and shorter paragraph
+##' plot(ObamaSpeech, type = "b", pch = 20, xlab = "paragraph index",
+##'     ylab = "word count")
 ##'
 NULL
 
