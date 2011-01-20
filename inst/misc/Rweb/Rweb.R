@@ -57,13 +57,13 @@ saveHTML = function(expr, img.name = 'Rplot',
     html = readLines('http://gitorious.org/yihui/animation/blobs/raw/master/inst/misc/Rweb/index.html')
     n = grep('<!-- highlight R code -->', html, fixed = TRUE)
 
-    div.str = sprintf('	<div id="%s"></div>', img.name0)
+    div.str = sprintf('	<div class="scianimator"><div id="%s" style="display: inline-block;"></div></div>', img.name0)
 
     n = grep('<!-- highlight R code -->', html, fixed = TRUE)
     html = append(html, c(div.str, .dexpr), n - 1)
 
     js.temp = readLines('http://gitorious.org/yihui/animation/blobs/raw/master/inst/misc/scianimator/js/template.js')
-    if (!ani.options('autoplay')) js.temp = js.temp[-11]
+    if (!ani.options('autoplay')) js.temp = js.temp[-10]
     js.temp = paste(js.temp, collapse = '\n')
     imglen = length(list.files(imgdir, pattern = paste(img.name, '[0-9]+\\.', ani.type, sep = '')))
     imglist = paste('http://data-engine.tama.ac.jp/cgi-bin/Rweb/nph-imageDump.pl?',
@@ -71,7 +71,7 @@ saveHTML = function(expr, img.name = 'Rplot',
                               seq_len(imglen))), sep = '')
     js.temp = sprintf(js.temp, global.opts, img.name0,
                       paste(shQuote(imglist, 'sh'), collapse = ', '),
-                      ani.options('ani.height'), ani.options('ani.width'),
+                      ani.options('ani.width'),
                       1000 * ani.options('interval'),
                       ifelse(ani.options('loop'), 'loop', 'none'),
                       ifelse(nzchar(single.opts), paste(',\n', single.opts), ''),

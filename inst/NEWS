@@ -24,6 +24,10 @@ NEW FEATURES
   document, we can set full.path = TRUE to ensure LaTeX can find the
   image files
 
+    o grad.desc() gained two new arguments: 'gr' to provide the
+  gradient function, and 'main' to specify to title of the plot
+  (thanks, Zeno Adams)
+
 
 SIGNIFICANT CHANGES
 

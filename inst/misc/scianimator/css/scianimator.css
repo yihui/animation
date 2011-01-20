@@ -30,8 +30,9 @@
 	position: relative;
 }
 .scianimator .controls {
-	margin: 0px;
+	margin: 0;
 	padding: 4px;
+	position: relative;
 }
 .scianimator a,
 .scianimator a:visited {
@@ -105,4 +106,3 @@
 	position: absolute;
 	top: 0;
 }
-.scianimator canvas { display: block; }
