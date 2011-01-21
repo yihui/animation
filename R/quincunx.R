@@ -45,6 +45,7 @@
 ##' quincunx(balls = 200, col.balls = rainbow(200))
 ##' }, img.name='quincunx', htmlfile='quincunx.html',
 ##' ani.height = 500, ani.width = 600,
+##' single.opts = "'controls': ['first', 'previous', 'play', 'next', 'last', 'loop', 'speed'], 'delayMin': 0",
 ##'     title = "Demonstration of the Galton Box",
 ##'     description = c("Balls", 'falling through pins will show you the Normal',
 ##'     "distribution."))
