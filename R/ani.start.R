@@ -49,6 +49,6 @@ ani.start = function(...) {
         "FUN.js", overwrite = TRUE)
     dev = ani.options("ani.dev")
     if (is.character(dev)) dev = get(dev)
-    dev(filename = paste(imgdir, "/%d", ".", ani.options("ani.type"), sep = ""),
+    dev(paste(imgdir, "/%d", ".", ani.options("ani.type"), sep = ""),
         width = ani.options("ani.width"), height = ani.options("ani.height"))
 }
