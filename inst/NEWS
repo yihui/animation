@@ -41,6 +41,9 @@ MINOR CHANGES
     o saveSWF() puts all the image frames into the temp dir instead of
   ani.options('outdir') (similar to saveGIF())
 
+    o the location of the argument 'img.name' was moved to the 3rd
+  place in saveSWF() to be consistent to other saveXXX() functions
+
 
 TO APPEAR
 

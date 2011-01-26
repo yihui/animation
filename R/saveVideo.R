@@ -54,7 +54,7 @@
 ##'
 ##' ani.options(oopts)
 ##'
-saveVideo = function(expr, img.name = 'Rplot', video.name = 'animation.mp4',
+saveVideo = function(expr, video.name = 'animation.mp4', img.name = 'Rplot',
     ffmpeg = 'ffmpeg', other.opts = '', clean = FALSE, ...) {
     oopt = ani.options(...)
     on.exit(ani.options(oopt))

@@ -59,7 +59,7 @@
 ##' nmax = 30, ani.dev = "pdf", ani.type = "pdf",
 ##' ani.height = 6, ani.width=6)
 ##'
-saveSWF = function(expr, img.name = "Rplot", swf.name = "animation.swf",
+saveSWF = function(expr, swf.name = "animation.swf", img.name = "Rplot",
     swftools = NULL, ...) {
     oopt = ani.options(...)
     on.exit(ani.options(oopt))
