@@ -152,8 +152,7 @@ saveHTML = function(expr, img.name = 'Rplot',
                                          ani.options('title')), html)
     html = sub('<meta name="generator" content=".*">',
               sprintf('<meta name="generator" content="R package animation %s">',
-                      ifelse(getRversion() >= '2.12.0', utils::packageVersion('animation'),
-                             packageDescription('animation', fields = 'Version')), html)
+                      packageDescription('animation', fields = 'Version'), html)
     div.str = sprintf('	<div class="scianimator"><div id="%s" style="display: inline-block;"></div></div>', img.name0)
     js.str = sprintf('	<script src="js/%s.js"></script>', img.name)
     n = grep('<!-- highlight R code -->', html, fixed = TRUE)

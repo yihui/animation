@@ -47,8 +47,9 @@ MINOR CHANGES
 
 BUG FIXES
 
-    o use packageDescription() instead of packageVersion() for R <
-  2.12.0 in saveHTML() and ani.stop()
+    o use packageDescription() instead of packageVersion() in
+  saveHTML() and ani.stop() because there is a weird error reported
+  when using packageVersion() (thanks, Alex Tek)
 
 
 TO APPEAR
