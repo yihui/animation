@@ -45,6 +45,12 @@ MINOR CHANGES
   place in saveSWF() to be consistent to other saveXXX() functions
 
 
+BUG FIXES
+
+    o use packageDescription() instead of packageVersion() for R <
+  2.12.0 in saveHTML() and ani.stop()
+
+
 TO APPEAR
 
     o A function boot.loess() added to show the bootstrapping effects
