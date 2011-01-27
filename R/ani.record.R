@@ -24,7 +24,10 @@
 ##' of points or polygons in a single plot). However, we can set
 ##' \code{replay.cur} to force R to produce a new copy of the current
 ##' plot, which will be automatically recorded by off-screen grapihcs
-##' devices as \emph{new} image files.
+##' devices as \emph{new} image files. This method has a limitation:
+##' we must open a screen device to assist R to record the plots. See
+##' the last example below. We must be very careful that no other
+##' graphics devices are opened before we use this function.
 ##'
 ##' If we use base graphics, we should bear in mind that the
 ##' background colors of the plots might be transparent, which could
@@ -57,6 +60,21 @@
 ##' ## or export the animation to an HTML page
 ##' saveHTML(ani.replay(), img.name = 'record_plot')
 ##'
+##'
+##' ## record plots and replay immediately
+##' if (interactive()) {
+##' saveHTML({
+##' dev.new()   # open a screen device (x11(), quartz())
+##' par(bg = 'white')   # ensure the background color is white
+##' plot(x, y, type = 'n')
+##' for (i in 1:n) {
+##' points(x[i], y[i], pch = 19, cex = 2)
+##' ani.record(reset=TRUE, replay.cur=TRUE)   # record the current frame
+##' }
+##' dev.off()  # close the assisting device we opened
+##' })
+##' }
+##'
 ##' ani.options(oopts)
 ##'
 ani.record = function(reset = FALSE, replay.cur = FALSE) {
@@ -67,7 +85,13 @@ ani.record = function(reset = FALSE, replay.cur = FALSE) {
             .ani.env$.images[[n + 1]] = recordPlot()
         } else warning('no current device to record from')
     }
-    if (replay.cur && dev.cur() != 1) replayPlot(recordPlot())
+    if (replay.cur && length(dev.list()) == 2) {
+        ## off-screen device opened first, then a screen device is opened
+        tmp = recordPlot()
+        dev.set()  # go to off-screen device
+        replayPlot(tmp)
+        dev.set()  # go to screen device
+    }
     invisible(NULL)
 }
 
