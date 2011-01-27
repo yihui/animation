@@ -195,6 +195,8 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
     }
 
     if (!in.sweave && length(documentclass)) {
+        if (img.name == sub('\\.tex$', '', latex.filename))
+            stop("'img.name' should not be the same with 'latex.filename'!")
         if (!grepl('^\\\\documentclass', documentclass))
             documentclass = sprintf('\\documentclass{%s}', documentclass)
         cat(sprintf("
