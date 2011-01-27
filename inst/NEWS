@@ -44,6 +44,9 @@ MINOR CHANGES
     o the location of the argument 'img.name' was moved to the 3rd
   place in saveSWF() to be consistent to other saveXXX() functions
 
+    o clt.ani() gained a new argument 'xlim' to set the x-axis limit
+  of the histogram
+
 
 BUG FIXES
 
