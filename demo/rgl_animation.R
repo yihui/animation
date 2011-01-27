@@ -26,8 +26,11 @@ if (require('rgl')) {
         rgl.close()
     }, img.name='pollen_demo', use.dev=FALSE,
               ani.type='png', interval = .2,
+              ani.opts = 'controls,width=3in',
               latex.filename='rgl_pollen_animation.tex',
-              caption = 'Zoom in a 3D scatter plot to see the truth.')
+              caption = 'Zoom in a 3D scatter plot to see the truth.',
+              full.path = .Platform$OS.type != 'windows',
+              overwrite = FALSE)
 
 } else warning('You have to install the rgl package first: install.packages("rgl")')
 
