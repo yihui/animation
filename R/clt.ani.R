@@ -5,7 +5,7 @@
 ##' n}{j = 1, 2, ..., n}, and \eqn{n = 1, 2, \cdots, nmax}{n = 1, 2, ...,
 ##' nmax}, then the sample means are computed, and at last the density of these
 ##' sample means is plotted as the sample size \eqn{n} increases, besides, the
-##' p-values from the normality test \code{\link[stats]{shapiro.test}} are
+##' P-values from the normality test \code{\link[stats]{shapiro.test}} are
 ##' computed for each \eqn{n} and plotted at the same time.
 ##'
 ##' As long as the conditions of the Central Limit Theorem (CLT) are satisfied,
@@ -14,12 +14,13 @@
 ##' is the original distribution. The largest sample size is defined by
 ##' \code{nmax} in \code{\link{ani.options}}.
 ##'
-##' @param obs the number of sample points to be generated from the
-##' distribution
+##' @param obs the number of sample means to be generated from the
+##' distribution based on a given sample size \eqn{n}; these sample
+##' mean values will be used to create the histogram
 ##' @param FUN the function to generate \code{n} random numbers from a
 ##' certain distribution
-##' @param col a vector of length 2 specifying the colors of the
-##' histogram and the density line
+##' @param col a vector of length 3 specifying the colors of the
+##' histogram, the density line and P-values.
 ##' @param mat,widths,heights arguments passed to
 ##' \code{\link[graphics]{layout}} to set the layout of the two
 ##' graphs.
