@@ -34,6 +34,8 @@
 ##' distances
 ##' @param knn.col the color to annotate the k-nearest neighbour
 ##' points using a polygon
+##' @param ... additional arguments to create the empty frame for the
+##' animation (passed to \code{\link[graphics]{plot.default}})
 ##' @return A vector of class labels for the test set.
 ##' @note There is a special restriction (only two columns) on the
 ##' training and test data set just for sake of the convenience for
@@ -77,8 +79,8 @@
 ##' saveHTML({
 ##' ani.options(nmax = ifelse(interactive(), 10, 2),interval = 2)
 ##' par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 0))
-##' knn.ani()
-##' }, img.name='knn.ani',htmlfile='knn.ani',ani.height = 500, ani.width = 600,
+##' knn.ani(cl.pch = c(3, 19), asp = 1)
+##' }, img.name='knn_ani',htmlfile='knn.ani.html',ani.height = 500, ani.width = 600,
 ##'     title = "Demonstration for kNN Classification",
 ##'     description = c("For each row of the test set", 'the k nearest (in Euclidean',
 ##'     'distance) training set vectors are found, and the classification is',
@@ -88,7 +90,7 @@
 ##'
 knn.ani = function(train, test, cl, k = 10, interact = FALSE,
     tt.col = c("blue", "red"), cl.pch = seq_along(unique(cl)),
-    dist.lty = 2, dist.col = "gray", knn.col = "green") {
+    dist.lty = 2, dist.col = "gray", knn.col = "green", ...) {
     nmax = ani.options("nmax")
     if (missing(train)) {
         train = matrix(c(rnorm(40, mean = -1), rnorm(40, mean = 1)),
@@ -124,9 +126,9 @@ knn.ani = function(train, test, cl, k = 10, interact = FALSE,
     nte = nrow(test)
     clf = as.factor(cl)
     res = NULL
-    pre.plot = function(j, pf = NULL, i.point = TRUE) {
+    pre.plot = function(j, pf = NULL, i.point = TRUE, ...) {
         plot(rbind(train, test), type = "n", xlab = expression(italic(X)[1]),
-            ylab = expression(italic(X)[2]), panel.first = pf)
+            ylab = expression(italic(X)[2]), panel.first = pf, ...)
         points(train, col = tt.col[1], pch = cl.pch[unclass(clf)])
         if (j < nte)
             points(test[(j + 1):nte, 1], test[(j + 1):nte, 2],
@@ -144,7 +146,7 @@ knn.ani = function(train, test, cl, k = 10, interact = FALSE,
     }
     nmax = min(nmax, nrow(test))
     for (i in 1:nmax) {
-        pre.plot(i)
+        pre.plot(i, ...)
         ani.pause()
         idx = rank(apply(train, 1, function(x) sqrt(sum((x -
             test[i, ])^2))), ties.method = "random") %in% seq(k)
@@ -152,7 +154,7 @@ knn.ani = function(train, test, cl, k = 10, interact = FALSE,
         res = c(res, factor(names(which.max(table(vote))), levels = levels(clf),
             labels = levels(clf)))
         pre.plot(i, segments(train[, 1], train[, 2], test[i,
-            1], test[i, 2], lty = dist.lty, col = dist.col))
+            1], test[i, 2], lty = dist.lty, col = dist.col), ...)
         ani.pause()
         bd = train[idx, 1:2]
         pre.plot(i, {
@@ -165,7 +167,7 @@ knn.ani = function(train, test, cl, k = 10, interact = FALSE,
                 points(bd[1], bd[2], col = knn.col, pch = cl.pch[unclass(clf)[idx]],
                   cex = 2, lwd = 2)
             }
-        })
+        }, ...)
         ani.pause()
         pre.plot(i, {
             segments(train[, 1], train[, 2], test[i, 1], test[i,
@@ -179,7 +181,7 @@ knn.ani = function(train, test, cl, k = 10, interact = FALSE,
             }
             points(test[i, 1], test[i, 2], col = tt.col[2], pch = cl.pch[unclass(res)[i]],
                 cex = 3, lwd = 2)
-        }, FALSE)
+        }, FALSE, ...)
         ani.pause()
     }
     invisible(levels(clf)[res])

@@ -47,6 +47,9 @@ MINOR CHANGES
     o clt.ani() gained a new argument 'xlim' to set the x-axis limit
   of the histogram
 
+    o knn.ani() gained the ... argument to pass additional arguments
+  to create the empty "frame" for the animation
+
 
 BUG FIXES
 
