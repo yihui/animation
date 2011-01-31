@@ -122,7 +122,7 @@ cv.nfeaturesLDA = function(data = matrix(rnorm(600),
                 text(matrix(loc[-(1:((j - 1) * k + i - 1)), ],
                   ncol = 2), "?")
             points(matrix(loc[1:((j - 1) * k + i - 1), ], ncol = 2),
-                cex = c(acc) * diff(cex.rg) + min(cex.rg), col = col.av[1], ...)
+                cex = c(acc)^2 * diff(cex.rg) + min(cex.rg), col = col.av[1], ...)
             points(1:nmax, rep(0, nmax), cex = apply(acc, 2,
                 mean, na.rm = TRUE) * diff(cex.rg) + min(cex.rg),
                 col = col.av[2], ...)
