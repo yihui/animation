@@ -28,6 +28,9 @@ NEW FEATURES
   gradient function, and 'main' to specify to title of the plot
   (thanks, Zeno Adams)
 
+    o clt.ani() gained two arguments 'mean' and 'sd' to draw the
+  theoretical limiting distribution
+
 
 SIGNIFICANT CHANGES
 
