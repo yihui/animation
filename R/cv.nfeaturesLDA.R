@@ -38,6 +38,8 @@
 ##'   the plot
 ##' @param col.av the two colors used to respectively denote rates of correct
 ##'   predictions in the i-th fold and the average rates for all k folds
+##' @param ... arguments passed to \code{\link[graphics]{points}} to
+##' draw the points which denote the correct rate
 ##' @return A list containing \item{accuracy }{a matrix in which the element in
 ##'   the i-th row and j-th column is the rate of correct predictions based on
 ##'   LDA, i.e. build a LDA model with j variables and predict with data in the
@@ -54,15 +56,15 @@
 ##' @examples
 ##'
 ##' oopt = ani.options(nmax = ifelse(interactive(), 10, 2))
-##' par(pch = 19, mar = c(3, 3, 0.2, 0.7), mgp = c(1.5, 0.5, 0))
-##' cv.nfeaturesLDA()
+##' par(mar = c(3, 3, 0.2, 0.7), mgp = c(1.5, 0.5, 0))
+##' cv.nfeaturesLDA(pch = 19)
 ##'
 ##' ## save the animation in HTML pages
 ##' saveHTML({
 ##' ani.options(interval = 0.5, nmax = 10)
 ##' par(mar = c(3, 3, 1, 0.5),
 ##' mgp = c(1.5, 0.5, 0), tcl = -0.3, pch = 19, cex = 1.5)
-##' cv.nfeaturesLDA()
+##' cv.nfeaturesLDA(pch = 19)
 ##' },
 ##' img.name='cv.nfeaturesLDA',htmlfile='cv.nfeaturesLDA.html',
 ##' ani.height = 480, ani.width = 600,
@@ -76,7 +78,7 @@
 ##'
 cv.nfeaturesLDA = function(data = matrix(rnorm(600),
     60), cl = gl(3, 20), k = 5, cex.rg = c(0.5, 3), col.av = c("blue",
-    "red")) {
+    "red"), ...) {
     nmax = min(ncol(data), ani.options("nmax"))
     cl = as.factor(cl)
     dat = data.frame(data, cl)
@@ -120,10 +122,10 @@ cv.nfeaturesLDA = function(data = matrix(rnorm(600),
                 text(matrix(loc[-(1:((j - 1) * k + i - 1)), ],
                   ncol = 2), "?")
             points(matrix(loc[1:((j - 1) * k + i - 1), ], ncol = 2),
-                cex = c(acc) * diff(cex.rg) + min(cex.rg), col = col.av[1])
+                cex = c(acc) * diff(cex.rg) + min(cex.rg), col = col.av[1], ...)
             points(1:nmax, rep(0, nmax), cex = apply(acc, 2,
                 mean, na.rm = TRUE) * diff(cex.rg) + min(cex.rg),
-                col = col.av[2])
+                col = col.av[2], ...)
             styl.pch = as.integer(dat[idx, ncol(dat)])
             styl.col = 2 - as.integer(dat[idx, ncol(dat)] ==
                 pred$class)
