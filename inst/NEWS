@@ -31,6 +31,9 @@ NEW FEATURES
     o clt.ani() gained two arguments 'mean' and 'sd' to draw the
   theoretical limiting distribution
 
+    o a new demo('ggobi_animation') to show how to record GGobi plots
+  as an animation in the HTML file
+
 
 SIGNIFICANT CHANGES
 
