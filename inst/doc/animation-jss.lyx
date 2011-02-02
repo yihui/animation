@@ -188,7 +188,7 @@ Traditional static printed statistical reports have severe limitations,
  to which we have access.
  Visualization puts information in a form that uses the power of this computing
  system.
- By virtue of our visual system we may be able to quickly understand a somewhat
+ By virtue of our visual system, we may be able to quickly understand a
  complicated method or result, or at least a simplified case.
 \end_layout
 
@@ -228,7 +228,7 @@ The literature on animations in demonstrating statistical ideas is, to date,
 animation
 \series default
  package in the literature might be the GASP (Globally Accessible Statistical
- Procedures, availabel at 
+ Procedures, available at 
 \begin_inset Flex URL
 status collapsed
 
@@ -243,7 +243,7 @@ http://www.stat.sc.edu/rsrch/gasp/
  data analysis and statistical education.
  Most of these routines were based on Java Applets and HTML forms using
  CGI to handle users' input.
- These techniques have become rare nowadays over the internet, and as we
+ These techniques have become rare nowadays over the Internet, and as we
  know, it is much more convenient to use 
 \begin_inset ERT
 status open
@@ -257,7 +257,7 @@ proglang{R}
 
 \end_inset
 
- to do statstical computing and graphics than Java today.
+ to do statistical computing and graphics than Java today.
 \end_layout
 
 \begin_layout Standard
@@ -542,7 +542,7 @@ name "sec:connection"
 \end_layout
 
 \begin_layout Standard
-An animation is a rapid display of a sequence of images of 2D (or 3D) artwork
+An animation is a rapid display of a sequence of images of 2D or 3D artwork
  or model positions in order to create an illusion of movement.
  It is an optical illusion of motion due to the phenomenon of persistence
  of vision, and can be created and demonstrated in a number of ways.
@@ -942,7 +942,7 @@ reference "fig:grad-desc"
 \end_inset
 
  is a trivial example, we will not be surprised if the arrows finally reach
- the global miminum 
+ the global minimum 
 \begin_inset Formula $(0,0)$
 \end_inset
 
@@ -966,7 +966,7 @@ reference "fig:grad-desc"
  can demonstrate the importance of this condition especially when the objective
  function is complicated, e.g.
  it has multiple local minima.
- We need to be careful in choosing the inital guess and the step length
+ We need to be careful in choosing the initial guess and the step length
  in this case.
  In the animation, the step length is 0.3, which is a large value; although
  the arrows went to the direction of a local minimum in the beginning, it
@@ -1427,7 +1427,7 @@ reference "fig:buffon-needle"
 \end_inset
 
  each time the needle was dropped in a cumulative manner, but also draws
- the actual scenario (dropping needles) and the corresponding mathmatical
+ the actual scenario (dropping needles) and the corresponding mathematical
  interpretation to assist understanding.
 \end_layout
 
@@ -1787,7 +1787,7 @@ breakpoint
 \end_inset
 
  in a certain year because we feel a sudden change in the animation.
- After this kind of exploratory data analysis, we can do formal modelling
+ After this kind of exploratory data analysis, we can do formal modeling
  and hypothesis testing such as the Chow breakpoint test 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -2185,7 +2185,7 @@ proglang{R}
 
 \end_inset
 
- language is a natural choice as the infrustructure of this 
+ language is a natural choice as the infrastructure of this 
 \series bold
 animation
 \series default
@@ -2268,7 +2268,7 @@ proglang{R}
 \end_inset
 
 's screen devices still lack the capability of double buffering, so the
- animations can be flickering on the screen; the performace is better under
+ animations can be flickering on the screen; the performance is better under
  Windows than Linux and Mac OS.
 \end_layout
 
@@ -2770,7 +2770,7 @@ ani.options()
 SciAnimator
 \series default
 .
- This function allows multiple animations to be embeded into the same HTML
+ This function allows multiple animations to be embedded into the same HTML
  file -- we only need to specify the option 
 \family typewriter
 ani.options('htmlfile')
@@ -2958,7 +2958,7 @@ key "Levine10"
 \end_inset
 
  encouraging authors to take the advantage of animations and movies when
- publishing electronical papers; the function 
+ publishing electronic papers; the function 
 \emph on
 saveLatex()
 \emph default
@@ -3247,9 +3247,9 @@ args(saveVideo)
 \end_layout
 
 \begin_layout Standard
-A large amout of work was done for Windows to search for the location of
+A large amount of work was done for Windows to search for the location of
  these software packages automatically, so that Windows users do not have
- to be familar with command lines.
+ to be familiar with command lines.
  The paths of these tools can be pre-specified in 
 \emph on
 ani.options()
@@ -3736,7 +3736,7 @@ name "fig:rgl-animation"
 
 \begin_layout Standard
 Demos are an important part of this package.
- They can be devided into two groups: some are purely for entertaining purposes,
+ They can be divided into two groups: some are purely for entertaining purposes,
  and the others can demonstrate additional capabilities and applications
  of this package.
  Here we introduce a selective subset of these demos.
@@ -3813,7 +3813,7 @@ reference "fig:rgl-animation"
 
 \end_inset
 
- for the animation, which was embeded in this paper using Sweave, too.
+ for the animation, which was embedded in this paper using Sweave, too.
  This demo is actually a quick summary of the 1986 ASA Data Expo -- looking
  for patterns in a synthetic dataset.
  The original plot seems to be nothing but a point cloud, but there are
@@ -3826,11 +3826,16 @@ EUREKA
 \end_inset
 
  hidden in it; we can clearly see them by zooming into the points.
+ A similar demo is 
+\family typewriter
+demo('ggobi_animation')
+\family default
+ -- it shows how to record plots in GGobi and create an HTML animation page.
 \end_layout
 
 \begin_layout Standard
-Another demo shows that we can even download images from the internet, and
- wrap them into an animtion with 
+Another demo shows that we can even download images from the Internet, and
+ wrap them into an animation with 
 \emph on
 saveHTML()
 \emph default
@@ -3839,7 +3844,7 @@ saveHTML()
 demo('flowers')
 \family default
 .
- This really indicates the flexibility of the 
+ This again indicates the flexibility of the 
 \series bold
 animation
 \series default
@@ -3986,7 +3991,7 @@ par(mar = c(3, 3, 1, 0.1), mgp = c(1.5, 0.5, 0), tcl = -0.3)
 \end_layout
 
 \begin_layout Scrap
-sim.qqnorm(100,sp=1,xlim=c(-2.5,2.5),ylim=c(-2.5,2.5))
+sim.qqnorm(100,asp=1,xlim=c(-2.5,2.5),ylim=c(-2.5,2.5))
 \end_layout
 
 \begin_layout Scrap
@@ -4524,7 +4529,6 @@ cv.nfeaturesLDA()
 \series bold
 animation
 \series default
-\lang english
  package, and we use the datasets 
 \family typewriter
 Golub
