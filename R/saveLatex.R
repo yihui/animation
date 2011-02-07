@@ -51,7 +51,8 @@
 ##' relative path (\code{FALSE}) for the animation frames; usually the
 ##' relative path suffices, but sometimes the images and the LaTeX
 ##' document might not be in the same directory, so \code{full.path =
-##' TRUE} could be useful
+##' TRUE} could be useful; in the latter case, remember that you
+##' should never use spaces in the filenames or paths!
 ##' @param ... other arguments passed to the graphics device
 ##' \code{ani.options('ani.dev')}, e.g. \code{ani.height}
 ##' and \code{ani.width}
@@ -214,7 +215,7 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
                     ifelse(centering, '\\begin{center}', ''),
                     ani.opts,
                     1/interval,
-                    ifelse(full.path, normalizePath(file.path(outdir, img.name)), img.name),
+                    ifelse(full.path, gsub('\\\\', '/', normalizePath(file.path(outdir, img.name))), img.name),
                     start.num, end.num,
                     ifelse(is.null(caption), "", sprintf("\\caption{%s}", caption)),
                     ifelse(is.null(label), "", sprintf("\\label{%s}", label)),
@@ -247,7 +248,7 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
 ", ifelse(centering, '\\begin{center}', ''),
                     ani.opts,
                     1/interval,
-                    ifelse(full.path, normalizePath(file.path(outdir, img.name)), img.name),
+                    ifelse(full.path, gsub('\\\\', '/', normalizePath(file.path(outdir, img.name))), img.name),
                     start.num, end.num,
                     ifelse(centering, '\\end{center}', '')))
     }

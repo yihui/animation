@@ -1,6 +1,14 @@
 		  CHANGES IN animation VERSION 2.0-3
 
 
+MINOR CHANGES
+
+    o for saveLatex(): when full.path = TRUE, \ will be replaced with
+  / in the file path so that LaTeX can really find the animation file
+  under Windows
+
+
+  
 		  CHANGES IN animation VERSION 2.0-2
 
 
