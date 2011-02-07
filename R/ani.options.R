@@ -237,6 +237,7 @@ ani.options = function(...) {
                     message("animation option 'nmax' changed: ", omf$nmax,
                             " --> ", .ani.opts$nmax)
                 }
+                .check.opts(.ani.opts)
             }
             invisible(omf)
         }
@@ -247,3 +248,24 @@ ani.options = function(...) {
 
 ## create an environment to store animation options
 .ani.env = new.env()
+
+## check validity of options
+.check.opts = function(opts) {
+    dev = opts$ani.dev
+    type = opts$ani.type
+    if (is.character(dev)) {
+        switch(dev, png = {
+            if (type != 'png')
+                warning("the graphics device is png() but the file extension is not 'png'!")
+        }, jpeg = {
+            if (!(type %in% c('jpg', 'jpeg')))
+                warning("the graphics device is jpeg() but the file extension is not 'jpeg' or 'jpg'!")
+        }, pdf = {
+            if (type != 'pdf')
+                warning("the graphics device is pdf() but the file extension is not 'pdf'!")
+        })
+    }
+    if (type == 'pdf' && (opts$ani.width >= 100 || opts$ani.height >= 100)) {
+        warning("you are using a pdf device but the width and height are greater than 100 inches; are you sure this is correct?")
+    }
+}
