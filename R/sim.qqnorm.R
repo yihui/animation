@@ -9,7 +9,10 @@
 ##' the straight line. Therefore, don't overinterpret the QQ plots.
 ##'
 ##' @param n integer: sample size
-##' @param \dots other arguments passed to \code{\link[stats]{qqnorm}}
+##' @param last.plot an expression to be evaluated after the plot is
+##' drawn, e.g. \code{expression(abline(0, 1))} to add the diagonal
+##' line
+##' @param ... other arguments passed to \code{\link[stats]{qqnorm}}
 ##' @return \code{NULL}
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link[stats]{qqnorm}}
@@ -18,7 +21,7 @@
 ##' oopt = ani.options(interval = 0.1, nmax = ifelse(interactive(), 100,2))
 ##' par(mar = c(3, 3, 2, 0.5), mgp = c(1.5, 0.5, 0), tcl = -0.3)
 ##'
-##' sim.qqnorm()
+##' sim.qqnorm(n = 20, last.plot = expression(abline(0, 1)))
 ##'
 ##' ## HTML animation pages
 ##' saveHTML({
@@ -34,9 +37,10 @@
 ##'
 ##' ani.options(oopt)
 ##'
-sim.qqnorm = function(n = 20, ...) {
+sim.qqnorm = function(n = 20, last.plot = NULL, ...) {
     for(i in 1:ani.options("nmax")) {
-        qqnorm(rnorm(n),...)
+        qqnorm(rnorm(n), ...)
+        eval(last.plot)
         ani.pause()
     }
 }

@@ -1,6 +1,12 @@
 		  CHANGES IN animation VERSION 2.0-3
 
 
+NEW FEATURES
+
+    o sim.qqnorm() gained a new argument 'last.plot' to do something
+  after drawing the QQ plot, e.g. add a diagonal line (abline(0, 1))
+
+
 MINOR CHANGES
 
     o for saveLatex(): when full.path = TRUE, \ will be replaced with
