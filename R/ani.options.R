@@ -253,7 +253,7 @@ ani.options = function(...) {
 .check.opts = function(opts) {
     dev = opts$ani.dev
     type = opts$ani.type
-    if (.ani.opts$use.dev && is.character(dev)) {
+    if (opts$use.dev && is.character(dev)) {
         switch(dev, png = {
             if (type != 'png')
                 warning("the graphics device is png() but the file extension is not 'png'!")
