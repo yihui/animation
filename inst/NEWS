@@ -19,6 +19,15 @@ MINOR CHANGES
   than 100 inches
 
 
+TO APPEAR
+
+    o A function boot.loess() added to show the bootstrapping effects
+  on loess().
+
+    o A function cart.ani() to show the splitting process of
+  classification and regression trees.
+
+
   
 		  CHANGES IN animation VERSION 2.0-2
 
@@ -84,15 +93,6 @@ BUG FIXES
     o use packageDescription() instead of packageVersion() in
   saveHTML() and ani.stop() because there is a weird error reported
   when using packageVersion() (thanks, Alex Tek)
-
-
-TO APPEAR
-
-    o A function boot.loess() added to show the bootstrapping effects
-  on loess().
-
-    o A function cart.ani() to show the splitting process of
-  classification and regression trees.
 
 
 

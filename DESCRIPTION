@@ -2,7 +2,7 @@ Package: animation
 Type: Package
 Title: A Gallery of Animations in Statistics and Utilities to Create Animations
 Version: 2.0-3
-Date: 2011-02-28
+Date: 2011-02-13
 Author: Yihui Xie
 Maintainer: Yihui Xie <xie@yihui.name>
 
@@ -20,5 +20,5 @@ Description: This package contains various functions for animations in
 
 Imports: MASS
 License: GPL-2 | GPL-3
-URL: http://animation.yihui.name
+URL: http://animation.yihui.name, https://github.com/yihui/animation
 BugReports: https://github.com/yihui/animation/issues
