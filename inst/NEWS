@@ -13,6 +13,11 @@ MINOR CHANGES
   / in the file path so that LaTeX can really find the animation file
   under Windows
 
+    o ani.options() will perform a simple check on the validity of the
+  options and issue warnings if the device and the file extension do
+  not match, or the width and height for the pdf() device are greater
+  than 100 inches
+
 
   
 		  CHANGES IN animation VERSION 2.0-2
