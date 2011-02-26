@@ -295,7 +295,7 @@ NULL
 ##' the shots.
 ##'
 ##' Format:
-##'   a data frame with 455 observations on the following 6 variables.
+##'   a data frame with 455 observations on the following 7 variables.
 ##'   \describe{
 ##'     \item{\code{player}}{a character vector: the current player}
 ##'     \item{\code{time}}{a character vector: the time}
@@ -303,6 +303,7 @@ NULL
 ##'     \item{\code{realx}}{a numeric vector: the x-axis location}
 ##'     \item{\code{realy}}{a numeric vector: the y-axis location}
 ##'     \item{\code{result}}{a factor with levels \code{made} \code{missed}}
+##'     \item{\code{team}}{a factor with levels \code{CLE} \code{LAL} \code{OFF}}
 ##'   }
 ##'
 ##' Source: \url{http://www.basketballgeek.com/data/} (transformed
