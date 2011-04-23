@@ -1,5 +1,13 @@
 		  CHANGES IN animation VERSION 2.0-4
 
+BUG FIXES
+
+    o saveSWF(): the path of images passed to SWF Tools has been fixed
+  (using the absolute path instead of the relative one); the images
+  are named like Rplot%03d.png now to avoid incorrect ordering under
+  Windows (thanks, Michael Hoehle)
+
+
 MINOR CHANGES
 
     o the dataset CLELAL09 gained a new variable 'team' to indicate
