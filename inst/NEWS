@@ -1,5 +1,11 @@
 		  CHANGES IN animation VERSION 2.0-4
 
+NEW FEATURES
+
+    o a new function boot.lowess() to examine the LOWESS fit with
+  bootstrapping
+
+
 BUG FIXES
 
     o saveSWF(): the path of images passed to SWF Tools has been fixed
@@ -12,6 +18,12 @@ MINOR CHANGES
 
     o the dataset CLELAL09 gained a new variable 'team' to indicate
   the team that the rows correspond to
+
+
+TO APPEAR
+
+    o A function cart.ani() to show the splitting process of
+  classification and regression trees.
 
 
 
@@ -34,15 +46,6 @@ MINOR CHANGES
   options and issue warnings if the device and the file extension do
   not match, or the width and height for the pdf() device are greater
   than 100 inches
-
-
-TO APPEAR
-
-    o A function boot.loess() added to show the bootstrapping effects
-  on loess().
-
-    o A function cart.ani() to show the splitting process of
-  classification and regression trees.
 
 
   
