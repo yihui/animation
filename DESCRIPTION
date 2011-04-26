@@ -5,7 +5,6 @@ Version: 2.0-5
 Date: 2011-04-25
 Author: Yihui Xie
 Maintainer: Yihui Xie <xie@yihui.name>
-
 Description: This package contains various functions for animations in
   statistics, covering many areas such as probability theory,
   mathematical statistics, multivariate statistics, nonparametric
@@ -17,7 +16,7 @@ Description: This package contains various functions for animations in
   and videos (saveSWF(), saveGIF(), saveHTML(), saveLatex(), and
   saveVideo() respectively). PDF animations can be inserted into
   Sweave easily.
-
+SystemRequirements: ImageMagick (http://imagemagick.org) or GraphicsMagick (http://www.graphicsmagick.org) for saveGIF(); (PDF)LaTeX for saveLatex(); SWF Tools (http://swftools.org) for saveSWF(); FFmpeg (http://ffmpeg.org) for saveVideo()
 Imports: MASS
 License: GPL-2 | GPL-3
 URL: http://animation.yihui.name, https://github.com/yihui/animation
