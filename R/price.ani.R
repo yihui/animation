@@ -55,7 +55,7 @@ price.ani = function(price, time, time.begin = min(time),
         }
         else {
             message("no prices between ", time1, " and ", time2)
-            flush.console()
+            if (interactive()) flush.console()
         }
         time1 = time2
         ani.pause()

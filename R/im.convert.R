@@ -182,7 +182,7 @@ im.convert = function(files, output = "animation.gif", convert = c("convert",
                             paste(files, collapse = ' ') else files,
                             collapse = ' '), shQuote(output.path))
     message("Executing: ", strwrap(convert, exdent = 4, prefix = '\n'))
-    flush.console()
+    if (interactive()) flush.console()
     cmd = cmd.fun(convert)
     ## if fails on Windows using shell(), try system() instead of shell()
     if (cmd == 0 && .Platform$OS.type == "windows" && identical(cmd.fun, shell)) {
