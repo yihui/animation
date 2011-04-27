@@ -89,7 +89,7 @@
 ##' gm.convert("bm*.png", output = "bm-animation2.gif")
 ##'
 ##' ## or a filename vector
-##' bm.files = sprintf("bm%03d.png", 1:50)
+##' bm.files = sprintf("bm%03d.png", 1:20)
 ##' im.convert(files = bm.files, output = "bm-animation3.gif")
 ##'
 ##' ani.options(oopt)
