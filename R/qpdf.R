@@ -45,7 +45,7 @@ qpdf = function(input, output, options = '--stream-data=compress') {
             output = file.path(dirname(input), paste('output', basename(input), sep = '-'))
         cmd = paste(qpdf.path, options, input, output)
         message('* qpdf is running... \n* ', cmd)
-        status = system(cmd)
+        status = system(cmd, ignore.stdout = !interactive(), ignore.stderr = !interactive())
         message(ifelse(status == 0, '* done!', '* failed (***)'))
         if (auto.output && file.exists(output))
             file.rename(output,

@@ -67,7 +67,8 @@ saveVideo = function(expr, video.name = 'animation.mp4', img.name = 'Rplot',
     }
     if (!grepl('^["\']', ffmpeg)) ffmpeg = shQuote(ffmpeg)
 
-    version = try(system(paste(ffmpeg, '-version'), intern = TRUE))
+    version = try(system(paste(ffmpeg, '-version'), intern = TRUE,
+                         ignore.stdout = !interactive(), ignore.stderr = !interactive()))
     if (inherits(version, 'try-error')) {
         warning('The command "', ffmpeg, '" is not available in your system. Please install FFmpeg first: ',
                 ifelse(.Platform$OS.type == 'windows', 'http://ffmpeg.arrozcru.org/autobuilds/',
@@ -99,7 +100,7 @@ saveVideo = function(expr, video.name = 'animation.mp4', img.name = 'Rplot',
     ## call FFmpeg
     ffmpeg = paste(ffmpeg, "-y", "-r", 1/ani.options('interval'), "-i", img.fmt, other.opts, video.name)
     message("Executing: ", ffmpeg)
-    cmd = system(ffmpeg)
+    cmd = system(ffmpeg, ignore.stdout = !interactive(), ignore.stderr = !interactive())
 
     if (clean) {
         unlink(file.path(tempdir(), paste(img.name, "*.", file.ext, sep = "")))

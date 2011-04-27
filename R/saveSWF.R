@@ -116,7 +116,8 @@ saveSWF = function(expr, swf.name = "animation.swf", img.name = "Rplot",
         }
     }
     tool = shQuote(tool)
-    version = try(system(paste(tool, '--version'), intern = TRUE))
+    version = try(system(paste(tool, '--version'), intern = TRUE,
+                         ignore.stdout = !interactive(), ignore.stderr = !interactive()))
     if (inherits(version, 'try-error') || !length(grep('swftools', version))) {
         warning('The command ', tool, ' is not available. Please install: http://www.swftools.org')
         return()
@@ -127,12 +128,12 @@ saveSWF = function(expr, swf.name = "animation.swf", img.name = "Rplot",
     if (file.ext == "png" || file.ext == "jpeg") {
         convert = paste(convert, "-r", 1/interval)
         message("Executing: ", convert)
-        cmd = system(convert)
+        cmd = system(convert, ignore.stdout = !interactive(), ignore.stderr = !interactive())
     }
     else {
         convert = paste(convert, " -s framerate=", 1/interval, sep = "")
         message("Executing: ", convert)
-        cmd = system(convert)
+        cmd = system(convert, ignore.stdout = !interactive(), ignore.stderr = !interactive())
     }
     if (cmd == 0) {
         message("\n\nFlash has been created at: ",
