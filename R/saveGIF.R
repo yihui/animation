@@ -106,8 +106,8 @@ saveGIF = function(expr, movie.name = "animation.gif", img.name = "Rplot",
 
     ## compress PDF files
     if (file.ext == 'pdf' &&
-        ((use.pdftk <- !is.null(ani.options('pdftk'))) ||
-         (use.qpdf <- !is.null(ani.options('qpdf'))))) {
+        ((use.qpdf <- !is.null(ani.options('qpdf'))) ||
+         (use.pdftk <- !is.null(ani.options('pdftk'))))) {
         for (f in list.files(path = dirname(img.name), pattern =
                              sprintf('^%s[0-9]*\\.pdf$', img.name), full.names = TRUE))
             if (use.qpdf) qpdf(f) else if (use.pdftk) pdftk(f)
