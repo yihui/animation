@@ -188,5 +188,7 @@ saveHTML = function(expr, img.name = 'Rplot',
         browseURL(paste('file:///', normalizePath(htmlfile), sep = ''))
     ani.options(oopt)
     message('HTML file created at: ', htmlfile)
+    if (normalizePath(dirname(htmlfile)) != getwd())
+        message('You may use ani.options(outdir = getwd()) or saveHTML(..., outdir = getwd()) to generate files under the current working directory.')
     invisible(htmlfile)
 }
