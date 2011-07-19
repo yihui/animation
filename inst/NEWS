@@ -9,6 +9,9 @@ BUG FIXES
 
 MINOR CHANGES
 
+    o saveHTML() will tell the user how to change the output dir
+
+
 
 		  CHANGES IN animation VERSION 2.0-4
 
