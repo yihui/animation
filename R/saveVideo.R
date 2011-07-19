@@ -74,10 +74,6 @@ saveVideo = function(expr, video.name = 'animation.mp4', img.name = 'Rplot',
                        'http://ffmpeg.org/download.html'))
         return()
     }
-    if (!length(grep('FFmpeg', version))) {
-        warning("FFmpeg not found; please install it first: http://ffmpeg.org")
-        return()
-    }
 
     ani.dev = ani.options('ani.dev')
     file.ext = ani.options('ani.type')
