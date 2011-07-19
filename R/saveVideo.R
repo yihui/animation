@@ -41,8 +41,7 @@
 ##'
 ##' @examples
 ##' oopts = ani.options(ffmpeg = 'D:/Installer/ffmpeg/bin/ffmpeg.exe')
-##' ## usually Linux users do not need to worry about the path
-##' #   as long as FFmpeg has been installed
+##' ## usually Linux users do not need to worry about the path as long as FFmpeg has been installed
 ##' if (.Platform$OS.type != 'windows') ani.options(ffmpeg = 'ffmpeg')
 ##'
 ##' saveVideo({
