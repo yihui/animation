@@ -237,11 +237,9 @@ NULL
 ##' @examples
 ##'
 ##' data(vanke1127)
-##' with(vanke1127, {
-##'     tab.price = table(price)
+##'     tab.price = table(vanke1127$price)
 ##'     plot(as.numeric(names(tab.price)), as.numeric(tab.price), type = "h",
 ##'         xlab = "price", ylab = "frequency")
-##' })
 ##'
 ##' oopt = ani.options(interval = 0.5, loop = FALSE, title='Stock price of Vanke')
 ##'
