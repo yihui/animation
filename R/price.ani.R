@@ -52,10 +52,9 @@ price.ani = function(price, time, time.begin = min(time),
             plot(as.numeric(names(tab.price)), as.numeric(tab.price), type = "h",
                 ..., xlab = xlab, ylab = ylab, xlim = xlim, ylim = ylim,
                 main = main, panel.first = grid())
-        }
-        else {
+        } else if (interactive()) {
             message("no prices between ", time1, " and ", time2)
-            if (interactive()) flush.console()
+            flush.console()
         }
         time1 = time2
         ani.pause()
