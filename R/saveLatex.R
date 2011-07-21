@@ -225,7 +225,7 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
             message("LaTeX document created at: ", file.path(getwd(),
                                                              latex.filename))
             if (system(sprintf("%s %s", pdflatex, latex.filename),
-                       ignore.stdout = !interactive(), ignore.stderr = !interactive()) == 0) {
+                       ignore.stdout = .ani.env$check, ignore.stderr = .ani.env$check) == 0) {
                 message(sprintf("successfully compiled: %s %s", pdflatex,
                                 latex.filename))
                 if (ani.options("autobrowse"))

@@ -9,4 +9,5 @@
              'using the package animation'),
              verbose = TRUE, loop = TRUE, autobrowse = interactive(),
              autoplay = TRUE, use.dev = TRUE)
+    .ani.env$check = 'CheckExEnv' %in% search() # am I in a check process?
 }

@@ -105,11 +105,11 @@ im.convert = function(files, output = "animation.gif", convert = c("convert",
         version = ''
         if (!is.null(ani.options('convert'))) {
             version = try(cmd.fun(sprintf("%s --version", ani.options('convert')),
-                              intern = TRUE, ignore.stdout = !interactive(), ignore.stderr = !interactive()))
+                              intern = TRUE, ignore.stdout = .ani.env$check, ignore.stderr = .ani.env$check))
         }
         if (!length(grep("ImageMagick", version))) {
             version = try(cmd.fun(sprintf("%s --version", convert), intern = TRUE,
-                                  ignore.stdout = !interactive(), ignore.stderr = !interactive()))
+                                  ignore.stdout = .ani.env$check, ignore.stderr = .ani.env$check))
         } else convert = ani.options('convert')
         ## try to look for ImageMagick in the Windows Registry Hive,
         ## the Program Files directory and the LyX installation
@@ -164,11 +164,11 @@ im.convert = function(files, output = "animation.gif", convert = c("convert",
         version = ''
         if (!is.null(ani.options('convert'))) {
             version = try(cmd.fun(sprintf("%s -version", ani.options('convert')),
-                              intern = TRUE, ignore.stdout = !interactive(), ignore.stderr = !interactive()))
+                              intern = TRUE, ignore.stdout = .ani.env$check, ignore.stderr = .ani.env$check))
         }
         if (!length(grep("GraphicsMagick", version))) {
             version = try(cmd.fun(sprintf("%s -version", convert), intern = TRUE,
-                                  ignore.stdout = !interactive(), ignore.stderr = !interactive()))
+                                  ignore.stdout = .ani.env$check, ignore.stderr = .ani.env$check))
             if (!length(grep("GraphicsMagick", version))) {
                 warning("I cannot find GraphicsMagick with convert = ", shQuote(convert),
                         "; you may have to put the path of GraphicsMagick in the PATH variable.")
@@ -185,10 +185,10 @@ im.convert = function(files, output = "animation.gif", convert = c("convert",
                             collapse = ' '), shQuote(output.path))
     message("Executing: ", strwrap(convert, exdent = 4, prefix = '\n'))
     if (interactive()) flush.console()
-    cmd = cmd.fun(convert, ignore.stdout = !interactive(), ignore.stderr = !interactive())
+    cmd = cmd.fun(convert, ignore.stdout = .ani.env$check, ignore.stderr = .ani.env$check)
     ## if fails on Windows using shell(), try system() instead of shell()
     if (cmd == 0 && .Platform$OS.type == "windows" && identical(cmd.fun, shell)) {
-        cmd = system(convert, ignore.stdout = !interactive(), ignore.stderr = !interactive())
+        cmd = system(convert, ignore.stdout = .ani.env$check, ignore.stderr = .ani.env$check)
     }
     if (cmd == 0) {
         message("Output at: ", output.path)
