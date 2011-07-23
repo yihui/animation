@@ -1,4 +1,11 @@
 ###################INSTALLATION#########################
+
+General users:
+
+install.packages('animation')
+
+Developers:
+
 The repository on GitHub is not a complete R package -- it has no
 'man' directory. To install this 'package' here, it is recommended that
 you install Rd2roxygen first; then run rab() on this source package.
@@ -9,4 +16,5 @@ library(Rd2roxygen)
 ## e.g. the package is here: D:/pkg/animation, then you need to
 ## setwd('D:/pkg') first
 rab('animation', install=TRUE)
+
 ########################################################
