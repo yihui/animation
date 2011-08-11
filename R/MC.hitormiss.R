@@ -1,5 +1,6 @@
-##' Hit or Miss Monte Carlo integration.
-##' Integrate a function using the Hit-or-Miss Monte Carlo algorithm
+##' Hit or Miss Monte Carlo integration
+##'
+##' Integrate a function using the Hit-or-Miss Monte Carlo algorithm.
 ##'
 ##' We compute the proportion of points hitting the area under the
 ##' curve, and the integral can be estimated by the proportion
@@ -26,29 +27,9 @@
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link[stats]{integrate}}, \code{\link{MC.samplemean}}
 ##' @references
-##'   \url{http://animation.yihui.name/compstat:hit_or_miss_monte_carlo}
+##' \url{http://animation.yihui.name/compstat:hit_or_miss_monte_carlo}
 ##' @keywords dynamic hplot
-##' @examples
-##'
-##' oopt = ani.options(interval = 0.2, nmax = ifelse(interactive(), 100, 2))
-##'
-##' ## should be close to 1/6
-##' MC.hitormiss()$est
-##'
-##' ## should be close to 1/12
-##' MC.hitormiss(from = 0.5, to = 1)$est
-##'
-##' ## HTML animation page
-##' saveHTML({
-##' ani.options(interval = 0.5, nmax = ifelse(interactive(), 100, 2))
-##' MC.hitormiss()
-##' }, img.name='MC.hitormiss',htmlfile='MC.hitormiss.html',
-##' title = "Hit or Miss Monte Carlo Integration",
-##'     description = c('',"Generate Uniform random numbers", 'and compute the proportion',
-##'                   "of points under the curve."))
-##'
-##' ani.options(oopt)
-##'
+##' @example inst/examples/MC.hitormiss-ex.R
 MC.hitormiss = function(FUN = function(x) x - x^2,
     n = ani.options("nmax"), from = 0, to = 1, col.points = c("black",
         "red"), pch.points = c(20, 4), ...) {

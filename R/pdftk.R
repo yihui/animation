@@ -1,4 +1,5 @@
-##' A wrapper for the PDF toolkit Pdftk.
+##' A wrapper for the PDF toolkit Pdftk
+##'
 ##' If the toolkit Pdftk is available in the system, it will be called
 ##' to manipulate the PDF files (especially to compress the PDF
 ##' files).
@@ -9,7 +10,8 @@
 ##'
 ##' See the reference for detailed usage of \command{pdftk}.
 ##' @param input the path of the input PDF file(s)
-##' @param operation the operation to be done on the input (default to be \code{NULL})
+##' @param operation the operation to be done on the input (default to
+##' be \code{NULL})
 ##' @param output the path of the output (if missing and \code{input}
 ##' is a scalar, \code{output} will be the same as \code{input})
 ##' @param other.opts other options (default to be \code{'compress
@@ -21,23 +23,7 @@
 ##' be issued
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @references \url{http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/}
-##' @examples
-##' pdf('huge-plot.pdf')
-##' plot(rnorm(50000))
-##' dev.off()
-##'
-##' ## Windows
-##' ani.options(pdftk = 'D:/Installer/pdftk.exe')
-##' pdftk('huge-plot.pdf', output = 'huge-plot0.pdf')
-##'
-##' ## Linux (does not work??)
-##' ani.options(pdftk = 'pdftk')
-##' pdftk('huge-plot.pdf', output = 'huge-plot1.pdf')
-##'
-##' ani.options(pdftk = NULL)
-##'
-##' file.info(c('huge-plot.pdf', 'huge-plot0.pdf', 'huge-plot1.pdf'))['size']
-##'
+##' @example inst/examples/pdftk-ex.R
 pdftk = function(input, operation = NULL, output, other.opts = 'compress dont_ask') {
     if (!is.null(pdftk.path <- ani.options('pdftk'))) {
         ## already 'shQuote()'ed?

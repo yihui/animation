@@ -1,4 +1,7 @@
-##' Defunct functions in the animation package.
+##' Defunct functions in the animation package
+##'
+##' Some functions which were included in old versions of this package
+##' but irrelevant to animations.
 ##'
 ##' \code{highlight.def} is irrelevant to animations and hence it is no longer
 ##' in this package; the source code was moved to

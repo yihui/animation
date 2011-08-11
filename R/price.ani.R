@@ -1,28 +1,20 @@
-##' Demonstrate stock prices in animations.
-##' This function can display the frequencies of stock prices in a certain time
-##' span with the span changing.
+##' Demonstrate stock prices in animations
+##'
+##' This function can display the frequencies of stock prices in a
+##' certain time span with the span changing.
 ##'
 ##' @param price stock prices
 ##' @param time time corresponding to prices
-##' @param time.begin the time for the animation to begin (default to be the
-##'   minimum \code{time})
+##' @param time.begin the time for the animation to begin (default to
+##' be the minimum \code{time})
 ##' @param span time span (unit in seconds; default to be 15 minutes)
 ##' @param \dots other arguments passed to \code{\link[graphics]{plot}}
 ##' @param xlab,ylab,xlim,ylim,main they are passed to
-##'   \code{\link[graphics]{plot}} with reasonable default values
+##' \code{\link[graphics]{plot}} with reasonable default values
 ##' @return invisible \code{NULL}
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @keywords dynamic hplot
-##' @examples
-##'
-##' ## see more examples in ?vanke1127
-##' saveHTML({
-##' data(vanke1127)
-##'     price.ani(vanke1127$price, vanke1127$time, lwd = 2)
-##' },img.name='vanke1127',htmlfile='vanke1127.html',
-##' title='Stock prices of Vanke', description=c('Barplots',
-##' 'of the stock prices of Vanke Co. Ltd', 'on 2009/11/27'))
-##'
+##' @example inst/examples/price.ani-ex.R
 price.ani = function(price, time, time.begin = min(time),
     span = 15 * 60, ..., xlab = "price", ylab = "frequency",
     xlim, ylim, main) {

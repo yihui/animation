@@ -1,4 +1,5 @@
-##' Insert animations into an HTML page.
+##' Insert animations into an HTML page
+##'
 ##' This function first records all the plots in the R expression as
 ##' bitmap images, then inserts them into an HTML page and finally
 ##' create the animation using the SciAnimator library.
@@ -31,7 +32,7 @@
 ##' \code{img.name} will be replaced by \code{_} to make it a legal
 ##' jQuery string:
 ##'
-##' \verb{!"#$%&'()*+,./:;?@@[\]^`{|}~}
+##' \verb{!"#$\%&'()*+,./:;?@@[\]^`{|}~}
 ##' @param global.opts a string: the global options of the animation;
 ##' e.g. we can specify the default theme to be blue using
 ##' \verb{$.fn.scianimator.defaults.theme = 'blue';} note these
@@ -82,7 +83,7 @@
 ##' \code{\link{saveLatex}}, \code{\link{saveVideo}};
 ##' \code{\link{ani.start}}, \code{\link{ani.stop}} (early versions of
 ##' HTML animations)
-##' @example animation/inst/examples/saveHTML-ex.R
+##' @example inst/examples/saveHTML-ex.R
 saveHTML = function(expr, img.name = 'Rplot',
                     global.opts = '', single.opts = '', ...) {
     oopt = ani.options(...)

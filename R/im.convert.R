@@ -1,11 +1,13 @@
-##' A wrapper for the `convert' utility of ImageMagick or GraphicsMagick.
-##' The main purpose of these two functions is to create GIF animations.
+##' A wrapper for the `convert' utility of ImageMagick or
+##' GraphicsMagick
 ##'
-##' the function \code{im.convert} simply wraps the arguments of the
+##' The main purpose of these two functions is to create GIF
+##' animations.
+##'
+##' The function \code{im.convert} simply wraps the arguments of the
 ##' \command{convert} utility of ImageMagick to make it easier to call
 ##' ImageMagick in R;
 ##'
-##' @aliases im.convert gm.convert
 ##' @rdname convert
 ##' @param files either a character vector of file names, or a single
 ##' string containing wildcards (e.g. \file{Rplot*.png})
@@ -74,27 +76,7 @@
 ##' ImageMagick: \url{http://www.imagemagick.org/script/convert.php}
 ##'
 ##' GraphicsMagick: \url{http://www.graphicsmagick.org}
-##' @examples
-##' ## generate some images
-##' owd = setwd(tempdir())
-##' oopt = ani.options(interval = 0.05, nmax = 20)
-##' png("bm%03d.png")
-##' brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow",
-##' main = "Demonstration of Brownian Motion")
-##' dev.off()
-##'
-##' ## filenames with a wildcard *
-##' im.convert("bm*.png", output = "bm-animation1.gif")
-##' ## use GraphicsMagick
-##' gm.convert("bm*.png", output = "bm-animation2.gif")
-##'
-##' ## or a filename vector
-##' bm.files = sprintf("bm%03d.png", 1:20)
-##' im.convert(files = bm.files, output = "bm-animation3.gif")
-##'
-##' ani.options(oopt)
-##' setwd(owd)
-##'
+##' @example inst/examples/im.convert-ex.R
 im.convert = function(files, output = "animation.gif", convert = c("convert",
                                                        "gm convert"),
                       cmd.fun = system, extra.opts = "", clean = FALSE) {
@@ -125,17 +107,15 @@ im.convert = function(files, output = "animation.gif", convert = c("convert",
                         message("but I can find it from the Registry Hive: ",
                                 magick.path)
                     }
-                }
-                else if (nzchar(prog <- Sys.getenv("ProgramFiles")) &&
-                         length(magick.dir <- list.files(prog, "^ImageMagick.*")) &&
-                         length(magick.path <- list.files(file.path(prog,
-                                                                    magick.dir), pattern = "^convert\\.exe$", full.names = TRUE,
-                                                          recursive = TRUE))) {
+                } else if (nzchar(prog <- Sys.getenv("ProgramFiles")) &&
+                           length(magick.dir <- list.files(prog, "^ImageMagick.*")) &&
+                           length(magick.path <- list.files(file.path(prog,
+                                                                      magick.dir), pattern = "^convert\\.exe$", full.names = TRUE,
+                                                            recursive = TRUE))) {
                     convert = shQuote(normalizePath(magick.path[1]))
                     message("but I can find it from the 'Program Files' directory: ",
                             magick.path)
-                }
-                else if (!inherits(try({
+                } else if (!inherits(try({
                     magick.path = utils::readRegistry("LyX.Document\\Shell\\open\\command", "HCR")
                 }, silent = TRUE), "try-error")) {
                     convert = file.path(dirname(gsub("(^\"|\" \"%1\"$)", "", magick.path[[1]])), c("..", "../etc"), "imagemagick", "convert.exe")
@@ -153,8 +133,7 @@ im.convert = function(files, output = "animation.gif", convert = c("convert",
                 }
                 ## write it into ani.options() to save future efforts
                 ani.options(convert = convert)
-            }
-            else {
+            } else {
                 warning("Please install ImageMagick first or put its bin path into the system PATH variable")
                 return()
             }
@@ -201,16 +180,12 @@ im.convert = function(files, output = "animation.gif", convert = c("convert",
             try(system(paste('xdg-open ', shQuote(output.path))), TRUE)
         }
         return(invisible(output.path))
-    }
-    else {
+    } else {
         message("There seems to be an error in the conversion...")
     }
 }
-
-##' A wrapper for the `gm convert' utility of GraphicsMagick.
-##'
-##' the function \code{gm.convert} is a wrapper for the command
-##' \command{gm convert} of GraphicsMagick;
+##' @details The function \code{gm.convert} is a wrapper for the
+##' command \command{gm convert} of GraphicsMagick.
 ##' @rdname convert
 ##' @param ... arguments to be passed to \code{\link{im.convert}}
 gm.convert = function(..., convert = "gm convert") {

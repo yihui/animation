@@ -1,24 +1,25 @@
-##' Brownian Motion using Google Visualization API.
+##' Brownian Motion using Google Visualization API
 ##'
-##' We can use R to generate random numbers from the Normal distribution and
-##' write them into an HTML document, then the Google Visualization gadget
-##' ``motionchart'' will prepare the animation for us (a Flash animation with
-##' several buttons).
-##'
+##' We can use R to generate random numbers from the Normal
+##' distribution and write them into an HTML document, then the Google
+##' Visualization gadget ``motionchart'' will prepare the animation
+##' for us (a Flash animation with several buttons).
 ##' @param p number of points
 ##' @param start start ``year''; it has no practical meaning in this
 ##' animation but it's the required by the Google gadget
 ##' @param digits the precision to round the numbers
 ##' @param file the file name
 ##' @param width,height width and height of the animation
-##' @return \code{NULL}. An HTML page will be opened as the side effect.
+##' @return \code{NULL}. An HTML page will be opened as the side
+##' effect.
 ##' @note The number of frames is controlled by
 ##' \code{ani.options("nmax")} as usual.
 ##'
-##' Due to the ``security settings'' of Adobe Flash player, you might not be
-##' able to view the generated Flash animation locally, i.e. using an address
-##' like \url{file:///C:/Temp/index.html}. In this case, you can upload the
-##' HTML file to a webserver and use the http address to view the Flash file.
+##' Due to the ``security settings'' of Adobe Flash player, you might
+##' not be able to view the generated Flash animation locally,
+##' i.e. using an address like \url{file:///C:/Temp/index.html}. In
+##' this case, you can upload the HTML file to a webserver and use the
+##' http address to view the Flash file.
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link{brownian.motion}}, \code{\link{BM.circle}},
 ##' \code{\link[stats]{rnorm}}

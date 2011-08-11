@@ -1,8 +1,9 @@
-##' Pause for a while.
-##' If this function is called in an interactive graphics device, it will
-##' pause for a time interval (specified in \code{ani.options('interval')});
-##' otherwise it will do nothing.
+##' Pause for a while
 ##'
+##' If this function is called in an interactive graphics device, it
+##' will pause for a time interval (specified in
+##' \code{\link{ani.options}('interval')}); otherwise it will do
+##' nothing.
 ##'
 ##' @return Invisible \code{NULL}.
 ##' @author Yihui Xie <\url{http://yihui.name}>

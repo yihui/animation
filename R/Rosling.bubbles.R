@@ -1,5 +1,4 @@
-##' The bubbles animation in Hans Rosling's Talk.
-##' (``Debunking third-world myths with the best stats you've ever seen'')
+##' The bubbles animation in Hans Rosling's Talk
 ##'
 ##' In Hans Rosling's attractive talk ``Debunking third-world myths
 ##' with the best stats you've ever seen'', he used a lot of bubble
@@ -10,13 +9,14 @@
 ##' thermometers, etc.
 ##'
 ##' Suppose we have observations of \eqn{n} individuals over
-##' \code{ani.options("nmax")} years. In this animation, the data of each year
-##' will be shown in the bubbles (symbols) plot; as time goes on, certain
-##' trends will be revealed (like those in Rosling's talk). Please note that
-##' the arrangement of the data for bubbles (symbols) should be a matrix like
-##' \eqn{A_{ijk}} in which \eqn{i} is the individual id (from 1 to n),
-##' \eqn{j} denotes the \eqn{j}-th variable (from 1 to p) and \eqn{k} indicates
-##' the time from 1 to \code{ani.options('nmax')}.
+##' \code{ani.options("nmax")} years. In this animation, the data of
+##' each year will be shown in the bubbles (symbols) plot; as time
+##' goes on, certain trends will be revealed (like those in Rosling's
+##' talk). Please note that the arrangement of the data for bubbles
+##' (symbols) should be a matrix like \eqn{A_{ijk}} in which \eqn{i}
+##' is the individual id (from 1 to n), \eqn{j} denotes the \eqn{j}-th
+##' variable (from 1 to p) and \eqn{k} indicates the time from 1 to
+##' \code{ani.options('nmax')}.
 ##'
 ##' And the length of \code{x} and \code{y} should be equal to the
 ##' number of rows of this matrix.
@@ -43,30 +43,7 @@
 ##'
 ##' \url{http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html}
 ##' @keywords dynamic
-##' @examples
-##'
-##' oopt = ani.options(interval = 0.1, nmax = ifelse(interactive(), 50, 2))
-##'
-##' ## use default arguments (random numbers); you may try to find the real data
-##' par(mar = c(4, 4, 0.2, 0.2))
-##' Rosling.bubbles()
-##'
-##' ## rectangles
-##' Rosling.bubbles(rectangles = matrix(abs(rnorm(50 * 10 * 2)), ncol = 2))
-##'
-##' ## save the animation in HTML pages
-##' saveHTML({
-##' par(mar = c(4, 4, 0.2, 0.2))
-##' ani.options(interval = 0.1, nmax = ifelse(interactive(), 50, 2))
-##' Rosling.bubbles(text = 1951:2000)
-##' }, img.name='Rosling.bubbles', htmlfile='Rosling.bubbles.html',
-##' ani.height = 450, ani.width = 600,
-##'     title = "The Bubbles Animation in Hans Rosling's Talk",
-##'     description = c("An imitation of Hans Rosling's moving bubbles.",
-##' "(with 'years' as the background)"))
-##'
-##' ani.options(oopt)
-##'
+##' @example inst/examples/Rosling.bubbles-ex.R
 Rosling.bubbles = function(x, y, circles, squares,
     rectangles, stars, thermometers, boxplots, inches = TRUE,
     fg = par("col"), bg, xlab = "x", ylab = "y", main = NULL,

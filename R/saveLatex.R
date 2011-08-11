@@ -1,7 +1,8 @@
-##' Insert animations into a LaTeX document and compile it.
-##' Record animation frames and insert them into a LaTeX document with the
-##' \code{animate} package. Compile the document if an appropriate LaTeX
-##' command is provided.
+##' Insert animations into a LaTeX document and compile it
+##'
+##' Record animation frames and insert them into a LaTeX document with
+##' the \code{animate} package. Compile the document if an appropriate
+##' LaTeX command is provided.
 ##'
 ##' This is actually a wrapper to generate a LaTeX document using
 ##' R. The document uses the LaTeX package called \code{animate} to
@@ -13,7 +14,6 @@
 ##' provided. And the final PDF output will be opened with the PDF
 ##' viewer set in \code{getOption("pdfviewer")} if
 ##' \code{ani.options("autobrowse") == TRUE}.
-##'
 ##' @param expr an expression to generate animations; use either the
 ##' animation functions (e.g. \code{brownian.motion()}) in this
 ##' package or a custom expression (e.g. \code{for(i in 1:10)
@@ -93,26 +93,7 @@
 ##' There are a lot of options can be set in \code{ani.opts} and
 ##' \code{pkg.opts}.
 ##' @keywords dynamic device utilities
-##' @examples
-##'
-##' ## brownian motion: note the 'loop' option in ani.opts
-##' #   and the careful settings in documentclass
-##' saveLatex({
-##'     par(mar = c(3, 3, 1, 0.5), mgp = c(2, 0.5, 0),
-##'         tcl = -0.3, cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)
-##'     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow",
-##'         main = "Demonstration of Brownian Motion")
-##' }, img.name = "BM", ani.opts = "controls,loop,width=0.95\\\\textwidth",
-##'     latex.filename = ifelse(interactive(), "brownian_motion.tex", ""),
-##'     interval = 0.1, nmax = 10,
-##'     ani.dev = 'pdf', ani.type = 'pdf', ani.width = 7, ani.height = 7,
-##' documentclass = paste("\\\\documentclass{article}",
-##' "\\\\usepackage[papersize={7in,7in},margin=0.3in]{geometry}", sep = "\n"))
-##'
-##' ## the PDF graphics output is often too large because it is uncompressed;
-##' ## try the option ani.options('pdftk') to compress the PDF graphics
-##' ##   see ?pdftk and ?ani.options
-##'
+##' @example inst/examples/saveLatex-ex.R
 saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
     centering = TRUE, caption = NULL, label = NULL,
     pkg.opts = NULL, documentclass = "article", latex.filename = "animation.tex",

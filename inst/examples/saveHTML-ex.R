@@ -12,10 +12,7 @@ saveHTML({
 
 
 
-## we can merge another animation into the former page
-##   as long as 'htmlfile' is the same
-## this time I don't want the animation to autoplay, and will use
-##   text labels for the buttons (instead of UTF-8 symbols)
+## we can merge another animation into the former page as long as 'htmlfile' is the same; this time I don't want the animation to autoplay, and will use text labels for the buttons (instead of UTF-8 symbols)
 saveHTML({
     par(mar = c(4, 4, .5, .5))
     ani.options(interval = 0.5)
@@ -32,8 +29,7 @@ saveHTML({
 
 
 
-## use the function brownian.motion() in this package
-## note this page is created in 'index.html' under ani.options('outdir')
+## use the function brownian.motion() in this package; note this page is created in 'index.html' under ani.options('outdir')
 saveHTML({
     par(mar = c(3, 3, 1, 0.5), mgp = c(2, 0.5, 0), tcl = -0.3,
         cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)
@@ -44,10 +40,7 @@ saveHTML({
 
 
 
-## we may feel that the navigation panel is too wide, so let's remove it next
-## the default value of 'controls' is:
-## ['first', 'previous', 'play', 'next', 'last', 'navigator', 'loop', 'speed']
-## we need to remove 'navigator'
+## we may feel that the navigation panel is too wide, so let's remove it in this example; the default value of 'controls' is: ['first', 'previous', 'play', 'next', 'last', 'navigator', 'loop', 'speed'], among which we need to remove 'navigator'
 saveHTML({
     par(mar = c(3, 3, 1, 0.5), mgp = c(2, 0.5, 0), tcl = -0.3,
         cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)

@@ -1,43 +1,24 @@
-##' Demonstration for the stratified sampling.
+##' Demonstration for the stratified sampling
 ##'
-##' Each rectangle stands for a stratum, and the simple random sampling
-##' without replacement is performed within each stratum. The points being
-##' sampled are marked out (by red circles by default).
-##'
-##' @param pop a vector for the size of each stratum in the population.
-##' @param size a corresponding vector for the sample size in each stratum
-##'   (recycled if necessary).
-##' @param p.col,p.cex different colors /magnification rate to annotate the
-##'   population and the sample
-##' @param \dots other arguments passed to \code{\link[graphics]{rect}} to
-##'   annotate the ``strata''
+##' Each rectangle stands for a stratum, and the simple random
+##' sampling without replacement is performed within each stratum. The
+##' points being sampled are marked out (by red circles by default).
+##' @param pop a vector for the size of each stratum in the
+##' population.
+##' @param size a corresponding vector for the sample size in each
+##' stratum (recycled if necessary).
+##' @param p.col,p.cex different colors /magnification rate to
+##' annotate the population and the sample
+##' @param \dots other arguments passed to
+##' \code{\link[graphics]{rect}} to annotate the ``strata''
 ##' @return None (invisible `\code{NULL}').
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link[base]{sample}}, \code{\link{sample.simple}},
-##'   \code{\link{sample.cluster}}, \code{\link{sample.ratio}},
-##'   \code{\link{sample.system}}
+##' \code{\link{sample.cluster}}, \code{\link{sample.ratio}},
+##' \code{\link{sample.system}}
 ##' @references \url{http://animation.yihui.name/samp:stratified_sampling}
 ##' @keywords distribution dynamic
-##' @examples
-##'
-##' oopt = ani.options(nmax = ifelse(interactive(), 50, 2))
-##' par(mar = rep(1, 4), lwd = 2)
-##'
-##' sample.strat(col = c("bisque", "white"))
-##'
-##' ## HTML animation page
-##' saveHTML({
-##' par(mar = rep(1, 4), lwd = 2)
-##' ani.options(nmax = ifelse(interactive(), 50, 2))
-##' sample.strat(col = c("bisque", "white"))
-##' }, img.name='sample.strat', htmlfile='sample.html',
-##' ani.height = 350, ani.width = 500,
-##'     title = "Demonstration of the stratified sampling",
-##'     description = c("Every rectangle stands for a stratum, and the simple",
-##'     "random sampling without replacement is performed within each stratum."))
-##'
-##' ani.options(oopt)
-##'
+##' @example inst/examples/sample.strat-ex.R
 sample.strat = function(pop = ceiling(10 * runif(10,
     0.5, 1)), size = ceiling(pop * runif(length(pop), 0, 0.5)),
     p.col = c("blue", "red"), p.cex = c(1, 3), ...) {

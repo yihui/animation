@@ -1,10 +1,13 @@
-##' Cross-validation to find the optimum number of features (variables) in LDA.
-##' This function provids an illustration of the process of finding out
-##' the optimum number of variables using k-fold cross-validation in a linear
-##' discriminant analysis (LDA).
+##' Cross-validation to find the optimum number of features
+##' (variables) in LDA
 ##'
-##' For a classification problem, usually we wish to use as less variables as
-##' possible because of difficulties brought by the high dimension.
+##' This function provids an illustration of the process of finding
+##' out the optimum number of variables using k-fold cross-validation
+##' in a linear discriminant analysis (LDA).
+##'
+##' For a classification problem, usually we wish to use as less
+##' variables as possible because of difficulties brought by the high
+##' dimension.
 ##'
 ##' The selection procedure is like this:
 ##'
@@ -28,54 +31,35 @@
 ##'   \item Determine the optimum number of features with the largest \eqn{p}.
 ##' }
 ##'
-##' Note that \eqn{g_{max}} is set by \code{ani.options("nmax")} (i.e. the maximum
-##' number of features we want to choose).
+##' Note that \eqn{g_{max}} is set by \code{ani.options("nmax")}
+##' (i.e. the maximum number of features we want to choose).
 ##'
 ##' @param data a data matrix containg the predictors in columns
-##' @param cl a factor indicating the classification of the rows of \code{data}
+##' @param cl a factor indicating the classification of the rows of
+##' \code{data}
 ##' @param k the number of folds
-##' @param cex.rg the range of the magnification to be used to the points in
-##'   the plot
-##' @param col.av the two colors used to respectively denote rates of correct
-##'   predictions in the i-th fold and the average rates for all k folds
+##' @param cex.rg the range of the magnification to be used to the
+##' points in the plot
+##' @param col.av the two colors used to respectively denote rates of
+##' correct predictions in the i-th fold and the average rates for all
+##' k folds
 ##' @param ... arguments passed to \code{\link[graphics]{points}} to
 ##' draw the points which denote the correct rate
-##' @return A list containing \item{accuracy }{a matrix in which the element in
-##'   the i-th row and j-th column is the rate of correct predictions based on
-##'   LDA, i.e. build a LDA model with j variables and predict with data in the
-##'   i-th fold (the test set) } \item{optimum }{the optimum number of features
-##'   based on the cross-validation}
+##' @return A list containing \item{accuracy }{a matrix in which the
+##' element in the i-th row and j-th column is the rate of correct
+##' predictions based on LDA, i.e. build a LDA model with j variables
+##' and predict with data in the i-th fold (the test set) }
+##' \item{optimum }{the optimum number of features based on the
+##' cross-validation}
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link{kfcv}}, \code{\link{cv.ani}}, \code{\link[MASS]{lda}}
-##' @references Maindonald J, Braun J (2007). \emph{Data Analysis and Graphics
-##'   Using R - An Example-Based Approach}. Cambridge University Press, 2nd
-##'   edition. pp. 400
+##' @references Maindonald J, Braun J (2007). \emph{Data Analysis and
+##' Graphics Using R - An Example-Based Approach}. Cambridge
+##' University Press, 2nd edition. pp. 400
 ##'
 ##' \url{http://animation.yihui.name/da:biostat:select_features_via_cv}
 ##' @keywords multivariate dynamic dplot classif
-##' @examples
-##'
-##' oopt = ani.options(nmax = ifelse(interactive(), 10, 2))
-##' par(mar = c(3, 3, 0.2, 0.7), mgp = c(1.5, 0.5, 0))
-##' cv.nfeaturesLDA(pch = 19)
-##'
-##' ## save the animation in HTML pages
-##' saveHTML({
-##' ani.options(interval = 0.5, nmax = 10)
-##' par(mar = c(3, 3, 1, 0.5),
-##' mgp = c(1.5, 0.5, 0), tcl = -0.3, pch = 19, cex = 1.5)
-##' cv.nfeaturesLDA(pch = 19)
-##' },
-##' img.name='cv.nfeaturesLDA',htmlfile='cv.nfeaturesLDA.html',
-##' ani.height = 480, ani.width = 600,
-##' title = "Cross-validation to find the optimum number of features in LDA",
-##' description = c("This",
-##' 'animation has provided an illustration of the process of finding',
-##' 'out the optimum number of variables using k-fold cross-validation',
-##' 'in a linear discriminant analysis (LDA).'))
-##'
-##' ani.options(oopt)
-##'
+##' @example inst/examples/cv.nfeaturesLDA-ex.R
 cv.nfeaturesLDA = function(data = matrix(rnorm(600),
     60), cl = gl(3, 20), k = 5, cex.rg = c(0.5, 3), col.av = c("blue",
     "red"), ...) {

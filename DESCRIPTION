@@ -1,23 +1,84 @@
 Package: animation
 Type: Package
-Title: A Gallery of Animations in Statistics and Utilities to Create Animations
+Title: A Gallery of Animations in Statistics and Utilities
+    to Create Animations
 Version: 2.0-6
 Date: 2011-07-22
 Author: Yihui Xie
 Maintainer: Yihui Xie <xie@yihui.name>
-Description: This package contains various functions for animations in
-  statistics, covering many areas such as probability theory,
-  mathematical statistics, multivariate statistics, nonparametric
-  statistics, sampling survey, linear models, time series,
-  computational statistics, data mining and machine learning. These
-  functions might be of help in teaching statistics and data
-  analysis. Also provided in this package are several approaches to
-  save animations to various formats, e.g. Flash, GIF, HTML pages, PDF
-  and videos (saveSWF(), saveGIF(), saveHTML(), saveLatex(), and
-  saveVideo() respectively). PDF animations can be inserted into
-  Sweave easily.
-SystemRequirements: ImageMagick (http://imagemagick.org) or GraphicsMagick (http://www.graphicsmagick.org) or LyX (http://www.lyx.org) for saveGIF(); (PDF)LaTeX for saveLatex(); SWF Tools (http://swftools.org) for saveSWF(); FFmpeg (http://ffmpeg.org) for saveVideo()
-Imports: MASS
+Description: This package contains various functions for
+    animations in statistics, covering many areas such as
+    probability theory, mathematical statistics,
+    multivariate statistics, nonparametric statistics,
+    sampling survey, linear models, time series,
+    computational statistics, data mining and machine
+    learning. These functions might be of help in teaching
+    statistics and data analysis. Also provided in this
+    package are several approaches to save animations to
+    various formats, e.g. Flash, GIF, HTML pages, PDF and
+    videos (saveSWF(), saveGIF(), saveHTML(), saveLatex(),
+    and saveVideo() respectively). PDF animations can be
+    inserted into Sweave easily.
+SystemRequirements: ImageMagick (http://imagemagick.org) or
+    GraphicsMagick (http://www.graphicsmagick.org) or LyX
+    (http://www.lyx.org) for saveGIF(); (PDF)LaTeX for
+    saveLatex(); SWF Tools (http://swftools.org) for
+    saveSWF(); FFmpeg (http://ffmpeg.org) for saveVideo()
+Imports:
+    MASS
 License: GPL-2 | GPL-3
-URL: http://animation.yihui.name, https://github.com/yihui/animation
+URL: http://animation.yihui.name,
+    https://github.com/yihui/animation
 BugReports: https://github.com/yihui/animation/issues
+Collate:
+    'animation-defunct.R'
+    'animation-package.R'
+    'ani.options.R'
+    'ani.pause.R'
+    'ani.record.R'
+    'ani.start.R'
+    'ani.stop.R'
+    'bisection.method.R'
+    'BM.circle.R'
+    'boot.iid.R'
+    'boot.lowess.R'
+    'brownian.motion.R'
+    'buffon.needle.R'
+    'clt.ani.R'
+    'conf.int.R'
+    'cv.ani.R'
+    'cv.nfeaturesLDA.R'
+    'ecol.death.sim.R'
+    'flip.coin.R'
+    'g.brownian.motion.R'
+    'grad.desc.R'
+    'im.convert.R'
+    'kfcv.R'
+    'kmeans.ani.R'
+    'knn.ani.R'
+    'least.squares.R'
+    'lln.ani.R'
+    'MC.hitormiss.R'
+    'MC.samplemean.R'
+    'moving.block.R'
+    'mwar.ani.R'
+    'newton.method.R'
+    'pdftk.R'
+    'price.ani.R'
+    'qpdf.R'
+    'quincunx.R'
+    'Rosling.bubbles.R'
+    'sample.cluster.R'
+    'sample.ratio.R'
+    'sample.simple.R'
+    'sample.strat.R'
+    'sample.system.R'
+    'saveGIF.R'
+    'saveHTML.R'
+    'saveLatex.R'
+    'saveSWF.R'
+    'saveVideo.R'
+    'sim.qqnorm.R'
+    'vi.grid.illusion.R'
+    'vi.lilac.chaser.R'
+    'zzz.R'

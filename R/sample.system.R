@@ -1,10 +1,9 @@
-##' Demonstration for the systematic sampling.
+##' Demonstration for the systematic sampling
 ##'
 ##' The whole sample frame is denoted by a matrix (\code{nrow * ncol})
 ##' in the plane, and the sample points with equal intervals are drawn
 ##' out according to a random starting point. The points being sampled
 ##' are marked by red circles.
-##'
 ##' @param nrow the desired number of rows of the sample frame.
 ##' @param ncol the desired number of columns of the sample frame.
 ##' @param size the sample size.
@@ -17,25 +16,7 @@
 ##' \code{\link{sample.strat}}
 ##' @references \url{http://animation.yihui.name/samp:systematic_sampling}
 ##' @keywords distribution dynamic
-##' @examples
-##'
-##' oopt = ani.options(nmax = ifelse(interactive(), 50, 2))
-##' par(mar = rep(1, 4), lwd = 2)
-##'
-##' sample.system()
-##'
-##' ## HTML animation pages
-##' saveHTML({
-##' ani.options(interval = 1, nmax = ifelse(interactive(), 30,2))
-##' par(mar = rep(1, 4), lwd = 2)
-##' sample.system()
-##' }, img.name='sample.system', htmlfile='sample.html',
-##' ani.height = 350, ani.width = 500,
-##'     title = "Demonstration of the systematic sampling",
-##'     description = "Sampling with equal distances.")
-##'
-##' ani.options(oopt)
-##'
+##' @example inst/examples/sample.system-ex.R
 sample.system = function(nrow = 10, ncol = 10, size = 15,
     p.col = c("blue", "red"), p.cex = c(1, 3)) {
     n = nrow * ncol
