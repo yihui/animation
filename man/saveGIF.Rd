@@ -101,8 +101,7 @@ saveGIF({
 })
 
 ## if the above conversion was successful, the option
-#   'convert' should
-##    not be NULL under Windows
+#   'convert' should not be NULL under Windows
 ani.options("convert")
 ## like 'C:/Software/LyX/etc/ImageMagick/convert.exe'
 
