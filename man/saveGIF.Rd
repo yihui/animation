@@ -109,6 +109,12 @@ saveGIF({
     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")
 }, movie.name = "brownian_motion.gif", interval = 0.1, nmax = 30, 
     ani.width = 600, ani.height = 600)
+
+## non-constant intervals between image frames
+saveGIF({
+    brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")
+}, movie.name = "brownian_motion2.gif", interval = runif(30, 
+    0.01, 1), nmax = 30)
 }
 \author{
   Yihui Xie <\url{http://yihui.name}>
