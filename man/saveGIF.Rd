@@ -40,8 +40,7 @@ saveMovie(expr, movie.name = "animation.gif", img.name = "Rplot",
   \code{ani.width}, ...}
 }
 \value{
-  An integer indicating failure (-1) or success (0) of the
-  converting (refer to \code{\link[base]{system}} and
+  The command for the conversion (see
   \code{\link{im.convert}}).
 }
 \description{

@@ -39,8 +39,7 @@ gm.convert(..., convert = "gm convert")
   \code{\link{im.convert}}}
 }
 \value{
-  The path of the output if the command was successfully
-  executed; otherwise a failure message.
+  The command for the conversion.
 
   If \code{ani.options('autobrowse') == TRUE}, this
   function will also try to open the output automatically.

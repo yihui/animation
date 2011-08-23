@@ -25,8 +25,7 @@
 ##' @param extra.opts additional options to be passed to
 ##' \command{convert} (or \command{gm convert})
 ##' @param clean logical: delete the input \code{files} or not
-##' @return The path of the output if the command was successfully
-##' executed; otherwise a failure message.
+##' @return The command for the conversion.
 ##'
 ##' If \code{ani.options('autobrowse') == TRUE}, this function will
 ##' also try to open the output automatically.
@@ -179,10 +178,8 @@ im.convert = function(files, output = "animation.gif", convert = c("convert",
                     try(system(paste('open ', shQuote(output.path))), TRUE) else
             try(system(paste('xdg-open ', shQuote(output.path))), TRUE)
         }
-        return(invisible(output.path))
-    } else {
-        message("There seems to be an error in the conversion...")
-    }
+    } else message("an error occurred in the conversion... see Notes in ?im.convert")
+    invisible(convert)
 }
 ##' @details The function \code{gm.convert} is a wrapper for the
 ##' command \command{gm convert} of GraphicsMagick.

@@ -43,8 +43,7 @@
 ##' @param clean whether to delete the individual image frames
 ##' @param \dots other arguments passed to \code{\link{ani.options}},
 ##' e.g. \code{ani.height} and \code{ani.width}, ...
-##' @return An integer indicating failure (-1) or success (0) of the
-##' converting (refer to \code{\link[base]{system}} and
+##' @return The command for the conversion (see
 ##' \code{\link{im.convert}}).
 ##' @note See \code{\link{im.convert}} for details on the
 ##' configuration of ImageMagick (typically for Windows users) or
