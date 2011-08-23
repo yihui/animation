@@ -6,6 +6,13 @@ NEW FEATURES
     o demo('elephant') to show a winking pink elephant; who said
   elephants cannot dance? (thanks, Neil Gunther)
 
+MINOR CHANGES
+
+  o saveGIF() and im.convert() returns the command for the conversion,
+  which might be helpful for debugging. A note on the limit of
+  ImageMagick or GraphicsMagick was added to the documentation of
+  im.convert() (thanks, Florian Knorr)
+
 
 
 		  CHANGES IN animation VERSION 2.0-5

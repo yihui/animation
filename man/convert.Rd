@@ -59,6 +59,13 @@ gm.convert(..., convert = "gm convert")
   frame will be \code{files[1]}, the second frame will be
   \code{files[2]}, ...
 
+  Both ImageMagick and GraphicsMagick may have a limit on
+  the number of images to be converted. It is a known issue
+  that this function can fail with more than
+  (approximately) 9000 images. The function
+  \code{\link{saveVideo}} is a better alternative in such a
+  case.
+
   Most Windows users do not have read the boring notes
   below after they have installed ImageMagick or
   GraphicsMagick. For the rest of Windows users:
