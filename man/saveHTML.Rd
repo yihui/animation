@@ -53,7 +53,7 @@ saveHTML(expr, img.name = "Rplot", global.opts = "",
 \description{
   This function first records all the plots in the R
   expression as bitmap images, then inserts them into an
-  HTML page and finally create the animation using the
+  HTML page and finally creates the animation using the
   SciAnimator library.
 }
 \details{
@@ -82,15 +82,12 @@ saveHTML(expr, img.name = "Rplot", global.opts = "",
 \note{
   Microsoft IE might restrict the HTML page from running
   JavaScript and try to ``protect your security'' when you
-  view the animation page.  If this happens, you have two
-  choices: (1) abandon the well-known fragile IE and try
-  some really secure web browsers such as Firefox (or
-  anything but IE); or (2) tell IE that you allow the
-  blocked content.
+  view the animation page, but this is not really a
+  security problem.
 
   When you want to publish the HTML page on the web, you
   have to upload the associated \file{css} and \file{js}
-  folders with the HTML file.
+  folders with the HTML file as well as the images.
 
   For \code{\link{saveHTML}},
   \code{ani.options('description')} can be a character
