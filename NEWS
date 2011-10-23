@@ -13,6 +13,8 @@ MINOR CHANGES
   ImageMagick or GraphicsMagick was added to the documentation of
   im.convert() (thanks, Florian Knorr)
 
+  o fixed a typo in ?animation (imgname should be img.name; thanks,
+  Neuwirth Erich)
 
 
 		  CHANGES IN animation VERSION 2.0-5

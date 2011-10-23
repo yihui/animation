@@ -19,7 +19,7 @@ saveHTML({
         cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)
     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow",
                     main = "Demonstration of Brownian Motion")
-}, imgname = 'bm_plot', title = "Demonstration of Brownian Motion",
+}, img.name = 'bm_plot', title = "Demonstration of Brownian Motion",
          description = c("Random walk on the 2D plane: for each point",
          "(x, y), x = x + rnorm(1) and y = y + rnorm(1)."))
 
