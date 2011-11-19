@@ -113,7 +113,7 @@ saveHTML({
     }
 }, img.name = "unif_plot", imgdir = "unif_dir", htmlfile = "random.html", 
     autobrowse = FALSE, title = "Demo of 20 uniform random numbers", 
-    description = c("This is a silly example.\n\n", "You can describe it in more detail.", 
+    description = c("This is a silly example.\\n\\n", "You can describe it in more detail.", 
         "For example, bla bla..."))
 
 

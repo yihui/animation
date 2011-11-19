@@ -52,6 +52,9 @@ gm.convert(..., convert = "gm convert")
   The function \code{im.convert} simply wraps the arguments
   of the \command{convert} utility of ImageMagick to make
   it easier to call ImageMagick in R;
+
+  The function \code{gm.convert} is a wrapper for the
+  command \command{gm convert} of GraphicsMagick.
 }
 \note{
   If \code{files} is a character vector, please make sure

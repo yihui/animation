@@ -1,6 +1,9 @@
 \name{ani.stop}
 \alias{ani.stop}
 \title{Write the HTML animation page}
+\usage{
+ani.stop()
+}
 \value{
   None (invisible \code{NULL}); a string will be printed in
   the console indicating where is the HTML file.

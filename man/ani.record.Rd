@@ -39,7 +39,9 @@ ani.replay(list)
   only high-level plotting commands can produce new image
   files; \code{\link{ani.record}} uses
   \code{\link[grDevices]{recordPlot}} to record the plots
-  when any changes are made on the current plot.
+  when any changes are made on the current plot. For a
+  graphical device to be recordable, you have to call
+  \code{dev.control('enable')} before plotting.
 
   \code{\link{ani.replay}} can replay the recorded plots as
   an animation. Moreover, we can convert the recorded plots
@@ -102,18 +104,15 @@ saveHTML(ani.replay(), img.name = "record_plot")
 
 
 ## record plots and replay immediately
-if (interactive()) {
-    saveHTML({
-        dev.new()  # open a screen device (x11(), quartz())
-        par(bg = "white")  # ensure the background color is white
-        plot(x, y, type = "n")
-        for (i in 1:n) {
-            points(x[i], y[i], pch = 19, cex = 2)
-            ani.record(reset = TRUE, replay.cur = TRUE)  # record the current frame
-        }
-        dev.off()  # close the assisting device we opened
-    })
-}
+saveHTML({
+    dev.control("enable")  # enable recording
+    par(bg = "white")  # ensure the background color is white
+    plot(x, y, type = "n")
+    for (i in 1:n) {
+        points(x[i], y[i], pch = 19, cex = 2)
+        ani.record(reset = TRUE, replay.cur = TRUE)  # record the current frame
+    }
+})
 
 ani.options(oopts)
 }
