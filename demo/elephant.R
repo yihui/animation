@@ -21,11 +21,12 @@ pinky <- function() {
         x <- c(fourier(tv, Cx))
         y <- c(fourier(tv, Cy))
 
+        dev.hold()
         plot(y, -x, type="l", col='red', lwd=10, axes=FALSE, ylab='', xlab='')
         lines(y, -x, type="l", col='pink', lwd=4)
         if (i > 1) points(Im(param[5]), Im(param[5]), col='black', pch=126, cex=2)
         else points(Im(param[5]), Im(param[5]), col='black', pch=20, cex=2)
-        Sys.sleep(0.25)
+        ani.pause(.25)
     }
 }
 fourier <- function(tt,cc) {
@@ -36,5 +37,6 @@ fourier <- function(tt,cc) {
     }
     fsum(length(cc))
 }
+
 message('Press Esc under Windows or Ctrl-C under *nix to stop the animation')
 while (TRUE) pinky()

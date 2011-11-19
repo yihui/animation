@@ -2,18 +2,18 @@
 ## URL: http://cos.name/cn/topic/101199
 ## Modified by Yihui Xie <yihui.xie@cos.name>
 
-hanoi <- function(n, color = rainbow(n), interval = 0.5, 
+hanoi <- function(n, color = rainbow(n), interval = 0.5,
     ...) {
-    tower <- list(1:n, NULL, NULL)   
+    tower <- list(1:n, NULL, NULL)
     draw.hanoi <- function() {
-        par(mfrow = c(1, 3), mar = rep(1, 4), ann = FALSE, xaxt = "n", 
+        par(mfrow = c(1, 3), mar = rep(1, 4), ann = FALSE, xaxt = "n",
             yaxt = "n")
         for (i in 1:3) {
             plot(c(-n, n), c(0, n + 2), type = "n")
             if (length(tower[[i]]) > 0) {
-                barplot(rev(tower[[i]]), add = TRUE, horiz = TRUE, 
+                barplot(rev(tower[[i]]), add = TRUE, horiz = TRUE,
                   col = color[rev(tower[[i]])], ...)
-                barplot(-rev(tower[[i]]), add = TRUE, horiz = TRUE, 
+                barplot(-rev(tower[[i]]), add = TRUE, horiz = TRUE,
                   col = color[rev(tower[[i]])], ...)
             }
         }
@@ -25,11 +25,12 @@ hanoi <- function(n, color = rainbow(n), interval = 0.5,
             move.hanoi(k - 1, via, to, from)
         }
         else {
-            cat("Move ", tower[[from]][1], " from ", LETTERS[from], 
+            cat("Move ", tower[[from]][1], " from ", LETTERS[from],
                 " to ", LETTERS[to], "\n")
             flush.console()
             tower[[to]] <<- c(tower[[from]][1], tower[[to]])
             tower[[from]] <<- tower[[from]][-1]
+            dev.hold()
             draw.hanoi()
             ani.pause()
         }

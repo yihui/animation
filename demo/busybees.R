@@ -17,6 +17,7 @@ ry = sample(c(-1, 1), n, TRUE)
 r = 20
 op = par(pch = 19)
 for (i in 1:nmax) {
+    dev.hold()
     rx[x >= r] = -1
     rx[x <= -r] = 1
     ry[y >= r] = -1
@@ -24,5 +25,6 @@ for (i in 1:nmax) {
     x = x + abs(rnorm(n)) * rx
     y = y + abs(rnorm(n)) * ry
     plot(x, y, xlim = c(-r, r), ylim = c(-r, r), col = rainbow(n))
-} 
+    dev.flush()
+}
 par(op)

@@ -1,8 +1,8 @@
-jet.colors = colorRampPalette(c("#00007F", "blue", 
-    "#007FFF", "cyan", "#7FFF7F", "yellow", "#FF7F00", "red", 
+jet.colors = colorRampPalette(c("#00007F", "blue",
+    "#007FFF", "cyan", "#7FFF7F", "yellow", "#FF7F00", "red",
     "#7F0000"))
 m = 400
-C = complex(real = rep(seq(-1.8, 0.6, length.out = m), 
+C = complex(real = rep(seq(-1.8, 0.6, length.out = m),
     each = m), imag = rep(seq(-1.2, 1.2, length.out = m), m))
 C = matrix(C, m, m)
 Z = 0
@@ -13,6 +13,7 @@ for (k in 1:20) {
 }
 par(mar = rep(0, 4), ann = FALSE)
 for (k in 1:20) {
+    dev.hold()
     image(X[, , k])
-    Sys.sleep(0.01)
-} 
+    ani.pause(0.01)
+}
