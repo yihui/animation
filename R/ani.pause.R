@@ -1,10 +1,10 @@
 ##' Pause for a while and flush the current graphical device
 ##'
 ##' If this function is called in an interactive graphics device, it
-##' will pause for a time interval (specified in
+##' will pause for a time interval (by default specified in
 ##' \code{\link{ani.options}('interval')}) and flush the current
 ##' device; otherwise it will do nothing.
-##'
+##' @param interval a time interval to pause (in seconds)
 ##' @return Invisible \code{NULL}.
 ##' @author Yihui Xie <\url{http://yihui.name}>
 ##' @seealso \code{\link[grDevices]{dev.interactive}},
@@ -21,9 +21,9 @@
 ##'
 ##' ## see demo('Xmas2', package = 'animation') for another example
 ##'
-ani.pause = function() {
+ani.pause = function(interval = ani.options('interval')) {
     if (dev.interactive()) {
         dev.flush()
-        Sys.sleep(ani.options('interval'))
+        Sys.sleep(interval)
     }
 }
