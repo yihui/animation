@@ -9,7 +9,9 @@
 ##' commands as \emph{new} image files -- only high-level plotting
 ##' commands can produce new image files; \code{\link{ani.record}}
 ##' uses \code{\link[grDevices]{recordPlot}} to record the plots when
-##' any changes are made on the current plot.
+##' any changes are made on the current plot. For a graphical device
+##' to be recordable, you have to call \code{dev.control('enable')}
+##' before plotting.
 ##' @param reset if \code{TRUE}, the recording list will be cleared,
 ##' otherwise new plots will be appended to the existing list of recorded
 ##' plots
@@ -46,12 +48,11 @@ ani.record = function(reset = FALSE, replay.cur = FALSE) {
             .ani.env$.images[[n + 1]] = recordPlot()
         } else warning('no current device to record from')
     }
-    if (replay.cur && length(dev.list()) == 2) {
-        ## off-screen device opened first, then a screen device is opened
+    if (replay.cur) {
         tmp = recordPlot()
-        dev.set()  # go to off-screen device
+        dev.hold()
         replayPlot(tmp)
-        dev.set()  # go to screen device
+        dev.flush()
     }
     invisible(NULL)
 }

@@ -23,17 +23,14 @@ saveHTML(ani.replay(), img.name = 'record_plot')
 
 
 ## record plots and replay immediately
-if (interactive()) {
-    saveHTML({
-        dev.new()   # open a screen device (x11(), quartz())
-        par(bg = 'white')   # ensure the background color is white
-        plot(x, y, type = 'n')
-        for (i in 1:n) {
-            points(x[i], y[i], pch = 19, cex = 2)
-            ani.record(reset=TRUE, replay.cur=TRUE)   # record the current frame
-        }
-        dev.off()  # close the assisting device we opened
-    })
-}
+saveHTML({
+    dev.control('enable')   # enable recording
+    par(bg = 'white')   # ensure the background color is white
+    plot(x, y, type = 'n')
+    for (i in 1:n) {
+        points(x[i], y[i], pch = 19, cex = 2)
+        ani.record(reset=TRUE, replay.cur=TRUE)   # record the current frame
+    }
+})
 
 ani.options(oopts)
