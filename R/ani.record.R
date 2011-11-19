@@ -75,7 +75,7 @@ ani.record = function(reset = FALSE, replay.cur = FALSE) {
 ##' plots by \code{\link{ani.record}} will be used
 ani.replay = function(list) {
     if (missing(list)) list = .ani.env$.images
-    sapply(list, function(x) {
+    lapply(list, function(x) {
         replayPlot(x)
         ani.pause()
         })
