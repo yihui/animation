@@ -106,7 +106,6 @@ NULL
 ##' @format int [1:75] 119 175 222 204 276 168 257 89 61 288 ...
 ##' @source The full text of speech is at
 ##' \url{http://cpc.people.com.cn/GB/64093/64094/8544901.html}
-##' @keywords datasets
 ##' @examples
 ##' data(HuSpeech)
 ##' ## clear pattern: 1/3 short, 1/3 long, 1/3 short again
@@ -130,7 +129,6 @@ NULL
 ##' @format int [1:59] 2 45 52 53 11 48 28 15 50 29 ...
 ##' @source The full text of speech is at
 ##' \url{http://www.baltimoresun.com/news/nation-world/bal-text1105,0,5055673,full.story}
-##' @keywords datasets
 ##' @examples
 ##' data(ObamaSpeech)
 ##' ## pattern: longer paragraph and shorter paragraph
@@ -164,7 +162,6 @@ NULL
 ##' \emph{pages}, \emph{images} and \emph{files} within the site
 ##' (units in MegaBytes).} }
 ##' @source \url{http://yihui.name}
-##' @keywords datasets
 ##' @examples
 ##' data(pageview)
 ##' plot(pageview[,1:2], type = "b", col = "red",
@@ -191,7 +188,6 @@ NULL
 ##' numeric vector} \item{DENSITY}{a numeric vector} }
 ##' @source collected from Statlib Datasets Archive:
 ##' \url{http://stat.cmu.edu/datasets/}
-##' @keywords datasets
 ##' @examples
 ##' data(pollen)
 ##'
@@ -216,7 +212,6 @@ NULL
 ##' variables. \describe{ \item{time}{POSIXt: the time corresponding
 ##' to stock prices} \item{price}{a numeric vector: stock prices} }
 ##' @source This data can be obtained from most stock websites.
-##' @keywords datasets
 ##' @example inst/examples/vanke1127-ex.R
 NULL
 
@@ -232,7 +227,6 @@ NULL
 ##' 42.6 31.9 34.5 39.8 32.6 39.6 ...
 ##' @source
 ##' \url{http://www.wrcc.dri.edu/cgi-bin/divplot1_form.pl?1305}
-##' @keywords datasets
 ##' @examples data(iatemp)
 ##' plot(iatemp)
 NULL
@@ -267,7 +261,6 @@ NULL
 ##' and \code{realy} is the distance to the bottom border of the
 ##' court; notice that the size of the court is \eqn{94 \times 50}{94
 ##' x 50} (feet).
-##' @keywords datasets
 ##' @examples library(animation)
 ##' data(CLELAL09)
 ##' ## see demo('CLEvsLAL', package = 'animation') for a `replay' of the game
