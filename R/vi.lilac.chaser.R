@@ -23,7 +23,7 @@ vi.lilac.chaser = function(np = 16, col = "magenta",
     bg = "gray", p.cex = 7, c.cex = 5) {
     nmax = ani.options("nmax")
     op = par(bg = bg, xpd = NA)
-    x = seq(0, 2 * pi, length = np)
+    x = seq(0, 2 * pi * np/(np + 1), length = np)
     for (j in 1:nmax) {
         for (i in 1:np) {
             plot.new()
