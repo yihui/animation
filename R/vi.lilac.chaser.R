@@ -26,10 +26,9 @@ vi.lilac.chaser = function(np = 16, col = "magenta",
     x = seq(0, 2 * pi * np/(np + 1), length = np)
     for (j in 1:nmax) {
         for (i in 1:np) {
-            plot.new()
-            plot.window(xlim = c(-1, 1), ylim = c(-1, 1))
-            points(sin(x[-i]), cos(x[-i]), col = col, cex = p.cex,
-                   pch = 19)
+            dev.hold()
+            plot(sin(x[-i]), cos(x[-i]), col = col, cex = p.cex,
+                 pch = 19, xlim = c(-1, 1), ylim = c(-1, 1), ann = FALSE, axes = FALSE)
             points(0, 0, pch = "+", cex = c.cex, lwd = 2)
             ani.pause()
         }
