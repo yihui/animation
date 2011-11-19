@@ -24,6 +24,7 @@ sample.simple = function(nrow = 10, ncol = 10, size = 15,
     x = cbind(rep(1:ncol, nrow), gl(nrow, ncol))
     nmax = ani.options("nmax")
     for (i in 1:nmax) {
+        dev.hold()
         plot(x, pch = 19, col = p.col[1], cex = p.cex[1], axes = FALSE,
             ann = FALSE, xlab = "", ylab = "")
         points(x[sample(nrow * ncol, size), ], col = p.col[2],

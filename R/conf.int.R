@@ -47,6 +47,7 @@ conf.int = function(level = 0.95, size = 50, cl = c("red",
     cvr = y0 < 0 & y1 > 0
     xax = pretty(1:n)
     for (i in 1:n) {
+        dev.hold()
         plot(1:n, ylim = rg, type = "n", xlab = "Samples", ylab = expression("CI: [" ~
             bar(x) - z[alpha/2] * sigma/sqrt(n) ~ ", " ~ bar(x) +
             z[alpha/2] * sigma/sqrt(n) ~ "]"), xaxt = "n", ...)

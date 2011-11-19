@@ -61,6 +61,7 @@ mwar.ani = function(x, k = 15, conf = 2, mat = matrix(1:2,
     for (i in 1:ncol(idx)) {
         if (j > nmax)
             break
+        dev.hold()
         plot(x, xlab = "", ylab = "Original data")
         minx = c(minx, min(x[idx[, i]]))
         maxx = c(maxx, max(x[idx[, i]]))

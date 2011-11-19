@@ -100,6 +100,7 @@ grad.desc = function(FUN = function(x, y) x^2 + 2 *
         main = eval(substitute(expression(z == x), list(x = body(FUN))))
     i = 1
     while (gap > tol && i <= nmax) {
+        dev.hold()
         contour(x, y, z, col = col.contour, xlab = nms[1], ylab = nms[2],
             main = main)
         xy = rbind(xy, newxy[i, ])

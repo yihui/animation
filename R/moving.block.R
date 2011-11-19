@@ -55,6 +55,7 @@ moving.block = function(dat = runif(100), block,
 			plot(...)
 		}
     for (i in seq_len(nmax) - 1) {
+        dev.hold()
         FUN(subset(dat, seq_len(n) %in% (i + 1:block)), dat = dat,
             i = i, block = block, ...)
         ani.pause()

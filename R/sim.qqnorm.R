@@ -20,6 +20,7 @@
 ##' @example inst/examples/sim.qqnorm-ex.R
 sim.qqnorm = function(n = 20, last.plot = NULL, ...) {
     for(i in 1:ani.options("nmax")) {
+        dev.hold()
         qqnorm(rnorm(n), ...)
         eval(last.plot)
         ani.pause()

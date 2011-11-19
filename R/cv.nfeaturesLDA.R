@@ -87,6 +87,7 @@ cv.nfeaturesLDA = function(data = matrix(rnorm(600),
     op = par(mfrow = c(1, 2))
     for (j in 1:nmax) {
         for (i in 2:(k + 1)) {
+            dev.hold()
             idx = kf[i - 1]:(kf[i] - 1)
             trdat = dat[-idx, ]
             slct = order(aovF(as.matrix(trdat[, -ncol(trdat)]),

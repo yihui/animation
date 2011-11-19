@@ -71,6 +71,7 @@ bisection.method = function(FUN = function(x) x^2 -
         main = eval(substitute(expression("Root-finding by Bisection Method:" ~
             y == 0), list(y = body(FUN))))
     while (abs(mid) > tol && i <= ani.options("nmax")) {
+        dev.hold()
         curve(FUN, min(rg), max(rg), xlab = xlab, ylab = ylab,
             main = main, ...)
         abline(h = 0, col = "gray")

@@ -29,6 +29,7 @@ sample.strat = function(pop = ceiling(10 * runif(10,
     size = rep(size, length = nrow)
     nmax = ani.options("nmax")
     for (i in 1:nmax) {
+        dev.hold()
         plot(1, axes = FALSE, ann = FALSE, type = "n", xlim = c(0.5,
             ncol + 0.5), ylim = c(0.5, nrow + 0.5), xaxs = "i",
             yaxs = "i", xlab = "", ylab = "")

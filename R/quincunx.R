@@ -64,6 +64,7 @@ quincunx = function(balls = 200, layers = 15, pch.layers = 2,
     rgx = c(1, layers)
     rgy = c(0, max(table(finalx)))
     for (i in 1:ani.options("nmax")) {
+        dev.hold()
         plot(1:layers, type = "n", ann = FALSE, axes = FALSE)
         points(layerx, layery, pch = pch.layers)
         points(ballx[, i], bally[, i], pch = pch.balls, col = col.balls,

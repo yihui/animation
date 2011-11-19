@@ -39,6 +39,7 @@ sample.ratio = function(X = runif(50, 0, 5), R = 1,
     N = length(X)
     r = est1 = est2 = numeric(nmax)
     for (i in 1:nmax) {
+        dev.hold()
         idx = sample(N, size)
         plot(X, Y, col = p.col[1], pch = p.pch[1], cex = p.cex[1],
             ...)

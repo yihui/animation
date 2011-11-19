@@ -115,6 +115,7 @@ knn.ani = function(train, test, cl, k = 10, interact = FALSE,
     }
     nmax = min(nmax, nrow(test))
     for (i in 1:nmax) {
+        dev.hold()
         pre.plot(i, ...)
         ani.pause()
         idx = rank(apply(train, 1, function(x) sqrt(sum((x -

@@ -68,6 +68,7 @@ buffon.needle = function(l = 0.8, d = 1, redraw = TRUE,
     x = y = x0 = y0 = phi = ctr = NULL
     layout(mat, heights = heights)
     while (j <= length(PI)) {
+        dev.hold()
         plot(1, xlim = c(-0.5 * l, 1.5 * l), ylim = c(0, 2 *
             d), type = "n", xlab = "", ylab = "", axes = FALSE)
         axis(1, c(0, l), c("", ""), tcl = -1)

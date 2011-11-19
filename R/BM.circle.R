@@ -23,6 +23,7 @@ BM.circle = function(n = 20, col = rainbow(n), ...) {
     x = runif(n, -1, 1)
     y = runif(n, -1, 1)
     for (i in 1:nmax) {
+        dev.hold()
         plot(sin(theta), cos(theta), type = "l", lwd = 5)
         x = x + rnorm(n, 0, 0.1)
         y = y + rnorm(n, 0, 0.1)

@@ -32,6 +32,7 @@ brownian.motion = function(n = 10, xlim = c(-20,
     x = rnorm(n)
     y = rnorm(n)
     for (i in seq_len(ani.options("nmax"))) {
+        dev.hold()
         plot(x, y, xlim = xlim, ylim = ylim, ...)
         text(x, y)
         x = x + rnorm(n)

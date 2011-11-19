@@ -48,6 +48,7 @@ ecol.death.sim = function(nr = 10, nc = 10, num.sp = c(50, 50), col.sp = c(1,
     p = factor(sample(rep(1:2, num.sp)), levels = 1:2)
     nmax = ani.options("nmax")
     for (i in 1:nmax) {
+        dev.hold()
         plot(1:nc, 1:nr, type = "n", xlim = c(0.5, nc + 0.5),
             ylim = c(0.5, nr + 0.5), ...)
         abline(h = 1:nr, v = 1:nc, col = "lightgray", lty = 3)

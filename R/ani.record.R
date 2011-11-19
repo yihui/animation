@@ -76,9 +76,10 @@ ani.record = function(reset = FALSE, replay.cur = FALSE) {
 ani.replay = function(list) {
     if (missing(list)) list = .ani.env$.images
     lapply(list, function(x) {
+        dev.hold()
         replayPlot(x)
         ani.pause()
-        })
+    })
     invisible(NULL)
 }
 

@@ -56,6 +56,7 @@ clt.ani = function(obs = 300, FUN = rexp, mean = 1, sd = 1, col = c("bisque",
     layout(mat, widths, heights)
     if (missing(xlim)) xlim = quantile(x, c(.005, .995))
     for (i in 1:nmax) {
+        dev.hold()
         hist(x[i, ], freq = FALSE, main = "", xlab = substitute(italic(bar(x)[i]),
             list(i = i)), col = col[1], xlim = xlim)
         lines(density(x[i, ]), col = col[2])

@@ -35,6 +35,7 @@ price.ani = function(price, time, time.begin = min(time),
         ylim = c(0, tab.max)
     time1 = time.begin
     while (time1 < max(time)) {
+        dev.hold()
         time2 = time1 + span
         sub.price = price[time >= time1 & time <= time2]
         if (length(sub.price) > 0) {

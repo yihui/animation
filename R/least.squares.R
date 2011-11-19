@@ -69,6 +69,7 @@ least.squares = function(x, y, n = 15, ani.type = c("slope",
             bseq = tan(seq(pi/10, 3.5 * pi/10, length = nmax))
         else bseq = seq(b.range[1], b.range[2], length = nmax)
         for (i in 1:nmax) {
+            dev.hold()
             plot(x, y, ...)
             abline(fit, col = ab.col[1])
             abline(a, bseq[i], col = ab.col[2])
@@ -85,6 +86,7 @@ least.squares = function(x, y, n = 15, ani.type = c("slope",
         aseq = if (missing(a.range))
             seq(-5, 5, length = nmax) else seq(a.range[1], a.range[2], length = nmax)
         for (i in 1:nmax) {
+            dev.hold()
             plot(x, y, ...)
             abline(fit, col = ab.col[1])
             abline(aseq[i], b, col = ab.col[2])

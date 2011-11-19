@@ -57,6 +57,7 @@ kmeans.ani = function(x = cbind(X1 = runif(50), X2 = runif(50)),
     pch = rep(pch, length = numcent)
     col = rep(col, length = numcent)
     for (j in 1:ani.options("nmax")) {
+        dev.hold()
         plot(x, pch = pch[ocluster], col = col[ocluster], panel.first = grid())
         mtext(hints[1], 4)
         points(centers, pch = pch[1:numcent], cex = 3,

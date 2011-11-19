@@ -70,6 +70,7 @@ newton.method = function(FUN = function(x) x^2 -
             y == 0), list(y = body(FUN))))
     nmax = ani.options("nmax")
     while (abs(gap) > tol & i <= nmax & !is.na(x[i + 1])) {
+        dev.hold()
         curve(FUN, min(rg), max(rg), main = main, xlab = xlab,
             ylab = ylab, ...)
         abline(h = 0, col = "gray")

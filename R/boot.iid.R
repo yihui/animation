@@ -59,6 +59,7 @@ boot.iid <- function(x = runif(20), statistic = mean, m = length(x),
     layout(mat, widths, heights)
     if (missing(main)) main = c("Bootstrap sample", "Density of bootstrap estimates")
     for (i in 1:ani.options("nmax")) {
+        dev.hold()
         sunflowerplot(idx[, i], xx[, i], col = col[2], cex = cex[2],
             xlim = c(1, length(x)), ylim = range(x) + c(-1, 1) *
                 diff(range(x)) * 0.1, panel.first = points(x,

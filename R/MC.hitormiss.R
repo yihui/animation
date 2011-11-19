@@ -43,6 +43,7 @@ MC.hitormiss = function(FUN = function(x) x - x^2,
         stop("This Hit-or-Miss Monte Carlo algorithm only applies to\n",
             "_non-negative_ functions!")
     for (i in 1:nmax) {
+        dev.hold()
         curve(FUN, from = from, to = to, ylab = eval(substitute(expression(y ==
             x), list(x = body(FUN)))))
         points(x1[1:i], x2[1:i], col = col.points[(x2[1:i] >

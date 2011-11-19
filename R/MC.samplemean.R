@@ -51,6 +51,7 @@ MC.samplemean = function(FUN = function(x) x - x^2,
     xx = if (adj.x)
         seq(0, 1, length.out = nmax)[rank(x, ties.method = "random")] else x
     for (i in 1:nmax) {
+        dev.hold()
         curve(FUN, from = 0, to = 1, ylab = eval(substitute(expression(y ==
             x), list(x = body(FUN)))))
         rect(xx[1:i] - 0.5/nmax, 0, xx[1:i] + 0.5/nmax, y[1:i],

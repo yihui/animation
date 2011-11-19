@@ -24,6 +24,7 @@ boot.lowess = function(x, y = NULL, f = 2/3, iter = 3, line.col = "#FF000033", .
     }
     idx = replicate(ani.options('nmax'), sample(length(x), replace = TRUE))
     for (i in 1:ncol(idx)) {
+        dev.hold()
         plot(x, y, ...)
         apply(idx[, 1:i, drop = FALSE], 2, function(j) {
             lines(lowess(x[j], y[j], f = f, iter = iter), col = line.col)

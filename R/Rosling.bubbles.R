@@ -96,6 +96,7 @@ Rosling.bubbles = function(x, y, circles, squares,
         bg = rgb(runif(n), runif(n), runif(n), 0.5)
     md = c(mean(xlim), mean(ylim))
     for (i in 1:nmax) {
+        dev.hold()
         xy = xy.coords(x[((i - 1) * n + 1):(n * i)], y[((i -
             1) * n + 1):(n * i)], xlab = deparse(substitute(x)),
             ylab = deparse(substitute(y)))

@@ -44,6 +44,7 @@ cv.ani = function(x = runif(150), k = 10, col = c("green",
     for (i in 2:length(kf)) {
         if (j > ani.options("nmax"))
             break
+        dev.hold()
         plot(x, xlim = c(1, N), type = "n", xlab = "Sample index",
             ylab = "Sample values", xaxt = "n", ...)
         xax = as.integer(pretty(1:N))
