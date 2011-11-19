@@ -3,8 +3,11 @@
 
 NEW FEATURES
 
-    o demo('elephant') to show a winking pink elephant; who said
+  o demo('elephant') to show a winking pink elephant; who said
   elephants cannot dance? (thanks, Neil Gunther)
+
+  o all animations are using dev.hold() and dev.flush() now, so they
+  will no longer flicker under Linux and Mac
 
 MINOR CHANGES
 
@@ -15,6 +18,9 @@ MINOR CHANGES
 
   o fixed a typo in ?animation (imgname should be img.name; thanks,
   Neuwirth Erich)
+
+  o ani.pause() gained an argument 'interval' to specify the time
+  interval directly
 
 
 		  CHANGES IN animation VERSION 2.0-5
@@ -76,7 +82,7 @@ MINOR CHANGES
   than 100 inches
 
 
-  
+
 		  CHANGES IN animation VERSION 2.0-2
 
 
