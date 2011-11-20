@@ -2,6 +2,7 @@
 ## See http://yihui.name/en/2009/06/simulation-of-burning-fire-in-r/ for the
 ##    introduction of this demo
 ## If your computer is too fast, just add Sys.sleep(0.01) somewhere in the loop
+local({
 Fire <- function(row = 100, col = 100, time = 500, fade = 0.03, ...) {
   fire <- matrix(0, col, row);
   fire[,1] <- runif(col);
@@ -29,3 +30,4 @@ Fire <- function(row = 100, col = 100, time = 500, fade = 0.03, ...) {
 }
 par(mar = rep(0, 4))
 Fire(50)
+})

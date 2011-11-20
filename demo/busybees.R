@@ -3,6 +3,7 @@
 # village when I was a little child...
 ####################################################################
 
+local({
 # number of bees
 n = 50
 # maximum number of frames
@@ -28,3 +29,4 @@ for (i in 1:nmax) {
     dev.flush()
 }
 par(op)
+})
