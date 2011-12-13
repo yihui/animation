@@ -29,8 +29,7 @@ Depends:
 Imports:
     MASS
 License: GPL-2 | GPL-3
-URL: http://animation.yihui.name,
-    https://github.com/yihui/animation
+URL: https://github.com/yihui/animation
 BugReports: https://github.com/yihui/animation/issues
 Collate:
     'animation-defunct.R'
