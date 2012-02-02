@@ -64,7 +64,7 @@ clt.ani = function(obs = 300, FUN = rexp, mean = 1, sd = 1, col = c("bisque",
             curve(dnorm(x, mean, sd/sqrt(i)), col = col[3], lty = 2, add = TRUE)
         legend("topright", legend = paste("P-value:", format(round(pvalue[i],
             3), nsmall = 3)), bty = "n")
-        plot(pvalue[1:i], xlim = c(1, nmax), ylim = range(pvalue),
+        plot(pvalue[1:i], xlim = c(1, nmax), ylim = c(0, 1),
             xlab = "n", ylab = "P-value", col = col[4], ...)
         ani.pause()
     }
