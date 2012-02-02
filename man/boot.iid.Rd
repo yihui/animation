@@ -51,7 +51,8 @@ boot.iid(x = runif(20), statistic = mean, m = length(x),
   (probably) with leaves denote the points being resampled;
   the number of leaves just means how many times these
   points are resampled, as bootstrap samples \emph{with}
-  replacement.
+  replacement. The x-axis is the sample values, and y-axis
+  is the indices of sample points.
 
   The whole process has illustrated the steps of
   resampling, computing the statistic and plotting its
