@@ -9,7 +9,8 @@
 ##' dataset, while the red sunflowers (probably) with leaves denote
 ##' the points being resampled; the number of leaves just means how
 ##' many times these points are resampled, as bootstrap samples
-##' \emph{with} replacement.
+##' \emph{with} replacement. The x-axis is the sample values, and
+##' y-axis is the indices of sample points.
 ##'
 ##' The whole process has illustrated the steps of resampling,
 ##' computing the statistic and plotting its distribution based on
@@ -51,7 +52,7 @@ boot.iid <- function(x = runif(20), statistic = mean, m = length(x),
                      heights = rep(1, nrow(mat)),
                      col = c("black", "red", "bisque", "red", "gray"),
                      cex = c(1.5, 0.8), main, ...) {
-    ylab = deparse(substitute(x))
+    xlab = deparse(substitute(x))
     idx = replicate(ani.options("nmax"), sample(length(x), m, TRUE))
     xx = matrix(x[idx], nrow = m)
     xest = apply(xx, 2, statistic)
@@ -60,10 +61,10 @@ boot.iid <- function(x = runif(20), statistic = mean, m = length(x),
     if (missing(main)) main = c("Bootstrap sample", "Density of bootstrap estimates")
     for (i in 1:ani.options("nmax")) {
         dev.hold()
-        sunflowerplot(idx[, i], xx[, i], col = col[2], cex = cex[2],
-            xlim = c(1, length(x)), ylim = range(x) + c(-1, 1) *
-                diff(range(x)) * 0.1, panel.first = points(x,
-                col = col[1], cex = cex[1]), xlab = "", ylab = ylab,
+        sunflowerplot(xx[, i], idx[, i], col = col[2], cex = cex[2],
+            ylim = c(1, length(x)), xlim = range(x) + c(-1, 1) *
+                diff(range(x)) * 0.1, panel.first = points(x, seq_along(x),
+                col = col[1], cex = cex[1]), xlab = xlab, ylab = 'sample index',
             main = main[1])
         hist(xest[1:i], freq = FALSE, main = main[2], col = col[3],
             xlab = "", xlim = xrg, ...)
