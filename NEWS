@@ -1,3 +1,11 @@
+		  CHANGES IN animation VERSION 2.0-7
+
+MINOR CHANGES
+
+  o x- and y-axis in the top scatter plot in boot.iid() are switched;
+  now x-axis is the sample value and y-axis is the index
+
+
 		  CHANGES IN animation VERSION 2.0-6
 
 
