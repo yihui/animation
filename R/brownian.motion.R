@@ -39,5 +39,4 @@ brownian.motion = function(n = 10, xlim = c(-20,
         y = y + rnorm(n)
         ani.pause()
     }
-    invisible(NULL)
 }
