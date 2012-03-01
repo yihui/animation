@@ -35,8 +35,7 @@
 ##' \url{http://animation.yihui.name/mathstat:confidence_interval}
 ##' @keywords dynamic dplot distribution
 ##' @example inst/examples/conf.int-ex.R
-conf.int = function(level = 0.95, size = 50, cl = c("red",
-    "gray"), ...) {
+conf.int = function(level = 0.95, size = 50, cl = c("red", "gray"), ...) {
     n = ani.options("nmax")
     d = replicate(n, rnorm(size))
     m = colMeans(d)
@@ -57,16 +56,16 @@ conf.int = function(level = 0.95, size = 50, cl = c("red",
             0.5, angle = 90, code = 3, col = c("red", "gray")[cvr[1:i] +
             1])
         points(1:i, m[1:i], col = cl[cvr[1:i] + 1])
-        legend("topright", legend = format(c(i - sum(cvr[1:i]),
-            sum(cvr[1:i])), width = nchar(n)), fill = cl, bty = "n",
-            ncol = 2)
-        legend("topleft", legend = paste("coverage rate:", format(round(mean(cvr[1:i]),
-            3), nsmall = 3)), bty = "n")
+        legend("topright", 
+               legend = format(c(i - sum(cvr[1:i]), sum(cvr[1:i])), width = nchar(n)), 
+               fill = cl, bty = "n", ncol = 2)
+        legend("topleft", 
+               legend = paste("coverage rate:", format(round(mean(cvr[1:i]), 3), nsmall = 3)), 
+               bty = "n")
         ani.pause()
     }
     CI = cbind(y0, y1)
-    colnames(CI) = paste(round(c((1 - level)/2, 1 - (1 - level)/2),
-        2) * 100, "%")
+    colnames(CI) = paste(round(c((1 - level)/2, 1 - (1 - level)/2), 2) * 100, "%")
     rownames(CI) = 1:n
     invisible(list(level = level, size = size, CI = CI, CR = mean(cvr)))
 }
