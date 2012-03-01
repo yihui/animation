@@ -21,8 +21,8 @@
 ##' @param level the confidence level \eqn{(1 - \alpha)}, e.g. 0.95
 ##' @param size the sample size for drawing samples from N(0, 1)
 ##' @param cl two different colors to annotate whether the confidence
-##' intervals cover the true mean (\code{cl[1]}: yes; \code{cl[2]}:
-##' no)
+##' intervals cover the true mean (\code{cl[1]}: no; \code{cl[2]}:
+##' yes)
 ##' @param \dots other arguments passed to
 ##' \code{\link[graphics]{plot.default}}
 ##' @return A list containing \item{level }{confidence level}
