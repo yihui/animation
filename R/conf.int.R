@@ -52,9 +52,8 @@ conf.int = function(level = 0.95, size = 50, cl = c("red", "gray"), ...) {
             z[alpha/2] * sigma/sqrt(n) ~ "]"), xaxt = "n", ...)
         abline(h = 0, lty = 2)
         axis(1, xax[xax <= i])
-        arrows(1:i, y0[1:i], 1:i, y1[1:i], length = par("din")[1]/n *
-            0.5, angle = 90, code = 3, col = c("red", "gray")[cvr[1:i] +
-            1])
+        arrows(1:i, y0[1:i], 1:i, y1[1:i], length = par("din")[1]/n * 0.5, 
+               angle = 90, code = 3, col = cl[cvr[1:i] + 1])
         points(1:i, m[1:i], col = cl[cvr[1:i] + 1])
         legend("topright", 
                legend = format(c(i - sum(cvr[1:i]), sum(cvr[1:i])), width = nchar(n)), 
