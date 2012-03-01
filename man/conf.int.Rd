@@ -14,7 +14,7 @@ conf.int(level = 0.95, size = 50, cl = c("red", "gray"),
 
   \item{cl}{two different colors to annotate whether the
   confidence intervals cover the true mean (\code{cl[1]}:
-  yes; \code{cl[2]}: no)}
+  no; \code{cl[2]}: yes)}
 
   \item{\dots}{other arguments passed to
   \code{\link[graphics]{plot.default}}}
