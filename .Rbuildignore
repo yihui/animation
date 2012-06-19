@@ -1,1 +1,4 @@
 inst/examples
+animation.Rproj
+.Rproj.user
+.gitignore
