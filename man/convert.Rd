@@ -4,8 +4,8 @@
 \title{A wrapper for the `convert' utility of ImageMagick or
 GraphicsMagick}
 \usage{
-im.convert(files, output = "animation.gif", convert = c("convert", 
-    "gm convert"), cmd.fun = system, extra.opts = "", clean = FALSE)
+im.convert(files, output = "animation.gif", convert = c("convert", "gm convert"), 
+    cmd.fun = system, extra.opts = "", clean = FALSE)
 
 gm.convert(..., convert = "gm convert")
 }
@@ -115,8 +115,7 @@ gm.convert(..., convert = "gm convert")
 owd = setwd(tempdir())
 oopt = ani.options(interval = 0.05, nmax = 20)
 png("bm\%03d.png")
-brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow", 
-    main = "Demonstration of Brownian Motion")
+brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow", main = "Demonstration of Brownian Motion")
 dev.off()
 
 ## filenames with a wildcard *

@@ -3,8 +3,8 @@
 \title{Visual illusions: Scintillating grid illusion and Hermann grid
 illusion}
 \usage{
-vi.grid.illusion(nrow = 8, ncol = 8, lwd = 8, cex = 3, 
-    col = "darkgray", type = c("s", "h"))
+vi.grid.illusion(nrow = 8, ncol = 8, lwd = 8, cex = 3, col = "darkgray", 
+    type = c("s", "h"))
 }
 \arguments{
   \item{nrow}{number of rows for the grid}
@@ -43,8 +43,7 @@ vi.grid.illusion(nrow = 8, ncol = 8, lwd = 8, cex = 3,
 vi.grid.illusion()
 
 ## set wider lines to see Hermann grid illusions
-vi.grid.illusion(type = "h", lwd = 22, nrow = 5, ncol = 5, 
-    col = "white")
+vi.grid.illusion(type = "h", lwd = 22, nrow = 5, ncol = 5, col = "white")
 }
 \author{
   Yihui Xie <\url{http://yihui.name}>

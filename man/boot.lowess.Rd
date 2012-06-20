@@ -2,8 +2,7 @@
 \alias{boot.lowess}
 \title{Bootstrapping with LOWESS}
 \usage{
-boot.lowess(x, y = NULL, f = 2/3, iter = 3, line.col = "#FF000033", 
-    ...)
+boot.lowess(x, y = NULL, f = 2/3, iter = 3, line.col = "#FF000033", ...)
 }
 \arguments{
   \item{x,y,f,iter}{passed to \code{\link[stats]{lowess}}}
@@ -27,8 +26,7 @@ boot.lowess(x, y = NULL, f = 2/3, iter = 3, line.col = "#FF000033",
   fit.
 }
 \examples{
-oopt = ani.options(nmax = if (interactive()) 100 else 2, 
-    interval = 0.02)
+oopt = ani.options(nmax = if (interactive()) 100 else 2, interval = 0.02)
 
 boot.lowess(cars, pch = 20, xlab = "speed", ylab = "dist")
 
@@ -38,8 +36,8 @@ boot.lowess(cars, f = 1/3, pch = 20)
 saveHTML({
     par(mar = c(4.5, 4, 0.5, 0.5))
     boot.lowess(cars, f = 1/3, pch = 20, xlab = "speed", ylab = "dist")
-}, img.name = "boot_lowess", imgdir = "boot_lowess", interval = 0.1, 
-    title = "Bootstrapping with LOWESS", description = "Fit LOWESS curves repeatedly via bootstrapping.")
+}, img.name = "boot_lowess", imgdir = "boot_lowess", interval = 0.1, title = "Bootstrapping with LOWESS", 
+    description = "Fit LOWESS curves repeatedly via bootstrapping.")
 
 ani.options(oopt)
 }

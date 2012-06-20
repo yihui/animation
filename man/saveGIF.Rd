@@ -4,11 +4,11 @@
 \title{Convert images to a single animation file (typically GIF) using
 ImageMagick or GraphicsMagick}
 \usage{
-saveGIF(expr, movie.name = "animation.gif", img.name = "Rplot", 
-    convert = "convert", cmd.fun = system, clean = TRUE, ...)
+saveGIF(expr, movie.name = "animation.gif", img.name = "Rplot", convert = "convert", 
+    cmd.fun = system, clean = TRUE, ...)
 
-saveMovie(expr, movie.name = "animation.gif", img.name = "Rplot", 
-    convert = "convert", cmd.fun = system, clean = TRUE, ...)
+saveMovie(expr, movie.name = "animation.gif", img.name = "Rplot", convert = "convert", 
+    cmd.fun = system, clean = TRUE, ...)
 }
 \arguments{
   \item{expr}{an expression to generate animations; use
@@ -99,21 +99,20 @@ saveGIF({
     for (i in 1:10) plot(runif(10), ylim = 0:1)
 })
 
-## if the above conversion was successful, the option
-#   'convert' should not be NULL under Windows
+## if the above conversion was successful, the option 'convert' should not be
+## NULL under Windows
 ani.options("convert")
 ## like 'C:/Software/LyX/etc/ImageMagick/convert.exe'
 
 saveGIF({
     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")
-}, movie.name = "brownian_motion.gif", interval = 0.1, nmax = 30, 
-    ani.width = 600, ani.height = 600)
+}, movie.name = "brownian_motion.gif", interval = 0.1, nmax = 30, ani.width = 600, 
+    ani.height = 600)
 
 ## non-constant intervals between image frames
 saveGIF({
     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")
-}, movie.name = "brownian_motion2.gif", interval = runif(30, 
-    0.01, 1), nmax = 30)
+}, movie.name = "brownian_motion2.gif", interval = runif(30, 0.01, 1), nmax = 30)
 }
 \author{
   Yihui Xie <\url{http://yihui.name}>

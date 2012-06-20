@@ -2,8 +2,7 @@
 \alias{vi.lilac.chaser}
 \title{Visual Illusions: Lilac Chaser}
 \usage{
-vi.lilac.chaser(np = 16, col = "magenta", bg = "gray", 
-    p.cex = 7, c.cex = 5)
+vi.lilac.chaser(np = 16, col = "magenta", bg = "gray", p.cex = 7, c.cex = 5)
 }
 \arguments{
   \item{np}{number of points}
@@ -41,9 +40,8 @@ saveHTML({
     ani.options(interval = 0.05, nmax = 1)
     par(pty = "s", mar = rep(1, 4))
     vi.lilac.chaser()
-}, img.name = "vi.lilac.chaser", htmlfile = "vi.lilac.chaser.html", 
-    ani.height = 480, ani.width = 480, title = "Visual Illusions: Lilac Chaser", 
-    description = c("Stare at the center cross for a few (say 30) seconds", 
+}, img.name = "vi.lilac.chaser", htmlfile = "vi.lilac.chaser.html", ani.height = 480, 
+    ani.width = 480, title = "Visual Illusions: Lilac Chaser", description = c("Stare at the center cross for a few (say 30) seconds", 
         "to experience the phenomena of the illusion."))
 
 ani.options(oopt)

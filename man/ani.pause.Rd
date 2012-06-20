@@ -27,8 +27,7 @@ for (i in 1:5) {
 
 ani.options(oopt)
 
-## see demo('Xmas2', package = 'animation') for another
-#   example
+## see demo('Xmas2', package = 'animation') for another example
 }
 \author{
   Yihui Xie <\url{http://yihui.name}>

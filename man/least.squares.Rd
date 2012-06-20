@@ -2,10 +2,9 @@
 \alias{least.squares}
 \title{Demonstrate the least squares method}
 \usage{
-least.squares(x, y, n = 15, ani.type = c("slope", 
-    "intercept"), a, b, a.range, b.range, ab.col = c("gray", 
-    "black"), est.pch = 19, v.col = "red", v.lty = 2, rss.pch = 19, 
-    rss.type = "o", mfrow = c(1, 2), ...)
+least.squares(x, y, n = 15, ani.type = c("slope", "intercept"), a, b, 
+    a.range, b.range, ab.col = c("gray", "black"), est.pch = 19, v.col = "red", v.lty = 2, 
+    rss.pch = 19, rss.type = "o", mfrow = c(1, 2), ...)
 }
 \arguments{
   \item{x}{a numeric vector: the independent variable}
@@ -78,8 +77,7 @@ least.squares(x, y, n = 15, ani.type = c("slope",
 }
 \examples{
 par(mar = c(5, 4, 0.5, 0.1))
-oopt = ani.options(interval = 0.3, nmax = ifelse(interactive(), 
-    50, 2))
+oopt = ani.options(interval = 0.3, nmax = ifelse(interactive(), 50, 2))
 
 ## default animation: with slope changing
 least.squares()
@@ -89,13 +87,11 @@ least.squares(ani.type = "intercept")
 
 ## save the animation in HTML pages
 saveHTML({
-    ani.options(interval = 0.3, nmax = ifelse(interactive(), 
-        50, 2))
+    ani.options(interval = 0.3, nmax = ifelse(interactive(), 50, 2))
     par(mar = c(4, 4, 0.5, 0.1), mgp = c(2, 0.5, 0), tcl = -0.3)
     least.squares()
-}, img.name = "least.squares", htmlfile = "least.squares.html", 
-    ani.height = 450, ani.width = 600, title = "Demonstration of Least Squares", 
-    description = c("We want to find an estimate for the slope", 
+}, img.name = "least.squares", htmlfile = "least.squares.html", ani.height = 450, 
+    ani.width = 600, title = "Demonstration of Least Squares", description = c("We want to find an estimate for the slope", 
         "in 50 candidate slopes, so we just compute the RSS one by one. "))
 
 ani.options(oopt)

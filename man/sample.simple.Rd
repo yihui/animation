@@ -2,8 +2,8 @@
 \alias{sample.simple}
 \title{Demonstration for simple random sampling without replacement}
 \usage{
-sample.simple(nrow = 10, ncol = 10, size = 15, p.col = c("blue", 
-    "red"), p.cex = c(1, 3))
+sample.simple(nrow = 10, ncol = 10, size = 15, p.col = c("blue", "red"), 
+    p.cex = c(1, 3))
 }
 \arguments{
   \item{nrow}{the desired number of rows of the sample
@@ -28,8 +28,7 @@ sample.simple(nrow = 10, ncol = 10, size = 15, p.col = c("blue",
   known chance of being selected.
 }
 \examples{
-oopt = ani.options(nmax = ifelse(interactive(), 50, 
-    2))
+oopt = ani.options(nmax = ifelse(interactive(), 50, 2))
 par(mar = rep(1, 4))
 sample.simple()
 
@@ -38,9 +37,8 @@ saveHTML({
     par(mar = rep(1, 4), lwd = 2)
     ani.options(nmax = ifelse(interactive(), 50, 2))
     sample.simple()
-}, img.name = "sample.simple", htmlfile = "sample.html", ani.height = 350, 
-    ani.width = 500, title = "Demonstration of the simple random sampling without replacement", 
-    description = c("Each member of the population has an equal and", 
+}, img.name = "sample.simple", htmlfile = "sample.html", ani.height = 350, ani.width = 500, 
+    title = "Demonstration of the simple random sampling without replacement", description = c("Each member of the population has an equal and", 
         "known chance of being selected."))
 
 ani.options(oopt)

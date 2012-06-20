@@ -33,8 +33,7 @@ ani.start(...)
 }
 \examples{
 ## save the animation in HTML pages and auto-browse it
-oopt = ani.options(nmax = 20, ani.width = 600, ani.height = 500, 
-    interval = 0.2)
+oopt = ani.options(nmax = 20, ani.width = 600, ani.height = 500, interval = 0.2)
 ani.start()
 boot.iid()
 ani.stop()

@@ -18,7 +18,6 @@ data(ObamaSpeech)
 \examples{
 data(ObamaSpeech)
 ## pattern: longer paragraph and shorter paragraph
-plot(ObamaSpeech, type = "b", pch = 20, xlab = "paragraph index", 
-    ylab = "word count")
+plot(ObamaSpeech, type = "b", pch = 20, xlab = "paragraph index", ylab = "word count")
 }
 \keyword{datasets}

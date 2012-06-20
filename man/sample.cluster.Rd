@@ -2,8 +2,8 @@
 \alias{sample.cluster}
 \title{Demonstration for the cluster sampling}
 \usage{
-sample.cluster(pop = ceiling(10 * runif(10, 0.2, 1)), 
-    size = 3, p.col = c("blue", "red"), p.cex = c(1, 3), ...)
+sample.cluster(pop = ceiling(10 * runif(10, 0.2, 1)), size = 3, p.col = c("blue", 
+    "red"), p.cex = c(1, 3), ...)
 }
 \arguments{
   \item{pop}{a vector for the size of each cluster in the
@@ -28,8 +28,7 @@ sample.cluster(pop = ceiling(10 * runif(10, 0.2, 1)),
   drawn out.
 }
 \examples{
-oopt = ani.options(nmax = ifelse(interactive(), 50, 
-    2))
+oopt = ani.options(nmax = ifelse(interactive(), 50, 2))
 par(mar = rep(1, 4))
 sample.cluster(col = c("bisque", "white"))
 
@@ -38,9 +37,9 @@ saveHTML({
     par(mar = rep(1, 4), lwd = 2)
     ani.options(nmax = ifelse(interactive(), 50, 2))
     sample.cluster(col = c("bisque", "white"))
-}, img.name = "sample.cluster", htmlfile = "sample.html", ani.height = 350, 
-    ani.width = 500, title = "Demonstration of the cluster sampling", 
-    description = c("Once a cluster is sampled,", "all its elements will be chosen."))
+}, img.name = "sample.cluster", htmlfile = "sample.html", ani.height = 350, ani.width = 500, 
+    title = "Demonstration of the cluster sampling", description = c("Once a cluster is sampled,", 
+        "all its elements will be chosen."))
 
 ani.options(oopt)
 }

@@ -2,9 +2,8 @@
 \alias{g.brownian.motion}
 \title{Brownian Motion using Google Visualization API}
 \usage{
-g.brownian.motion(p = 20, start = 1900, digits = 14, 
-    file = file.path(ani.options("outdir"), ani.options("htmlfile")), 
-    width = 800, height = 600)
+g.brownian.motion(p = 20, start = 1900, digits = 14, file = file.path(ani.options("outdir"), 
+    ani.options("htmlfile")), width = 800, height = 600)
 }
 \arguments{
   \item{p}{number of points}

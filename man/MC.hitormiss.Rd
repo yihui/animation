@@ -2,9 +2,8 @@
 \alias{MC.hitormiss}
 \title{Hit or Miss Monte Carlo integration}
 \usage{
-MC.hitormiss(FUN = function(x) x - x^2, n = ani.options("nmax"), 
-    from = 0, to = 1, col.points = c("black", "red"), pch.points = c(20, 
-        4), ...)
+MC.hitormiss(FUN = function(x) x - x^2, n = ani.options("nmax"), from = 0, 
+    to = 1, col.points = c("black", "red"), pch.points = c(20, 4), ...)
 }
 \arguments{
   \item{FUN}{the function to be integrated}
@@ -47,8 +46,7 @@ MC.hitormiss(FUN = function(x) x - x^2, n = ani.options("nmax"),
   of trials.
 }
 \examples{
-oopt = ani.options(interval = 0.2, nmax = ifelse(interactive(), 
-    100, 2))
+oopt = ani.options(interval = 0.2, nmax = ifelse(interactive(), 100, 2))
 
 ## should be close to 1/6
 MC.hitormiss()$est
@@ -58,12 +56,10 @@ MC.hitormiss(from = 0.5, to = 1)$est
 
 ## HTML animation page
 saveHTML({
-    ani.options(interval = 0.5, nmax = ifelse(interactive(), 
-        100, 2))
+    ani.options(interval = 0.5, nmax = ifelse(interactive(), 100, 2))
     MC.hitormiss()
-}, img.name = "MC.hitormiss", htmlfile = "MC.hitormiss.html", 
-    title = "Hit or Miss Monte Carlo Integration", description = c("", 
-        "Generate Uniform random numbers", "and compute the proportion", 
+}, img.name = "MC.hitormiss", htmlfile = "MC.hitormiss.html", title = "Hit or Miss Monte Carlo Integration", 
+    description = c("", "Generate Uniform random numbers", "and compute the proportion", 
         "of points under the curve."))
 
 ani.options(oopt)

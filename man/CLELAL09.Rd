@@ -35,7 +35,6 @@ data(CLELAL09)
 \examples{
 library(animation)
 data(CLELAL09)
-## see demo('CLEvsLAL', package = 'animation') for a
-#   `replay' of the game
+## see demo('CLEvsLAL', package = 'animation') for a `replay' of the game
 }
 \keyword{datasets}

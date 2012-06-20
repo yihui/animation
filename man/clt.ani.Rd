@@ -2,9 +2,9 @@
 \alias{clt.ani}
 \title{Demonstration of the Central Limit Theorem}
 \usage{
-clt.ani(obs = 300, FUN = rexp, mean = 1, sd = 1, col = c("bisque", 
-    "red", "blue", "black"), mat = matrix(1:2, 2), widths = rep(1, 
-    ncol(mat)), heights = rep(1, nrow(mat)), xlim, ...)
+clt.ani(obs = 300, FUN = rexp, mean = 1, sd = 1, col = c("bisque", "red", 
+    "blue", "black"), mat = matrix(1:2, 2), widths = rep(1, ncol(mat)), heights = rep(1, 
+    nrow(mat)), xlim, ...)
 }
 \arguments{
   \item{obs}{the number of sample means to be generated
@@ -62,26 +62,21 @@ clt.ani(obs = 300, FUN = rexp, mean = 1, sd = 1, col = c("bisque",
   defined by \code{nmax} in \code{\link{ani.options}}.
 }
 \examples{
-oopt = ani.options(interval = 0.1, nmax = ifelse(interactive(), 
-    150, 2))
-op = par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 
-    0), tcl = -0.3)
+oopt = ani.options(interval = 0.1, nmax = ifelse(interactive(), 150, 2))
+op = par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 0), tcl = -0.3)
 clt.ani(type = "s")
 par(op)
 
 ## HTML animation page
 saveHTML({
     par(mar = c(3, 3, 1, 0.5), mgp = c(1.5, 0.5, 0), tcl = -0.3)
-    ani.options(interval = 0.1, nmax = ifelse(interactive(), 
-        150, 10))
+    ani.options(interval = 0.1, nmax = ifelse(interactive(), 150, 10))
     clt.ani(type = "h")
-}, img.name = "clt.ani", htmlfile = "clt.ani.html", ani.height = 500, 
-    ani.width = 600, title = "Demonstration of the Central Limit Theorem", 
-    description = c("This animation shows the distribution of the sample", 
+}, img.name = "clt.ani", htmlfile = "clt.ani.html", ani.height = 500, ani.width = 600, 
+    title = "Demonstration of the Central Limit Theorem", description = c("This animation shows the distribution of the sample", 
         "mean as the sample size grows."))
 
-## other distributions: Chi-square with df = 5 (mean = df,
-#   var = 2*df)
+## other distributions: Chi-square with df = 5 (mean = df, var = 2*df)
 f = function(n) rchisq(n, 5)
 clt.ani(FUN = f, mean = 5, sd = sqrt(2 * 5))
 

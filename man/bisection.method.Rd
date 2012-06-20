@@ -3,8 +3,8 @@
 \title{Demonstration of the Bisection Method for root-finding on an
 interval}
 \usage{
-bisection.method(FUN = function(x) x^2 - 4, rg = c(-1, 
-    10), tol = 0.001, interact = FALSE, main, xlab, ylab, ...)
+bisection.method(FUN = function(x) x^2 - 4, rg = c(-1, 10), tol = 0.001, 
+    interact = FALSE, main, xlab, ylab, ...)
 }
 \arguments{
   \item{FUN}{the function in the equation to solve
@@ -63,8 +63,7 @@ bisection.method(FUN = function(x) x^2 - 4, rg = c(-1,
   \code{ani.options('nmax')}.
 }
 \examples{
-oopt = ani.options(nmax = ifelse(interactive(), 30, 
-    2))
+oopt = ani.options(nmax = ifelse(interactive(), 30, 2))
 
 ## default example
 xx = bisection.method()
@@ -81,10 +80,9 @@ if (interactive()) bisection.method(f, c(-3, 5), interact = TRUE)
 saveHTML({
     par(mar = c(4, 4, 1, 2))
     bisection.method(main = "")
-}, img.name = "bisection.method", htmlfile = "bisection.method.html", 
-    ani.height = 400, ani.width = 600, interval = 1, title = "The Bisection Method for Root-finding on an Interval", 
-    description = c("The bisection method is a root-finding algorithm", 
-        "which works by repeatedly dividing an interval in half and then", 
+}, img.name = "bisection.method", htmlfile = "bisection.method.html", ani.height = 400, 
+    ani.width = 600, interval = 1, title = "The Bisection Method for Root-finding on an Interval", 
+    description = c("The bisection method is a root-finding algorithm", "which works by repeatedly dividing an interval in half and then", 
         "selecting the subinterval in which a root exists."))
 
 ani.options(oopt)

@@ -2,9 +2,8 @@
 \alias{price.ani}
 \title{Demonstrate stock prices in animations}
 \usage{
-price.ani(price, time, time.begin = min(time), span = 15 * 
-    60, ..., xlab = "price", ylab = "frequency", xlim, ylim, 
-    main)
+price.ani(price, time, time.begin = min(time), span = 15 * 60, ..., xlab = "price", 
+    ylab = "frequency", xlim, ylim, main)
 }
 \arguments{
   \item{price}{stock prices}
@@ -37,8 +36,7 @@ saveHTML({
     data(vanke1127)
     price.ani(vanke1127$price, vanke1127$time, lwd = 2)
 }, img.name = "vanke1127", htmlfile = "vanke1127.html", title = "Stock prices of Vanke", 
-    description = c("Barplots", "of the stock prices of Vanke Co. Ltd", 
-        "on 2009/11/27"))
+    description = c("Barplots", "of the stock prices of Vanke Co. Ltd", "on 2009/11/27"))
 }
 \author{
   Yihui Xie <\url{http://yihui.name}>

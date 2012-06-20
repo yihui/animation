@@ -2,9 +2,8 @@
 \alias{kmeans.ani}
 \title{Demonstration of the k-Means clustering algorithm}
 \usage{
-kmeans.ani(x = cbind(X1 = runif(50), X2 = runif(50)), 
-    centers = 3, hints = c("Move centers!", "Find cluster?"), 
-    pch = 1:3, col = 1:3)
+kmeans.ani(x = cbind(X1 = runif(50), X2 = runif(50)), centers = 3, hints = c("Move centers!", 
+    "Find cluster?"), pch = 1:3, col = 1:3)
 }
 \arguments{
   \item{x}{A numercal matrix or an object that can be
@@ -70,8 +69,8 @@ par(mar = c(3, 3, 1, 1.5), mgp = c(1.5, 0.5, 0))
 kmeans.ani()
 
 ## the kmeans() example; very fast to converge!
-x = rbind(matrix(rnorm(100, sd = 0.3), ncol = 2), 
-    matrix(rnorm(100, mean = 1, sd = 0.3), ncol = 2))
+x = rbind(matrix(rnorm(100, sd = 0.3), ncol = 2), matrix(rnorm(100, mean = 1, 
+    sd = 0.3), ncol = 2))
 colnames(x) = c("x", "y")
 kmeans.ani(x, centers = 2)
 
@@ -91,9 +90,8 @@ saveHTML({
     
     kmeans.ani(x, centers = 4, pch = 1:4, col = 1:4)
     
-}, img.name = "kmeans.ani", htmlfile = "kmeans.ani.html", ani.height = 480, 
-    ani.width = 480, title = "Demonstration of the K-means Cluster Algorithm", 
-    description = "Move! Average! Cluster! Move! Average! Cluster! ...")
+}, img.name = "kmeans.ani", htmlfile = "kmeans.ani.html", ani.height = 480, ani.width = 480, 
+    title = "Demonstration of the K-means Cluster Algorithm", description = "Move! Average! Cluster! Move! Average! Cluster! ...")
 
 ani.options(oopt)
 }
