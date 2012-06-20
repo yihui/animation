@@ -1,9 +1,12 @@
-		  CHANGES IN animation VERSION 2.0-7
+		  CHANGES IN animation VERSION 2.1
 
 MINOR CHANGES
 
   o x- and y-axis in the top scatter plot in boot.iid() are switched;
   now x-axis is the sample value and y-axis is the index
+
+  o Rosling.bubbles() was rewritten to avoid .Internal() and the usage
+  was slightly changed (see documentation)
 
 
 		  CHANGES IN animation VERSION 2.0-6
