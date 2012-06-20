@@ -27,7 +27,7 @@ saveSWF(expr, swf.name = "animation.swf", img.name = "Rplot", swftools = NULL,
   variable.}
 
   \item{...}{other arguments passed to
-  \code{\link{ani.options}}, e.g. \code{ani.height} and
+  \code{\link{ani.options}}, e.g.  \code{ani.height} and
   \code{ani.width}, ...}
 }
 \value{

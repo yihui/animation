@@ -34,7 +34,7 @@ saveHTML(expr, img.name = "Rplot", global.opts = "", single.opts = "",
 
   or to remove the navigator panel (the navigator can
   affect the smoothness of the animation when the playing
-  speed is extremely fast (e.g. \code{interval} less than
+  speed is extremely fast (e.g.  \code{interval} less than
   0.05 seconds)):
 
   \verb{'controls': ['first', 'previous', 'play', 'next',
@@ -101,7 +101,7 @@ saveHTML(expr, img.name = "Rplot", global.opts = "", single.opts = "",
   without R being installed locally. It depends, however,
   on whether the Rweb service can be provided for public
   use in a long period (currently we are using the Rweb at
-  Tama University). See the last example below.
+  Tama University).  See the last example below.
 }
 \examples{
 ## A quick and dirty demo

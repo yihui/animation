@@ -2,22 +2,22 @@
 \alias{Rosling.bubbles}
 \title{The bubbles animation in Hans Rosling's Talk}
 \usage{
-Rosling.bubbles(x, y, circles, squares, rectangles, stars, thermometers, 
-    boxplots, inches = TRUE, fg = par("col"), bg, xlab = "x", ylab = "y", main = NULL, 
-    xlim = range(x), ylim = range(y), ..., grid = TRUE, text = 1:ani.options("nmax"), 
-    text.col = rgb(0, 0, 0, 0.5), text.cex = 5)
+Rosling.bubbles(x, y, data, type = c("circles", "squares", "rectangles", 
+    "stars", "thermometers", "boxplots"), bg, xlim = range(x), ylim = range(y), main = NULL, 
+    xlab = "x", ylab = "y", ..., grid = TRUE, text = 1:ani.options("nmax"), text.col = rgb(0, 
+        0, 0, 0.5), text.cex = 5)
 }
 \arguments{
   \item{x,y}{the x and y co-ordinates for the centres of
-  the bubbles (symbols). Default to be 10 uniform random
+  the bubbles (symbols).  Default to be 10 uniform random
   numbers in [0, 1] for each single image frame (so the
   length should be 10 * \code{ani.options("nmax")})}
 
-  \item{circles,squares,rectangles,stars,thermometers,boxplots}{different
-  symbols; see \code{\link[graphics]{symbols}}. Default to
-  be \code{circles}.}
+  \item{type,data}{the type and data for symbols; see
+  \code{\link[graphics]{symbols}}. The default type is
+  \code{circles}.}
 
-  \item{inches,fg,bg,xlab,ylab,main,xlim,ylim,\dots}{see
+  \item{bg,main,xlim,ylim,xlab,ylab,...}{see
   \code{\link[graphics]{symbols}}. Note that \code{bg} has
   default values taking semi-transparent colors.}
 
@@ -65,7 +65,8 @@ par(mar = c(4, 4, 0.2, 0.2))
 Rosling.bubbles()
 
 ## rectangles
-Rosling.bubbles(rectangles = matrix(abs(rnorm(50 * 10 * 2)), ncol = 2))
+Rosling.bubbles(type = "rectangles", data = matrix(abs(rnorm(50 * 10 * 
+    2)), ncol = 2))
 
 ## save the animation in HTML pages
 saveHTML({

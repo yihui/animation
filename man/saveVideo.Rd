@@ -41,9 +41,9 @@ saveVideo(expr, video.name = "animation.mp4", img.name = "Rplot", ffmpeg = "ffmp
 \details{
   This function uses \code{\link[base]{system}} to call
   FFmpeg to convert the images to a single video. The
-  command line used in this function is:
-  \preformatted{ffmpeg -y -r <1/interval> -i
-  <img.name>\%d.<ani.type> other.opts video.name}
+  command line used in this function is: \command{ffmpeg -y
+  -r <1/interval> -i <img.name>\%d.<ani.type> other.opts
+  video.name}
 
   where \code{interval} comes from
   \code{ani.options('interval')}, and \code{ani.type} is

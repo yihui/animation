@@ -1,8 +1,8 @@
 \name{saveGIF}
 \alias{saveGIF}
 \alias{saveMovie}
-\title{Convert images to a single animation file (typically GIF) using
-ImageMagick or GraphicsMagick}
+\title{Convert images to a single animation file (typically GIF) using ImageMagick
+or GraphicsMagick}
 \usage{
 saveGIF(expr, movie.name = "animation.gif", img.name = "Rplot", convert = "convert", 
     cmd.fun = system, clean = TRUE, ...)
@@ -36,7 +36,7 @@ saveMovie(expr, movie.name = "animation.gif", img.name = "Rplot", convert = "con
   frames}
 
   \item{\dots}{other arguments passed to
-  \code{\link{ani.options}}, e.g. \code{ani.height} and
+  \code{\link{ani.options}}, e.g.  \code{ani.height} and
   \code{ani.width}, ...}
 }
 \value{

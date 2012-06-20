@@ -1,7 +1,6 @@
 \name{vi.grid.illusion}
 \alias{vi.grid.illusion}
-\title{Visual illusions: Scintillating grid illusion and Hermann grid
-illusion}
+\title{Visual illusions: Scintillating grid illusion and Hermann grid illusion}
 \usage{
 vi.grid.illusion(nrow = 8, ncol = 8, lwd = 8, cex = 3, col = "darkgray", 
     type = c("s", "h"))

@@ -8,7 +8,7 @@ sim.qqnorm(n = 20, last.plot = NULL, ...)
   \item{n}{integer: sample size}
 
   \item{last.plot}{an expression to be evaluated after the
-  plot is drawn, e.g. \code{expression(abline(0, 1))} to
+  plot is drawn, e.g.  \code{expression(abline(0, 1))} to
   add the diagonal line}
 
   \item{...}{other arguments passed to
