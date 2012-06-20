@@ -5,7 +5,7 @@ par(mar = c(4, 4, 0.2, 0.2))
 Rosling.bubbles()
 
 ## rectangles
-Rosling.bubbles(rectangles = matrix(abs(rnorm(50 * 10 * 2)), ncol = 2))
+Rosling.bubbles(type = 'rectangles', data = matrix(abs(rnorm(50 * 10 * 2)), ncol = 2))
 
 ## save the animation in HTML pages
 saveHTML({
