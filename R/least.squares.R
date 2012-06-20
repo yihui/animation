@@ -1,56 +1,56 @@
-##' Demonstrate the least squares method
-##'
-##' This is a simple demonstration of the meaning of least squares in
-##' univariate linear regression.
-##'
-##' With either the intercept or the slope changing, the lines will be
-##' moving in the graph and corresponding residuals will be
-##' plotted. We can finally see the best estimate of the intercept and
-##' the slope from the residual plot.
-##' @param x a numeric vector: the independent variable
-##' @param y a numeric vector: the dependent variable
-##' @param n the sample size: when x and y are missing, we use
-##' simulated values of y (\code{x = 1:n} and \code{y = a + b * x +
-##' rnorm(n)})
-##' @param ani.type \code{"slope"}: the slope is changing with the
-##' intercept fixed; \code{"intercept"}: intercept changing and slope
-##' fixed
-##' @param a,b the fixed intercept and slope; depending on
-##' \code{ani.type}, we only need to specify one of them; e.g. when
-##' \code{ani.type == "slope"}, we need to specify the value of
-##' \code{a}
-##' @param a.range,b.range a vector of length 2 to define the range of
-##' the intercept and the slope; only one of them need to be
-##' specified; see above
-##' @param ab.col the colors of two lines: the real regression line
-##' and the moving line with either intercept or slope changing
-##' @param est.pch the point character of the "estimated" values given
-##' \code{x}
-##' @param v.col,v.lty the color and line type of the vetical lines
-##' which demonstrate the residuals
-##' @param rss.pch,rss.type the point character and plot type of the
-##' residual plot
-##' @param mfrow defines the layout of the graph; see
-##' \code{\link[graphics]{par}}
-##' @param ... other parameters passed to
-##' \code{\link[graphics]{plot}} to define the appearance of the
-##' scatterplot
-##' @return The value returned depends on the animation type.
-##'
-##' If it is a slope animation, the value will be a list containing
-##' \item{lmfit}{ the estimates of the intercept and slope with
-##' \code{\link[stats]{lm}} } \item{anifit}{ the estimate of the slope
-##' in the animation } If it is an intercept animation, the second
-##' component of the above list will be the estimate of the intercept.
-##'
-##' Note the estimate will not be precise generally.
-##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link[stats]{lm}}
-##' @note \code{ani.options('nmax')} specifies the maximum number of
-##' steps for the slope or intercept to move.
-##' @references \url{http://animation.yihui.name/lm:least_squares}
-##' @keywords dynamic models
-##' @example inst/examples/least.squares-ex.R
+#' Demonstrate the least squares method
+#'
+#' This is a simple demonstration of the meaning of least squares in
+#' univariate linear regression.
+#'
+#' With either the intercept or the slope changing, the lines will be
+#' moving in the graph and corresponding residuals will be
+#' plotted. We can finally see the best estimate of the intercept and
+#' the slope from the residual plot.
+#' @param x a numeric vector: the independent variable
+#' @param y a numeric vector: the dependent variable
+#' @param n the sample size: when x and y are missing, we use
+#' simulated values of y (\code{x = 1:n} and \code{y = a + b * x +
+#' rnorm(n)})
+#' @param ani.type \code{"slope"}: the slope is changing with the
+#' intercept fixed; \code{"intercept"}: intercept changing and slope
+#' fixed
+#' @param a,b the fixed intercept and slope; depending on
+#' \code{ani.type}, we only need to specify one of them; e.g. when
+#' \code{ani.type == "slope"}, we need to specify the value of
+#' \code{a}
+#' @param a.range,b.range a vector of length 2 to define the range of
+#' the intercept and the slope; only one of them need to be
+#' specified; see above
+#' @param ab.col the colors of two lines: the real regression line
+#' and the moving line with either intercept or slope changing
+#' @param est.pch the point character of the "estimated" values given
+#' \code{x}
+#' @param v.col,v.lty the color and line type of the vetical lines
+#' which demonstrate the residuals
+#' @param rss.pch,rss.type the point character and plot type of the
+#' residual plot
+#' @param mfrow defines the layout of the graph; see
+#' \code{\link[graphics]{par}}
+#' @param ... other parameters passed to
+#' \code{\link[graphics]{plot}} to define the appearance of the
+#' scatterplot
+#' @return The value returned depends on the animation type.
+#'
+#' If it is a slope animation, the value will be a list containing
+#' \item{lmfit}{ the estimates of the intercept and slope with
+#' \code{\link[stats]{lm}} } \item{anifit}{ the estimate of the slope
+#' in the animation } If it is an intercept animation, the second
+#' component of the above list will be the estimate of the intercept.
+#'
+#' Note the estimate will not be precise generally.
+#' @author Yihui Xie <\url{http://yihui.name}>
+#' @seealso \code{\link[stats]{lm}}
+#' @note \code{ani.options('nmax')} specifies the maximum number of
+#' steps for the slope or intercept to move.
+#' @references \url{http://animation.yihui.name/lm:least_squares}
+#' @keywords dynamic models
+#' @example inst/examples/least.squares-ex.R
 least.squares = function(x, y, n = 15, ani.type = c("slope",
     "intercept"), a, b, a.range, b.range, ab.col = c("gray",
     "black"), est.pch = 19, v.col = "red", v.lty = 2, rss.pch = 19,

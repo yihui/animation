@@ -1,62 +1,62 @@
-##' Demonstration of the k-Nearest Neighbour classification
-##'
-##' Demonstrate the process of k-Nearest Neighbour classification on
-##' the 2D plane.
-##'
-##' For each row of the test set, the \eqn{k} nearest (in Euclidean
-##' distance) training set vectors are found, and the classification
-##' is decided by majority vote, with ties broken at random. For a
-##' single test sample point, the basic steps are:
-##'
-##' \enumerate{ \item locate the test point \item compute the
-##' distances between the test point and all points in the training
-##' set \item find \eqn{k} shortest distances and the corresponding
-##' training set points \item vote for the result (find the maximum in
-##' the table for the true classifications) }
-##'
-##' As there are four steps in an iteration, the total number of
-##' animation frames should be \code{4 * min(nrow(test),
-##' ani.options("nmax"))} at last.
-##'
-##' @param train matrix or data frame of training set cases containing
-##' only 2 columns
-##' @param test matrix or data frame of test set cases. A vector will
-##' be interpreted as a row vector for a single case. It should also
-##' contain only 2 columns. This data set will be \emph{ignored} if
-##' \code{interact = TRUE}; see \code{interact} below.
-##' @param cl factor of true classifications of training set
-##' @param k number of neighbours considered.
-##' @param interact logical. If \code{TRUE}, the user will have to
-##' choose a test set for himself using mouse click on the screen;
-##' otherwise compute kNN classification based on argument
-##' \code{test}.
-##' @param tt.col a vector of length 2 specifying the colors for the
-##' training data and test data.
-##' @param cl.pch a vector specifying symbols for each class
-##' @param dist.lty,dist.col the line type and color to annotate the
-##' distances
-##' @param knn.col the color to annotate the k-nearest neighbour
-##' points using a polygon
-##' @param ... additional arguments to create the empty frame for the
-##' animation (passed to \code{\link[graphics]{plot.default}})
-##' @return A vector of class labels for the test set.
-##' @note There is a special restriction (only two columns) on the
-##' training and test data set just for sake of the convenience for
-##' making a scatterplot.  This is only a rough demonstration; for
-##' practical applications, please refer to existing kNN functions
-##' such as \code{\link[class]{knn}} in \pkg{class}, etc.
-##'
-##' If either one of \code{train} and \code{test} is missing, there'll
-##' be random matrices prepared for them. (It's the same for
-##' \code{cl}.)
-##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link[class]{knn}}
-##' @references Venables, W. N. and Ripley, B. D. (2002) \emph{Modern
-##' Applied Statistics with S}. Fourth edition. Springer.
-##'
-##' \url{http://animation.yihui.name/dmml:k-nearest_neighbour_algorithm}
-##' @keywords hplot iplot dynamic classif
-##' @example inst/examples/knn.ani-ex.R
+#' Demonstration of the k-Nearest Neighbour classification
+#'
+#' Demonstrate the process of k-Nearest Neighbour classification on
+#' the 2D plane.
+#'
+#' For each row of the test set, the \eqn{k} nearest (in Euclidean
+#' distance) training set vectors are found, and the classification
+#' is decided by majority vote, with ties broken at random. For a
+#' single test sample point, the basic steps are:
+#'
+#' \enumerate{ \item locate the test point \item compute the
+#' distances between the test point and all points in the training
+#' set \item find \eqn{k} shortest distances and the corresponding
+#' training set points \item vote for the result (find the maximum in
+#' the table for the true classifications) }
+#'
+#' As there are four steps in an iteration, the total number of
+#' animation frames should be \code{4 * min(nrow(test),
+#' ani.options("nmax"))} at last.
+#'
+#' @param train matrix or data frame of training set cases containing
+#' only 2 columns
+#' @param test matrix or data frame of test set cases. A vector will
+#' be interpreted as a row vector for a single case. It should also
+#' contain only 2 columns. This data set will be \emph{ignored} if
+#' \code{interact = TRUE}; see \code{interact} below.
+#' @param cl factor of true classifications of training set
+#' @param k number of neighbours considered.
+#' @param interact logical. If \code{TRUE}, the user will have to
+#' choose a test set for himself using mouse click on the screen;
+#' otherwise compute kNN classification based on argument
+#' \code{test}.
+#' @param tt.col a vector of length 2 specifying the colors for the
+#' training data and test data.
+#' @param cl.pch a vector specifying symbols for each class
+#' @param dist.lty,dist.col the line type and color to annotate the
+#' distances
+#' @param knn.col the color to annotate the k-nearest neighbour
+#' points using a polygon
+#' @param ... additional arguments to create the empty frame for the
+#' animation (passed to \code{\link[graphics]{plot.default}})
+#' @return A vector of class labels for the test set.
+#' @note There is a special restriction (only two columns) on the
+#' training and test data set just for sake of the convenience for
+#' making a scatterplot.  This is only a rough demonstration; for
+#' practical applications, please refer to existing kNN functions
+#' such as \code{\link[class]{knn}} in \pkg{class}, etc.
+#'
+#' If either one of \code{train} and \code{test} is missing, there'll
+#' be random matrices prepared for them. (It's the same for
+#' \code{cl}.)
+#' @author Yihui Xie <\url{http://yihui.name}>
+#' @seealso \code{\link[class]{knn}}
+#' @references Venables, W. N. and Ripley, B. D. (2002) \emph{Modern
+#' Applied Statistics with S}. Fourth edition. Springer.
+#'
+#' \url{http://animation.yihui.name/dmml:k-nearest_neighbour_algorithm}
+#' @keywords hplot iplot dynamic classif
+#' @example inst/examples/knn.ani-ex.R
 knn.ani = function(train, test, cl, k = 10, interact = FALSE,
     tt.col = c("blue", "red"), cl.pch = seq_along(unique(cl)),
     dist.lty = 2, dist.col = "gray", knn.col = "green", ...) {

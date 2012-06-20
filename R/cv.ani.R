@@ -1,39 +1,39 @@
-##' Demonstration for the process of cross-validation
-##'
-##' This function uses rectangles to illustrate the \eqn{k} folds and
-##' mark the test set and the training set with different colors.
-##'
-##' Briefly speaking, the process of cross-validation is just to split
-##' the whole data set into several parts and select one part as the
-##' test set and the rest parts as the training set.
-##'
-##' The computation of sample sizes is base on \code{\link{kfcv}}.
-##'
-##' @param x a numerical vector which stands for the sample points.
-##' @param k an integer: how many parts should we split the data into?
-##' (comes from the \eqn{k}-fold cross-validation.)
-##' @param col a character vector of length 3 specifying the colors
-##' of: the rectangle representing the test set, the points of the
-##' test set, and points of the training set.
-##' @param pch a numeric vector of length 2 specifying the symbols of
-##' the test set and training set respectively.
-##' @param \dots other arguments passed to
-##' \code{\link[graphics]{plot.default}}
-##' @return None (invisible \code{NULL}).
-##' @note For the `leave-one-out' cross-validation, just specify
-##' \code{k} as \code{length(x)}, then the rectangles will `shrink'
-##' into single lines.
-##'
-##' The final number of animation frames is the smaller one of
-##' \code{ani.options('nmax')} and \code{k}.
-##'
-##' This function has nothing to do with specific models used in
-##' cross-validation.
-##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{kfcv}}
-##' @references \url{http://animation.yihui.name/dmml:k-fold_cross-validation}
-##' @keywords hplot dynamic classif
-##' @example inst/examples/cv.ani-ex.R
+#' Demonstration for the process of cross-validation
+#'
+#' This function uses rectangles to illustrate the \eqn{k} folds and
+#' mark the test set and the training set with different colors.
+#'
+#' Briefly speaking, the process of cross-validation is just to split
+#' the whole data set into several parts and select one part as the
+#' test set and the rest parts as the training set.
+#'
+#' The computation of sample sizes is base on \code{\link{kfcv}}.
+#'
+#' @param x a numerical vector which stands for the sample points.
+#' @param k an integer: how many parts should we split the data into?
+#' (comes from the \eqn{k}-fold cross-validation.)
+#' @param col a character vector of length 3 specifying the colors
+#' of: the rectangle representing the test set, the points of the
+#' test set, and points of the training set.
+#' @param pch a numeric vector of length 2 specifying the symbols of
+#' the test set and training set respectively.
+#' @param \dots other arguments passed to
+#' \code{\link[graphics]{plot.default}}
+#' @return None (invisible \code{NULL}).
+#' @note For the `leave-one-out' cross-validation, just specify
+#' \code{k} as \code{length(x)}, then the rectangles will `shrink'
+#' into single lines.
+#'
+#' The final number of animation frames is the smaller one of
+#' \code{ani.options('nmax')} and \code{k}.
+#'
+#' This function has nothing to do with specific models used in
+#' cross-validation.
+#' @author Yihui Xie <\url{http://yihui.name}>
+#' @seealso \code{\link{kfcv}}
+#' @references \url{http://animation.yihui.name/dmml:k-fold_cross-validation}
+#' @keywords hplot dynamic classif
+#' @example inst/examples/cv.ani-ex.R
 cv.ani = function(x = runif(150), k = 10, col = c("green",
     "red", "blue"), pch = c(4, 1), ...) {
     N = length(x)

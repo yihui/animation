@@ -1,21 +1,21 @@
-##' Brownian Motion in a circle
-##'
-##' Several points moving randomly in a circle.
-##'
-##' This is a solution to the question raised in R-help:
-##' \url{https://stat.ethz.ch/pipermail/r-help/2008-December/183018.html}.
-##'
-##' @param n number of points
-##' @param col colors of points
-##' @param \dots other parameters passed to \code{\link[graphics]{points}}
-##' @return Invisible \code{NULL}.
-##' @note The maximum number of steps in the motion is specified in
-##' \code{ani.options('nmax')}.
-##' @author Yihui Xie <\url{http://yihui.name}>
-##' @seealso \code{\link{brownian.motion}}, \code{\link[stats]{rnorm}}
-##' @references \url{http://animation.yihui.name/prob:brownian_motion_circle}
-##' @keywords dynamic
-##' @example inst/examples/BM.circle-ex.R
+#' Brownian Motion in a circle
+#'
+#' Several points moving randomly in a circle.
+#'
+#' This is a solution to the question raised in R-help:
+#' \url{https://stat.ethz.ch/pipermail/r-help/2008-December/183018.html}.
+#'
+#' @param n number of points
+#' @param col colors of points
+#' @param \dots other parameters passed to \code{\link[graphics]{points}}
+#' @return Invisible \code{NULL}.
+#' @note The maximum number of steps in the motion is specified in
+#' \code{ani.options('nmax')}.
+#' @author Yihui Xie <\url{http://yihui.name}>
+#' @seealso \code{\link{brownian.motion}}, \code{\link[stats]{rnorm}}
+#' @references \url{http://animation.yihui.name/prob:brownian_motion_circle}
+#' @keywords dynamic
+#' @example inst/examples/BM.circle-ex.R
 BM.circle = function(n = 20, col = rainbow(n), ...) {
     par(pty = "s", ann = FALSE, xaxt = "n", yaxt = "n", bty = "n")
     theta = seq(0, 2 * pi, length = 512)
