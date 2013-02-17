@@ -26,6 +26,7 @@ Imports:
 License: GPL-2 | GPL-3
 URL: https://github.com/yihui/animation
 BugReports: https://github.com/yihui/animation/issues
+LazyData: yes
 Collate:
     'animation-defunct.R'
     'animation-package.R'
