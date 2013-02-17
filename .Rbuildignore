@@ -2,3 +2,4 @@ inst/examples
 animation.Rproj
 .gitignore
 ^\.Rproj\.user$
+^.*\.Rproj$
