@@ -2,9 +2,9 @@
 \alias{least.squares}
 \title{Demonstrate the least squares method}
 \usage{
-least.squares(x, y, n = 15, ani.type = c("slope", "intercept"), a, b, 
-    a.range, b.range, ab.col = c("gray", "black"), est.pch = 19, v.col = "red", v.lty = 2, 
-    rss.pch = 19, rss.type = "o", mfrow = c(1, 2), ...)
+least.squares(x, y, n = 15, ani.type = c("slope", "intercept"), a, b, a.range, b.range, 
+    ab.col = c("gray", "black"), est.pch = 19, v.col = "red", v.lty = 2, rss.pch = 19, 
+    rss.type = "o", mfrow = c(1, 2), ...)
 }
 \arguments{
   \item{x}{a numeric vector: the independent variable}

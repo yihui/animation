@@ -74,8 +74,7 @@ xx = newton.method()
 xx$root  # solution
 
 ## take a long long journey
-newton.method(function(x) 5 * x^3 - 7 * x^2 - 40 * x + 100, 7.15, c(-6.2, 
-    7.1))
+newton.method(function(x) 5 * x^3 - 7 * x^2 - 40 * x + 100, 7.15, c(-6.2, 7.1))
 
 ## another function
 ani.options(interval = 0.5)

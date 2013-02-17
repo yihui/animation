@@ -2,9 +2,9 @@
 \alias{buffon.needle}
 \title{Simulation of Buffon's Needle}
 \usage{
-buffon.needle(l = 0.8, d = 1, redraw = TRUE, mat = matrix(c(1, 3, 2, 3), 
-    2), heights = c(3, 2), col = c("lightgray", "red", "gray", "red", "blue", "black", 
-    "red"), expand = 0.4, type = "l", ...)
+buffon.needle(l = 0.8, d = 1, redraw = TRUE, mat = matrix(c(1, 3, 2, 3), 2), heights = c(3, 
+    2), col = c("lightgray", "red", "gray", "red", "blue", "black", "red"), expand = 0.4, 
+    type = "l", ...)
 }
 \arguments{
   \item{l}{numerical. length of the needle; shorter than

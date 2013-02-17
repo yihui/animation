@@ -60,8 +60,7 @@ moving.block(dat = runif(100), block, FUN, ...)
 oopt = ani.options(nmax = ifelse(interactive(), 200, 2), interval = 0.1)
 # plot y = dat against x = i + 1:block customize xlab and ylab with 'i' and
 # 'block' restrict ylim using the range of 'dat'
-moving.block(dat = cumsum(rnorm(300)), FUN = function(..., dat = dat, 
-    i = i, block = block) {
+moving.block(dat = cumsum(rnorm(300)), FUN = function(..., dat = dat, i = i, block = block) {
     plot(..., x = i + 1:block, xlab = sprintf("block length = \%d", block), ylim = range(dat), 
         ylab = sprintf("x[\%s:\%s]", i + 1, i + block))
 }, type = "o", pch = 20)
@@ -83,8 +82,8 @@ ani.options(nmax = ifelse(interactive(), 2857, 2), interval = 0)
 spt.att = tsp(sunspot.month)
 # the time index (we need it to correctly draw the ticks of x-axis)
 ts.idx = seq(spt.att[1], spt.att[2], 1/spt.att[3])
-moving.block(dat = sunspot.month, block = 132, FUN = function(..., dat = dat, 
-    i = i, block = block) {
+moving.block(dat = sunspot.month, block = 132, FUN = function(..., dat = dat, i = i, 
+    block = block) {
     plot(..., x = ts.idx[i + 1:block], xlab = sprintf("block length = \%d", block), 
         ylim = range(dat), ylab = sprintf("sunspot.month[\%s:\%s]", i + 1, i + block))
 }, type = "o", pch = 20)
@@ -94,8 +93,8 @@ moving.block(dat = sunspot.month, block = 132, FUN = function(..., dat = dat,
 ## change as 'depth' increases
 ani.options(nmax = ifelse(interactive(), 900, 2), interval = 0.01)
 # compute the mean depth for each block of data
-moving.block(quakes[order(quakes$depth), c("long", "lat")], FUN = function(..., 
-    dat = dat, i = i, block = block) {
+moving.block(quakes[order(quakes$depth), c("long", "lat")], FUN = function(..., dat = dat, 
+    i = i, block = block) {
     plot(..., xlab = sprintf("\%s[\%s:\%s]", colnames(dat)[1], i + 1, i + block), ylab = sprintf("\%s[\%s:\%s]", 
         colnames(dat)[2], i + 1, i + block), xlim = range(dat[, 1]), ylim = range(dat[, 
         2]), main = sprintf("Mean Depth = \%.3f", mean(sort(quakes$depth)[i + 1:block])))

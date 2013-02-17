@@ -2,8 +2,8 @@
 \alias{Rosling.bubbles}
 \title{The bubbles animation in Hans Rosling's Talk}
 \usage{
-Rosling.bubbles(x, y, data, type = c("circles", "squares", "rectangles", 
-    "stars", "thermometers", "boxplots"), bg, xlim = range(x), ylim = range(y), main = NULL, 
+Rosling.bubbles(x, y, data, type = c("circles", "squares", "rectangles", "stars", 
+    "thermometers", "boxplots"), bg, xlim = range(x), ylim = range(y), main = NULL, 
     xlab = "x", ylab = "y", ..., grid = TRUE, text = 1:ani.options("nmax"), text.col = rgb(0, 
         0, 0, 0.5), text.cex = 5)
 }
@@ -65,8 +65,7 @@ par(mar = c(4, 4, 0.2, 0.2))
 Rosling.bubbles()
 
 ## rectangles
-Rosling.bubbles(type = "rectangles", data = matrix(abs(rnorm(50 * 10 * 
-    2)), ncol = 2))
+Rosling.bubbles(type = "rectangles", data = matrix(abs(rnorm(50 * 10 * 2)), ncol = 2))
 
 ## save the animation in HTML pages
 saveHTML({

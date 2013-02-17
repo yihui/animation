@@ -8,9 +8,6 @@ to stock prices} \item{price}{a numeric vector: stock prices} }}
 \source{
   This data can be obtained from most stock websites.
 }
-\usage{
-data(vanke1127)
-}
 \description{
   This is a sample of stock prices of the Vanke Co., Ltd on
   2009/11/27.
@@ -18,8 +15,8 @@ data(vanke1127)
 \examples{
 data(vanke1127)
 tab.price = table(vanke1127$price)
-plot(as.numeric(names(tab.price)), as.numeric(tab.price), type = "h", 
-    xlab = "price", ylab = "frequency")
+plot(as.numeric(names(tab.price)), as.numeric(tab.price), type = "h", xlab = "price", 
+    ylab = "frequency")
 
 oopt = ani.options(interval = 0.5, loop = FALSE, title = "Stock price of Vanke")
 

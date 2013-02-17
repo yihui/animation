@@ -3,8 +3,8 @@
 \title{Demonstration of the Bisection Method for root-finding on an
 interval}
 \usage{
-bisection.method(FUN = function(x) x^2 - 4, rg = c(-1, 10), tol = 0.001, 
-    interact = FALSE, main, xlab, ylab, ...)
+bisection.method(FUN = function(x) x^2 - 4, rg = c(-1, 10), tol = 0.001, interact = FALSE, 
+    main, xlab, ylab, ...)
 }
 \arguments{
   \item{FUN}{the function in the equation to solve

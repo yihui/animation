@@ -10,9 +10,6 @@ numeric vector} \item{DENSITY}{a numeric vector} }}
   collected from Statlib Datasets Archive:
   \url{http://stat.cmu.edu/datasets/}
 }
-\usage{
-data(pollen)
-}
 \description{
   There are 3848 observations on 5 variables. From the 1986
   ASA Data Exposition dataset, made up by David Coleman of

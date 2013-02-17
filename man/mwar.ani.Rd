@@ -2,8 +2,8 @@
 \alias{mwar.ani}
 \title{Demonstration for ``Moving Window Auto-Regression''}
 \usage{
-mwar.ani(x, k = 15, conf = 2, mat = matrix(1:2, 2), widths = rep(1, ncol(mat)), 
-    heights = rep(1, nrow(mat)), lty.rect = 2, ...)
+mwar.ani(x, k = 15, conf = 2, mat = matrix(1:2, 2), widths = rep(1, ncol(mat)), heights = rep(1, 
+    nrow(mat)), lty.rect = 2, ...)
 }
 \arguments{
   \item{x}{univariate time-series (a single numerical

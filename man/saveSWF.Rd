@@ -2,8 +2,7 @@
 \alias{saveSWF}
 \title{Convert images to Flash animations}
 \usage{
-saveSWF(expr, swf.name = "animation.swf", img.name = "Rplot", swftools = NULL, 
-    ...)
+saveSWF(expr, swf.name = "animation.swf", img.name = "Rplot", swftools = NULL, ...)
 }
 \arguments{
   \item{expr}{an expression to generate animations; use

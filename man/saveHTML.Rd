@@ -2,8 +2,7 @@
 \alias{saveHTML}
 \title{Insert animations into an HTML page}
 \usage{
-saveHTML(expr, img.name = "Rplot", global.opts = "", single.opts = "", 
-    ...)
+saveHTML(expr, img.name = "Rplot", global.opts = "", single.opts = "", ...)
 }
 \arguments{
   \item{expr}{an R expression to be evaluated to create a
@@ -160,8 +159,7 @@ saveHTML({
 
 
 ## use Rweb to create animations
-if (interactive()) browseURL(system.file("misc", "Rweb", "demo.html", 
-    package = "animation"))
+if (interactive()) browseURL(system.file("misc", "Rweb", "demo.html", package = "animation"))
 }
 \author{
   Yihui Xie <\url{http://yihui.name}>

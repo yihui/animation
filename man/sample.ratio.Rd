@@ -54,8 +54,7 @@ res = sample.ratio()
 
 ## absolute difference with the true mean
 matplot(abs(cbind(res$ybar.ratio, res$ybar.simple) - res$Ybar), type = "l")
-legend("topleft", c("Ratio Estimation", "Sample Average"), lty = 1:2, 
-    col = 1:2)
+legend("topleft", c("Ratio Estimation", "Sample Average"), lty = 1:2, col = 1:2)
 
 ## if the ratio does not actually exist:
 sample.ratio(X = rnorm(50), Y = rnorm(50))

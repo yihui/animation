@@ -7,9 +7,6 @@
   The full text of speech is at
   \url{http://www.baltimoresun.com/news/nation-world/bal-text1105,0,5055673,full.story}
 }
-\usage{
-data(ObamaSpeech)
-}
 \description{
   This data recorded the number of words in each paragraph
   of Barack Obama's speech in Chicago after winning the

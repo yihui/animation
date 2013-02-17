@@ -2,8 +2,8 @@
 \alias{sample.system}
 \title{Demonstration for the systematic sampling}
 \usage{
-sample.system(nrow = 10, ncol = 10, size = 15, p.col = c("blue", "red"), 
-    p.cex = c(1, 3))
+sample.system(nrow = 10, ncol = 10, size = 15, p.col = c("blue", "red"), p.cex = c(1, 
+    3))
 }
 \arguments{
   \item{nrow}{the desired number of rows of the sample

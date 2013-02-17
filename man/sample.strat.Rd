@@ -2,8 +2,8 @@
 \alias{sample.strat}
 \title{Demonstration for the stratified sampling}
 \usage{
-sample.strat(pop = ceiling(10 * runif(10, 0.5, 1)), size = ceiling(pop * 
-    runif(length(pop), 0, 0.5)), p.col = c("blue", "red"), p.cex = c(1, 3), ...)
+sample.strat(pop = ceiling(10 * runif(10, 0.5, 1)), size = ceiling(pop * runif(length(pop), 
+    0, 0.5)), p.col = c("blue", "red"), p.cex = c(1, 3), ...)
 }
 \arguments{
   \item{pop}{a vector for the size of each stratum in the

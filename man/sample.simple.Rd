@@ -2,8 +2,8 @@
 \alias{sample.simple}
 \title{Demonstration for simple random sampling without replacement}
 \usage{
-sample.simple(nrow = 10, ncol = 10, size = 15, p.col = c("blue", "red"), 
-    p.cex = c(1, 3))
+sample.simple(nrow = 10, ncol = 10, size = 15, p.col = c("blue", "red"), p.cex = c(1, 
+    3))
 }
 \arguments{
   \item{nrow}{the desired number of rows of the sample

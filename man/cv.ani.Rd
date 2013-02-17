@@ -2,8 +2,7 @@
 \alias{cv.ani}
 \title{Demonstration for the process of cross-validation}
 \usage{
-cv.ani(x = runif(150), k = 10, col = c("green", "red", "blue"), pch = c(4, 
-    1), ...)
+cv.ani(x = runif(150), k = 10, col = c("green", "red", "blue"), pch = c(4, 1), ...)
 }
 \arguments{
   \item{x}{a numerical vector which stands for the sample

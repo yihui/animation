@@ -3,8 +3,8 @@
 \title{A simulation of the death of two species with certain
 probabilities}
 \usage{
-ecol.death.sim(nr = 10, nc = 10, num.sp = c(50, 50), col.sp = c(1, 2), 
-    pch.sp = c(1, 2), col.die = 1, pch.die = 4, cex = 3, ...)
+ecol.death.sim(nr = 10, nc = 10, num.sp = c(50, 50), col.sp = c(1, 2), pch.sp = c(1, 
+    2), col.die = 1, pch.die = 4, cex = 3, ...)
 }
 \arguments{
   \item{nr,nc}{number of rows and columns of the field

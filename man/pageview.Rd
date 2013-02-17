@@ -18,9 +18,6 @@ someone.}  \item{bandwidth}{amount of data downloaded by all
 \source{
   \url{http://yihui.name}
 }
-\usage{
-data(pageview)
-}
 \description{
   The data is collected by Awstats for the website
   \url{http://yihui.name}.

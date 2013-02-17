@@ -213,8 +213,7 @@ ani.options(...)
 ## options
 
 ## use the PDF device: remember to set 'ani.type' accordingly
-oopt = ani.options(ani.dev = "pdf", ani.type = "pdf", ani.height = 5, 
-    ani.width = 7)
+oopt = ani.options(ani.dev = "pdf", ani.type = "pdf", ani.height = 5, ani.width = 7)
 
 ## use the Cairo PDF device if (require('Cairo')) { ani.options(ani.dev =
 ## CairoPDF, ani.type = 'pdf', ani.height = 6, ani.width = 6) }

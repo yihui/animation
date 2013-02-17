@@ -16,9 +16,6 @@
   \url{http://www.basketballgeek.com/data/} (transformed
   based on the original data)
 }
-\usage{
-data(CLELAL09)
-}
 \description{
   Cleveland Cavaliers played against Los Angeles Lakers at
   Staples Center in LA on Dec 25, 2009 and won the game by

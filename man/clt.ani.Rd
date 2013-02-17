@@ -2,8 +2,8 @@
 \alias{clt.ani}
 \title{Demonstration of the Central Limit Theorem}
 \usage{
-clt.ani(obs = 300, FUN = rexp, mean = 1, sd = 1, col = c("bisque", "red", 
-    "blue", "black"), mat = matrix(1:2, 2), widths = rep(1, ncol(mat)), heights = rep(1, 
+clt.ani(obs = 300, FUN = rexp, mean = 1, sd = 1, col = c("bisque", "red", "blue", 
+    "black"), mat = matrix(1:2, 2), widths = rep(1, ncol(mat)), heights = rep(1, 
     nrow(mat)), xlim, ...)
 }
 \arguments{

@@ -7,9 +7,6 @@
   The full text of speech is at
   \url{http://cpc.people.com.cn/GB/64093/64094/8544901.html}
 }
-\usage{
-data(HuSpeech)
-}
 \description{
   This speech came on the 30th anniversary of China's
   economic reform in 1978.
