@@ -20,7 +20,7 @@ saveHTML({
         plot(rnorm(50), ylim = c(-3, 3))
         ani.pause()
     }
-}, img.name = 'norm_plot', single.opts = "'utf8': false",
+}, img.name = 'norm_plot', single.opts = "utf8: false",
          autoplay = FALSE, interval = 0.5,
          imgdir = 'norm_dir', htmlfile = 'random.html',
          ani.height = 400, ani.width = 600,
