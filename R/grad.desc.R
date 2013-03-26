@@ -102,7 +102,7 @@ grad.desc = function(
     gap = abs(FUN(newxy[i + 1, 1], newxy[i + 1, 2]) - FUN(xy[i + 1, 1], xy[i + 1, 2]))
     ani.pause()
     i = i + 1
-    if (i >= nmax) warning('Maximum number of iterations reached!')
+    if (i > nmax) warning('Maximum number of iterations reached!')
   }
   invisible(list(par = newxy[i - 1, ], value = FUN(newxy[i - 1, 1], newxy[i - 1, 2]),
                  iter = i - 1, gradient = grad,
