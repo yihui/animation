@@ -133,7 +133,7 @@ ani.options(oopt)
 \references{
   \url{http://en.wikipedia.org/wiki/Gradient_descent}
 
-  \url{http://animation.yihui.name/compstat:gradient_descent_algorithm}
+  \url{http://vis.supstat.com/2013/03/gradient-descent-algorithm-with-r/}
 }
 \seealso{
   \code{\link[stats]{deriv}},
