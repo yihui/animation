@@ -1,5 +1,7 @@
 # animation
 
+[![Build Status](https://travis-ci.org/yihui/animation.png)](https://travis-ci.org/yihui/animation)
+
 ## Introduction
 
 This is an R package to create and export animations to a variety of formats (HTML/JS, GIF, Video, PDF), and it also serves as a gallery of statistical animations.
