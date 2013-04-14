@@ -60,10 +60,8 @@ ani.options(oopt)
   Yihui Xie <\url{http://yihui.name}>
 }
 \references{
-  \url{http://animation.yihui.name/prob:brownian_motion}
+  \url{http://vis.supstat.com/2012/11/brownian-motion-with-r}
 }
 \seealso{
   \code{\link[stats]{rnorm}}
 }
-\keyword{dplot}
-\keyword{dynamic}

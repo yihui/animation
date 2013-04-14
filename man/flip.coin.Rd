@@ -88,13 +88,9 @@ ani.options(oopt)
   Yihui Xie <\url{http://yihui.name}>
 }
 \references{
-  \url{http://animation.yihui.name/prob:flipping_coins}
+  \url{http://vis.supstat.com/2013/03/simulation-of-coin-flipping}
 }
 \seealso{
   \code{\link[graphics]{points}},
   \code{\link[base]{sample}}
 }
-\keyword{distribution}
-\keyword{dplot}
-\keyword{dynamic}
-\keyword{hplot}

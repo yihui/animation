@@ -48,12 +48,9 @@ vi.grid.illusion(type = "h", lwd = 22, nrow = 5, ncol = 5, col = "white")
   Yihui Xie <\url{http://yihui.name}>
 }
 \references{
-  \url{http://en.wikipedia.org/wiki/Grid_illusion}
-
-  \url{http://animation.yihui.name/animation:misc#visual_illusions}
+  \url{http://vis.supstat.com/2013/03/make-visual-illusions-in-r}
 }
 \seealso{
   \code{\link[graphics]{points}},
   \code{\link[graphics]{abline}}
 }
-\keyword{dynamic}

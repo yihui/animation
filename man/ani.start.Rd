@@ -42,12 +42,8 @@ ani.options(oopt)
 \author{
   Yihui Xie <\url{http://yihui.name}>
 }
-\references{
-  \url{http://animation.yihui.name/animation:create_html_animation_page}
-}
 \seealso{
   \code{\link{saveHTML}} (the recommended way to create
   HTML pages), \code{\link{ani.options}},
   \code{\link{ani.stop}}
 }
-\keyword{utilities}

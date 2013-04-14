@@ -77,6 +77,3 @@ ani.options(oopt)
 \references{
   \url{http://animation.yihui.name/prob:law_of_large_numbers}
 }
-\keyword{distribution}
-\keyword{dplot}
-\keyword{dynamic}

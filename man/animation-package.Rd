@@ -2,19 +2,16 @@
 \name{animation-package}
 \alias{animation}
 \alias{animation-package}
-\title{A Gallery of Animations in Statistics and Utilities to Create
-Animations}
+\title{A Gallery of Animations in Statistics and Utilities to Create Animations}
 \description{
-  This package contains various functions for animations in
-  statistics which could probably aid in teaching
+  This package contains a variety functions for animations
+  in statistics which could probably aid in teaching
   statistics and data analysis; it also has several
   utilities to export R animations to other formats.
 }
 \details{
-  \tabular{ll}{ Package: \tab animation\cr Type: \tab
-  Package\cr Version: \tab 2.0\cr License: \tab GPL-2 |
-  GPL-3\cr } This package mainly makes use of HTML &
-  JavaScript and R windows graphics devices (such as
+  This package mainly makes use of HTML & JavaScript and R
+  windows graphics devices (such as
   \code{\link[grDevices]{x11}}) to demonstrate animations
   in statistics; other kinds of output such as Flash (SWF)
   or GIF animations or PDF animations are also available if
@@ -40,13 +37,8 @@ Animations}
 \section{HTML Pages}{
   The generation of HTML animation pages does not rely on
   any third-party software either, and we only need a web
-  browser to watch the animation.  This package has two
-  sets of functions to create HTML pages:
-  \code{\link{saveHTML}} and
-  \code{\link{ani.start}}/\code{\link{ani.stop}}.  The
-  former one is recommended, since it can include the
-  source code into the HTML page and is much more visually
-  appealing.
+  browser to watch the animation. See
+  \code{\link{saveHTML}}.
 
   The HTML interface is just like a movie player -- it
   comes with a series of buttons to control the animation
@@ -155,6 +147,11 @@ saveLatex({
   (NB: some functions mentioned in the above article have
   been slightly modified; see the help pages for the
   up-to-date usage.)
+
+  Yihui Xie (2013). animation: An R Package for Creating
+  Animations and Demonstrating Statistical Methods.
+  \emph{Journal of Statistical Software}, \bold{53}(1),
+  1-27. URL \url{http://www.jstatsoft.org/v53/i01/}.
 }
 \seealso{
   \code{\link{saveHTML}}, \code{\link{saveGIF}},

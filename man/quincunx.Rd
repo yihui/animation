@@ -67,12 +67,8 @@ ani.options(oopt)
   Yihui Xie <\url{http://yihui.name}>
 }
 \references{
-  \url{http://en.wikipedia.org/wiki/Bean_machine}
-
-  \url{http://animation.yihui.name/prob:bean_machine}
+  \url{http://vis.supstat.com/2013/04/bean-machine}
 }
 \seealso{
   \code{\link[stats:Binomial]{rbinom}}
 }
-\keyword{distribution}
-\keyword{dynamic}

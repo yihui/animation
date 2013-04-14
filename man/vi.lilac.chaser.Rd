@@ -50,11 +50,8 @@ ani.options(oopt)
   Yihui Xie <\url{http://yihui.name}>
 }
 \references{
-  \url{http://en.wikipedia.org/wiki/Lilac_chaser}
-
-  \url{http://animation.yihui.name/animation:misc#lilac_chaser}
+  \url{http://vis.supstat.com/2013/03/make-visual-illusions-in-r}
 }
 \seealso{
   \code{\link[graphics]{points}}
 }
-\keyword{dynamic}
