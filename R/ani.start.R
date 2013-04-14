@@ -21,9 +21,6 @@
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @seealso \code{\link{saveHTML}} (the recommended way to create HTML pages),
 #' \code{\link{ani.options}}, \code{\link{ani.stop}}
-#' @references
-#' \url{http://animation.yihui.name/animation:create_html_animation_page}
-#' @keywords utilities
 #' @examples
 #' ## save the animation in HTML pages and auto-browse it
 #' oopt = ani.options(nmax = 20, ani.width = 600, ani.height = 500, interval = 0.2)

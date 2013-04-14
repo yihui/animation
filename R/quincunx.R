@@ -12,7 +12,6 @@
 #' When a ball falls through a layer, it can either go to the right
 #' or left side with the probability 0.5. At last the location of all
 #' the balls will show us the bell-shaped distribution.
-#'
 #' @param balls number of balls
 #' @param layers number of layers
 #' @param pch.layers point character of layers; triangles (\code{pch
@@ -29,10 +28,7 @@
 #' there will be no redundant animation frames.
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @seealso \code{\link[stats:Binomial]{rbinom}}
-#' @references \url{http://en.wikipedia.org/wiki/Bean_machine}
-#'
-#' \url{http://animation.yihui.name/prob:bean_machine}
-#' @keywords dynamic distribution
+#' @references \url{http://vis.supstat.com/2013/04/bean-machine}
 #' @example inst/examples/quincunx-ex.R
 quincunx = function(balls = 200, layers = 15, pch.layers = 2,
     pch.balls = 19, col.balls = sample(colors(), balls, TRUE),

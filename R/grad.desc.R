@@ -58,9 +58,8 @@
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @seealso \code{\link[stats]{deriv}}, \code{\link[graphics]{persp}},
 #'   \code{\link[graphics]{contour}}, \code{\link[stats]{optim}}
-#' @references \url{http://en.wikipedia.org/wiki/Gradient_descent}
-#'
-#'   \url{http://vis.supstat.com/2013/03/gradient-descent-algorithm-with-r/}
+#' @references
+#' \url{http://vis.supstat.com/2013/03/gradient-descent-algorithm-with-r/}
 #' @keywords optimize dynamic dplot
 #' @example inst/examples/grad.desc-ex.R
 grad.desc = function(

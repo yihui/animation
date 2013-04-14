@@ -14,10 +14,7 @@
 #'   \emph{blurred}, which is not implemented in this function.
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @seealso \code{\link[graphics]{points}}
-#' @references \url{http://en.wikipedia.org/wiki/Lilac_chaser}
-#'
-#'   \url{http://animation.yihui.name/animation:misc#lilac_chaser}
-#' @keywords dynamic
+#' @references \url{http://vis.supstat.com/2013/03/make-visual-illusions-in-r}
 #' @example inst/examples/vi.lilac.chaser-ex.R
 vi.lilac.chaser = function(np = 16, col = "magenta", bg = "gray", p.cex = 7,
                            c.cex = 5) {
