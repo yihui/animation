@@ -24,7 +24,7 @@ Depends:
 Imports:
     MASS
 License: GPL-2 | GPL-3
-URL: https://github.com/yihui/animation
+URL: http://yihui.name/animation
 BugReports: https://github.com/yihui/animation/issues
 LazyData: yes
 Collate:
