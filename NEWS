@@ -1,3 +1,24 @@
+		  CHANGES IN animation VERSION 2.2
+
+MINOR CHANGES
+
+  o datasets in this package are lazy loaded now, which means we no longer need,
+  for example, data(pollen) -- just use pollen
+
+  o added an article in the articles/ directory of the package, which will be
+  published in the Journal of Statistical Software; see citation('animation')
+
+BUG FIXES
+
+  o fixed #28: the single quotes in the example code of saveHTML() in the PDF
+  manual were not correctly rendered (thanks, James Marca)
+
+DOCUMENTATION
+
+  o the animation website http://animation.yihui.name is being rebuilt with
+  knitr and Jekyll on Github (contributions/pull requests are welcome):
+  http://vis.supstat.com/categories.html#Animation-ref
+
 		  CHANGES IN animation VERSION 2.1
 
 MINOR CHANGES
