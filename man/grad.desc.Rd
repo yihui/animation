@@ -131,8 +131,6 @@ ani.options(oopt)
   Yihui Xie <\url{http://yihui.name}>
 }
 \references{
-  \url{http://en.wikipedia.org/wiki/Gradient_descent}
-
   \url{http://vis.supstat.com/2013/03/gradient-descent-algorithm-with-r/}
 }
 \seealso{
