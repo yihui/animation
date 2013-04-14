@@ -70,8 +70,8 @@
 #' \code{\link{saveLatex}} and \code{\link{saveSWF}}); this can be
 #' useful when the output cannot be captured by standard R graphics
 #' devices -- a typical example is the \pkg{rgl} graphics (we can use
-#' \code{\link[rgl]{rgl.snapshot}} to capture \pkg{rgl} graphics to
-#' png files, or \code{\link[rgl]{rgl.postscript}} to save plots as
+#' \code{rgl.snapshot} to capture \pkg{rgl} graphics to
+#' png files, or \code{rgl.postscript} to save plots as
 #' postscript/pdf; see \code{demo('rgl_animation')} or
 #' \code{demo('use_Cairo')} for examples or the last example
 #' below). Note, however, we do not really have to create the images
