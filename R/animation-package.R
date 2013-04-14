@@ -82,12 +82,10 @@ NULL
 #'
 #' @name HuSpeech
 #' @docType data
-#' @usage data(HuSpeech)
 #' @format int [1:75] 119 175 222 204 276 168 257 89 61 288 ...
 #' @source The full text of speech is at
 #'   \url{http://cpc.people.com.cn/GB/64093/64094/8544901.html}
 #' @examples
-#' data(HuSpeech)
 #' ## clear pattern: 1/3 short, 1/3 long, 1/3 short again
 #' plot(HuSpeech, type = "b", pch = 20, xlab = "paragraph index",
 #'     ylab = "word count")
@@ -100,13 +98,10 @@ NULL
 #' speech in Chicago after winning the presidential election.
 #' @name ObamaSpeech
 #' @docType data
-#' @usage data(ObamaSpeech)
 #' @format int [1:59] 2 45 52 53 11 48 28 15 50 29 ...
 #' @source The full text of speech is at
 #'   \url{http://www.baltimoresun.com/news/nation-world/bal-text1105,0,5055673,full.story}
-#'
 #' @examples
-#' data(ObamaSpeech)
 #' ## pattern: longer paragraph and shorter paragraph
 #' plot(ObamaSpeech, type = "b", pch = 20, xlab = "paragraph index",
 #'     ylab = "word count")
@@ -117,7 +112,6 @@ NULL
 #' The data is collected by Awstats for the website \url{http://yihui.name}.
 #' @name pageview
 #' @docType data
-#' @usage data(pageview)
 #' @format A data frame with 73 observations on the following 5 variables.
 #'   \describe{ \item{day}{Date starts from Sep 21, 2007 to Dec 2, 2007.}
 #'   \item{visits}{number of visits: a new visit is defined as each new
@@ -131,7 +125,6 @@ NULL
 #'   \emph{images} and \emph{files} within the site (units in MegaBytes).} }
 #' @source \url{http://yihui.name}
 #' @examples
-#' data(pageview)
 #' plot(pageview[,1:2], type = "b", col = "red",
 #'   main = "Number of Visits in Yihui's Web")
 #' ## partial auto-correlation
@@ -144,7 +137,6 @@ NULL
 #' dataset, made up by David Coleman of RCA Labs
 #' @name pollen
 #' @docType data
-#' @usage data(pollen)
 #' @format A data frame with 3848 observations on the following 5 variables.
 #'   \describe{ \item{RIDGE}{a numeric vector} \item{NUB}{a numeric vector}
 #'   \item{CRACK}{a numeric vector} \item{WEIGHT}{a numeric vector}
@@ -152,8 +144,6 @@ NULL
 #' @source collected from Statlib Datasets Archive:
 #'   \url{http://stat.cmu.edu/datasets/}
 #' @examples
-#' data(pollen)
-#'
 #' ## some dense points in the center?
 #' plot(pollen[, 1:2], pch = 20, col = rgb(0, 0, 0, 0.1))
 #'
@@ -165,7 +155,6 @@ NULL
 #' This is a sample of stock prices of the Vanke Co., Ltd on 2009/11/27.
 #' @name vanke1127
 #' @docType data
-#' @usage data(vanke1127)
 #' @format A data frame with 2831 observations on the following 2 variables.
 #'   \describe{ \item{time}{POSIXt: the time corresponding to stock prices}
 #'   \item{price}{a numeric vector: stock prices} }
@@ -178,12 +167,10 @@ NULL
 #' Temperatures in central Iowa over 106 years.
 #' @name iatemp
 #' @docType data
-#' @usage data(iatemp)
 #' @format Time-Series [1:116] from 1895 to 2010: 32.7 27.8 32.7 30.4 42.6 31.9
 #'   34.5 39.8 32.6 39.6 ...
 #' @source \url{http://www.wrcc.dri.edu/cgi-bin/divplot1_form.pl?1305}
-#' @examples data(iatemp)
-#' plot(iatemp)
+#' @examples plot(iatemp)
 NULL
 
 #' The NBA game between CLE Cavaliers and LAL Lakers on Dec 25, 2009
@@ -191,10 +178,8 @@ NULL
 #' Cleveland Cavaliers played against Los Angeles Lakers at Staples Center in LA
 #' on Dec 25, 2009 and won the game by 102:87. This data recorded the locations
 #' of players on the court and the results of the shots.
-#'
 #' @name CLELAL09
 #' @docType data
-#' @usage data(CLELAL09)
 #' @format A data frame with 455 observations on the following 7 variables.
 #' \describe{ \item{\code{player}}{a character vector: the current player}
 #' \item{\code{time}}{a character vector: the time} \item{\code{period}}{a
@@ -209,7 +194,6 @@ NULL
 #'   \code{realx} is the distance to the left border of CLE's court, and
 #'   \code{realy} is the distance to the bottom border of the court; notice that
 #'   the size of the court is \eqn{94 \times 50}{94 x 50} (feet).
-#' @examples library(animation)
-#' data(CLELAL09)
+#' @examples
 #' ## see demo('CLEvsLAL', package = 'animation') for a `replay' of the game
 NULL
