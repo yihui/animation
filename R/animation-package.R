@@ -66,6 +66,9 @@
 #'   (NB: some functions mentioned in the above article have been slightly
 #'   modified; see the help pages for the up-to-date usage.)
 #'
+#'   Yihui Xie (2013). animation: An R Package for Creating Animations and
+#'   Demonstrating Statistical Methods. \emph{Journal of Statistical Software},
+#'   \bold{53}(1), 1-27. URL \url{http://www.jstatsoft.org/v53/i01/}.
 #' @seealso \code{\link{saveHTML}}, \code{\link{saveGIF}},
 #'   \code{\link{saveSWF}}, \code{\link{saveVideo}}, \code{\link{saveLatex}}
 #' @keywords package dynamic device dplot
