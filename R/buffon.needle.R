@@ -15,7 +15,6 @@
 #' the scenario, the top-right one is to help us understand the connection
 #' between dropping needles and the mathematical method to estimate \eqn{\pi},
 #' and the bottom one is the result for each drop.
-#'
 #' @param l numerical. length of the needle; shorter than \code{d}.
 #' @param d numerical. distances between lines; it should be longer than
 #'   \code{l}.
@@ -46,8 +45,7 @@
 #' @references Ramaley, J. F. (Oct 1969). Buffon's Noodle Problem. \emph{The
 #'   American Mathematical Monthly} \bold{76} (8): 916-918.
 #'
-#'   \url{http://animation.yihui.name/prob:buffon_s_needle}
-#' @keywords dplot hplot dynamic math
+#'   \url{http://vis.supstat.com/2013/04/buffons-needle}
 #' @example inst/examples/buffon.needle-ex.R
 buffon.needle = function(
   l = 0.8, d = 1, redraw = TRUE, mat = matrix(c(1, 3, 2, 3), 2), heights = c(3, 2),
