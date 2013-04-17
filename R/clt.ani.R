@@ -26,7 +26,7 @@
 #' population distribution (they will be used to plot the density
 #' curve of the theoretical Normal distribution with mean equal to
 #' \code{mean} and sd equal to \eqn{sd/\sqrt{n}}; if any of them is
-#' \code{NULL}, the density curve will be suppressed)
+#' \code{NA}, the density curve will be suppressed)
 #' @param col a vector of length 4 specifying the colors of the
 #' histogram, the density curve of the sample mean, the theoretical
 #' density cuve and P-values.
@@ -60,7 +60,7 @@ clt.ani = function(obs = 300, FUN = rexp, mean = 1, sd = 1, col = c("bisque",
         hist(x[i, ], freq = FALSE, main = "", xlab = substitute(italic(bar(x)[i]),
             list(i = i)), col = col[1], xlim = xlim)
         lines(density(x[i, ]), col = col[2])
-        if (!is.null(mean) && !is.null(sd))
+        if (!is.na(mean) && !is.na(sd))
             curve(dnorm(x, mean, sd/sqrt(i)), col = col[3], lty = 2, add = TRUE)
         legend("topright", legend = paste("P-value:", format(round(pvalue[i],
             3), nsmall = 3)), bty = "n")
