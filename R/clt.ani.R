@@ -34,7 +34,7 @@
 #'   specified)
 #' @param \dots other arguments passed to \code{\link[graphics]{plot.default}}
 #'   to plot the P-values
-#' @return None.
+#' @return A data frame of P-values.
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @seealso \code{\link[graphics]{hist}}, \code{\link[stats]{density}}
 #' @references \url{http://animation.yihui.name/prob:central_limit_theorem}
