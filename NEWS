@@ -1,3 +1,10 @@
+		  CHANGES IN animation VERSION 2.3
+
+MAJOR CHANGES
+
+  o the defunct functions highlight.def(), write.rss() and ani.news() were
+  finally removed from this package
+
 		  CHANGES IN animation VERSION 2.2
 
 MINOR CHANGES
