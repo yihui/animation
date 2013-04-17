@@ -105,9 +105,5 @@ ani.options(oopt)
   \emph{The American Mathematical Monthly} \bold{76} (8):
   916-918.
 
-  \url{http://animation.yihui.name/prob:buffon_s_needle}
+  \url{http://vis.supstat.com/2013/04/buffons-needle}
 }
-\keyword{dplot}
-\keyword{dynamic}
-\keyword{hplot}
-\keyword{math}

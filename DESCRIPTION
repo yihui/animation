@@ -28,7 +28,6 @@ URL: http://yihui.name/animation
 BugReports: https://github.com/yihui/animation/issues
 LazyData: yes
 Collate:
-    'animation-defunct.R'
     'animation-package.R'
     'ani.options.R'
     'ani.pause.R'

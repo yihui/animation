@@ -19,7 +19,7 @@ clt.ani(obs = 300, FUN = rexp, mean = 1, sd = 1, col = c("bisque", "red", "blue"
   the population distribution (they will be used to plot
   the density curve of the theoretical Normal distribution
   with mean equal to \code{mean} and sd equal to
-  \eqn{sd/\sqrt{n}}; if any of them is \code{NULL}, the
+  \eqn{sd/\sqrt{n}}; if any of them is \code{NA}, the
   density curve will be suppressed)}
 
   \item{col}{a vector of length 4 specifying the colors of
@@ -38,7 +38,7 @@ clt.ani(obs = 300, FUN = rexp, mean = 1, sd = 1, col = c("bisque", "red", "blue"
   P-values}
 }
 \value{
-  None.
+  A data frame of P-values.
 }
 \description{
   First of all, a number of \code{obs} observations are
@@ -87,12 +87,9 @@ ani.options(oopt)
   Yihui Xie <\url{http://yihui.name}>
 }
 \references{
-  \url{http://animation.yihui.name/prob:central_limit_theorem}
+  \url{http://vis.supstat.com/2013/04/central-limit-theorem}
 }
 \seealso{
   \code{\link[graphics]{hist}},
   \code{\link[stats]{density}}
 }
-\keyword{distribution}
-\keyword{dplot}
-\keyword{dynamic}
