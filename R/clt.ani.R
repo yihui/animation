@@ -37,8 +37,7 @@
 #' @return A data frame of P-values.
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @seealso \code{\link[graphics]{hist}}, \code{\link[stats]{density}}
-#' @references \url{http://animation.yihui.name/prob:central_limit_theorem}
-#' @keywords dynamic distribution dplot
+#' @references \url{http://vis.supstat.com/2013/04/central-limit-theorem}
 #' @example inst/examples/clt.ani-ex.R
 clt.ani = function(
   obs = 300, FUN = rexp, mean = 1, sd = 1, col = c('bisque', 'red', 'blue', 'black'),
