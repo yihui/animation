@@ -53,6 +53,7 @@ run_life <- function(file, generation = ani.options('nmax'), fg = "black", bg = 
 
         m <- load_life(file)
         for (i in 1:generation) {
+                dev.hold()
                 draw_life(m)
                 m <- next_generation(m)
                 ani.pause()
