@@ -79,6 +79,7 @@ saveGIF = function(expr, movie.name = "animation.gif", img.name = "Rplot",
 
   ## draw the plots and record them in image files
   ani.dev = ani.options('ani.dev')
+  ani.type = ani.options("ani.type")
   if (is.character(ani.dev)) ani.dev = get(ani.dev)
   img.fmt = paste(img.name, "%d.", file.ext, sep = "")
   ##img.fmt = file.path(getwd(), img.fmt) <-- cross out, use outdir
