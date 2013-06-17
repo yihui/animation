@@ -81,7 +81,12 @@ saveGIF = function(expr, movie.name = "animation.gif", img.name = "Rplot",
   ani.dev = ani.options('ani.dev')
   if (is.character(ani.dev)) ani.dev = get(ani.dev)
   img.fmt = paste(img.name, "%d.", file.ext, sep = "")
-  img.fmt = file.path(getwd(), img.fmt)
+  ##img.fmt = file.path(getwd(), img.fmt) <-- cross out, use outdir
+  imgdir = file.path(ani.options("outdir"), ani.options("imgdir"))
+  dir.create(imgdir, showWarnings = FALSE, recursive = TRUE)
+  img.fmt = file.path(imgdir, paste(img.name, "%d", ".", ani.type, 
+                                    sep = ""))
+  ani.options(img.fmt = img.fmt)
   if ((use.dev <- ani.options('use.dev')))
     ani.dev(img.fmt, width = ani.options('ani.width'),
             height = ani.options('ani.height'))
@@ -102,7 +107,7 @@ saveGIF = function(expr, movie.name = "animation.gif", img.name = "Rplot",
   img.files = sprintf(img.fmt, seq_len(length(list.files(pattern =
     paste(img.name, "[0-9]+\\.", file.ext, sep = "")))))
   ## convert to animations
-  im.convert(img.files, output = movie.name, convert = convert,
+  im.convert(img.files, output = file.path(ani.options("outdir"), movie.name), convert = convert,
              cmd.fun = cmd.fun, clean = clean)
 }
 #' @rdname saveGIF
