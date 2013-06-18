@@ -110,7 +110,9 @@ saveGIF = function(expr, movie.name = "animation.gif", img.name = "Rplot",
   outpath_original=file.path(owd1,movie.name)
   setwd(owd)
   file.copy(outpath_original, outpath_final )
-  outpath_original
+  print(outpath_original)
+  message(outpath_final)
+  outpath_final
 }
 #' @rdname saveGIF
 saveMovie = saveGIF
