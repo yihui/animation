@@ -102,14 +102,19 @@ saveGIF = function(expr, movie.name = "animation.gif", img.name = "Rplot",
   img.files = sprintf(img.fmt, seq_len(length(list.files(pattern =
                                                            paste(img.name, "[0-9]+\\.", file.ext, sep = "")))))
   ## convert to animations
+  
+  dir.create(file.path(file.path(getwd(),ani.options('outdir'))), showWarnings = FALSE, recursive = TRUE)
   im.convert(img.files, output = movie.name, convert = convert,
              cmd.fun = cmd.fun, clean = clean)
   
   
   outpath_final=file.path(ani.options('outdir'),movie.name)
-  outpath_original=file.path(owd1,movie.name)
+  outpath_original=file.path(owd1,ani.options('outdir'),movie.name)
   setwd(owd)
+  dir.create(ani.options('outdir'), showWarnings = FALSE, recursive = TRUE)
   file.copy(outpath_original, outpath_final )
+  unlink(file.path(outpath_original,movie.name))
 }
+
 #' @rdname saveGIF
 saveMovie = saveGIF
