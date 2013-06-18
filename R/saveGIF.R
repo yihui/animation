@@ -57,12 +57,8 @@
 #'   \code{\link{saveSWF}}, \code{\link{saveVideo}}, \code{\link[base]{system}},
 #'   \code{\link[grDevices]{png}}, \code{\link{saveLatex}},
 #'   \code{\link{saveHTML}}
-#' @references ImageMagick: \url{http://www.imagemagick.org/script/convert.php}
-#'
-#' GraphicsMagick: \url{http://www.graphicsmagick.org}
-#'
-#' \url{http://animation.yihui.name/animation:start}
-#' @keywords dynamic device utilities
+#' @references ImageMagick: \url{http://www.imagemagick.org/script/convert.php};
+#'   GraphicsMagick: \url{http://www.graphicsmagick.org}
 #' @example inst/examples/saveGIF-ex.R
 saveGIF = function(expr, movie.name = "animation.gif", img.name = "Rplot",
                    convert = "convert", cmd.fun = system, clean = TRUE, ...) {
