@@ -69,18 +69,18 @@ saveGIF = function(expr, movie.name = "animation.gif", img.name = "Rplot",
   oopt = ani.options(...)
   on.exit(ani.options(oopt))
   ## create images in the temp dir
-  owd = setwd(tempdir())
+  owd = setwd(ani.options('outdir'))
   on.exit(setwd(owd), add = TRUE)
   
   file.ext = ani.options('ani.type')
   
   ## clean up the files first
-  unlink(paste(img.name, "*.", file.ext, sep = ""))
+  unlink(paste(ani.options('imgdir'),img.name, "*.", file.ext, sep = ""))
   
   ## draw the plots and record them in image files
   ani.dev = ani.options('ani.dev')
   if (is.character(ani.dev)) ani.dev = get(ani.dev)
-  img.fmt = paste(img.name, "%d.", file.ext, sep = "")
+  img.fmt = paste(ani.options('imgdir'),img.name, "%d.", file.ext, sep = "")
   img.fmt = file.path(getwd(), img.fmt)
   if ((use.dev <- ani.options('use.dev')))
     ani.dev(img.fmt, width = ani.options('ani.width'),
@@ -109,7 +109,8 @@ saveGIF = function(expr, movie.name = "animation.gif", img.name = "Rplot",
   outpath_final=file.path(ani.options('outdir'),movie.name)
   outpath_original=file.path(owd1,movie.name)
   setwd(owd)
-  file.copy(outpath_original, outpath_final,showWarnings=T )
+  file.copy(outpath_original, outpath_final)
+  outpath_original
 }
 #' @rdname saveGIF
 saveMovie = saveGIF
