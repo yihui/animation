@@ -71,12 +71,12 @@ saveGIF = function(expr, movie.name = "animation.gif", img.name = "Rplot",
   ## create images in the temp dir
   owd = setwd(tempdir())
   on.exit(setwd(owd), add = TRUE)
-
+  
   file.ext = ani.options('ani.type')
-
+  
   ## clean up the files first
   unlink(paste(img.name, "*.", file.ext, sep = ""))
-
+  
   ## draw the plots and record them in image files
   ani.dev = ani.options('ani.dev')
   if (is.character(ani.dev)) ani.dev = get(ani.dev)
@@ -89,21 +89,27 @@ saveGIF = function(expr, movie.name = "animation.gif", img.name = "Rplot",
   eval(expr)
   setwd(owd1)
   if (use.dev) dev.off()
-
+  
   ## compress PDF files
   if (file.ext == 'pdf' &&
-    ((use.qpdf <- !is.null(ani.options('qpdf'))) ||
-    (use.pdftk <- !is.null(ani.options('pdftk'))))) {
+        ((use.qpdf <- !is.null(ani.options('qpdf'))) ||
+           (use.pdftk <- !is.null(ani.options('pdftk'))))) {
     for (f in list.files(path = dirname(img.name), pattern =
-      sprintf('^%s[0-9]*\\.pdf$', img.name), full.names = TRUE))
+                           sprintf('^%s[0-9]*\\.pdf$', img.name), full.names = TRUE))
       if (use.qpdf) qpdf(f) else if (use.pdftk) pdftk(f)
   }
-
+  
   img.files = sprintf(img.fmt, seq_len(length(list.files(pattern =
-    paste(img.name, "[0-9]+\\.", file.ext, sep = "")))))
+                                                           paste(img.name, "[0-9]+\\.", file.ext, sep = "")))))
   ## convert to animations
   im.convert(img.files, output = movie.name, convert = convert,
              cmd.fun = cmd.fun, clean = clean)
+  
+  
+  outpath_final=file.path(ani.options('outdir'),movie.name)
+  outpath_original=file.path(owd1,movie.name)
+  setwd(owd)
+  file.copy(outpath_original, outpath_final )
 }
 #' @rdname saveGIF
 saveMovie = saveGIF
