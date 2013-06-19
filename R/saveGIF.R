@@ -101,9 +101,11 @@ saveGIF = function(expr, movie.name = "animation.gif", img.name = "Rplot",
   
   img.files = sprintf(img.fmt, seq_len(length(list.files(pattern =
                                                            paste(img.name, "[0-9]+\\.", file.ext, sep = "")))))
-  ## convert to animations
   
-  dir.create(ani.options('outdir'), showWarnings = FALSE, recursive = TRUE)
+  #create outdir within the tempdir directory
+  
+  dir.create(file.path(getwd(),ani.options('outdir')), showWarnings = FALSE, recursive = TRUE)
+  ## convert to animations
   im.convert(img.files, output = movie.name, convert = convert,
              cmd.fun = cmd.fun, clean = clean)
   
@@ -111,8 +113,12 @@ saveGIF = function(expr, movie.name = "animation.gif", img.name = "Rplot",
   outpath_final=file.path(ani.options('outdir'),movie.name)
   outpath_original=file.path(owd1,ani.options('outdir'),movie.name)
   setwd(owd)
+  
+  #create the outdir in the current directory if it doesn't exist
   dir.create(ani.options('outdir'), showWarnings = FALSE, recursive = TRUE)
+  #file the file from temp dir to current dir
   file.copy(outpath_original, outpath_final )
+  #delete gif from tempdir
   unlink(file.path(outpath_original,movie.name))
 }
 
