@@ -101,7 +101,7 @@ saveGIF = function(expr, movie.name = 'animation.gif', img.name = 'Rplot',
   
   #create outdir within the tempdir directory
   
-
+  setwd(owd)
   im.convert(img.files, output = movie.name, convert = convert,
              cmd.fun = cmd.fun, clean = clean)
 }
