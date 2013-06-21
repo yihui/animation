@@ -57,55 +57,58 @@
 #'   \code{\link{saveSWF}}, \code{\link{saveVideo}}, \code{\link[base]{system}},
 #'   \code{\link[grDevices]{png}}, \code{\link{saveLatex}},
 #'   \code{\link{saveHTML}}
-#' @references ImageMagick: \url{http://www.imagemagick.org/script/convert.php};
-#'   GraphicsMagick: \url{http://www.graphicsmagick.org}
+#' @references ImageMagick: \url{http://www.imagemagick.org/script/convert.php}
+#'
+#' GraphicsMagick: \url{http://www.graphicsmagick.org}
+#'
+#' \url{http://animation.yihui.name/animation:start}
+#' @keywords dynamic device utilities
 #' @example inst/examples/saveGIF-ex.R
-saveGIF = function(expr, movie.name = 'animation.gif', img.name = 'Rplot',
-                   convert = 'convert', cmd.fun = system, clean = TRUE, ...) {
+saveGIF = function(expr, movie.name = "animation.gif", img.name = "Rplot",
+                   convert = "convert", cmd.fun = system, clean = TRUE, ...) {
   oopt = ani.options(...)
   on.exit(ani.options(oopt))
   ## create images in the temp dir
   owd = setwd(tempdir())
   on.exit(setwd(owd), add = TRUE)
-
+  
   file.ext = ani.options('ani.type')
-
+  
   ## clean up the files first
-  unlink(paste(img.name, '*.', file.ext, sep = ''))
-
+  unlink(paste(img.name, "*.", file.ext, sep = ""))
+  
   ## draw the plots and record them in image files
   ani.dev = ani.options('ani.dev')
   if (is.character(ani.dev)) ani.dev = get(ani.dev)
-  img.fmt = paste(img.name, '%d.', file.ext, sep = '')
+  img.fmt = paste(img.name, "%d.", file.ext, sep = "")
+  img.fmt = file.path(getwd(), img.fmt)
   if ((use.dev <- ani.options('use.dev')))
-    ani.dev(file.path(getwd(), img.fmt),
-            width = ani.options('ani.width'), height = ani.options('ani.height'))
+    ani.dev(img.fmt, width = ani.options('ani.width'),
+            height = ani.options('ani.height'))
   owd1 = setwd(owd)
   eval(expr)
   setwd(owd1)
   if (use.dev) dev.off()
-
+  
   ## compress PDF files
   if (file.ext == 'pdf' &&
         ((use.qpdf <- !is.null(ani.options('qpdf'))) ||
            (use.pdftk <- !is.null(ani.options('pdftk'))))) {
-    for (f in list.files(
-      dirname(img.name), pattern = sprintf('^%s[0-9]*\\.pdf$', img.name),
-      full.names = TRUE
-    )) if (use.qpdf) qpdf(f) else if (use.pdftk) pdftk(f)
+    for (f in list.files(path = dirname(img.name), pattern =
+                           sprintf('^%s[0-9]*\\.pdf$', img.name), full.names = TRUE))
+      if (use.qpdf) qpdf(f) else if (use.pdftk) pdftk(f)
   }
-
-  img.files = sprintf(img.fmt, seq_len(length(list.files(
-    pattern = paste(img.name, '[0-9]+\\.', file.ext, sep = '')
-  ))))
-  ## convert to animations
+  
+  img.files = sprintf(img.fmt, seq_len(length(list.files(pattern =
+                                                           paste(img.name, "[0-9]+\\.", file.ext, sep = "")))))
+  
+  #create outdir within the tempdir directory
+  
+  
+  setwd(owd)
   im.convert(img.files, output = movie.name, convert = convert,
              cmd.fun = cmd.fun, clean = clean)
-
-  outpath_final=file.path(ani.options('outdir'),movie.name)
-  outpath_original=file.path(owd1,movie.name)
-  setwd(owd)
-  file.copy(outpath_original, outpath_final )
 }
+
 #' @rdname saveGIF
 saveMovie = saveGIF
