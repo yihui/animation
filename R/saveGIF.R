@@ -95,12 +95,11 @@ saveGIF = function(expr, movie.name = 'animation.gif', img.name = 'Rplot',
     )) if (use.qpdf) qpdf(f) else if (use.pdftk) pdftk(f)
   }
 
-  
-  img.files = sprintf(img.fmt, seq_len(length(list.files(pattern =
-                                                           paste(img.name, "[0-9]+\\.", file.ext, sep = "")))))
-  
-  #create outdir within the tempdir directory
-  
+  img.files = sprintf(img.fmt, seq_len(length(list.files(
+    pattern = paste(img.name, '[0-9]+\\.', file.ext, sep = '')
+  ))))
+  ## convert to animations
+
   setwd(owd)
   im.convert(img.files, output = movie.name, convert = convert,
              cmd.fun = cmd.fun, clean = clean)
