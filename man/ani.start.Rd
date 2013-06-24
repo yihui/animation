@@ -15,3 +15,4 @@ ani.stop(...)
   These functions are defunct and should not be used any
   more.
 }
+\keyword{internal}
