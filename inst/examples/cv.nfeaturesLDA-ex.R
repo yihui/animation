@@ -11,10 +11,9 @@ saveHTML({
 },
          img.name='cv.nfeaturesLDA',htmlfile='cv.nfeaturesLDA.html',
          ani.height = 480, ani.width = 600,
-         title = "Cross-validation to find the optimum number of features in LDA",
-         description = c("This",
-         'animation has provided an illustration of the process of finding',
+         description = c('This animation provides', ' an illustration of the process of finding',
          'out the optimum number of variables using k-fold cross-validation',
-         'in a linear discriminant analysis (LDA).'))
+         'in a linear discriminant analysis (LDA).'),
+         title = "Cross-validation to find the optimum number of features in LDA")
 
 ani.options(oopt)

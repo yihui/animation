@@ -2,8 +2,9 @@
 \alias{sample.strat}
 \title{Demonstration for the stratified sampling}
 \usage{
-sample.strat(pop = ceiling(10 * runif(10, 0.5, 1)), size = ceiling(pop * runif(length(pop), 
-    0, 0.5)), p.col = c("blue", "red"), p.cex = c(1, 3), ...)
+sample.strat(pop = ceiling(10 * runif(10, 0.5, 1)), size = ceiling(pop * 
+    runif(length(pop), 0, 0.5)), p.col = c("blue", "red"), p.cex = c(1, 3), 
+    ...)
 }
 \arguments{
   \item{pop}{a vector for the size of each stratum in the
@@ -38,8 +39,9 @@ saveHTML({
     par(mar = rep(1, 4), lwd = 2)
     ani.options(nmax = ifelse(interactive(), 50, 2))
     sample.strat(col = c("bisque", "white"))
-}, img.name = "sample.strat", htmlfile = "sample.html", ani.height = 350, ani.width = 500, 
-    title = "Demonstration of the stratified sampling", description = c("Every rectangle stands for a stratum, and the simple", 
+}, img.name = "sample.strat", htmlfile = "sample.html", ani.height = 350, 
+    ani.width = 500, title = "Demonstration of the stratified sampling", 
+    description = c("Every rectangle stands for a stratum, and the simple", 
         "random sampling without replacement is performed within each stratum."))
 
 ani.options(oopt)

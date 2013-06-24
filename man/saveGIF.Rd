@@ -119,11 +119,8 @@ saveGIF({
 }
 \references{
   ImageMagick:
-  \url{http://www.imagemagick.org/script/convert.php}
-
+  \url{http://www.imagemagick.org/script/convert.php};
   GraphicsMagick: \url{http://www.graphicsmagick.org}
-
-  \url{http://animation.yihui.name/animation:start}
 }
 \seealso{
   \code{\link{im.convert}}, \code{\link{gm.convert}},
@@ -131,6 +128,3 @@ saveGIF({
   \code{\link[base]{system}}, \code{\link[grDevices]{png}},
   \code{\link{saveLatex}}, \code{\link{saveHTML}}
 }
-\keyword{device}
-\keyword{dynamic}
-\keyword{utilities}

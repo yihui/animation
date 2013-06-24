@@ -9,7 +9,7 @@ saveHTML({
     sample.simple()
 }, img.name='sample.simple',htmlfile='sample.html',
          ani.height = 350, ani.width = 500,
-         title = "Demonstration of the simple random sampling without replacement",
+         title = paste("Demonstration of", "the simple random sampling without replacement"),
          description = c("Each member of the population has an equal and",
          "known chance of being selected."))
 

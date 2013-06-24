@@ -33,7 +33,6 @@ Collate:
     'ani.pause.R'
     'ani.record.R'
     'ani.start.R'
-    'ani.stop.R'
     'bisection.method.R'
     'BM.circle.R'
     'boot.iid.R'

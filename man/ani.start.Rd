@@ -5,7 +5,7 @@
 \usage{
 ani.start(...)
 
-ani.stop()
+ani.stop(...)
 }
 \arguments{
   \item{...}{arguments passed to \code{\link{ani.options}}

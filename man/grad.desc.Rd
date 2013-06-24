@@ -3,8 +3,8 @@
 \title{Gradient Descent Algorithm for the 2D case}
 \usage{
 grad.desc(FUN = function(x, y) x^2 + 2 * y^2, rg = c(-3, -3, 3, 3), init = c(-3, 
-    3), gamma = 0.05, tol = 0.001, gr = NULL, len = 50, interact = FALSE, col.contour = "red", 
-    col.arrow = "blue", main)
+    3), gamma = 0.05, tol = 0.001, gr = NULL, len = 50, interact = FALSE, 
+    col.contour = "red", col.arrow = "blue", main)
 }
 \arguments{
   \item{FUN}{a bivariate objective function to be minimized
@@ -122,8 +122,9 @@ if (interactive()) {
 saveHTML({
     ani.options(interval = 0.3)
     grad.desc()
-}, img.name = "grad.desc", htmlfile = "grad.desc.html", ani.height = 500, ani.width = 500, 
-    title = "Demonstration of the Gradient Descent Algorithm", description = "The arrows will take you to the optimum step by step.")
+}, img.name = "grad.desc", htmlfile = "grad.desc.html", ani.height = 500, 
+    ani.width = 500, title = "Demonstration of the Gradient Descent Algorithm", 
+    description = "The arrows will take you to the optimum step by step.")
 
 ani.options(oopt)
 }

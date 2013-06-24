@@ -26,6 +26,6 @@ saveHTML(expr = {
     png(ani.options('img.fmt'))
     for(i in 1:5) plot(runif(10))
     dev.off()
-}, img.name='custom_plot', use.dev = FALSE, ani.type='png', htmlfile='custom_device.html',
-         description="Note how we use our own graphics device in 'expr'.")
-
+}, img.name='custom_plot', use.dev = FALSE, ani.type='png',
+         description="Note how we use our own graphics device in 'expr'.",
+         htmlfile='custom_device.html')

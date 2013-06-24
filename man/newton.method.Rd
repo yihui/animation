@@ -94,10 +94,11 @@ if (interactive()) {
 saveHTML({
     ani.options(nmax = ifelse(interactive(), 100, 2))
     par(mar = c(3, 3, 1, 1.5), mgp = c(1.5, 0.5, 0), pch = 19)
-    newton.method(function(x) 5 * x^3 - 7 * x^2 - 40 * x + 100, 7.15, c(-6.2, 7.1), 
-        main = "")
+    newton.method(function(x) 5 * x^3 - 7 * x^2 - 40 * x + 100, 7.15, c(-6.2, 
+        7.1), main = "")
 }, img.name = "newton.method", htmlfile = "newton.method.html", ani.height = 500, 
-    ani.width = 600, title = "Demonstration of the Newton-Raphson Method", description = "Go along with the tangent lines and iterate.")
+    ani.width = 600, title = "Demonstration of the Newton-Raphson Method", 
+    description = "Go along with the tangent lines and iterate.")
 
 ani.options(oopt)
 }
