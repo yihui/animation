@@ -5,6 +5,9 @@ MAJOR CHANGES
   o the defunct functions highlight.def(), write.rss() and ani.news() were
   finally removed from this package
 
+  o the functions ani.start() and ani.stop() are defunct and will be removed
+  in the next version of this package; please use saveHTML() instead
+
 		  CHANGES IN animation VERSION 2.2
 
 MINOR CHANGES
