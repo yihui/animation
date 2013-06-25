@@ -34,11 +34,7 @@
 #'   \code{ani.options('pdftk')} has been set); see \code{\link{qpdf}} or
 #'   \code{\link{pdftk}}.
 #' @author Yihui Xie <\url{http://yihui.name}>
-#' @seealso \code{\link{saveGIF}}, \code{\link{saveLatex}},
-#'   \code{\link{saveHTML}}, \code{\link{saveVideo}},
-#'   \code{\link[base]{system}}, \code{\link[grDevices]{png}},
-#'   \code{\link[grDevices]{jpeg}}, \code{\link[grDevices]{pdf}},
-#'   \code{\link{qpdf}}, \code{\link{pdftk}}
+#' @family utilities
 #' @references
 #' \url{http://animation.yihui.name/animation:start#create_flash_animations}
 #' @export

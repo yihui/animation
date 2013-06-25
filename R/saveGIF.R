@@ -53,10 +53,7 @@
 #'   package (< 2.0-2). It is recommended to use \code{\link{saveGIF}} to avoid
 #'   confusions between \code{\link{saveMovie}} and \code{\link{saveVideo}}.
 #' @author Yihui Xie <\url{http://yihui.name}>
-#' @seealso \code{\link{im.convert}}, \code{\link{gm.convert}},
-#'   \code{\link{saveSWF}}, \code{\link{saveVideo}}, \code{\link[base]{system}},
-#'   \code{\link[grDevices]{png}}, \code{\link{saveLatex}},
-#'   \code{\link{saveHTML}}
+#' @family utilities
 #' @references ImageMagick: \url{http://www.imagemagick.org/script/convert.php};
 #'   GraphicsMagick: \url{http://www.graphicsmagick.org}
 #' @export

@@ -70,9 +70,7 @@
 #'   See the last example below.
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @references \url{https://github.com/brentertz/scianimator}
-#' @seealso \code{\link{saveGIF}}, \code{\link{saveSWF}},
-#'   \code{\link{saveLatex}}, \code{\link{saveVideo}}; \code{\link{ani.start}},
-#'   \code{\link{ani.stop}} (early versions of HTML animations)
+#' @family utilities
 #' @export
 #' @example inst/examples/saveHTML-ex.R
 saveHTML = function(expr, img.name = 'Rplot',

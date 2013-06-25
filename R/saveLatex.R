@@ -75,11 +75,7 @@
 #'   by JavaScript). Linux users may need to install \command{acroread} and set
 #'   \code{options(pdfviewer = 'acroread')}.
 #' @author Yihui Xie <\url{http://yihui.name}>
-#' @seealso \code{\link{saveGIF}} to convert image frames to a single GIF/MPEG
-#'   file; \code{\link{saveSWF}} to convert images to Flash;
-#'   \code{\link{saveHTML}} to create an HTML page containing the animation;
-#'   \code{\link{saveVideo}} to convert images to a video; \code{\link{qpdf}} or
-#'   \code{\link{pdftk}} to compress PDF graphics
+#' @family utilities
 #' @references To know more about the \code{animate} package, please refer to
 #'   \url{http://www.ctan.org/tex-archive/macros/latex/contrib/animate/}. There
 #'   are a lot of options can be set in \code{ani.opts} and \code{pkg.opts}.
