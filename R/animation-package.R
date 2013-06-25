@@ -52,7 +52,6 @@
 #' @name animation-package
 #' @aliases animation
 #' @docType package
-#' @exportPattern "^[^\\.]"
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @note Bug reports and feature requests can be sent to
 #'   \url{https://github.com/yihui/animation/issues}.

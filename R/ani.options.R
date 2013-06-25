@@ -181,7 +181,7 @@
 #' \url{http://qpdf.sourceforge.net/}
 #'
 #' \url{http://www.pdflabs.com/docs/pdftk-man-page/}
-#' @keywords misc
+#' @export
 #' @example inst/examples/ani.options-ex.R
 ani.options = function(...) {
     lst = list(...)

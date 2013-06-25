@@ -23,6 +23,7 @@
 #' be issued
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @references \url{http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/}
+#' @export
 #' @example inst/examples/pdftk-ex.R
 pdftk = function(input, operation = NULL, output, other.opts = 'compress dont_ask') {
     if (!is.null(pdftk.path <- ani.options('pdftk'))) {

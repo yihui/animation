@@ -41,7 +41,7 @@
 #'   \code{\link{qpdf}}, \code{\link{pdftk}}
 #' @references
 #' \url{http://animation.yihui.name/animation:start#create_flash_animations}
-#' @keywords dynamic device utilities
+#' @export
 #' @example inst/examples/saveSWF-ex.R
 saveSWF = function(expr, swf.name = "animation.swf", img.name = "Rplot",
                    swftools = NULL, ...) {

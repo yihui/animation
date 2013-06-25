@@ -14,7 +14,7 @@
 #'   \code{\link{sample.cluster}}, \code{\link{sample.ratio}},
 #'   \code{\link{sample.strat}}
 #' @references \url{http://animation.yihui.name/samp:systematic_sampling}
-#' @keywords distribution dynamic
+#' @export
 #' @example inst/examples/sample.system-ex.R
 sample.system = function(nrow = 10, ncol = 10, size = 15,
                          p.col = c("blue", "red"), p.cex = c(1, 3)) {

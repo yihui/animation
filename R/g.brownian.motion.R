@@ -26,7 +26,7 @@
 #' @references \url{http://code.google.com/apis/visualization/}
 #'
 #' \url{http://yihui.name/en/2008/11/brownian-motion-using-google-visualization-api-and-r/}
-#' @keywords dynamic IO
+#' @export
 #' @examples
 #'
 #' oopt = ani.options(htmlfile = 'BM-motion-chart.html')

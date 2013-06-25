@@ -28,7 +28,7 @@
 #' @seealso \code{\link[stats]{integrate}}, \code{\link{MC.samplemean}}
 #' @references
 #' \url{http://animation.yihui.name/compstat:hit_or_miss_monte_carlo}
-#' @keywords dynamic hplot
+#' @export
 #' @example inst/examples/MC.hitormiss-ex.R
 MC.hitormiss = function(FUN = function(x) x - x^2,
     n = ani.options("nmax"), from = 0, to = 1, col.points = c("black",

@@ -15,7 +15,7 @@
 #'   \code{\link{sample.cluster}}, \code{\link{sample.strat}},
 #'   \code{\link{sample.system}}
 #' @references \url{http://animation.yihui.name/samp:srswr}
-#' @keywords distribution dynamic
+#' @export
 #' @example inst/examples/sample.simple-ex.R
 sample.simple = function(nrow = 10, ncol = 10, size = 15,
                          p.col = c("blue", "red"), p.cex = c(1, 3)) {

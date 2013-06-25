@@ -45,7 +45,7 @@
 #' Bootstrap}. Chapman & Hall.
 #'
 #' \url{http://animation.yihui.name/dmml:bootstrap_i.i.d}
-#' @keywords nonparametric dynamic dplot
+#' @export
 #' @example inst/examples/boot.iid-ex.R
 boot.iid <- function(x = runif(20), statistic = mean, m = length(x),
                      mat = matrix(1:2, 2), widths = rep(1, ncol(mat)),

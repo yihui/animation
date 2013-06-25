@@ -12,6 +12,7 @@
 #' \code{\link[graphics]{plot}}
 #' @return NULL
 #' @author Yihui Xie <\url{http://yihui.name}>
+#' @export
 #' @example inst/examples/boot.lowess-ex.R
 boot.lowess = function(x, y = NULL, f = 2/3, iter = 3, line.col = "#FF000033", ...) {
     if (missing(x)) {

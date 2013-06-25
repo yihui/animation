@@ -46,7 +46,7 @@
 #' @references \url{http://en.wikipedia.org/wiki/Newton's_method}
 #'
 #' \url{http://animation.yihui.name/compstat:newton_s_method}
-#' @keywords optimize dynamic dplot
+#' @export
 #' @example inst/examples/newton.method-ex.R
 newton.method = function(FUN = function(x) x^2 -
     4, init = 10, rg = c(-1, 10), tol = 0.001, interact = FALSE,

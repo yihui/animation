@@ -46,6 +46,7 @@
 #'   American Mathematical Monthly} \bold{76} (8): 916-918.
 #'
 #'   \url{http://vis.supstat.com/2013/04/buffons-needle}
+#' @export
 #' @example inst/examples/buffon.needle-ex.R
 buffon.needle = function(
   l = 0.8, d = 1, redraw = TRUE, mat = matrix(c(1, 3, 2, 3), 2), heights = c(3, 2),

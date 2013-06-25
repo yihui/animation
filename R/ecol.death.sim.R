@@ -28,7 +28,7 @@
 #'
 #' The original post is in the forum of the ``Capital of
 #' Statistics'': \url{http://cos.name/cn/topic/14093} (in Chinese)
-#' @keywords dynamic distribution
+#' @export
 #' @examples
 #'
 #' oopt = ani.options(nmax = ifelse(interactive(), 50, 2), interval = 0.3)

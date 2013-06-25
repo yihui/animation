@@ -9,6 +9,7 @@
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @seealso \code{\link[grDevices]{dev.interactive}},
 #' \code{\link[base]{Sys.sleep}}, \code{\link[grDevices]{dev.flush}}
+#' @export
 #' @examples ## pause for 2 seconds
 #' oopt = ani.options(interval = 2)
 #'

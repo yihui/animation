@@ -25,6 +25,7 @@
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @seealso \code{\link[stats]{rnorm}}
 #' @references \url{http://vis.supstat.com/2012/11/brownian-motion-with-r}
+#' @export
 #' @example inst/examples/brownian.motion-ex.R
 brownian.motion = function(n = 10, xlim = c(-20,
     20), ylim = c(-20, 20), ...) {

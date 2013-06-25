@@ -58,7 +58,7 @@
 #' University Press, 2nd edition. pp. 400
 #'
 #' \url{http://animation.yihui.name/da:biostat:select_features_via_cv}
-#' @keywords multivariate dynamic dplot classif
+#' @export
 #' @example inst/examples/cv.nfeaturesLDA-ex.R
 cv.nfeaturesLDA = function(data = matrix(rnorm(600),
     60), cl = gl(3, 20), k = 5, cex.rg = c(0.5, 3), col.av = c("blue",

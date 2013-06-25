@@ -41,7 +41,7 @@
 #' @seealso \code{\link[stats]{integrate}}, \code{\link{MC.hitormiss}}
 #' @references
 #' \url{http://animation.yihui.name/compstat:sample_mean_monte_carlo}
-#' @keywords dynamic hplot
+#' @export
 #' @example inst/examples/MC.samplemean-ex.R
 MC.samplemean = function(FUN = function(x) x - x^2,
     n = ani.options("nmax"), col.rect = c('gray', 'black'), adj.x = TRUE, ...) {

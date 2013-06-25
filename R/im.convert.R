@@ -80,6 +80,7 @@
 #' ImageMagick: \url{http://www.imagemagick.org/script/convert.php}
 #'
 #' GraphicsMagick: \url{http://www.graphicsmagick.org}
+#' @export
 #' @example inst/examples/im.convert-ex.R
 im.convert = function(files, output = "animation.gif", convert = c("convert",
                                                        "gm convert"),

@@ -38,6 +38,7 @@
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @seealso \code{\link[graphics]{hist}}, \code{\link[stats]{density}}
 #' @references \url{http://vis.supstat.com/2013/04/central-limit-theorem}
+#' @export
 #' @example inst/examples/clt.ani-ex.R
 clt.ani = function(
   obs = 300, FUN = rexp, mean = 1, sd = 1, col = c('bisque', 'red', 'blue', 'black'),

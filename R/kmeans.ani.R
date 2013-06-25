@@ -42,7 +42,7 @@
 #' @seealso \code{\link[stats]{kmeans}}
 #' @references
 #' \url{http://animation.yihui.name/mvstat:k-means_cluster_algorithm}
-#' @keywords hplot dynamic multivariate cluster
+#' @export
 #' @example inst/examples/kmeans.ani-ex.R
 kmeans.ani = function(x = cbind(X1 = runif(50), X2 = runif(50)),
     centers = 3, hints = c("Move centers!", "Find cluster?"), pch = 1:3, col = 1:3) {

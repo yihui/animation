@@ -60,7 +60,7 @@
 #'   \code{\link[graphics]{contour}}, \code{\link[stats]{optim}}
 #' @references
 #' \url{http://vis.supstat.com/2013/03/gradient-descent-algorithm-with-r/}
-#' @keywords optimize dynamic dplot
+#' @export
 #' @example inst/examples/grad.desc-ex.R
 grad.desc = function(
   FUN = function(x, y) x^2 + 2 * y^2, rg = c(-3, -3, 3, 3), init = c(-3, 3),

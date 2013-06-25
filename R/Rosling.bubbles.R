@@ -36,7 +36,7 @@
 #' @references \url{http://animation.yihui.name/da:ts:hans_rosling_s_talk}
 #'
 #'   \url{http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html}
-#' @keywords dynamic
+#' @export
 #' @example inst/examples/Rosling.bubbles-ex.R
 Rosling.bubbles = function(
   x, y, data,

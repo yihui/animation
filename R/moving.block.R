@@ -36,7 +36,7 @@
 #' 1:block]}, etc. See the examples below to learn more about how to
 #' make use of these three arguments.
 #' @author Yihui Xie <\url{http://yihui.name}>
-#' @keywords dynamic hplot
+#' @export
 #' @example inst/examples/moving.block-ex.R
 moving.block = function(dat = runif(100), block,
     FUN, ...) {

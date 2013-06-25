@@ -42,7 +42,7 @@
 #' @references \url{http://en.wikipedia.org/wiki/Bisection_method}
 #'
 #' \url{http://animation.yihui.name/compstat:bisection_method}
-#' @keywords optimize dynamic dplot
+#' @export
 #' @example inst/examples/bisection.method-ex.R
 bisection.method = function(FUN = function(x) x^2 -
     4, rg = c(-1, 10), tol = 0.001, interact = FALSE, main, xlab,

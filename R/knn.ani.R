@@ -55,7 +55,7 @@
 #' Applied Statistics with S}. Fourth edition. Springer.
 #'
 #' \url{http://animation.yihui.name/dmml:k-nearest_neighbour_algorithm}
-#' @keywords hplot iplot dynamic classif
+#' @export
 #' @example inst/examples/knn.ani-ex.R
 knn.ani = function(train, test, cl, k = 10, interact = FALSE,
     tt.col = c("blue", "red"), cl.pch = seq_along(unique(cl)),

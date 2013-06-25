@@ -73,6 +73,7 @@
 #' @seealso \code{\link{saveGIF}}, \code{\link{saveSWF}},
 #'   \code{\link{saveLatex}}, \code{\link{saveVideo}}; \code{\link{ani.start}},
 #'   \code{\link{ani.stop}} (early versions of HTML animations)
+#' @export
 #' @example inst/examples/saveHTML-ex.R
 saveHTML = function(expr, img.name = 'Rplot',
                     global.opts = '', single.opts = '', ...) {

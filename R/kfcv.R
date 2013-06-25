@@ -12,7 +12,7 @@
 #' sizes.
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @seealso \code{\link{cv.ani}}
-#' @keywords arith classif
+#' @export
 #' @examples
 #' ## divisible
 #' kfcv(5, 25)

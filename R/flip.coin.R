@@ -40,6 +40,7 @@
 #' @seealso \code{\link[graphics]{points}},
 #' \code{\link[base]{sample}}
 #' @references \url{http://vis.supstat.com/2013/03/simulation-of-coin-flipping}
+#' @export
 #' @example inst/examples/flip.coin-ex.R
 flip.coin = function(faces = 2, prob = NULL, border = "white",
     grid = "white", col = 1:2, type = "p", pch = 21, bg = "transparent",

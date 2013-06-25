@@ -25,7 +25,7 @@
 #'   \code{\link{sample.cluster}}, \code{\link{sample.strat}},
 #'   \code{\link{sample.system}}
 #' @references \url{http://animation.yihui.name/samp:ratio_estimation}
-#' @keywords dynamic
+#' @export
 #' @example inst/examples/sample.ratio-ex.R
 sample.ratio = function(X = runif(50, 0, 5), R = 1, Y = R * X + rnorm(X),
                         size = length(X)/2, p.col = c("blue", "red"),

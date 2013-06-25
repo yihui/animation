@@ -29,6 +29,7 @@
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @seealso \code{\link[stats:Binomial]{rbinom}}
 #' @references \url{http://vis.supstat.com/2013/04/bean-machine}
+#' @export
 #' @example inst/examples/quincunx-ex.R
 quincunx = function(balls = 200, layers = 15, pch.layers = 2,
     pch.balls = 19, col.balls = sample(colors(), balls, TRUE),

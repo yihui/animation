@@ -14,7 +14,7 @@
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @seealso \code{\link{brownian.motion}}, \code{\link[stats]{rnorm}}
 #' @references \url{http://animation.yihui.name/prob:brownian_motion_circle}
-#' @keywords dynamic
+#' @export
 #' @example inst/examples/BM.circle-ex.R
 BM.circle = function(n = 20, col = rainbow(n), ...) {
     par(pty = "s", ann = FALSE, xaxt = "n", yaxt = "n", bty = "n")

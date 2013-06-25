@@ -32,6 +32,7 @@
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @references
 #' \url{http://animation.yihui.name/prob:law_of_large_numbers}
+#' @export
 #' @example inst/examples/lln.ani-ex.R
 lln.ani = function(FUN = rnorm, mu = 0, np = 30,
     pch = 20, col.poly = "bisque", col.mu = "gray", ...) {

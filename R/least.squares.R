@@ -49,7 +49,7 @@
 #' @note \code{ani.options('nmax')} specifies the maximum number of
 #' steps for the slope or intercept to move.
 #' @references \url{http://animation.yihui.name/lm:least_squares}
-#' @keywords dynamic models
+#' @export
 #' @example inst/examples/least.squares-ex.R
 least.squares = function(x, y, n = 15, ani.type = c("slope",
     "intercept"), a, b, a.range, b.range, ab.col = c("gray",

@@ -16,7 +16,7 @@
 #'   \code{\link{sample.cluster}}, \code{\link{sample.ratio}},
 #'   \code{\link{sample.system}}
 #' @references \url{http://animation.yihui.name/samp:stratified_sampling}
-#' @keywords distribution dynamic
+#' @export
 #' @example inst/examples/sample.strat-ex.R
 sample.strat = function(pop = ceiling(10 * runif(10, 0.5, 1)),
                         size = ceiling(pop * runif(length(pop), 0, 0.5)),

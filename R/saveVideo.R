@@ -33,7 +33,7 @@
 #' @references \url{http://ffmpeg.org/documentation.html}
 #' @seealso \code{\link{saveGIF}}, \code{\link{saveLatex}},
 #'   \code{\link{saveHTML}}, \code{\link{saveSWF}}
-#'
+#' @export
 #' @example inst/examples/saveVideo-ex.R
 saveVideo = function(expr, video.name = 'animation.mp4', img.name = 'Rplot',
                      ffmpeg = 'ffmpeg', other.opts = '', clean = FALSE, ...) {

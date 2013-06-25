@@ -19,6 +19,7 @@
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @seealso \code{\link[graphics]{points}}, \code{\link[graphics]{abline}}
 #' @references \url{http://vis.supstat.com/2013/03/make-visual-illusions-in-r}
+#' @export
 #' @examples
 #' ## default to be Scintillating grid illusions
 #' vi.grid.illusion()

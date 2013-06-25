@@ -19,6 +19,7 @@
 #' be issued
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @references \url{http://qpdf.sourceforge.net/}
+#' @export
 #' @example inst/examples/qpdf-ex.R
 qpdf = function(input, output, options = '--stream-data=compress') {
     if (!is.null(qpdf.path <- ani.options('qpdf'))) {

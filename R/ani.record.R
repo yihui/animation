@@ -39,6 +39,7 @@
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @seealso \code{\link[grDevices]{recordPlot}} and
 #' \code{\link[grDevices]{replayPlot}}; \code{\link{ani.pause}}
+#' @export
 #' @example inst/examples/ani.record-ex.R
 ani.record = function(reset = FALSE, replay.cur = FALSE) {
     if (reset) .ani.env$.images = list() else {

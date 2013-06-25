@@ -15,7 +15,7 @@
 #' @return \code{NULL}
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @seealso \code{\link[stats]{qqnorm}}
-#' @keywords dynamic distribution dplot
+#' @export
 #' @example inst/examples/sim.qqnorm-ex.R
 sim.qqnorm = function(n = 20, last.plot = NULL, ...) {
   for(i in 1:ani.options("nmax")) {

@@ -32,7 +32,7 @@
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @seealso \code{\link{kfcv}}
 #' @references \url{http://animation.yihui.name/dmml:k-fold_cross-validation}
-#' @keywords hplot dynamic classif
+#' @export
 #' @example inst/examples/cv.ani-ex.R
 cv.ani = function(x = runif(150), k = 10, col = c("green",
     "red", "blue"), pch = c(4, 1), ...) {
