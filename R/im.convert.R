@@ -84,7 +84,6 @@
 im.convert = function(files, output = "animation.gif", convert = c("convert",
                                                        "gm convert"),
                       cmd.fun = system, extra.opts = "", clean = FALSE) {
-    output.path = file.path(ani.options('outdir'), output)
     interval = head(ani.options('interval'), length(files))
     convert = match.arg(convert)
     if (convert == 'convert') {
@@ -165,7 +164,7 @@ im.convert = function(files, output = "animation.gif", convert = c("convert",
                       paste('-delay', interval * 100,
                             if (length(interval) == 1)
                             paste(files, collapse = ' ') else files,
-                            collapse = ' '), shQuote(output.path))
+                            collapse = ' '), shQuote(output))
     message("Executing: ", strwrap(convert, exdent = 4, prefix = '\n'))
     if (interactive()) flush.console()
     cmd = cmd.fun(convert, ignore.stdout = .ani.env$check, ignore.stderr = .ani.env$check)
@@ -174,14 +173,14 @@ im.convert = function(files, output = "animation.gif", convert = c("convert",
         cmd = system(convert, ignore.stdout = .ani.env$check, ignore.stderr = .ani.env$check)
     }
     if (cmd == 0) {
-        message("Output at: ", output.path)
+        message("Output at: ", output)
         if (clean)
             unlink(files)
         if (ani.options('autobrowse')) {
             if (.Platform$OS.type == 'windows')
-                try(shell.exec(output.path)) else if (Sys.info()["sysname"] == "Darwin")
-                    try(system(paste('open ', shQuote(output.path))), TRUE) else
-            try(system(paste('xdg-open ', shQuote(output.path))), TRUE)
+                try(shell.exec(output)) else if (Sys.info()["sysname"] == "Darwin")
+                    try(system(paste('open ', shQuote(output))), TRUE) else
+            try(system(paste('xdg-open ', shQuote(output))), TRUE)
         }
     } else message("an error occurred in the conversion... see Notes in ?im.convert")
     invisible(convert)

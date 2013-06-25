@@ -78,7 +78,7 @@ saveGIF = function(expr, movie.name = 'animation.gif', img.name = 'Rplot',
   if (is.character(ani.dev)) ani.dev = get(ani.dev)
   img.fmt = paste(img.name, '%d.', file.ext, sep = '')
   if ((use.dev <- ani.options('use.dev')))
-    ani.dev(file.path(getwd(), img.fmt),
+    ani.dev(file.path(tempdir(), img.fmt),
             width = ani.options('ani.width'), height = ani.options('ani.height'))
   in_dir(owd, expr)
   if (use.dev) dev.off()
@@ -100,10 +100,9 @@ saveGIF = function(expr, movie.name = 'animation.gif', img.name = 'Rplot',
   im.convert(img.files, output = movie.name, convert = convert,
              cmd.fun = cmd.fun, clean = clean)
 
-  outpath_final=file.path(ani.options('outdir'),movie.name)
-  outpath_original=file.path(owd1,movie.name)
+  outpath = normalizePath(movie.name) # get the full path
   setwd(owd)
-  file.copy(outpath_original, outpath_final )
+  file.rename(outpath, movie.name)
 }
 #' @rdname saveGIF
 saveMovie = saveGIF

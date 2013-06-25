@@ -8,6 +8,11 @@ MAJOR CHANGES
   o the functions ani.start() and ani.stop() are defunct and will be removed
   in the next version of this package; please use saveHTML() instead
 
+  o the animation option `outdir` in ani.options() was removed because it
+  was confusing to many users that the output is in a temporary directory by
+  default; now all files are written relative to the current working
+  directory (#31)
+
 		  CHANGES IN animation VERSION 2.2
 
 MINOR CHANGES
