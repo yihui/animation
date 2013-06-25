@@ -155,10 +155,8 @@ saveLatex({
   and \code{pkg.opts}.
 }
 \seealso{
-  \code{\link{saveGIF}} to convert image frames to a single
-  GIF/MPEG file; \code{\link{saveSWF}} to convert images to
-  Flash; \code{\link{saveHTML}} to create an HTML page
-  containing the animation; \code{\link{saveVideo}} to
-  convert images to a video; \code{\link{qpdf}} or
-  \code{\link{pdftk}} to compress PDF graphics
+  Other utilities: \code{\link{gm.convert}},
+  \code{\link{im.convert}}, \code{\link{saveGIF}},
+  \code{\link{saveHTML}}, \code{\link{saveMovie}},
+  \code{\link{saveSWF}}, \code{\link{saveVideo}}
 }

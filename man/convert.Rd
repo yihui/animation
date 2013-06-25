@@ -141,5 +141,8 @@ setwd(owd)
   GraphicsMagick: \url{http://www.graphicsmagick.org}
 }
 \seealso{
-  \code{\link{saveGIF}}
+  Other utilities: \code{\link{saveGIF}},
+  \code{\link{saveHTML}}, \code{\link{saveLatex}},
+  \code{\link{saveMovie}}, \code{\link{saveSWF}},
+  \code{\link{saveVideo}}
 }

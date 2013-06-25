@@ -123,8 +123,8 @@ saveGIF({
   GraphicsMagick: \url{http://www.graphicsmagick.org}
 }
 \seealso{
-  \code{\link{im.convert}}, \code{\link{gm.convert}},
-  \code{\link{saveSWF}}, \code{\link{saveVideo}},
-  \code{\link[base]{system}}, \code{\link[grDevices]{png}},
-  \code{\link{saveLatex}}, \code{\link{saveHTML}}
+  Other utilities: \code{\link{gm.convert}},
+  \code{\link{im.convert}}, \code{\link{saveHTML}},
+  \code{\link{saveLatex}}, \code{\link{saveSWF}},
+  \code{\link{saveVideo}}
 }

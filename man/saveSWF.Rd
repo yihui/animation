@@ -79,10 +79,8 @@ saveSWF({
   \url{http://animation.yihui.name/animation:start#create_flash_animations}
 }
 \seealso{
-  \code{\link{saveGIF}}, \code{\link{saveLatex}},
-  \code{\link{saveHTML}}, \code{\link{saveVideo}},
-  \code{\link[base]{system}}, \code{\link[grDevices]{png}},
-  \code{\link[grDevices]{jpeg}},
-  \code{\link[grDevices]{pdf}}, \code{\link{qpdf}},
-  \code{\link{pdftk}}
+  Other utilities: \code{\link{gm.convert}},
+  \code{\link{im.convert}}, \code{\link{saveGIF}},
+  \code{\link{saveHTML}}, \code{\link{saveLatex}},
+  \code{\link{saveMovie}}, \code{\link{saveVideo}}
 }

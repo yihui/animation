@@ -80,6 +80,8 @@ ani.options(oopts)
   \url{http://ffmpeg.org/documentation.html}
 }
 \seealso{
-  \code{\link{saveGIF}}, \code{\link{saveLatex}},
-  \code{\link{saveHTML}}, \code{\link{saveSWF}}
+  Other utilities: \code{\link{gm.convert}},
+  \code{\link{im.convert}}, \code{\link{saveGIF}},
+  \code{\link{saveHTML}}, \code{\link{saveLatex}},
+  \code{\link{saveMovie}}, \code{\link{saveSWF}}
 }

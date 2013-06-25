@@ -182,8 +182,8 @@ if (interactive()) browseURL(system.file("misc", "Rweb", "demo.html",
   \url{https://github.com/brentertz/scianimator}
 }
 \seealso{
-  \code{\link{saveGIF}}, \code{\link{saveSWF}},
-  \code{\link{saveLatex}}, \code{\link{saveVideo}};
-  \code{\link{ani.start}}, \code{\link{ani.stop}} (early
-  versions of HTML animations)
+  Other utilities: \code{\link{gm.convert}},
+  \code{\link{im.convert}}, \code{\link{saveGIF}},
+  \code{\link{saveLatex}}, \code{\link{saveMovie}},
+  \code{\link{saveSWF}}, \code{\link{saveVideo}}
 }
