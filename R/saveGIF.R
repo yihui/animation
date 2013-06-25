@@ -80,9 +80,7 @@ saveGIF = function(expr, movie.name = 'animation.gif', img.name = 'Rplot',
   if ((use.dev <- ani.options('use.dev')))
     ani.dev(file.path(getwd(), img.fmt),
             width = ani.options('ani.width'), height = ani.options('ani.height'))
-  owd1 = setwd(owd)
-  eval(expr)
-  setwd(owd1)
+  in_dir(owd, expr)
   if (use.dev) dev.off()
 
   ## compress PDF files
