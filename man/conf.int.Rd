@@ -74,6 +74,3 @@ ani.options(oopt)
 
   \url{http://animation.yihui.name/mathstat:confidence_interval}
 }
-\keyword{distribution}
-\keyword{dplot}
-\keyword{dynamic}

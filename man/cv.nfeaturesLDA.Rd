@@ -98,7 +98,3 @@ ani.options(oopt)
   \code{\link{kfcv}}, \code{\link{cv.ani}},
   \code{\link[MASS]{lda}}
 }
-\keyword{classif}
-\keyword{dplot}
-\keyword{dynamic}
-\keyword{multivariate}

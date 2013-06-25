@@ -62,5 +62,3 @@ ani.options(oopt)
   \code{\link{brownian.motion}}, \code{\link{BM.circle}},
   \code{\link[stats]{rnorm}}
 }
-\keyword{dynamic}
-\keyword{IO}

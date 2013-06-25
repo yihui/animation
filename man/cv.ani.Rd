@@ -80,6 +80,3 @@ ani.options(oopt)
 \seealso{
   \code{\link{kfcv}}
 }
-\keyword{classif}
-\keyword{dynamic}
-\keyword{hplot}

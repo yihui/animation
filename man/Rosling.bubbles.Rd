@@ -92,4 +92,3 @@ ani.options(oopt)
 \seealso{
   \code{\link[graphics]{symbols}}
 }
-\keyword{dynamic}

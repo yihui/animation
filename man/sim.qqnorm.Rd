@@ -57,6 +57,3 @@ ani.options(oopt)
 \seealso{
   \code{\link[stats]{qqnorm}}
 }
-\keyword{distribution}
-\keyword{dplot}
-\keyword{dynamic}

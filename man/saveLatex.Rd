@@ -162,6 +162,3 @@ saveLatex({
   convert images to a video; \code{\link{qpdf}} or
   \code{\link{pdftk}} to compress PDF graphics
 }
-\keyword{device}
-\keyword{dynamic}
-\keyword{utilities}

@@ -108,5 +108,3 @@ ani.options(oopt)
 \seealso{
   \code{\link[stats]{lm}}
 }
-\keyword{dynamic}
-\keyword{models}

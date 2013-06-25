@@ -41,5 +41,3 @@ saveHTML({
 \author{
   Yihui Xie <\url{http://yihui.name}>
 }
-\keyword{dynamic}
-\keyword{hplot}

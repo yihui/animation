@@ -140,6 +140,3 @@ ani.options(oopt)
   \code{\link[graphics]{contour}},
   \code{\link[stats]{optim}}
 }
-\keyword{dplot}
-\keyword{dynamic}
-\keyword{optimize}

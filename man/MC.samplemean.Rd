@@ -99,5 +99,3 @@ ani.options(oopt)
   \code{\link[stats]{integrate}},
   \code{\link{MC.hitormiss}}
 }
-\keyword{dynamic}
-\keyword{hplot}

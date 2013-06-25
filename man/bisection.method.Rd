@@ -102,6 +102,3 @@ ani.options(oopt)
   \code{\link[stats]{deriv}}, \code{\link[stats]{uniroot}},
   \code{\link[graphics]{curve}}
 }
-\keyword{dplot}
-\keyword{dynamic}
-\keyword{optimize}

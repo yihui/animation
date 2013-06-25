@@ -57,5 +57,3 @@ ani.options(oopt)
   \code{\link{sample.cluster}}, \code{\link{sample.ratio}},
   \code{\link{sample.system}}
 }
-\keyword{distribution}
-\keyword{dynamic}

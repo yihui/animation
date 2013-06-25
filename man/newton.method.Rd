@@ -113,6 +113,3 @@ ani.options(oopt)
 \seealso{
   \code{\link[stats]{optim}}
 }
-\keyword{dplot}
-\keyword{dynamic}
-\keyword{optimize}

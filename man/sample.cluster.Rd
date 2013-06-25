@@ -54,5 +54,3 @@ ani.options(oopt)
   \code{\link{sample.ratio}}, \code{\link{sample.strat}},
   \code{\link{sample.system}}
 }
-\keyword{distribution}
-\keyword{dynamic}

@@ -104,6 +104,3 @@ ani.options(oopt)
 \seealso{
   \code{\link[graphics]{sunflowerplot}}
 }
-\keyword{dplot}
-\keyword{dynamic}
-\keyword{nonparametric}

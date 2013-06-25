@@ -35,5 +35,3 @@ kfcv(10, 77)
 \seealso{
   \code{\link{cv.ani}}
 }
-\keyword{arith}
-\keyword{classif}

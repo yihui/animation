@@ -55,4 +55,3 @@ ani.options(oopt)
 \seealso{
   \code{\link{brownian.motion}}, \code{\link[stats]{rnorm}}
 }
-\keyword{dynamic}

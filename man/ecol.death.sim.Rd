@@ -61,5 +61,3 @@ ani.options(oopt)
   Statistics'': \url{http://cos.name/cn/topic/14093} (in
   Chinese)
 }
-\keyword{distribution}
-\keyword{dynamic}

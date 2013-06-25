@@ -77,5 +77,3 @@ ani.options(oopt)
   \code{\link[stats]{integrate}},
   \code{\link{MC.samplemean}}
 }
-\keyword{dynamic}
-\keyword{hplot}

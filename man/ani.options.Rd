@@ -258,4 +258,3 @@ saveHTML(expr = {
   \code{\link{saveLatex}}, \code{\link{saveSWF}},
   \code{\link{pdftk}}
 }
-\keyword{misc}

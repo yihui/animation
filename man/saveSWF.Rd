@@ -86,6 +86,3 @@ saveSWF({
   \code{\link[grDevices]{pdf}}, \code{\link{qpdf}},
   \code{\link{pdftk}}
 }
-\keyword{device}
-\keyword{dynamic}
-\keyword{utilities}

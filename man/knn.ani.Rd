@@ -122,7 +122,3 @@ ani.options(oopt)
 \seealso{
   \code{\link[class]{knn}}
 }
-\keyword{classif}
-\keyword{dynamic}
-\keyword{hplot}
-\keyword{iplot}

@@ -81,6 +81,3 @@ ani.options(oopt)
 \seealso{
   \code{\link[stats]{arima}}
 }
-\keyword{dplot}
-\keyword{dynamic}
-\keyword{ts}

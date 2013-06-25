@@ -105,7 +105,3 @@ ani.options(oopt)
 \seealso{
   \code{\link[stats]{kmeans}}
 }
-\keyword{cluster}
-\keyword{dynamic}
-\keyword{hplot}
-\keyword{multivariate}
