@@ -4,13 +4,11 @@
 #' images, then inserts them into an HTML page and finally creates the animation
 #' using the SciAnimator library.
 #'
-#' This is a much better version than \code{\link{ani.start}} and
-#' \code{\link{ani.stop}}, and all users are encouraged to try this function
-#' when creating HTML animation pages. It mainly uses the SciAnimator library,
-#' which is based on jQuery. It has a neat interface (both technically and
-#' visually) and is much easier to use or extend. Moreover, this function allows
-#' multiple animations in a single HTML page -- just use the same filename for
-#' the HTML page (specified in \code{ani.options('htmlfile')}).
+#' It mainly uses the SciAnimator library, which is based on jQuery. It has a
+#' neat interface (both technically and visually) and is much easier to use or
+#' extend. Moreover, this function allows multiple animations in a single HTML
+#' page -- just use the same filename for the HTML page (specified in
+#' \code{ani.options('htmlfile')}).
 #'
 #' Optionally the source code and some session information can be added below
 #' the animations for the sake of reproducibility (specified by the option
