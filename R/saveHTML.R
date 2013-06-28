@@ -71,8 +71,7 @@
 #' @family utilities
 #' @export
 #' @example inst/examples/saveHTML-ex.R
-saveHTML = function(expr, img.name = 'Rplot',
-                    global.opts = '', single.opts = '', ...) {
+saveHTML = function(expr, img.name = 'Rplot', global.opts = '', single.opts = '', ...) {
   oopt = ani.options(...)
 
   ## replace special chars first: http://api.jquery.com/category/selectors/
