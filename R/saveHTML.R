@@ -14,9 +14,9 @@
 #' the animations for the sake of reproducibility (specified by the option
 #' \code{ani.options('verbose')} -- if \code{TRUE}, the description, loaded
 #' packages, the code to produce the animation, as well as a part of
-#' \code{\link[utils]{sessionInfo}()} will be written in the bottom of the
-#' animation; the R code will be highlighted using the SyntaxHighlighter library
-#' for better reading experience).
+#' \code{\link{sessionInfo}()} will be written in the bottom of the animation;
+#' the R code will be highlighted using the SyntaxHighlighter library for better
+#' reading experience).
 #'
 #' @param expr an R expression to be evaluated to create a sequence of images
 #' @param img.name the filename of the images (the real output will be like
