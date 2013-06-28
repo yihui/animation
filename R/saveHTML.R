@@ -44,6 +44,9 @@
 #'   \verb{'controls': ['first', 'previous', 'play', 'next', 'last', 'loop', 'speed']}
 #'
 #'   see the reference for a complete list of available options
+#' @param navigator whether to show the navigator (like a progress bar); by
+#'   default, the navigator is not shown for performance reasons when the number
+#'   of images is greater than 100 or the time interval is smaller than 0.05
 #' @param ... other arguments to be passed to \code{\link{ani.options}} to
 #'   animation options such as the time interval between image frames
 #' @return the path of the output
@@ -71,7 +74,10 @@
 #' @family utilities
 #' @export
 #' @example inst/examples/saveHTML-ex.R
-saveHTML = function(expr, img.name = 'Rplot', global.opts = '', single.opts = '', ...) {
+saveHTML = function(
+  expr, img.name = 'Rplot', global.opts = '', single.opts = '',
+  navigator = ani.options('nmax') <= 100 && ani.options('interval') >= 0.05, ...
+) {
   oopt = ani.options(...)
 
   ## replace special chars first: http://api.jquery.com/category/selectors/
@@ -159,6 +165,7 @@ saveHTML = function(expr, img.name = 'Rplot', global.opts = '', single.opts = ''
   js.temp = paste(js.temp, collapse = '\n')
   imglen = length(list.files(imgdir, pattern = paste(img.name, '[0-9]+\\.', ani.type, sep = '')))
   imglist = file.path(ani.options('imgdir'), sprintf(paste(img.name, '%d.', ani.type, sep = ''), seq_len(imglen)))
+  if (!navigator) single.opts = remove_navigator(single.opts)
   js.temp = sprintf(js.temp, global.opts, img.name0,
                     paste(shQuote(imglist, 'sh'), collapse = ', '),
                     ani.options('ani.width'),
@@ -175,4 +182,10 @@ saveHTML = function(expr, img.name = 'Rplot', global.opts = '', single.opts = ''
   ani.options(oopt)
   message('HTML file created at: ', htmlfile)
   invisible(htmlfile)
+}
+
+remove_navigator = function(x) {
+  if (!nzchar(x))
+    return("'controls': ['first', 'previous', 'play', 'next', 'last', 'loop', 'speed']")
+  sub(",\\s*(['\"])navigator\\1\\s*|\\s*(['\"])navigator\\1\\s*,", '', x)
 }
