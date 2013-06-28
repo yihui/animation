@@ -106,7 +106,7 @@ saveHTML = function(expr, img.name = 'Rplot', global.opts = '', single.opts = ''
   ani.type = ani.options('ani.type')
   ani.dev = ani.options('ani.dev')
   if (is.character(ani.dev)) ani.dev = get(ani.dev)
-  imgdir = file.path(ani.options('outdir'), ani.options('imgdir'))
+  imgdir = ani.options('imgdir')
   dir.create(imgdir, showWarnings = FALSE, recursive = TRUE)
 
   img.fmt = file.path(imgdir, paste(img.name, '%d', '.', ani.type, sep = ''))
@@ -117,7 +117,7 @@ saveHTML = function(expr, img.name = 'Rplot', global.opts = '', single.opts = ''
   eval(expr)
   if (use.dev) dev.off()
 
-  htmlfile = file.path(ani.options('outdir'), ani.options('htmlfile'))
+  htmlfile = ani.options('htmlfile')
   file.copy(system.file('misc', 'scianimator', c('js', 'css'),
                         package = 'animation'), dirname(htmlfile),
             recursive = TRUE)
@@ -174,7 +174,5 @@ saveHTML = function(expr, img.name = 'Rplot', global.opts = '', single.opts = ''
     browseURL(paste('file:///', normalizePath(htmlfile), sep = ''))
   ani.options(oopt)
   message('HTML file created at: ', htmlfile)
-  if (normalizePath(dirname(htmlfile)) != getwd())
-    message('You may use ani.options(outdir = getwd()) or saveHTML(..., outdir = getwd()) to generate files under the current working directory.')
   invisible(htmlfile)
 }
