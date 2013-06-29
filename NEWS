@@ -22,6 +22,10 @@ MAJOR CHANGES
   was only used in saveHTML() and g.brownian.motion(), and is not a general
   enough option
 
+  o the 'clean' argument in saveVideo() was removed: images will be created
+  in the temporary directory, and will not be explicitly cleaned (R will
+  clean them then it quits)
+
 		  CHANGES IN animation VERSION 2.2
 
 MINOR CHANGES

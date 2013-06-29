@@ -20,7 +20,6 @@
 #'   path of FFmpeg can be pre-specified in \code{\link{ani.options}('ffmpeg')}
 #' @param other.opts other options to be passed to \code{ffmpeg}, e.g. we can
 #'   specify the bitrate as \code{other.opts = "-b 400k"}
-#' @param clean whether to remove the sequence of images after conversion
 #' @param ... other arguments to be passed to \code{\link{ani.options}}
 #' @return An integer indicating failure (-1) or success (0) of the converting
 #'   (refer to \code{\link[base]{system}}).
@@ -35,7 +34,7 @@
 #' @export
 #' @example inst/examples/saveVideo-ex.R
 saveVideo = function(expr, video.name = 'animation.mp4', img.name = 'Rplot',
-                     ffmpeg = 'ffmpeg', other.opts = '', clean = FALSE, ...) {
+                     ffmpeg = 'ffmpeg', other.opts = '', ...) {
   oopt = ani.options(...)
   on.exit(ani.options(oopt))
   outdir = ani.options('outdir')
@@ -62,6 +61,7 @@ saveVideo = function(expr, video.name = 'animation.mp4', img.name = 'Rplot',
   if (is.character(ani.dev)) ani.dev = get(ani.dev)
 
   num = ifelse(file.ext == 'pdf', '', '%d')
+  unlink(paste(img.name, '*.', file.ext, sep = ''))
   img.fmt = paste(img.name, num, ".", file.ext, sep = "")
   img.fmt = file.path(tempdir(), img.fmt)
   ani.options(img.fmt = img.fmt)
@@ -78,9 +78,6 @@ saveVideo = function(expr, video.name = 'animation.mp4', img.name = 'Rplot',
   message("Executing: ", ffmpeg)
   cmd = system(ffmpeg, ignore.stdout = .ani.env$check, ignore.stderr = .ani.env$check)
 
-  if (clean) {
-    unlink(file.path(tempdir(), paste(img.name, "*.", file.ext, sep = "")))
-  }
   if (cmd == 0) {
     message("\n\nVideo has been created at: ",
             output.path <- normalizePath(file.path(outdir, video.name)))
