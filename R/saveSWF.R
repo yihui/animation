@@ -43,8 +43,7 @@ saveSWF = function(expr, swf.name = "animation.swf", img.name = "Rplot",
                    swftools = NULL, ...) {
   oopt = ani.options(...)
   on.exit(ani.options(oopt))
-  outdir = ani.options('outdir')
-  owd = setwd(outdir)
+  owd = setwd(tempdir())
   on.exit(setwd(owd), add = TRUE)
 
   ani.dev = ani.options('ani.dev')
@@ -60,14 +59,12 @@ saveSWF = function(expr, swf.name = "animation.swf", img.name = "Rplot",
   img.fmt = paste(img.name, num, ".", file.ext, sep = "")
   img.fmt = file.path(tempdir(), img.fmt)
   ## remove existing image files first
-  unlink(file.path(tempdir(), paste(img.name, '*.', file.ext, sep = '')))
+  unlink(paste(img.name, '*.', file.ext, sep = ''))
   ani.options(img.fmt = img.fmt)
   if ((use.dev <- ani.options('use.dev')))
     ani.dev(img.fmt, width = ani.options('ani.width'),
             height = ani.options('ani.height'))
-  owd1 = setwd(owd)
-  eval(expr)
-  setwd(owd1)
+  in_dir(owd, expr)
   if (use.dev) dev.off()
 
   ## compress PDF files
@@ -104,9 +101,9 @@ saveSWF = function(expr, swf.name = "animation.swf", img.name = "Rplot",
     warning('The command ', tool, ' is not available. Please install: http://www.swftools.org')
     return()
   }
-  wildcard = paste(shQuote(list.files(tempdir(), paste(img.name, ".*\\.", file.ext, sep = ""),
+  wildcard = paste(shQuote(list.files('.', paste(img.name, ".*\\.", file.ext, sep = ""),
                                       full.names = TRUE)), collapse = ' ')
-  convert = paste(tool, wildcard, "-o", swf.name)
+  convert = paste(tool, wildcard, "-o", shQuote(basename(swf.name)))
   cmd = -1
   if (file.ext == "png" || file.ext == "jpeg") {
     convert = paste(convert, "-r", 1/interval)
@@ -118,8 +115,10 @@ saveSWF = function(expr, swf.name = "animation.swf", img.name = "Rplot",
     cmd = system(convert, ignore.stdout = .ani.env$check, ignore.stderr = .ani.env$check)
   }
   if (cmd == 0) {
+    setwd(owd)
+    file.rename(file.path(tempdir(), basename(swf.name)), swf.name)
     message("\n\nFlash has been created at: ",
-            output.path <- normalizePath(file.path(outdir, swf.name)))
+            output.path <- normalizePath(swf.name))
     if (ani.options('autobrowse')) {
       if (.Platform$OS.type == 'windows')
         try(shell.exec(output.path)) else if (Sys.info()["sysname"] == "Darwin")
