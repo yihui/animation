@@ -37,8 +37,7 @@ saveVideo = function(expr, video.name = 'animation.mp4', img.name = 'Rplot',
                      ffmpeg = 'ffmpeg', other.opts = '', ...) {
   oopt = ani.options(...)
   on.exit(ani.options(oopt))
-  outdir = ani.options('outdir')
-  owd = setwd(outdir)
+  owd = setwd(tempdir())
   on.exit(setwd(owd), add = TRUE)
 
   if (!is.null(ani.options('ffmpeg'))) {
@@ -68,19 +67,20 @@ saveVideo = function(expr, video.name = 'animation.mp4', img.name = 'Rplot',
   if ((use.dev <- ani.options('use.dev')))
     ani.dev(img.fmt, width = ani.options('ani.width'),
             height = ani.options('ani.height'))
-  owd1 = setwd(owd)
-  eval(expr)
-  setwd(owd1)
+  in_dir(owd, expr)
   if (use.dev) dev.off()
 
   ## call FFmpeg
-  ffmpeg = paste(ffmpeg, "-y", "-r", 1/ani.options('interval'), "-i", img.fmt, other.opts, video.name)
+  ffmpeg = paste(ffmpeg, "-y", "-r", 1/ani.options('interval'), "-i",
+                 basename(img.fmt), other.opts, basename(video.name))
   message("Executing: ", ffmpeg)
   cmd = system(ffmpeg, ignore.stdout = .ani.env$check, ignore.stderr = .ani.env$check)
 
   if (cmd == 0) {
+    setwd(owd)
+    file.rename(file.path(tempdir(), basename(video.name)), video.name)
     message("\n\nVideo has been created at: ",
-            output.path <- normalizePath(file.path(outdir, video.name)))
+            output.path <- normalizePath(video.name))
     if (ani.options('autobrowse')) {
       if (.Platform$OS.type == 'windows')
         try(shell.exec(output.path)) else if (Sys.info()["sysname"] == "Darwin")
