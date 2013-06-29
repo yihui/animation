@@ -74,6 +74,7 @@ ani.record = function(reset = FALSE, replay.cur = FALSE) {
 #' @rdname ani.record
 #' @param list a list of recorded plots; if missing, the recorded
 #' plots by \code{\link{ani.record}} will be used
+#' @export
 ani.replay = function(list) {
     if (missing(list)) list = .ani.env$.images
     lapply(list, function(x) {
