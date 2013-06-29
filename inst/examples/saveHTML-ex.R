@@ -44,8 +44,7 @@ saveHTML({
 
 
 
-## we may feel that the navigation panel is too wide, so let's remove it in this example; the default value of 'controls' is: ['first', 'previous', 'play', 'next', 'last', 'navigator', 'loop', 'speed'], among which we need to remove 'navigator'
-sopts = paste("'controls': ['first', 'previous', 'play', 'next', 'last',", " 'loop', 'speed'],", "'delayMin': 0")
+## remove the 'navigator' (progress bar)
 saveHTML({
     par(mar = c(3, 3, 1, 0.5), mgp = c(2, 0.5, 0), tcl = -0.3,
         cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)
@@ -53,7 +52,7 @@ saveHTML({
     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")
 }, img.name = 'brownian_motion_b',
          htmlfile = 'index.html',
-         single.opts = sopts,
+         navigator = FALSE,
          description = c('Random walk of 10 points on the 2D plane', '(without the navigation panel)'))
 
 
