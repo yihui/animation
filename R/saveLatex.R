@@ -39,9 +39,8 @@
 #' @param pdflatex the command for pdfLaTeX (set to \code{NULL} to ignore the
 #'   compiling)
 #' @param install.animate copy the LaTeX style files \file{animate.sty} and
-#'   \file{animfp.sty} to \code{ani.options('outdir')}? If you have not
-#'   installed the LaTeX package \code{animate}, it suffices just to copy these
-#'   to files.
+#'   \file{animfp.sty}? If you have not installed the LaTeX package
+#'   \code{animate}, it suffices just to copy these to files.
 #' @param overwrite whether to overwrite the existing image frames
 #' @param full.path whether to use the full path (\code{TRUE}) or relative path
 #'   (\code{FALSE}) for the animation frames; usually the relative path
@@ -89,7 +88,6 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
   oopt = ani.options(...)
   if (!missing(nmax)) ani.options(nmax = nmax)
   on.exit(ani.options(oopt))
-  outdir = ani.options('outdir')
   file.ext = ani.options('ani.type')
   use.dev = ani.options('use.dev')
   ## detect if I'm in a Sweave environment
@@ -101,9 +99,7 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
         if (all(c('prefix.string', 'label') %in% names(chunkopts))) {
           ## yes, I'm in Sweave w.p. 95%
           img.name = paste(chunkopts$prefix.string, chunkopts$label, sep = '-')
-          ani.options(img.fmt = file.path(outdir, paste(img.name, '%d.',
-                                                        file.ext, sep = '')))
-          ## outdir = '.'
+          ani.options(img.fmt = paste(img.name, '%d.', file.ext, sep = ''))
           in.sweave = TRUE
           break
         }
@@ -113,11 +109,9 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
 
   interval = ani.options('interval')
   ## generate the image frames
-  owd = setwd(outdir)
-  on.exit(setwd(owd), add = TRUE)
   ani.dev = ani.options('ani.dev')
   num = ifelse(file.ext == "pdf" && use.dev, "", "%d")
-  img.fmt = file.path(outdir, sprintf("%s%s.%s", img.name, num, file.ext))
+  img.fmt = sprintf("%s%s.%s", img.name, num, file.ext)
   if (!in.sweave)
     ani.options(img.fmt = img.fmt)
   if (is.character(ani.dev))
@@ -128,9 +122,7 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
     if (use.dev)
       ani.dev(img.fmt,
               width = ani.options('ani.width'), height = ani.options('ani.height'))
-    owd1 = setwd(owd)
-    eval(expr)
-    setwd(owd1)
+    expr
     if (use.dev) dev.off()
     ## compress PDF files
     if (file.ext == 'pdf' &&
@@ -182,7 +174,7 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
                 ifelse(centering, '\\begin{center}', ''),
                 ani.opts,
                 1/interval,
-                ifelse(full.path, gsub('\\\\', '/', normalizePath(file.path(outdir, img.name))), img.name),
+                ifelse(full.path, gsub('\\\\', '/', normalizePath(img.name)), img.name),
                 start.num, end.num,
                 ifelse(is.null(caption), "", sprintf("\\caption{%s}", caption)),
                 ifelse(is.null(label), "", sprintf("\\label{%s}", label)),
@@ -215,7 +207,7 @@ saveLatex = function(expr, nmax, img.name = "Rplot", ani.opts,
                 ", ifelse(centering, '\\begin{center}', ''),
                     ani.opts,
                 1/interval,
-                ifelse(full.path, gsub('\\\\', '/', normalizePath(file.path(outdir, img.name))), img.name),
+                ifelse(full.path, gsub('\\\\', '/', normalizePath(img.name)), img.name),
                 start.num, end.num,
                 ifelse(centering, '\\end{center}', '')))
   }
