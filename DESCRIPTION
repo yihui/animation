@@ -23,7 +23,7 @@ Depends:
     R (>= 2.14.0)
 Imports:
     MASS
-License: GPL-2 | GPL-3
+License: GPL
 URL: http://yihui.name/animation
 BugReports: https://github.com/yihui/animation/issues
 LazyData: yes
