@@ -1,8 +1,7 @@
 \name{im.convert}
 \alias{gm.convert}
 \alias{im.convert}
-\title{A wrapper for the `convert' utility of ImageMagick or
-GraphicsMagick}
+\title{A wrapper for the `convert' utility of ImageMagick or GraphicsMagick}
 \usage{
 im.convert(files, output = "animation.gif", convert = c("convert", "gm convert"), 
     cmd.fun = system, extra.opts = "", clean = FALSE)
@@ -15,7 +14,7 @@ gm.convert(..., convert = "gm convert")
   \file{Rplot*.png})}
 
   \item{output}{the file name of the output (with proper
-  extensions, e.g. \code{gif})}
+  extensions, e.g.  \code{gif})}
 
   \item{convert}{the \command{convert} command; it must be
   either \code{'convert'} or \code{'gm convert'}; and it
@@ -27,7 +26,7 @@ gm.convert(..., convert = "gm convert")
   see the Note section for more details}
 
   \item{cmd.fun}{a function to invoke the OS command; by
-  default \code{\link[base]{system}}}
+  default \code{\link{system}}}
 
   \item{extra.opts}{additional options to be passed to
   \command{convert} (or \command{gm convert})}
@@ -137,7 +136,6 @@ setwd(owd)
 \references{
   ImageMagick:
   \url{http://www.imagemagick.org/script/convert.php}
-
   GraphicsMagick: \url{http://www.graphicsmagick.org}
 }
 \seealso{

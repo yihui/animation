@@ -11,18 +11,18 @@ saveSWF(expr, swf.name = "animation.swf", img.name = "Rplot", swftools = NULL, .
   expression (e.g. \code{for(i in 1:10) plot(runif(10),
   ylim = 0:1)}).}
 
-  \item{img.name}{file name of the sequence of images
-  (`pure' name; without any format or extension)}
+  \item{img.name}{the base file name of the sequence of
+  images (without any format or extension)}
 
   \item{swf.name}{file name of the Flash file}
 
-  \item{swftools}{the path of `SWF Tools', e.g.
+  \item{swftools}{the path of SWFTools, e.g.
   \file{C:/swftools}. This argument is to make sure that
   \code{png2swf}, \code{jpeg2swf} and \code{pdf2swf} can be
   executed correctly. If it is \code{NULL}, it should be
   guaranteed that these commands can be executed without
-  the path; anyway, this function will try to find SWF
-  Tools from Windows registry even if it is not in the PATH
+  the path; anyway, this function will try to find SWFTools
+  from Windows registry even if it is not in the PATH
   variable.}
 
   \item{...}{other arguments passed to
@@ -31,17 +31,17 @@ saveSWF(expr, swf.name = "animation.swf", img.name = "Rplot", swftools = NULL, .
 }
 \value{
   An integer indicating failure (-1) or success (0) of the
-  converting (refer to \code{\link[base]{system}}).
+  converting (refer to \code{\link{system}}).
 }
 \description{
   This function opens a graphical device first to generate
   a sequence of images based on \code{expr}, then makes use
-  of the commands in `SWF Tools' (\command{png2swf},
+  of the commands in SWFTools (\command{png2swf},
   \command{jpeg2swf}, \command{pdf2swf}) to convert these
   images to a single Flash animation.
 }
 \note{
-  Please download and install the SWF Tools before using
+  Please download and install the SWFTools before using
   this function: \url{http://www.swftools.org}
 
   We can also set the path to SWF Tools by
@@ -74,9 +74,6 @@ saveSWF({
 }
 \author{
   Yihui Xie <\url{http://yihui.name}>
-}
-\references{
-  \url{http://animation.yihui.name/animation:start#create_flash_animations}
 }
 \seealso{
   Other utilities: \code{\link{gm.convert}},

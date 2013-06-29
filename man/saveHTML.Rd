@@ -2,7 +2,9 @@
 \alias{saveHTML}
 \title{Insert animations into an HTML page}
 \usage{
-saveHTML(expr, img.name = "Rplot", global.opts = "", single.opts = "", ...)
+saveHTML(expr, img.name = "Rplot", global.opts = "", single.opts = "", 
+    navigator = ani.options("nmax") <= 100 && ani.options("interval") >= 
+        0.05, htmlfile = "index.html", ...)
 }
 \arguments{
   \item{expr}{an R expression to be evaluated to create a
@@ -42,12 +44,19 @@ saveHTML(expr, img.name = "Rplot", global.opts = "", single.opts = "", ...)
   see the reference for a complete list of available
   options}
 
+  \item{navigator}{whether to show the navigator (like a
+  progress bar); by default, the navigator is not shown for
+  performance reasons when the number of images is greater
+  than 100 or the time interval is smaller than 0.05}
+
+  \item{htmlfile}{the filename of the HTML file}
+
   \item{...}{other arguments to be passed to
   \code{\link{ani.options}} to animation options such as
   the time interval between image frames}
 }
 \value{
-  the path of the output
+  The path of the HTML output.
 }
 \description{
   This function first records all the plots in the R
@@ -56,16 +65,11 @@ saveHTML(expr, img.name = "Rplot", global.opts = "", single.opts = "", ...)
   SciAnimator library.
 }
 \details{
-  This is a much better version than
-  \code{\link{ani.start}} and \code{\link{ani.stop}}, and
-  all users are encouraged to try this function when
-  creating HTML animation pages. It mainly uses the
-  SciAnimator library, which is based on jQuery. It has a
-  neat interface (both technically and visually) and is
-  much easier to use or extend. Moreover, this function
-  allows multiple animations in a single HTML page -- just
-  use the same filename for the HTML page (specified in
-  \code{ani.options('htmlfile')}).
+  It mainly uses the SciAnimator library, which is based on
+  jQuery. It has a neat interface (both technically and
+  visually) and is much easier to use or extend. Moreover,
+  this function allows multiple animations in a single HTML
+  page -- just use the same HTML filename.
 
   Optionally the source code and some session information
   can be added below the animations for the sake of
@@ -73,9 +77,9 @@ saveHTML(expr, img.name = "Rplot", global.opts = "", single.opts = "", ...)
   \code{ani.options('verbose')} -- if \code{TRUE}, the
   description, loaded packages, the code to produce the
   animation, as well as a part of
-  \code{\link[utils]{sessionInfo}()} will be written in the
-  bottom of the animation; the R code will be highlighted
-  using the SyntaxHighlighter library for better reading
+  \code{\link{sessionInfo}()} will be written in the bottom
+  of the animation; the R code will be highlighted using
+  the SyntaxHighlighter library for better reading
   experience).
 }
 \note{
@@ -138,9 +142,9 @@ saveHTML({
 
 
 
-## use the function brownian.motion() in this package; note
-## this page is created in 'index.html' under
-## ani.options('outdir')
+## use the function brownian.motion() in this package; this
+## page is created in 'index.html' under the current working
+## directory
 des = c("Random walk of 10 points on the 2D plane:", "for each point (x, y),", 
     "x = x + rnorm(1) and y = y + rnorm(1).")
 saveHTML({
@@ -153,20 +157,14 @@ saveHTML({
 
 
 
-## we may feel that the navigation panel is too wide, so let's
-## remove it in this example; the default value of 'controls'
-## is: ['first', 'previous', 'play', 'next', 'last',
-## 'navigator', 'loop', 'speed'], among which we need to
-## remove 'navigator'
-sopts = paste("'controls': ['first', 'previous', 'play', 'next', 'last',", 
-    " 'loop', 'speed'],", "'delayMin': 0")
+## remove the 'navigator' (progress bar)
 saveHTML({
     par(mar = c(3, 3, 1, 0.5), mgp = c(2, 0.5, 0), tcl = -0.3, cex.axis = 0.8, 
         cex.lab = 0.8, cex.main = 1)
     ani.options(interval = 0.05, nmax = ifelse(interactive(), 150, 
         2))
     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")
-}, img.name = "brownian_motion_b", htmlfile = "index.html", single.opts = sopts, 
+}, img.name = "brownian_motion_b", htmlfile = "index.html", navigator = FALSE, 
     description = c("Random walk of 10 points on the 2D plane", 
         "(without the navigation panel)"))
 

@@ -53,10 +53,9 @@ saveLatex(expr, nmax, img.name = "Rplot", ani.opts, centering = TRUE,
   \code{NULL} to ignore the compiling)}
 
   \item{install.animate}{copy the LaTeX style files
-  \file{animate.sty} and \file{animfp.sty} to
-  \code{ani.options('outdir')}? If you have not installed
-  the LaTeX package \code{animate}, it suffices just to
-  copy these to files.}
+  \file{animate.sty} and \file{animfp.sty}? If you have not
+  installed the LaTeX package \code{animate}, it suffices
+  just to copy these to files.}
 
   \item{overwrite}{whether to overwrite the existing image
   frames}

@@ -3,7 +3,7 @@
 \title{Convert a sequence of images to a video by FFmpeg}
 \usage{
 saveVideo(expr, video.name = "animation.mp4", img.name = "Rplot", ffmpeg = "ffmpeg", 
-    other.opts = "", clean = FALSE, ...)
+    other.opts = "", ...)
 }
 \arguments{
   \item{expr}{the R code to draw (several) plots}
@@ -22,9 +22,6 @@ saveVideo(expr, video.name = "animation.mp4", img.name = "Rplot", ffmpeg = "ffmp
   \item{other.opts}{other options to be passed to
   \code{ffmpeg}, e.g. we can specify the bitrate as
   \code{other.opts = "-b 400k"}}
-
-  \item{clean}{whether to remove the sequence of images
-  after conversion}
 
   \item{...}{other arguments to be passed to
   \code{\link{ani.options}}}

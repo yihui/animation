@@ -219,9 +219,6 @@ oopt = ani.options(ani.dev = "pdf", ani.type = "pdf", ani.height = 5,
 ## ani.options(ani.dev = CairoPDF, ani.type = 'pdf',
 ## ani.height = 6, ani.width = 6) }
 
-## change outdir to the current working directory
-ani.options(outdir = getwd())
-
 ## don't loop for GIF/HTML animations
 ani.options(loop = FALSE)
 
