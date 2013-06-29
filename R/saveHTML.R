@@ -7,8 +7,7 @@
 #' It mainly uses the SciAnimator library, which is based on jQuery. It has a
 #' neat interface (both technically and visually) and is much easier to use or
 #' extend. Moreover, this function allows multiple animations in a single HTML
-#' page -- just use the same filename for the HTML page (specified in
-#' \code{ani.options('htmlfile')}).
+#' page -- just use the same HTML filename.
 #'
 #' Optionally the source code and some session information can be added below
 #' the animations for the sake of reproducibility (specified by the option
@@ -47,9 +46,10 @@
 #' @param navigator whether to show the navigator (like a progress bar); by
 #'   default, the navigator is not shown for performance reasons when the number
 #'   of images is greater than 100 or the time interval is smaller than 0.05
+#' @param htmlfile the filename of the HTML file
 #' @param ... other arguments to be passed to \code{\link{ani.options}} to
 #'   animation options such as the time interval between image frames
-#' @return the path of the output
+#' @return The path of the HTML output.
 #' @note Microsoft IE might restrict the HTML page from running JavaScript and
 #'   try to ``protect your security'' when you view the animation page, but this
 #'   is not really a security problem.
@@ -76,7 +76,8 @@
 #' @example inst/examples/saveHTML-ex.R
 saveHTML = function(
   expr, img.name = 'Rplot', global.opts = '', single.opts = '',
-  navigator = ani.options('nmax') <= 100 && ani.options('interval') >= 0.05, ...
+  navigator = ani.options('nmax') <= 100 && ani.options('interval') >= 0.05,
+  htmlfile = 'index.html', ...
 ) {
   oopt = ani.options(...)
 
@@ -123,7 +124,6 @@ saveHTML = function(
   eval(expr)
   if (use.dev) dev.off()
 
-  htmlfile = ani.options('htmlfile')
   file.copy(system.file('misc', 'scianimator', c('js', 'css'),
                         package = 'animation'), dirname(htmlfile),
             recursive = TRUE)
