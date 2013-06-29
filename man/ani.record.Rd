@@ -25,10 +25,9 @@ ani.replay(list)
   Invisible \code{NULL}.
 }
 \description{
-  These two functions use
-  \code{\link[grDevices]{recordPlot}} and
-  \code{\link[grDevices]{replayPlot}} to record image
-  frames and replay the animation respectively.
+  These two functions use \code{\link{recordPlot}} and
+  \code{\link{replayPlot}} to record image frames and
+  replay the animation respectively.
 
   Replay the animation
 }
@@ -38,9 +37,9 @@ ani.replay(list)
   low-level plotting commands as \emph{new} image files --
   only high-level plotting commands can produce new image
   files; \code{\link{ani.record}} uses
-  \code{\link[grDevices]{recordPlot}} to record the plots
-  when any changes are made on the current plot. For a
-  graphical device to be recordable, you have to call
+  \code{\link{recordPlot}} to record the plots when any
+  changes are made on the current plot. For a graphical
+  device to be recordable, you have to call
   \code{dev.control('enable')} before plotting.
 
   \code{\link{ani.replay}} can replay the recorded plots as
@@ -67,15 +66,15 @@ ani.replay(list)
   which will be automatically recorded by off-screen
   grapihcs devices as \emph{new} image files. This method
   has a limitation: we must open a screen device to assist
-  R to record the plots. See the last example below. We
+  R to record the plots.  See the last example below. We
   must be very careful that no other graphics devices are
   opened before we use this function.
 
   If we use base graphics, we should bear in mind that the
   background colors of the plots might be transparent,
   which could lead to problems in HTML animation pages when
-  we use the \code{\link[grDevices]{png}} device (see the
-  examples below).
+  we use the \code{\link{png}} device (see the examples
+  below).
 }
 \examples{
 library(animation)
@@ -119,7 +118,6 @@ ani.options(oopts)
   Yihui Xie <\url{http://yihui.name}>
 }
 \seealso{
-  \code{\link[grDevices]{recordPlot}} and
-  \code{\link[grDevices]{replayPlot}};
+  \code{\link{recordPlot}} and \code{\link{replayPlot}};
   \code{\link{ani.pause}}
 }
