@@ -28,19 +28,10 @@
 #' \url{http://yihui.name/en/2008/11/brownian-motion-using-google-visualization-api-and-r/}
 #' @export
 #' @examples
-#'
-#' oopt = ani.options(htmlfile = 'BM-motion-chart.html')
-#'
-#' g.brownian.motion(15, digits = 2, width = 600, height = 500)
-#'
-#' unlink(file.path(ani.options('outdir'), ani.options('htmlfile')))
-#'
-#' ani.options(oopt)
-#'
-g.brownian.motion = function(p = 20, start = 1900,
-    digits = 14, file = file.path(ani.options('outdir'),
-                 ani.options('htmlfile')), width = 800,
-    height = 600) {
+#' g.brownian.motion(15, digits = 2, width = 600, height = 500, file = 'BM-motion-chart.html')
+g.brownian.motion = function(
+  p = 20, start = 1900, digits = 14, file = 'index.html', width = 800, height = 600
+) {
     n = ani.options("nmax")
     x = round(c(t(apply(matrix(rnorm(p * n), p, n), 1, cumsum))),
         digits)

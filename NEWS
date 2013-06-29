@@ -18,6 +18,10 @@ MAJOR CHANGES
   default; now all files are written relative to the current working
   directory (#31)
 
+  o the animation option 'htmlfile' in ani.options() was removed, because it
+  was only used in saveHTML() and g.brownian.motion(), and is not a general
+  enough option
+
 		  CHANGES IN animation VERSION 2.2
 
 MINOR CHANGES
