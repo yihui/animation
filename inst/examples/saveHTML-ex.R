@@ -32,7 +32,7 @@ saveHTML({
 
 
 
-## use the function brownian.motion() in this package; note this page is created in 'index.html' under ani.options('outdir')
+## use the function brownian.motion() in this package; this page is created in 'index.html' under the current working directory
 des=c('Random walk of 10 points on the 2D plane:', 'for each point (x, y),', 'x = x + rnorm(1) and y = y + rnorm(1).')
 saveHTML({
     par(mar = c(3, 3, 1, 0.5), mgp = c(2, 0.5, 0), tcl = -0.3,
