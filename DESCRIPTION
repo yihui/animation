@@ -23,6 +23,8 @@ Depends:
     R (>= 2.14.0)
 Imports:
     MASS
+Suggests:
+    testit
 License: GPL
 URL: http://yihui.name/animation
 BugReports: https://github.com/yihui/animation/issues
