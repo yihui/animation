@@ -93,8 +93,7 @@ saveSWF = function(expr, swf.name = "animation.swf", img.name = "Rplot",
     }
   }
   tool = shQuote(tool)
-  version = try(system(paste(tool, '--version'), intern = TRUE,
-                       ignore.stdout = .ani.env$check, ignore.stderr = .ani.env$check))
+  version = try(system(paste(tool, '--version'), intern = TRUE))
   if (inherits(version, 'try-error') || !length(grep('swftools', version))) {
     warning('The command ', tool, ' is not available. Please install: http://www.swftools.org')
     return()
@@ -106,11 +105,11 @@ saveSWF = function(expr, swf.name = "animation.swf", img.name = "Rplot",
   if (file.ext == "png" || file.ext == "jpeg") {
     convert = paste(convert, "-r", 1/interval)
     message("Executing: ", convert)
-    cmd = system(convert, ignore.stdout = .ani.env$check, ignore.stderr = .ani.env$check)
+    cmd = system(convert)
   } else {
     convert = paste(convert, " -s framerate=", 1/interval, sep = "")
     message("Executing: ", convert)
-    cmd = system(convert, ignore.stdout = .ani.env$check, ignore.stderr = .ani.env$check)
+    cmd = system(convert)
   }
   if (cmd == 0) {
     setwd(owd)
