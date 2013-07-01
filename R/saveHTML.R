@@ -164,6 +164,7 @@ saveHTML = function(
   if (!ani.options('autoplay')) js.temp = js.temp[-10]
   js.temp = paste(js.temp, collapse = '\n')
   imglen = length(list.files(imgdir, pattern = paste(img.name, '[0-9]+\\.', ani.type, sep = '')))
+  ani.options(nmax = imglen)
   imglist = file.path(ani.options('imgdir'), sprintf(paste(img.name, '%d.', ani.type, sep = ''), seq_len(imglen)))
   if (!navigator) single.opts = remove_navigator(single.opts)
   js.temp = sprintf(js.temp, global.opts, img.name0,
