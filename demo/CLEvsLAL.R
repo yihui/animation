@@ -2,7 +2,6 @@ library(animation)
 
 ## save the game to an HTML page
 saveHTML({
-    data(CLELAL09)
     n = nrow(CLELAL09)
 
     ## draw the basketball court

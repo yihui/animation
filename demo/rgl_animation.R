@@ -1,7 +1,6 @@
 ## how to use saveLatex() with the rgl package
 
 library(animation)
-data(pollen)
 
 if (require('rgl')) {
     saveLatex({
