@@ -22,13 +22,6 @@
 #' graphics devices, the units of these values might be different, e.g.
 #' PDF devices usually use inches, whereas bitmap devices often use pixels.}
 #'
-#' \item{outdir}{character: specify the output directory when we
-#' export the animations using \code{\link{saveHTML}},
-#' \code{\link{saveGIF}}, \code{\link{saveLatex}} and
-#' \code{\link{saveSWF}}; default to be the temporary directory
-#' \code{\link[base]{tempdir}} and we can reset to the current
-#' working directory by \code{ani.options(outdir = getwd())}.}
-#'
 #' \item{imgdir}{character: the name of the directory (a relative path) for
 #' images when creating HTML animation pages; default to be \code{"images"}.}
 #'
@@ -78,10 +71,6 @@
 #' using R graphics devices -- see \code{demo('flowers')} on how to
 #' download images from the Internet and create an HTML animation
 #' page!}
-#'
-#' \item{withprompt}{character: prompt to display while using
-#' \code{\link{ani.start}} (will be restored with
-#' \code{\link{ani.stop}})}
 #'
 #' }
 #'
