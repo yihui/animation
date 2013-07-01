@@ -73,9 +73,10 @@
 #'   GraphicsMagick: \url{http://www.graphicsmagick.org}
 #' @export
 #' @example inst/examples/im.convert-ex.R
-im.convert = function(files, output = "animation.gif", convert = c("convert",
-                                                       "gm convert"),
-                      cmd.fun = system, extra.opts = "", clean = FALSE) {
+im.convert = function(
+  files, output = "animation.gif", convert = c("convert", "gm convert"),
+  cmd.fun = system, extra.opts = "", clean = FALSE
+) {
     interval = head(ani.options('interval'), length(files))
     convert = match.arg(convert)
     if (convert == 'convert') {
@@ -177,6 +178,7 @@ im.convert = function(files, output = "animation.gif", convert = c("convert",
 #' command \command{gm convert} of GraphicsMagick.
 #' @rdname convert
 #' @param ... arguments to be passed to \code{\link{im.convert}}
+#' @export
 gm.convert = function(..., convert = "gm convert") {
     im.convert(..., convert = convert)
 }
