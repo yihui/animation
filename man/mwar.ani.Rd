@@ -51,7 +51,6 @@ par(mar = c(2, 3, 1, 0.5), mgp = c(1.5, 0.5, 0))
 mwar.ani(lty.rect = 3, pch = 21, col = "red", bg = "yellow", type = "o")
 
 ## for the data 'pageview'
-data(pageview)
 mwar.ani(pageview$visits, k = 30)
 
 ## HTML animation page

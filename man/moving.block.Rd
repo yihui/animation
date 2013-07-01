@@ -70,7 +70,6 @@ moving.block(dat = cumsum(rnorm(300)), FUN = function(..., dat = dat,
 ## (2) Word counts of Hu's speech (block = 10; length(HuSpeech) =
 ## 75) see any pattern in the President's speech?
 ani.options(nmax = ifelse(interactive(), 66, 2), interval = 0.5)
-data(HuSpeech)
 moving.block(dat = HuSpeech, FUN = function(..., dat = dat, i = i, block = block) {
     plot(..., x = i + 1:block, xlab = "paragraph index", ylim = range(dat), 
         ylab = sprintf("HuSpeech[\%s:\%s]", i + 1, i + block))
