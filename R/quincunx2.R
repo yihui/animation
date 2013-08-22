@@ -1,8 +1,8 @@
 #' Demonstration of the Quincunx (Bean Machine/Galton Box) 2
-#'
-#'
+#' 
 #' @param balls number of balls
-#' @param layers number of layers
+#' @param layers number of top layers (denoted by triangles), the bottom 
+#' layers number will be defined as layers - 1
 #' @param pch.layers point character of layers; triangles (\code{pch
 #' = 2}) are recommended
 #' @param pch.balls,col.balls,cex.balls point character, colors and
