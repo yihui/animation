@@ -76,7 +76,7 @@ quincunx2 = function(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, c
         tmp = rbinom(layers - 2, 1, 0.5) * 2 - 1
         tmp = ifelse(newballx[i, i] + cumsum(tmp) < rgx[2], tmp, -1)
         tmp = ifelse(newballx[i, i] + cumsum(tmp) > rgx[1], tmp, +1)
-        directx[i, i + 1:(layers - 2)] = tmp
+        newdirectx[i, i + 1:(layers - 2)] = tmp
         newballx[i, i + 1:(layers - 2)] = newballx[i, i] + cumsum(tmp) * 0.5
         newfinalx[i] = newballx[i, i + layers - 2]
     }
