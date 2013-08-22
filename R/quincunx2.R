@@ -1,8 +1,8 @@
 #' Demonstration of the Quincunx (Bean Machine/Galton Box) 2
-#'
-#'
+#' 
 #' @param balls number of balls
-#' @param layers number of layers
+#' @param layers number of top layers (denoted by triangles), the bottom 
+#' layers number will be defined as layers - 1
 #' @param pch.layers point character of layers; triangles (\code{pch
 #' = 2}) are recommended
 #' @param pch.balls,col.balls,cex.balls point character, colors and
@@ -42,8 +42,7 @@ quincunx2 = function(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, c
         layerx = c(layerx, seq(0.5 * (i + 1), layers - 0.5 * (i - 1), 1))
         layery = c(layery, rep(i, layers - i + 1))
         if (i > 1) {
-            newlayerx = c(newlayerx, seq(0.5 * (newi + 1), layers - 0.5 * (newi - 1), 
-                1))
+            newlayerx = c(newlayerx, seq(0.5 * (newi + 1), layers - 0.5 * (newi - 1), 1))
             newlayery = c(newlayery, rep(i, layers - newi + 1))
         }
     }
@@ -92,8 +91,8 @@ quincunx2 = function(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, c
         if (i < layers - 1) {
             plot.new()
         } else {
-            hist(finalx[1:(i - layers + 2)], breaks = 1:layers, xlim = rgx, ylim = rgy, 
-                main = "", xlab = "", ylab = "", ann = FALSE, axes = FALSE)
+            hist(finalx[1:(i - layers + 2)], breaks = 1:layers, xlim = rgx, ylim = rgy, main = "", xlab = "", 
+                ylab = "", ann = FALSE, axes = FALSE)
             
         }
         
@@ -101,14 +100,13 @@ quincunx2 = function(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, c
             newi = i - layers + 1
             plot(1:layers, type = "n", ann = FALSE, axes = FALSE)
             points(newlayerx, newlayery, pch = pch.layers)
-            points(newballx[, newi], bally[, newi] + 1, pch = pch.balls, col = col.balls, 
-                cex = cex.balls)
+            points(newballx[, newi], bally[, newi] + 1, pch = pch.balls, col = col.balls, cex = cex.balls)
             par(bty = "u")
             if (newi < layers - 1) {
                 plot.new()
             } else {
-                hist(newfinalx[1:(newi - layers + 2)], breaks = 1:layers, xlim = rgx, 
-                  ylim = rgy, main = "", xlab = "", ylab = "", ann = FALSE, axes = FALSE)
+                hist(newfinalx[1:(newi - layers + 2)], breaks = 1:layers, xlim = rgx, ylim = rgy, main = "", 
+                  xlab = "", ylab = "", ann = FALSE, axes = FALSE)
                 
             }
             
