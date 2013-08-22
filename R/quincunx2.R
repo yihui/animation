@@ -1,8 +1,8 @@
 #' Demonstration of the Quincunx (Bean Machine/Galton Box) 2
-#' 
+#'
+#'
 #' @param balls number of balls
-#' @param layers number of top layers (denoted by triangles), the bottom 
-#' layers number will be defined as layers - 1
+#' @param layers number of layers
 #' @param pch.layers point character of layers; triangles (\code{pch
 #' = 2}) are recommended
 #' @param pch.balls,col.balls,cex.balls point character, colors and
@@ -15,8 +15,8 @@
 #' recommended that \code{ani.options(nmax = balls + layers -2)}, in
 #' which case all the balls will just fall through all the layers and
 #' there will be no redundant animation frames.
-#' @author
-#' @seealso
+#' @author Keith O’Rourke
+#' @seealso \code{\link[stats:Binomial]{rbinom}}
 #' @references \url{http://en.wikipedia.org/wiki/Bean_machine}
 #'
 #' \url{http://animation.yihui.name/prob:bean_machine}
