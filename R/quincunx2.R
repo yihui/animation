@@ -1,27 +1,9 @@
 #' Demonstration of the Quincunx (Bean Machine/Galton Box) 2
-#' 
-#' @param balls number of balls
-#' @param layers number of top layers (denoted by triangles), the bottom 
-#' layers number will be defined as layers - 1
-#' @param pch.layers point character of layers; triangles (\code{pch
-#' = 2}) are recommended
-#' @param pch.balls,col.balls,cex.balls point character, colors and
-#' magnification of balls
-#' @return A named vector: the frequency table for the locations of
-#' the balls.  Note the names of the vector are the locations: 1.5,
-#' 2.5, ..., layers - 0.5.
-#' @note The maximum number of animation frames is controlled by
-#' \code{ani.options('nmax')} as usual, but it is strongly
-#' recommended that \code{ani.options(nmax = balls + layers -2)}, in
-#' which case all the balls will just fall through all the layers and
-#' there will be no redundant animation frames.
-#' @author Keith O’Rourke
-#' @seealso \code{\link[stats:Binomial]{rbinom}}
-#' @references \url{http://en.wikipedia.org/wiki/Bean_machine}
+#' @rdname quincunx
+#' @author Keith O'Rourke
 #'
-#' \url{http://animation.yihui.name/prob:bean_machine}
-#' @keywords dynamic distribution
-#' @example inst/examples/
+#' \url{http://vis.supstat.com/2013/04/bean-machine/}
+#' @example inst/examples/quincunx2-ex.R
 #'
 
 quincunx2 = function(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, col.balls = sample(colors(), 
@@ -49,15 +31,13 @@ quincunx2 = function(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, c
     
     
     
-    ballx = bally = directx = newdirectx = matrix(nrow = balls, ncol = nmax)
+    ballx = bally = matrix(nrow = balls, ncol = nmax)
     finalx = newfinalx = numeric(balls)
     
     for (i in 1:balls) {
-        directx[i, i] = 0
         ballx[i, i] = (1 + layers)/2
         if (layers > 2) {
             tmp = rbinom(layers - 2, 1, 0.5) * 2 - 1
-            directx[i, i + 1:(layers - 2)] = tmp
             ballx[i, i + 1:(layers - 2)] = cumsum(tmp) * 0.5 + (1 + layers)/2
         }
         bally[i, (i - 1) + 1:(layers - 1)] = (layers - 1):1
@@ -72,11 +52,9 @@ quincunx2 = function(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, c
     diag(newballx) = finalx
     
     for (i in 1:balls) {
-        newdirectx[i, i] = 0
         tmp = rbinom(layers - 2, 1, 0.5) * 2 - 1
         tmp = ifelse(newballx[i, i] + cumsum(tmp) < rgx[2], tmp, -1)
         tmp = ifelse(newballx[i, i] + cumsum(tmp) > rgx[1], tmp, +1)
-        newdirectx[i, i + 1:(layers - 2)] = tmp
         newballx[i, i + 1:(layers - 2)] = newballx[i, i] + cumsum(tmp) * 0.5
         newfinalx[i] = newballx[i, i + layers - 2]
     }
