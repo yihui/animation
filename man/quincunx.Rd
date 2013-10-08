@@ -1,8 +1,12 @@
 \name{quincunx}
 \alias{quincunx}
+\alias{quincunx2}
 \title{Demonstration of the Quincunx (Bean Machine/Galton Box)}
 \usage{
 quincunx(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, 
+    col.balls = sample(colors(), balls, TRUE), cex.balls = 2)
+
+quincunx2(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, 
     col.balls = sample(colors(), balls, TRUE), cex.balls = 2)
 }
 \arguments{
@@ -47,28 +51,49 @@ quincunx(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19,
 }
 \examples{
 set.seed(123)
-oopt = ani.options(nmax = ifelse(interactive(), 200 + 15 - 
-    2, 2), interval = 0.03)
+oopt=ani.options(nmax = ifelse(interactive(), 200 + 15 -2, 2), interval = 0.03)
 freq = quincunx(balls = 200, col.balls = rainbow(200))
 ## frequency table
 barplot(freq, space = 0)
 
 ## HTML animation page
 saveHTML({
-    ani.options(nmax = ifelse(interactive(), 200 + 15 - 
-        2, 2), interval = 0.03)
+    ani.options(nmax = ifelse(interactive(), 200 + 15 -2, 2), interval = 0.03)
     quincunx(balls = 200, col.balls = rainbow(200))
-}, img.name = "quincunx", htmlfile = "quincunx.html", ani.height = 500, 
-    ani.width = 600, single.opts = paste("'controls':", 
-        "['first', 'previous', 'play', 'next', 'last', 'loop', 'speed'],", 
-        "'delayMin': 0"), title = "Demonstration of the Galton Box", 
-    description = c("Balls", "falling through pins will show you the Normal", 
-        "distribution."))
+}, img.name='quincunx', htmlfile='quincunx.html',
+         ani.height = 500, ani.width = 600,
+         single.opts = "'controls': ['first', 'previous', 'play', 'next', 'last', 'loop', 'speed'], 'delayMin': 0",
+         title = "Demonstration of the Galton Box",
+         description = c("Balls", 'falling through pins will show you the Normal',
+         "distribution."))
+
+ani.options(oopt)
+set.seed(123)
+oopt=ani.options(nmax = ifelse(interactive(), 200 + 15 -2, 2), interval = 0.03)
+freq = quincunx2(balls = 200, col.balls = rainbow(200))
+## frequency table
+barplot(freq$top, space = 0)
+barplot(freq$bottom, space = 0)
+
+## HTML animation page
+saveHTML({
+    ani.options(nmax = ifelse(interactive(), 200 + 15 -2, 2), interval = 0.03)
+    quincunx2(balls = 200, col.balls = rainbow(200))
+}, img.name='quincunx2', htmlfile='quincunx2.html',
+         ani.height = 500, ani.width = 600,
+         single.opts = "'controls': ['first', 'previous', 'play', 'next', 'last', 'loop', 'speed'], 'delayMin': 0",
+         title = "Demonstration of the Galton Box",
+         description = c("Balls", 'falling through pins will show you the Normal',
+         "distribution."))
 
 ani.options(oopt)
 }
 \author{
   Yihui Xie <\url{http://yihui.name}>
+
+  Keith O'Rourke
+
+  \url{http://vis.supstat.com/2013/04/bean-machine/}
 }
 \references{
   \url{http://vis.supstat.com/2013/04/bean-machine}
