@@ -30,8 +30,6 @@ quincunx2(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19,
   (beans) falling through several layers (denoted by
   triangles) and the distribution of the final locations at
   which the balls hit is denoted by a histogram.
-
-  Demonstration of the Quincunx (Bean Machine/Galton Box) 2
 }
 \details{
   The bean machine, also known as the quincunx or Galton
