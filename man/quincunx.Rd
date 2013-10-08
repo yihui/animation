@@ -89,11 +89,7 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
-
-  Keith O'Rourke
-
-  \url{http://vis.supstat.com/2013/04/bean-machine/}
+  Yihui Xie <\url{http://yihui.name}> Keith O'Rourke
 }
 \references{
   \url{http://vis.supstat.com/2013/04/bean-machine}
