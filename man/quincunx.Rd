@@ -72,7 +72,8 @@ set.seed(123)
 oopt=ani.options(nmax = ifelse(interactive(), 200 + 15 -2, 2), interval = 0.03)
 freq = quincunx2(balls = 200, col.balls = rainbow(200))
 ## frequency table
-barplot(freq, space = 0)
+barplot(freq$top, space = 0)
+barplot(freq$bottom, space = 0)
 
 ## HTML animation page
 saveHTML({
