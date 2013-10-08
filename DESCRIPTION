@@ -1,19 +1,19 @@
 Package: animation
 Type: Package
 Title: A gallery of animations in statistics and utilities to create animations
-Version: 2.2.3
-Date: 2013-04-15
+Version: 2.1.1
+Date: 2012-06-20
 Author: Yihui Xie
 Maintainer: Yihui Xie <xie@yihui.name>
-Description: This package contains a variety of functions for animations in
-    statistics, covering areas such as probability theory, mathematical
+Description: This package contains various functions for animations in
+    statistics, covering many areas such as probability theory, mathematical
     statistics, multivariate statistics, nonparametric statistics, sampling
     survey, linear models, time series, computational statistics, data mining
-    and machine learning. These functions might be helpful in teaching
+    and machine learning. These functions might be of help in teaching
     statistics and data analysis. Also provided in this package are several
     approaches to save animations to various formats, e.g. Flash, GIF, HTML
     pages, PDF and videos (saveSWF(), saveGIF(), saveHTML(), saveLatex(), and
-    saveVideo() respectively). PDF animations can be inserted into Sweave/knitr
+    saveVideo() respectively). PDF animations can be inserted into Sweave
     easily.
 SystemRequirements: ImageMagick (http://imagemagick.org) or GraphicsMagick
     (http://www.graphicsmagick.org) or LyX (http://www.lyx.org) for saveGIF();
@@ -23,18 +23,18 @@ Depends:
     R (>= 2.14.0)
 Imports:
     MASS
-Suggests:
-    testit
-License: GPL
-URL: http://yihui.name/animation
+License: GPL-2 | GPL-3
+URL: https://github.com/yihui/animation
 BugReports: https://github.com/yihui/animation/issues
 LazyData: yes
 Collate:
+    'animation-defunct.R'
     'animation-package.R'
     'ani.options.R'
     'ani.pause.R'
     'ani.record.R'
     'ani.start.R'
+    'ani.stop.R'
     'bisection.method.R'
     'BM.circle.R'
     'boot.iid.R'
@@ -79,4 +79,4 @@ Collate:
     'vi.grid.illusion.R'
     'vi.lilac.chaser.R'
     'zzz.R'
-    'utils.R'
+    'quincunx2.R'
