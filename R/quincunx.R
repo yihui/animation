@@ -26,11 +26,12 @@
 #' recommended that \code{ani.options(nmax = balls + layers -2)}, in
 #' which case all the balls will just fall through all the layers and
 #' there will be no redundant animation frames.
-#' @author Yihui Xie <\url{http://yihui.name}>
+#' @author Yihui Xie <\url{http://yihui.name}> Keith ORourke 
 #' @seealso \code{\link[stats:Binomial]{rbinom}}
 #' @references \url{http://vis.supstat.com/2013/04/bean-machine}
 #' @export
-#' @example inst/examples/quincunx-ex.R
+#' @example inst/examples/quincunx-ex.R 
+#' @example inst/examples/quincunx2-ex.R
 quincunx = function(balls = 200, layers = 15, pch.layers = 2,
                     pch.balls = 19, col.balls = sample(colors(), balls, TRUE),
                     cex.balls = 2) {
