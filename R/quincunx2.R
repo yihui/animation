@@ -1,10 +1,4 @@
-#' Demonstration of the Quincunx (Bean Machine/Galton Box) 2
 #' @rdname quincunx
-#' @author Keith O'Rourke
-#'
-#' \url{http://vis.supstat.com/2013/04/bean-machine/}
-#' @example inst/examples/quincunx2-ex.R
-#'
 
 quincunx2 = function(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, col.balls = sample(colors(), 
     balls, TRUE), cex.balls = 2) {
