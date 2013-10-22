@@ -1,4 +1,5 @@
 #' @rdname quincunx
+#' @export
 
 quincunx2 = function(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, col.balls = sample(colors(), 
     balls, TRUE), cex.balls = 2) {
