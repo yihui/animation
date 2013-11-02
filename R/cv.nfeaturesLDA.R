@@ -63,6 +63,7 @@
 cv.nfeaturesLDA = function(data = matrix(rnorm(600),
     60), cl = gl(3, 20), k = 5, cex.rg = c(0.5, 3), col.av = c("blue",
     "red"), ...) {
+  library(MASS)
     nmax = min(ncol(data), ani.options("nmax"))
     cl = as.factor(cl)
     dat = data.frame(data, cl)
@@ -96,7 +97,7 @@ cv.nfeaturesLDA = function(data = matrix(rnorm(600),
             fit = MASS::lda(as.formula(paste(colnames(dat)[ncol(dat)],
                 "~", paste(colnames(dat)[-ncol(dat)][slct], collapse = "+"))),
                 data = dat)
-            pred = MASS:::predict.lda(fit, dat[idx, ], dimen = 2)
+            pred = predict(fit, dat[idx, ], dimen = 2)
             acc[i - 1, j] = mean(dat[idx, ncol(dat)] == pred$class)
             plot(1, xlim = c(1, nmax), ylim = c(0, k), type = "n",
                 xlab = "Number of Features", ylab = "Fold", yaxt = "n",
