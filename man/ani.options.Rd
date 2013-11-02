@@ -203,8 +203,8 @@ oopt = ani.options(ani.dev = "pdf", ani.type = "pdf", ani.height = 5,
     ani.width = 7)
 
 ## use the Cairo PDF device if (require('Cairo')) {
-## ani.options(ani.dev = CairoPDF, ani.type = 'pdf',
-## ani.height = 6, ani.width = 6) }
+## ani.options(ani.dev = CairoPDF, ani.type = 'pdf', ani.height =
+## 6, ani.width = 6) }
 
 ## don't loop for GIF/HTML animations
 ani.options(loop = FALSE)

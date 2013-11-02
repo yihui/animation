@@ -49,8 +49,7 @@ sample.ratio(X = runif(50, 0, 5), R = 1, Y = R * X + rnorm(X), size = length(X)/
 \examples{
 oopt = ani.options(interval = 2, nmax = ifelse(interactive(), 50, 2))
 
-## observe the location of the red line (closer to the population
-## mean)
+## observe the location of the red line (closer to the population mean)
 res = sample.ratio()
 
 ## absolute difference with the true mean

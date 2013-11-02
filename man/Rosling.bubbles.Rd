@@ -60,8 +60,8 @@ Rosling.bubbles(x, y, data, type = c("circles", "squares", "rectangles", "stars"
 \examples{
 oopt = ani.options(interval = 0.1, nmax = ifelse(interactive(), 50, 2))
 
-## use default arguments (random numbers); you may try to find the
-## real data
+## use default arguments (random numbers); you may try to find the real
+## data
 par(mar = c(4, 4, 0.2, 0.2))
 Rosling.bubbles()
 

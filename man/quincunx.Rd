@@ -26,10 +26,12 @@ quincunx2(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19,
   locations: 1.5, 2.5, ..., layers - 0.5.
 }
 \description{
-  This function simulates the quincunx with ``balls''
-  (beans) falling through several layers (denoted by
-  triangles) and the distribution of the final locations at
-  which the balls hit is denoted by a histogram.
+  Simulates the quincunx with ``balls'' (beans) falling
+  through several layers (denoted by triangles) and the
+  distribution of the final locations at which the balls
+  hit is denoted by a histogram; \code{quincunx()} is shows
+  single layer, and \code{quincunx2()} is a two-stage
+  version of the quincunx.
 }
 \details{
   The bean machine, also known as the quincunx or Galton
@@ -54,7 +56,6 @@ set.seed(123)
 oopt = ani.options(nmax = ifelse(interactive(), 200 + 15 - 
     2, 2), interval = 0.03)
 freq = quincunx(balls = 200, col.balls = rainbow(200))
-
 ## frequency table
 barplot(freq, space = 0)
 
@@ -71,7 +72,6 @@ saveHTML({
         "distribution."))
 
 ani.options(oopt)
-
 set.seed(123)
 oopt = ani.options(nmax = ifelse(interactive(), 200 + 15 - 
     2, 2), interval = 0.03)
@@ -85,7 +85,7 @@ barplot(freq$bottom, space = 0)  # bottom layers
 saveHTML({
     ani.options(nmax = ifelse(interactive(), 200 + 15 - 
         2, 2), interval = 0.03)
-    quincunx(balls = 200, col.balls = rainbow(200))
+    quincunx2(balls = 200, col.balls = rainbow(200))
 }, img.name = "quincunx2", htmlfile = "quincunx2.html", 
     ani.height = 500, ani.width = 600, single.opts = paste("'controls':", 
         "['first', 'previous', 'play', 'next', 'last', 'loop', 'speed'],", 
@@ -97,11 +97,11 @@ ani.options(oopt)
 
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}> Keith ORourke
+  Yihui Xie, Lijia Yu, and Keith ORourke
 }
 \references{
   \url{http://vis.supstat.com/2013/04/bean-machine}
 }
 \seealso{
-  \code{\link[stats:Binomial]{rbinom}}
+  \code{\link{rbinom}}
 }

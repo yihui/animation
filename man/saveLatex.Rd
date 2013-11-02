@@ -140,8 +140,8 @@ saveLatex({
 
 ## the PDF graphics output is often too large because it is
 ## uncompressed; try the option ani.options('pdftk') or
-## ani.options('qpdf') to compress the PDF graphics; see ?pdftk
-## or ?qpdf and ?ani.options
+## ani.options('qpdf') to compress the PDF graphics; see ?pdftk or
+## ?qpdf and ?ani.options
 }
 \author{
   Yihui Xie <\url{http://yihui.name}>

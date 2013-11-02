@@ -122,10 +122,10 @@ saveHTML({
 
 
 
-## we can merge another animation into the former page as long
-## as 'htmlfile' is the same; this time I don't want the
-## animation to autoplay, and will use text labels for the
-## buttons (instead of UTF-8 symbols)
+## we can merge another animation into the former page as long as
+## 'htmlfile' is the same; this time I don't want the animation
+## to autoplay, and will use text labels for the buttons (instead
+## of UTF-8 symbols)
 des = c("When you write a long long long long description, R will try to wrap the", 
     "words automatically.", "Oh, really?!")
 saveHTML({
@@ -142,9 +142,8 @@ saveHTML({
 
 
 
-## use the function brownian.motion() in this package; this
-## page is created in 'index.html' under the current working
-## directory
+## use the function brownian.motion() in this package; this page
+## is created in 'index.html' under the current working directory
 des = c("Random walk of 10 points on the 2D plane:", "for each point (x, y),", 
     "x = x + rnorm(1) and y = y + rnorm(1).")
 saveHTML({

@@ -99,8 +99,8 @@ saveGIF({
     for (i in 1:10) plot(runif(10), ylim = 0:1)
 })
 
-## if the above conversion was successful, the option 'convert' should not be
-## NULL under Windows
+## if the above conversion was successful, the option 'convert' should not be NULL
+## under Windows
 ani.options("convert")
 ## like 'C:/Software/LyX/etc/ImageMagick/convert.exe'
 

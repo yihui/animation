@@ -77,8 +77,7 @@ saveHTML({
     description = c("This animation shows the distribution of the sample", 
         "mean as the sample size grows."))
 
-## other distributions: Chi-square with df = 5 (mean = df, var =
-## 2*df)
+## other distributions: Chi-square with df = 5 (mean = df, var = 2*df)
 f = function(n) rchisq(n, 5)
 clt.ani(FUN = f, mean = 5, sd = sqrt(2 * 5))
 
