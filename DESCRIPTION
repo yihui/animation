@@ -1,9 +1,10 @@
 Package: animation
 Type: Package
 Title: A gallery of animations in statistics and utilities to create animations
-Version: 2.2.3
+Version: 2.2.4
 Date: 2013-04-15
-Author: Yihui Xie
+Authors@R: c(person("Lijia", "Yu", role = "ctb"),
+    person("Yihui", "Xie", role = c("cre", "aut"), email = "xie@yihui.name"))
 Maintainer: Yihui Xie <xie@yihui.name>
 Description: This package contains a variety of functions for animations in
     statistics, covering areas such as probability theory, mathematical
