@@ -1,9 +1,9 @@
 #' Demonstration of the Quincunx (Bean Machine/Galton Box)
 #'
-#' This function simulates the quincunx with ``balls'' (beans)
-#' falling through several layers (denoted by triangles) and the
-#' distribution of the final locations at which the balls hit is
-#' denoted by a histogram.
+#' Simulates the quincunx with ``balls'' (beans) falling through several layers
+#' (denoted by triangles) and the distribution of the final locations at which
+#' the balls hit is denoted by a histogram; \code{quincunx()} is shows single
+#' layer, and \code{quincunx2()} is a two-stage version of the quincunx.
 #'
 #' The bean machine, also known as the quincunx or Galton box, is a
 #' device invented by Sir Francis Galton to demonstrate the law of
