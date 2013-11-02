@@ -19,8 +19,7 @@ install.packages('animation')
 To install the GitHub version under development:
 
 ```s
-if (!require('devtools')) install.packages('devtools')
-devtools::install_github('animation', 'yihui')
+install.packages('animation', repos = 'http://rforge.net', type = 'source')
 ```
 
 If you want to contribute, the documentation and NAMESPACE of this package
