@@ -26,7 +26,7 @@
 #' recommended that \code{ani.options(nmax = balls + layers -2)}, in
 #' which case all the balls will just fall through all the layers and
 #' there will be no redundant animation frames.
-#' @author Yihui Xie <\url{http://yihui.name}> Keith ORourke 
+#' @author Yihui Xie, Lijia Yu, and Keith ORourke
 #' @seealso \code{\link[stats:Binomial]{rbinom}}
 #' @references \url{http://vis.supstat.com/2013/04/bean-machine}
 #' @export
