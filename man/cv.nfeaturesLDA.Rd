@@ -1,7 +1,6 @@
 \name{cv.nfeaturesLDA}
 \alias{cv.nfeaturesLDA}
-\title{Cross-validation to find the optimum number of features
-(variables) in LDA}
+\title{Cross-validation to find the optimum number of features (variables) in LDA}
 \usage{
 cv.nfeaturesLDA(data = matrix(rnorm(600), 60), cl = gl(3, 20), k = 5, cex.rg = c(0.5, 
     3), col.av = c("blue", "red"), ...)
@@ -91,8 +90,6 @@ ani.options(oopt)
   Maindonald J, Braun J (2007). \emph{Data Analysis and
   Graphics Using R - An Example-Based Approach}. Cambridge
   University Press, 2nd edition. pp. 400
-
-  \url{http://animation.yihui.name/da:biostat:select_features_via_cv}
 }
 \seealso{
   \code{\link{kfcv}}, \code{\link{cv.ani}},
