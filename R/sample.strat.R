@@ -1,26 +1,26 @@
 #' Demonstration for the stratified sampling
-#'
-#' Each rectangle stands for a stratum, and the simple random sampling without
-#' replacement is performed within each stratum. The points being sampled are
+#' 
+#' Each rectangle stands for a stratum, and the simple random sampling without 
+#' replacement is performed within each stratum. The points being sampled are 
 #' marked out (by red circles by default).
 #' @param pop a vector for the size of each stratum in the population.
-#' @param size a corresponding vector for the sample size in each stratum
+#' @param size a corresponding vector for the sample size in each stratum 
 #'   (recycled if necessary).
-#' @param p.col,p.cex different colors /magnification rate to annotate the
+#' @param p.col,p.cex different colors /magnification rate to annotate the 
 #'   population and the sample
-#' @param \dots other arguments passed to \code{\link[graphics]{rect}} to
-#'   annotate the ``strata''
+#' @param \dots other arguments passed to \code{\link{rect}} to annotate the
+#'   ``strata''
 #' @return None (invisible `\code{NULL}').
-#' @author Yihui Xie <\url{http://yihui.name}>
-#' @seealso \code{\link[base]{sample}}, \code{\link{sample.simple}},
-#'   \code{\link{sample.cluster}}, \code{\link{sample.ratio}},
+#' @author Yihui Xie
+#' @seealso \code{\link{sample}}, \code{\link{sample.simple}}, 
+#'   \code{\link{sample.cluster}}, \code{\link{sample.ratio}}, 
 #'   \code{\link{sample.system}}
-#' @references \url{http://animation.yihui.name/samp:stratified_sampling}
 #' @export
 #' @example inst/examples/sample.strat-ex.R
-sample.strat = function(pop = ceiling(10 * runif(10, 0.5, 1)),
-                        size = ceiling(pop * runif(length(pop), 0, 0.5)),
-                        p.col = c("blue", "red"), p.cex = c(1, 3), ...) {
+sample.strat = function(
+  pop = ceiling(10 * runif(10, 0.5, 1)), size = ceiling(pop * runif(length(pop), 0, 0.5)),
+  p.col = c("blue", "red"), p.cex = c(1, 3), ...
+) {
   if (any(size > pop))
     stop("sample size must be smaller than population")
   ncol = max(pop)

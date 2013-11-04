@@ -1,24 +1,25 @@
 #' Demonstration for the cluster sampling
-#'
-#' Each rectangle stands for a cluster, and the simple random sampling without
-#' replacement is performed for each cluster. All points in the clusters being
+#' 
+#' Each rectangle stands for a cluster, and the simple random sampling without 
+#' replacement is performed for each cluster. All points in the clusters being 
 #' sampled will be drawn out.
 #' @param pop a vector for the size of each cluster in the population.
 #' @param size the number of clusters to be drawn out.
-#' @param p.col,p.cex different colors / magnification rate to annotate the
+#' @param p.col,p.cex different colors / magnification rate to annotate the 
 #'   population and the sample
-#' @param \dots other arguments passed to \code{\link[graphics]{rect}} to
-#'   annotate the ``clusters''
+#' @param \dots other arguments passed to \code{\link{rect}} to annotate the 
+#'   ``clusters''
 #' @return None (invisible \code{NULL}).
-#' @author Yihui Xie <\url{http://yihui.name}>
-#' @seealso \code{\link[base]{sample}}, \code{\link{sample.simple}},
-#'   \code{\link{sample.ratio}}, \code{\link{sample.strat}},
+#' @author Yihui Xie
+#' @seealso \code{\link{sample}}, \code{\link{sample.simple}}, 
+#'   \code{\link{sample.ratio}}, \code{\link{sample.strat}}, 
 #'   \code{\link{sample.system}}
-#' @references \url{http://animation.yihui.name/samp:cluster_sampling}
 #' @export
 #' @example inst/examples/sample.cluster-ex.R
-sample.cluster = function(pop = ceiling(10 * runif(10, 0.2, 1)), size = 3,
-                          p.col = c("blue", "red"), p.cex = c(1, 3), ...) {
+sample.cluster = function(
+  pop = ceiling(10 * runif(10, 0.2, 1)), size = 3, p.col = c("blue", "red"),
+  p.cex = c(1, 3), ...
+) {
   if (size > length(pop))
     stop("sample size must be smaller than the number of clusters")
   ncol = max(pop)
