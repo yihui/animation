@@ -25,7 +25,7 @@
 #' @param interact logical; whether choose the end-points by cliking on the 
 #'   curve (for two times) directly?
 #' @param xlab,ylab,main axis and main titles to be used in the plot
-#' @param \dots other arguments passed to \code{\link  {curve}}
+#' @param \dots other arguments passed to \code{\link{curve}}
 #' @return A list containing \item{root }{the root found by the algorithm} 
 #'   \item{value }{the value of \code{FUN(root)}} \item{iter}{number of 
 #'   iterations; if it is equal to \code{ani.options('nmax')}, it's quite likely
@@ -40,7 +40,7 @@
 #' @export
 #' @example inst/examples/bisection.method-ex.R
 bisection.method = function(
-  FUN = function(x) x^2 - 4, rg = c(-1, 10), tol = 0.001, interact = FALSE, main
+  FUN = function(x) x^2 - 4, rg = c(-1, 10), tol = 0.001, interact = FALSE, main,
   xlab, ylab, ...) {
   if (interact) {
     if (!interactive()) {

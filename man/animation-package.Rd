@@ -11,12 +11,12 @@
 }
 \details{
   This package mainly makes use of HTML & JavaScript and R
-  windows graphics devices (such as
-  \code{\link[grDevices]{x11}}) to demonstrate animations
-  in statistics; other kinds of output such as Flash (SWF)
-  or GIF animations or PDF animations are also available if
-  required software packages have been installed. See below
-  for details on each type of animation.
+  windows graphics devices (such as \code{\link{x11}}) to
+  demonstrate animations in statistics; other kinds of
+  output such as Flash (SWF) or GIF animations or PDF
+  animations are also available if required software
+  packages have been installed. See below for details on
+  each type of animation.
 }
 \note{
   Bug reports and feature requests can be sent to
@@ -136,11 +136,11 @@ saveLatex({
 
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   The associated website for this package:
-  \url{http://animation.yihui.name}
+  \url{http://vis.supstat.com}
 
   Yihui Xie and Xiaoyue Cheng. animation: A package for
   statistical animations. \emph{R News},

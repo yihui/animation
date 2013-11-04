@@ -173,7 +173,7 @@ if (interactive()) browseURL(system.file("misc", "Rweb", "demo.html",
     package = "animation"))
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   \url{https://github.com/brentertz/scianimator}

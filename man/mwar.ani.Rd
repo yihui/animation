@@ -17,15 +17,14 @@ mwar.ani(x, k = 15, conf = 2, mat = matrix(1:2, 2), widths = rep(1, ncol(mat)),
   conf*s.e.)}}
 
   \item{mat,widths,heights}{arguments passed to
-  \code{\link[graphics]{layout}} to divide the device into
-  2 parts}
+  \code{\link{layout}} to divide the device into 2 parts}
 
   \item{lty.rect}{the line type of the rectangles
   respresenting the moving ``windows''}
 
   \item{\dots}{other arguments passed to
-  \code{\link[graphics]{points}} in the bottom plot (the
-  centers of the arrows)}
+  \code{\link{points}} in the bottom plot (the centers of
+  the arrows)}
 }
 \value{
   A list containing \item{phi }{the AR(1) coefficients}
@@ -42,7 +41,7 @@ mwar.ani(x, k = 15, conf = 2, mat = matrix(1:2, 2), widths = rep(1, ncol(mat)),
 }
 \details{
   The AR(1) coefficients are computed by
-  \code{\link[stats]{arima}}.
+  \code{\link{arima}}.
 }
 \examples{
 ## moving window along a sin curve
@@ -68,15 +67,13 @@ ani.options(oopt)
 
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   Robert A. Meyer, Jr. Estimating coefficients that change
   over time. \emph{International Economic Review},
   13(3):705-710, 1972.
-
-  \url{http://animation.yihui.name/ts:moving_window_ar}
 }
 \seealso{
-  \code{\link[stats]{arima}}
+  \code{\link{arima}}
 }

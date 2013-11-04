@@ -9,7 +9,7 @@ ani.options(...)
   list of tagged values.  The tags usually come from the
   animation parameters described below, but they are not
   restricted to these tags (any tag can be used; this is
-  similar to \code{\link[base]{options}}).}
+  similar to \code{\link{options}}).}
 }
 \value{
   \code{ani.options()} returns a list containing the
@@ -65,11 +65,10 @@ ani.options(...)
 
   \item{ani.width, ani.height}{ width and height of image
   frames (unit in px); see graphics devices like
-  \code{\link[grDevices]{png}},
-  \code{\link[grDevices]{jpeg}}, ...; default to be 480.
-  NB: for different graphics devices, the units of these
-  values might be different, e.g. PDF devices usually use
-  inches, whereas bitmap devices often use pixels.}
+  \code{\link{png}}, \code{\link{jpeg}}, ...; default to be
+  480. NB: for different graphics devices, the units of
+  these values might be different, e.g. PDF devices usually
+  use inches, whereas bitmap devices often use pixels.}
 
   \item{imgdir}{character: the name of the directory (a
   relative path) for images when creating HTML animation
@@ -80,12 +79,11 @@ ani.options(...)
   \code{"index.html"})}
 
   \item{ani.dev}{a function or a function name: the
-  graphics device; e.g.  (\code{\link[grDevices]{png}},
-  \code{\link[grDevices]{pdf}}, ...); default to be
-  \code{"png"}}
+  graphics device; e.g.  (\code{\link{png}},
+  \code{\link{pdf}}, ...); default to be \code{"png"}}
 
   \item{ani.type}{character: image format for animation
-  frames, e.g. \code{png}, \code{jpeg}, ...; default to be
+  frames, e.g.  \code{png}, \code{jpeg}, ...; default to be
   \code{"png"}; this will be used as the file extension of
   images, so don't forget to change this option as well
   when you changed the option \code{ani.dev}}
@@ -145,7 +143,7 @@ ani.options(...)
   \code{\link{saveGIF}}) to see if it contains the path to
   \file{convert.exe}; we can specify it beforehand to save
   the efforts in searching for \file{convert.exe} in
-  ImageMagick under Windows. For example,
+  ImageMagick under Windows.  For example,
   \code{ani.options(convert = shQuote('c:/program
   files/imagemagick/convert.exe'))}; note this option also
   works for Mac and Linux (see \code{help(im.convert)})}
@@ -177,7 +175,7 @@ ani.options(...)
   much better.}
 
   \item{pdftk}{the path of the program \command{Pdftk},
-  e.g. \code{ani.options(pdftk = 'C:/Software/pdftk.exe')}
+  e.g.  \code{ani.options(pdftk = 'C:/Software/pdftk.exe')}
   or \code{ani.options(pdftk = '/home/john/bin/pdftk')};
   \command{pdftk} will be used to compress the PDF graphics
   output in the function \code{\link{pdftk}}; compression
@@ -187,7 +185,7 @@ ani.options(...)
   \code{ani.options('ani.type')} is \code{'pdf'}.}
 
   \item{ffmpeg}{the path of the progam \command{ffmpeg},
-  e.g. \code{ani.options(ffmpeg =
+  e.g.  \code{ani.options(ffmpeg =
   'C:/Software/ffmpeg/bin/ffmpeg.exe')}; FFmpeg is used to
   convert a sequence of images to a video. See
   \code{\link{saveVideo}}.}
@@ -226,19 +224,15 @@ saveHTML(expr = {
     htmlfile = "custom_device.html")
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
-\references{
-  \url{http://animation.yihui.name/animation:options}
+\seealso{
+  \code{\link{options}}, \code{\link{dev.interactive}},
+  \code{\link{saveHTML}}, \code{\link{saveGIF}},
+  \code{\link{saveLatex}}, \code{\link{saveSWF}},
+  \code{\link{pdftk}}
 
   \url{http://qpdf.sourceforge.net/}
 
   \url{http://www.pdflabs.com/docs/pdftk-man-page/}
-}
-\seealso{
-  \code{\link[base]{options}},
-  \code{\link[grDevices]{dev.interactive}},
-  \code{\link{saveHTML}}, \code{\link{saveGIF}},
-  \code{\link{saveLatex}}, \code{\link{saveSWF}},
-  \code{\link{pdftk}}
 }

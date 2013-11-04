@@ -86,11 +86,10 @@ saveLatex(expr, nmax, img.name = "Rplot", ani.opts, centering = TRUE,
   \code{animate} to insert animations into PDF's. When we
   pass an R expression to this function, the expression
   will be evaluated and recorded by a grahpics device
-  (typically \code{\link[grDevices]{png}} and
-  \code{\link[grDevices]{pdf}}). At last, a LaTeX document
-  will be created and compiled if an appropriate LaTeX
-  command is provided. And the final PDF output will be
-  opened with the PDF viewer set in
+  (typically \code{\link{png}} and \code{\link{pdf}}). At
+  last, a LaTeX document will be created and compiled if an
+  appropriate LaTeX command is provided. And the final PDF
+  output will be opened with the PDF viewer set in
   \code{getOption("pdfviewer")} if
   \code{ani.options("autobrowse") == TRUE}.
 }
@@ -144,7 +143,7 @@ saveLatex({
 ## ?qpdf and ?ani.options
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   To know more about the \code{animate} package, please

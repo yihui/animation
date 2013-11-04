@@ -28,7 +28,7 @@ saveVideo(expr, video.name = "animation.mp4", img.name = "Rplot", ffmpeg = "ffmp
 }
 \value{
   An integer indicating failure (-1) or success (0) of the
-  converting (refer to \code{\link[base]{system}}).
+  converting (refer to \code{\link{system}}).
 }
 \description{
   This function opens a graphics device to record the
@@ -36,10 +36,10 @@ saveVideo(expr, video.name = "animation.mp4", img.name = "Rplot", ffmpeg = "ffmp
   to convert these images to a video.
 }
 \details{
-  This function uses \code{\link[base]{system}} to call
-  FFmpeg to convert the images to a single video. The
-  command line used in this function is: \command{ffmpeg -y
-  -r <1/interval> -i <img.name>\%d.<ani.type> other.opts
+  This function uses \code{\link{system}} to call FFmpeg to
+  convert the images to a single video. The command line
+  used in this function is: \command{ffmpeg -y -r
+  <1/interval> -i <img.name>\%d.<ani.type> other.opts
   video.name}
 
   where \code{interval} comes from
@@ -70,8 +70,8 @@ saveVideo({
 ani.options(oopts)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>, based on an inital
-  version by Thomas Julou \email{thomas.julou@gmail.com}
+  Yihui Xie, based on an inital version by Thomas Julou
+  \email{thomas.julou@gmail.com}
 }
 \references{
   \url{http://ffmpeg.org/documentation.html}

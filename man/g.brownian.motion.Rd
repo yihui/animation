@@ -45,7 +45,7 @@ g.brownian.motion(15, digits = 2, width = 600, height = 500,
     file = "BM-motion-chart.html")
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   \url{http://code.google.com/apis/visualization/} and

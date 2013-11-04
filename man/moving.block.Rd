@@ -108,5 +108,5 @@ ani.options(oopt)
 
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }

@@ -30,7 +30,7 @@ saveMovie(expr, movie.name = "animation.gif", img.name = "Rplot", convert = "con
   the 'Note' section for details}
 
   \item{cmd.fun}{a function to invoke the OS command; by
-  default \code{\link[base]{system}}}
+  default \code{\link{system}}}
 
   \item{clean}{whether to delete the individual image
   frames}
@@ -115,7 +115,7 @@ saveGIF({
 }, movie.name = "brownian_motion2.gif", interval = runif(30, 0.01, 1), nmax = 30)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   ImageMagick:

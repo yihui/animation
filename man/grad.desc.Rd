@@ -10,7 +10,7 @@ grad.desc(FUN = function(x, y) x^2 + 2 * y^2, rg = c(-3, -3, 3, 3), init = c(-3,
   \item{FUN}{a bivariate objective function to be minimized
   (variable names do not have to be \code{x} and \code{y});
   if the gradient argument \code{gr} is \code{NULL},
-  \code{\link[stats]{deriv}} will be used to calculate the
+  \code{\link{deriv}} will be used to calculate the
   gradient, in which case we should not put braces around
   the function body of \code{FUN} (e.g. the default
   function is \code{function(x, y) x^2 + 2 * y^2})}
@@ -30,8 +30,8 @@ grad.desc(FUN = function(x, y) x^2 + 2 * y^2, rg = c(-3, -3, 3, 3), init = c(-3,
   bivariate function to calculate the gradient (not the
   negative gradient!) of \code{FUN} at a point \eqn{(x,y)},
   e.g. \code{function(x, y) 2 * x + 4 * y}. If it is
-  \code{NULL}, R will use \code{\link[stats]{deriv}} to
-  calculate the gradient}
+  \code{NULL}, R will use \code{\link{deriv}} to calculate
+  the gradient}
 
   \item{len}{desired length of the independent sequences
   (to compute z values for contours)}
@@ -56,7 +56,7 @@ grad.desc(FUN = function(x, y) x^2 + 2 * y^2, rg = c(-3, -3, 3, 3), init = c(-3,
   function of the objective function} \item{persp}{a
   function to make the perspective plot of the objective
   function; can accept further arguments from
-  \code{\link[graphics]{persp}} (see the examples below)}
+  \code{\link{persp}} (see the examples below)}
 }
 \description{
   This function provids a visual illustration for the
@@ -80,8 +80,8 @@ grad.desc(FUN = function(x, y) x^2 + 2 * y^2, rg = c(-3, -3, 3, 3), init = c(-3,
 \note{
   Please make sure the function \code{FUN} provided is
   differentiable at \code{init}, what's more, it should
-  also be 'differentiable' using \code{\link[stats]{deriv}}
-  if you do not provide the gradient function \code{gr}.
+  also be 'differentiable' using \code{\link{deriv}} if you
+  do not provide the gradient function \code{gr}.
 
   If the arrows cannot reach the local minimum, the maximum
   number of iterations \code{nmax} in
@@ -129,14 +129,12 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   \url{http://vis.supstat.com/2013/03/gradient-descent-algorithm-with-r/}
 }
 \seealso{
-  \code{\link[stats]{deriv}},
-  \code{\link[graphics]{persp}},
-  \code{\link[graphics]{contour}},
-  \code{\link[stats]{optim}}
+  \code{\link{deriv}}, \code{\link{persp}},
+  \code{\link{contour}}, \code{\link{optim}}
 }

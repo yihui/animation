@@ -48,11 +48,11 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   \url{http://vis.supstat.com/2013/03/make-visual-illusions-in-r}
 }
 \seealso{
-  \code{\link[graphics]{points}}
+  \code{\link{points}}
 }

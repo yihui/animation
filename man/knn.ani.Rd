@@ -37,8 +37,7 @@ knn.ani(train, test, cl, k = 10, interact = FALSE, tt.col = c("blue", "red"),
   neighbour points using a polygon}
 
   \item{...}{additional arguments to create the empty frame
-  for the animation (passed to
-  \code{\link[graphics]{plot.default}})}
+  for the animation (passed to \code{\link{plot.default}})}
 }
 \value{
   A vector of class labels for the test set.
@@ -111,13 +110,11 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   Venables, W. N. and Ripley, B. D. (2002) \emph{Modern
   Applied Statistics with S}. Fourth edition. Springer.
-
-  \url{http://animation.yihui.name/dmml:k-nearest_neighbour_algorithm}
 }
 \seealso{
   \code{\link[class]{knn}}

@@ -131,7 +131,7 @@ ani.options(oopt)
 setwd(owd)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   ImageMagick:

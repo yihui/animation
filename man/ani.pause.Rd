@@ -30,10 +30,9 @@ ani.options(oopt)
 ## see demo('Xmas2', package = 'animation') for another example
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \seealso{
-  \code{\link[grDevices]{dev.interactive}},
-  \code{\link[base]{Sys.sleep}},
-  \code{\link[grDevices]{dev.flush}}
+  \code{\link{dev.interactive}}, \code{\link{Sys.sleep}},
+  \code{\link{dev.flush}}
 }

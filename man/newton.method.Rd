@@ -28,7 +28,7 @@ newton.method(FUN = function(x) x^2 - 4, init = 10, rg = c(-1, 10), tol = 0.001,
   function \code{FUN})}
 
   \item{\dots}{other arguments passed to
-  \code{\link[graphics]{curve}}}
+  \code{\link{curve}}}
 }
 \value{
   A list containing \item{root }{the root found by the
@@ -103,13 +103,11 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   \url{http://en.wikipedia.org/wiki/Newton's_method}
-
-  \url{http://animation.yihui.name/compstat:newton_s_method}
 }
 \seealso{
-  \code{\link[stats]{optim}}
+  \code{\link{optim}}
 }

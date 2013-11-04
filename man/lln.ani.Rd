@@ -25,7 +25,7 @@ lln.ani(FUN = rnorm, mu = 0, np = 30, pch = 20, col.poly = "bisque", col.mu = "g
   denotes the population mean}
 
   \item{\dots}{other arguments passed to
-  \code{\link[graphics]{points}}}
+  \code{\link{points}}}
 }
 \value{
   None (invisible \code{NULL}).
@@ -74,8 +74,8 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
-  \url{http://animation.yihui.name/prob:law_of_large_numbers}
+  \url{http://http://vis.supstat.com/2013/04/law-of-large-numbers/}
 }

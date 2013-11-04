@@ -50,8 +50,8 @@ ani.replay(list)
   The recorded plots are stored as a list in
   \code{.ani.env$.images}, which is the default value to be
   passed to \code{\link{ani.replay}}; \code{.ani.env} is an
-  invisible \code{\link[base]{environment}} created when
-  this package is loaded, and it will be used to store some
+  invisible \code{\link{environment}} created when this
+  package is loaded, and it will be used to store some
   commonly used objects such as animation options
   (\code{\link{ani.options}}).
 }
@@ -115,7 +115,7 @@ saveHTML({
 ani.options(oopts)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \seealso{
   \code{\link{recordPlot}} and \code{\link{replayPlot}};

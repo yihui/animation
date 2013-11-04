@@ -5,6 +5,7 @@ Version: 2.2.4
 Date: 2013-04-15
 Authors@R: c(person("Lijia", "Yu", role = "ctb"),
     person("Yihui", "Xie", role = c("cre", "aut"), email = "xie@yihui.name"))
+Author: Yihui Xie
 Maintainer: Yihui Xie <xie@yihui.name>
 Description: This package contains a variety of functions for animations in
     statistics, covering areas such as probability theory, mathematical
