@@ -61,7 +61,7 @@
 #'   
 #'   For \code{\link{saveHTML}}, \code{ani.options('description')} can be a 
 #'   character vector, in which case this vector will be pasted into a scalar; 
-#'   use \code{"\n\n"} in the string to separate paragraphs (see the first 
+#'   use \code{'\n\n'} in the string to separate paragraphs (see the first 
 #'   example below).
 #'   
 #'   For the users who do not have R at hand, there is a demo in 

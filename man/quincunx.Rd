@@ -45,7 +45,7 @@ quincunx2(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19,
 }
 \note{
   The maximum number of animation frames is controlled by
-  \code{ani.options("nmax")} as usual, but it is strongly
+  \code{ani.options('nmax')} as usual, but it is strongly
   recommended that \code{ani.options(nmax = balls + layers
   -2)}, in which case all the balls will just fall through
   all the layers and there will be no redundant animation

@@ -74,64 +74,64 @@
 #' @export
 #' @example inst/examples/im.convert-ex.R
 im.convert = function(
-  files, output = "animation.gif", convert = c("convert", "gm convert"),
-  cmd.fun = system, extra.opts = "", clean = FALSE
+  files, output = 'animation.gif', convert = c('convert', 'gm convert'),
+  cmd.fun = system, extra.opts = '', clean = FALSE
 ) {
   interval = head(ani.options('interval'), length(files))
   convert = match.arg(convert)
   if (convert == 'convert') {
     version = ''
     if (!is.null(ani.options('convert'))) {
-      try(version <- cmd.fun(sprintf("%s --version", ani.options('convert')), intern = TRUE))
+      try(version <- cmd.fun(sprintf('%s --version', ani.options('convert')), intern = TRUE))
     }
-    if (!length(grep("ImageMagick", version))) {
-      try(version <- cmd.fun(sprintf("%s --version", convert), intern = TRUE))
+    if (!length(grep('ImageMagick', version))) {
+      try(version <- cmd.fun(sprintf('%s --version', convert), intern = TRUE))
     } else convert = ani.options('convert')
     ## try to look for ImageMagick in the Windows Registry Hive,
     ## the Program Files directory and the LyX installation
-    if (!length(grep("ImageMagick", version))) {
-      message("I cannot find ImageMagick with convert = ", shQuote(convert))
-      if (.Platform$OS.type == "windows") {
+    if (!length(grep('ImageMagick', version))) {
+      message('I cannot find ImageMagick with convert = ', shQuote(convert))
+      if (.Platform$OS.type == 'windows') {
         if (!inherits(try({
-          magick.path = utils::readRegistry("SOFTWARE\\ImageMagick\\Current")$BinPath
-        }, silent = TRUE), "try-error")) {
+          magick.path = utils::readRegistry('SOFTWARE\\ImageMagick\\Current')$BinPath
+        }, silent = TRUE), 'try-error')) {
           if (nzchar(magick.path)) {
-            convert = shQuote(normalizePath(file.path(magick.path, "convert.exe")))
-            message("but I can find it from the Registry Hive: ", magick.path)
+            convert = shQuote(normalizePath(file.path(magick.path, 'convert.exe')))
+            message('but I can find it from the Registry Hive: ', magick.path)
           }
         } else 
           if (
-            nzchar(prog <- Sys.getenv("ProgramFiles")) &&
-              length(magick.dir <- list.files(prog, "^ImageMagick.*")) &&
-              length(magick.path <- list.files(file.path(prog, magick.dir), pattern = "^convert\\.exe$", 
+            nzchar(prog <- Sys.getenv('ProgramFiles')) &&
+              length(magick.dir <- list.files(prog, '^ImageMagick.*')) &&
+              length(magick.path <- list.files(file.path(prog, magick.dir), pattern = '^convert\\.exe$', 
                                                full.names = TRUE, recursive = TRUE))
           ) {
             convert = shQuote(normalizePath(magick.path[1]))
-            message("but I can find it from the 'Program Files' directory: ", magick.path)
+            message('but I can find it from the "Program Files" directory: ', magick.path)
           } else
             if (
               !inherits(try({
-                magick.path = utils::readRegistry("LyX.Document\\Shell\\open\\command", "HCR")
-              }, silent = TRUE), "try-error")
+                magick.path = utils::readRegistry('LyX.Document\\Shell\\open\\command', 'HCR')
+              }, silent = TRUE), 'try-error')
             ) {
-              convert = file.path(dirname(gsub("(^\"|\" \"%1\"$)", "", magick.path[[1]])), c("..", "../etc"),
-                                  "imagemagick", "convert.exe")
+              convert = file.path(dirname(gsub('(^\"|\" \"%1\"$)', '', magick.path[[1]])), c('..', '../etc'),
+                                  'imagemagick', 'convert.exe')
               convert = convert[file.exists(convert)]
               if (length(convert)) {
                 convert = shQuote(normalizePath(convert))
-                message("but I can find it from the LyX installation: ", dirname(convert))
+                message('but I can find it from the LyX installation: ', dirname(convert))
               } else {
-                warning("No way to find ImageMagick!")
+                warning('No way to find ImageMagick!')
                 return()
               }
             } else {
-              warning("ImageMagick not installed yet!")
+              warning('ImageMagick not installed yet!')
               return()
             }
         ## write it into ani.options() to save future efforts
         ani.options(convert = convert)
       } else {
-        warning("Please install ImageMagick first or put its bin path into the system PATH variable")
+        warning('Please install ImageMagick first or put its bin path into the system PATH variable')
         return()
       }
     }
@@ -139,12 +139,12 @@ im.convert = function(
     ## GraphicsMagick
     version = ''
     if (!is.null(ani.options('convert')))
-      try(version <- cmd.fun(sprintf("%s -version", ani.options('convert')), intern = TRUE))
-    if (!length(grep("GraphicsMagick", version))) {
-      try(version <- cmd.fun(sprintf("%s -version", convert), intern = TRUE))
-      if (!length(grep("GraphicsMagick", version))) {
-        warning("I cannot find GraphicsMagick with convert = ", shQuote(convert),
-                "; you may have to put the path of GraphicsMagick in the PATH variable.")
+      try(version <- cmd.fun(sprintf('%s -version', ani.options('convert')), intern = TRUE))
+    if (!length(grep('GraphicsMagick', version))) {
+      try(version <- cmd.fun(sprintf('%s -version', convert), intern = TRUE))
+      if (!length(grep('GraphicsMagick', version))) {
+        warning('I cannot find GraphicsMagick with convert = ', shQuote(convert),
+                '; you may have to put the path of GraphicsMagick in the PATH variable.')
         return()
       }
     } else convert = ani.options('convert')
@@ -152,31 +152,31 @@ im.convert = function(
   
   loop = ifelse(isTRUE(ani.options('loop')), 0, ani.options('loop'))
   convert = sprintf(
-    "%s -loop %s %s %s %s", convert, loop, 
+    '%s -loop %s %s %s %s', convert, loop, 
     extra.opts, paste(
       '-delay', interval * 100, 
       if (length(interval) == 1) paste(files, collapse = ' ') else files,
       collapse = ' '),
     shQuote(output)
   )
-  message("Executing: ", strwrap(convert, exdent = 4, prefix = '\n'))
+  message('Executing: ', strwrap(convert, exdent = 4, prefix = '\n'))
   if (interactive()) flush.console()
   cmd = cmd.fun(convert)
   ## if fails on Windows using shell(), try system() instead of shell()
-  if (cmd == 0 && .Platform$OS.type == "windows" && identical(cmd.fun, shell)) {
+  if (cmd == 0 && .Platform$OS.type == 'windows' && identical(cmd.fun, shell)) {
     cmd = system(convert)
   }
   if (cmd == 0) {
-    message("Output at: ", output)
+    message('Output at: ', output)
     if (clean)
       unlink(files)
     if (ani.options('autobrowse')) {
       if (.Platform$OS.type == 'windows')
-        try(shell.exec(output)) else if (Sys.info()["sysname"] == "Darwin")
+        try(shell.exec(output)) else if (Sys.info()['sysname'] == 'Darwin')
           try(system(paste('open ', shQuote(output))), TRUE) else
             try(system(paste('xdg-open ', shQuote(output))), TRUE)
     }
-  } else message("an error occurred in the conversion... see Notes in ?im.convert")
+  } else message('an error occurred in the conversion... see Notes in ?im.convert')
   invisible(convert)
 }
 #' @details The function \code{gm.convert} is a wrapper for the command
@@ -184,6 +184,6 @@ im.convert = function(
 #' @rdname convert
 #' @param ... arguments to be passed to \code{\link{im.convert}}
 #' @export
-gm.convert = function(..., convert = "gm convert") {
+gm.convert = function(..., convert = 'gm convert') {
   im.convert(..., convert = convert)
 }

@@ -31,7 +31,7 @@ g.brownian.motion(p = 20, start = 1900, digits = 14, file = "index.html", width 
 }
 \note{
   The number of frames is controlled by
-  \code{ani.options("nmax")} as usual.
+  \code{ani.options('nmax')} as usual.
 
   Due to the ``security settings'' of Adobe Flash player,
   you might not be able to view the generated Flash

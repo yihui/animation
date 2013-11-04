@@ -15,13 +15,13 @@ saveVideo(expr, video.name = "animation.mp4", img.name = "Rplot", ffmpeg = "ffmp
   \file{animation.mp4} or \file{animation.avi})}
 
   \item{ffmpeg}{the command to call FFmpeg (e.g.
-  \code{"C:/Software/ffmpeg/bin/ffmpeg.exe"} under
+  \code{'C:/Software/ffmpeg/bin/ffmpeg.exe'} under
   Windows); note the full path of FFmpeg can be
   pre-specified in \code{\link{ani.options}('ffmpeg')}}
 
   \item{other.opts}{other options to be passed to
   \code{ffmpeg}, e.g. we can specify the bitrate as
-  \code{other.opts = "-b 400k"}}
+  \code{other.opts = '-b 400k'}}
 
   \item{...}{other arguments to be passed to
   \code{\link{ani.options}}}

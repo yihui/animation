@@ -15,13 +15,13 @@ least.squares(x, y, n = 15, ani.type = c("slope", "intercept"), a, b, a.range, b
   use simulated values of y (\code{x = 1:n} and \code{y = a
   + b * x + rnorm(n)})}
 
-  \item{ani.type}{\code{"slope"}: the slope is changing
-  with the intercept fixed; \code{"intercept"}: intercept
+  \item{ani.type}{\code{'slope'}: the slope is changing
+  with the intercept fixed; \code{'intercept'}: intercept
   changing and slope fixed}
 
   \item{a,b}{the fixed intercept and slope; depending on
   \code{ani.type}, we only need to specify one of them;
-  e.g. when \code{ani.type == "slope"}, we need to specify
+  e.g. when \code{ani.type == 'slope'}, we need to specify
   the value of \code{a}}
 
   \item{a.range,b.range}{a vector of length 2 to define the
@@ -32,7 +32,7 @@ least.squares(x, y, n = 15, ani.type = c("slope", "intercept"), a, b, a.range, b
   regression line and the moving line with either intercept
   or slope changing}
 
-  \item{est.pch}{the point character of the "estimated"
+  \item{est.pch}{the point character of the 'estimated'
   values given \code{x}}
 
   \item{v.col,v.lty}{the color and line type of the vetical

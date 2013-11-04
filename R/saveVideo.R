@@ -15,10 +15,10 @@
 #' @param video.name the file name of the output video (e.g. 
 #'   \file{animation.mp4} or \file{animation.avi})
 #' @param ffmpeg the command to call FFmpeg (e.g. 
-#'   \code{"C:/Software/ffmpeg/bin/ffmpeg.exe"} under Windows); note the full 
+#'   \code{'C:/Software/ffmpeg/bin/ffmpeg.exe'} under Windows); note the full 
 #'   path of FFmpeg can be pre-specified in \code{\link{ani.options}('ffmpeg')}
 #' @param other.opts other options to be passed to \code{ffmpeg}, e.g. we can 
-#'   specify the bitrate as \code{other.opts = "-b 400k"}
+#'   specify the bitrate as \code{other.opts = '-b 400k'}
 #' @param ... other arguments to be passed to \code{\link{ani.options}}
 #' @return An integer indicating failure (-1) or success (0) of the converting 
 #'   (refer to \code{\link{system}}).
@@ -61,7 +61,7 @@ saveVideo = function(
   
   num = ifelse(file.ext == 'pdf', '', '%d')
   unlink(paste(img.name, '*.', file.ext, sep = ''))
-  img.fmt = paste(img.name, num, ".", file.ext, sep = "")
+  img.fmt = paste(img.name, num, '.', file.ext, sep = '')
   img.fmt = file.path(tempdir(), img.fmt)
   ani.options(img.fmt = img.fmt)
   if ((use.dev <- ani.options('use.dev')))
@@ -71,19 +71,19 @@ saveVideo = function(
   if (use.dev) dev.off()
   
   ## call FFmpeg
-  ffmpeg = paste(ffmpeg, "-y", "-r", 1/ani.options('interval'), "-i",
+  ffmpeg = paste(ffmpeg, '-y', '-r', 1/ani.options('interval'), '-i',
                  basename(img.fmt), other.opts, basename(video.name))
-  message("Executing: ", ffmpeg)
+  message('Executing: ', ffmpeg)
   cmd = system(ffmpeg)
   
   if (cmd == 0) {
     setwd(owd)
     file.rename(file.path(tempdir(), basename(video.name)), video.name)
-    message("\n\nVideo has been created at: ",
+    message('\n\nVideo has been created at: ',
             output.path <- normalizePath(video.name))
     if (ani.options('autobrowse')) {
       if (.Platform$OS.type == 'windows')
-        try(shell.exec(output.path)) else if (Sys.info()["sysname"] == "Darwin")
+        try(shell.exec(output.path)) else if (Sys.info()['sysname'] == 'Darwin')
           try(system(paste('open ', shQuote(output.path))), TRUE) else
             try(system(paste('xdg-open ', shQuote(output.path))), TRUE)
     }

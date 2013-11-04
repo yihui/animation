@@ -26,8 +26,8 @@
 #' @export
 #' @example inst/examples/MC.hitormiss-ex.R
 MC.hitormiss = function(
-  FUN = function(x) x - x^2, n = ani.options("nmax"), from = 0, to = 1,
-  col.points = c("black", "red"), pch.points = c(20, 4), ...
+  FUN = function(x) x - x^2, n = ani.options('nmax'), from = 0, to = 1,
+  col.points = c('black', 'red'), pch.points = c(20, 4), ...
 ) {
   nmax = n
   x1 = runif(n, from, to)
@@ -36,8 +36,8 @@ MC.hitormiss = function(
   x2 = runif(n, ymin, ymax)
   y = FUN(x1)
   if (any(y < 0))
-    stop("This Hit-or-Miss Monte Carlo algorithm only applies to\n",
-         "_non-negative_ functions!")
+    stop('This Hit-or-Miss Monte Carlo algorithm only applies to\n',
+         '_non-negative_ functions!')
   for (i in 1:nmax) {
     dev.hold()
     curve(FUN, from = from, to = to, 

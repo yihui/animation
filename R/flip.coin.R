@@ -40,10 +40,10 @@
 #' @export
 #' @example inst/examples/flip.coin-ex.R
 flip.coin = function(
-  faces = 2, prob = NULL, border = "white", grid = "white", col = 1:2, type = "p", 
-  pch = 21, bg = "transparent", digits = 3
+  faces = 2, prob = NULL, border = 'white', grid = 'white', col = 1:2, type = 'p', 
+  pch = 21, bg = 'transparent', digits = 3
 ) {
-  nmax = ani.options("nmax")
+  nmax = ani.options('nmax')
   if (length(faces) == 1) {
     faces = as.factor(seq(faces))
   }
@@ -64,12 +64,12 @@ flip.coin = function(
   s = seq(0, ylm, 1/nmax)
   for (i in 1:nmax) {
     dev.hold()
-    plot(1, xlim = c(0, 2), ylim = c(0, ylm * 1.04), type = "n", axes = FALSE,
-         xlab = "", ylab = "", xaxs = "i", yaxs = "i")
+    plot(1, xlim = c(0, 2), ylim = c(0, ylm * 1.04), type = 'n', axes = FALSE,
+         xlab = '', ylab = '', xaxs = 'i', yaxs = 'i')
     abline(v = 1)
     axis(1, (1:n - 0.5)/n, lv)
     axis(2)
-    mtext("Frequency", side = 2, line = 2)
+    mtext('Frequency', side = 2, line = 2)
     mtext("Flip 'coins'", side = 4)
     k = as.integer(res[1:i])
     points(x[1:i], y[1:i], cex = 3, col = col[k], type = type, pch = pch, bg = bg)
@@ -79,9 +79,9 @@ flip.coin = function(
     segments(0, s, 1, s, col = grid)
     abline(v = 1)
     axis(3, (1:n - 0.5)/n,
-         paste(y0, " (", round(y0/nmax, digits = digits), ")", sep = ""),
+         paste(y0, ' (', round(y0/nmax, digits = digits), ')', sep = ''),
          tcl = 0, mgp = c(0, 0.5, 0))
-    axis(1, 1.5, paste("Number of Tosses:", i), tcl = 0)
+    axis(1, 1.5, paste('Number of Tosses:', i), tcl = 0)
     box()
     ani.pause()
   }

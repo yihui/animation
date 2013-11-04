@@ -89,8 +89,8 @@ NULL
 #'   \url{http://cpc.people.com.cn/GB/64093/64094/8544901.html}
 #' @examples
 #' ## clear pattern: 1/3 short, 1/3 long, 1/3 short again
-#' plot(HuSpeech, type = "b", pch = 20, xlab = "paragraph index",
-#'     ylab = "word count")
+#' plot(HuSpeech, type = 'b', pch = 20, xlab = 'paragraph index',
+#'     ylab = 'word count')
 #' ## see ?moving.block for an animation example
 NULL
 
@@ -107,8 +107,8 @@ NULL
 #'   
 #' @examples
 #' ## pattern: longer paragraph and shorter paragraph
-#' plot(ObamaSpeech, type = "b", pch = 20, xlab = "paragraph index",
-#'     ylab = "word count")
+#' plot(ObamaSpeech, type = 'b', pch = 20, xlab = 'paragraph index',
+#'     ylab = 'word count')
 NULL
 
 #' Page views from Sep 21, 2007 to Dec 2, 2007 of Yihui's website
@@ -129,7 +129,7 @@ NULL
 #'   \emph{images} and \emph{files} within the site (units in MegaBytes).} }
 #' @source \url{http://yihui.name}
 #' @examples
-#' plot(pageview[,1:2], type = "b", col = "red",
+#' plot(pageview[,1:2], type = 'b', col = 'red',
 #'   main = "Number of Visits in Yihui's Web")
 #' ## partial auto-correlation
 #' pacf(pageview$visits)

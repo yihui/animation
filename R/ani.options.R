@@ -20,16 +20,16 @@
 #'   bitmap devices often use pixels.}
 #'   
 #'   \item{imgdir}{character: the name of the directory (a relative path) for 
-#'   images when creating HTML animation pages; default to be \code{"images"}.}
+#'   images when creating HTML animation pages; default to be \code{'images'}.}
 #'   
 #'   \item{htmlfile}{character: name of the target HTML main file (without path 
-#'   name; basename only; default to be \code{"index.html"})}
+#'   name; basename only; default to be \code{'index.html'})}
 #'   
 #'   \item{ani.dev}{a function or a function name: the graphics device; e.g. 
-#'   (\code{\link{png}}, \code{\link{pdf}}, ...); default to be \code{"png"}}
+#'   (\code{\link{png}}, \code{\link{pdf}}, ...); default to be \code{'png'}}
 #'   
 #'   \item{ani.type}{character: image format for animation frames, e.g. 
-#'   \code{png}, \code{jpeg}, ...; default to be \code{"png"}; this will be used
+#'   \code{png}, \code{jpeg}, ...; default to be \code{'png'}; this will be used
 #'   as the file extension of images, so don't forget to change this option as 
 #'   well when you changed the option \code{ani.dev}}
 #'   
@@ -170,7 +170,7 @@ ani.options = function(...) {
         .ani.opts[names(lst)] = lst
         .ani.env$.ani.opts = .ani.opts
         if (!identical(omf$nmax, .ani.opts$nmax) && interactive()) {
-          message("animation option 'nmax' changed: ", omf$nmax, " --> ", .ani.opts$nmax)
+          message("animation option 'nmax' changed: ", omf$nmax, ' --> ', .ani.opts$nmax)
         }
         .check.opts(.ani.opts)
       }
@@ -201,6 +201,6 @@ ani.options = function(...) {
     })
   }
   if (type == 'pdf' && (opts$ani.width >= 100 || opts$ani.height >= 100)) {
-    warning("you are using a pdf device but the width and height are greater than 100 inches; are you sure this is correct?")
+    warning('you are using a pdf device but the width and height are greater than 100 inches; are you sure this is correct?')
   }
 }

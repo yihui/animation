@@ -10,8 +10,8 @@
 #' evaluated and recorded by a grahpics device (typically \code{\link{png}} and 
 #' \code{\link{pdf}}). At last, a LaTeX document will be created and compiled if
 #' an appropriate LaTeX command is provided. And the final PDF output will be 
-#' opened with the PDF viewer set in \code{getOption("pdfviewer")} if 
-#' \code{ani.options("autobrowse") == TRUE}.
+#' opened with the PDF viewer set in \code{getOption('pdfviewer')} if 
+#' \code{ani.options('autobrowse') == TRUE}.
 #' @param expr an expression to generate animations; use either the animation 
 #'   functions (e.g. \code{brownian.motion()}) in this package or a custom 
 #'   expression (e.g. \code{for(i in 1:10) plot(runif(10), ylim = 0:1)}).
@@ -21,8 +21,8 @@
 #' @param img.name basename of file names of animation frames; see the Note 
 #'   section for a possible adjustment on \code{img.name}
 #' @param ani.opts options to control the behavior of the animation (passed to 
-#'   the LaTeX macro \code{"\\animategraphics"}; default to be 
-#'   \code{"controls,width=\\linewidth"})
+#'   the LaTeX macro \code{'\\animategraphics'}; default to be 
+#'   \code{'controls,width=\\linewidth'})
 #' @param centering logical: whether to center the graph using the LaTeX 
 #'   environment \verb{\begin{center}} and \verb{\end{center}}
 #' @param caption,label caption and label for the graphics in the figure 
@@ -34,7 +34,7 @@
 #'   but we can also provide a complete statement like 
 #'   \verb{\\documentclass[a5paper]{article}}
 #' @param latex.filename file name of the LaTeX document; if an empty string 
-#'   \code{""}, the LaTeX code will be printed in the console and hence not 
+#'   \code{''}, the LaTeX code will be printed in the console and hence not 
 #'   compiled
 #' @param pdflatex the command for pdfLaTeX (set to \code{NULL} to ignore the 
 #'   compiling)
@@ -81,9 +81,9 @@
 #' @export
 #' @example inst/examples/saveLatex-ex.R
 saveLatex = function(
-  expr, nmax, img.name = "Rplot", ani.opts, centering = TRUE, caption = NULL,
-  label = NULL, pkg.opts = NULL, documentclass = "article", latex.filename = "animation.tex",
-  pdflatex = "pdflatex", install.animate = TRUE, overwrite = TRUE, full.path = FALSE, ...
+  expr, nmax, img.name = 'Rplot', ani.opts, centering = TRUE, caption = NULL,
+  label = NULL, pkg.opts = NULL, documentclass = 'article', latex.filename = 'animation.tex',
+  pdflatex = 'pdflatex', install.animate = TRUE, overwrite = TRUE, full.path = FALSE, ...
 ) {
   oopt = ani.options(...)
   if (!missing(nmax)) ani.options(nmax = nmax)
@@ -110,8 +110,8 @@ saveLatex = function(
   interval = ani.options('interval')
   ## generate the image frames
   ani.dev = ani.options('ani.dev')
-  num = ifelse(file.ext == "pdf" && use.dev, "", "%d")
-  img.fmt = sprintf("%s%s.%s", img.name, num, file.ext)
+  num = ifelse(file.ext == 'pdf' && use.dev, '', '%d')
+  img.fmt = sprintf('%s%s.%s', img.name, num, file.ext)
   if (!in.sweave)
     ani.options(img.fmt = img.fmt)
   if (is.character(ani.dev))
@@ -149,13 +149,13 @@ saveLatex = function(
     end.num = ifelse(file.ext == 'pdf' && use.dev, nmax - 1, nmax)
   }
   
-  if (missing(ani.opts)) ani.opts = "controls,width=\\linewidth"
+  if (missing(ani.opts)) ani.opts = 'controls,width=\\linewidth'
   
   if (install.animate && !in.sweave && length(documentclass)) {
-    file.copy(system.file("misc", "animate", "animate.sty", package = "animation"),
-              "animate.sty", overwrite = TRUE)
-    file.copy(system.file("misc", "animate", "animfp.sty", package = "animation"),
-              "animfp.sty", overwrite = TRUE)
+    file.copy(system.file('misc', 'animate', 'animate.sty', package = 'animation'),
+              'animate.sty', overwrite = TRUE)
+    file.copy(system.file('misc', 'animate', 'animfp.sty', package = 'animation'),
+              'animfp.sty', overwrite = TRUE)
   }
   
   if (!in.sweave && length(documentclass)) {
@@ -164,7 +164,7 @@ saveLatex = function(
     if (!grepl('^\\\\documentclass', documentclass))
       documentclass = sprintf('\\documentclass{%s}', documentclass)
     cat(sprintf(
-      "%s
+      '%s
                 \\usepackage%s{animate}
                 \\begin{document}
                 \\begin{figure}
@@ -173,42 +173,42 @@ saveLatex = function(
                 %s
                 \\end{figure}
                 \\end{document}
-                ", documentclass,
-      ifelse(is.null(pkg.opts), "", sprintf("[%s]", pkg.opts)),
+                ', documentclass,
+      ifelse(is.null(pkg.opts), '', sprintf('[%s]', pkg.opts)),
       ifelse(centering, '\\begin{center}', ''),
       ani.opts,
       1/interval,
       ifelse(full.path, gsub('\\\\', '/', normalizePath(img.name)), img.name),
       start.num, end.num,
-      ifelse(is.null(caption), "", sprintf("\\caption{%s}", caption)),
-      ifelse(is.null(label), "", sprintf("\\label{%s}", label)),
+      ifelse(is.null(caption), '', sprintf('\\caption{%s}', caption)),
+      ifelse(is.null(label), '', sprintf('\\label{%s}', label)),
       ifelse(centering, '\\end{center}', '')),
-        "\n", file = latex.filename
+        '\n', file = latex.filename
     )
-    if ((latex.filename != "") & !is.null(pdflatex)) {
-      message("LaTeX document created at: ", file.path(getwd(), latex.filename))
-      if (system(sprintf("%s %s", pdflatex, latex.filename)) == 0) {
-        message(sprintf("successfully compiled: %s %s", pdflatex, latex.filename))
-        if (ani.options("autobrowse"))
+    if ((latex.filename != '') & !is.null(pdflatex)) {
+      message('LaTeX document created at: ', file.path(getwd(), latex.filename))
+      if (system(sprintf('%s %s', pdflatex, latex.filename)) == 0) {
+        message(sprintf('successfully compiled: %s %s', pdflatex, latex.filename))
+        if (ani.options('autobrowse'))
           system(
-            sprintf("%s %s", shQuote(normalizePath(getOption("pdfviewer"))),
-                    sprintf("%s.pdf", sub("([^.]+)\\.[[:alnum:]]+$", "\\1", latex.filename)))
+            sprintf('%s %s', shQuote(normalizePath(getOption('pdfviewer'))),
+                    sprintf('%s.pdf', sub('([^.]+)\\.[[:alnum:]]+$', '\\1', latex.filename)))
           )
       }
       else {
-        message("An error occurred while compiling the LaTeX document; \nyou should probably take a look at the log file: ",
-                sprintf("%s.log", sub("([^.]+)\\.[[:alnum:]]+$",
-                                      "\\1", latex.filename)), " under ", getwd())
-        if (Sys.info()["sysname"] == "Darwin")
+        message('An error occurred while compiling the LaTeX document; \nyou should probably take a look at the log file: ',
+                sprintf('%s.log', sub('([^.]+)\\.[[:alnum:]]+$',
+                                      '\\1', latex.filename)), ' under ', getwd())
+        if (Sys.info()['sysname'] == 'Darwin')
           message("Mac OS users may also consider saveLatex(..., pdflatex = '/usr/texbin/pdflatex') if pdflatex is not in your PATH variable.")
       }
     }
   } else {
     cat(sprintf(
-      "%s
+      '%s
                 \\animategraphics[%s]{%s}{%s}{%s}{%s}
                 %s
-                ",
+                ',
       ifelse(centering, '\\begin{center}', ''),
       ani.opts,
       1/interval,

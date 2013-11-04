@@ -38,11 +38,11 @@ moving.block(dat = runif(100), block, FUN, ...)
   wish.
 }
 \note{
-  There will be \code{ani.options("nmax")} image frames
+  There will be \code{ani.options('nmax')} image frames
   created in the end. Ideally the relationship between
-  \code{ani.options("nmax")} and \code{block} should follow
+  \code{ani.options('nmax')} and \code{block} should follow
   this equality: \code{block = length(x) -
-  ani.options("nmax") + 1} (replace \code{length(x)} with
+  ani.options('nmax') + 1} (replace \code{length(x)} with
   \code{nrow(x)} when \code{x} is a matrix). The function
   will compute \code{block} according to the equality by
   default if no block length is specified.

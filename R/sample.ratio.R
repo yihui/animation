@@ -28,10 +28,10 @@
 #' @example inst/examples/sample.ratio-ex.R
 sample.ratio = function(
   X = runif(50, 0, 5), R = 1, Y = R * X + rnorm(X), size = length(X)/2,
-  p.col = c("blue", "red"), p.cex = c(1, 3), p.pch = c(20, 21),
-  m.col = c("black", "gray"), legend.loc = "topleft", ...
+  p.col = c('blue', 'red'), p.cex = c(1, 3), p.pch = c(20, 21),
+  m.col = c('black', 'gray'), legend.loc = 'topleft', ...
 ) {
-  nmax = ani.options("nmax")
+  nmax = ani.options('nmax')
   N = length(X)
   r = est1 = est2 = numeric(nmax)
   for (i in 1:nmax) {
@@ -45,7 +45,7 @@ sample.ratio = function(
     legend(
       legend.loc, expression(bar(X), bar(x), bar(X) %.% (bar(y)/bar(x)), bar(Y), bar(y)),
       lty = c(2, 1, 1, 2, 1), col = c(m.col[c(1, 2)], p.col[2], m.col[c(1, 2)]),
-      bty = "n", ncol = 2
+      bty = 'n', ncol = 2
     )
     ani.pause()
   }

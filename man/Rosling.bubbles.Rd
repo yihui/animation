@@ -11,7 +11,7 @@ Rosling.bubbles(x, y, data, type = c("circles", "squares", "rectangles", "stars"
   \item{x,y}{the x and y co-ordinates for the centres of
   the bubbles (symbols).  Default to be 10 uniform random
   numbers in [0, 1] for each single image frame (so the
-  length should be 10 * \code{ani.options("nmax")})}
+  length should be 10 * \code{ani.options('nmax')})}
 
   \item{type,data}{the type and data for symbols; see
   \code{\link{symbols}}.  The default type is
@@ -43,7 +43,7 @@ Rosling.bubbles(x, y, data, type = c("circles", "squares", "rectangles", "stars"
 }
 \details{
   Suppose we have observations of \eqn{n} individuals over
-  \code{ani.options("nmax")} years. In this animation, the
+  \code{ani.options('nmax')} years. In this animation, the
   data of each year will be shown in the bubbles (symbols)
   plot; as time goes on, certain trends will be revealed
   (like those in Rosling's talk). Please note that the

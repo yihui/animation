@@ -8,7 +8,7 @@
 #' etc.
 #' 
 #' Suppose we have observations of \eqn{n} individuals over 
-#' \code{ani.options("nmax")} years. In this animation, the data of each year 
+#' \code{ani.options('nmax')} years. In this animation, the data of each year 
 #' will be shown in the bubbles (symbols) plot; as time goes on, certain trends 
 #' will be revealed (like those in Rosling's talk). Please note that the 
 #' arrangement of the data for bubbles (symbols) should be a matrix like 
@@ -21,7 +21,7 @@
 #' 
 #' @param x,y the x and y co-ordinates for the centres of the bubbles (symbols).
 #'   Default to be 10 uniform random numbers in [0, 1] for each single image 
-#'   frame (so the length should be 10 * \code{ani.options("nmax")})
+#'   frame (so the length should be 10 * \code{ani.options('nmax')})
 #' @param type,data the type and data for symbols; see \code{\link{symbols}}. 
 #'   The default type is \code{circles}.
 #' @param bg,main,xlim,ylim,xlab,ylab,... see \code{\link{symbols}}. Note that 
@@ -42,9 +42,9 @@ Rosling.bubbles = function(
   x, y, data,
   type = c('circles', 'squares', 'rectangles', 'stars', 'thermometers', 'boxplots'),
   bg, xlim = range(x), ylim = range(y), main = NULL, xlab = 'x', ylab = 'y',
-  ..., grid = TRUE, text = 1:ani.options("nmax"), text.col = rgb(0, 0, 0, 0.5), text.cex = 5
+  ..., grid = TRUE, text = 1:ani.options('nmax'), text.col = rgb(0, 0, 0, 0.5), text.cex = 5
 ) {
-  nmax = ani.options("nmax")
+  nmax = ani.options('nmax')
   type = match.arg(type)
   if (missing(data)) data = matrix(runif(10 * nmax))
   if (is.null(dim(data))) data = matrix(data)
@@ -58,7 +58,7 @@ Rosling.bubbles = function(
     xy = xy.coords(x[((i - 1) * n + 1):(n * i)], y[((i - 1) * n + 1):(n * i)])
     xi = xy$x
     yi = xy$y
-    plot(NA, NA, type = "n", xlim = xlim, ylim = ylim,
+    plot(NA, NA, type = 'n', xlim = xlim, ylim = ylim,
          xlab = xlab, ylab = ylab, main = main, panel.first = {
            if (grid) grid()
            text(md[1], md[2], text[i], col = text.col, cex = text.cex)

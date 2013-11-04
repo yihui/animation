@@ -25,8 +25,8 @@ saveLatex(expr, nmax, img.name = "Rplot", ani.opts, centering = TRUE,
 
   \item{ani.opts}{options to control the behavior of the
   animation (passed to the LaTeX macro
-  \code{"\\animategraphics"}; default to be
-  \code{"controls,width=\\linewidth"})}
+  \code{'\\animategraphics'}; default to be
+  \code{'controls,width=\\linewidth'})}
 
   \item{centering}{logical: whether to center the graph
   using the LaTeX environment \verb{\begin{center}} and
@@ -46,7 +46,7 @@ saveLatex(expr, nmax, img.name = "Rplot", ani.opts, centering = TRUE,
   statement like \verb{\\documentclass[a5paper]{article}}}
 
   \item{latex.filename}{file name of the LaTeX document; if
-  an empty string \code{""}, the LaTeX code will be printed
+  an empty string \code{''}, the LaTeX code will be printed
   in the console and hence not compiled}
 
   \item{pdflatex}{the command for pdfLaTeX (set to
@@ -90,8 +90,8 @@ saveLatex(expr, nmax, img.name = "Rplot", ani.opts, centering = TRUE,
   last, a LaTeX document will be created and compiled if an
   appropriate LaTeX command is provided. And the final PDF
   output will be opened with the PDF viewer set in
-  \code{getOption("pdfviewer")} if
-  \code{ani.options("autobrowse") == TRUE}.
+  \code{getOption('pdfviewer')} if
+  \code{ani.options('autobrowse') == TRUE}.
 }
 \note{
   This function will detect if it was called in a Sweave

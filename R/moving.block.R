@@ -19,10 +19,10 @@
 #' @param FUN a plot function to be applied to the subset of data
 #' @param \dots other arguments passed to \code{FUN}
 #' @return \code{NULL}
-#' @note There will be \code{ani.options("nmax")} image frames created in the
-#'   end. Ideally the relationship between \code{ani.options("nmax")} and
+#' @note There will be \code{ani.options('nmax')} image frames created in the
+#'   end. Ideally the relationship between \code{ani.options('nmax')} and
 #'   \code{block} should follow this equality: \code{block = length(x) -
-#'   ani.options("nmax") + 1} (replace \code{length(x)} with \code{nrow(x)} when
+#'   ani.options('nmax') + 1} (replace \code{length(x)} with \code{nrow(x)} when
 #'   \code{x} is a matrix). The function will compute \code{block} according to
 #'   the equality by default if no block length is specified.
 #'   
@@ -35,15 +35,15 @@
 #' @export
 #' @example inst/examples/moving.block-ex.R
 moving.block = function(dat = runif(100), block, FUN, ...) {
-  nmax = ani.options("nmax")
+  nmax = ani.options('nmax')
   n = ifelse(is.null(dim(dat)), length(dat), nrow(dat))
   if (missing(block))
-    block = n - ani.options("nmax") + 1
+    block = n - ani.options('nmax') + 1
   if (block < 1)
     stop("block length less than 1; please set smaller ani.options('nmax') or larger 'block'")
   if (block != n - nmax + 1) {
     warning(sprintf("block length is too %s; try to adjust 'block' or ani.options('nmax')",
-                    ifelse(block > n - nmax + 1, "long", "short")))
+                    ifelse(block > n - nmax + 1, 'long', 'short')))
   }
   if (missing(FUN))
     FUN = function(..., dat = dat, i = i, block = block) {

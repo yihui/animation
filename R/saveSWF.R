@@ -37,7 +37,7 @@
 #' @family utilities
 #' @export
 #' @example inst/examples/saveSWF-ex.R
-saveSWF = function(expr, swf.name = "animation.swf", img.name = "Rplot", swftools = NULL, ...) {
+saveSWF = function(expr, swf.name = 'animation.swf', img.name = 'Rplot', swftools = NULL, ...) {
   oopt = ani.options(...)
   on.exit(ani.options(oopt))
   owd = setwd(tempdir())
@@ -51,9 +51,9 @@ saveSWF = function(expr, swf.name = "animation.swf", img.name = "Rplot", swftool
   }
   interval = ani.options('interval')
   if (is.character(ani.dev)) ani.dev = get(ani.dev)
-  digits = ceiling(log10(ani.options("nmax"))) + 2
-  num = ifelse(ani.options("ani.type") == "pdf", "", paste("%0", digits, "d", sep = ""))
-  img.fmt = paste(img.name, num, ".", file.ext, sep = "")
+  digits = ceiling(log10(ani.options('nmax'))) + 2
+  num = ifelse(ani.options('ani.type') == 'pdf', '', paste('%0', digits, 'd', sep = ''))
+  img.fmt = paste(img.name, num, '.', file.ext, sep = '')
   img.fmt = file.path(tempdir(), img.fmt)
   ## remove existing image files first
   unlink(paste(img.name, '*.', file.ext, sep = ''))
@@ -77,13 +77,13 @@ saveSWF = function(expr, swf.name = "animation.swf", img.name = "Rplot", swftool
     swftools = ani.options('swftools')
   } else {
     if (.Platform$OS.type == 'windows' && !inherits(try({
-      swftools = utils::readRegistry("SOFTWARE\\quiss.org\\SWFTools\\InstallPath")[[1]]
-    }, silent = TRUE), "try-error")) {
+      swftools = utils::readRegistry('SOFTWARE\\quiss.org\\SWFTools\\InstallPath')[[1]]
+    }, silent = TRUE), 'try-error')) {
       ani.options(swftools = swftools)
     }
   }
   tool = paste(ifelse(is.null(swftools), '', paste(swftools, .Platform$file.sep, sep = '')),
-               paste(file.ext, "2swf", sep = ""), sep = "")
+               paste(file.ext, '2swf', sep = ''), sep = '')
   if (.Platform$OS.type == 'windows') {
     tool = paste(tool, '.exe', sep = '')
     if (file.exists(tool)) tool = normalizePath(tool) else {
@@ -98,28 +98,28 @@ saveSWF = function(expr, swf.name = "animation.swf", img.name = "Rplot", swftool
     return()
   }
   wildcard = paste(
-    shQuote(list.files('.', paste(img.name, ".*\\.", file.ext, sep = ""), full.names = TRUE)),
+    shQuote(list.files('.', paste(img.name, '.*\\.', file.ext, sep = ''), full.names = TRUE)),
     collapse = ' '
   )
-  convert = paste(tool, wildcard, "-o", shQuote(basename(swf.name)))
+  convert = paste(tool, wildcard, '-o', shQuote(basename(swf.name)))
   cmd = -1
-  if (file.ext == "png" || file.ext == "jpeg") {
-    convert = paste(convert, "-r", 1/interval)
-    message("Executing: ", convert)
+  if (file.ext == 'png' || file.ext == 'jpeg') {
+    convert = paste(convert, '-r', 1/interval)
+    message('Executing: ', convert)
     cmd = system(convert)
   } else {
-    convert = paste(convert, " -s framerate=", 1/interval, sep = "")
-    message("Executing: ", convert)
+    convert = paste(convert, ' -s framerate=', 1/interval, sep = '')
+    message('Executing: ', convert)
     cmd = system(convert)
   }
   if (cmd == 0) {
     setwd(owd)
     file.rename(file.path(tempdir(), basename(swf.name)), swf.name)
-    message("\n\nFlash has been created at: ",
+    message('\n\nFlash has been created at: ',
             output.path <- normalizePath(swf.name))
     if (ani.options('autobrowse')) {
       if (.Platform$OS.type == 'windows')
-        try(shell.exec(output.path)) else if (Sys.info()["sysname"] == "Darwin")
+        try(shell.exec(output.path)) else if (Sys.info()['sysname'] == 'Darwin')
           try(system(paste('open ', shQuote(output.path))), TRUE) else
             try(system(paste('xdg-open ', shQuote(output.path))), TRUE)
     }

@@ -40,7 +40,7 @@
 #' @export
 #' @example inst/examples/kmeans.ani-ex.R
 kmeans.ani = function(
-  x = cbind(X1 = runif(50), X2 = runif(50)), centers = 3, hints = c("Move centers!", "Find cluster?"),
+  x = cbind(X1 = runif(50), X2 = runif(50)), centers = 3, hints = c('Move centers!', 'Find cluster?'),
   pch = 1:3, col = 1:3
 ) {
   x = as.matrix(x)
@@ -52,7 +52,7 @@ kmeans.ani = function(
   j = 1
   pch = rep(pch, length = numcent)
   col = rep(col, length = numcent)
-  for (j in 1:ani.options("nmax")) {
+  for (j in 1:ani.options('nmax')) {
     dev.hold()
     plot(x, pch = pch[ocluster], col = col[ocluster], panel.first = grid())
     mtext(hints[1], 4)
@@ -62,7 +62,7 @@ kmeans.ani = function(
       dst[, i] = sqrt(apply((t(t(x) - unlist(centers[i, ])))^2, 1, sum))
     }
     ncluster = apply(dst, 1, which.min)
-    plot(x, type = "n")
+    plot(x, type = 'n')
     mtext(hints[2], 4)
     grid()
     ocenters = centers

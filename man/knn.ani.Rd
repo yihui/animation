@@ -62,7 +62,7 @@ knn.ani(train, test, cl, k = 10, interact = FALSE, tt.col = c("blue", "red"),
 
   As there are four steps in an iteration, the total number
   of animation frames should be \code{4 * min(nrow(test),
-  ani.options("nmax"))} at last.
+  ani.options('nmax'))} at last.
 }
 \note{
   There is a special restriction (only two columns) on the

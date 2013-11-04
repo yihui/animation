@@ -22,7 +22,7 @@
 #'   Note the names of the vector are the locations: 1.5, 2.5, ..., layers - 
 #'   0.5.
 #' @note The maximum number of animation frames is controlled by 
-#'   \code{ani.options("nmax")} as usual, but it is strongly recommended that 
+#'   \code{ani.options('nmax')} as usual, but it is strongly recommended that 
 #'   \code{ani.options(nmax = balls + layers -2)}, in which case all the balls 
 #'   will just fall through all the layers and there will be no redundant 
 #'   animation frames.
@@ -37,9 +37,9 @@ quincunx = function(
   col.balls = sample(colors(), balls, TRUE), cex.balls = 2
 ) {
   op = par(mar = c(1, 0.1, 0.1, 0.1), mfrow = c(2, 1)); on.exit(par(op))
-  if (ani.options("nmax") != (balls + layers - 2))
+  if (ani.options('nmax') != (balls + layers - 2))
     warning("It's strongly recommended that ani.options(nmax = balls + layers -2)")
-  nmax = max(balls + layers - 2, ani.options("nmax"))
+  nmax = max(balls + layers - 2, ani.options('nmax'))
   layerx = layery = NULL
   for (i in 1:layers) {
     layerx = c(layerx, seq(0.5 * (i + 1), layers - 0.5 * (i - 1), 1))
@@ -58,15 +58,15 @@ quincunx = function(
   }
   rgx = c(1, layers)
   rgy = c(0, max(table(finalx)))
-  for (i in 1:ani.options("nmax")) {
+  for (i in 1:ani.options('nmax')) {
     dev.hold()
-    plot(1:layers, type = "n", ann = FALSE, axes = FALSE)
+    plot(1:layers, type = 'n', ann = FALSE, axes = FALSE)
     points(layerx, layery, pch = pch.layers)
     points(ballx[, i], bally[, i], pch = pch.balls, col = col.balls, cex = cex.balls)
-    par(bty = "u")
+    par(bty = 'u')
     if (i < layers - 1) plot.new() else {
       hist(finalx[1:(i - layers + 2)], breaks = 1:layers, xlim = rgx, ylim = rgy,
-           main = "", xlab = "", ylab = "", ann = FALSE, axes = FALSE)
+           main = '', xlab = '', ylab = '', ann = FALSE, axes = FALSE)
     }
     ani.pause()
   }

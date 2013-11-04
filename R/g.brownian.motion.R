@@ -11,7 +11,7 @@
 #' @param file the HTML filename
 #' @param width,height width and height of the animation
 #' @return \code{NULL}. An HTML page will be opened as the side effect.
-#' @note The number of frames is controlled by \code{ani.options("nmax")} as 
+#' @note The number of frames is controlled by \code{ani.options('nmax')} as 
 #'   usual.
 #'   
 #'   Due to the ``security settings'' of Adobe Flash player, you might not be 
@@ -29,7 +29,7 @@
 g.brownian.motion = function(
   p = 20, start = 1900, digits = 14, file = 'index.html', width = 800, height = 600
 ) {
-  n = ani.options("nmax")
+  n = ani.options('nmax')
   x = round(c(t(apply(matrix(rnorm(p * n), p, n), 1, cumsum))), digits)
   y = round(c(t(apply(matrix(rnorm(p * n), p, n), 1, cumsum))), digits)
   tmp = character(p * n * 4)
@@ -39,28 +39,28 @@ g.brownian.motion = function(
   tmp[seq(4, p * n * 4, 4)] = y
   cat(
     c(
-      "<html>", "  <head>", "    <script type=\"text/javascript\" src=\"http://www.google.com/jsapi\"></script>",
-      "    <script type=\"text/javascript\">", "      google.load(\"visualization\", \"1\", {packages:[\"motionchart\"]});",
-      "      google.setOnLoadCallback(drawChart);", "      function drawChart() {",
-      "        var data = new google.visualization.DataTable();"
+      '<html>', '  <head>', '    <script type=\"text/javascript\" src=\"http://www.google.com/jsapi\"></script>',
+      '    <script type=\"text/javascript\">', '      google.load(\"visualization\", \"1\", {packages:[\"motionchart\"]});',
+      '      google.setOnLoadCallback(drawChart);', '      function drawChart() {',
+      '        var data = new google.visualization.DataTable();'
       ),
-    paste("        data.addRows(", p * n, ");", sep = ""),
+    paste('        data.addRows(', p * n, ');', sep = ''),
     c(
       "        data.addColumn('string', 'point');", "        data.addColumn('number', 'year');",
       "        data.addColumn('number', 'X');", "        data.addColumn('number', 'Y');"
       ),
     paste(
-      "        data.setValue(", rep(0:(p * n - 1), each = 4), ", ", rep(0:3, p * n),
-      ", ", tmp, ");", sep = "", collapse = "\n"
+      '        data.setValue(', rep(0:(p * n - 1), each = 4), ', ', rep(0:3, p * n),
+      ', ', tmp, ');', sep = '', collapse = '\n'
       ),
     c("        var chart = new google.visualization.MotionChart(document.getElementById('chart_div'));"),
-    paste("        chart.draw(data, {width: ", width, ", height: ", height, "});\n      }", sep = ""), 
-    c("    </script>", "  </head>", "", "  <body>"), 
+    paste('        chart.draw(data, {width: ', width, ', height: ', height, '});\n      }', sep = ''), 
+    c('    </script>', '  </head>', '', '  <body>'), 
     paste(
-      "    <div id=\"chart_div\" style=\"width: ", width, "px; height: ",height, "px;\"></div>", sep = ""
+      '    <div id=\"chart_div\" style=\"width: ', width, 'px; height: ',height, 'px;\"></div>', sep = ''
       ),
-    c("  </body>", "</html>"),
-    file = file, sep = "\n"
+    c('  </body>', '</html>'),
+    file = file, sep = '\n'
     )
   if (ani.options('autobrowse'))
     browseURL(paste('file:///', normalizePath(file), sep = ''))

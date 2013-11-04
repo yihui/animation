@@ -16,8 +16,8 @@
 #' @export
 #' @example inst/examples/price.ani-ex.R
 price.ani = function(
-  price, time, time.begin = min(time), span = 15 * 60, ..., xlab = "price",
-  ylab = "frequency", xlim, ylim, main
+  price, time, time.begin = min(time), span = 15 * 60, ..., xlab = 'price',
+  ylab = 'frequency', xlim, ylim, main
 ) {
   time1 = time.begin
   miss.main = missing(main)
@@ -42,12 +42,12 @@ price.ani = function(
     if (length(sub.price) > 0) {
       tab.price = table(sub.price)
       if (miss.main)
-        main = paste(time1, time2, sep = " - ")
-      plot(as.numeric(names(tab.price)), as.numeric(tab.price), type = "h",
+        main = paste(time1, time2, sep = ' - ')
+      plot(as.numeric(names(tab.price)), as.numeric(tab.price), type = 'h',
            ..., xlab = xlab, ylab = ylab, xlim = xlim, ylim = ylim,
            main = main, panel.first = grid())
     } else if (interactive()) {
-      message("no prices between ", time1, " and ", time2)
+      message('no prices between ', time1, ' and ', time2)
       flush.console()
     }
     time1 = time2
