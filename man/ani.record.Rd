@@ -100,7 +100,6 @@ ani.replay()
 ## or export the animation to an HTML page
 saveHTML(ani.replay(), img.name = "record_plot")
 
-
 ## record plots and replay immediately
 saveHTML({
     dev.control("enable")  # enable recording

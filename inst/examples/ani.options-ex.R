@@ -20,9 +20,9 @@ ani.options(oopt)
 
 ## how to make use of the hidden option 'img.fmt'
 saveHTML(expr = {
-    png(ani.options('img.fmt'))
-    for(i in 1:5) plot(runif(10))
-    dev.off()
+  png(ani.options('img.fmt'))
+  for(i in 1:5) plot(runif(10))
+  dev.off()
 }, img.name='custom_plot', use.dev = FALSE, ani.type='png',
          description="Note how we use our own graphics device in 'expr'.",
          htmlfile='custom_device.html')

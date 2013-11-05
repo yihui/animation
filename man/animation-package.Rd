@@ -108,8 +108,6 @@ saveHTML({
     description = c("Random walk on the 2D plane: for each point", 
         "(x, y), x = x + rnorm(1) and y = y + rnorm(1)."))
 
-
-
 ### 3. GIF animations ###
 saveGIF({
     ani.options(nmax = 30)
