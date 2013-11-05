@@ -118,8 +118,8 @@ saveHTML = function(
     )
     .dexpr = paste(
       '	<div class="scianimator" style="width: ', ani.options('ani.width'),
-      'px;"><pre class="brush: r">', paste(.dexpr, collapse = '\n'),
-      '</pre></div>', sep = ''
+      'px; text-align: left"><pre><code class="r">', paste(.dexpr, collapse = '\n'),
+      '</code></pre></div>', sep = ''
     )
   }
 
