@@ -84,15 +84,8 @@ saveGIF = function(
   if (use.dev) dev.off()
   
   ## compress PDF files
-  if (file.ext == 'pdf' &&
-        ((use.qpdf <- !is.null(ani.options('qpdf'))) ||
-           (use.pdftk <- !is.null(ani.options('pdftk'))))) {
-    for (f in list.files(
-      dirname(img.name), pattern = sprintf('^%s[0-9]*\\.pdf$', img.name),
-      full.names = TRUE
-    )) if (use.qpdf) qpdf(f) else if (use.pdftk) pdftk(f)
-  }
-  
+  if (file.ext == 'pdf')
+    comp_pdf(img.name)
   img.files = sprintf(img.fmt, seq_len(length(list.files(
     pattern = paste(img.name, '[0-9]+\\.', file.ext, sep = '')
   ))))
