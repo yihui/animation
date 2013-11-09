@@ -81,12 +81,7 @@ saveVideo = function(
     file.rename(file.path(tempdir(), basename(video.name)), video.name)
     message('\n\nVideo has been created at: ',
             output.path <- normalizePath(video.name))
-    if (ani.options('autobrowse')) {
-      if (.Platform$OS.type == 'windows')
-        try(shell.exec(output.path)) else if (Sys.info()['sysname'] == 'Darwin')
-          try(system(paste('open ', shQuote(output.path))), TRUE) else
-            try(system(paste('xdg-open ', shQuote(output.path))), TRUE)
-    }
+    auto_browse(output.path)
   }
   invisible(cmd)
 }

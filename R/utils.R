@@ -14,3 +14,14 @@ comp_pdf = function(img.name){
       if (use.qpdf) qpdf(f) else if (use.pdftk) pdftk(f)
   }
 }
+
+# auto browse 
+auto_browse = function(output){
+  if (ani.options('autobrowse')) {
+    if (.Platform$OS.type == 'windows')
+      try(shell.exec(output)) else if (Sys.info()['sysname'] == 'Darwin')
+        try(system(paste('open ', shQuote(output))), TRUE) else
+          try(system(paste('xdg-open ', shQuote(output))), TRUE)
+    invisible(0)
+  }
+}
