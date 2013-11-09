@@ -13,8 +13,8 @@
 #' @param convert the \command{convert} command; it must be either 
 #'   \code{'convert'} or \code{'gm convert'}; and it can be pre-specified as an 
 #'   option in \code{\link{ani.options}('convert')}, e.g. (Windows users) 
-#'   \code{ani.options(convert = shQuote('c:/program 
-#'   files/imagemagick/convert.exe'))}, or (Mac users) \code{ani.options(convert
+#'   \code{ani.options(convert = 'c:/program 
+#'   files/imagemagick/convert.exe')}, or (Mac users) \code{ani.options(convert
 #'   = '/opt/local/bin/convert')}; see the Note section for more details
 #' @param cmd.fun a function to invoke the OS command; by default 
 #'   \code{\link{system}}
@@ -82,11 +82,11 @@ im.convert = function(
   if (convert == 'convert') {
     version = ''
     if (!is.null(ani.options('convert'))) {
-      try(version <- cmd.fun(sprintf('%s --version', ani.options('convert')), intern = TRUE))
+      try(version <- cmd.fun(sprintf('%s --version', shQuote(ani.options('convert'))), intern = TRUE))
     }
     if (!length(grep('ImageMagick', version))) {
       try(version <- cmd.fun(sprintf('%s --version', convert), intern = TRUE))
-    } else convert = ani.options('convert')
+    } else convert = shQuote(ani.options('convert'))
     ## try to look for ImageMagick in the Windows Registry Hive,
     ## the Program Files directory and the LyX installation
     if (!length(grep('ImageMagick', version))) {
@@ -103,7 +103,7 @@ im.convert = function(
     ## GraphicsMagick
     version = ''
     if (!is.null(ani.options('convert')))
-      try(version <- cmd.fun(sprintf('%s -version', ani.options('convert')), intern = TRUE))
+      try(version <- cmd.fun(sprintf('%s -version', shQuote(ani.options('convert'))), intern = TRUE))
     if (!length(grep('GraphicsMagick', version))) {
       try(version <- cmd.fun(sprintf('%s -version', convert), intern = TRUE))
       if (!length(grep('GraphicsMagick', version))) {
@@ -111,7 +111,7 @@ im.convert = function(
                 '; you may have to put the path of GraphicsMagick in the PATH variable.')
         return()
       }
-    } else convert = ani.options('convert')
+    } else convert = shQuote(ani.options('convert'))
   }
   
   loop = ifelse(isTRUE(ani.options('loop')), 0, ani.options('loop'))
