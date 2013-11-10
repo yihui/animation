@@ -78,7 +78,7 @@ saveVideo = function(
   
   if (cmd == 0) {
     setwd(owd)
-    file.rename(file.path(tempdir(), basename(video.name)), video.name)
+    file.copy(file.path(tempdir(), basename(video.name)), video.name)
     message('\n\nVideo has been created at: ',
             output.path <- normalizePath(video.name))
     auto_browse(output.path)
