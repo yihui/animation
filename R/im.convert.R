@@ -87,8 +87,6 @@ im.convert = function(
     if (!length(grep('ImageMagick', version))) {
       try(version <- cmd.fun(sprintf('%s --version', convert), intern = TRUE))
     } else convert = shQuote(ani.options('convert'))
-    ## try to look for ImageMagick in the Windows Registry Hive,
-    ## the Program Files directory and the LyX installation
     if (!length(grep('ImageMagick', version))) {
       message('I cannot find ImageMagick with convert = ', shQuote(convert))
       if (.Platform$OS.type == 'windows') convert = find_magic() else {
