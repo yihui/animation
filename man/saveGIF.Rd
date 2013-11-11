@@ -5,10 +5,12 @@
 or GraphicsMagick}
 \usage{
 saveGIF(expr, movie.name = "animation.gif", img.name = "Rplot", convert = "convert", 
-    cmd.fun = system, clean = TRUE, ...)
+    cmd.fun = if (.Platform$OS.type == "windows") shell else system, clean = TRUE, 
+    ...)
 
 saveMovie(expr, movie.name = "animation.gif", img.name = "Rplot", convert = "convert", 
-    cmd.fun = system, clean = TRUE, ...)
+    cmd.fun = if (.Platform$OS.type == "windows") shell else system, clean = TRUE, 
+    ...)
 }
 \arguments{
   \item{expr}{an expression to generate animations; use
