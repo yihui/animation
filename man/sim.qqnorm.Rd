@@ -12,7 +12,7 @@ sim.qqnorm(n = 20, last.plot = NULL, ...)
   add the diagonal line}
 
   \item{...}{other arguments passed to
-  \code{\link[stats]{qqnorm}}}
+  \code{\link{qqnorm}}}
 }
 \value{
   \code{NULL}
@@ -52,8 +52,8 @@ ani.options(oopt)
 
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \seealso{
-  \code{\link[stats]{qqnorm}}
+  \code{\link{qqnorm}}
 }

@@ -11,15 +11,15 @@ Rosling.bubbles(x, y, data, type = c("circles", "squares", "rectangles", "stars"
   \item{x,y}{the x and y co-ordinates for the centres of
   the bubbles (symbols).  Default to be 10 uniform random
   numbers in [0, 1] for each single image frame (so the
-  length should be 10 * \code{ani.options("nmax")})}
+  length should be 10 * \code{ani.options('nmax')})}
 
   \item{type,data}{the type and data for symbols; see
-  \code{\link[graphics]{symbols}}. The default type is
+  \code{\link{symbols}}.  The default type is
   \code{circles}.}
 
   \item{bg,main,xlim,ylim,xlab,ylab,...}{see
-  \code{\link[graphics]{symbols}}. Note that \code{bg} has
-  default values taking semi-transparent colors.}
+  \code{\link{symbols}}. Note that \code{bg} has default
+  values taking semi-transparent colors.}
 
   \item{grid}{logical; add a grid to the plot?}
 
@@ -38,13 +38,12 @@ Rosling.bubbles(x, y, data, type = c("circles", "squares", "rectangles", "stars"
   lot of bubble plots to illustrate trends behind the data
   over time. This function gives an imitation of those
   moving bubbles, besides, as this function is based on
-  \code{\link[graphics]{symbols}}, we can also make use of
-  other symbols such as squares, rectangles, thermometers,
-  etc.
+  \code{\link{symbols}}, we can also make use of other
+  symbols such as squares, rectangles, thermometers, etc.
 }
 \details{
   Suppose we have observations of \eqn{n} individuals over
-  \code{ani.options("nmax")} years. In this animation, the
+  \code{ani.options('nmax')} years. In this animation, the
   data of each year will be shown in the bubbles (symbols)
   plot; as time goes on, certain trends will be revealed
   (like those in Rosling's talk). Please note that the
@@ -82,13 +81,11 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
-  \url{http://animation.yihui.name/da:ts:hans_rosling_s_talk}
-
   \url{http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html}
 }
 \seealso{
-  \code{\link[graphics]{symbols}}
+  \code{\link{symbols}}
 }

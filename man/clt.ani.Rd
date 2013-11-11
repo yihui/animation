@@ -27,15 +27,14 @@ clt.ani(obs = 300, FUN = rexp, mean = 1, sd = 1, col = c("bisque", "red", "blue"
   theoretical density cuve and P-values.}
 
   \item{mat,widths,heights}{arguments passed to
-  \code{\link[graphics]{layout}} to set the layout of the
-  two graphs.}
+  \code{\link{layout}} to set the layout of the two
+  graphs.}
 
   \item{xlim}{the x-axis limit for the histogram (it has a
   default value if not specified)}
 
   \item{\dots}{other arguments passed to
-  \code{\link[graphics]{plot.default}} to plot the
-  P-values}
+  \code{\link{plot.default}} to plot the P-values}
 }
 \value{
   A data frame of P-values.
@@ -50,8 +49,8 @@ clt.ani(obs = 300, FUN = rexp, mean = 1, sd = 1, col = c("bisque", "red", "blue"
   size \eqn{n} increases (the theoretical limiting
   distribution is denoted by the dashed line), besides, the
   P-values from the normality test
-  \code{\link[stats]{shapiro.test}} are computed for each
-  \eqn{n} and plotted at the same time.
+  \code{\link{shapiro.test}} are computed for each \eqn{n}
+  and plotted at the same time.
 }
 \details{
   As long as the conditions of the Central Limit Theorem
@@ -85,12 +84,11 @@ ani.options(oopt)
 
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   \url{http://vis.supstat.com/2013/04/central-limit-theorem}
 }
 \seealso{
-  \code{\link[graphics]{hist}},
-  \code{\link[stats]{density}}
+  \code{\link{hist}}, \code{\link{density}}
 }

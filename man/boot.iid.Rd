@@ -16,8 +16,7 @@ boot.iid(x = runif(20), statistic = mean, m = length(x), mat = matrix(1:2, 2),
   (\eqn{m}-out-of-\eqn{n} bootstrap)}
 
   \item{mat,widths,heights}{arguments passed to
-  \code{\link[graphics]{layout}} to set the layout of the
-  two graphs}
+  \code{\link{layout}} to set the layout of the two graphs}
 
   \item{col}{a character vector of length 5 specifying the
   colors of: points of original data, points for the
@@ -30,8 +29,7 @@ boot.iid(x = runif(20), statistic = mean, m = length(x), mat = matrix(1:2, 2),
   \item{main}{a character vector of length 2: the main
   titles of the two graphs.}
 
-  \item{...}{other arguments passed to
-  \code{\link[graphics]{hist}}}
+  \item{...}{other arguments passed to \code{\link{hist}}}
 }
 \value{
   A list containing \item{t0 }{ The observed value of
@@ -90,7 +88,7 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   There are many references explaining the bootstrap and
@@ -102,5 +100,5 @@ ani.options(oopt)
   \url{http://animation.yihui.name/dmml:bootstrap_i.i.d}
 }
 \seealso{
-  \code{\link[graphics]{sunflowerplot}}
+  \code{\link{sunflowerplot}}
 }

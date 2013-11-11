@@ -1,7 +1,6 @@
 \name{bisection.method}
 \alias{bisection.method}
-\title{Demonstration of the Bisection Method for root-finding on an
-interval}
+\title{Demonstration of the Bisection Method for root-finding on an interval}
 \usage{
 bisection.method(FUN = function(x) x^2 - 4, rg = c(-1, 10), tol = 0.001, 
     interact = FALSE, main, xlab, ylab, ...)
@@ -23,7 +22,7 @@ bisection.method(FUN = function(x) x^2 - 4, rg = c(-1, 10), tol = 0.001,
   the plot}
 
   \item{\dots}{other arguments passed to
-  \code{\link[graphics]{curve}}}
+  \code{\link{curve}}}
 }
 \value{
   A list containing \item{root }{the root found by the
@@ -91,14 +90,12 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   \url{http://en.wikipedia.org/wiki/Bisection_method}
-
-  \url{http://animation.yihui.name/compstat:bisection_method}
 }
 \seealso{
-  \code{\link[stats]{deriv}}, \code{\link[stats]{uniroot}},
-  \code{\link[graphics]{curve}}
+  \code{\link{deriv}}, \code{\link{uniroot}},
+  \code{\link{curve}}
 }

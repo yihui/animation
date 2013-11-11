@@ -22,7 +22,7 @@ flip.coin(faces = 2, prob = NULL, border = "white", grid = "white", col = 1:2,
   \item{col}{The colors to annotate different faces of the
   `coin'.}
 
-  \item{type,pch,bg}{See \code{\link[graphics]{points}}.}
+  \item{type,pch,bg}{See \code{\link{points}}.}
 
   \item{digits}{integer indicating the precision to be used
   in the annotation of frequencies in the plot}
@@ -88,12 +88,11 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   \url{http://vis.supstat.com/2013/03/simulation-of-coin-flipping}
 }
 \seealso{
-  \code{\link[graphics]{points}},
-  \code{\link[base]{sample}}
+  \code{\link{points}}, \code{\link{sample}}
 }

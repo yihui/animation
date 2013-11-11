@@ -8,12 +8,12 @@ brownian.motion(n = 10, xlim = c(-20, 20), ylim = c(-20, 20), ...)
   \item{n}{Number of points in the scatterplot}
 
   \item{xlim,ylim}{Arguments passed to
-  \code{\link[graphics]{plot.default}} to control the
-  apperance of the scatterplot (title, points, etc), see
-  \code{\link[graphics]{points}} for details.}
+  \code{\link{plot.default}} to control the apperance of
+  the scatterplot (title, points, etc), see
+  \code{\link{points}} for details.}
 
   \item{...}{other arguments passed to
-  \code{\link[graphics]{plot.default}}}
+  \code{\link{plot.default}}}
 }
 \value{
   None (invisible \code{NULL}).
@@ -59,11 +59,11 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   \url{http://vis.supstat.com/2012/11/brownian-motion-with-r}
 }
 \seealso{
-  \code{\link[stats]{rnorm}}
+  \code{\link{rnorm}}
 }

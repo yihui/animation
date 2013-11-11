@@ -73,7 +73,7 @@ saveSWF({
 
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \seealso{
   Other utilities: \code{\link{gm.convert}},

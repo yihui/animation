@@ -15,20 +15,20 @@ saveVideo(expr, video.name = "animation.mp4", img.name = "Rplot", ffmpeg = "ffmp
   \file{animation.mp4} or \file{animation.avi})}
 
   \item{ffmpeg}{the command to call FFmpeg (e.g.
-  \code{"C:/Software/ffmpeg/bin/ffmpeg.exe"} under
+  \code{'C:/Software/ffmpeg/bin/ffmpeg.exe'} under
   Windows); note the full path of FFmpeg can be
   pre-specified in \code{\link{ani.options}('ffmpeg')}}
 
   \item{other.opts}{other options to be passed to
   \code{ffmpeg}, e.g. we can specify the bitrate as
-  \code{other.opts = "-b 400k"}}
+  \code{other.opts = '-b 400k'}}
 
   \item{...}{other arguments to be passed to
   \code{\link{ani.options}}}
 }
 \value{
   An integer indicating failure (-1) or success (0) of the
-  converting (refer to \code{\link[base]{system}}).
+  converting (refer to \code{\link{system}}).
 }
 \description{
   This function opens a graphics device to record the
@@ -36,10 +36,10 @@ saveVideo(expr, video.name = "animation.mp4", img.name = "Rplot", ffmpeg = "ffmp
   to convert these images to a video.
 }
 \details{
-  This function uses \code{\link[base]{system}} to call
-  FFmpeg to convert the images to a single video. The
-  command line used in this function is: \command{ffmpeg -y
-  -r <1/interval> -i <img.name>\%d.<ani.type> other.opts
+  This function uses \code{\link{system}} to call FFmpeg to
+  convert the images to a single video. The command line
+  used in this function is: \command{ffmpeg -y -r
+  <1/interval> -i <img.name>\%d.<ani.type> other.opts
   video.name}
 
   where \code{interval} comes from
@@ -70,8 +70,8 @@ saveVideo({
 ani.options(oopts)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>, based on an inital
-  version by Thomas Julou \email{thomas.julou@gmail.com}
+  Yihui Xie, based on an inital version by Thomas Julou
+  \email{thomas.julou@gmail.com}
 }
 \references{
   \url{http://ffmpeg.org/documentation.html}

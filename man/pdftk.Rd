@@ -21,7 +21,7 @@ pdftk(input, operation = NULL, output, other.opts = "compress dont_ask")
 \value{
   if \code{ani.options('pdftk')} is non-\code{NULL}, then
   this function returns the status of the operation
-  (\code{0} for success; see \code{\link[base]{system}});
+  (\code{0} for success; see \code{\link{system}});
   otherwise a warning will be issued
 }
 \description{
@@ -55,7 +55,7 @@ file.info(c("huge-plot.pdf", "huge-plot0.pdf", "huge-plot1.pdf"))["size"]
 
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   \url{http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/}

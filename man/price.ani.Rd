@@ -17,11 +17,10 @@ price.ani(price, time, time.begin = min(time), span = 15 * 60, ..., xlab = "pric
   minutes)}
 
   \item{\dots}{other arguments passed to
-  \code{\link[graphics]{plot}}}
+  \code{\link{plot}}}
 
   \item{xlab,ylab,xlim,ylim,main}{they are passed to
-  \code{\link[graphics]{plot}} with reasonable default
-  values}
+  \code{\link{plot}} with reasonable default values}
 }
 \value{
   invisible \code{NULL}
@@ -38,5 +37,5 @@ saveHTML({
     description = c("Barplots", "of the stock prices of Vanke Co. Ltd", "on 2009/11/27"))
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }

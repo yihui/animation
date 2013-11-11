@@ -18,7 +18,7 @@ MC.hitormiss(FUN = function(x) x - x^2, n = ani.options("nmax"), from = 0, to = 
   curve}
 
   \item{\dots}{other arguments passed to
-  \code{\link[graphics]{points}}}
+  \code{\link{points}}}
 }
 \value{
   A list containing \item{x1}{ the Uniform random numbers
@@ -68,12 +68,8 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
-}
-\references{
-  \url{http://animation.yihui.name/compstat:hit_or_miss_monte_carlo}
+  Yihui Xie
 }
 \seealso{
-  \code{\link[stats]{integrate}},
-  \code{\link{MC.samplemean}}
+  \code{\link{integrate}}, \code{\link{MC.samplemean}}
 }

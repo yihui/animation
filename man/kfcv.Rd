@@ -30,7 +30,7 @@ kfcv(5, 25)
 kfcv(10, 77)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \seealso{
   \code{\link{cv.ani}}

@@ -46,13 +46,10 @@ ani.options(oopt)
 
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
-}
-\references{
-  \url{http://animation.yihui.name/samp:systematic_sampling}
+  Yihui Xie
 }
 \seealso{
-  \code{\link[base]{sample}}, \code{\link{sample.simple}},
+  \code{\link{sample}}, \code{\link{sample.simple}},
   \code{\link{sample.cluster}}, \code{\link{sample.ratio}},
   \code{\link{sample.strat}}
 }

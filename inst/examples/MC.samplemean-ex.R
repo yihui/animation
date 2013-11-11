@@ -20,8 +20,8 @@ saveHTML({
     ani.options(interval = 0.3, nmax = ifelse(interactive(), 50, 2))
     MC.samplemean(n = 100, border = NA)
 }, img.name='MC.samplemean', htmlfile='MC.samplemean.html',
-         title = "Sample Mean Monte Carlo Integration",
-         description = c('',"Generate Uniform random numbers"," and compute the average",
-         "function values."))
+         title = 'Sample Mean Monte Carlo Integration',
+         description = c('','Generate Uniform random numbers',' and compute the average',
+         'function values.'))
 
 ani.options(oopt)

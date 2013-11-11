@@ -60,7 +60,7 @@ cv.nfeaturesLDA(data = matrix(rnorm(600), 60), cl = gl(3, 20), k = 5, cex.rg = c
   features with the largest \eqn{p}. }
 
   Note that \eqn{g_{max}} is set by
-  \code{ani.options("nmax")} (i.e. the maximum number of
+  \code{ani.options('nmax')} (i.e. the maximum number of
   features we want to choose).
 }
 \examples{

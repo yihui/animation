@@ -17,8 +17,8 @@ buffon.needle(l = 0.8, d = 1, redraw = TRUE, mat = matrix(c(1, 3, 2, 3), 2),
   each drop.}
 
   \item{mat,heights}{arguments passed to
-  \code{\link[graphics]{layout}} to set the layout of the
-  three graphs.}
+  \code{\link{layout}} to set the layout of the three
+  graphs.}
 
   \item{col}{a character vector of length 7 specifying the
   colors of: background of the area between parallel lines,
@@ -101,7 +101,7 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   Ramaley, J. F. (Oct 1969). Buffon's Noodle Problem.

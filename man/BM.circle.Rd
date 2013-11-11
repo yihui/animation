@@ -10,7 +10,7 @@ BM.circle(n = 20, col = rainbow(n), ...)
   \item{col}{colors of points}
 
   \item{\dots}{other parameters passed to
-  \code{\link[graphics]{points}}}
+  \code{\link{points}}}
 }
 \value{
   Invisible \code{NULL}.
@@ -47,11 +47,11 @@ ani.options(oopt)
 
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
-  \url{http://animation.yihui.name/prob:brownian_motion_circle}
+  \url{http://http://vis.supstat.com/2012/11/brownian-motion-with-r/}
 }
 \seealso{
-  \code{\link{brownian.motion}}, \code{\link[stats]{rnorm}}
+  \code{\link{brownian.motion}}, \code{\link{rnorm}}
 }

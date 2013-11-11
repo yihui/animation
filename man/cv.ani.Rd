@@ -20,7 +20,7 @@ cv.ani(x = runif(150), k = 10, col = c("green", "red", "blue"), pch = c(4, 1), .
   symbols of the test set and training set respectively.}
 
   \item{\dots}{other arguments passed to
-  \code{\link[graphics]{plot.default}}}
+  \code{\link{plot.default}}}
 }
 \value{
   None (invisible \code{NULL}).
@@ -72,10 +72,7 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
-}
-\references{
-  \url{http://animation.yihui.name/dmml:k-fold_cross-validation}
+  Yihui Xie
 }
 \seealso{
   \code{\link{kfcv}}

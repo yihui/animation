@@ -16,7 +16,7 @@ conf.int(level = 0.95, size = 50, cl = c("red", "gray"), ...)
   no; \code{cl[2]}: yes)}
 
   \item{\dots}{other arguments passed to
-  \code{\link[graphics]{plot.default}}}
+  \code{\link{plot.default}}}
 }
 \value{
   A list containing \item{level }{confidence level}
@@ -66,11 +66,9 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   George Casella and Roger L. Berger. \emph{Statistical
-  Inference}. Duxbury Press, 2th edition, 2001.
-
-  \url{http://animation.yihui.name/mathstat:confidence_interval}
+  Inference}.  Duxbury Press, 2th edition, 2001.
 }

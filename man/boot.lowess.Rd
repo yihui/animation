@@ -5,12 +5,12 @@
 boot.lowess(x, y = NULL, f = 2/3, iter = 3, line.col = "#FF000033", ...)
 }
 \arguments{
-  \item{x,y,f,iter}{passed to \code{\link[stats]{lowess}}}
+  \item{x,y,f,iter}{passed to \code{\link{lowess}}}
 
   \item{line.col}{the color of the LOWESS lines}
 
   \item{...}{other arguments passed to the scatterplot by
-  \code{\link[graphics]{plot}}}
+  \code{\link{plot}}}
 }
 \value{
   NULL
@@ -45,5 +45,5 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }

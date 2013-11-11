@@ -21,7 +21,7 @@ MC.samplemean(FUN = function(x) x - x^2, n = ani.options("nmax"), col.rect = c("
   rectangles will be laid at their exact locations.}
 
   \item{\dots}{other arguments passed to
-  \code{\link[graphics]{rect}}}
+  \code{\link{rect}}}
 }
 \value{
   A list containing \item{x}{ the Uniform random numbers }
@@ -90,12 +90,11 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   \url{http://animation.yihui.name/compstat:sample_mean_monte_carlo}
 }
 \seealso{
-  \code{\link[stats]{integrate}},
-  \code{\link{MC.hitormiss}}
+  \code{\link{integrate}}, \code{\link{MC.hitormiss}}
 }

@@ -16,8 +16,8 @@ sample.strat(pop = ceiling(10 * runif(10, 0.5, 1)), size = ceiling(pop *
   \item{p.col,p.cex}{different colors /magnification rate
   to annotate the population and the sample}
 
-  \item{\dots}{other arguments passed to
-  \code{\link[graphics]{rect}} to annotate the ``strata''}
+  \item{\dots}{other arguments passed to \code{\link{rect}}
+  to annotate the ``strata''}
 }
 \value{
   None (invisible `\code{NULL}').
@@ -47,13 +47,10 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
-}
-\references{
-  \url{http://animation.yihui.name/samp:stratified_sampling}
+  Yihui Xie
 }
 \seealso{
-  \code{\link[base]{sample}}, \code{\link{sample.simple}},
+  \code{\link{sample}}, \code{\link{sample.simple}},
   \code{\link{sample.cluster}}, \code{\link{sample.ratio}},
   \code{\link{sample.system}}
 }

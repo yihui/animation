@@ -51,7 +51,7 @@ kmeans.ani(x = cbind(X1 = runif(50), X2 = runif(50)), centers = 3,
 \note{
   This function is only for demonstration purpose. For
   practical applications please refer to
-  \code{\link[stats]{kmeans}}.
+  \code{\link{kmeans}}.
 
   Note that \code{ani.options('nmax')} is defined as the
   maximum number of iterations in such a sense: an
@@ -97,11 +97,8 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
-}
-\references{
-  \url{http://animation.yihui.name/mvstat:k-means_cluster_algorithm}
+  Yihui Xie
 }
 \seealso{
-  \code{\link[stats]{kmeans}}
+  \code{\link{kmeans}}
 }

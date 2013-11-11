@@ -22,11 +22,10 @@ sample.ratio(X = runif(50, 0, 5), R = 1, Y = R * X + rnorm(X), size = length(X)/
   sample mean of Y}
 
   \item{legend.loc}{legend location: topleft, topright,
-  bottomleft, bottomright, ... (see
-  \code{\link[graphics]{legend}})}
+  bottomleft, bottomright, ... (see \code{\link{legend}})}
 
   \item{\dots}{other arguments passed to
-  \code{\link[graphics]{plot.default}}}
+  \code{\link{plot.default}}}
 }
 \value{
   A list containing \item{X}{X population} \item{Y}{Y
@@ -75,13 +74,10 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
-}
-\references{
-  \url{http://animation.yihui.name/samp:ratio_estimation}
+  Yihui Xie
 }
 \seealso{
-  \code{\link[base]{sample}}, \code{\link{sample.simple}},
+  \code{\link{sample}}, \code{\link{sample.simple}},
   \code{\link{sample.cluster}}, \code{\link{sample.strat}},
   \code{\link{sample.system}}
 }

@@ -29,7 +29,7 @@
 #'   \item Determine the optimum number of features with the largest \eqn{p}.
 #' }
 #'
-#' Note that \eqn{g_{max}} is set by \code{ani.options("nmax")} (i.e. the
+#' Note that \eqn{g_{max}} is set by \code{ani.options('nmax')} (i.e. the
 #' maximum number of features we want to choose).
 #'
 #' @param data a data matrix containg the predictors in columns
@@ -55,10 +55,10 @@
 #' @example inst/examples/cv.nfeaturesLDA-ex.R
 cv.nfeaturesLDA = function(
   data = matrix(rnorm(600), 60), cl = gl(3, 20), k = 5, cex.rg = c(0.5, 3),
-  col.av = c("blue", "red"), ...
+  col.av = c('blue', 'red'), ...
 ) {
   library(MASS)
-  nmax = min(ncol(data), ani.options("nmax"))
+  nmax = min(ncol(data), ani.options('nmax'))
   cl = as.factor(cl)
   dat = data.frame(data, cl)
   N = nrow(dat)
@@ -87,18 +87,18 @@ cv.nfeaturesLDA = function(
         as.matrix(trdat[, -ncol(trdat)]), trdat[, ncol(trdat)]
       ), decreasing = TRUE) <= j
       fit = MASS::lda(as.formula(paste(
-        colnames(dat)[ncol(dat)], "~", paste(colnames(dat)[-ncol(dat)][slct], collapse = "+")
+        colnames(dat)[ncol(dat)], '~', paste(colnames(dat)[-ncol(dat)][slct], collapse = '+')
       )), data = dat)
       pred = predict(fit, dat[idx, ], dimen = 2)
       acc[i - 1, j] = mean(dat[idx, ncol(dat)] == pred$class)
       plot(
-        1, xlim = c(1, nmax), ylim = c(0, k), type = "n", ylab = "Fold",
-        xlab = "Number of Features", yaxt = "n", panel.first = grid()
+        1, xlim = c(1, nmax), ylim = c(0, k), type = 'n', ylab = 'Fold',
+        xlab = 'Number of Features', yaxt = 'n', panel.first = grid()
       )
       axis(2, 1:k)
       axis(2, 0, expression(bar(p)))
       if ((j - 1) * k + i - 1 < nmax * k)
-        text(matrix(loc[-(1:((j - 1) * k + i - 1)), ], ncol = 2), "?")
+        text(matrix(loc[-(1:((j - 1) * k + i - 1)), ], ncol = 2), '?')
       points(matrix(loc[1:((j - 1) * k + i - 1), ], ncol = 2),
              cex = c(acc)^2 * diff(cex.rg) + min(cex.rg), col = col.av[1], ...)
       points(
@@ -108,14 +108,14 @@ cv.nfeaturesLDA = function(
       styl.pch = as.integer(dat[idx, ncol(dat)])
       styl.col = 2 - as.integer(dat[idx, ncol(dat)] == pred$class)
       plot(pred$x, pch = styl.pch, col = styl.col)
-      legend("topright", legend = c("correct", "wrong"), fill = 1:2, bty = "n", cex = 0.8)
-      legend("bottomleft", legend = levels(dat[idx, ncol(dat)])[unique(styl.pch)],
-             pch = unique(styl.pch), bty = "n", cex = 0.8)
+      legend('topright', legend = c('correct', 'wrong'), fill = 1:2, bty = 'n', cex = 0.8)
+      legend('bottomleft', legend = levels(dat[idx, ncol(dat)])[unique(styl.pch)],
+             pch = unique(styl.pch), bty = 'n', cex = 0.8)
       ani.pause()
     }
   }
   par(op)
-  rownames(acc) = paste("Fold", 1:k, sep = "")
+  rownames(acc) = paste('Fold', 1:k, sep = '')
   colnames(acc) = 1:nmax
   nf = which.max(apply(acc, 2, mean))
   names(nf) = NULL

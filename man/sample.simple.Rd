@@ -46,13 +46,10 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
-}
-\references{
-  \url{http://animation.yihui.name/samp:srswr}
+  Yihui Xie
 }
 \seealso{
-  \code{\link[base]{sample}}, \code{\link{sample.ratio}},
+  \code{\link{sample}}, \code{\link{sample.ratio}},
   \code{\link{sample.cluster}}, \code{\link{sample.strat}},
   \code{\link{sample.system}}
 }

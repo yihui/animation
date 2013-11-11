@@ -31,7 +31,7 @@ g.brownian.motion(p = 20, start = 1900, digits = 14, file = "index.html", width 
 }
 \note{
   The number of frames is controlled by
-  \code{ani.options("nmax")} as usual.
+  \code{ani.options('nmax')} as usual.
 
   Due to the ``security settings'' of Adobe Flash player,
   you might not be able to view the generated Flash
@@ -45,7 +45,7 @@ g.brownian.motion(15, digits = 2, width = 600, height = 500,
     file = "BM-motion-chart.html")
 }
 \author{
-  Yihui Xie <\url{http://yihui.name}>
+  Yihui Xie
 }
 \references{
   \url{http://code.google.com/apis/visualization/} and
