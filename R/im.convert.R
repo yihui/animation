@@ -89,7 +89,7 @@ im.convert = function(
     } else convert = shQuote(ani.options('convert'))
     if (!length(grep('ImageMagick', version))) {
       message('I cannot find ImageMagick with convert = ', shQuote(convert))
-      if (.Platform$OS.type == 'windows') convert = find_magic() else {
+      if (.Platform$OS.type != 'windows' || is.null(convert <- find_magic())) {
         warning('Please install ImageMagick first or put its bin path into the system PATH variable')
         return()
       }
