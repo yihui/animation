@@ -35,7 +35,7 @@ find_magic = function() {
     magick.path = utils::readRegistry('SOFTWARE\\ImageMagick\\Current')$BinPath
   }, silent = TRUE), 'try-error')) {
     if (nzchar(magick.path)) {
-      convert = shQuote(normalizePath(file.path(magick.path, 'convert.exe')))
+      convert = normalizePath(file.path(magick.path, 'convert.exe'))
       message('but I can find it from the Registry Hive: ', magick.path)
     }
   } else if (
@@ -44,7 +44,7 @@ find_magic = function() {
       length(magick.path <- list.files(file.path(prog, magick.dir), pattern = '^convert\\.exe$',
                                        full.names = TRUE, recursive = TRUE))
   ) {
-    convert = shQuote(normalizePath(magick.path[1]))
+    convert = normalizePath(magick.path[1])
     message('but I can find it from the "Program Files" directory: ', magick.path)
   } else if (!inherits(try({
     magick.path = utils::readRegistry('LyX.Document\\Shell\\open\\command', 'HCR')
@@ -53,7 +53,7 @@ find_magic = function() {
                         'imagemagick', 'convert.exe')
     convert = convert[file.exists(convert)]
     if (length(convert)) {
-      convert = shQuote(normalizePath(convert))
+      convert = normalizePath(convert)
       message('but I can find it from the LyX installation: ', dirname(convert))
     } else {
       warning('No way to find ImageMagick!')

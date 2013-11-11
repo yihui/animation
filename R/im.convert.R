@@ -86,7 +86,7 @@ im.convert = function(
     }
     if (!length(grep('ImageMagick', version))) {
       try(version <- cmd.fun(sprintf('%s --version', convert), intern = TRUE))
-    } else convert = shQuote(ani.options('convert'))
+    } else convert = ani.options('convert')
     if (!length(grep('ImageMagick', version))) {
       message('I cannot find ImageMagick with convert = ', shQuote(convert))
       if (.Platform$OS.type != 'windows' || is.null(convert <- find_magic())) {
@@ -106,12 +106,12 @@ im.convert = function(
                 '; you may have to put the path of GraphicsMagick in the PATH variable.')
         return()
       }
-    } else convert = shQuote(ani.options('convert'))
+    } else convert = ani.options('convert')
   }
 
   loop = ifelse(isTRUE(ani.options('loop')), 0, ani.options('loop'))
   convert = sprintf(
-    '%s -loop %s %s %s %s', convert, loop,
+    '%s -loop %s %s %s %s', shQuote(convert), loop,
     extra.opts, paste(
       '-delay', interval * 100,
       if (length(interval) == 1) paste(files, collapse = ' ') else files,
