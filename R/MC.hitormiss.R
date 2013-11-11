@@ -1,11 +1,11 @@
 #' Hit or Miss Monte Carlo integration
-#' 
+#'
 #' Integrate a function using the Hit-or-Miss Monte Carlo algorithm.
-#' 
+#'
 #' We compute the proportion of points hitting the area under the curve, and the
 #' integral can be estimated by the proportion multiplied by the total area of
 #' the rectangle (from xmin to xmax, ymin to ymax).
-#' 
+#'
 #' @param FUN the function to be integrated
 #' @param n number of points to be sampled from the Uniform(0, 1) distribution
 #' @param from,to the limits of integration
@@ -19,7 +19,7 @@
 #'   of the integral }
 #' @note This function is for demonstration purpose only; the integral might be
 #'   very inaccurate when \code{n} is small.
-#'   
+#'
 #'   \code{ani.options('nmax')} specifies the maximum number of trials.
 #' @author Yihui Xie
 #' @seealso \code{\link{integrate}}, \code{\link{MC.samplemean}}
@@ -40,10 +40,10 @@ MC.hitormiss = function(
          '_non-negative_ functions!')
   for (i in 1:nmax) {
     dev.hold()
-    curve(FUN, from = from, to = to, 
+    curve(FUN, from = from, to = to,
           ylab = eval(substitute(expression(y == x), list(x = body(FUN)))))
     points(
-      x1[1:i], x2[1:i], col = col.points[(x2[1:i] > y[1:i]) + 1], 
+      x1[1:i], x2[1:i], col = col.points[(x2[1:i] > y[1:i]) + 1],
       pch = pch.points[(x2[1:i] > y[1:i]) + 1], ...
     )
     curve(FUN, from = from, to = to, add = TRUE)

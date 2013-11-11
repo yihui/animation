@@ -1,8 +1,8 @@
 #' Bootstrapping with LOWESS
-#' 
+#'
 #' Sample the original data with replacement and fit LOWESS curves accordingly.
-#' 
-#' We keep on resampling the data and finally we will see several bootstrapped 
+#'
+#' We keep on resampling the data and finally we will see several bootstrapped
 #' LOWESS curves, which may give us a rough idea about a ``confidence interval''
 #' of the LOWESS fit.
 #' @param x,y,f,iter passed to \code{\link{lowess}}

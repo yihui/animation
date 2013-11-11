@@ -1,50 +1,50 @@
 #' Simulation of Buffon's Needle
-#' 
+#'
 #' This function provides a simulation for the problem of Buffon's Needle, which
 #' is one of the oldest problems in the field of geometrical probability.
-#' 
-#' This is quite an old problem in probability. For mathematical background, 
-#' please refer to \url{http://en.wikipedia.org/wiki/Buffon's_needle} or 
+#'
+#' This is quite an old problem in probability. For mathematical background,
+#' please refer to \url{http://en.wikipedia.org/wiki/Buffon's_needle} or
 #' \url{http://www.mste.uiuc.edu/reese/buffon/buffon.html}.
-#' 
-#' `Needles' are denoted by segments on the 2D plane, and dropped randomly to 
+#'
+#' `Needles' are denoted by segments on the 2D plane, and dropped randomly to
 #' check whether they cross the parallel lines. Through many times of `dropping'
 #' needles, the approximate value of \eqn{\pi} can be calculated out.
-#' 
+#'
 #' There are three graphs made in each step: the top-left one is a simulation of
-#' the scenario, the top-right one is to help us understand the connection 
-#' between dropping needles and the mathematical method to estimate \eqn{\pi}, 
+#' the scenario, the top-right one is to help us understand the connection
+#' between dropping needles and the mathematical method to estimate \eqn{\pi},
 #' and the bottom one is the result for each drop.
 #' @param l numerical. length of the needle; shorter than \code{d}.
-#' @param d numerical. distances between lines; it should be longer than 
+#' @param d numerical. distances between lines; it should be longer than
 #'   \code{l}.
 #' @param redraw logical. redraw former `needles' or not for each drop.
 #' @param mat,heights arguments passed to \code{\link{layout}} to set the layout
 #'   of the three graphs.
-#' @param col a character vector of length 7 specifying the colors of: 
-#'   background of the area between parallel lines, the needles, the sin curve, 
-#'   points below / above the sin curve, estimated \eqn{\pi} values, and the 
+#' @param col a character vector of length 7 specifying the colors of:
+#'   background of the area between parallel lines, the needles, the sin curve,
+#'   points below / above the sin curve, estimated \eqn{\pi} values, and the
 #'   true \eqn{\pi} value.
-#' @param expand a numerical value defining the expanding range of the y-axis 
-#'   when plotting the estimated \eqn{\pi} values: the \code{ylim} will be 
+#' @param expand a numerical value defining the expanding range of the y-axis
+#'   when plotting the estimated \eqn{\pi} values: the \code{ylim} will be
 #'   \code{(1 +/- expand) * pi}.
-#' @param type an argument passed to \code{\link[graphics:plot.default]{plot}} 
+#' @param type an argument passed to \code{\link[graphics:plot.default]{plot}}
 #'   when plotting the estimated \eqn{\pi} values (default to be lines).
-#' @param \dots other arguments passed to 
-#'   \code{\link[graphics:plot.default]{plot}} when plotting the values of 
+#' @param \dots other arguments passed to
+#'   \code{\link[graphics:plot.default]{plot}} when plotting the values of
 #'   estimated \eqn{\pi}.
-#' @return The values of estimated \eqn{\pi} are returned as a numerical vector 
+#' @return The values of estimated \eqn{\pi} are returned as a numerical vector
 #'   (of length \code{nmax}).
-#' @note Note that \code{redraw} has great influence on the speed of the 
-#'   simulation (animation) if the control argument \code{nmax} (in 
-#'   \code{\link{ani.options}}) is quite large, so you'd better specify it as 
+#' @note Note that \code{redraw} has great influence on the speed of the
+#'   simulation (animation) if the control argument \code{nmax} (in
+#'   \code{\link{ani.options}}) is quite large, so you'd better specify it as
 #'   \code{FALSE} when doing a large amount of simulations.
-#'   
+#'
 #'   The maximum number of drops is specified in \code{ani.options('nmax')}.
 #' @author Yihui Xie
-#' @references Ramaley, J. F. (Oct 1969). Buffon's Noodle Problem. \emph{The 
+#' @references Ramaley, J. F. (Oct 1969). Buffon's Noodle Problem. \emph{The
 #'   American Mathematical Monthly} \bold{76} (8): 916-918.
-#'   
+#'
 #'   \url{http://vis.supstat.com/2013/04/buffons-needle}
 #' @export
 #' @example inst/examples/buffon.needle-ex.R

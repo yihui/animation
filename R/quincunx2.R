@@ -4,7 +4,7 @@
 quincunx2 = function(
   balls = 200, layers = 15, pch.layers = 2, pch.balls = 19,
   col.balls = sample(colors(), balls, TRUE), cex.balls = 2
-) {  
+) {
   op = par(mar = c(1, 0.1, 0.1, 0.1), mfcol = c(4, 1)); on.exit(par(op))
   if (ani.options('nmax') != (balls + layers - 2))
     warning("It's strongly recommended that ani.options(nmax = balls + layers -2)")
@@ -59,7 +59,7 @@ quincunx2 = function(
         finalx[1:(i - layers + 2)], breaks = 1:layers, xlim = rgx, ylim = rgy,
         main = '', xlab = '', ylab = '', ann = FALSE, axes = FALSE
       )
-    }    
+    }
     if (i > (layers - 1)) {
       newi = i - layers + 1
       plot(1:layers, type = 'n', ann = FALSE, axes = FALSE)
@@ -68,7 +68,7 @@ quincunx2 = function(
       par(bty = 'u')
       if (newi < layers - 1) plot.new() else
         hist(newfinalx[1:(newi - layers + 2)], breaks = 1:layers, xlim = rgx, ylim = rgy, main = '',
-             xlab = '', ylab = '', ann = FALSE, axes = FALSE)      
+             xlab = '', ylab = '', ann = FALSE, axes = FALSE)
     } else {
       plot(1:layers, type = 'n', ann = FALSE, axes = FALSE)
       points(newlayerx, newlayery, pch = pch.layers)

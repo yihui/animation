@@ -1,12 +1,12 @@
 #' Demonstration of the k-Means clustering algorithm
-#' 
+#'
 #' This function provides a demo of the k-Means cluster algorithm for data
 #' containing only two variables (columns).
-#' 
+#'
 #' The k-Means cluster algorithm may be regarded as a series of iterations of:
 #' finding cluster centers, computing distances between sample points, and
 #' redefining cluster membership.
-#' 
+#'
 #' The data given by \code{x} is clustered by the \eqn{k}-means method, which
 #' aims to partition the points into \eqn{k} groups such that the sum of squares
 #' from points to the assigned cluster centers is minimized. At the minimum, all
@@ -28,7 +28,7 @@
 #'   matrix of cluster centers.}
 #' @note This function is only for demonstration purpose. For practical
 #'   applications please refer to \code{\link{kmeans}}.
-#'   
+#'
 #'   Note that \code{ani.options('nmax')} is defined as the maximum number of
 #'   iterations in such a sense: an iteration includes the process of computing
 #'   distances, redefining membership and finding centers. Thus there should be

@@ -1,18 +1,18 @@
 #' Demonstration for the cluster sampling
-#' 
-#' Each rectangle stands for a cluster, and the simple random sampling without 
-#' replacement is performed for each cluster. All points in the clusters being 
+#'
+#' Each rectangle stands for a cluster, and the simple random sampling without
+#' replacement is performed for each cluster. All points in the clusters being
 #' sampled will be drawn out.
 #' @param pop a vector for the size of each cluster in the population.
 #' @param size the number of clusters to be drawn out.
-#' @param p.col,p.cex different colors / magnification rate to annotate the 
+#' @param p.col,p.cex different colors / magnification rate to annotate the
 #'   population and the sample
-#' @param \dots other arguments passed to \code{\link{rect}} to annotate the 
+#' @param \dots other arguments passed to \code{\link{rect}} to annotate the
 #'   ``clusters''
 #' @return None (invisible \code{NULL}).
 #' @author Yihui Xie
-#' @seealso \code{\link{sample}}, \code{\link{sample.simple}}, 
-#'   \code{\link{sample.ratio}}, \code{\link{sample.strat}}, 
+#' @seealso \code{\link{sample}}, \code{\link{sample.simple}},
+#'   \code{\link{sample.ratio}}, \code{\link{sample.strat}},
 #'   \code{\link{sample.system}}
 #' @export
 #' @example inst/examples/sample.cluster-ex.R

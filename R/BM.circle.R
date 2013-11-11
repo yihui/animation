@@ -1,15 +1,15 @@
 #' Brownian Motion in a circle
-#' 
+#'
 #' Several points moving randomly in a circle.
-#' 
-#' This is a solution to the question raised in R-help: 
+#'
+#' This is a solution to the question raised in R-help:
 #' \url{https://stat.ethz.ch/pipermail/r-help/2008-December/183018.html}.
-#' 
+#'
 #' @param n number of points
 #' @param col colors of points
 #' @param \dots other parameters passed to \code{\link{points}}
 #' @return Invisible \code{NULL}.
-#' @note The maximum number of steps in the motion is specified in 
+#' @note The maximum number of steps in the motion is specified in
 #'   \code{ani.options('nmax')}.
 #' @author Yihui Xie
 #' @seealso \code{\link{brownian.motion}}, \code{\link{rnorm}}

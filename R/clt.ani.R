@@ -1,32 +1,32 @@
 #' Demonstration of the Central Limit Theorem
-#' 
-#' First of all, a number of \code{obs} observations are generated from a 
+#'
+#' First of all, a number of \code{obs} observations are generated from a
 #' certain distribution for each variable \eqn{X_j}, \eqn{j = 1, 2, \cdots, n}{j
-#' = 1, 2, ..., n}, and \eqn{n = 1, 2, \cdots, nmax}{n = 1, 2, ..., nmax}, then 
-#' the sample means are computed, and at last the density of these sample means 
-#' is plotted as the sample size \eqn{n} increases (the theoretical limiting 
-#' distribution is denoted by the dashed line), besides, the P-values from the 
+#' = 1, 2, ..., n}, and \eqn{n = 1, 2, \cdots, nmax}{n = 1, 2, ..., nmax}, then
+#' the sample means are computed, and at last the density of these sample means
+#' is plotted as the sample size \eqn{n} increases (the theoretical limiting
+#' distribution is denoted by the dashed line), besides, the P-values from the
 #' normality test \code{\link{shapiro.test}} are computed for each \eqn{n} and
 #' plotted at the same time.
-#' 
-#' As long as the conditions of the Central Limit Theorem (CLT) are satisfied, 
-#' the distribution of the sample mean will be approximate to the Normal 
+#'
+#' As long as the conditions of the Central Limit Theorem (CLT) are satisfied,
+#' the distribution of the sample mean will be approximate to the Normal
 #' distribution when the sample size \code{n} is large enough, no matter what is
-#' the original distribution. The largest sample size is defined by \code{nmax} 
+#' the original distribution. The largest sample size is defined by \code{nmax}
 #' in \code{\link{ani.options}}.
-#' 
-#' @param obs the number of sample means to be generated from the distribution 
+#'
+#' @param obs the number of sample means to be generated from the distribution
 #'   based on a given sample size \eqn{n}; these sample mean values will be used
 #'   to create the histogram
-#' @param FUN the function to generate \code{n} random numbers from a certain 
+#' @param FUN the function to generate \code{n} random numbers from a certain
 #'   distribution
-#' @param mean,sd the expectation and standard deviation of the population 
-#'   distribution (they will be used to plot the density curve of the 
+#' @param mean,sd the expectation and standard deviation of the population
+#'   distribution (they will be used to plot the density curve of the
 #'   theoretical Normal distribution with mean equal to \code{mean} and sd equal
-#'   to \eqn{sd/\sqrt{n}}; if any of them is \code{NA}, the density curve will 
+#'   to \eqn{sd/\sqrt{n}}; if any of them is \code{NA}, the density curve will
 #'   be suppressed)
-#' @param col a vector of length 4 specifying the colors of the histogram, the 
-#'   density curve of the sample mean, the theoretical density cuve and 
+#' @param col a vector of length 4 specifying the colors of the histogram, the
+#'   density curve of the sample mean, the theoretical density cuve and
 #'   P-values.
 #' @param mat,widths,heights arguments passed to \code{\link{layout}} to set the
 #'   layout of the two graphs.

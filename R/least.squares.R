@@ -1,8 +1,8 @@
 #' Demonstrate the least squares method
-#' 
+#'
 #' This is a simple demonstration of the meaning of least squares in univariate
 #' linear regression.
-#' 
+#'
 #' With either the intercept or the slope changing, the lines will be moving in
 #' the graph and corresponding residuals will be plotted. We can finally see the
 #' best estimate of the intercept and the slope from the residual plot.
@@ -28,13 +28,13 @@
 #' @param ... other parameters passed to \code{\link{plot}} to define the
 #'   appearance of the scatterplot
 #' @return The value returned depends on the animation type.
-#'   
-#'   If it is a slope animation, the value will be a list containing 
-#'   \item{lmfit}{ the estimates of the intercept and slope with 
+#'
+#'   If it is a slope animation, the value will be a list containing
+#'   \item{lmfit}{ the estimates of the intercept and slope with
 #'   \code{\link{lm}} } \item{anifit}{ the estimate of the slope in the
 #'   animation } If it is an intercept animation, the second component of the
 #'   above list will be the estimate of the intercept.
-#'   
+#'
 #'   Note the estimate will not be precise generally.
 #' @author Yihui Xie
 #' @seealso \code{\link{lm}}
@@ -87,7 +87,7 @@ least.squares = function(
       segments(x, b * x + aseq[i], x, y, col = v.col, lty = v.lty)
       rss[i] = sum((y - b * x - aseq[i])^2)
       plot(
-        1:nmax, rss, xlab = paste('Intercept =', round(aseq[i], 3)), 
+        1:nmax, rss, xlab = paste('Intercept =', round(aseq[i], 3)),
         ylab = 'Residual Sum of Squares', pch = rss.pch, type = rss.type
       )
       ani.pause()

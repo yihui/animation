@@ -1,8 +1,8 @@
 #' Visual Illusions: Lilac Chaser
-#' 
-#' Stare at the center cross for a few (say 30) seconds to experience the 
+#'
+#' Stare at the center cross for a few (say 30) seconds to experience the
 #' phenomena of the illusion.
-#' 
+#'
 #' Just try it out.
 #' @param np number of points
 #' @param col color of points
@@ -10,7 +10,7 @@
 #' @param p.cex magnification of points
 #' @param c.cex magnification of the center cross
 #' @return \code{NULL}
-#' @note In fact, points in the original version of `Lilac Chaser' are 
+#' @note In fact, points in the original version of `Lilac Chaser' are
 #'   \emph{blurred}, which is not implemented in this function.
 #' @author Yihui Xie
 #' @seealso \code{\link{points}}

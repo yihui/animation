@@ -1,18 +1,18 @@
 #' Demonstration for simple random sampling without replacement
-#' 
-#' The whole sample frame is denoted by a matrix (\code{nrow * ncol}) in the 
-#' plane just for convenience, and the points being sampled are marked out (by 
+#'
+#' The whole sample frame is denoted by a matrix (\code{nrow * ncol}) in the
+#' plane just for convenience, and the points being sampled are marked out (by
 #' red circles by default). Each member of the population has an equal and known
 #' chance of being selected.
 #' @param nrow the desired number of rows of the sample frame.
 #' @param ncol the desired number of columns of the sample frame.
 #' @param size the sample size.
-#' @param p.col,p.cex different colors /magnification rate to annotate the 
+#' @param p.col,p.cex different colors /magnification rate to annotate the
 #'   population and the sample
 #' @return None (invisible \code{NULL}).
 #' @author Yihui Xie
-#' @seealso \code{\link{sample}}, \code{\link{sample.ratio}}, 
-#'   \code{\link{sample.cluster}}, \code{\link{sample.strat}}, 
+#' @seealso \code{\link{sample}}, \code{\link{sample.ratio}},
+#'   \code{\link{sample.cluster}}, \code{\link{sample.strat}},
 #'   \code{\link{sample.system}}
 #' @export
 #' @example inst/examples/sample.simple-ex.R

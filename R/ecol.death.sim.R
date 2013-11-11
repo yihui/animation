@@ -1,11 +1,11 @@
 #' A simulation of the death of two species with certain probabilities
-#' 
+#'
 #' Suppose there are two plant species in a field: A and B. One of them will die
 #' at each time and a new plant will grow in the place where the old plant died;
 #' the species of the new plant depends on the proportions of two species: the
 #' larger the proportion is, the greater the probability for this species to
 #' come up will be.
-#' 
+#'
 #' @param nr,nc number of rows and columns of the field (plants grow on a
 #'   \code{nr} x \code{nc} grid)
 #' @param num.sp number of two plants respectively
@@ -19,22 +19,22 @@
 #' @author Yihui Xie
 #' @references This animation is motivated by a question raised from Jing Jiao,
 #'   a student in biology, to show the evolution of two species.
-#'   
+#'
 #'   The original post is in the forum of the ``Capital of Statistics'':
 #'   \url{http://cos.name/cn/topic/14093} (in Chinese)
 #' @export
 #' @examples
-#' 
+#'
 #' oopt = ani.options(nmax = ifelse(interactive(), 50, 2), interval = 0.3)
 #' par(ann = FALSE, mar = rep(0, 4))
 #' ecol.death.sim()
-#' 
+#'
 #' ## large scale simulation
 #' ani.options(nmax = ifelse(interactive(), 1000, 2), interval = 0.02)
 #' ecol.death.sim(col.sp = c(8, 2), pch.sp = c(20, 17))
-#' 
+#'
 #' ani.options(oopt)
-#' 
+#'
 ecol.death.sim = function(
   nr = 10, nc = 10, num.sp = c(50, 50), col.sp = c(1, 2), pch.sp = c(1, 2),
   col.die = 1, pch.die = 4, cex = 3, ...

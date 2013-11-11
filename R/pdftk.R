@@ -1,11 +1,11 @@
 #' A wrapper for the PDF toolkit Pdftk
-#' 
+#'
 #' If the toolkit Pdftk is available in the system, it will be called to
 #' manipulate the PDF files (especially to compress the PDF files).
-#' 
+#'
 #' This is a wrapper to call \command{pdftk}. The path of \command{pdftk} should
 #' be set via \code{\link{ani.options}(pdftk = 'path/to/pdftk')}.
-#' 
+#'
 #' See the reference for detailed usage of \command{pdftk}.
 #' @param input the path of the input PDF file(s)
 #' @param operation the operation to be done on the input (default to be

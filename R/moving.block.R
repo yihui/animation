@@ -1,18 +1,18 @@
 #' Cycle through an R object and plot each subset of elements
-#' 
+#'
 #' For a long numeric vector or matrix (or data frame), we can plot only a
 #' subset of its elements to take a closer look at its structure. With a moving
 #' ``block'' from the beginning to the end of a vector or matrix or any R
 #' objects to which we can apply \code{subset}, all elements inside the block
 #' are plotted as a line or scatter plot or any customized plots.
-#' 
+#'
 #' For a vector, the elments from \code{i + 1} to \code{i + block} will be
 #' plotted in the i-th step; similarly for a matrix or data frame, a (scatter)
 #' plot will be created from the \code{i + 1}-th row to \code{i + block}-th row.
-#' 
+#'
 #' However, this function is not limited to scatter plots or lines -- we can
 #' customize the function \code{FUN} as we wish.
-#' 
+#'
 #' @param dat a numeric vector or two-column matrix
 #' @param block block length (i.e. how many elements are to be plotted in each
 #'   step)
@@ -25,7 +25,7 @@
 #'   ani.options('nmax') + 1} (replace \code{length(x)} with \code{nrow(x)} when
 #'   \code{x} is a matrix). The function will compute \code{block} according to
 #'   the equality by default if no block length is specified.
-#'   
+#'
 #'   The three arguments \code{dat}, \code{i} and \code{block} are passed to
 #'   \code{FUN} in case we want to customize the plotting function, e.g. we may
 #'   want to annonate the x-axis label with \code{i}, or we want to compute the

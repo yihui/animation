@@ -1,8 +1,8 @@
 #' Demonstrate stock prices in animations
-#' 
+#'
 #' This function can display the frequencies of stock prices in a certain time
 #' span with the span changing.
-#' 
+#'
 #' @param price stock prices
 #' @param time time corresponding to prices
 #' @param time.begin the time for the animation to begin (default to be the

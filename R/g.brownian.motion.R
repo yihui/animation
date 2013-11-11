@@ -1,27 +1,27 @@
 #' Brownian Motion using Google Visualization API
-#' 
-#' We can use R to generate random numbers from the Normal distribution and 
-#' write them into an HTML document, then the Google Visualization gadget 
-#' ``motionchart'' will prepare the animation for us (a Flash animation with 
+#'
+#' We can use R to generate random numbers from the Normal distribution and
+#' write them into an HTML document, then the Google Visualization gadget
+#' ``motionchart'' will prepare the animation for us (a Flash animation with
 #' several buttons).
 #' @param p number of points
-#' @param start start ``year''; it has no practical meaning in this animation 
+#' @param start start ``year''; it has no practical meaning in this animation
 #'   but it's the required by the Google gadget
 #' @param digits the precision to round the numbers
 #' @param file the HTML filename
 #' @param width,height width and height of the animation
 #' @return \code{NULL}. An HTML page will be opened as the side effect.
-#' @note The number of frames is controlled by \code{ani.options('nmax')} as 
+#' @note The number of frames is controlled by \code{ani.options('nmax')} as
 #'   usual.
-#'   
-#'   Due to the ``security settings'' of Adobe Flash player, you might not be 
-#'   able to view the generated Flash animation locally, i.e. using an address 
-#'   like \url{file:///C:/Temp/index.html}. In this case, you can upload the 
+#'
+#'   Due to the ``security settings'' of Adobe Flash player, you might not be
+#'   able to view the generated Flash animation locally, i.e. using an address
+#'   like \url{file:///C:/Temp/index.html}. In this case, you can upload the
 #'   HTML file to a web server and use the http address to view the Flash file.
 #' @author Yihui Xie
-#' @seealso \code{\link{brownian.motion}}, \code{\link{BM.circle}}, 
+#' @seealso \code{\link{brownian.motion}}, \code{\link{BM.circle}},
 #'   \code{\link{rnorm}}
-#' @references \url{http://code.google.com/apis/visualization/} and 
+#' @references \url{http://code.google.com/apis/visualization/} and
 #'   \url{http://bit.ly/12w1sYi}
 #' @export
 #' @examples
@@ -54,8 +54,8 @@ g.brownian.motion = function(
       ', ', tmp, ');', sep = '', collapse = '\n'
       ),
     c("        var chart = new google.visualization.MotionChart(document.getElementById('chart_div'));"),
-    paste('        chart.draw(data, {width: ', width, ', height: ', height, '});\n      }', sep = ''), 
-    c('    </script>', '  </head>', '', '  <body>'), 
+    paste('        chart.draw(data, {width: ', width, ', height: ', height, '});\n      }', sep = ''),
+    c('    </script>', '  </head>', '', '  <body>'),
     paste(
       '    <div id=\"chart_div\" style=\"width: ', width, 'px; height: ',height, 'px;\"></div>', sep = ''
       ),

@@ -15,7 +15,7 @@ compress_pdf = function(img.name){
   }
 }
 
-# auto browse 
+# auto browse
 auto_browse = function(output){
   if(!ani.options('autobrowse')) return()
   if (.Platform$OS.type == 'windows')

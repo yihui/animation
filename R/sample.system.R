@@ -1,17 +1,17 @@
 #' Demonstration for the systematic sampling
-#' 
-#' The whole sample frame is denoted by a matrix (\code{nrow * ncol}) in the 
-#' plane, and the sample points with equal intervals are drawn out according to 
+#'
+#' The whole sample frame is denoted by a matrix (\code{nrow * ncol}) in the
+#' plane, and the sample points with equal intervals are drawn out according to
 #' a random starting point. The points being sampled are marked by red circles.
 #' @param nrow the desired number of rows of the sample frame.
 #' @param ncol the desired number of columns of the sample frame.
 #' @param size the sample size.
-#' @param p.col,p.cex different colors / magnification rate to annotate the 
+#' @param p.col,p.cex different colors / magnification rate to annotate the
 #'   population and the sample
 #' @return None (invisible \code{NULL}).
 #' @author Yihui Xie
-#' @seealso \code{\link{sample}}, \code{\link{sample.simple}}, 
-#'   \code{\link{sample.cluster}}, \code{\link{sample.ratio}}, 
+#' @seealso \code{\link{sample}}, \code{\link{sample.simple}},
+#'   \code{\link{sample.cluster}}, \code{\link{sample.ratio}},
 #'   \code{\link{sample.strat}}
 #' @export
 #' @example inst/examples/sample.system-ex.R
