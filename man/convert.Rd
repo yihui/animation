@@ -4,7 +4,8 @@
 \title{A wrapper for the `convert' utility of ImageMagick or GraphicsMagick}
 \usage{
 im.convert(files, output = "animation.gif", convert = c("convert", "gm convert"), 
-    cmd.fun = system, extra.opts = "", clean = FALSE)
+    cmd.fun = if (.Platform$OS.type == "windows") shell else system, extra.opts = "", 
+    clean = FALSE)
 
 gm.convert(..., convert = "gm convert")
 }
@@ -20,8 +21,8 @@ gm.convert(..., convert = "gm convert")
   either \code{'convert'} or \code{'gm convert'}; and it
   can be pre-specified as an option in
   \code{\link{ani.options}('convert')}, e.g. (Windows
-  users) \code{ani.options(convert = shQuote('c:/program
-  files/imagemagick/convert.exe'))}, or (Mac users)
+  users) \code{ani.options(convert = 'c:/program
+  files/imagemagick/convert.exe')}, or (Mac users)
   \code{ani.options(convert = '/opt/local/bin/convert')};
   see the Note section for more details}
 

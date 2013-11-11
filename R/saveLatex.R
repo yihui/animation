@@ -126,8 +126,7 @@ saveLatex = function(
     expr
     if (use.dev) dev.off()
     ## compress PDF files
-    if (file.ext == 'pdf')
-      comp_pdf(img.name)
+    if (file.ext == 'pdf') compress_pdf(img.name)
   }
   ani.files.len = length(
     list.files(path = dirname(img.name), pattern = sprintf('^%s[0-9]*\\.%s$', basename(img.name), file.ext))

@@ -85,7 +85,7 @@ saveGIF = function(
   
   ## compress PDF files
   if (file.ext == 'pdf')
-    comp_pdf(img.name)
+    compress_pdf(img.name)
   img.files = sprintf(img.fmt, seq_len(length(list.files(
     pattern = paste(img.name, '[0-9]+\\.', file.ext, sep = '')
   ))))

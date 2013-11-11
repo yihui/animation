@@ -7,20 +7,20 @@ if (require('zoo') && require('fImport')) {
   saveLatex({
     library(zoo)
     library(fImport)
-    IBM <- yahooSeries('IBM', from = '2000-01-01')
-    IBM.Close <- IBM[, 'IBM.Close']
+    IBM = yahooSeries('IBM', from = '2000-01-01')
+    IBM.Close = IBM[, 'IBM.Close']
     rng = range(time(IBM.Close))
-    Syr <- as.numeric(format(rng[1], '%Y'))
-    Eyr <- as.numeric(format(rng[2], '%Y'))
-    Smth <- as.numeric(format(rng[1], '%m'))
+    Syr = as.numeric(format(rng[1], '%Y'))
+    Eyr = as.numeric(format(rng[2], '%Y'))
+    Smth = as.numeric(format(rng[1], '%m'))
     for (yr in Syr:Eyr) {
       par(mfrow = c(4, 3), mar = c(4, 4, 1, .1))
-      Temp1 <- IBM.Close[which(format(time(IBM.Close), '%Y') == yr), ]
-      Temp3 <- tapply(Temp1[, 1], as.yearmon(time(Temp1)), FUN = mean)
+      Temp1 = IBM.Close[which(format(time(IBM.Close), '%Y') == yr), ]
+      Temp3 = tapply(Temp1[, 1], as.yearmon(time(Temp1)), FUN = mean)
       for (i in Smth:length(Temp3)) {
-        i <- ifelse(i < 10, paste(0, i, sep = ''), i)
-        Date <- paste(i, yr, sep = '-')
-        Temp2 <- IBM.Close[which(format(time(IBM.Close), '%m-%Y') == Date), ]
+        i = ifelse(i < 10, paste(0, i, sep = ''), i)
+        Date = paste(i, yr, sep = '-')
+        Temp2 = IBM.Close[which(format(time(IBM.Close), '%m-%Y') == Date), ]
         plot(time(Temp2), Temp2, type = 'l',
              main = paste(factor(as.numeric(i), labels = month.name[as.numeric(i)]),
                           yr, sep = '-')

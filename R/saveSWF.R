@@ -65,8 +65,7 @@ saveSWF = function(expr, swf.name = 'animation.swf', img.name = 'Rplot', swftool
   if (use.dev) dev.off()
   
   ## compress PDF files
-  if (file.ext == 'pdf')
-    comp_pdf(img.name)
+  if (file.ext == 'pdf') compress_pdf(img.name)
   
   if (!is.null(ani.options('swftools'))) {
     swftools = ani.options('swftools')

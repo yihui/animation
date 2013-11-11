@@ -75,7 +75,7 @@
 #' @example inst/examples/im.convert-ex.R
 im.convert = function(
   files, output = 'animation.gif', convert = c('convert', 'gm convert'),
-  cmd.fun = system, extra.opts = '', clean = FALSE
+  cmd.fun = if (.Platform$OS.type == 'windows') shell else system, extra.opts = '', clean = FALSE
 ) {
   interval = head(ani.options('interval'), length(files))
   convert = match.arg(convert)
