@@ -91,10 +91,7 @@ im.convert = function(
     ## the Program Files directory and the LyX installation
     if (!length(grep('ImageMagick', version))) {
       message('I cannot find ImageMagick with convert = ', shQuote(convert))
-      if (.Platform$OS.type == 'windows') {
-        convert = find_Magic()
-        ani.options(convert = convert)
-      } else {
+      if (.Platform$OS.type == 'windows') convert = find_magic() else {
         warning('Please install ImageMagick first or put its bin path into the system PATH variable')
         return()
       }
