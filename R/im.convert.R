@@ -122,9 +122,9 @@ im.convert = function(
   if (interactive()) flush.console()
   cmd = cmd.fun(convert)
   ## if fails on Windows using shell(), try system() instead of shell()
-  ## if (cmd == 0 && .Platform$OS.type == 'windows' && identical(cmd.fun, shell)) {
-  ##   cmd = system(convert)
-  ## }
+  if (cmd == 0 && .Platform$OS.type == 'windows' && identical(cmd.fun, shell)) {
+    cmd = system(convert)
+  }
   if (cmd == 0) {
     message('Output at: ', output)
     if (clean)
