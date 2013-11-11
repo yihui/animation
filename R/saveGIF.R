@@ -60,7 +60,7 @@
 #' @example inst/examples/saveGIF-ex.R
 saveGIF = function(
   expr, movie.name = 'animation.gif', img.name = 'Rplot', convert = 'convert',
-  cmd.fun = system, clean = TRUE, ...
+  cmd.fun = if (.Platform$OS.type == 'windows') shell else system, clean = TRUE, ...
 ) {
   oopt = ani.options(...)
   on.exit(ani.options(oopt))
