@@ -50,6 +50,8 @@ clt.ani = function(
   pvalue = apply(x, 1, function(xx) shapiro.test(xx)$p.value)
   layout(mat, widths, heights)
   if (missing(xlim)) xlim = quantile(x, c(.005, .995))
+  if (is.null(mean)) mean = NA
+  if (is.null(sd)) sd = NA
   for (i in 1:nmax) {
     dev.hold()
     hist(x[i, ], freq = FALSE, main = '',
