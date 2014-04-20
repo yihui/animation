@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Animation Playr</title>
+  <title>[[title]]</title>
   <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap-theme.min.css">
   <style>
@@ -19,18 +19,18 @@
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <form class="navbar-form navbar-left" role="search">
-	<div class="form-group">
-	  <button type="button" class="btn btn-default" ng-click="play()">&nbsp;<span class="glyphicon glyphicon-play glyphicon-inverse"></span>
-	  </button>
-	  <button type="button" class="btn btn-default" ng-click="stop()"><span class="glyphicon glyphicon-stop"></span>&nbsp;
-	  </button>
-	  <button type="button" class="btn btn-default" ng-click="minusValue()">
-	    <span class="glyphicon glyphicon-minus"></span>&nbsp;</button>
-	  <input type="range" title="frame" class="form-control" id="ranger" ng-model="dateValue" min="{{minValue}}" max="{{maxValue}}">
-	  <button type="button" class="btn btn-default" ng-click="plusValue()">&nbsp;<span class="glyphicon glyphicon-plus"></span>
-	  </button>
-	  <input type="range" title="speed" class="form-control" id="speedr" ng-change="changeSpeed()" ng-model="pauseTime" min="10" max="2000">
-	</div>
+      <div class="form-group">
+        <button type="button" class="btn btn-default" ng-click="play()">&nbsp;<span class="glyphicon glyphicon-play glyphicon-inverse"></span>
+        </button>
+        <button type="button" class="btn btn-default" ng-click="stop()"><span class="glyphicon glyphicon-stop"></span>&nbsp;
+        </button>
+        <button type="button" class="btn btn-default" ng-click="minusValue()">
+          <span class="glyphicon glyphicon-minus"></span>&nbsp;</button>
+        <input type="range" title="frame" class="form-control" id="ranger" ng-model="dateValue" min="{{minValue}}" max="{{maxValue}}">
+        <button type="button" class="btn btn-default" ng-click="plusValue()">&nbsp;<span class="glyphicon glyphicon-plus"></span>
+        </button>
+        <input type="range" title="speed" class="form-control" id="speedr" ng-change="changeSpeed()" ng-model="pauseTime" min="10" max="2000">
+      </div>
       </form>
     </div>
   </div>
@@ -44,18 +44,18 @@
   <script>
     angular.module("AnimatedMaps", [])
     .controller("ClientApp", ["$scope", "$window", "$interpolate", function($scope, $window, $interpolate) {
-	"use strict";
-        $scope.pauseTime = 1000; 
-	$scope.dateValue= 1;
-	$scope.intervalRef = null;
-	$scope.maxValue = 30;
-	$scope.minValue = 1;
-	$scope.urlTemplate = $interpolate("images/Rplot{{dateValue}}.png");
+      "use strict";
+      $scope.pauseTime = 1000; 
+      $scope.dateValue= 1;
+      $scope.intervalRef = null;
+      $scope.maxValue = [[nframes]];
+      $scope.minValue = 1;
+      $scope.urlTemplate = $interpolate("[[imgstub]]{{dateValue}}.png");
         $scope.state = 0;
 
-	$scope.mapURL = function() {
-	    return $scope.urlTemplate({dateValue: $scope.dateValue});
-	}
+      $scope.mapURL = function() {
+          return $scope.urlTemplate({dateValue: $scope.dateValue});
+      }
 
         $scope.changeSpeed = function() {
           if ($scope.state == 1){
@@ -64,46 +64,46 @@
           }
         };
 
-	$scope.plusValue = function() {
-	    if ($scope.dateValue < $scope.maxValue)
-		$scope.dateValue++;
-	}
+      $scope.plusValue = function() {
+          if ($scope.dateValue < $scope.maxValue)
+            $scope.dateValue++;
+      }
 
-	$scope.minusValue = function() {
-	    if ($scope.dateValue > $scope.minValue)
-		$scope.dateValue--;
-	}
+      $scope.minusValue = function() {
+          if ($scope.dateValue > $scope.minValue)
+            $scope.dateValue--;
+      }
 
-	$scope.play = function() {
+      $scope.play = function() {
             $scope.state = 1;
-	    $scope.intervalRef = $window.setInterval($scope.nextMap, $scope.pauseTime);
-	};
+          $scope.intervalRef = $window.setInterval($scope.nextMap, $scope.pauseTime);
+      };
 
-	$scope.stop = function() {
+      $scope.stop = function() {
             $scope.state = 0;
-	    $window.clearInterval($scope.intervalRef);
-	};
+          $window.clearInterval($scope.intervalRef);
+      };
 
-	$scope.nextMap = function() {
-	    $scope.$apply(function() {
-		if ($scope.dateValue < $scope.maxValue) {
-		    $scope.dateValue = Number($scope.dateValue) + 1;
-		} else {
-		    $window.clearInterval($scope.intervalRef);
-		}
-	    });
-	};
+      $scope.nextMap = function() {
+          $scope.$apply(function() {
+            if ($scope.dateValue < $scope.maxValue) {
+                $scope.dateValue = Number($scope.dateValue) + 1;
+            } else {
+                $window.clearInterval($scope.intervalRef);
+            }
+          });
+      };
 
-	$scope.preloadImages = function() {
-	    for(var i = $scope.minValue; i <= $scope.maxValue; i++) {
-		var img = new Image();
-		img.src = $scope.urlTemplate({dateValue: i});
-	    }
-	};
-	// Preload All Map Images
-	$scope.preloadImages();
+      $scope.preloadImages = function() {
+          for(var i = $scope.minValue; i <= $scope.maxValue; i++) {
+            var img = new Image();
+            img.src = $scope.urlTemplate({dateValue: i});
+          }
+      };
+      // Preload All Map Images
+      $scope.preloadImages();
     }]).run([function() {
-	"use strict";
+      "use strict";
     }]);
 </script>
 </body>

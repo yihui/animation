@@ -96,72 +96,38 @@ saveHTML2 = function(
   eval(expr)
   if (use.dev) dev.off()
 
-  src = system.file("misc","anganimator","template.html", package="animation")
-  template = paste0(readLines(src),collapse="")
-  
-return(99)
-  
-  file.copy(
-    system.file('misc', 'scianimator', c('js', 'css'), package = 'animation'),
-    dirname(htmlfile),recursive = TRUE
-  )
-  unlink(file.path(dirname(htmlfile), 'js', 'template.js'))
-  ## try to append to the HTML file if it exists
-  html = if (file.exists(htmlfile)) {
-    readLines(htmlfile)
-  } else {
-    readLines(system.file('misc', 'scianimator', 'index.html', package = 'animation'))
-  }
-  n = grep('<!-- highlight R code -->', html, fixed = TRUE)
-  if (!length(n))
-    html = readLines(system.file('misc', 'scianimator', 'index.html', package = 'animation'))
-
-  html = sub(
-    '<title>.*</title>', sprintf('<title>%s</title>', ani.options('title')), html
-  )
-  html = sub(
-    '<meta name="generator" content=".*">',
-    sprintf('<meta name="generator" content="R package animation %s">',
-            packageDescription('animation', fields = 'Version')), html
-  )
-  div.str = sprintf('	<div class="scianimator"><div id="%s" style="display: inline-block;"></div></div>',
-                    img.name0)
-  js.str = sprintf('	<script src="js/%s.js"></script>', img.name)
-  n = grep('<!-- highlight R code -->', html, fixed = TRUE)
-  ## make sure there are no duplicate div/scripts
-  if (!length(div.pos <- grep(div.str, html, fixed = TRUE)) &
-    !length(js.pos <- grep(js.str, html, fixed = TRUE))) {
-    html = append(html, c(div.str, .dexpr, js.str), n - 1)
-  } else {
-    if (js.pos - div.pos > 1) {
-      ## remove the old session info
-      html = html[-seq(div.pos + 1, js.pos - 1)]
-      html = append(html, .dexpr, div.pos)
-    }
-  }
-  js.temp = readLines(system.file('misc', 'scianimator', 'js', 'template.js', package = 'animation'))
-  if (!ani.options('autoplay')) js.temp = js.temp[-10]
-  js.temp = paste(js.temp, collapse = '\n')
+  ## how many frames generated?
   imglen = length(list.files(imgdir, pattern = paste(img.name, '[0-9]+\\.', ani.type, sep = '')))
-  ani.options(nmax = imglen)
-  imglist = file.path(
-    ani.options('imgdir'),
-    sprintf(paste(img.name, '%d.', ani.type, sep = ''), seq_len(imglen))
-  )
-  if (!navigator) single.opts = remove_navigator(single.opts)
-  js.temp = sprintf(
-    js.temp, global.opts, img.name0, paste(shQuote(imglist, 'sh'), collapse = ', '),
-    ani.options('ani.width'), 1000 * ani.options('interval'),
-    ifelse(ani.options('loop'), 'loop', 'none'),
-    ifelse(nzchar(single.opts), paste(',\n', single.opts), ''),
-    img.name0
-  )
-  writeLines(js.temp, file.path(dirname(htmlfile), 'js', paste(img.name, 'js', sep = '.')))
-  writeLines(html, con = htmlfile)
+  
+  src = system.file("misc","anganimator","template.html", package="animation")
+  template = paste0(readLines(src),collapse="\n")
 
+  context = list(
+      title="Animation playr",
+      nframes = imglen,
+      imgstub = file.path(imgdir, img.name)
+      )
+  page = .simpleTemplate(template, context)
+  
+  cat(page, file=htmlfile, overwrite=TRUE)
+  
   if (ani.options('autobrowse'))
     browseURL(paste('file:///', normalizePath(htmlfile), sep = ''))
   ani.options(oopt)
   message('HTML file created at: ', htmlfile)
   invisible(htmlfile)
 }
+
+.simpleTemplate <- function(template, context){
+    ## replace [[foo]] in template string with context[[foo]] for all foo in names(context)
+    ## eg:
+    ## > t="[[what]] [[thing]] is [[what]]"
+    ## > .simpleTemplate(t, list(thing="frog",what="fat"))
+    ## [1] "fat frog is fat"
+    ##
+    for(n in names(context)){
+        template = gsub(paste0("[[",n,"]]",sep=""), context[[n]], template,fixed=TRUE)
+    }
+    return(template)
+}
+    
