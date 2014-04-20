@@ -67,8 +67,10 @@
 #' @export
 saveHTML2 = function(
     expr, img.name = 'Rplot',
+    title = "Animation Playr",
     htmlfile = 'index.html',
     overwrite = FALSE,
+    description,
     ...
 ) {
   oopt = ani.options(...)
@@ -102,9 +104,16 @@ saveHTML2 = function(
   src = system.file("misc","anganimator","template.html", package="animation")
   template = paste0(readLines(src),collapse="\n")
 
+  if(missing(description)){
+      description = ""
+  }else{
+      description = .simpleTemplate('<div class="container">[[description]]</div>', list(description=description))
+  }
+  
   context = list(
-      title="Animation playr",
+      title=title,
       nframes = imglen,
+      description = description,
       imgstub = file.path(imgdir, img.name)
       )
   page = .simpleTemplate(template, context)
