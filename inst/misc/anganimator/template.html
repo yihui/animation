@@ -20,13 +20,15 @@
       <!-- Brand and toggle get grouped for better mobile display -->
       <form class="navbar-form navbar-left" role="search">
       <div class="form-group">
-        <button type="button" class="btn btn-default" ng-click="minusValue()">
+        <button type="button" title="rewind" class="btn btn-default" ng-click="rewindBack()">
+          <span class="glyphicon glyphicon-fast-backward"></span>&nbsp;</button>
+        <button type="button" title="step back" class="btn btn-default" ng-click="minusValue()">
           <span class="glyphicon glyphicon-step-backward"></span>&nbsp;</button>
-        <button type="button" class="btn btn-default" ng-click="stop()"><span class="glyphicon glyphicon-stop"></span>&nbsp;
+        <button type="button" title="stop" class="btn btn-default" ng-click="stop()"><span class="glyphicon glyphicon-stop"></span>&nbsp;
         </button>
-        <button type="button" class="btn btn-default" ng-click="play()">&nbsp;<span class="glyphicon glyphicon-play glyphicon-inverse"></span>
+        <button type="button" title="play" class="btn btn-default" ng-click="play()">&nbsp;<span class="glyphicon glyphicon-play glyphicon-inverse"></span>
         </button>
-        <button type="button" class="btn btn-default" ng-click="plusValue()">&nbsp;<span class="glyphicon glyphicon-step-forward"></span>
+        <button type="button" title="step forward" class="btn btn-default" ng-click="plusValue()">&nbsp;<span class="glyphicon glyphicon-step-forward"></span>
         </button>
         <input type="range" title="frame" class="form-control" id="ranger" ng-model="dateValue" min="{{minValue}}" max="{{maxValue}}">
         <input type="range" title="speed" class="form-control" id="speedr" ng-change="changeSpeed()" ng-model="pauseTime" min="10" max="2000">
@@ -69,6 +71,10 @@
             $scope.dateValue++;
       }
 
+     $scope.rewindBack = function(){
+          $scope.dateValue = 1;
+     }
+
       $scope.minusValue = function() {
           if ($scope.dateValue > $scope.minValue)
             $scope.dateValue--;
@@ -76,7 +82,7 @@
 
       $scope.play = function() {
             $scope.state = 1;
-          $scope.intervalRef = $window.setInterval($scope.nextMap, $scope.pauseTime);
+          $scope.intervalRef = $window.setInterval($scope.nextMap, 2000-$scope.pauseTime);
       };
 
       $scope.stop = function() {
