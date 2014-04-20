@@ -109,7 +109,7 @@ saveHTML2 = function(
       )
   page = .simpleTemplate(template, context)
   
-  cat(page, file=htmlfile, overwrite=TRUE)
+  cat(page, file=htmlfile)
   
   if (ani.options('autobrowse'))
     browseURL(paste('file:///', normalizePath(htmlfile), sep = ''))
