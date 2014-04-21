@@ -49,10 +49,10 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular-resource.min.js"></script>
   <script>
     angular.module("AnimatedMaps", [])
-    .controller("ClientApp", ["$scope", "$window", "$interpolate", function($scope, $window, $interpolate) {
+    .controller("ClientApp", ["$scope", "$window", "$timeout", "$interpolate", function($scope, $window, $timeout, $interpolate) {
       "use strict";
       $scope.loopmode = "One-shot";
-      $scope.modes = ["One-shot", "Loop", "Loop-pause", "Bounce"];
+      $scope.modes = ["One-shot", "Loop", "Loop-pause"]; /* TODO: , "Bounce"]; */
       $scope.pauseTime = 1000; 
       $scope.dateValue= 1;
       $scope.intervalRef = null;
@@ -87,39 +87,44 @@
       }
 
       $scope.play = function() {
-          /* if stopped or ended, restart */
-          if($scope.state == 0){
-            $scope.state = 1;
-            $scope.intervalRef = $window.setInterval($scope.nextMap, 2000-$scope.pauseTime);
-          };
-          if($scope.state == 2){
-            $scope.state = 1;
-            $scope.dateValue = 1;
-            $scope.intervalRef = $window.setInterval($scope.nextMap, 2000-$scope.pauseTime);
+          if($scope.state != 1){
+            $timeout.cancel($scope.intervalRef);
+            $scope.nextMap();
           };
       };
 
       $scope.stop = function() {
             $scope.state = 0;
-          $window.clearInterval($scope.intervalRef);
+            $timeout.cancel($scope.intervalRef);
       };
 
-      $scope.nextMap = function() {
-          $scope.$apply(function() {
+      $scope.wtf = function(){
             if ($scope.dateValue < $scope.maxValue) {
                 $scope.dateValue = Number($scope.dateValue) + 1;
+                $scope.intervalRef = $timeout($scope.nextMap, 2000-$scope.pauseTime);
+                $scope.state = 1; /* running */
             } else {
 		switch($scope.loopmode) {
                    case "One-shot": 
                      $scope.state = 2; /* ended */
-                     $window.clearInterval($scope.intervalRef);
                      break;
                    case "Loop":
                      $scope.dateValue = 1;
+                     $scope.intervalRef = $timeout($scope.nextMap, 2000-$scope.pauseTime);
+                     break;
+                   case "Loop-pause":
+                     $scope.intervalRef = $timeout(
+                         function(){
+                           $scope.dateValue = 1;
+                           $scope.intervalRef = $timeout($scope.nextMap,2000-$scope.pauseTime)
+                         },1000);
+                     $scope.state = 1; /* will change... */
                      break;
                    }     
-            }
-          });
+            };
+       };
+      $scope.nextMap = function() {
+         $timeout($scope.wtf);
       };
 
       $scope.preloadImages = function() {
