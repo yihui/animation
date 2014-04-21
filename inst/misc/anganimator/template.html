@@ -87,8 +87,14 @@
       }
 
       $scope.play = function() {
+          /* if stopped or ended, restart */
           if($scope.state == 0){
             $scope.state = 1;
+            $scope.intervalRef = $window.setInterval($scope.nextMap, 2000-$scope.pauseTime);
+          };
+          if($scope.state == 2){
+            $scope.state = 1;
+            $scope.dateValue = 1;
             $scope.intervalRef = $window.setInterval($scope.nextMap, 2000-$scope.pauseTime);
           };
       };
@@ -103,7 +109,15 @@
             if ($scope.dateValue < $scope.maxValue) {
                 $scope.dateValue = Number($scope.dateValue) + 1;
             } else {
-                $window.clearInterval($scope.intervalRef);
+		switch($scope.loopmode) {
+                   case "One-shot": 
+                     $scope.state = 2; /* ended */
+                     $window.clearInterval($scope.intervalRef);
+                     break;
+                   case "Loop":
+                     $scope.dateValue = 1;
+                     break;
+                   }     
             }
           });
       };
