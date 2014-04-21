@@ -93,6 +93,12 @@ saveHTML2 = function(
 
   img.fmt = file.path(imgdir, paste(img.name, '%d', '.', ani.type, sep = ''))
   ani.options(img.fmt = img.fmt)
+
+  ## clear out existing images that match the pattern
+  imgs = list.files(imgdir, pattern = paste(img.name, '[0-9]+\\.', ani.type, sep = ''),
+      full.names=TRUE)
+  file.remove(imgs)
+
   if ((use.dev <- ani.options('use.dev')))
     ani.dev(img.fmt, width = ani.options('ani.width'), height = ani.options('ani.height'))
   eval(expr)
