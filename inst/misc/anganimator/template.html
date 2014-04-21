@@ -34,6 +34,7 @@
         </button>
         <input type="range" title="frame" class="form-control" id="ranger" ng-model="dateValue" min="{{minValue}}" max="{{maxValue}}">
         <input type="range" title="speed" class="form-control" id="speedr" ng-change="changeSpeed()" ng-model="pauseTime" min="10" max="2000">
+        <span ng-bind="dateValue"></span>
       </div>
       </form>
     </div>
@@ -58,7 +59,7 @@
       $scope.maxValue = [[nframes]];
       $scope.minValue = 1;
       $scope.urlTemplate = $interpolate("[[imgstub]]{{dateValue}}.png");
-        $scope.state = 0;
+      $scope.state = 0; /* 0 = not playing, 1=playing */
 
       $scope.mapURL = function() {
           return $scope.urlTemplate({dateValue: $scope.dateValue});
@@ -86,8 +87,10 @@
       }
 
       $scope.play = function() {
+          if($scope.state == 0){
             $scope.state = 1;
-          $scope.intervalRef = $window.setInterval($scope.nextMap, 2000-$scope.pauseTime);
+            $scope.intervalRef = $window.setInterval($scope.nextMap, 2000-$scope.pauseTime);
+          };
       };
 
       $scope.stop = function() {
