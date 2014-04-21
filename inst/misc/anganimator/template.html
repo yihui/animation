@@ -20,6 +20,8 @@
       <!-- Brand and toggle get grouped for better mobile display -->
       <form class="navbar-form navbar-left" role="search">
       <div class="form-group">
+        <select ng-model="loopmode" ng-options="mode for mode in modes">
+        </select>
         <button type="button" title="rewind" class="btn btn-default" ng-click="rewindBack()">
           <span class="glyphicon glyphicon-fast-backward"></span>&nbsp;</button>
         <button type="button" title="step back" class="btn btn-default" ng-click="minusValue()">
@@ -48,6 +50,8 @@
     angular.module("AnimatedMaps", [])
     .controller("ClientApp", ["$scope", "$window", "$interpolate", function($scope, $window, $interpolate) {
       "use strict";
+      $scope.loopmode = "One-shot";
+      $scope.modes = ["One-shot", "Loop", "Loop-pause", "Bounce"];
       $scope.pauseTime = 1000; 
       $scope.dateValue= 1;
       $scope.intervalRef = null;
