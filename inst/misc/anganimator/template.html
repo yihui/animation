@@ -33,7 +33,7 @@
         <button type="button" title="step forward" class="btn btn-default" ng-click="plusValue()">&nbsp;<span class="glyphicon glyphicon-step-forward"></span>
         </button>
         <input type="range" title="frame" class="form-control" id="ranger" ng-model="dateValue" min="{{minValue}}" max="{{maxValue}}">
-        <input type="range" title="speed" class="form-control" id="speedr" ng-change="changeSpeed()" ng-model="pauseTime" min="10" max="2000">
+        <input type="range" title="speed" class="form-control" id="speedr" ng-change="changeSpeed()" ng-model="pauseTime" min="10" max="[[maxPause]]">
         <span ng-bind="dateValue"></span>
       </div>
       </form>
@@ -51,9 +51,11 @@
     angular.module("AnimatedMaps", [])
     .controller("ClientApp", ["$scope", "$window", "$timeout", "$interpolate", function($scope, $window, $timeout, $interpolate) {
       "use strict";
-      $scope.loopmode = "One-shot";
+      $scope.loopmode = "[[loopmode]]";
       $scope.modes = ["One-shot", "Loop", "Loop-pause"]; /* TODO: , "Bounce"]; */
-      $scope.pauseTime = 1000; 
+      $scope.pauseTime = [[pauseTime]];
+      $scope.endPauseTime = [[endPauseTime]];
+      $scope.maxPause = [[maxPause]];
       $scope.dateValue= 1;
       $scope.intervalRef = null;
       $scope.maxValue = [[nframes]];
@@ -101,7 +103,7 @@
       $scope.wtf = function(){
             if ($scope.dateValue < $scope.maxValue) {
                 $scope.dateValue = Number($scope.dateValue) + 1;
-                $scope.intervalRef = $timeout($scope.nextMap, 2000-$scope.pauseTime);
+                $scope.intervalRef = $timeout($scope.nextMap, $scope.maxPause-$scope.pauseTime);
                 $scope.state = 1; /* running */
             } else {
 		switch($scope.loopmode) {
@@ -110,14 +112,14 @@
                      break;
                    case "Loop":
                      $scope.dateValue = 1;
-                     $scope.intervalRef = $timeout($scope.nextMap, 2000-$scope.pauseTime);
+                     $scope.intervalRef = $timeout($scope.nextMap, $scope.maxPause-$scope.pauseTime);
                      break;
                    case "Loop-pause":
                      $scope.intervalRef = $timeout(
                          function(){
                            $scope.dateValue = 1;
-                           $scope.intervalRef = $timeout($scope.nextMap,2000-$scope.pauseTime)
-                         },1000);
+                           $scope.intervalRef = $timeout($scope.nextMap,$scope.maxPause-$scope.pauseTime)
+                         },$scope.endPauseTime);
                      $scope.state = 1; /* will change... */
                      break;
                    }     

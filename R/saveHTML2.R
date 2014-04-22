@@ -69,15 +69,25 @@ saveHTML2 = function(
     expr, img.name = 'Rplot',
     title = "Animation Playr",
     htmlfile = 'index.html',
+    pause = 1000,
+    endPause = 2000,
+    loopmode = c("One-shot","Loop","Loop-pause"),
     overwrite = FALSE,
     description,
     ...
 ) {
   oopt = ani.options(...)
-
+  loopmode = match.arg(loopmode)
+  
   if(file.exists(htmlfile) && !overwrite){
       stop("Won't overwrite html unless overwrite=TRUE")
   }
+
+  pause = round(pause) # ms
+  endPause = round(endPause) # ms
+  maxPause = max(c(2000,2 * pause))
+
+  pause = maxPause - pause
   
   ## replace special chars first: http://api.jquery.com/category/selectors/
   spec.chars = strsplit("!\"#$%&'()*+,./:;?@[\\]^`{|}~", '')[[1]]
@@ -120,6 +130,10 @@ saveHTML2 = function(
       title=title,
       nframes = imglen,
       description = description,
+      pauseTime = pause,
+      endPauseTime = endPause,
+      maxPause = maxPause,
+      loopmode = loopmode,
       imgstub = file.path(imgdir, img.name)
       )
   page = .simpleTemplate(template, context)
