@@ -14,15 +14,16 @@
   \item{bandwidth}{amount of data downloaded by all \emph{pages},
   \emph{images} and \emph{files} within the site (units in MegaBytes).} }}
 \source{
-  \url{http://yihui.name}
+\url{http://yihui.name}
 }
 \description{
-  The data is collected by Awstats for the website
-  \url{http://yihui.name}.
+The data is collected by Awstats for the website
+\url{http://yihui.name}.
 }
 \examples{
-plot(pageview[, 1:2], type = "b", col = "red", main = "Number of Visits in Yihui's Web")
+plot(pageview[,1:2], type = 'b', col = 'red',
+  main = "Number of Visits in Yihui's Web")
 ## partial auto-correlation
 pacf(pageview$visits)
 }
-\keyword{datasets}
+

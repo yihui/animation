@@ -12,7 +12,8 @@ ani.stop(...)
   to set animation parameters}
 }
 \description{
-  These functions are defunct and should not be used any
-  more.
+These functions are defunct and should not be used any
+more.
 }
 \keyword{internal}
+

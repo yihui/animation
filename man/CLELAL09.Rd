@@ -11,23 +11,23 @@
   \code{missed}} \item{\code{team}}{a factor with levels \code{CLE},
   \code{LAL} and \code{OFF}} }}
 \source{
-  \url{http://www.basketballgeek.com/data/} (transformed
-  based on the original data)
+\url{http://www.basketballgeek.com/data/} (transformed
+based on the original data)
 }
 \description{
-  Cleveland Cavaliers played against Los Angeles Lakers at
-  Staples Center in LA on Dec 25, 2009 and won the game by
-  102:87. This data recorded the locations of players on
-  the court and the results of the shots.
+Cleveland Cavaliers played against Los Angeles Lakers at
+Staples Center in LA on Dec 25, 2009 and won the game by
+102:87. This data recorded the locations of players on the
+court and the results of the shots.
 }
 \note{
-  We view the court with CLE in the left and LAL in the
-  right: \code{realx} is the distance to the left border of
-  CLE's court, and \code{realy} is the distance to the
-  bottom border of the court; notice that the size of the
-  court is \eqn{94 \times 50}{94 x 50} (feet).
+We view the court with CLE in the left and LAL in the
+right: \code{realx} is the distance to the left border of
+CLE's court, and \code{realy} is the distance to the bottom
+border of the court; notice that the size of the court is
+\eqn{94 \times 50}{94 x 50} (feet).
 }
 \examples{
 ## see demo('CLEvsLAL', package = 'animation') for a `replay' of the game
 }
-\keyword{datasets}
+

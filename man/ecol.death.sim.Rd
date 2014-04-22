@@ -2,8 +2,8 @@
 \alias{ecol.death.sim}
 \title{A simulation of the death of two species with certain probabilities}
 \usage{
-ecol.death.sim(nr = 10, nc = 10, num.sp = c(50, 50), col.sp = c(1, 2), pch.sp = c(1, 
-    2), col.die = 1, pch.die = 4, cex = 3, ...)
+ecol.death.sim(nr = 10, nc = 10, num.sp = c(50, 50), col.sp = c(1, 2),
+  pch.sp = c(1, 2), col.die = 1, pch.die = 4, cex = 3, ...)
 }
 \arguments{
   \item{nr,nc}{number of rows and columns of the field
@@ -22,20 +22,20 @@ ecol.death.sim(nr = 10, nc = 10, num.sp = c(50, 50), col.sp = c(1, 2), pch.sp = 
   to set up the plot}
 }
 \value{
-  a vector (factor) containing 1's and 2's, denoting the
-  plants finally survived
+a vector (factor) containing 1's and 2's, denoting the
+plants finally survived
 }
 \description{
-  Suppose there are two plant species in a field: A and B.
-  One of them will die at each time and a new plant will
-  grow in the place where the old plant died; the species
-  of the new plant depends on the proportions of two
-  species: the larger the proportion is, the greater the
-  probability for this species to come up will be.
+Suppose there are two plant species in a field: A and B.
+One of them will die at each time and a new plant will grow
+in the place where the old plant died; the species of the
+new plant depends on the proportions of two species: the
+larger the proportion is, the greater the probability for
+this species to come up will be.
 }
 \note{
-  \code{2 * ani.options('nmax')} image frames will actually
-  be produced.
+\code{2 * ani.options('nmax')} image frames will actually
+be produced.
 }
 \examples{
 oopt = ani.options(nmax = ifelse(interactive(), 50, 2), interval = 0.3)
@@ -49,14 +49,15 @@ ecol.death.sim(col.sp = c(8, 2), pch.sp = c(20, 17))
 ani.options(oopt)
 }
 \author{
-  Yihui Xie
+Yihui Xie
 }
 \references{
-  This animation is motivated by a question raised from
-  Jing Jiao, a student in biology, to show the evolution of
-  two species.
+This animation is motivated by a question raised from Jing
+Jiao, a student in biology, to show the evolution of two
+species.
 
-  The original post is in the forum of the ``Capital of
-  Statistics'': \url{http://cos.name/cn/topic/14093} (in
-  Chinese)
+The original post is in the forum of the ``Capital of
+Statistics'': \url{http://cos.name/cn/topic/14093} (in
+Chinese)
 }
+

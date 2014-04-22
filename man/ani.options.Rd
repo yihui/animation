@@ -12,44 +12,43 @@ ani.options(...)
   similar to \code{\link{options}}).}
 }
 \value{
-  \code{ani.options()} returns a list containing the
-  options: when parameters are set, their former values are
-  returned in an invisible named list.  Such a list can be
-  passed as an argument to \code{\link{ani.options}} to
-  restore the parameter values.
+\code{ani.options()} returns a list containing the options:
+when parameters are set, their former values are returned
+in an invisible named list.  Such a list can be passed as
+an argument to \code{\link{ani.options}} to restore the
+parameter values.
 
-  \code{ani.options('tag')} returns the value of the option
-  \code{'tag'}.
+\code{ani.options('tag')} returns the value of the option
+\code{'tag'}.
 
-  \code{ani.options(c('tag1', 'tag2'))} or
-  \code{ani.options('tag1', 'tag2')} returns a list
-  containing the corresponding options.
+\code{ani.options(c('tag1', 'tag2'))} or
+\code{ani.options('tag1', 'tag2')} returns a list
+containing the corresponding options.
 }
 \description{
-  There are various parameters that control the behaviour
-  of the animation, such as time interval, maximum number
-  of animation frames, height and width, etc.
+There are various parameters that control the behaviour of
+the animation, such as time interval, maximum number of
+animation frames, height and width, etc.
 }
 \note{
-  Please note that \code{nmax} is not always equal to the
-  number of animation frames. Sometimes there is more than
-  one frame recorded in a single step of a loop, for
-  instance, there are 2 frames generated in each step of
-  \code{\link{kmeans.ani}}, and 4 frames in
-  \code{\link{knn.ani}}, etc; whereas for
-  \code{\link{newton.method}}, the number of animation
-  frames is not definite, because there are other criteria
-  to break the loop.
+Please note that \code{nmax} is not always equal to the
+number of animation frames. Sometimes there is more than
+one frame recorded in a single step of a loop, for
+instance, there are 2 frames generated in each step of
+\code{\link{kmeans.ani}}, and 4 frames in
+\code{\link{knn.ani}}, etc; whereas for
+\code{\link{newton.method}}, the number of animation frames
+is not definite, because there are other criteria to break
+the loop.
 
-  This function can be used for almost all the animation
-  functions such as \code{\link{brownian.motion}},
-  \code{\link{boot.iid}}, \code{\link{buffon.needle}},
-  \code{\link{cv.ani}}, \code{\link{flip.coin}},
-  \code{\link{kmeans.ani}}, \code{\link{knn.ani}}, etc.
-  Most of the options here will affect the behaviour of
-  animations of the formats HTML, GIF, SWF and PDF;
-  on-screen animations are only affected by \code{interval}
-  and \code{nmax}.
+This function can be used for almost all the animation
+functions such as \code{\link{brownian.motion}},
+\code{\link{boot.iid}}, \code{\link{buffon.needle}},
+\code{\link{cv.ani}}, \code{\link{flip.coin}},
+\code{\link{kmeans.ani}}, \code{\link{knn.ani}}, etc. Most
+of the options here will affect the behaviour of animations
+of the formats HTML, GIF, SWF and PDF; on-screen animations
+are only affected by \code{interval} and \code{nmax}.
 }
 \section{Animation options}{
   The supported animation parameters: \describe{
@@ -193,16 +192,16 @@ ani.options(...)
   }
 }
 \examples{
-## see the first example in help(animation) on how to set and
-## restore animation options
+## see the first example in help(animation) on how to set and restore animation options
 
 ## use the PDF device: remember to set 'ani.type' accordingly
-oopt = ani.options(ani.dev = "pdf", ani.type = "pdf", ani.height = 5, 
-    ani.width = 7)
+oopt = ani.options(ani.dev = 'pdf', ani.type = 'pdf', ani.height = 5, ani.width = 7)
 
-## use the Cairo PDF device if (require('Cairo')) {
-## ani.options(ani.dev = CairoPDF, ani.type = 'pdf', ani.height =
-## 6, ani.width = 6) }
+## use the Cairo PDF device
+## if (require('Cairo')) {
+##     ani.options(ani.dev = CairoPDF, ani.type = 'pdf',
+##                 ani.height = 6, ani.width = 6)
+## }
 
 ## don't loop for GIF/HTML animations
 ani.options(loop = FALSE)
@@ -210,29 +209,29 @@ ani.options(loop = FALSE)
 ## don't try to open the output automatically
 ani.options(autobrowse = FALSE)
 
-## it's a good habit to restore the options in the end so that
-## other code will not be affected
+## it's a good habit to restore the options in the end so that other code will not be affected
 ani.options(oopt)
 
 ## how to make use of the hidden option 'img.fmt'
 saveHTML(expr = {
-    png(ani.options("img.fmt"))
-    for (i in 1:5) plot(runif(10))
-    dev.off()
-}, img.name = "custom_plot", use.dev = FALSE, ani.type = "png", 
-    description = "Note how we use our own graphics device in 'expr'.", 
-    htmlfile = "custom_device.html")
+  png(ani.options('img.fmt'))
+  for(i in 1:5) plot(runif(10))
+  dev.off()
+}, img.name='custom_plot', use.dev = FALSE, ani.type='png',
+         description="Note how we use our own graphics device in 'expr'.",
+         htmlfile='custom_device.html')
 }
 \author{
-  Yihui Xie
+Yihui Xie
 }
 \seealso{
-  \code{\link{options}}, \code{\link{dev.interactive}},
-  \code{\link{saveHTML}}, \code{\link{saveGIF}},
-  \code{\link{saveLatex}}, \code{\link{saveSWF}},
-  \code{\link{pdftk}}
+\code{\link{options}}, \code{\link{dev.interactive}},
+\code{\link{saveHTML}}, \code{\link{saveGIF}},
+\code{\link{saveLatex}}, \code{\link{saveSWF}},
+\code{\link{pdftk}}
 
-  \url{http://qpdf.sourceforge.net/}
+\url{http://qpdf.sourceforge.net/}
 
-  \url{http://www.pdflabs.com/docs/pdftk-man-page/}
+\url{http://www.pdflabs.com/docs/pdftk-man-page/}
 }
+

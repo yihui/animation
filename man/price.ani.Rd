@@ -2,8 +2,8 @@
 \alias{price.ani}
 \title{Demonstrate stock prices in animations}
 \usage{
-price.ani(price, time, time.begin = min(time), span = 15 * 60, ..., xlab = "price", 
-    ylab = "frequency", xlim, ylim, main)
+price.ani(price, time, time.begin = min(time), span = 15 * 60, ...,
+  xlab = "price", ylab = "frequency", xlim, ylim, main)
 }
 \arguments{
   \item{price}{stock prices}
@@ -23,19 +23,21 @@ price.ani(price, time, time.begin = min(time), span = 15 * 60, ..., xlab = "pric
   \code{\link{plot}} with reasonable default values}
 }
 \value{
-  invisible \code{NULL}
+invisible \code{NULL}
 }
 \description{
-  This function can display the frequencies of stock prices
-  in a certain time span with the span changing.
+This function can display the frequencies of stock prices
+in a certain time span with the span changing.
 }
 \examples{
 ## see more examples in ?vanke1127
 saveHTML({
-    price.ani(vanke1127$price, vanke1127$time, lwd = 2)
-}, img.name = "vanke1127", htmlfile = "vanke1127.html", title = "Stock prices of Vanke", 
-    description = c("Barplots", "of the stock prices of Vanke Co. Ltd", "on 2009/11/27"))
+  price.ani(vanke1127$price, vanke1127$time, lwd = 2)
+}, img.name='vanke1127', htmlfile='vanke1127.html',
+         title='Stock prices of Vanke',
+         description=c('Barplots', 'of the stock prices of Vanke Co. Ltd', 'on 2009/11/27'))
 }
 \author{
-  Yihui Xie
+Yihui Xie
 }
+

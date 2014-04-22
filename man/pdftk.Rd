@@ -19,44 +19,45 @@ pdftk(input, operation = NULL, output, other.opts = "compress dont_ask")
   and do not ask the user for any input)}
 }
 \value{
-  if \code{ani.options('pdftk')} is non-\code{NULL}, then
-  this function returns the status of the operation
-  (\code{0} for success; see \code{\link{system}});
-  otherwise a warning will be issued
+if \code{ani.options('pdftk')} is non-\code{NULL}, then
+this function returns the status of the operation (\code{0}
+for success; see \code{\link{system}}); otherwise a warning
+will be issued
 }
 \description{
-  If the toolkit Pdftk is available in the system, it will
-  be called to manipulate the PDF files (especially to
-  compress the PDF files).
+If the toolkit Pdftk is available in the system, it will be
+called to manipulate the PDF files (especially to compress
+the PDF files).
 }
 \details{
-  This is a wrapper to call \command{pdftk}. The path of
-  \command{pdftk} should be set via
-  \code{\link{ani.options}(pdftk = 'path/to/pdftk')}.
+This is a wrapper to call \command{pdftk}. The path of
+\command{pdftk} should be set via
+\code{\link{ani.options}(pdftk = 'path/to/pdftk')}.
 
-  See the reference for detailed usage of \command{pdftk}.
+See the reference for detailed usage of \command{pdftk}.
 }
 \examples{
-pdf("huge-plot.pdf")
+pdf('huge-plot.pdf')
 plot(rnorm(50000))
 dev.off()
 
 ## Windows
-ani.options(pdftk = "D:/Installer/pdftk.exe")
-pdftk("huge-plot.pdf", output = "huge-plot0.pdf")
+ani.options(pdftk = 'D:/Installer/pdftk.exe')
+pdftk('huge-plot.pdf', output = 'huge-plot0.pdf')
 
 ## Linux (does not work??)
-ani.options(pdftk = "pdftk")
-pdftk("huge-plot.pdf", output = "huge-plot1.pdf")
+ani.options(pdftk = 'pdftk')
+pdftk('huge-plot.pdf', output = 'huge-plot1.pdf')
 
 ani.options(pdftk = NULL)
 
-file.info(c("huge-plot.pdf", "huge-plot0.pdf", "huge-plot1.pdf"))["size"]
+file.info(c('huge-plot.pdf', 'huge-plot0.pdf', 'huge-plot1.pdf'))['size']
 
 }
 \author{
-  Yihui Xie
+Yihui Xie
 }
 \references{
-  \url{http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/}
+\url{http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/}
 }
+
