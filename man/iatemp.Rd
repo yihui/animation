@@ -13,4 +13,3 @@ Temperatures in central Iowa over 106 years.
 \examples{
 plot(iatemp)
 }
-

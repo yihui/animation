@@ -60,7 +60,7 @@
 #' @example inst/examples/saveGIF-ex.R
 saveGIF = function(
   expr, movie.name = 'animation.gif', img.name = 'Rplot', convert = 'convert',
-  cmd.fun = if (.Platform$OS.type == 'windows') shell else system, clean = TRUE, ...
+  cmd.fun, clean = TRUE, ...
 ) {
   oopt = ani.options(...)
   on.exit(ani.options(oopt))
@@ -89,6 +89,8 @@ saveGIF = function(
   img.files = sprintf(img.fmt, seq_len(length(list.files(
     pattern = paste(img.name, '[0-9]+\\.', file.ext, sep = '')
   ))))
+  if (missing(cmd.fun))
+    cmd.fun = if (.Platform$OS.type == 'windows') shell else system
   ## convert to animations
   im.convert(img.files, output = movie.name, convert = convert,
              cmd.fun = cmd.fun, clean = clean)
