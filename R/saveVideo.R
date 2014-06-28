@@ -34,7 +34,7 @@
 #' @example inst/examples/saveVideo-ex.R
 saveVideo = function(
   expr, video.name = 'animation.mp4', img.name = 'Rplot', ffmpeg = 'ffmpeg',
-  other.opts = '', ...
+  other.opts = if (grepl('[.]mp4$', video.name)) '-pix_fmt yuv420p', ...
 ) {
   oopt = ani.options(...)
   on.exit(ani.options(oopt))

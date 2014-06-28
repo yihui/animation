@@ -3,7 +3,7 @@
 \title{Convert a sequence of images to a video by FFmpeg}
 \usage{
 saveVideo(expr, video.name = "animation.mp4", img.name = "Rplot", ffmpeg = "ffmpeg", 
-    other.opts = "", ...)
+    other.opts = if (grepl("[.]mp4$", video.name)) "-pix_fmt yuv420p", ...)
 }
 \arguments{
 \item{expr}{the R code to draw (several) plots}

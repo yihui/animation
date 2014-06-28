@@ -7,6 +7,9 @@ NEW FEATURES
 
 MAJOR CHANGES
 
+  o the default value for the argument `other.opts` in saveVideo() was changed
+  to '-pix_fmt yuv420p' when the output format is MP4 (Skye Bender-deMoll, #49)
+
   o the defunct functions highlight.def(), write.rss() and ani.news() were
   finally removed from this package
 
