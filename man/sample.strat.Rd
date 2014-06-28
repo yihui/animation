@@ -7,26 +7,24 @@ sample.strat(pop = ceiling(10 * runif(10, 0.5, 1)), size = ceiling(pop *
     ...)
 }
 \arguments{
-  \item{pop}{a vector for the size of each stratum in the
-  population.}
+\item{pop}{a vector for the size of each stratum in the population.}
 
-  \item{size}{a corresponding vector for the sample size in
-  each stratum (recycled if necessary).}
+\item{size}{a corresponding vector for the sample size in each stratum
+(recycled if necessary).}
 
-  \item{p.col,p.cex}{different colors /magnification rate
-  to annotate the population and the sample}
+\item{p.col,p.cex}{different colors /magnification rate to annotate the
+population and the sample}
 
-  \item{\dots}{other arguments passed to \code{\link{rect}}
-  to annotate the ``strata''}
+\item{\dots}{other arguments passed to \code{\link{rect}} to annotate the
+``strata''}
 }
 \value{
-  None (invisible `\code{NULL}').
+None (invisible `\code{NULL}').
 }
 \description{
-  Each rectangle stands for a stratum, and the simple
-  random sampling without replacement is performed within
-  each stratum. The points being sampled are marked out (by
-  red circles by default).
+Each rectangle stands for a stratum, and the simple random sampling without
+replacement is performed within each stratum. The points being sampled are
+marked out (by red circles by default).
 }
 \examples{
 oopt = ani.options(nmax = ifelse(interactive(), 50, 2))
@@ -47,10 +45,10 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie
+Yihui Xie
 }
 \seealso{
-  \code{\link{sample}}, \code{\link{sample.simple}},
+\code{\link{sample}}, \code{\link{sample.simple}},
   \code{\link{sample.cluster}}, \code{\link{sample.ratio}},
   \code{\link{sample.system}}
 }

@@ -5,37 +5,33 @@
 brownian.motion(n = 10, xlim = c(-20, 20), ylim = c(-20, 20), ...)
 }
 \arguments{
-  \item{n}{Number of points in the scatterplot}
+\item{n}{Number of points in the scatterplot}
 
-  \item{xlim,ylim}{Arguments passed to
-  \code{\link{plot.default}} to control the apperance of
-  the scatterplot (title, points, etc), see
-  \code{\link{points}} for details.}
+\item{xlim,ylim}{Arguments passed to \code{\link{plot.default}} to control
+the apperance of the scatterplot (title, points, etc), see
+\code{\link{points}} for details.}
 
-  \item{...}{other arguments passed to
-  \code{\link{plot.default}}}
+\item{...}{other arguments passed to \code{\link{plot.default}}}
 }
 \value{
-  None (invisible \code{NULL}).
+None (invisible \code{NULL}).
 }
 \description{
-  Brownian motion, or random walk, can be regarded as the
-  trace of some cumulative normal random numbers.
+Brownian motion, or random walk, can be regarded as the trace of some
+cumulative normal random numbers.
 }
 \details{
-  The location of the next step is ``current location +
-  random Gaussian numbers'', i.e.,
+The location of the next step is ``current location + random Gaussian
+numbers'', i.e.,
 
-  \deqn{x_{k + 1} = x_{k} + rnorm(1)}{x[k + 1] = x[k] +
-  rnorm(1)}
+\deqn{x_{k + 1} = x_{k} + rnorm(1)}{x[k + 1] = x[k] + rnorm(1)}
 
-  \deqn{y_{k + 1} = y_{k} + rnorm(1)}{y[k + 1] = y[k] +
-  rnorm(1)}
+\deqn{y_{k + 1} = y_{k} + rnorm(1)}{y[k + 1] = y[k] + rnorm(1)}
 
-  where \emph{(x, y)} stands for the location of a point.
+where \emph{(x, y)} stands for the location of a point.
 }
 \note{
-  The maximum number of steps in the motion is specified in
+The maximum number of steps in the motion is specified in
   \code{ani.options('nmax')}.
 }
 \examples{
@@ -59,11 +55,11 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie
+Yihui Xie
 }
 \references{
-  \url{http://vis.supstat.com/2012/11/brownian-motion-with-r}
+\url{http://vis.supstat.com/2012/11/brownian-motion-with-r}
 }
 \seealso{
-  \code{\link{rnorm}}
+\code{\link{rnorm}}
 }

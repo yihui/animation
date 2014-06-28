@@ -7,43 +7,38 @@ sample.ratio(X = runif(50, 0, 5), R = 1, Y = R * X + rnorm(X), size = length(X)/
         "gray"), legend.loc = "topleft", ...)
 }
 \arguments{
-  \item{X}{the X variable (ancillary)}
+\item{X}{the X variable (ancillary)}
 
-  \item{R}{the population ratio Y/X}
+\item{R}{the population ratio Y/X}
 
-  \item{Y}{the Y variable (whose mean we what to estimate)}
+\item{Y}{the Y variable (whose mean we what to estimate)}
 
-  \item{size}{sample size}
+\item{size}{sample size}
 
-  \item{p.col,p.cex,p.pch}{point colors, magnification and
-  symbols for the population and sample respectively}
+\item{p.col,p.cex,p.pch}{point colors, magnification and symbols for the
+population and sample respectively}
 
-  \item{m.col}{color for the horizontal line to denote the
-  sample mean of Y}
+\item{m.col}{color for the horizontal line to denote the sample mean of Y}
 
-  \item{legend.loc}{legend location: topleft, topright,
-  bottomleft, bottomright, ... (see \code{\link{legend}})}
+\item{legend.loc}{legend location: topleft, topright, bottomleft,
+bottomright, ... (see \code{\link{legend}})}
 
-  \item{\dots}{other arguments passed to
-  \code{\link{plot.default}}}
+\item{\dots}{other arguments passed to \code{\link{plot.default}}}
 }
 \value{
-  A list containing \item{X}{X population} \item{Y}{Y
-  population} \item{R}{population ratio} \item{r}{ratio
-  calculated from samples} \item{Ybar}{population mean of
-  Y} \item{ybar.simple}{simple sample mean of Y}
-  \item{ybar.ratio}{sample mean of Y via ratio estimation}
+A list containing \item{X}{X population} \item{Y}{Y population}
+  \item{R}{population ratio} \item{r}{ratio calculated from samples}
+  \item{Ybar}{population mean of Y} \item{ybar.simple}{simple sample mean of
+  Y} \item{ybar.ratio}{sample mean of Y via ratio estimation}
 }
 \description{
-  This function demonstrates the advantage of ratio
-  estimation when further information (ratio) about x and y
-  is available.
+This function demonstrates the advantage of ratio estimation when further
+information (ratio) about x and y is available.
 }
 \details{
-  From this demonstration we can clearly see that the ratio
-  estimation is generally better than the simple sample
-  average when the ratio \bold{R} really exists, otherwise
-  ratio estimation may not help.
+From this demonstration we can clearly see that the ratio estimation is
+generally better than the simple sample average when the ratio \bold{R}
+really exists, otherwise ratio estimation may not help.
 }
 \examples{
 oopt = ani.options(interval = 2, nmax = ifelse(interactive(), 50, 2))
@@ -74,10 +69,10 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie
+Yihui Xie
 }
 \seealso{
-  \code{\link{sample}}, \code{\link{sample.simple}},
+\code{\link{sample}}, \code{\link{sample.simple}},
   \code{\link{sample.cluster}}, \code{\link{sample.strat}},
   \code{\link{sample.system}}
 }

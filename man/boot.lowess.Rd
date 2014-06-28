@@ -5,25 +5,19 @@
 boot.lowess(x, y = NULL, f = 2/3, iter = 3, line.col = "#FF000033", ...)
 }
 \arguments{
-  \item{x,y,f,iter}{passed to \code{\link{lowess}}}
+\item{x,y,f,iter}{passed to \code{\link{lowess}}}
 
-  \item{line.col}{the color of the LOWESS lines}
+\item{line.col}{the color of the LOWESS lines}
 
-  \item{...}{other arguments passed to the scatterplot by
-  \code{\link{plot}}}
-}
-\value{
-  NULL
+\item{...}{other arguments passed to the scatterplot by \code{\link{plot}}}
 }
 \description{
-  Sample the original data with replacement and fit LOWESS
-  curves accordingly.
+Sample the original data with replacement and fit LOWESS curves accordingly.
 }
 \details{
-  We keep on resampling the data and finally we will see
-  several bootstrapped LOWESS curves, which may give us a
-  rough idea about a ``confidence interval'' of the LOWESS
-  fit.
+We keep on resampling the data and finally we will see several bootstrapped
+LOWESS curves, which may give us a rough idea about a ``confidence interval''
+of the LOWESS fit.
 }
 \examples{
 oopt = ani.options(nmax = if (interactive()) 100 else 2, 
@@ -45,5 +39,5 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie
+Yihui Xie
 }

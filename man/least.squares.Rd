@@ -7,72 +7,62 @@ least.squares(x, y, n = 15, ani.type = c("slope", "intercept"), a, b, a.range, b
     rss.type = "o", mfrow = c(1, 2), ...)
 }
 \arguments{
-  \item{x}{a numeric vector: the independent variable}
+\item{x}{a numeric vector: the independent variable}
 
-  \item{y}{a numeric vector: the dependent variable}
+\item{y}{a numeric vector: the dependent variable}
 
-  \item{n}{the sample size: when x and y are missing, we
-  use simulated values of y (\code{x = 1:n} and \code{y = a
-  + b * x + rnorm(n)})}
+\item{n}{the sample size: when x and y are missing, we use simulated values
+of y (\code{x = 1:n} and \code{y = a + b * x + rnorm(n)})}
 
-  \item{ani.type}{\code{'slope'}: the slope is changing
-  with the intercept fixed; \code{'intercept'}: intercept
-  changing and slope fixed}
+\item{ani.type}{\code{'slope'}: the slope is changing with the intercept
+fixed; \code{'intercept'}: intercept changing and slope fixed}
 
-  \item{a,b}{the fixed intercept and slope; depending on
-  \code{ani.type}, we only need to specify one of them;
-  e.g. when \code{ani.type == 'slope'}, we need to specify
-  the value of \code{a}}
+\item{a,b}{the fixed intercept and slope; depending on \code{ani.type}, we
+only need to specify one of them; e.g. when \code{ani.type == 'slope'}, we
+need to specify the value of \code{a}}
 
-  \item{a.range,b.range}{a vector of length 2 to define the
-  range of the intercept and the slope; only one of them
-  need to be specified; see above}
+\item{a.range,b.range}{a vector of length 2 to define the range of the
+intercept and the slope; only one of them need to be specified; see above}
 
-  \item{ab.col}{the colors of two lines: the real
-  regression line and the moving line with either intercept
-  or slope changing}
+\item{ab.col}{the colors of two lines: the real regression line and the
+moving line with either intercept or slope changing}
 
-  \item{est.pch}{the point character of the 'estimated'
-  values given \code{x}}
+\item{est.pch}{the point character of the 'estimated' values given \code{x}}
 
-  \item{v.col,v.lty}{the color and line type of the vetical
-  lines which demonstrate the residuals}
+\item{v.col,v.lty}{the color and line type of the vetical lines which
+demonstrate the residuals}
 
-  \item{rss.pch,rss.type}{the point character and plot type
-  of the residual plot}
+\item{rss.pch,rss.type}{the point character and plot type of the residual
+plot}
 
-  \item{mfrow}{defines the layout of the graph; see
-  \code{\link{par}}}
+\item{mfrow}{defines the layout of the graph; see \code{\link{par}}}
 
-  \item{...}{other parameters passed to \code{\link{plot}}
-  to define the appearance of the scatterplot}
+\item{...}{other parameters passed to \code{\link{plot}} to define the
+appearance of the scatterplot}
 }
 \value{
-  The value returned depends on the animation type.
+The value returned depends on the animation type.
 
-  If it is a slope animation, the value will be a list
-  containing \item{lmfit}{ the estimates of the intercept
-  and slope with \code{\link{lm}} } \item{anifit}{ the
-  estimate of the slope in the animation } If it is an
-  intercept animation, the second component of the above
-  list will be the estimate of the intercept.
+  If it is a slope animation, the value will be a list containing
+  \item{lmfit}{ the estimates of the intercept and slope with
+  \code{\link{lm}} } \item{anifit}{ the estimate of the slope in the
+  animation } If it is an intercept animation, the second component of the
+  above list will be the estimate of the intercept.
 
   Note the estimate will not be precise generally.
 }
 \description{
-  This is a simple demonstration of the meaning of least
-  squares in univariate linear regression.
+This is a simple demonstration of the meaning of least squares in univariate
+linear regression.
 }
 \details{
-  With either the intercept or the slope changing, the
-  lines will be moving in the graph and corresponding
-  residuals will be plotted. We can finally see the best
-  estimate of the intercept and the slope from the residual
-  plot.
+With either the intercept or the slope changing, the lines will be moving in
+the graph and corresponding residuals will be plotted. We can finally see the
+best estimate of the intercept and the slope from the residual plot.
 }
 \note{
-  \code{ani.options('nmax')} specifies the maximum number
-  of steps for the slope or intercept to move.
+\code{ani.options('nmax')} specifies the maximum number of steps for
+  the slope or intercept to move.
 }
 \examples{
 par(mar = c(5, 4, 0.5, 0.1))
@@ -99,8 +89,8 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie
+Yihui Xie
 }
 \seealso{
-  \code{\link{lm}}
+\code{\link{lm}}
 }

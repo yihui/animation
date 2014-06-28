@@ -5,30 +5,29 @@
 vi.lilac.chaser(np = 16, col = "magenta", bg = "gray", p.cex = 7, c.cex = 5)
 }
 \arguments{
-  \item{np}{number of points}
+\item{np}{number of points}
 
-  \item{col}{color of points}
+\item{col}{color of points}
 
-  \item{bg}{background color of the plot}
+\item{bg}{background color of the plot}
 
-  \item{p.cex}{magnification of points}
+\item{p.cex}{magnification of points}
 
-  \item{c.cex}{magnification of the center cross}
+\item{c.cex}{magnification of the center cross}
 }
 \value{
-  \code{NULL}
+\code{NULL}
 }
 \description{
-  Stare at the center cross for a few (say 30) seconds to
-  experience the phenomena of the illusion.
+Stare at the center cross for a few (say 30) seconds to experience the
+phenomena of the illusion.
 }
 \details{
-  Just try it out.
+Just try it out.
 }
 \note{
-  In fact, points in the original version of `Lilac Chaser'
-  are \emph{blurred}, which is not implemented in this
-  function.
+In fact, points in the original version of `Lilac Chaser' are
+  \emph{blurred}, which is not implemented in this function.
 }
 \examples{
 oopt = ani.options(interval = 0.05, nmax = 20)
@@ -48,11 +47,11 @@ saveHTML({
 ani.options(oopt)
 }
 \author{
-  Yihui Xie
+Yihui Xie
 }
 \references{
-  \url{http://vis.supstat.com/2013/03/make-visual-illusions-in-r}
+\url{http://vis.supstat.com/2013/03/make-visual-illusions-in-r}
 }
 \seealso{
-  \code{\link{points}}
+\code{\link{points}}
 }

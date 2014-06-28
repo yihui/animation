@@ -6,53 +6,44 @@ saveVideo(expr, video.name = "animation.mp4", img.name = "Rplot", ffmpeg = "ffmp
     other.opts = "", ...)
 }
 \arguments{
-  \item{expr}{the R code to draw (several) plots}
+\item{expr}{the R code to draw (several) plots}
 
-  \item{img.name}{the file name of the sequence of images
-  to be generated}
+\item{img.name}{the file name of the sequence of images to be generated}
 
-  \item{video.name}{the file name of the output video (e.g.
-  \file{animation.mp4} or \file{animation.avi})}
+\item{video.name}{the file name of the output video (e.g.
+\file{animation.mp4} or \file{animation.avi})}
 
-  \item{ffmpeg}{the command to call FFmpeg (e.g.
-  \code{'C:/Software/ffmpeg/bin/ffmpeg.exe'} under
-  Windows); note the full path of FFmpeg can be
-  pre-specified in \code{\link{ani.options}('ffmpeg')}}
+\item{ffmpeg}{the command to call FFmpeg (e.g.
+\code{'C:/Software/ffmpeg/bin/ffmpeg.exe'} under Windows); note the full
+path of FFmpeg can be pre-specified in \code{\link{ani.options}('ffmpeg')}}
 
-  \item{other.opts}{other options to be passed to
-  \code{ffmpeg}, e.g. we can specify the bitrate as
-  \code{other.opts = '-b 400k'}}
+\item{other.opts}{other options to be passed to \code{ffmpeg}, e.g. we can
+specify the bitrate as \code{other.opts = '-b 400k'}}
 
-  \item{...}{other arguments to be passed to
-  \code{\link{ani.options}}}
+\item{...}{other arguments to be passed to \code{\link{ani.options}}}
 }
 \value{
-  An integer indicating failure (-1) or success (0) of the
-  converting (refer to \code{\link{system}}).
+An integer indicating failure (-1) or success (0) of the converting
+  (refer to \code{\link{system}}).
 }
 \description{
-  This function opens a graphics device to record the
-  images produced in the code \code{expr}, then uses FFmpeg
-  to convert these images to a video.
+This function opens a graphics device to record the images produced in the
+code \code{expr}, then uses FFmpeg to convert these images to a video.
 }
 \details{
-  This function uses \code{\link{system}} to call FFmpeg to
-  convert the images to a single video. The command line
-  used in this function is: \command{ffmpeg -y -r
-  <1/interval> -i <img.name>\%d.<ani.type> other.opts
-  video.name}
+This function uses \code{\link{system}} to call FFmpeg to convert the images
+to a single video. The command line used in this function is: \command{ffmpeg
+-y -r <1/interval> -i <img.name>\%d.<ani.type> other.opts video.name}
 
-  where \code{interval} comes from
-  \code{ani.options('interval')}, and \code{ani.type} is
-  from \code{ani.options('ani.type')}. For more details on
-  the numerous options of FFmpeg, please see the reference.
+where \code{interval} comes from \code{ani.options('interval')}, and
+\code{ani.type} is from \code{ani.options('ani.type')}. For more details on
+the numerous options of FFmpeg, please see the reference.
 }
 \note{
-  There are a lot of possibilities in optimizing the video.
-  My knowledge on FFmpeg is very limited, hence the default
-  output by this function could be of low quality or too
-  large. The file \file{presets.xml} of WinFF might be a
-  good guide: \url{http://code.google.com/p/winff/}.
+There are a lot of possibilities in optimizing the video. My knowledge
+  on FFmpeg is very limited, hence the default output by this function could
+  be of low quality or too large. The file \file{presets.xml} of WinFF might
+  be a good guide: \url{http://code.google.com/p/winff/}.
 }
 \examples{
 oopts = ani.options(ffmpeg = "D:/Installer/ffmpeg/bin/ffmpeg.exe")
@@ -70,15 +61,15 @@ saveVideo({
 ani.options(oopts)
 }
 \author{
-  Yihui Xie, based on an inital version by Thomas Julou
+Yihui Xie, based on an inital version by Thomas Julou
   \email{thomas.julou@gmail.com}
 }
 \references{
-  \url{http://ffmpeg.org/documentation.html}
+\url{http://ffmpeg.org/documentation.html}
 }
 \seealso{
-  Other utilities: \code{\link{gm.convert}},
-  \code{\link{im.convert}}, \code{\link{saveGIF}},
-  \code{\link{saveHTML}}, \code{\link{saveLatex}},
-  \code{\link{saveMovie}}, \code{\link{saveSWF}}
+Other utilities: \code{\link{gm.convert}},
+  \code{\link{im.convert}}; \code{\link{saveGIF}},
+  \code{\link{saveMovie}}; \code{\link{saveHTML}};
+  \code{\link{saveLatex}}; \code{\link{saveSWF}}
 }

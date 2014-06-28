@@ -5,30 +5,26 @@
 sim.qqnorm(n = 20, last.plot = NULL, ...)
 }
 \arguments{
-  \item{n}{integer: sample size}
+\item{n}{integer: sample size}
 
-  \item{last.plot}{an expression to be evaluated after the
-  plot is drawn, e.g.  \code{expression(abline(0, 1))} to
-  add the diagonal line}
+\item{last.plot}{an expression to be evaluated after the plot is drawn, e.g.
+\code{expression(abline(0, 1))} to add the diagonal line}
 
-  \item{...}{other arguments passed to
-  \code{\link{qqnorm}}}
+\item{...}{other arguments passed to \code{\link{qqnorm}}}
 }
 \value{
-  \code{NULL}
+\code{NULL}
 }
 \description{
-  This demo shows the possible QQ plots created by random
-  numbers generated from a Normal distribution so that
-  users can get a rough idea about how QQ plots really look
-  like.
+This demo shows the possible QQ plots created by random numbers generated
+from a Normal distribution so that users can get a rough idea about how QQ
+plots really look like.
 }
 \details{
-  When the sample size is small, it is hard to get a
-  correct inference about the distribution of data from a
-  QQ plot. Even if the sample size is large, usually there
-  are outliers far away from the straight line. Therefore,
-  don't overinterpret the QQ plots.
+When the sample size is small, it is hard to get a correct inference about
+the distribution of data from a QQ plot. Even if the sample size is large,
+usually there are outliers far away from the straight line. Therefore, don't
+overinterpret the QQ plots.
 }
 \examples{
 oopt = ani.options(interval = 0.1, nmax = ifelse(interactive(), 100, 
@@ -52,8 +48,8 @@ ani.options(oopt)
 
 }
 \author{
-  Yihui Xie
+Yihui Xie
 }
 \seealso{
-  \code{\link{qqnorm}}
+\code{\link{qqnorm}}
 }

@@ -6,11 +6,10 @@
   \describe{ \item{time}{POSIXt: the time corresponding to stock prices}
   \item{price}{a numeric vector: stock prices} }}
 \source{
-  This data can be obtained from most stock websites.
+This data can be obtained from most stock websites.
 }
 \description{
-  This is a sample of stock prices of the Vanke Co., Ltd on
-  2009/11/27.
+This is a sample of stock prices of the Vanke Co., Ltd on 2009/11/27.
 }
 \examples{
 tab.price = table(vanke1127$price)
@@ -38,4 +37,3 @@ saveGIF(price.ani(vanke1127$price, vanke1127$time, lwd = 2), movie.name = "price
 
 ani.options(oopt)
 }
-\keyword{datasets}
