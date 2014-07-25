@@ -1,8 +1,8 @@
 Package: animation
 Type: Package
 Title: A gallery of animations in statistics and utilities to create animations
-Version: 2.2.6
-Date: 2013-04-15
+Version: 2.3
+Date: 2014-07-25
 Authors@R: c(person("Lijia", "Yu", role = "ctb"),
     person("Weicheng", "Zhu", role = "ctb"),
     person("Yihui", "Xie", role = c("cre", "aut"), email = "xie@yihui.name"))
