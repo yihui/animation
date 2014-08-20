@@ -97,7 +97,7 @@ saveGIF = function(
 
   outpath = normalizePath(movie.name) # get the full path
   setwd(owd)
-  file.copy(outpath, movie.name)
+  file.copy(outpath, movie.name, overwrite = TRUE)
 }
 #' @rdname saveGIF
 saveMovie = saveGIF
