@@ -108,7 +108,7 @@ saveSWF = function(expr, swf.name = 'animation.swf', img.name = 'Rplot', swftool
   }
   if (cmd == 0) {
     setwd(owd)
-    file.copy(file.path(tempdir(), basename(swf.name)), swf.name)
+    file.copy(file.path(tempdir(), basename(swf.name)), swf.name, overwrite = TRUE)
     message('\n\nFlash has been created at: ',
             output.path <- normalizePath(swf.name))
     auto_browse(output.path)
