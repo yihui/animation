@@ -3,7 +3,7 @@ language: python
 
 # environment variables
 env:
-  - R_LIBS_USER=~/R R_MY_PKG="$(basename $TRAVIS_REPO_SLUG)"
+  - R_MY_PKG="$(basename $TRAVIS_REPO_SLUG)"
 
 # install dependencies
 install:
@@ -11,8 +11,8 @@ install:
   - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
   - sudo apt-get update
   - sudo apt-get install r-base-dev
-  - "[ ! -d ~/R ] && mkdir ~/R"
-  - Rscript -e "install.packages(c('$R_MY_PKG', 'testit'), dep = TRUE, repos = 'http://cran.rstudio.org')"
+  - "wget -q -O - http://yihui.name/xran/r-config | bash"
+  - Rscript -e "install.packages('$R_MY_PKG', dep = TRUE)"
 
 # run tests
 script:
