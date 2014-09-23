@@ -1,3 +1,12 @@
+		  CHANGES IN animation VERSION 2.4
+
+BUG FIXES
+
+  o saveGIF() on Windows might give an error message "the input line it too
+  long" when the command to be passed to ImageMagick/GraphicsMagic is too long;
+  now the command is quoted by double quotes (based on an answer to
+  http://stackoverflow.com/q/682799/559676) (thanks, Aaron Dodd)
+
 		  CHANGES IN animation VERSION 2.3
 
 NEW FEATURES
