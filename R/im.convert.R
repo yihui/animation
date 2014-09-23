@@ -118,6 +118,9 @@ im.convert = function(
       collapse = ' '),
     shQuote(output)
   )
+  # there might be an error "the input line is too long", and we need to quote
+  # the command; see http://stackoverflow.com/q/682799/559676
+  if (.Platform$OS.type == 'windows') convert = sprintf('"%s"', convert)
   message('Executing: ', strwrap(convert, exdent = 4, prefix = '\n'))
   if (interactive()) flush.console()
   cmd = cmd.fun(convert)
