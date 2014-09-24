@@ -15,10 +15,10 @@ minimum \code{time})}
 
 \item{span}{time span (unit in seconds; default to be 15 minutes)}
 
-\item{\dots}{other arguments passed to \code{\link{plot}}}
-
 \item{xlab,ylab,xlim,ylim,main}{they are passed to \code{\link{plot}} with
 reasonable default values}
+
+\item{\dots}{other arguments passed to \code{\link{plot}}}
 }
 \value{
 invisible \code{NULL}

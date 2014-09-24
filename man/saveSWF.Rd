@@ -9,10 +9,10 @@ saveSWF(expr, swf.name = "animation.swf", img.name = "Rplot", swftools = NULL, .
 functions (e.g. \code{brownian.motion()}) in this package or a custom
 expression (e.g. \code{for(i in 1:10) plot(runif(10), ylim = 0:1)}).}
 
+\item{swf.name}{file name of the Flash file}
+
 \item{img.name}{the base file name of the sequence of images (without any
 format or extension)}
-
-\item{swf.name}{file name of the Flash file}
 
 \item{swftools}{the path of SWFTools, e.g. \file{C:/swftools}. This argument
 is to make sure that \code{png2swf}, \code{jpeg2swf} and \code{pdf2swf} can

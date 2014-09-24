@@ -8,10 +8,10 @@ saveVideo(expr, video.name = "animation.mp4", img.name = "Rplot", ffmpeg = "ffmp
 \arguments{
 \item{expr}{the R code to draw (several) plots}
 
-\item{img.name}{the file name of the sequence of images to be generated}
-
 \item{video.name}{the file name of the output video (e.g.
 \file{animation.mp4} or \file{animation.avi})}
+
+\item{img.name}{the file name of the sequence of images to be generated}
 
 \item{ffmpeg}{the command to call FFmpeg (e.g.
 \code{'C:/Software/ffmpeg/bin/ffmpeg.exe'} under Windows); note the full

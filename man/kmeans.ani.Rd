@@ -14,12 +14,12 @@ containing \emph{only} 2 columns.}
 cluster centres.  If a number, a random set of (distinct) rows in \code{x}
 is chosen as the initial centres.}
 
+\item{hints}{Two text strings indicating the steps of k-means clustering:
+move the center or find the cluster membership?}
+
 \item{pch,col}{Symbols and colors for different clusters; the length of these
 two arguments should be equal to the number of clusters, or they will be
 recycled.}
-
-\item{hints}{Two text strings indicating the steps of k-means clustering:
-move the center or find the cluster membership?}
 }
 \value{
 A list with components \item{cluster }{A vector of integers
