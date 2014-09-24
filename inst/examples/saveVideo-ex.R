@@ -7,6 +7,7 @@ saveVideo({
       cex.axis = 0.8, cex.lab = 0.8, cex.main = 1)
   ani.options(interval = 0.05, nmax = 300)
   brownian.motion(pch = 21, cex = 5, col = 'red', bg = 'yellow')
-}, video.name = 'BM.mp4', other.opts='-b 300k')  # higher bitrate, better quality
+}, video.name = 'BM.mp4', other.opts='-pix_fmt yuv420p -b 300k')
+# higher bitrate, better quality
 
 ani.options(oopts)
