@@ -106,7 +106,7 @@ ImageMagick: \url{http://www.imagemagick.org/script/convert.php};
 }
 \seealso{
 Other utilities: \code{\link{gm.convert}},
-  \code{\link{im.convert}}; \code{\link{saveHTML}};
-  \code{\link{saveLatex}}; \code{\link{saveSWF}};
-  \code{\link{saveVideo}}
+  \code{\link{im.convert}}; \code{\link{saveHTML2}};
+  \code{\link{saveHTML}}; \code{\link{saveLatex}};
+  \code{\link{saveSWF}}; \code{\link{saveVideo}}
 }
