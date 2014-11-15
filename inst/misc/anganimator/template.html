@@ -1,0 +1,145 @@
+<html>
+<head>
+  <title>[[title]]</title>
+  <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap-theme.min.css">
+  <style>
+    .mapImage {
+
+    }
+    
+    #ranger {
+    width: 500px;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<body ng-app="AnimatedMaps" ng-cloak ng-controller="ClientApp">
+  <div class="container">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <select ng-model="loopmode" ng-options="mode for mode in modes">
+        </select>
+        <button type="button" title="rewind" class="btn btn-default" ng-click="rewindBack()">
+          <span class="glyphicon glyphicon-fast-backward"></span>&nbsp;</button>
+        <button type="button" title="step back" class="btn btn-default" ng-click="minusValue()">
+          <span class="glyphicon glyphicon-step-backward"></span>&nbsp;</button>
+        <button type="button" title="stop" class="btn btn-default" ng-click="stop()"><span class="glyphicon glyphicon-stop"></span>&nbsp;
+        </button>
+        <button type="button" title="play" class="btn btn-default" ng-click="play()">&nbsp;<span class="glyphicon glyphicon-play glyphicon-inverse"></span>
+        </button>
+        <button type="button" title="step forward" class="btn btn-default" ng-click="plusValue()">&nbsp;<span class="glyphicon glyphicon-step-forward"></span>
+        </button>
+        <input type="range" title="frame" class="form-control" id="ranger" ng-model="dateValue" min="{{minValue}}" max="{{maxValue}}">
+        <input type="range" title="speed" class="form-control" id="speedr" ng-change="changeSpeed()" ng-model="pauseTime" min="10" max="[[maxPause]]">
+        <span ng-bind="dateValue"></span>
+      </div>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <img class="mapImage img-thumbnail" ng-src="{{mapURL()}}">
+  </div>
+  [[description]]
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular-resource.min.js"></script>
+  <script>
+    angular.module("AnimatedMaps", [])
+    .controller("ClientApp", ["$scope", "$window", "$timeout", "$interpolate", function($scope, $window, $timeout, $interpolate) {
+      "use strict";
+      $scope.loopmode = "[[loopmode]]";
+      $scope.modes = ["One-shot", "Loop", "Loop-pause"]; /* TODO: , "Bounce"]; */
+      $scope.pauseTime = [[pauseTime]];
+      $scope.endPauseTime = [[endPauseTime]];
+      $scope.maxPause = [[maxPause]];
+      $scope.dateValue= 1;
+      $scope.intervalRef = null;
+      $scope.maxValue = [[nframes]];
+      $scope.minValue = 1;
+      $scope.urlTemplate = $interpolate("[[imgstub]]{{dateValue}}.png");
+      $scope.state = 0; /* 0 = not playing, 1=playing */
+
+      $scope.mapURL = function() {
+          return $scope.urlTemplate({dateValue: $scope.dateValue});
+      }
+
+        $scope.changeSpeed = function() {
+          if ($scope.state == 1){
+            $scope.stop();
+            $scope.play();
+          }
+        };
+
+      $scope.plusValue = function() {
+          if ($scope.dateValue < $scope.maxValue)
+            $scope.dateValue++;
+      }
+
+     $scope.rewindBack = function(){
+          $scope.dateValue = 1;
+     }
+
+      $scope.minusValue = function() {
+          if ($scope.dateValue > $scope.minValue)
+            $scope.dateValue--;
+      }
+
+      $scope.play = function() {
+          if($scope.state != 1){
+            $timeout.cancel($scope.intervalRef);
+            $scope.nextMap();
+          };
+      };
+
+      $scope.stop = function() {
+            $scope.state = 0;
+            $timeout.cancel($scope.intervalRef);
+      };
+
+      $scope.wtf = function(){
+            if ($scope.dateValue < $scope.maxValue) {
+                $scope.dateValue = Number($scope.dateValue) + 1;
+                $scope.intervalRef = $timeout($scope.nextMap, $scope.maxPause-$scope.pauseTime);
+                $scope.state = 1; /* running */
+            } else {
+		switch($scope.loopmode) {
+                   case "One-shot": 
+                     $scope.state = 2; /* ended */
+                     break;
+                   case "Loop":
+                     $scope.dateValue = 1;
+                     $scope.intervalRef = $timeout($scope.nextMap, $scope.maxPause-$scope.pauseTime);
+                     break;
+                   case "Loop-pause":
+                     $scope.intervalRef = $timeout(
+                         function(){
+                           $scope.dateValue = 1;
+                           $scope.intervalRef = $timeout($scope.nextMap,$scope.maxPause-$scope.pauseTime)
+                         },$scope.endPauseTime);
+                     $scope.state = 1; /* will change... */
+                     break;
+                   }     
+            };
+       };
+      $scope.nextMap = function() {
+         $timeout($scope.wtf);
+      };
+
+      $scope.preloadImages = function() {
+          for(var i = $scope.minValue; i <= $scope.maxValue; i++) {
+            var img = new Image();
+            img.src = $scope.urlTemplate({dateValue: i});
+          }
+      };
+      // Preload All Map Images
+      $scope.preloadImages();
+    }]).run([function() {
+      "use strict";
+    }]);
+</script>
+</body>
+</html>
