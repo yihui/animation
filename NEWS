@@ -1,5 +1,11 @@
 		  CHANGES IN animation VERSION 2.4
 
+NEW FEATURES
+
+  o added a new function saveHTML2() that is similar to saveHTML() but it uses
+  AngularJS and Twitter Bootstrap instead of the SciAnimator library (thanks,
+  Barry Rowlingson, #48)
+
 BUG FIXES
 
   o saveGIF() on Windows might give an error message "the input line it too
