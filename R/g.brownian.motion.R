@@ -16,7 +16,7 @@
 #'
 #'   Due to the ``security settings'' of Adobe Flash player, you might not be
 #'   able to view the generated Flash animation locally, i.e. using an address
-#'   like \url{file:///C:/Temp/index.html}. In this case, you can upload the
+#'   like \samp{file:///C:/Temp/index.html}. In this case, you can upload the
 #'   HTML file to a web server and use the http address to view the Flash file.
 #' @author Yihui Xie
 #' @seealso \code{\link{brownian.motion}}, \code{\link{BM.circle}},
