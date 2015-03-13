@@ -31,7 +31,7 @@
 #'   \code{NULL}, R will use \code{\link{deriv}} to calculate the gradient
 #' @param len desired length of the independent sequences (to compute z values
 #'   for contours)
-#' @param interact logical; whether choose the starting values by cliking on the
+#' @param interact logical; whether choose the starting values by clicking on the
 #'   contour plot directly?
 #' @param col.contour,col.arrow colors for the contour lines and arrows
 #'   respectively (default to be red and blue)
