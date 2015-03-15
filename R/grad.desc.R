@@ -31,7 +31,7 @@
 #'   \code{NULL}, R will use \code{\link{deriv}} to calculate the gradient
 #' @param len desired length of the independent sequences (to compute z values
 #'   for contours)
-#' @param interact logical; whether choose the starting values by cliking on the
+#' @param interact logical; whether choose the starting values by clicking on the
 #'   contour plot directly?
 #' @param col.contour,col.arrow colors for the contour lines and arrows
 #'   respectively (default to be red and blue)
@@ -86,6 +86,7 @@ grad.desc = function(
   } else init
   newxy = xy - gamma * attr(grad(xy[1], xy[2]), 'gradient')
   gap = abs(FUN(newxy[1], newxy[2]) - FUN(xy[1], xy[2]))
+  if(!is.finite(gap))  stop("Could not find any local minimum! Please check the input function and arguments.")
   if (missing(main)) main = eval(substitute(expression(z == x), list(x = body(FUN))))
   i = 1
   while (gap > tol && i <= nmax) {
@@ -95,6 +96,7 @@ grad.desc = function(
     newxy = rbind(newxy, xy[i + 1, ] - gamma * attr(grad(xy[i + 1, 1], xy[i + 1, 2]), 'gradient'))
     arrows(xy[1:i, 1], xy[1:i, 2], newxy[1:i, 1], newxy[1:i, 2],
            length = par('din')[1] / 50, col = col.arrow)
+    if(!is.finite(gap))  stop("Could not find any local minimum! Please check the input function and arguments.")
     gap = abs(FUN(newxy[i + 1, 1], newxy[i + 1, 2]) - FUN(xy[i + 1, 1], xy[i + 1, 2]))
     ani.pause()
     i = i + 1
