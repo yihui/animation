@@ -1,13 +1,14 @@
-\name{quincunx2}
+% Please edit documentation in R/quincunx.R, R/quincunx2.R
+\name{quincunx}
 \alias{quincunx}
 \alias{quincunx2}
 \title{Demonstration of the Quincunx (Bean Machine/Galton Box)}
 \usage{
-quincunx2(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, 
-    col.balls = sample(colors(), balls, TRUE), cex.balls = 2)
-
 quincunx(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, 
-    col.balls = sample(colors(), balls, TRUE), cex.balls = 2)
+    col.balls = sample(colors(), 200, TRUE), cex.balls = 2)
+
+quincunx2(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, 
+    col.balls = sample(colors(), 200, TRUE), cex.balls = 2)
 }
 \arguments{
 \item{balls}{number of balls}
