@@ -57,7 +57,7 @@ cv.nfeaturesLDA = function(
   data = matrix(rnorm(600), 60), cl = gl(3, 20), k = 5, cex.rg = c(0.5, 3),
   col.av = c('blue', 'red'), ...
 ) {
-  library(MASS)
+  requireNamespace('MASS')
   nmax = min(ncol(data), ani.options('nmax'))
   cl = as.factor(cl)
   dat = data.frame(data, cl)
