@@ -1,9 +1,11 @@
+% Please edit documentation in R/saveVideo.R
 \name{saveVideo}
 \alias{saveVideo}
 \title{Convert a sequence of images to a video by FFmpeg}
 \usage{
-saveVideo(expr, video.name = "animation.mp4", img.name = "Rplot", ffmpeg = "ffmpeg", 
-    other.opts = if (grepl("[.]mp4$", video.name)) "-pix_fmt yuv420p", ...)
+saveVideo(expr, video.name = "animation.mp4", img.name = "Rplot", 
+    ffmpeg = ani.options("ffmpeg"), other.opts = if (grepl("[.]mp4$", 
+        video.name)) "-pix_fmt yuv420p", ...)
 }
 \arguments{
 \item{expr}{the R code to draw (several) plots}
@@ -14,11 +16,11 @@ saveVideo(expr, video.name = "animation.mp4", img.name = "Rplot", ffmpeg = "ffmp
 \item{img.name}{the file name of the sequence of images to be generated}
 
 \item{ffmpeg}{the command to call FFmpeg (e.g.
-\code{'C:/Software/ffmpeg/bin/ffmpeg.exe'} under Windows); note the full
+\code{'C:/Software/ffmpeg/bin/ffmpeg.exe'} under Windows or 'avconv' on some linux machines); note the full
 path of FFmpeg can be pre-specified in \code{\link{ani.options}('ffmpeg')}}
 
 \item{other.opts}{other options to be passed to \code{ffmpeg}, e.g. we can
-specify the bitrate as \code{other.opts = '-b 400k'}}
+specify the bitrate as \code{other.opts = '-b 400k'} (The default \code{"-pix_fmt yuv420p"} is a work-around for a bug in some versions of ffmpeg.)}
 
 \item{...}{other arguments to be passed to \code{\link{ani.options}}}
 }
@@ -38,6 +40,8 @@ to a single video. The command line used in this function is: \command{ffmpeg
 where \code{interval} comes from \code{ani.options('interval')}, and
 \code{ani.type} is from \code{ani.options('ani.type')}. For more details on
 the numerous options of FFmpeg, please see the reference.
+
+Some linux systems may use the alternate software 'avconv' instead of 'ffmpeg'.  The package will attempt to determine which command is present and set \code{\link{ani.options}('ffmpeg')} to an appropriate default value. This can be overridden by passing in the \code{ffmpeg} argument.
 }
 \note{
 There are a lot of possibilities in optimizing the video. My knowledge
@@ -46,10 +50,11 @@ There are a lot of possibilities in optimizing the video. My knowledge
   be a good guide: \url{http://code.google.com/p/winff/}.
 }
 \examples{
-oopts = ani.options(ffmpeg = "D:/Installer/ffmpeg/bin/ffmpeg.exe")
-## usually Linux users do not need to worry about the path as long as FFmpeg has
-## been installed
-if (.Platform$OS.type != "windows") ani.options(ffmpeg = "ffmpeg")
+oopts = if (.Platform$OS.type == "windows") {
+    ani.options(ffmpeg = "D:/Installer/ffmpeg/bin/ffmpeg.exe")
+}
+## usually Linux users do not need to worry about the ffmpeg path as long as
+## FFmpeg or avconv has been installed
 
 saveVideo({
     par(mar = c(3, 3, 1, 0.5), mgp = c(2, 0.5, 0), tcl = -0.3, cex.axis = 0.8, 
