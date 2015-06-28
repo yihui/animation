@@ -71,5 +71,5 @@ ani.options(oopt)
 Yihui Xie
 }
 \references{
-\url{http://http://vis.supstat.com/2013/04/law-of-large-numbers/}
+\url{http://vis.supstat.com/2013/04/law-of-large-numbers/}
 }

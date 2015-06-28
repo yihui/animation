@@ -39,7 +39,6 @@
 #'   Efron, B. and Tibshirani, R. (1993) \emph{An Introduction to the
 #'   Bootstrap}. Chapman & Hall.
 #'
-#'   \url{http://animation.yihui.name/dmml:bootstrap_i.i.d}
 #' @export
 #' @example inst/examples/boot.iid-ex.R
 boot.iid <- function(

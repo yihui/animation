@@ -146,7 +146,7 @@ NULL
 #'   \item{CRACK}{a numeric vector} \item{WEIGHT}{a numeric vector}
 #'   \item{DENSITY}{a numeric vector} }
 #' @source collected from Statlib Datasets Archive:
-#'   \url{http://stat.cmu.edu/datasets/}
+#'   \url{http://lib.stat.cmu.edu/data-expo/}
 #' @examples
 #' ## some dense points in the center?
 #' plot(pollen[, 1:2], pch = 20, col = rgb(0, 0, 0, 0.1))

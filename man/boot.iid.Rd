@@ -89,8 +89,6 @@ There are many references explaining the bootstrap and its
 
   Efron, B. and Tibshirani, R. (1993) \emph{An Introduction to the
   Bootstrap}. Chapman & Hall.
-
-  \url{http://animation.yihui.name/dmml:bootstrap_i.i.d}
 }
 \seealso{
 \code{\link{sunflowerplot}}

@@ -1,3 +1,4 @@
+% Please edit documentation in R/MC.samplemean.R
 \name{MC.samplemean}
 \alias{MC.samplemean}
 \title{Sample Mean Monte Carlo integration}
@@ -82,9 +83,6 @@ ani.options(oopt)
 }
 \author{
 Yihui Xie
-}
-\references{
-\url{http://animation.yihui.name/compstat:sample_mean_monte_carlo}
 }
 \seealso{
 \code{\link{integrate}}, \code{\link{MC.hitormiss}}
