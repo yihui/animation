@@ -28,7 +28,7 @@
 #'   very large sample size (say, 300), it is suggested that this argument be
 #'   specified as `\code{.}'.
 #' @author Yihui Xie
-#' @references \url{http://http://vis.supstat.com/2013/04/law-of-large-numbers/}
+#' @references \url{http://vis.supstat.com/2013/04/law-of-large-numbers/}
 #' @export
 #' @example inst/examples/lln.ani-ex.R
 lln.ani = function(
