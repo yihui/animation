@@ -13,7 +13,7 @@
 #'   \code{ani.options('nmax')}.
 #' @author Yihui Xie
 #' @seealso \code{\link{brownian.motion}}, \code{\link{rnorm}}
-#' @references \url{http://http://vis.supstat.com/2012/11/brownian-motion-with-r/}
+#' @references \url{http://vis.supstat.com/2012/11/brownian-motion-with-r/}
 #' @export
 #' @example inst/examples/BM.circle-ex.R
 BM.circle = function(n = 20, col = rainbow(n), ...) {
