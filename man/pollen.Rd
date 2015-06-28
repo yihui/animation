@@ -1,3 +1,4 @@
+% Please edit documentation in R/animation-package.R
 \docType{data}
 \name{pollen}
 \alias{pollen}
@@ -8,7 +9,7 @@
   \item{DENSITY}{a numeric vector} }}
 \source{
 collected from Statlib Datasets Archive:
-  \url{http://stat.cmu.edu/datasets/}
+  \url{http://lib.stat.cmu.edu/data-expo/}
 }
 \description{
 There are 3848 observations on 5 variables. From the 1986 ASA Data Exposition

@@ -1,3 +1,4 @@
+% Please edit documentation in R/BM.circle.R
 \name{BM.circle}
 \alias{BM.circle}
 \title{Brownian Motion in a circle}
@@ -49,7 +50,7 @@ ani.options(oopt)
 Yihui Xie
 }
 \references{
-\url{http://http://vis.supstat.com/2012/11/brownian-motion-with-r/}
+\url{http://vis.supstat.com/2012/11/brownian-motion-with-r/}
 }
 \seealso{
 \code{\link{brownian.motion}}, \code{\link{rnorm}}
