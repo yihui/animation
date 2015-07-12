@@ -1,3 +1,4 @@
+% Please edit documentation in R/saveHTML.R
 \name{saveHTML}
 \alias{saveHTML}
 \title{Insert animations into an HTML page}
@@ -165,7 +166,6 @@ Yihui Xie
 \seealso{
 Other utilities: \code{\link{gm.convert}},
   \code{\link{im.convert}}; \code{\link{saveGIF}},
-  \code{\link{saveMovie}}; \code{\link{saveHTML2}};
-  \code{\link{saveLatex}}; \code{\link{saveSWF}};
-  \code{\link{saveVideo}}
+  \code{\link{saveMovie}}; \code{\link{saveLatex}};
+  \code{\link{saveSWF}}; \code{\link{saveVideo}}
 }

@@ -1,3 +1,4 @@
+% Please edit documentation in R/saveLatex.R
 \name{saveLatex}
 \alias{saveLatex}
 \title{Insert animations into a LaTeX document and compile it}
@@ -26,7 +27,7 @@ the LaTeX macro \code{'\\animategraphics'}; default to be
 \item{centering}{logical: whether to center the graph using the LaTeX
 environment \verb{\begin{center}} and \verb{\end{center}}}
 
-\item{caption,label}{caption and label for the graphics in the figure
+\item{caption, label}{caption and label for the graphics in the figure
 environment}
 
 \item{pkg.opts}{global options for the \code{animate} package}
@@ -133,7 +134,6 @@ To know more about the \code{animate} package, please refer to
 \seealso{
 Other utilities: \code{\link{gm.convert}},
   \code{\link{im.convert}}; \code{\link{saveGIF}},
-  \code{\link{saveMovie}}; \code{\link{saveHTML2}};
-  \code{\link{saveHTML}}; \code{\link{saveSWF}};
-  \code{\link{saveVideo}}
+  \code{\link{saveMovie}}; \code{\link{saveHTML}};
+  \code{\link{saveSWF}}; \code{\link{saveVideo}}
 }
