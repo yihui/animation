@@ -14,8 +14,8 @@
 #' @example inst/examples/boot.lowess-ex.R
 boot.lowess = function(x, y = NULL, f = 2/3, iter = 3, line.col = '#FF000033', ...) {
   if (missing(x)) {
-    x = cars[, 1]
-    y = cars[, 2]
+    x = datasets::cars[, 1]
+    y = datasets::cars[, 2]
   }
   if (NCOL(x) > 1) {
     y = x[, 2]
