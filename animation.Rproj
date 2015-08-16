@@ -13,5 +13,5 @@ RnwWeave: knitr
 LaTeX: pdfLaTeX
 
 BuildType: Package
-PackageInstallArgs: -v && Rscript -e "Rd2roxygen::rab('animation', install=TRUE)" #
+PackageInstallArgs: -v && Rscript -e "Rd2roxygen::rab(install=TRUE)"
 PackageCheckArgs: --as-cran --no-manual
