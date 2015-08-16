@@ -1,17 +1,13 @@
 		  CHANGES IN animation VERSION 2.4
 
-NEW FEATURES
-
-  o added a new function saveHTML2() that is similar to saveHTML() but it uses
-  AngularJS and Twitter Bootstrap instead of the SciAnimator library (thanks,
-  Barry Rowlingson, #48)
-
 BUG FIXES
 
   o saveGIF() on Windows might give an error message "the input line it too
   long" when the command to be passed to ImageMagick/GraphicsMagic is too long;
   now the command is quoted by double quotes (based on an answer to
   http://stackoverflow.com/q/682799/559676) (thanks, Aaron Dodd)
+
+  o save*() functions should overwrite the output file (#50, #60).
 
 		  CHANGES IN animation VERSION 2.3
 
