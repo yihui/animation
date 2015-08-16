@@ -1,3 +1,4 @@
+% Please edit documentation in R/sample.ratio.R
 \name{sample.ratio}
 \alias{sample.ratio}
 \title{Demonstrate the ratio estimation in sampling survey}
@@ -15,7 +16,7 @@ sample.ratio(X = runif(50, 0, 5), R = 1, Y = R * X + rnorm(X), size = length(X)/
 
 \item{size}{sample size}
 
-\item{p.col,p.cex,p.pch}{point colors, magnification and symbols for the
+\item{p.col, p.cex, p.pch}{point colors, magnification and symbols for the
 population and sample respectively}
 
 \item{m.col}{color for the horizontal line to denote the sample mean of Y}

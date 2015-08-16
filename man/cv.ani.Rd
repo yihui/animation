@@ -1,3 +1,4 @@
+% Please edit documentation in R/cv.ani.R
 \name{cv.ani}
 \alias{cv.ani}
 \title{Demonstration for the process of cross-validation}

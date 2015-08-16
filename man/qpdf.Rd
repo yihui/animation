@@ -1,3 +1,4 @@
+% Please edit documentation in R/qpdf.R
 \name{qpdf}
 \alias{qpdf}
 \title{A wrapper for the PDF toolkit qpdf}

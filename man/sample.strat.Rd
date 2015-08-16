@@ -1,3 +1,4 @@
+% Please edit documentation in R/sample.strat.R
 \name{sample.strat}
 \alias{sample.strat}
 \title{Demonstration for the stratified sampling}
@@ -12,7 +13,7 @@ sample.strat(pop = ceiling(10 * runif(10, 0.5, 1)), size = ceiling(pop *
 \item{size}{a corresponding vector for the sample size in each stratum
 (recycled if necessary).}
 
-\item{p.col,p.cex}{different colors /magnification rate to annotate the
+\item{p.col, p.cex}{different colors /magnification rate to annotate the
 population and the sample}
 
 \item{\dots}{other arguments passed to \code{\link{rect}} to annotate the

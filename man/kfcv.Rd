@@ -1,3 +1,4 @@
+% Please edit documentation in R/kfcv.R
 \name{kfcv}
 \alias{kfcv}
 \title{Sample sizes for k-fold cross-validation}

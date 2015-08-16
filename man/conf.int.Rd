@@ -1,3 +1,4 @@
+% Please edit documentation in R/conf.int.R
 \name{conf.int}
 \alias{conf.int}
 \title{Demonstration of the concept of confidence intervals}

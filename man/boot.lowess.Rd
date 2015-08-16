@@ -1,3 +1,4 @@
+% Please edit documentation in R/boot.lowess.R
 \name{boot.lowess}
 \alias{boot.lowess}
 \title{Bootstrapping with LOWESS}
@@ -5,7 +6,7 @@
 boot.lowess(x, y = NULL, f = 2/3, iter = 3, line.col = "#FF000033", ...)
 }
 \arguments{
-\item{x,y,f,iter}{passed to \code{\link{lowess}}}
+\item{x, y, f, iter}{passed to \code{\link{lowess}}}
 
 \item{line.col}{the color of the LOWESS lines}
 

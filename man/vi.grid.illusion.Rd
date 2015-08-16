@@ -1,3 +1,4 @@
+% Please edit documentation in R/vi.grid.illusion.R
 \name{vi.grid.illusion}
 \alias{vi.grid.illusion}
 \title{Visual illusions: Scintillating grid illusion and Hermann grid illusion}

@@ -1,3 +1,4 @@
+% Please edit documentation in R/ani.options.R
 \name{ani.options}
 \alias{ani.options}
 \title{Set or query animation options}

@@ -1,3 +1,4 @@
+% Please edit documentation in R/flip.coin.R
 \name{flip.coin}
 \alias{flip.coin}
 \title{Probability in flipping coins}
@@ -18,7 +19,7 @@ probabilities.}
 
 \item{col}{The colors to annotate different faces of the `coin'.}
 
-\item{type,pch,bg}{See \code{\link{points}}.}
+\item{type, pch, bg}{See \code{\link{points}}.}
 
 \item{digits}{integer indicating the precision to be used in the annotation
 of frequencies in the plot}

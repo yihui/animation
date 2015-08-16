@@ -1,3 +1,4 @@
+% Please edit documentation in R/vi.lilac.chaser.R
 \name{vi.lilac.chaser}
 \alias{vi.lilac.chaser}
 \title{Visual Illusions: Lilac Chaser}

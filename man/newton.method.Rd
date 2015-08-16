@@ -1,3 +1,4 @@
+% Please edit documentation in R/newton.method.R
 \name{newton.method}
 \alias{newton.method}
 \title{Demonstration of the Newton-Raphson method for root-finding}
@@ -22,7 +23,7 @@ curve (for 1 time) directly?}
 \item{col.lp}{a vector of length 3 specifying the colors of: vertical lines,
 tangent lines and points}
 
-\item{main,xlab,ylab}{titles of the plot; there are default values for them
+\item{main, xlab, ylab}{titles of the plot; there are default values for them
 (depending on the form of the function \code{FUN})}
 
 \item{\dots}{other arguments passed to \code{\link{curve}}}

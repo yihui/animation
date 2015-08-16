@@ -1,3 +1,4 @@
+% Please edit documentation in R/Rosling.bubbles.R
 \name{Rosling.bubbles}
 \alias{Rosling.bubbles}
 \title{The bubbles animation in Hans Rosling's Talk}
@@ -8,14 +9,14 @@ Rosling.bubbles(x, y, data, type = c("circles", "squares", "rectangles", "stars"
     text.col = rgb(0, 0, 0, 0.5), text.cex = 5)
 }
 \arguments{
-\item{x,y}{the x and y co-ordinates for the centres of the bubbles (symbols).
+\item{x, y}{the x and y co-ordinates for the centres of the bubbles (symbols).
 Default to be 10 uniform random numbers in [0, 1] for each single image
 frame (so the length should be 10 * \code{ani.options('nmax')})}
 
-\item{type,data}{the type and data for symbols; see \code{\link{symbols}}.
+\item{type, data}{the type and data for symbols; see \code{\link{symbols}}.
 The default type is \code{circles}.}
 
-\item{bg,main,xlim,ylim,xlab,ylab,...}{see \code{\link{symbols}}. Note that
+\item{bg, main, xlim, ylim, xlab, ylab, ...}{see \code{\link{symbols}}. Note that
 \code{bg} has default values taking semi-transparent colors.}
 
 \item{grid}{logical; add a grid to the plot?}
@@ -23,7 +24,7 @@ The default type is \code{circles}.}
 \item{text}{a character vector to be added to the plot one by one (e.g. the
 year in Rosling's talk)}
 
-\item{text.col,text.cex}{color and magnification of the background text}
+\item{text.col, text.cex}{color and magnification of the background text}
 }
 \value{
 \code{NULL}.

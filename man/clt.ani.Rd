@@ -1,3 +1,4 @@
+% Please edit documentation in R/clt.ani.R
 \name{clt.ani}
 \alias{clt.ani}
 \title{Demonstration of the Central Limit Theorem}
@@ -14,7 +15,7 @@ to create the histogram}
 \item{FUN}{the function to generate \code{n} random numbers from a certain
 distribution}
 
-\item{mean,sd}{the expectation and standard deviation of the population
+\item{mean, sd}{the expectation and standard deviation of the population
 distribution (they will be used to plot the density curve of the
 theoretical Normal distribution with mean equal to \code{mean} and sd equal
 to \eqn{sd/\sqrt{n}}; if any of them is \code{NA}, the density curve will
@@ -24,7 +25,7 @@ be suppressed)}
 density curve of the sample mean, the theoretical density cuve and
 P-values.}
 
-\item{mat,widths,heights}{arguments passed to \code{\link{layout}} to set the
+\item{mat, widths, heights}{arguments passed to \code{\link{layout}} to set the
 layout of the two graphs.}
 
 \item{xlim}{the x-axis limit for the histogram (it has a default value if not

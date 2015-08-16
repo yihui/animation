@@ -1,3 +1,4 @@
+% Please edit documentation in R/pdftk.R
 \name{pdftk}
 \alias{pdftk}
 \title{A wrapper for the PDF toolkit Pdftk}

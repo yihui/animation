@@ -1,3 +1,4 @@
+% Please edit documentation in R/kmeans.ani.R
 \name{kmeans.ani}
 \alias{kmeans.ani}
 \title{Demonstration of the k-Means clustering algorithm}
@@ -17,7 +18,7 @@ is chosen as the initial centres.}
 \item{hints}{Two text strings indicating the steps of k-means clustering:
 move the center or find the cluster membership?}
 
-\item{pch,col}{Symbols and colors for different clusters; the length of these
+\item{pch, col}{Symbols and colors for different clusters; the length of these
 two arguments should be equal to the number of clusters, or they will be
 recycled.}
 }

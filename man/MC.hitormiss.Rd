@@ -1,3 +1,4 @@
+% Please edit documentation in R/MC.hitormiss.R
 \name{MC.hitormiss}
 \alias{MC.hitormiss}
 \title{Hit or Miss Monte Carlo integration}
@@ -10,9 +11,9 @@ MC.hitormiss(FUN = function(x) x - x^2, n = ani.options("nmax"), from = 0, to = 
 
 \item{n}{number of points to be sampled from the Uniform(0, 1) distribution}
 
-\item{from,to}{the limits of integration}
+\item{from, to}{the limits of integration}
 
-\item{col.points,pch.points}{colors and point characters for points which
+\item{col.points, pch.points}{colors and point characters for points which
 ``hit'' or ``miss'' the area under the curve}
 
 \item{\dots}{other arguments passed to \code{\link{points}}}

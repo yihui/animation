@@ -1,3 +1,4 @@
+% Please edit documentation in R/least.squares.R
 \name{least.squares}
 \alias{least.squares}
 \title{Demonstrate the least squares method}
@@ -17,11 +18,11 @@ of y (\code{x = 1:n} and \code{y = a + b * x + rnorm(n)})}
 \item{ani.type}{\code{'slope'}: the slope is changing with the intercept
 fixed; \code{'intercept'}: intercept changing and slope fixed}
 
-\item{a,b}{the fixed intercept and slope; depending on \code{ani.type}, we
+\item{a, b}{the fixed intercept and slope; depending on \code{ani.type}, we
 only need to specify one of them; e.g. when \code{ani.type == 'slope'}, we
 need to specify the value of \code{a}}
 
-\item{a.range,b.range}{a vector of length 2 to define the range of the
+\item{a.range, b.range}{a vector of length 2 to define the range of the
 intercept and the slope; only one of them need to be specified; see above}
 
 \item{ab.col}{the colors of two lines: the real regression line and the
@@ -29,10 +30,10 @@ moving line with either intercept or slope changing}
 
 \item{est.pch}{the point character of the 'estimated' values given \code{x}}
 
-\item{v.col,v.lty}{the color and line type of the vetical lines which
+\item{v.col, v.lty}{the color and line type of the vetical lines which
 demonstrate the residuals}
 
-\item{rss.pch,rss.type}{the point character and plot type of the residual
+\item{rss.pch, rss.type}{the point character and plot type of the residual
 plot}
 
 \item{mfrow}{defines the layout of the graph; see \code{\link{par}}}

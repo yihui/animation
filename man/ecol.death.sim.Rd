@@ -1,3 +1,4 @@
+% Please edit documentation in R/ecol.death.sim.R
 \name{ecol.death.sim}
 \alias{ecol.death.sim}
 \title{A simulation of the death of two species with certain probabilities}
@@ -6,14 +7,14 @@ ecol.death.sim(nr = 10, nc = 10, num.sp = c(50, 50), col.sp = c(1, 2), pch.sp = 
     2), col.die = 1, pch.die = 4, cex = 3, ...)
 }
 \arguments{
-\item{nr,nc}{number of rows and columns of the field (plants grow on a
+\item{nr, nc}{number of rows and columns of the field (plants grow on a
 \code{nr} x \code{nc} grid)}
 
 \item{num.sp}{number of two plants respectively}
 
-\item{col.sp,pch.sp}{colors and point symbols of the two species respectively}
+\item{col.sp, pch.sp}{colors and point symbols of the two species respectively}
 
-\item{col.die,pch.die,cex}{the color, point symbol and magnification to
+\item{col.die, pch.die, cex}{the color, point symbol and magnification to
 annotate the plant which dies (symbol default to be an `X')}
 
 \item{\dots}{other arguments passed to \code{\link{plot}} to set up the plot}

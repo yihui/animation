@@ -1,3 +1,4 @@
+% Please edit documentation in R/buffon.needle.R
 \name{buffon.needle}
 \alias{buffon.needle}
 \title{Simulation of Buffon's Needle}
@@ -14,7 +15,7 @@ buffon.needle(l = 0.8, d = 1, redraw = TRUE, mat = matrix(c(1, 3, 2, 3), 2),
 
 \item{redraw}{logical. redraw former `needles' or not for each drop.}
 
-\item{mat,heights}{arguments passed to \code{\link{layout}} to set the layout
+\item{mat, heights}{arguments passed to \code{\link{layout}} to set the layout
 of the three graphs.}
 
 \item{col}{a character vector of length 7 specifying the colors of:

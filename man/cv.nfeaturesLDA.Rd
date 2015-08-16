@@ -1,3 +1,4 @@
+% Please edit documentation in R/cv.nfeaturesLDA.R
 \name{cv.nfeaturesLDA}
 \alias{cv.nfeaturesLDA}
 \title{Cross-validation to find the optimum number of features (variables) in LDA}

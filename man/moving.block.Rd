@@ -1,3 +1,4 @@
+% Please edit documentation in R/moving.block.R
 \name{moving.block}
 \alias{moving.block}
 \title{Cycle through an R object and plot each subset of elements}

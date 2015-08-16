@@ -1,12 +1,13 @@
-\name{quincunx2}
+% Please edit documentation in R/quincunx.R, R/quincunx2.R
+\name{quincunx}
 \alias{quincunx}
 \alias{quincunx2}
 \title{Demonstration of the Quincunx (Bean Machine/Galton Box)}
 \usage{
-quincunx2(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, 
+quincunx(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, 
     col.balls = sample(colors(), balls, TRUE), cex.balls = 2)
 
-quincunx(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, 
+quincunx2(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, 
     col.balls = sample(colors(), balls, TRUE), cex.balls = 2)
 }
 \arguments{
@@ -17,7 +18,7 @@ quincunx(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19,
 \item{pch.layers}{point character of layers; triangles (\code{pch = 2}) are
 recommended}
 
-\item{pch.balls,col.balls,cex.balls}{point character, colors and
+\item{pch.balls, col.balls, cex.balls}{point character, colors and
 magnification of balls}
 }
 \value{

@@ -1,3 +1,4 @@
+% Please edit documentation in R/ani.record.R
 \name{ani.record}
 \alias{ani.record}
 \alias{ani.replay}

@@ -1,3 +1,4 @@
+% Please edit documentation in R/animation-package.R
 \docType{data}
 \name{CLELAL09}
 \alias{CLELAL09}

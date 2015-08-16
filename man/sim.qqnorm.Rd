@@ -1,3 +1,4 @@
+% Please edit documentation in R/sim.qqnorm.R
 \name{sim.qqnorm}
 \alias{sim.qqnorm}
 \title{Simulation of QQ plots for the Normal distribution}

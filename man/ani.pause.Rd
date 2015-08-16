@@ -1,3 +1,4 @@
+% Please edit documentation in R/ani.pause.R
 \name{ani.pause}
 \alias{ani.pause}
 \title{Pause for a while and flush the current graphical device}

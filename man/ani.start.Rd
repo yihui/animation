@@ -1,3 +1,4 @@
+% Please edit documentation in R/ani.start.R
 \name{ani.start}
 \alias{ani.start}
 \alias{ani.stop}

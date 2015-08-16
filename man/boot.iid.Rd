@@ -1,3 +1,4 @@
+% Please edit documentation in R/boot.iid.R
 \name{boot.iid}
 \alias{boot.iid}
 \title{Demonstrate bootstrapping for iid data}
@@ -14,7 +15,7 @@ interest when applied to the data x.}
 
 \item{m}{the sample size for bootstrapping (\eqn{m}-out-of-\eqn{n} bootstrap)}
 
-\item{mat,widths,heights}{arguments passed to \code{\link{layout}} to set the
+\item{mat, widths, heights}{arguments passed to \code{\link{layout}} to set the
 layout of the two graphs}
 
 \item{col}{a character vector of length 5 specifying the colors of: points of

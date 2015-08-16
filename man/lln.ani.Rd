@@ -1,3 +1,4 @@
+% Please edit documentation in R/lln.ani.R
 \name{lln.ani}
 \alias{lln.ani}
 \title{Demonstration of Law of Large Numbers}

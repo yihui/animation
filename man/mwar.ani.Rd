@@ -1,3 +1,4 @@
+% Please edit documentation in R/mwar.ani.R
 \name{mwar.ani}
 \alias{mwar.ani}
 \title{Demonstration for ``Moving Window Auto-Regression''}
@@ -14,7 +15,7 @@ mwar.ani(x, k = 15, conf = 2, mat = matrix(1:2, 2), widths = rep(1, ncol(mat)),
 \item{conf}{a positive number: the confidence intervals are computed as
 \code{c(ar1 - conf*s.e., ar1 + conf*s.e.)}}
 
-\item{mat,widths,heights}{arguments passed to \code{\link{layout}} to divide
+\item{mat, widths, heights}{arguments passed to \code{\link{layout}} to divide
 the device into 2 parts}
 
 \item{lty.rect}{the line type of the rectangles respresenting the moving

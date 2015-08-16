@@ -1,3 +1,4 @@
+% Please edit documentation in R/knn.ani.R
 \name{knn.ani}
 \alias{knn.ani}
 \title{Demonstration of the k-Nearest Neighbour classification}
@@ -28,7 +29,7 @@ data and test data.}
 
 \item{cl.pch}{a vector specifying symbols for each class}
 
-\item{dist.lty,dist.col}{the line type and color to annotate the distances}
+\item{dist.lty, dist.col}{the line type and color to annotate the distances}
 
 \item{knn.col}{the color to annotate the k-nearest neighbour points using a
 polygon}
