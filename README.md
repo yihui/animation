@@ -1,6 +1,6 @@
 # animation
 
-[![Build Status](https://travis-ci.org/yihui/animation.png)](https://travis-ci.org/yihui/animation)
+[![Build Status](https://travis-ci.org/yihui/animation.svg)](https://travis-ci.org/yihui/animation)
 
 ## Introduction
 
