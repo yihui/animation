@@ -1,7 +1,7 @@
 Package: animation
 Type: Package
 Title: A Gallery of Animations in Statistics and Utilities to Create Animations
-Version: 2.4
+Version: 2.4.1
 Date: 2015-08-16
 Authors@R: c(
     person("Yihui","Xie", role=c("cre","aut"),email="xie@yihui.name"),
