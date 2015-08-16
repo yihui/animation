@@ -144,7 +144,3 @@ The associated website for this package:
 \code{\link{saveHTML}}, \code{\link{saveGIF}},
   \code{\link{saveSWF}}, \code{\link{saveVideo}}, \code{\link{saveLatex}}
 }
-\keyword{device}
-\keyword{dplot}
-\keyword{dynamic}
-\keyword{package}
