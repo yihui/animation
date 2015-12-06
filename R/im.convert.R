@@ -111,7 +111,7 @@ im.convert = function(
 
   loop = ifelse(isTRUE(ani.options('loop')), 0, ani.options('loop'))
   convert = sprintf(
-    '%s -loop %s %s %s %s', shQuote(convert), loop,
+    '%s -loop %s %s %s %s', convert, loop,
     extra.opts, paste(
       '-delay', interval * 100,
       if (length(interval) == 1) paste(files, collapse = ' ') else files,
