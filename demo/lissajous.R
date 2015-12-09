@@ -1,4 +1,5 @@
-## Animate a series of lissajous.
+## Animate a series of lissajous. 
+## This script will generate an animated gif in your Working Directory
 ## Author: Rob Steele <robsteele at yahoo dot com>
 ## URL: https://github.com/yihui/animation/issues/71#issuecomment-162857831
 
