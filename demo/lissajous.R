@@ -44,7 +44,7 @@ create.lissajous.gif <- function(gif.name          = "lissajous.gif",
   ## Combine the individual image files into an animated GIF file.
   oopt <- ani.options(interval   = 1 / frames.per.second,
                       loop       = TRUE,
-                      autobrowse = FALSE)
+                      autobrowse = TRUE)
   
   im.convert(files = file.path(image.dir, "img-*.png"), output = gif.name)
   
