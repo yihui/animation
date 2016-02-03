@@ -74,14 +74,15 @@ saveVideo = function(
   if (use.dev) dev.off()
 
   ## call FFmpeg
+  bname <- paste0("tmp-", basename(video.name))
   ffmpeg = paste(ffmpeg, '-y', '-r', 1/ani.options('interval'), '-i',
-                 basename(img.fmt), other.opts, basename(video.name))
+                 basename(img.fmt), other.opts, bname)
   message('Executing: ', ffmpeg)
   cmd = system(ffmpeg)
 
   if (cmd == 0) {
     setwd(owd)
-    file.copy(file.path(tempdir(), basename(video.name)), video.name, overwrite = TRUE)
+    file.copy(file.path(tempdir(), bname), video.name, overwrite = TRUE)
     message('\n\nVideo has been created at: ',
             output.path <- normalizePath(video.name))
     auto_browse(output.path)
