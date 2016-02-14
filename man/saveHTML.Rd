@@ -164,8 +164,7 @@ Yihui Xie
 \url{https://github.com/brentertz/scianimator}
 }
 \seealso{
-Other utilities: \code{\link{gm.convert}},
-  \code{\link{im.convert}}; \code{\link{saveGIF}},
-  \code{\link{saveMovie}}; \code{\link{saveLatex}};
-  \code{\link{saveSWF}}; \code{\link{saveVideo}}
+Other utilities: \code{\link{im.convert}},
+  \code{\link{saveGIF}}, \code{\link{saveLatex}},
+  \code{\link{saveSWF}}, \code{\link{saveVideo}}
 }

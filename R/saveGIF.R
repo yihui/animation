@@ -64,7 +64,11 @@ saveGIF = function(
 ) {
   oopt = ani.options(...)
   on.exit(ani.options(oopt))
+  if(!dir.exists(dirname(movie.name))){
+    dir.create(dirname(movie.name))
+  }
   outpath = normalizePath(dirname(movie.name)) # get the full path
+
   ## create images in the temp dir
   owd = setwd(tempdir())
   on.exit(setwd(owd), add = TRUE)

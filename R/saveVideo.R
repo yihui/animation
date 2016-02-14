@@ -40,9 +40,14 @@ saveVideo = function(
 ) {
   oopt = ani.options(...)
   on.exit(ani.options(oopt))
+  
+  if(!dir.exists(dirname(video.name))){
+    dir.create(dirname(video.name))
+  }
+  
   owd = setwd(tempdir())
   on.exit(setwd(owd), add = TRUE)
-  
+
   # default ffmpeg command to 'ffmpeg' if not specified
   if (is.null(ffmpeg)) {
     ffmpeg = 'ffmpeg'

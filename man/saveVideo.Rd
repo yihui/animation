@@ -74,8 +74,7 @@ Yihui Xie, based on an inital version by Thomas Julou
 \url{http://ffmpeg.org/documentation.html}
 }
 \seealso{
-Other utilities: \code{\link{gm.convert}},
-  \code{\link{im.convert}}; \code{\link{saveGIF}},
-  \code{\link{saveMovie}}; \code{\link{saveHTML}};
-  \code{\link{saveLatex}}; \code{\link{saveSWF}}
+Other utilities: \code{\link{im.convert}},
+  \code{\link{saveGIF}}, \code{\link{saveHTML}},
+  \code{\link{saveLatex}}, \code{\link{saveSWF}}
 }
