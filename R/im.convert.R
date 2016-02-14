@@ -133,7 +133,8 @@ im.convert = function(
     message('Output at: ', output)
     if (clean)
       unlink(files)
-    auto_browse(output)
+    if (file.exists(output))
+      auto_browse(output)
   } else message('an error occurred in the conversion... see Notes in ?im.convert')
   invisible(convert)
 }
