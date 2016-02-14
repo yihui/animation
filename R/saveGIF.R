@@ -92,13 +92,13 @@ saveGIF = function(
   if (missing(cmd.fun))
     cmd.fun = if (.Platform$OS.type == 'windows') shell else system
   ## convert to animations
-  output.name <- paste0("tmp-", basename(movie.name))
-  im.convert(img.files, output = output.name, convert = convert,
+  im.convert(img.files, output = movie.name, convert = convert,
              cmd.fun = cmd.fun, clean = clean)
-
-  outpath = normalizePath(output.name) # get the full path
   setwd(owd)
-  file.copy(outpath, movie.name, overwrite = TRUE)
+  outpath = normalizePath(dirname(movie.name)) # get the full path
+  if (file.path(tempdir(), basename(movie.name))!=movie.name)
+    file.copy(file.path(tempdir(), basename(movie.name)), 
+              movie.name, overwrite = TRUE)
 }
 #' @rdname saveGIF
 saveMovie = saveGIF
