@@ -100,7 +100,7 @@ saveGIF = function(
   im.convert(img.files, output = file.path(outpath,basename(movie.name)), convert = convert,
              cmd.fun = cmd.fun, clean = clean)
   setwd(owd)
-  if (file.path(tempdir(), basename(movie.name))!=movie.name){
+  if (!grepl(tempdir(),movie.name,fixed = T)){
     file.copy(file.path(tempdir(), basename(movie.name)), 
               movie.name, overwrite = TRUE)
     auto_browse(movie.name)
