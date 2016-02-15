@@ -86,7 +86,7 @@ saveVideo = function(
 
   if (cmd == 0) {
     setwd(owd)
-    if(!grepl(tempdir(),movie.name,fixed = T))
+    if(!grepl(tempdir(),video.name,fixed = T))
       file.copy(file.path(tempdir(), basename(video.name)), video.name, overwrite = TRUE)
     message('\n\nVideo has been created at: ',
             output.path <- normalizePath(video.name))
