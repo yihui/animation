@@ -36,7 +36,7 @@ for contours)}
 \item{interact}{logical; whether choose the starting values by clicking on the
 contour plot directly?}
 
-\item{col.contour, col.arrow}{colors for the contour lines and arrows
+\item{col.contour,  col.arrow}{colors for the contour lines and arrows
 respectively (default to be red and blue)}
 
 \item{main}{the title of the plot; if missing, it will be derived from

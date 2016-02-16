@@ -13,7 +13,7 @@ sample.system(nrow = 10, ncol = 10, size = 15, p.col = c("blue", "red"), p.cex =
 
 \item{size}{the sample size.}
 
-\item{p.col, p.cex}{different colors / magnification rate to annotate the
+\item{p.col,  p.cex}{different colors / magnification rate to annotate the
 population and the sample}
 }
 \value{

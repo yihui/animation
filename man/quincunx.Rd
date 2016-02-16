@@ -18,7 +18,7 @@ quincunx2(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19,
 \item{pch.layers}{point character of layers; triangles (\code{pch = 2}) are
 recommended}
 
-\item{pch.balls, col.balls, cex.balls}{point character, colors and
+\item{pch.balls,  col.balls,  cex.balls}{point character, colors and
 magnification of balls}
 }
 \value{

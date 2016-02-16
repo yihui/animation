@@ -16,7 +16,7 @@ but it's the required by the Google gadget}
 
 \item{file}{the HTML filename}
 
-\item{width, height}{width and height of the animation}
+\item{width,  height}{width and height of the animation}
 }
 \value{
 \code{NULL}. An HTML page will be opened as the side effect.

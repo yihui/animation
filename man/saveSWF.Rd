@@ -70,8 +70,7 @@ saveSWF({
 Yihui Xie
 }
 \seealso{
-Other utilities: \code{\link{gm.convert}},
-  \code{\link{im.convert}}; \code{\link{saveGIF}},
-  \code{\link{saveMovie}}; \code{\link{saveHTML}};
-  \code{\link{saveLatex}}; \code{\link{saveVideo}}
+Other utilities: \code{\link{im.convert}},
+  \code{\link{saveGIF}}, \code{\link{saveHTML}},
+  \code{\link{saveLatex}}, \code{\link{saveVideo}}
 }

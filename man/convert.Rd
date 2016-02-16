@@ -125,7 +125,6 @@ ImageMagick: \url{http://www.imagemagick.org/script/convert.php}
 }
 \seealso{
 Other utilities: \code{\link{saveGIF}},
-  \code{\link{saveMovie}}; \code{\link{saveHTML}};
-  \code{\link{saveLatex}}; \code{\link{saveSWF}};
-  \code{\link{saveVideo}}
+  \code{\link{saveHTML}}, \code{\link{saveLatex}},
+  \code{\link{saveSWF}}, \code{\link{saveVideo}}
 }

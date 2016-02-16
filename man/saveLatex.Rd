@@ -27,7 +27,7 @@ the LaTeX macro \code{'\\animategraphics'}; default to be
 \item{centering}{logical: whether to center the graph using the LaTeX
 environment \verb{\begin{center}} and \verb{\end{center}}}
 
-\item{caption, label}{caption and label for the graphics in the figure
+\item{caption,  label}{caption and label for the graphics in the figure
 environment}
 
 \item{pkg.opts}{global options for the \code{animate} package}
@@ -59,7 +59,7 @@ latter case, remember that you should never use spaces in the filenames or
 paths!}
 
 \item{...}{other arguments passed to the graphics device
-  \code{ani.options('ani.dev')}, e.g. \code{ani.height} and \code{ani.width}}
+\code{ani.options('ani.dev')}, e.g. \code{ani.height} and \code{ani.width}}
 }
 \value{
 Invisible \code{NULL}
@@ -132,8 +132,7 @@ To know more about the \code{animate} package, please refer to
   are a lot of options can be set in \code{ani.opts} and \code{pkg.opts}.
 }
 \seealso{
-Other utilities: \code{\link{gm.convert}},
-  \code{\link{im.convert}}; \code{\link{saveGIF}},
-  \code{\link{saveMovie}}; \code{\link{saveHTML}};
-  \code{\link{saveSWF}}; \code{\link{saveVideo}}
+Other utilities: \code{\link{im.convert}},
+  \code{\link{saveGIF}}, \code{\link{saveHTML}},
+  \code{\link{saveSWF}}, \code{\link{saveVideo}}
 }

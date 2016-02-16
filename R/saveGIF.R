@@ -64,6 +64,11 @@ saveGIF = function(
 ) {
   oopt = ani.options(...)
   on.exit(ani.options(oopt))
+  if(!dir.exists(dirname(movie.name))){
+    dir.create(dirname(movie.name))
+  }
+  outpath = normalizePath(dirname(movie.name)) # get the full path
+
   ## create images in the temp dir
   owd = setwd(tempdir())
   on.exit(setwd(owd), add = TRUE)
@@ -92,13 +97,14 @@ saveGIF = function(
   if (missing(cmd.fun))
     cmd.fun = if (.Platform$OS.type == 'windows') shell else system
   ## convert to animations
-  output.name <- paste0("tmp-", basename(movie.name))
-  im.convert(img.files, output = output.name, convert = convert,
+  im.convert(img.files, output = file.path(outpath,basename(movie.name)), convert = convert,
              cmd.fun = cmd.fun, clean = clean)
-
-  outpath = normalizePath(output.name) # get the full path
   setwd(owd)
-  file.copy(outpath, movie.name, overwrite = TRUE)
+  if (!grepl(tempdir(),movie.name,fixed = T)){
+    file.copy(file.path(tempdir(), basename(movie.name)), 
+              movie.name, overwrite = TRUE)
+    auto_browse(movie.name)
+  }
 }
 #' @rdname saveGIF
 saveMovie = saveGIF
