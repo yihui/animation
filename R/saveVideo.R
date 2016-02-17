@@ -79,7 +79,7 @@ saveVideo = function(
   if (use.dev) dev.off()
 
   ## call FFmpeg
-  ffmpeg = paste(ffmpeg, '-y', '-r', 1/ani.options('interval'), '-i',
+  ffmpeg = paste(ffmpeg, '-y', '-framerate', 1/ani.options('interval'), '-i',
                  basename(img.fmt), other.opts, basename(video.name))
   message('Executing: ', ffmpeg)
   cmd = system(ffmpeg)

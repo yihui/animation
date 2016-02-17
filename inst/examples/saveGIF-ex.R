@@ -7,9 +7,9 @@ ani.options('convert')
 
 saveGIF({brownian.motion(pch = 21, cex = 5, col = 'red', bg = 'yellow')},
         movie.name = 'brownian_motion.gif',
-        interval = 0.1, nmax = 30, ani.width = 600, ani.height = 600)
+        interval = 0.1, nmax = ifelse(interactive(), 30, 2), ani.width = 600, ani.height = 600)
 
 ## non-constant intervals between image frames
 saveGIF({brownian.motion(pch = 21, cex = 5, col = 'red', bg = 'yellow')},
         movie.name = 'brownian_motion2.gif',
-        interval = runif(30, .01, 1), nmax = 30)
+        interval = runif(30, .01, 1), nmax = ifelse(interactive(), 30, 2))
