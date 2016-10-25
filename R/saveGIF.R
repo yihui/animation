@@ -67,8 +67,6 @@ saveGIF = function(
   if(!dir.exists(dirname(movie.name))){
     dir.create(dirname(movie.name))
   }
-  outpath = normalizePath(dirname(movie.name)) # get the full path
-
   ## create images in the temp dir
   owd = setwd(tempdir())
   on.exit(setwd(owd), add = TRUE)
@@ -97,13 +95,13 @@ saveGIF = function(
   if (missing(cmd.fun))
     cmd.fun = if (.Platform$OS.type == 'windows') shell else system
   ## convert to animations
-  im.convert(img.files, output = file.path(outpath,basename(movie.name)), convert = convert,
+  im.convert(img.files, output =  path.expand(movie.name), convert = convert,
              cmd.fun = cmd.fun, clean = clean)
   setwd(owd)
   if (!grepl(tempdir(),movie.name,fixed = T)){
     file.copy(file.path(tempdir(), basename(movie.name)), 
-              movie.name, overwrite = TRUE)
-    auto_browse(movie.name)
+              path.expand(movie.name), overwrite = TRUE)
+    # auto_browse(path.expand(movie.name))
   }
 }
 #' @rdname saveGIF
