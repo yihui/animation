@@ -41,9 +41,9 @@
 #'   character string, it will be used as the footer message; in other cases,
 #'   the footer of the page will be blank.}
 #'
-#'   \item{loop}{logical or numeric: Number of times the GIF animation is to cycle through the image 
-#'    sequence before stopping. By default, this is set to zero or boolean 
-#'    value TRUE (infinite loop).}
+#'   \item{loop}{logical or numeric: Number of times the GIF animation is to 
+#'    cycle through the image sequence before stopping. By default, this is 
+#'    set to zero or boolean value TRUE (infinite loop).}
 #'
 #'   \item{autobrowse}{logical: whether auto-browse the animation page
 #'   immediately after it is created? (default to be \code{interactive()})}
