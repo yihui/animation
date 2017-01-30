@@ -110,7 +110,7 @@ im.convert = function(
     } else convert = ani.options('convert')
   }
 
-  loop = ifelse(isTRUE(ani.options('loop')), 0, ani.options('loop'))
+  loop = ifelse(isTRUE(ani.options('loop')), 0, 1)
   convert = sprintf(
     '%s -loop %s %s %s %s', convert, loop,
     extra.opts, paste(
