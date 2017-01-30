@@ -11,7 +11,7 @@ sample.cluster(pop = ceiling(10 * runif(10, 0.2, 1)), size = 3, p.col = c("blue"
 
 \item{size}{the number of clusters to be drawn out.}
 
-\item{p.col,  p.cex}{different colors / magnification rate to annotate the
+\item{p.col, p.cex}{different colors / magnification rate to annotate the
 population and the sample}
 
 \item{\dots}{other arguments passed to \code{\link{rect}} to annotate the

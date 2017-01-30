@@ -8,7 +8,7 @@ brownian.motion(n = 10, xlim = c(-20, 20), ylim = c(-20, 20), ...)
 \arguments{
 \item{n}{Number of points in the scatterplot}
 
-\item{xlim,  ylim}{Arguments passed to \code{\link{plot.default}} to control
+\item{xlim, ylim}{Arguments passed to \code{\link{plot.default}} to control
 the apperance of the scatterplot (title, points, etc), see
 \code{\link{points}} for details.}
 

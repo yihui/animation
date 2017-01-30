@@ -59,7 +59,7 @@ oopts = if (.Platform$OS.type == "windows") {
 saveVideo({
     par(mar = c(3, 3, 1, 0.5), mgp = c(2, 0.5, 0), tcl = -0.3, cex.axis = 0.8, 
         cex.lab = 0.8, cex.main = 1)
-    ani.options(interval = 0.05, nmax = 300)
+    ani.options(interval = 0.05, nmax = ifelse(interactive(), 300, 2))
     brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")
 }, video.name = "BM.mp4", other.opts = "-pix_fmt yuv420p -b 300k")
 # higher bitrate, better quality

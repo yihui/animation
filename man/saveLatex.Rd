@@ -27,7 +27,7 @@ the LaTeX macro \code{'\\animategraphics'}; default to be
 \item{centering}{logical: whether to center the graph using the LaTeX
 environment \verb{\begin{center}} and \verb{\end{center}}}
 
-\item{caption,  label}{caption and label for the graphics in the figure
+\item{caption, label}{caption and label for the graphics in the figure
 environment}
 
 \item{pkg.opts}{global options for the \code{animate} package}

@@ -17,7 +17,7 @@ for the root; in a \code{c(a, b)} form}
 \item{interact}{logical; whether choose the end-points by cliking on the
 curve (for two times) directly?}
 
-\item{xlab,  ylab,  main}{axis and main titles to be used in the plot}
+\item{xlab, ylab, main}{axis and main titles to be used in the plot}
 
 \item{\dots}{other arguments passed to \code{\link{curve}}}
 }
