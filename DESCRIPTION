@@ -4,9 +4,9 @@ Title: A Gallery of Animations in Statistics and Utilities to Create Animations
 Version: 2.4.2
 Date: 2015-08-16
 Authors@R: c(
-    person("Yihui","Xie", role="aut"),
+    person("Yihui","Xie", role=c("aut", "cre"), email="xie@yihui.name"),
     person("Christian", "Mueller",role="ctb"),
-    person("Lijia", "Yu", role=c("cre","ctb"), email="yulj2010@gmail.com"),
+    person("Lijia", "Yu", role=c("ctb"), email="yulj2010@gmail.com"),
     person("Weicheng","Zhu",role="ctb")
     )
 Description: Provides functions for animations in statistics, covering topics
