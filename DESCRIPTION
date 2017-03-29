@@ -27,9 +27,10 @@ Depends:
     R (>= 2.14.0)
 Suggests:
     MASS,
+    class,
     testit
 License: GPL
-URL: http://yihui.name/animation
+URL: https://yihui.name/animation
 BugReports: https://github.com/yihui/animation/issues
 LazyData: yes
 RoxygenNote: 6.0.1
