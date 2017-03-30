@@ -14,7 +14,6 @@
 #' @return invisible \code{NULL}
 #' @author Yihui Xie
 #' @export
-#' @example inst/examples/price.ani-ex.R
 price.ani = function(
   price, time, time.begin = min(time), span = 15 * 60, ..., xlab = 'price',
   ylab = 'frequency', xlim, ylim, main

@@ -37,7 +37,6 @@
 #' \url{http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html}
 #'
 #' @export
-#' @example inst/examples/Rosling.bubbles-ex.R
 Rosling.bubbles = function(
   x, y, data,
   type = c('circles', 'squares', 'rectangles', 'stars', 'thermometers', 'boxplots'),

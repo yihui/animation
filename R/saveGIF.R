@@ -57,7 +57,6 @@
 #' @references ImageMagick: \url{http://www.imagemagick.org/script/convert.php};
 #'   GraphicsMagick: \url{http://www.graphicsmagick.org}
 #' @export
-#' @example inst/examples/saveGIF-ex.R
 saveGIF = function(
   expr, movie.name = 'animation.gif', img.name = 'Rplot', convert = 'convert',
   cmd.fun, clean = TRUE, ...

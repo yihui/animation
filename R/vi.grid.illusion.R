@@ -18,7 +18,6 @@
 #' @return \code{NULL}
 #' @author Yihui Xie
 #' @seealso \code{\link{points}}, \code{\link{abline}}
-#' @references \url{http://vis.supstat.com/2013/03/make-visual-illusions-in-r}
 #' @export
 #' @examples
 #' ## default to be Scintillating grid illusions

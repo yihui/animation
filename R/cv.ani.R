@@ -32,7 +32,6 @@
 #' @author Yihui Xie
 #' @seealso \code{\link{kfcv}}
 #' @export
-#' @example inst/examples/cv.ani-ex.R
 cv.ani = function(
   x = runif(150), k = 10, col = c('green', 'red', 'blue'), pch = c(4, 1), ...
 ) {

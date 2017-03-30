@@ -52,7 +52,6 @@
 #'   Using R - An Example-Based Approach}. Cambridge University Press, 2nd
 #'   edition. pp. 400
 #' @export
-#' @example inst/examples/cv.nfeaturesLDA-ex.R
 cv.nfeaturesLDA = function(
   data = matrix(rnorm(600), 60), cl = gl(3, 20), k = 5, cex.rg = c(0.5, 3),
   col.av = c('blue', 'red'), ...

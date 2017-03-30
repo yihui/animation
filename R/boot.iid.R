@@ -40,7 +40,6 @@
 #'   Bootstrap}. Chapman & Hall.
 #'
 #' @export
-#' @example inst/examples/boot.iid-ex.R
 boot.iid <- function(
   x = runif(20), statistic = mean, m = length(x), mat = matrix(1:2, 2),
   widths = rep(1, ncol(mat)), heights = rep(1, nrow(mat)),

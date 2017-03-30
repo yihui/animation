@@ -33,7 +33,6 @@
 #' @references \url{http://ffmpeg.org/documentation.html}
 #' @family utilities
 #' @export
-#' @example inst/examples/saveVideo-ex.R
 saveVideo = function(
   expr, video.name = 'animation.mp4', img.name = 'Rplot', ffmpeg = ani.options('ffmpeg'),
   other.opts = if (grepl('[.]mp4$', video.name)) '-pix_fmt yuv420p', ...

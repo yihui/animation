@@ -28,10 +28,7 @@
 #'   animation frames.
 #' @author Yihui Xie, Lijia Yu, and Keith ORourke
 #' @seealso \code{\link{rbinom}}
-#' @references \url{http://vis.supstat.com/2013/04/bean-machine}
 #' @export
-#' @example inst/examples/quincunx-ex.R
-#' @example inst/examples/quincunx2-ex.R
 quincunx = function(
   balls = 200, layers = 15, pch.layers = 2, pch.balls = 19,
   col.balls = sample(colors(), balls, TRUE), cex.balls = 2

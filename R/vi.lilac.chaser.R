@@ -14,9 +14,7 @@
 #'   \emph{blurred}, which is not implemented in this function.
 #' @author Yihui Xie
 #' @seealso \code{\link{points}}
-#' @references \url{http://vis.supstat.com/2013/03/make-visual-illusions-in-r}
 #' @export
-#' @example inst/examples/vi.lilac.chaser-ex.R
 vi.lilac.chaser = function(
   np = 16, col = 'magenta', bg = 'gray', p.cex = 7, c.cex = 5
 ) {

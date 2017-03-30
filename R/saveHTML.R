@@ -74,7 +74,6 @@
 #' @references \url{https://github.com/brentertz/scianimator}
 #' @family utilities
 #' @export
-#' @example inst/examples/saveHTML-ex.R
 saveHTML = function(
   expr, img.name = 'Rplot', global.opts = '', single.opts = '',
   navigator = ani.options('nmax') <= 100 && ani.options('interval') >= 0.05,

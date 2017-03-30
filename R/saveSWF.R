@@ -36,7 +36,6 @@
 #' @author Yihui Xie
 #' @family utilities
 #' @export
-#' @example inst/examples/saveSWF-ex.R
 saveSWF = function(expr, swf.name = 'animation.swf', img.name = 'Rplot', swftools = NULL, ...) {
   oopt = ani.options(...)
   on.exit(ani.options(oopt))

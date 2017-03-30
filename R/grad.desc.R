@@ -56,10 +56,7 @@
 #' @author Yihui Xie
 #' @seealso \code{\link{deriv}}, \code{\link{persp}}, \code{\link{contour}},
 #'   \code{\link{optim}}
-#' @references
-#' \url{http://vis.supstat.com/2013/03/gradient-descent-algorithm-with-r/}
 #' @export
-#' @example inst/examples/grad.desc-ex.R
 grad.desc = function(
   FUN = function(x, y) x^2 + 2 * y^2, rg = c(-3, -3, 3, 3), init = c(-3, 3),
   gamma = 0.05, tol = 0.001, gr = NULL, len = 50, interact = FALSE,

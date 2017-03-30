@@ -42,7 +42,6 @@
 #' @references \url{http://en.wikipedia.org/wiki/Newton's_method}
 #'
 #' @export
-#' @example inst/examples/newton.method-ex.R
 newton.method = function(
   FUN = function(x) x^2 - 4, init = 10, rg = c(-1, 10), tol = 0.001, interact = FALSE,
   col.lp = c('blue', 'red', 'red'), main, xlab, ylab, ...

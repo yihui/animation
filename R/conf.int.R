@@ -30,7 +30,6 @@
 #'   Duxbury Press, 2th edition, 2001.
 #'
 #' @export
-#' @example inst/examples/conf.int-ex.R
 conf.int = function(level = 0.95, size = 50, cl = c('red', 'gray'), ...) {
   n = ani.options('nmax')
   d = replicate(n, rnorm(size))

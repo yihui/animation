@@ -15,7 +15,6 @@
 #'   \code{\link{sample.cluster}}, \code{\link{sample.strat}},
 #'   \code{\link{sample.system}}
 #' @export
-#' @example inst/examples/sample.simple-ex.R
 sample.simple = function(
   nrow = 10, ncol = 10, size = 15, p.col = c('blue', 'red'), p.cex = c(1, 3)
 ) {

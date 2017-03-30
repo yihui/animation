@@ -56,7 +56,7 @@
 #' @note Bug reports and feature requests can be sent to
 #'   \url{https://github.com/yihui/animation/issues}.
 #' @references The associated website for this package:
-#'   \url{http://vis.supstat.com}
+#'   \url{https://yihui.name/animation}
 #'
 #'   Yihui Xie and Xiaoyue Cheng. animation: A package for statistical
 #'   animations. \emph{R News}, \bold{8}(2):23--27, October 2008.  URL:
@@ -71,7 +71,6 @@
 #' @seealso \code{\link{saveHTML}}, \code{\link{saveGIF}},
 #'   \code{\link{saveSWF}}, \code{\link{saveVideo}}, \code{\link{saveLatex}}
 #' @import datasets grDevices graphics stats utils
-#' @example inst/examples/animation-package-ex.R
 NULL
 
 #' Word counts of a speech by the Chinese President Hu
@@ -163,7 +162,6 @@ NULL
 #'   \describe{ \item{time}{POSIXt: the time corresponding to stock prices}
 #'   \item{price}{a numeric vector: stock prices} }
 #' @source This data can be obtained from most stock websites.
-#' @example inst/examples/vanke1127-ex.R
 NULL
 
 #' Average yearly temperatures in central Iowa

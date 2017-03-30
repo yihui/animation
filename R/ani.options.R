@@ -41,8 +41,8 @@
 #'   character string, it will be used as the footer message; in other cases,
 #'   the footer of the page will be blank.}
 #'
-#'   \item{loop}{logical or numeric: Number of times the GIF animation is to 
-#'    cycle through the image sequence before stopping. By default, this is 
+#'   \item{loop}{logical or numeric: Number of times the GIF animation is to
+#'    cycle through the image sequence before stopping. By default, this is
 #'    set to zero or boolean value TRUE (infinite loop).}
 #'
 #'   \item{autobrowse}{logical: whether auto-browse the animation page
@@ -151,11 +151,12 @@
 #'   \code{\link{saveHTML}}, \code{\link{saveGIF}}, \code{\link{saveLatex}},
 #'   \code{\link{saveSWF}}, \code{\link{pdftk}}
 #'
+#'   \url{https://yihui.name/animation/example/ani-options}
+#'
 #'   \url{http://qpdf.sourceforge.net/}
 #'
 #'   \url{http://www.pdflabs.com/docs/pdftk-man-page/}
 #' @export
-#' @example inst/examples/ani.options-ex.R
 ani.options = function(...) {
   lst = list(...)
   .ani.opts = .ani.env$.ani.opts

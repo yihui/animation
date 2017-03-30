@@ -26,7 +26,6 @@
 #'   time. \emph{International Economic Review}, 13(3):705-710, 1972.
 #'
 #' @export
-#' @example inst/examples/mwar.ani-ex.R
 mwar.ani = function(
   x, k = 15, conf = 2, mat = matrix(1:2, 2), widths = rep(1, ncol(mat)),
   heights = rep(1, nrow(mat)), lty.rect = 2, ...

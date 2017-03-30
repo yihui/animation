@@ -15,7 +15,6 @@
 #'   \code{\link{sample.ratio}}, \code{\link{sample.strat}},
 #'   \code{\link{sample.system}}
 #' @export
-#' @example inst/examples/sample.cluster-ex.R
 sample.cluster = function(
   pop = ceiling(10 * runif(10, 0.2, 1)), size = 3, p.col = c('blue', 'red'),
   p.cex = c(1, 3), ...

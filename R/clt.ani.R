@@ -37,9 +37,7 @@
 #' @return A data frame of P-values.
 #' @author Yihui Xie
 #' @seealso \code{\link{hist}}, \code{\link{density}}
-#' @references \url{http://vis.supstat.com/2013/04/central-limit-theorem}
 #' @export
-#' @example inst/examples/clt.ani-ex.R
 clt.ani = function(
   obs = 300, FUN = rexp, mean = 1, sd = 1, col = c('bisque', 'red', 'blue', 'black'),
   mat = matrix(1:2, 2), widths = rep(1, ncol(mat)), heights = rep(1, nrow(mat)), xlim, ...

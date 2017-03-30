@@ -34,7 +34,6 @@
 #' @author Yihui Xie
 #' @seealso \code{\link{integrate}}, \code{\link{MC.hitormiss}}
 #' @export
-#' @example inst/examples/MC.samplemean-ex.R
 MC.samplemean = function(
   FUN = function(x) x - x^2, n = ani.options('nmax'), col.rect = c('gray', 'black'),
   adj.x = TRUE, ...

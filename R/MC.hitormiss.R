@@ -24,7 +24,6 @@
 #' @author Yihui Xie
 #' @seealso \code{\link{integrate}}, \code{\link{MC.samplemean}}
 #' @export
-#' @example inst/examples/MC.hitormiss-ex.R
 MC.hitormiss = function(
   FUN = function(x) x - x^2, n = ani.options('nmax'), from = 0, to = 1,
   col.points = c('black', 'red'), pch.points = c(20, 4), ...

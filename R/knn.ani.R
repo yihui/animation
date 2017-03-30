@@ -50,7 +50,6 @@
 #'   Statistics with S}. Fourth edition. Springer.
 #'
 #' @export
-#' @example inst/examples/knn.ani-ex.R
 knn.ani = function(
   train, test, cl, k = 10, interact = FALSE, tt.col = c('blue', 'red'),
   cl.pch = seq_along(unique(cl)), dist.lty = 2, dist.col = 'gray', knn.col = 'green', ...

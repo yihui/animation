@@ -33,7 +33,6 @@
 #'   more about how to make use of these three arguments.
 #' @author Yihui Xie
 #' @export
-#' @example inst/examples/moving.block-ex.R
 moving.block = function(dat = runif(100), block, FUN, ...) {
   nmax = ani.options('nmax')
   n = ifelse(is.null(dim(dat)), length(dat), nrow(dat))
