@@ -7,7 +7,7 @@
 \format{int [1:59] 2 45 52 53 11 48 28 15 50 29 ...}
 \source{
 The full text of speech is at
-  \url{http://www.baltimoresun.com/news/nation-world/bal-text1105,0,5055673,full.story}
+  \url{http://web.archive.org/web/20160306143403/http://www.baltimoresun.com/news/nation-world/bal-text1105-story.html}
 }
 \description{
 This data recorded the number of words in each paragraph of Barack Obama's

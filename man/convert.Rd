@@ -96,27 +96,6 @@ If \code{files} is a character vector, please make sure the order of
   but \code{cmd.fun = system} works fine. Try this option in case of
   failures.
 }
-\examples{
-## generate some images
-owd = setwd(tempdir())
-oopt = ani.options(interval = 0.05, nmax = 20)
-png("bm\%03d.png")
-brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow", 
-    main = "Demonstration of Brownian Motion")
-dev.off()
-
-## filenames with a wildcard *
-im.convert("bm*.png", output = "bm-animation1.gif")
-## use GraphicsMagick
-gm.convert("bm*.png", output = "bm-animation2.gif")
-
-## or a filename vector
-bm.files = sprintf("bm\%03d.png", 1:20)
-im.convert(files = bm.files, output = "bm-animation3.gif")
-
-ani.options(oopt)
-setwd(owd)
-}
 \references{
 ImageMagick: \url{http://www.imagemagick.org/script/convert.php}
   GraphicsMagick: \url{http://www.graphicsmagick.org}

@@ -42,9 +42,6 @@ vi.grid.illusion()
 ## set wider lines to see Hermann grid illusions
 vi.grid.illusion(type = "h", lwd = 22, nrow = 5, ncol = 5, col = "white")
 }
-\references{
-\url{http://vis.supstat.com/2013/03/make-visual-illusions-in-r}
-}
 \seealso{
 \code{\link{points}}, \code{\link{abline}}
 }
