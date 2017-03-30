@@ -1,3 +1,12 @@
+		  CHANGES IN animation VERSION 2.5
+
+MAJOR CHANGES
+
+  o removed all examples from the package, since this package failed to pass R
+  CMD check on CRAN for unknown reasons; all examples are still available on
+  Github https://github.com/yihui/animation/tree/master/inst/examples and they
+  will be moved to https://yihui.name/animation in the future
+
 		  CHANGES IN animation VERSION 2.4
 
 BUG FIXES
