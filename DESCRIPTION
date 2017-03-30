@@ -11,13 +11,12 @@ Authors@R: c(
     )
 Description: Provides functions for animations in statistics, covering topics
     in probability theory, mathematical statistics, multivariate statistics,
-    nonparametric statistics, sampling survey, linear models, time series,
+    non-parametric statistics, sampling survey, linear models, time series,
     computational statistics, data mining and machine learning. These functions
     may be helpful in teaching statistics and data analysis. Also provided in
     this package are a series of functions to save animations to various formats,
-    e.g. Flash, GIF, HTML pages, PDF and videos (saveSWF(), saveGIF(), saveHTML(),
-    saveLatex(), and saveVideo() respectively). PDF animations can be inserted into
-    Sweave/knitr easily.
+    e.g. Flash, 'GIF', HTML pages, 'PDF' and videos. 'PDF' animations can be
+    inserted into 'Sweave' / 'knitr' easily.
 SystemRequirements: ImageMagick (http://imagemagick.org) or GraphicsMagick
     (http://www.graphicsmagick.org) or LyX (http://www.lyx.org) for saveGIF();
     (PDF)LaTeX for saveLatex(); SWF Tools (http://swftools.org) for saveSWF();
