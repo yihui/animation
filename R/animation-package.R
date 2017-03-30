@@ -60,7 +60,7 @@
 #'
 #'   Yihui Xie and Xiaoyue Cheng. animation: A package for statistical
 #'   animations. \emph{R News}, \bold{8}(2):23--27, October 2008.  URL:
-#'   \url{http://CRAN.R-project.org/doc/Rnews/Rnews_2008-2.pdf}
+#'   \url{https://CRAN.R-project.org/doc/Rnews/Rnews_2008-2.pdf}
 #'
 #'   (NB: some functions mentioned in the above article have been slightly
 #'   modified; see the help pages for the up-to-date usage.)
