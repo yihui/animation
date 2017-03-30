@@ -168,8 +168,6 @@ Please note that \code{nmax} is not always equal to the number of
   \code{\link{saveHTML}}, \code{\link{saveGIF}}, \code{\link{saveLatex}},
   \code{\link{saveSWF}}, \code{\link{pdftk}}
 
-  \url{https://yihui.name/animation/example/ani-options}
-
   \url{http://qpdf.sourceforge.net/}
 
   \url{http://www.pdflabs.com/docs/pdftk-man-page/}
