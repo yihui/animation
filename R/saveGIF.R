@@ -60,7 +60,7 @@
 #' @export
 saveGIF = function(
   expr, movie.name = 'animation.gif', img.name = 'Rplot', convert = 'convert',
-  cmd.fun, clean = TRUE, extra.opts="", ...
+  cmd.fun, clean = TRUE, extra.opts = "", ...
 ) {
   oopt = ani.options(...)
   on.exit(ani.options(oopt))
