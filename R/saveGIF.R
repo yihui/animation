@@ -36,6 +36,7 @@
 #' @param cmd.fun a function to invoke the OS command; by default
 #'   \code{\link{system}}
 #' @param clean whether to delete the individual image frames
+#' @param extra.opts additional options passed to \code{\link{im.convert}}
 #' @param \dots other arguments passed to \code{\link{ani.options}}, e.g.
 #'   \code{ani.height} and \code{ani.width}, ...
 #' @return The command for the conversion (see \code{\link{im.convert}}).
@@ -59,7 +60,7 @@
 #' @export
 saveGIF = function(
   expr, movie.name = 'animation.gif', img.name = 'Rplot', convert = 'convert',
-  cmd.fun, clean = TRUE, ...
+  cmd.fun, clean = TRUE, extra.opts = "", ...
 ) {
   oopt = ani.options(...)
   on.exit(ani.options(oopt))
@@ -95,10 +96,10 @@ saveGIF = function(
     cmd.fun = if (.Platform$OS.type == 'windows') shell else system
   ## convert to animations
   im.convert(img.files, output =  path.expand(movie.name), convert = convert,
-             cmd.fun = cmd.fun, clean = clean)
+             cmd.fun = cmd.fun, clean = clean, extra.opts = extra.opts)
   setwd(owd)
   if (!grepl(tempdir(),movie.name,fixed = T)){
-    file.copy(file.path(tempdir(), basename(movie.name)), 
+    file.copy(file.path(tempdir(), basename(movie.name)),
               path.expand(movie.name), overwrite = TRUE)
     # auto_browse(path.expand(movie.name))
   }
