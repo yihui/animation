@@ -6,8 +6,8 @@ pinks = paste0("#FFC0CB", opacity)
 fplot = function(i){
   par(mar = c(0,0,0,0))
   plot(x, y, type = "n", axes = FALSE, xlab = NA, ylab = NA)
-  j <- (c(i, i+1, i+2) %% 259L) + 1L
-  ii <- i+3
+  j = (c(i, i+1, i+2) %% 259L) + 1L
+  ii = i+3
   points(x[-j][(ii:(255+ii))%%259+1], y[-j][(ii:(255+ii))%%259+1],
          pch = 19, cex = 1.5,
          col = pinks)
