@@ -32,4 +32,4 @@ License: GPL
 URL: https://yihui.name/animation
 BugReports: https://github.com/yihui/animation/issues
 LazyData: yes
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
