@@ -54,6 +54,7 @@
 #'   package (< 2.0-2). It is recommended to use \code{\link{saveGIF}} to avoid
 #'   confusions between \code{\link{saveMovie}} and \code{\link{saveVideo}}.
 #' @author Yihui Xie
+#' @references Examples at \url{https://yihui.name/animation/examples/savegif/}
 #' @family utilities
 #' @references ImageMagick: \url{http://www.imagemagick.org/script/convert.php};
 #'   GraphicsMagick: \url{http://www.graphicsmagick.org}

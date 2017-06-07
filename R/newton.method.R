@@ -38,6 +38,7 @@
 #' @note The algorithm might not converge -- it depends on the starting value.
 #'   See the examples below.
 #' @author Yihui Xie
+#' @references Examples at \url{https://yihui.name/animation/examples/newton-method/}
 #' @seealso \code{\link{optim}}
 #' @references \url{http://en.wikipedia.org/wiki/Newton's_method}
 #'

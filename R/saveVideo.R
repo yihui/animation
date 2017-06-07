@@ -25,6 +25,7 @@
 #' @return An integer indicating failure (-1) or success (0) of the converting
 #'   (refer to \code{\link{system}}).
 #' @author Yihui Xie, based on an inital version by Thomas Julou
+#' @references Examples at \url{https://yihui.name/animation/examples/savevideo/}
 #'   \email{thomas.julou@@gmail.com}
 #' @note There are a lot of possibilities in optimizing the video. My knowledge
 #'   on FFmpeg is very limited, hence the default output by this function could

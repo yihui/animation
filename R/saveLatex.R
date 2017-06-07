@@ -74,6 +74,7 @@
 #'   by JavaScript). Linux users may need to install \command{acroread} and set
 #'   \code{options(pdfviewer = 'acroread')}.
 #' @author Yihui Xie
+#' @references Examples at \url{https://yihui.name/animation/examples/savelatex/}
 #' @family utilities
 #' @references To know more about the \code{animate} package, please refer to
 #'   \url{http://www.ctan.org/tex-archive/macros/latex/contrib/animate/}. There

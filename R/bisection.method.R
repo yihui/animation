@@ -32,6 +32,7 @@
 #'   that the root is not reliable because the maximum number of iterations has
 #'   been reached}
 #' @author Yihui Xie
+#' @references Examples at \url{https://yihui.name/animation/examples/bisection-method/}
 #' @note The maximum number of iterations is specified in
 #'   \code{ani.options('nmax')}.
 #' @seealso \code{\link{deriv}}, \code{\link{uniroot}}, \code{\link{curve}}
