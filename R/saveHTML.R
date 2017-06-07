@@ -71,7 +71,7 @@
 #'   use in a long period (currently we are using the Rweb at Tama University).
 #'   See the last example below.
 #' @author Yihui Xie
-#' @references Examples at \url{https://yihui.name/animation/examples/savehtml/}
+#' @references Examples at \url{https://yihui.name/animation/example/savehtml/}
 #' @references \url{https://github.com/brentertz/scianimator}
 #' @family utilities
 #' @export

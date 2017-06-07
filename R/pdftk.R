@@ -18,7 +18,7 @@
 #'   returns the status of the operation (\code{0} for success; see
 #'   \code{\link{system}}); otherwise a warning will be issued
 #' @author Yihui Xie
-#' @references Examples at \url{https://yihui.name/animation/examples/pdftk/}
+#' @references Examples at \url{https://yihui.name/animation/example/pdftk/}
 #' @references \url{http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/}
 #' @export
 pdftk = function(input, operation = NULL, output, other.opts = 'compress dont_ask') {

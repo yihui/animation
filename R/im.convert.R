@@ -68,7 +68,7 @@
 #'   but \code{cmd.fun = system} works fine. Try this option in case of
 #'   failures.
 #' @author Yihui Xie
-#' @references Examples at \url{https://yihui.name/animation/examples/im-convert/}
+#' @references Examples at \url{https://yihui.name/animation/example/im-convert/}
 #' @family utilities
 #' @references ImageMagick: \url{http://www.imagemagick.org/script/convert.php}
 #'   GraphicsMagick: \url{http://www.graphicsmagick.org}

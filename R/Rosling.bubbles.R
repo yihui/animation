@@ -32,7 +32,7 @@
 #' @param text.col,text.cex color and magnification of the background text
 #' @return \code{NULL}.
 #' @author Yihui Xie
-#' @references Examples at \url{https://yihui.name/animation/examples/rosling-bubbles/}
+#' @references Examples at \url{https://yihui.name/animation/example/rosling-bubbles/}
 #' @seealso \code{\link{symbols}}
 #' @references
 #' \url{http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html}

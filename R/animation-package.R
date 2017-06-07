@@ -53,7 +53,7 @@
 #' @aliases animation
 #' @docType package
 #' @author Yihui Xie
-#' @references Examples at \url{https://yihui.name/animation/examples/animation-package/}
+#' @references Examples at \url{https://yihui.name/animation/example/animation-package/}
 #' @note Bug reports and feature requests can be sent to
 #'   \url{https://github.com/yihui/animation/issues}.
 #' @references The associated website for this package:

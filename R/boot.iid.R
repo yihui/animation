@@ -32,7 +32,7 @@
 #' @note The maximum times of resampling is specified in
 #'   \code{ani.options('nmax')}.
 #' @author Yihui Xie
-#' @references Examples at \url{https://yihui.name/animation/examples/boot-iid/}
+#' @references Examples at \url{https://yihui.name/animation/example/boot-iid/}
 #' @seealso \code{\link{sunflowerplot}}
 #' @references There are many references explaining the bootstrap and its
 #'   variations.
