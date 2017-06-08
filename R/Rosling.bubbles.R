@@ -33,8 +33,10 @@
 #' @return \code{NULL}.
 #' @author Yihui Xie
 #' @seealso \code{\link{symbols}}
-#' @references
-#' \url{http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html}
+#' @references Examples at \url{https://yihui.name/animation/example/rosling-bubbles/}
+#'
+#'   TED talk: 
+#'   \url{http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html}
 #'
 #' @export
 Rosling.bubbles = function(

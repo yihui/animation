@@ -48,6 +48,9 @@ The argument \code{pch} will influence the speed of plotting, and for a
   very large sample size (say, 300), it is suggested that this argument be
   specified as `\code{.}'.
 }
+\references{
+Examples at \url{https://yihui.name/animation/example/lln-ani/}
+}
 \author{
 Yihui Xie
 }

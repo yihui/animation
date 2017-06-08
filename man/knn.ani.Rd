@@ -70,7 +70,9 @@ There is a special restriction (only two columns) on the training and
   random matrices prepared for them. (It's the same for \code{cl}.)
 }
 \references{
-Venables, W. N. and Ripley, B. D. (2002) \emph{Modern Applied
+Examples at \url{https://yihui.name/animation/example/knn-ani/}
+
+  Venables, W. N. and Ripley, B. D. (2002) \emph{Modern Applied
   Statistics with S}. Fourth edition. Springer.
 }
 \seealso{

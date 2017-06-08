@@ -12,6 +12,7 @@
 #' @note The maximum number of steps in the motion is specified in
 #'   \code{ani.options('nmax')}.
 #' @author Yihui Xie
+#' @references Examples at \url{https://yihui.name/animation/example/bm-circle/}
 #' @seealso \code{\link{brownian.motion}}, \code{\link{rnorm}}
 #' @export
 BM.circle = function(n = 20, col = rainbow(n), ...) {

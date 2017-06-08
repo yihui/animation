@@ -46,7 +46,9 @@
 #'   random matrices prepared for them. (It's the same for \code{cl}.)
 #' @author Yihui Xie
 #' @seealso \code{\link[class]{knn}}
-#' @references Venables, W. N. and Ripley, B. D. (2002) \emph{Modern Applied
+#' @references Examples at \url{https://yihui.name/animation/example/knn-ani/}
+#' 
+#'   Venables, W. N. and Ripley, B. D. (2002) \emph{Modern Applied
 #'   Statistics with S}. Fourth edition. Springer.
 #'
 #' @export

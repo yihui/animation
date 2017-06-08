@@ -69,7 +69,10 @@
 #'   failures.
 #' @author Yihui Xie
 #' @family utilities
-#' @references ImageMagick: \url{http://www.imagemagick.org/script/convert.php}
+#' @references Examples at \url{https://yihui.name/animation/example/im-convert/}
+#' 
+#'   ImageMagick: \url{http://www.imagemagick.org/script/convert.php}
+#'
 #'   GraphicsMagick: \url{http://www.graphicsmagick.org}
 #' @export
 im.convert = function(

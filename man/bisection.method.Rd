@@ -54,7 +54,10 @@ The maximum number of iterations is specified in
   \code{ani.options('nmax')}.
 }
 \references{
-\url{http://en.wikipedia.org/wiki/Bisection_method}
+Examples at \url{https://yihui.name/animation/example/bisection-method/}
+
+  For more information about Bisection method, please see 
+  \url{http://en.wikipedia.org/wiki/Bisection_method}
 }
 \seealso{
 \code{\link{deriv}}, \code{\link{uniroot}}, \code{\link{curve}}

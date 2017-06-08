@@ -42,7 +42,9 @@ The argument \code{nmax} in \code{\link{ani.options}} controls the maximum
 times of drawing samples.
 }
 \references{
-George Casella and Roger L. Berger. \emph{Statistical Inference}.
+Examples at \url{https://yihui.name/animation/example/conf-int/}
+
+  George Casella and Roger L. Berger. \emph{Statistical Inference}.
   Duxbury Press, 2th edition, 2001.
 }
 \author{

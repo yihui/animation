@@ -74,7 +74,9 @@ Bug reports and feature requests can be sent to
 }
 
 \references{
-The associated website for this package:
+Examples at \url{https://yihui.name/animation/example/animation-package/}
+
+  The associated website for this package:
   \url{https://yihui.name/animation}
 
   Yihui Xie and Xiaoyue Cheng. animation: A package for statistical

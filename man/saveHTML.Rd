@@ -93,7 +93,9 @@ Microsoft IE might restrict the HTML page from running JavaScript and
   See the last example below.
 }
 \references{
-\url{https://github.com/brentertz/scianimator}
+Examples at \url{https://yihui.name/animation/example/savehtml/}
+
+  scianimator official website \url{https://github.com/brentertz/scianimator}
 }
 \seealso{
 Other utilities: \code{\link{im.convert}},

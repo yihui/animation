@@ -30,6 +30,7 @@
 #' This function has nothing to do with specific models used in
 #' cross-validation.
 #' @author Yihui Xie
+#' @references Examples at \url{https://yihui.name/animation/example/cv-ani/}
 #' @seealso \code{\link{kfcv}}
 #' @export
 cv.ani = function(

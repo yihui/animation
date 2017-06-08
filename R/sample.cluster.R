@@ -11,6 +11,7 @@
 #'   ``clusters''
 #' @return None (invisible \code{NULL}).
 #' @author Yihui Xie
+#' @references Examples at \url{https://yihui.name/animation/example/sample-cluster/}
 #' @seealso \code{\link{sample}}, \code{\link{sample.simple}},
 #'   \code{\link{sample.ratio}}, \code{\link{sample.strat}},
 #'   \code{\link{sample.system}}

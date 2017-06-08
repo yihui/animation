@@ -14,6 +14,7 @@
 #' @param ... other arguments passed to \code{\link{qqnorm}}
 #' @return \code{NULL}
 #' @author Yihui Xie
+#' @references Examples at \url{https://yihui.name/animation/example/sim-qqnorm/}
 #' @seealso \code{\link{qqnorm}}
 #' @export
 sim.qqnorm = function(n = 20, last.plot = NULL, ...) {

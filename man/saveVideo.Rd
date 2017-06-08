@@ -51,7 +51,9 @@ There are a lot of possibilities in optimizing the video. My knowledge
   be a good guide: \url{http://code.google.com/p/winff/}.
 }
 \references{
-\url{http://ffmpeg.org/documentation.html}
+Examples at \url{https://yihui.name/animation/example/savevideo/}
+
+  To know more about ffmpeg, please see \url{http://ffmpeg.org/documentation.html}
 }
 \seealso{
 Other utilities: \code{\link{im.convert}},

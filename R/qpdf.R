@@ -16,7 +16,9 @@
 #'   returns the status of the operation (\code{0} for success; see
 #'   \code{\link{system}}); otherwise a warning will be issued
 #' @author Yihui Xie
-#' @references \url{http://qpdf.sourceforge.net/}
+#' @references Examples at \url{https://yihui.name/animation/example/qpdf/}
+#' 
+#' qpdf official website \url{http://qpdf.sourceforge.net/}
 #' @export
 qpdf = function(input, output, options = '--stream-data=compress') {
   if (!is.null(qpdf.path <- ani.options('qpdf'))) {

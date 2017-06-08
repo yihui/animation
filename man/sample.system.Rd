@@ -25,6 +25,9 @@ The whole sample frame is denoted by a matrix (\code{nrow * ncol}) in the
 plane, and the sample points with equal intervals are drawn out according to
 a random starting point. The points being sampled are marked by red circles.
 }
+\references{
+Examples at \url{https://yihui.name/animation/example/sample-system/}
+}
 \seealso{
 \code{\link{sample}}, \code{\link{sample.simple}},
   \code{\link{sample.cluster}}, \code{\link{sample.ratio}},

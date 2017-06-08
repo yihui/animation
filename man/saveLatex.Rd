@@ -104,7 +104,9 @@ This function will detect if it was called in a Sweave environment --
   \code{options(pdfviewer = 'acroread')}.
 }
 \references{
-To know more about the \code{animate} package, please refer to
+Examples at \url{https://yihui.name/animation/example/savelatex/}
+
+  To know more about the \code{animate} package, please refer to
   \url{http://www.ctan.org/tex-archive/macros/latex/contrib/animate/}. There
   are a lot of options can be set in \code{ani.opts} and \code{pkg.opts}.
 }

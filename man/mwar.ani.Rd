@@ -40,7 +40,9 @@ computed for data points inside the ``windows'' during the process of moving.
 The AR(1) coefficients are computed by \code{\link{arima}}.
 }
 \references{
-Robert A. Meyer, Jr. Estimating coefficients that change over
+Examples at \url{https://yihui.name/animation/example/mwar-ani/}
+
+  Robert A. Meyer, Jr. Estimating coefficients that change over
   time. \emph{International Economic Review}, 13(3):705-710, 1972.
 }
 \seealso{

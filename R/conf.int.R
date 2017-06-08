@@ -26,7 +26,9 @@
 #'   size} \item{CI}{a matrix of confidence intervals for each sample}
 #'   \item{CR}{coverage rate}
 #' @author Yihui Xie
-#' @references George Casella and Roger L. Berger. \emph{Statistical Inference}.
+#' @references Examples at \url{https://yihui.name/animation/example/conf-int/}
+#' 
+#'   George Casella and Roger L. Berger. \emph{Statistical Inference}.
 #'   Duxbury Press, 2th edition, 2001.
 #'
 #' @export

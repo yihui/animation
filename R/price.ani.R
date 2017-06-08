@@ -13,6 +13,7 @@
 #'   reasonable default values
 #' @return invisible \code{NULL}
 #' @author Yihui Xie
+#' @references Examples at \url{https://yihui.name/animation/example/price-ani/}
 #' @export
 price.ani = function(
   price, time, time.begin = min(time), span = 15 * 60, ..., xlab = 'price',

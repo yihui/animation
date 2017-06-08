@@ -6,11 +6,11 @@
 \title{Convert images to a single animation file (typically GIF) using ImageMagick
 or GraphicsMagick}
 \usage{
-saveGIF(expr, movie.name = "animation.gif", img.name = "Rplot",
-  convert = "convert", cmd.fun, clean = TRUE, extra.opts = "", ...)
+saveGIF(expr, movie.name = "animation.gif", img.name = "Rplot", convert = "convert", 
+    cmd.fun, clean = TRUE, extra.opts = "", ...)
 
-saveMovie(expr, movie.name = "animation.gif", img.name = "Rplot",
-  convert = "convert", cmd.fun, clean = TRUE, extra.opts = "", ...)
+saveMovie(expr, movie.name = "animation.gif", img.name = "Rplot", convert = "convert", 
+    cmd.fun, clean = TRUE, extra.opts = "", ...)
 }
 \arguments{
 \item{expr}{an expression to generate animations; use either the animation
@@ -81,7 +81,10 @@ See \code{\link{im.convert}} for details on the configuration of
   confusions between \code{\link{saveMovie}} and \code{\link{saveVideo}}.
 }
 \references{
-ImageMagick: \url{http://www.imagemagick.org/script/convert.php};
+Examples at \url{https://yihui.name/animation/example/savegif/}
+
+  ImageMagick: \url{http://www.imagemagick.org/script/convert.php};
+
   GraphicsMagick: \url{http://www.graphicsmagick.org}
 }
 \seealso{

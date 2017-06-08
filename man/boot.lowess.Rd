@@ -21,6 +21,9 @@ We keep on resampling the data and finally we will see several bootstrapped
 LOWESS curves, which may give us a rough idea about a ``confidence interval''
 of the LOWESS fit.
 }
+\references{
+Examples at \url{https://yihui.name/animation/example/boot-lowess/}
+}
 \author{
 Yihui Xie
 }

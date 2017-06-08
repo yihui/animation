@@ -55,7 +55,9 @@
 #' @author Yihui Xie
 #' @note Bug reports and feature requests can be sent to
 #'   \url{https://github.com/yihui/animation/issues}.
-#' @references The associated website for this package:
+#' @references Examples at \url{https://yihui.name/animation/example/animation-package/}
+#'
+#'   The associated website for this package:
 #'   \url{https://yihui.name/animation}
 #'
 #'   Yihui Xie and Xiaoyue Cheng. animation: A package for statistical

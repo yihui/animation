@@ -52,7 +52,10 @@ And the length of \code{x} and \code{y} should be equal to the number of rows
 of this matrix.
 }
 \references{
-\url{http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html}
+Examples at \url{https://yihui.name/animation/example/rosling-bubbles/}
+
+  TED talk: 
+  \url{http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html}
 }
 \seealso{
 \code{\link{symbols}}

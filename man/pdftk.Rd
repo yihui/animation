@@ -34,7 +34,9 @@ be set via \code{\link{ani.options}(pdftk = 'path/to/pdftk')}.
 See the reference for detailed usage of \command{pdftk}.
 }
 \references{
-\url{http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/}
+Examples at \url{https://yihui.name/animation/example/pdftk/}
+
+pdftk official website \url{http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/}
 }
 \author{
 Yihui Xie

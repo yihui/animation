@@ -79,6 +79,9 @@ Please make sure the function \code{FUN} provided is differentiable at
   iterations \code{nmax} in \code{\link{ani.options}} may need to be
   increased.
 }
+\references{
+Examples at \url{https://yihui.name/animation/example/grad-desc/}
+}
 \seealso{
 \code{\link{deriv}}, \code{\link{persp}}, \code{\link{contour}},
   \code{\link{optim}}

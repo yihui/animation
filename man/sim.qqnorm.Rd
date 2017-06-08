@@ -28,6 +28,9 @@ the distribution of data from a QQ plot. Even if the sample size is large,
 usually there are outliers far away from the straight line. Therefore, don't
 overinterpret the QQ plots.
 }
+\references{
+Examples at \url{https://yihui.name/animation/example/sim-qqnorm/}
+}
 \seealso{
 \code{\link{qqnorm}}
 }

@@ -97,7 +97,10 @@ If \code{files} is a character vector, please make sure the order of
   failures.
 }
 \references{
-ImageMagick: \url{http://www.imagemagick.org/script/convert.php}
+Examples at \url{https://yihui.name/animation/example/im-convert/}
+
+  ImageMagick: \url{http://www.imagemagick.org/script/convert.php}
+
   GraphicsMagick: \url{http://www.graphicsmagick.org}
 }
 \seealso{

@@ -65,7 +65,9 @@ Note that \eqn{g_{max}} is set by \code{ani.options('nmax')} (i.e. the
 maximum number of features we want to choose).
 }
 \references{
-Maindonald J, Braun J (2007). \emph{Data Analysis and Graphics
+Examples at \url{https://yihui.name/animation/example/cv-nfeatureslda/}
+
+  Maindonald J, Braun J (2007). \emph{Data Analysis and Graphics
   Using R - An Example-Based Approach}. Cambridge University Press, 2nd
   edition. pp. 400
 }

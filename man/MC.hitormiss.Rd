@@ -40,6 +40,9 @@ This function is for demonstration purpose only; the integral might be
 
   \code{ani.options('nmax')} specifies the maximum number of trials.
 }
+\references{
+Examples at \url{https://yihui.name/animation/example/mc-hitormiss/}
+}
 \seealso{
 \code{\link{integrate}}, \code{\link{MC.samplemean}}
 }

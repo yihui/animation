@@ -55,6 +55,9 @@ of the plot -- this shall be close to \code{prob} if
 You may change the colors of each face using the argument \code{col}
   (repeated if shorter than the number of faces).
 }
+\references{
+Examples at \url{https://yihui.name/animation/example/flip-coin/}
+}
 \seealso{
 \code{\link{points}}, \code{\link{sample}}
 }

@@ -28,6 +28,9 @@ Each rectangle stands for a stratum, and the simple random sampling without
 replacement is performed within each stratum. The points being sampled are
 marked out (by red circles by default).
 }
+\references{
+Examples at \url{https://yihui.name/animation/example/sample-strat/}
+}
 \seealso{
 \code{\link{sample}}, \code{\link{sample.simple}},
   \code{\link{sample.cluster}}, \code{\link{sample.ratio}},

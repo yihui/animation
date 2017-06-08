@@ -54,6 +54,9 @@ This function is only for demonstration purpose. For practical
   condition for stopping the iteration has not yet been met (i.e. the cluster
   membership will not change any longer).
 }
+\references{
+Examples at \url{https://yihui.name/animation/example/kmeans-ani/}
+}
 \seealso{
 \code{\link{kmeans}}
 }

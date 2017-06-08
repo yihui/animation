@@ -49,6 +49,9 @@ The maximum number of animation frames is controlled by
   will just fall through all the layers and there will be no redundant
   animation frames.
 }
+\references{
+Examples at \url{https://yihui.name/animation/example/quincunx/}
+}
 \seealso{
 \code{\link{rbinom}}
 }

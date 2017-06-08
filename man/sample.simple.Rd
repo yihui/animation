@@ -26,6 +26,9 @@ plane just for convenience, and the points being sampled are marked out (by
 red circles by default). Each member of the population has an equal and known
 chance of being selected.
 }
+\references{
+Examples at \url{https://yihui.name/animation/example/sample-simple/}
+}
 \seealso{
 \code{\link{sample}}, \code{\link{sample.ratio}},
   \code{\link{sample.cluster}}, \code{\link{sample.strat}},

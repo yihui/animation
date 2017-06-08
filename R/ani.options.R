@@ -147,6 +147,7 @@
 #'   \code{nmax}.
 #'
 #' @author Yihui Xie
+#' @references Examples at \url{https://yihui.name/animation/example/ani-options/}
 #' @seealso \code{\link{options}}, \code{\link{dev.interactive}},
 #'   \code{\link{saveHTML}}, \code{\link{saveGIF}}, \code{\link{saveLatex}},
 #'   \code{\link{saveSWF}}, \code{\link{pdftk}}

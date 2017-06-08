@@ -55,7 +55,10 @@
 #'   confusions between \code{\link{saveMovie}} and \code{\link{saveVideo}}.
 #' @author Yihui Xie
 #' @family utilities
-#' @references ImageMagick: \url{http://www.imagemagick.org/script/convert.php};
+#' @references Examples at \url{https://yihui.name/animation/example/savegif/}
+#'
+#'   ImageMagick: \url{http://www.imagemagick.org/script/convert.php};
+#'
 #'   GraphicsMagick: \url{http://www.graphicsmagick.org}
 #' @export
 saveGIF = function(

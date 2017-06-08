@@ -22,6 +22,7 @@
 #'
 #'   \code{ani.options('nmax')} specifies the maximum number of trials.
 #' @author Yihui Xie
+#' @references Examples at \url{https://yihui.name/animation/example/mc-hitormiss/}
 #' @seealso \code{\link{integrate}}, \code{\link{MC.samplemean}}
 #' @export
 MC.hitormiss = function(

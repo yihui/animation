@@ -55,6 +55,9 @@ distribution when the sample size \code{n} is large enough, no matter what is
 the original distribution. The largest sample size is defined by \code{nmax}
 in \code{\link{ani.options}}.
 }
+\references{
+Examples at \url{https://yihui.name/animation/example/clt-ani/}
+}
 \seealso{
 \code{\link{hist}}, \code{\link{density}}
 }

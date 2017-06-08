@@ -27,6 +27,9 @@ This is a solution to the question raised in R-help:
 The maximum number of steps in the motion is specified in
   \code{ani.options('nmax')}.
 }
+\references{
+Examples at \url{https://yihui.name/animation/example/bm-circle/}
+}
 \seealso{
 \code{\link{brownian.motion}}, \code{\link{rnorm}}
 }

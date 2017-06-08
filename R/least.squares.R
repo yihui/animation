@@ -37,6 +37,7 @@
 #'
 #'   Note the estimate will not be precise generally.
 #' @author Yihui Xie
+#' @references Examples at \url{https://yihui.name/animation/example/least-squares/}
 #' @seealso \code{\link{lm}}
 #' @note \code{ani.options('nmax')} specifies the maximum number of steps for
 #'   the slope or intercept to move.

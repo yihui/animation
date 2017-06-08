@@ -34,6 +34,7 @@
 #'   \code{ani.options('pdftk')} has been set); see \code{\link{qpdf}} or
 #'   \code{\link{pdftk}}.
 #' @author Yihui Xie
+#' @references Examples at \url{https://yihui.name/animation/example/saveswf/}
 #' @family utilities
 #' @export
 saveSWF = function(expr, swf.name = 'animation.swf', img.name = 'Rplot', swftools = NULL, ...) {

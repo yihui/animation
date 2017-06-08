@@ -42,6 +42,9 @@ From this demonstration we can clearly see that the ratio estimation is
 generally better than the simple sample average when the ratio \bold{R}
 really exists, otherwise ratio estimation may not help.
 }
+\references{
+Examples at \url{https://yihui.name/animation/example/sample-ratio/}
+}
 \seealso{
 \code{\link{sample}}, \code{\link{sample.simple}},
   \code{\link{sample.cluster}}, \code{\link{sample.strat}},

@@ -29,6 +29,9 @@ invisible \code{NULL}
 This function can display the frequencies of stock prices in a certain time
 span with the span changing.
 }
+\references{
+Examples at \url{https://yihui.name/animation/example/price-ani/}
+}
 \author{
 Yihui Xie
 }

@@ -48,6 +48,9 @@ There will be \code{ani.options('nmax')} image frames created in the
   mean value of \code{dat[i + 1:block]}, etc. See the examples below to learn
   more about how to make use of these three arguments.
 }
+\references{
+Examples at \url{https://yihui.name/animation/example/moving-block/}
+}
 \author{
 Yihui Xie
 }

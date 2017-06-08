@@ -163,6 +163,9 @@ Please note that \code{nmax} is not always equal to the number of
   }
 }
 
+\references{
+Examples at \url{https://yihui.name/animation/example/ani-options/}
+}
 \seealso{
 \code{\link{options}}, \code{\link{dev.interactive}},
   \code{\link{saveHTML}}, \code{\link{saveGIF}}, \code{\link{saveLatex}},

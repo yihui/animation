@@ -26,6 +26,9 @@ Each rectangle stands for a cluster, and the simple random sampling without
 replacement is performed for each cluster. All points in the clusters being
 sampled will be drawn out.
 }
+\references{
+Examples at \url{https://yihui.name/animation/example/sample-cluster/}
+}
 \seealso{
 \code{\link{sample}}, \code{\link{sample.simple}},
   \code{\link{sample.ratio}}, \code{\link{sample.strat}},
