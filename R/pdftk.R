@@ -19,7 +19,8 @@
 #'   \code{\link{system}}); otherwise a warning will be issued
 #' @author Yihui Xie
 #' @references Examples at \url{https://yihui.name/animation/example/pdftk/}
-#' @references \url{http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/}
+#' 
+#' pdftk official website \url{http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/}
 #' @export
 pdftk = function(input, operation = NULL, output, other.opts = 'compress dont_ask') {
   if (!is.null(pdftk.path <- ani.options('pdftk'))) {

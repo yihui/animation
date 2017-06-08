@@ -25,13 +25,15 @@
 #' @return An integer indicating failure (-1) or success (0) of the converting
 #'   (refer to \code{\link{system}}).
 #' @author Yihui Xie, based on an inital version by Thomas Julou
-#' @references Examples at \url{https://yihui.name/animation/example/savevideo/}
+
 #'   \email{thomas.julou@@gmail.com}
 #' @note There are a lot of possibilities in optimizing the video. My knowledge
 #'   on FFmpeg is very limited, hence the default output by this function could
 #'   be of low quality or too large. The file \file{presets.xml} of WinFF might
 #'   be a good guide: \url{http://code.google.com/p/winff/}.
-#' @references \url{http://ffmpeg.org/documentation.html}
+#' @references Examples at \url{https://yihui.name/animation/example/savevideo/}
+#' 
+#'   To know more about ffmpeg, please see \url{http://ffmpeg.org/documentation.html}
 #' @family utilities
 #' @export
 saveVideo = function(

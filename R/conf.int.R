@@ -27,7 +27,8 @@
 #'   \item{CR}{coverage rate}
 #' @author Yihui Xie
 #' @references Examples at \url{https://yihui.name/animation/example/conf-int/}
-#' @references George Casella and Roger L. Berger. \emph{Statistical Inference}.
+#' 
+#'   George Casella and Roger L. Berger. \emph{Statistical Inference}.
 #'   Duxbury Press, 2th edition, 2001.
 #'
 #' @export

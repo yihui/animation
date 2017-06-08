@@ -47,9 +47,10 @@
 #'   i-th fold (the test set) } \item{optimum }{the optimum number of features
 #'   based on the cross-validation}
 #' @author Yihui Xie <\url{http://yihui.name}>
-#' @references Examples at \url{https://yihui.name/animation/example/cv-nfeatureslda/}
 #' @seealso \code{\link{kfcv}}, \code{\link{cv.ani}}, \code{\link[MASS]{lda}}
-#' @references Maindonald J, Braun J (2007). \emph{Data Analysis and Graphics
+#' @references Examples at \url{https://yihui.name/animation/example/cv-nfeatureslda/}
+#' 
+#'   Maindonald J, Braun J (2007). \emph{Data Analysis and Graphics
 #'   Using R - An Example-Based Approach}. Cambridge University Press, 2nd
 #'   edition. pp. 400
 #' @export

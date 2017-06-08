@@ -17,7 +17,8 @@
 #'   \code{\link{system}}); otherwise a warning will be issued
 #' @author Yihui Xie
 #' @references Examples at \url{https://yihui.name/animation/example/qpdf/}
-#' @references \url{http://qpdf.sourceforge.net/}
+#' 
+#' qpdf official website \url{http://qpdf.sourceforge.net/}
 #' @export
 qpdf = function(input, output, options = '--stream-data=compress') {
   if (!is.null(qpdf.path <- ani.options('qpdf'))) {

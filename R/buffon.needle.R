@@ -43,7 +43,8 @@
 #'   The maximum number of drops is specified in \code{ani.options('nmax')}.
 #' @author Yihui Xie
 #' @references Examples at \url{https://yihui.name/animation/example/buffon-needle/}
-#' @references Ramaley, J. F. (Oct 1969). Buffon's Noodle Problem. \emph{The
+#'
+#'   Ramaley, J. F. (Oct 1969). Buffon's Noodle Problem. \emph{The
 #'   American Mathematical Monthly} \bold{76} (8): 916-918.
 #' @export
 buffon.needle = function(

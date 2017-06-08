@@ -38,9 +38,10 @@
 #' @note The algorithm might not converge -- it depends on the starting value.
 #'   See the examples below.
 #' @author Yihui Xie
-#' @references Examples at \url{https://yihui.name/animation/example/newton-method/}
 #' @seealso \code{\link{optim}}
-#' @references \url{http://en.wikipedia.org/wiki/Newton's_method}
+#' @references Examples at \url{https://yihui.name/animation/example/newton-method/}
+#' 
+#' For more information about Newton's method, please see \url{http://en.wikipedia.org/wiki/Newton's_method}
 #'
 #' @export
 newton.method = function(

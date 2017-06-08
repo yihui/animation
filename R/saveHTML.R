@@ -72,7 +72,8 @@
 #'   See the last example below.
 #' @author Yihui Xie
 #' @references Examples at \url{https://yihui.name/animation/example/savehtml/}
-#' @references \url{https://github.com/brentertz/scianimator}
+#'
+#'   scianimator official website \url{https://github.com/brentertz/scianimator}
 #' @family utilities
 #' @export
 saveHTML = function(

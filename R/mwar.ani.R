@@ -21,9 +21,10 @@
 #'   bound of the confidence interval} \item{U }{upper bound of the confidence
 #'   interval}
 #' @author Yihui Xie
-#' @references Examples at \url{https://yihui.name/animation/example/mwar-ani/}
 #' @seealso \code{\link{arima}}
-#' @references Robert A. Meyer, Jr. Estimating coefficients that change over
+#' @references Examples at \url{https://yihui.name/animation/example/mwar-ani/}
+#' 
+#'   Robert A. Meyer, Jr. Estimating coefficients that change over
 #'   time. \emph{International Economic Review}, 13(3):705-710, 1972.
 #'
 #' @export
