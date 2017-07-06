@@ -76,13 +76,13 @@
 #'   GraphicsMagick: \url{http://www.graphicsmagick.org}
 #' @export
 im.convert = function(
-  files, output = 'animation.gif', convert = c('convert', 'gm convert'),
+  files, output = 'animation.gif', convert = c('magick','convert', 'gm convert'),
   cmd.fun = if (.Platform$OS.type == 'windows') shell else system, extra.opts = '', clean = FALSE
 ) {
   movie.name = output
   interval = head(ani.options('interval'), length(files))
-  convert = match.arg(convert)
-  if (convert == 'convert') {
+  convert = match.arg(convert,c('magick','convert', 'gm convert'))
+  if (convert == 'convert' || convert == "magick") {
     version = ''
     if (!is.null(ani.options('convert'))) {
       try(version <- cmd.fun(sprintf('%s --version', shQuote(ani.options('convert'))), intern = TRUE))
