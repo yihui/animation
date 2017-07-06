@@ -62,7 +62,7 @@
 #'   GraphicsMagick: \url{http://www.graphicsmagick.org}
 #' @export
 saveGIF = function(
-  expr, movie.name = 'animation.gif', img.name = 'Rplot', convert = 'convert',
+  expr, movie.name = 'animation.gif', img.name = 'Rplot', convert = 'magick',
   cmd.fun, clean = TRUE, extra.opts = "", ...
 ) {
   oopt = ani.options(...)
