@@ -10,7 +10,7 @@
 #'   containing wildcards (e.g. \file{Rplot*.png})
 #' @param output the file name of the output (with proper extensions, e.g.
 #'   \code{gif})
-#' @param convert the \command{convert} command; it must be either
+#' @param convert the \command{convert} command; it must be \code{'magick'},
 #'   \code{'convert'} or \code{'gm convert'}; and it can be pre-specified as an
 #'   option in \code{\link{ani.options}('convert')}, e.g. (Windows users)
 #'   \code{ani.options(convert = 'c:/program
