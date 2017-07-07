@@ -92,12 +92,22 @@ im.convert = function(
     } else convert = ani.options('convert')
     if (!length(grep('ImageMagick', version))) {
       message('I cannot find ImageMagick with convert = ', shQuote(convert))
-      if (.Platform$OS.type != 'windows' || is.null(convert <- find_magic())) {
-        warning('Please install ImageMagick first or put its bin path into the system PATH variable')
-        return()
+      convert_switch=ifelse(convert=='convert',"magick","convert")
+      try(version <- cmd.fun(sprintf('%s --version', convert_switch), intern = TRUE))
+      if (!length(grep('ImageMagick', version))) {
+        message('I also cannot find ImageMagick with convert = ', shQuote(convert_switch))
+        if (.Platform$OS.type != 'windows' || is.null(convert <- find_magic())) {
+          warning('Please install ImageMagick first or put its bin path into the system PATH variable')
+          return()
+        }
+      }else{
+        message('I find ImageMagick with convert = ', shQuote(convert_switch),". I will use " ,
+                shQuote(convert_switch)," instead of ", shQuote(convert),"!")
+        convert=convert_switch
       }
     }
-  } else {
+  } 
+  else {
     ## GraphicsMagick
     version = ''
     if (!is.null(ani.options('convert')))
