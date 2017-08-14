@@ -5,9 +5,9 @@
 \alias{gm.convert}
 \title{A wrapper for the `convert' utility of ImageMagick or GraphicsMagick}
 \usage{
-im.convert(files, output = "animation.gif", convert = c("convert", "gm convert"), 
-    cmd.fun = if (.Platform$OS.type == "windows") shell else system, extra.opts = "", 
-    clean = FALSE)
+im.convert(files, output = "animation.gif", convert = c("magick", "convert", 
+    "gm convert"), cmd.fun = if (.Platform$OS.type == "windows") shell else system, 
+    extra.opts = "", clean = FALSE)
 
 gm.convert(..., convert = "gm convert")
 }
@@ -18,7 +18,7 @@ containing wildcards (e.g. \file{Rplot*.png})}
 \item{output}{the file name of the output (with proper extensions, e.g.
 \code{gif})}
 
-\item{convert}{the \command{convert} command; it must be either
+\item{convert}{the \command{convert} command; it must be \code{'magick'},
 \code{'convert'} or \code{'gm convert'}; and it can be pre-specified as an
 option in \code{\link{ani.options}('convert')}, e.g. (Windows users)
 \code{ani.options(convert = 'c:/program

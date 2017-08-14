@@ -10,7 +10,7 @@
 #'   containing wildcards (e.g. \file{Rplot*.png})
 #' @param output the file name of the output (with proper extensions, e.g.
 #'   \code{gif})
-#' @param convert the \command{convert} command; it must be either
+#' @param convert the \command{convert} command; it must be \code{'magick'},
 #'   \code{'convert'} or \code{'gm convert'}; and it can be pre-specified as an
 #'   option in \code{\link{ani.options}('convert')}, e.g. (Windows users)
 #'   \code{ani.options(convert = 'c:/program
@@ -76,13 +76,13 @@
 #'   GraphicsMagick: \url{http://www.graphicsmagick.org}
 #' @export
 im.convert = function(
-  files, output = 'animation.gif', convert = c('convert', 'gm convert'),
+  files, output = 'animation.gif', convert = c('magick','convert', 'gm convert'),
   cmd.fun = if (.Platform$OS.type == 'windows') shell else system, extra.opts = '', clean = FALSE
 ) {
   movie.name = output
   interval = head(ani.options('interval'), length(files))
-  convert = match.arg(convert)
-  if (convert == 'convert') {
+  convert = match.arg(convert,c('magick','convert', 'gm convert'))
+  if (convert == 'convert' || convert == "magick") {
     version = ''
     if (!is.null(ani.options('convert'))) {
       try(version <- cmd.fun(sprintf('%s --version', shQuote(ani.options('convert'))), intern = TRUE))
@@ -92,12 +92,22 @@ im.convert = function(
     } else convert = ani.options('convert')
     if (!length(grep('ImageMagick', version))) {
       message('I cannot find ImageMagick with convert = ', shQuote(convert))
-      if (.Platform$OS.type != 'windows' || is.null(convert <- find_magic())) {
-        warning('Please install ImageMagick first or put its bin path into the system PATH variable')
-        return()
+      convert_switch=ifelse(convert=='convert',"magick","convert")
+      try(version <- cmd.fun(sprintf('%s --version', convert_switch), intern = TRUE))
+      if (!length(grep('ImageMagick', version))) {
+        message('I also cannot find ImageMagick with convert = ', shQuote(convert_switch))
+        if (.Platform$OS.type != 'windows' || is.null(convert <- find_magic())) {
+          warning('Please install ImageMagick first or put its bin path into the system PATH variable')
+          return()
+        }
+      }else{
+        message('I find ImageMagick with convert = ', shQuote(convert_switch),". I will use " ,
+                shQuote(convert_switch)," instead of ", shQuote(convert),"!")
+        convert=convert_switch
       }
     }
-  } else {
+  } 
+  else {
     ## GraphicsMagick
     version = ''
     if (!is.null(ani.options('convert')))

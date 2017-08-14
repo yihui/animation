@@ -6,10 +6,10 @@
 \title{Convert images to a single animation file (typically GIF) using ImageMagick
 or GraphicsMagick}
 \usage{
-saveGIF(expr, movie.name = "animation.gif", img.name = "Rplot", convert = "convert", 
+saveGIF(expr, movie.name = "animation.gif", img.name = "Rplot", convert = "magick", 
     cmd.fun, clean = TRUE, extra.opts = "", ...)
 
-saveMovie(expr, movie.name = "animation.gif", img.name = "Rplot", convert = "convert", 
+saveMovie(expr, movie.name = "animation.gif", img.name = "Rplot", convert = "magick", 
     cmd.fun, clean = TRUE, extra.opts = "", ...)
 }
 \arguments{
