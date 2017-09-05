@@ -85,7 +85,8 @@ saveGIF = function(
   img.fmt = paste(img.name, '%d.', file.ext, sep = '')
   if ((use.dev <- ani.options('use.dev')))
     ani.dev(file.path(tempdir(), img.fmt), width = ani.options('ani.width'),
-            height = ani.options('ani.height'))
+            height = ani.options('ani.height'), res = ani.options('ani.res'),
+            bg = ani.options('ani.bg'))
   in_dir(owd, expr)
   if (use.dev) dev.off()
 
