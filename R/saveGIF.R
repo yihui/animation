@@ -83,15 +83,14 @@ saveGIF = function(
   ani.dev = ani.options('ani.dev')
   if (is.character(ani.dev)) ani.dev = get(ani.dev)
   img.fmt = paste(img.name, '%d.', file.ext, sep = '')
-  for(i in img.fmt){
-    if ((use.dev <- ani.options('use.dev')))
-      ani.dev(file.path(tempdir(), i), width = ani.options('ani.width'),
-              height = ani.options('ani.height'), res = ani.options('ani.res'),
-              bg = ani.options('ani.bg'))
-    in_dir(owd, expr)
-    if (use.dev) dev.off()
-  }
 
+  if ((use.dev <- ani.options('use.dev')))
+    ani.dev(file.path(tempdir(), img.fmt), width = ani.options('ani.width'),
+            height = ani.options('ani.height'), res = ani.options('ani.res'))
+            # ,bg = ani.options('ani.bg')
+
+  in_dir(owd, expr)
+  if (use.dev) dev.off()
 
   ## compress PDF files
   if (file.ext == 'pdf')
