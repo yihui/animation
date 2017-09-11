@@ -1,3 +1,10 @@
+      CHANGES IN animation VERSION 2.6
+
+NEW FEATURES
+
+  o add a new option ani.res() to ani.options(), to control the resolution of png, 
+  jepg, bmp and tiff images when using saveGIF() (#99).
+
 		  CHANGES IN animation VERSION 2.5
 
 MAJOR CHANGES
@@ -7,9 +14,6 @@ MAJOR CHANGES
   Github https://github.com/yihui/animation/tree/master/inst/examples and they
   will be moved to https://yihui.name/animation in the future
   
-  o add a new option ani.res() to ani.options(), to control the resolution of png, 
-  jepg, bmp and tiff images when using saveGIF() (#99).
-
 		  CHANGES IN animation VERSION 2.4
 
 BUG FIXES
