@@ -83,9 +83,17 @@ saveGIF = function(
   ani.dev = ani.options('ani.dev')
   if (is.character(ani.dev)) ani.dev = get(ani.dev)
   img.fmt = paste(img.name, '%d.', file.ext, sep = '')
-  if ((use.dev <- ani.options('use.dev')))
-    ani.dev(file.path(tempdir(), img.fmt), width = ani.options('ani.width'),
-            height = ani.options('ani.height'))
+
+  if ((use.dev <- ani.options('use.dev'))){
+    if (any(grepl(ani.options('ani.dev'), c("png", "bmp", "jpeg", "tiff")))){
+      ani.dev(file.path(tempdir(), img.fmt), width = ani.options('ani.width'),
+              height = ani.options('ani.height'), res = ani.options('ani.res'))
+      # ,bg = ani.options('ani.bg')
+    } else {
+      ani.dev(file.path(tempdir(), img.fmt), width = ani.options('ani.width'),
+              height = ani.options('ani.height'))
+    }
+  }
   in_dir(owd, expr)
   if (use.dev) dev.off()
 
@@ -98,7 +106,7 @@ saveGIF = function(
   if (missing(cmd.fun))
     cmd.fun = if (.Platform$OS.type == 'windows') shell else system
   ## convert to animations
-  im.convert(img.files, output =  path.expand(movie.name), convert = convert,
+  im.convert(img.files, output = path.expand(movie.name), convert = convert,
              cmd.fun = cmd.fun, clean = clean, extra.opts = extra.opts)
   setwd(owd)
   if (!grepl(tempdir(),movie.name,fixed = T)){
