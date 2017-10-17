@@ -130,7 +130,7 @@ saveHTML = function(
   imgdir = ani.options('imgdir')
   dir.create(imgdir, showWarnings = FALSE, recursive = TRUE)
 
-  img.fmt = file.path(imgdir, paste(img.name, '%d', '.', ani.type, sep = ''))
+  img.fmt = file.path(imgdir, paste(img.name, ani.options('imgnfmt'), '.', ani.type, sep = ''))
   ani.options(img.fmt = img.fmt)
   if ((use.dev <- ani.options('use.dev')))
     ani.dev(img.fmt, width = ani.options('ani.width'), height = ani.options('ani.height'))
@@ -182,7 +182,7 @@ saveHTML = function(
   ani.options(nmax = imglen)
   imglist = file.path(
     ani.options('imgdir'),
-    sprintf(paste(img.name, '%d.', ani.type, sep = ''), seq_len(imglen))
+    sprintf(paste(img.name, ani.options('imgnfmt'), '.', ani.type, sep = ''), seq_len(imglen))
   )
   if (!navigator) single.opts = remove_navigator(single.opts)
   js.temp = sprintf(
