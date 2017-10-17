@@ -23,6 +23,10 @@
 #'   if a positive integer. Also used for units other than the default,
 #'   and to convert points to pixels.;
 #'   see graphics devices like \code{\link{png}}, \code{\link{jpeg}}.}
+#'   
+#'   \time{imgnfmt}{ Customizing image number format, 
+#'   it allows user to define the C-style number format for output image.
+#'   }
 #'
 #'   \item{imgdir}{character: the name of the directory (a relative path) for
 #'   images when creating HTML animation pages; default to be \code{'images'}.}
