@@ -27,7 +27,7 @@
 #'   \time{imgnfmt}{ Customizing image number format in \code{\link{saveHTML}}, 
 #'   \code{\link{saveGIF}}, \code{\link{saveLatex}} and \code{\link{saveVideo}}, 
 #'   \code{\link{saveSWF}} is not included, 
-#'   it allows user to define the C-style number format for output image. 
+#'   it allows user to define the C-style string format for output image. 
 #'   }
 #'
 #'   \item{imgdir}{character: the name of the directory (a relative path) for
