@@ -65,7 +65,7 @@ Please note that \code{nmax} is not always equal to the number of
   and to convert points to pixels.;
   see graphics devices like \code{\link{png}}, \code{\link{jpeg}}.}
   
-  \time{imgnfmt}{ Customizing image number format in \code{\link{saveHTML}}, 
+  \item{imgnfmt}{ Customizing image number format in \code{\link{saveHTML}}, 
   \code{\link{saveGIF}}, \code{\link{saveLatex}} and \code{\link{saveVideo}}, 
   \code{\link{saveSWF}} is not included, 
   it allows user to define the C-style string format for output image. 
