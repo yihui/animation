@@ -69,7 +69,7 @@ saveVideo = function(
   interval = ani.options('interval')
   if (is.character(ani.dev)) ani.dev = get(ani.dev)
 
-  num = ifelse(file.ext == 'pdf', '', '%d')
+  num = ifelse(file.ext == 'pdf', '', ani.options('imgnfmt'))
   unlink(paste(img.name, '*.', file.ext, sep = ''))
   img.fmt = paste(img.name, num, '.', file.ext, sep = '')
   img.fmt = file.path(tempdir(), img.fmt)

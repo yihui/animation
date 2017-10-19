@@ -82,7 +82,7 @@ saveGIF = function(
   ## draw the plots and record them in image files
   ani.dev = ani.options('ani.dev')
   if (is.character(ani.dev)) ani.dev = get(ani.dev)
-  img.fmt = paste(img.name, '%d.', file.ext, sep = '')
+  img.fmt = paste(img.name, ani.options('imgnfmt'), '.', file.ext, sep = '')
 
   if ((use.dev <- ani.options('use.dev'))){
     if (any(grepl(ani.options('ani.dev'), c("png", "bmp", "jpeg", "tiff")))){
