@@ -29,7 +29,10 @@ pdftk = function(input, operation = NULL, output, other.opts = 'compress dont_as
     auto.output = missing(output) && length(input) == 1 && file.exists(input)
     if (auto.output)
       output = file.path(dirname(input), paste('output', basename(input), sep = '-'))
-    cmd = paste(pdftk.path, paste(input, collapse = ' '),
+    # if input has special characters in it, the function will fail without
+    # placing them in quotes and escaping possible quotes
+    input =  gsub(pattern = "'",replacement = "\\\\'", x = input)
+    cmd = paste(pdftk.path, paste0("'",input,"'", collapse = ' '),
                 operation, sprintf('output %s', output), other.opts)
     message('* Pdftk is running... \n* ', cmd)
     status = system(cmd)
