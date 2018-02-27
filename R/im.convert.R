@@ -70,7 +70,7 @@
 #' @author Yihui Xie
 #' @family utilities
 #' @references Examples at \url{https://yihui.name/animation/example/im-convert/}
-#' 
+#'
 #'   ImageMagick: \url{http://www.imagemagick.org/script/convert.php}
 #'
 #'   GraphicsMagick: \url{http://www.graphicsmagick.org}
@@ -81,7 +81,11 @@ im.convert = function(
 ) {
   movie.name = output
   interval = head(ani.options('interval'), length(files))
+  loop = ifelse(isTRUE(ani.options('loop')), 0, ani.options('loop'))
   convert = match.arg(convert,c('magick','convert', 'gm convert'))
+  if (convert == 'magick' && requireNamespace('magick', quietly = TRUE)){
+    return(magick.convert(files = files, output = output, loop = loop, interval = interval))
+  }
   if (convert == 'convert' || convert == "magick") {
     version = ''
     if (!is.null(ani.options('convert'))) {
@@ -106,7 +110,7 @@ im.convert = function(
         convert=convert_switch
       }
     }
-  } 
+  }
   else {
     ## GraphicsMagick
     version = ''
@@ -122,7 +126,6 @@ im.convert = function(
     } else convert = ani.options('convert')
   }
 
-  loop = ifelse(isTRUE(ani.options('loop')), 0, ani.options('loop'))
   convert = sprintf(
     '%s -loop %s %s %s %s', convert, loop,
     extra.opts, paste(
@@ -157,4 +160,10 @@ im.convert = function(
 #' @export
 gm.convert = function(..., convert = 'gm convert') {
   im.convert(..., convert = convert)
+}
+
+magick.convert <- function(files, output, interval = 1, loop = 0){
+  img <- magick::image_read(files, strip = TRUE)
+  anim <- magick::image_animate(img, loop = loop, fps = 100 / as.integer(interval * 100))
+  magick::image_write(anim, path = output)
 }
