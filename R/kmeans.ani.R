@@ -74,7 +74,7 @@ kmeans.ani = function(
     }
     points(ocenters, cex = 3, col = col[1:numcent], pch = pch[1:numcent], lwd = 2)
     ani.pause()
-    if (all(ncluster == ocluster)) break
+    if (all(centers == ocenters)) break
     ocluster = ncluster
   }
   invisible(list(cluster = ncluster, centers = centers))

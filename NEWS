@@ -8,6 +8,11 @@ NEW FEATURES
   o saveGIF() and im.convert() now support converting using the 'magick' R package
   which does not require shelling out to external software.
 
+BUG FIXES
+
+  o The stopping criterion in kmeans.ani() was buggy: the iteration should stop
+  only when the cluster centers do not change any more (thanks, Sen Zhou).
+
 		  CHANGES IN animation VERSION 2.5
 
 MAJOR CHANGES
