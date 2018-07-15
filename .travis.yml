@@ -9,6 +9,11 @@ env:
 repos:
   XRAN: https://xran.yihui.name
 
+addons:
+  apt:
+    packages:
+    - libmagick++-dev
+
 before_install:
   - "curl https://xran.yihui.name/.gitconfig -o ~/.gitconfig"
 
