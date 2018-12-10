@@ -111,3 +111,4 @@ Other utilities: \code{\link{saveGIF}},
 \author{
 Yihui Xie
 }
+\concept{utilities}

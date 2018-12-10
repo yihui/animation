@@ -64,3 +64,4 @@ Other utilities: \code{\link{im.convert}},
 Yihui Xie, based on an inital version by Thomas Julou
   \email{thomas.julou@gmail.com}
 }
+\concept{utilities}

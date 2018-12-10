@@ -55,7 +55,7 @@ ani.record = function(reset = FALSE, replay.cur = FALSE) {
   invisible(NULL)
 }
 
-#' Replay the animation
+#' @description Replay the animation
 #'
 #' @details \code{\link{ani.replay}} can replay the recorded plots as an
 #'   animation. Moreover, we can convert the recorded plots to other formats

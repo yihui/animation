@@ -105,3 +105,4 @@ Other utilities: \code{\link{im.convert}},
 \author{
 Yihui Xie
 }
+\concept{utilities}
