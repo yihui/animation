@@ -165,6 +165,7 @@ gm.convert = function(..., convert = 'gm convert') {
 
 magick.convert = function(files, output, interval = 1, loop = 0, dispose = NULL){
   if (!length(dispose)) dispose = "background"
+  dispose = tolower(dispose)
   img = magick::image_read(files, strip = TRUE)
   anim = magick::image_animate(img, loop = loop, fps = 100 / as.integer(interval * 100), dispose = dispose)
   magick::image_write(anim, path = output)
