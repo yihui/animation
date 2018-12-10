@@ -76,18 +76,18 @@
 #'   GraphicsMagick: \url{http://www.graphicsmagick.org}
 #' @export
 im.convert = function(
-  files, output = 'animation.gif', convert = c('magick','convert', 'gm convert'),
+  files, output = 'animation.gif', convert = c('magick', 'convert', 'gm convert'),
   cmd.fun = if (.Platform$OS.type == 'windows') shell else system, extra.opts = '', clean = FALSE
 ) {
   movie.name = output
   interval = head(ani.options('interval'), length(files))
   loop = ifelse(isTRUE(ani.options('loop')), 0, ani.options('loop'))
-  convert = match.arg(convert,c('magick','convert', 'gm convert'))
-  if (convert == 'magick' && requireNamespace('magick', quietly = TRUE)){
-    dispose_opt <- regmatches(regexpr(pattern = "-dispose\\s+\\S+", text = extra.opts), x = extra.opts)
-    dispose <- gsub("-dispose ", "", dispose_opt)
+  convert = match.arg(convert, c('magick','convert', 'gm convert'))
+  if (convert == 'magick' && requireNamespace('magick', quietly = TRUE)) {
+    dispose_opt = regmatches(regexpr(pattern = "-dispose\\s+\\S+", text = extra.opts), x = extra.opts)
+    dispose = gsub("-dispose ", "", dispose_opt)
     magick.convert(files = files, output = output, loop = loop, interval = interval, dispose = dispose)
-    cmd <- 0
+    cmd = 0
   } else {
     if (convert == 'convert' || convert == "magick") {
       version = ''
@@ -99,7 +99,7 @@ im.convert = function(
       } else convert = ani.options('convert')
       if (!length(grep('ImageMagick', version))) {
         message('I cannot find ImageMagick with convert = ', shQuote(convert))
-        convert_switch=ifelse(convert=='convert',"magick","convert")
+        convert_switch = ifelse(convert == 'convert',"magick","convert")
         try(version <- cmd.fun(sprintf('%s --version', convert_switch), intern = TRUE))
         if (!length(grep('ImageMagick', version))) {
           message('I also cannot find ImageMagick with convert = ', shQuote(convert_switch))
@@ -110,11 +110,10 @@ im.convert = function(
         }else{
           message('I find ImageMagick with convert = ', shQuote(convert_switch),". I will use " ,
                   shQuote(convert_switch)," instead of ", shQuote(convert),"!")
-          convert=convert_switch
+          convert = convert_switch
         }
       }
-    }
-    else {
+    } else {
       ## GraphicsMagick
       version = ''
       if (!is.null(ani.options('convert')))
@@ -150,10 +149,8 @@ im.convert = function(
   }
   if (cmd == 0) {
     message('Output at: ', output)
-    if (clean)
-      unlink(files)
-    if (file.exists(output))
-      auto_browse(output)
+    if (clean) unlink(files)
+    if (file.exists(output)) auto_browse(output)
   } else message('an error occurred in the conversion... see Notes in ?im.convert')
   invisible(convert)
 }
@@ -166,10 +163,9 @@ gm.convert = function(..., convert = 'gm convert') {
   im.convert(..., convert = convert)
 }
 
-magick.convert <- function(files, output, interval = 1, loop = 0, dispose = NULL){
-  if(!length(dispose))
-    dispose <- "background"
-  img <- magick::image_read(files, strip = TRUE)
-  anim <- magick::image_animate(img, loop = loop, fps = 100 / as.integer(interval * 100), dispose = dispose)
+magick.convert = function(files, output, interval = 1, loop = 0, dispose = NULL){
+  if (!length(dispose)) dispose = "background"
+  img = magick::image_read(files, strip = TRUE)
+  anim = magick::image_animate(img, loop = loop, fps = 100 / as.integer(interval * 100), dispose = dispose)
   magick::image_write(anim, path = output)
 }
