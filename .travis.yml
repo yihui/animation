@@ -14,7 +14,7 @@ addons:
     - libmagick++-dev
 
 before_install:
-  - "curl https://xran.yihui.name/.gitconfig -o ~/.gitconfig"
+  - "curl https://xran.yihui.org/.gitconfig -o ~/.gitconfig"
 
 after_success:
-  - "(curl https://xran.yihui.name/r-xran | bash)"
+  - "(curl https://xran.yihui.org/r-xran | bash)"
