@@ -87,7 +87,8 @@ NULL
 #' @docType data
 #' @format int [1:75] 119 175 222 204 276 168 257 89 61 288 ...
 #' @source The full text of speech is at
-#'   \url{http://cpc.people.com.cn/GB/64093/64094/8544901.html}
+#'   \verb{http://cpc.people.com.cn/GB/64093/64094/8544901.html} (you may use
+#'   \verb{web.archive.org} if this URL is no longer accessible).
 #' @examples
 #' ## clear pattern: 1/3 short, 1/3 long, 1/3 short again
 #' plot(HuSpeech, type = 'b', pch = 20, xlab = 'paragraph index',
