@@ -4,9 +4,18 @@
 \alias{sample.ratio}
 \title{Demonstrate the ratio estimation in sampling survey}
 \usage{
-sample.ratio(X = runif(50, 0, 5), R = 1, Y = R * X + rnorm(X), size = length(X)/2, 
-    p.col = c("blue", "red"), p.cex = c(1, 3), p.pch = c(20, 21), m.col = c("black", 
-        "gray"), legend.loc = "topleft", ...)
+sample.ratio(
+  X = runif(50, 0, 5),
+  R = 1,
+  Y = R * X + rnorm(X),
+  size = length(X)/2,
+  p.col = c("blue", "red"),
+  p.cex = c(1, 3),
+  p.pch = c(20, 21),
+  m.col = c("black", "gray"),
+  legend.loc = "topleft",
+  ...
+)
 }
 \arguments{
 \item{X}{the X variable (ancillary)}
@@ -43,7 +52,7 @@ generally better than the simple sample average when the ratio \bold{R}
 really exists, otherwise ratio estimation may not help.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/sample-ratio/}
+Examples at \url{https://yihui.org/animation/example/sample-ratio/}
 }
 \seealso{
 \code{\link{sample}}, \code{\link{sample.simple}},

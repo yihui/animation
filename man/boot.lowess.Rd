@@ -22,7 +22,7 @@ LOWESS curves, which may give us a rough idea about a ``confidence interval''
 of the LOWESS fit.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/boot-lowess/}
+Examples at \url{https://yihui.org/animation/example/boot-lowess/}
 }
 \author{
 Yihui Xie

@@ -4,8 +4,14 @@
 \alias{cv.nfeaturesLDA}
 \title{Cross-validation to find the optimum number of features (variables) in LDA}
 \usage{
-cv.nfeaturesLDA(data = matrix(rnorm(600), 60), cl = gl(3, 20), k = 5, cex.rg = c(0.5, 
-    3), col.av = c("blue", "red"), ...)
+cv.nfeaturesLDA(
+  data = matrix(rnorm(600), 60),
+  cl = gl(3, 20),
+  k = 5,
+  cex.rg = c(0.5, 3),
+  col.av = c("blue", "red"),
+  ...
+)
 }
 \arguments{
 \item{data}{a data matrix containg the predictors in columns}
@@ -65,7 +71,7 @@ Note that \eqn{g_{max}} is set by \code{ani.options('nmax')} (i.e. the
 maximum number of features we want to choose).
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/cv-nfeatureslda/}
+Examples at \url{https://yihui.org/animation/example/cv-nfeatureslda/}
 
   Maindonald J, Braun J (2007). \emph{Data Analysis and Graphics
   Using R - An Example-Based Approach}. Cambridge University Press, 2nd

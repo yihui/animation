@@ -4,8 +4,16 @@
 \alias{bisection.method}
 \title{Demonstration of the Bisection Method for root-finding on an interval}
 \usage{
-bisection.method(FUN = function(x) x^2 - 4, rg = c(-1, 10), tol = 0.001, 
-    interact = FALSE, main, xlab, ylab, ...)
+bisection.method(
+  FUN = function(x) x^2 - 4,
+  rg = c(-1, 10),
+  tol = 0.001,
+  interact = FALSE,
+  main,
+  xlab,
+  ylab,
+  ...
+)
 }
 \arguments{
 \item{FUN}{the function in the equation to solve (univariate)}
@@ -54,7 +62,7 @@ The maximum number of iterations is specified in
   \code{ani.options('nmax')}.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/bisection-method/}
+Examples at \url{https://yihui.org/animation/example/bisection-method/}
 
   For more information about Bisection method, please see 
   \url{http://en.wikipedia.org/wiki/Bisection_method}

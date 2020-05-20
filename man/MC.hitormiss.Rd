@@ -4,8 +4,15 @@
 \alias{MC.hitormiss}
 \title{Hit or Miss Monte Carlo integration}
 \usage{
-MC.hitormiss(FUN = function(x) x - x^2, n = ani.options("nmax"), from = 0, to = 1, 
-    col.points = c("black", "red"), pch.points = c(20, 4), ...)
+MC.hitormiss(
+  FUN = function(x) x - x^2,
+  n = ani.options("nmax"),
+  from = 0,
+  to = 1,
+  col.points = c("black", "red"),
+  pch.points = c(20, 4),
+  ...
+)
 }
 \arguments{
 \item{FUN}{the function to be integrated}
@@ -41,7 +48,7 @@ This function is for demonstration purpose only; the integral might be
   \code{ani.options('nmax')} specifies the maximum number of trials.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/mc-hitormiss/}
+Examples at \url{https://yihui.org/animation/example/mc-hitormiss/}
 }
 \seealso{
 \code{\link{integrate}}, \code{\link{MC.samplemean}}

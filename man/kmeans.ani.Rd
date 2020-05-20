@@ -4,8 +4,13 @@
 \alias{kmeans.ani}
 \title{Demonstration of the k-Means clustering algorithm}
 \usage{
-kmeans.ani(x = cbind(X1 = runif(50), X2 = runif(50)), centers = 3, 
-    hints = c("Move centers!", "Find cluster?"), pch = 1:3, col = 1:3)
+kmeans.ani(
+  x = cbind(X1 = runif(50), X2 = runif(50)),
+  centers = 3,
+  hints = c("Move centers!", "Find cluster?"),
+  pch = 1:3,
+  col = 1:3
+)
 }
 \arguments{
 \item{x}{A numercal matrix or an object that can be coerced to such a matrix
@@ -55,7 +60,7 @@ This function is only for demonstration purpose. For practical
   membership will not change any longer).
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/kmeans-ani/}
+Examples at \url{https://yihui.org/animation/example/kmeans-ani/}
 }
 \seealso{
 \code{\link{kmeans}}

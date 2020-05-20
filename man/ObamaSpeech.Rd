@@ -4,7 +4,9 @@
 \name{ObamaSpeech}
 \alias{ObamaSpeech}
 \title{Word counts of a speech by the US President Obama}
-\format{int [1:59] 2 45 52 53 11 48 28 15 50 29 ...}
+\format{
+int [1:59] 2 45 52 53 11 48 28 15 50 29 ...
+}
 \source{
 The full text of speech is at
   \url{http://web.archive.org/web/20160306143403/http://www.baltimoresun.com/news/nation-world/bal-text1105-story.html}

@@ -5,11 +5,23 @@
 \alias{quincunx2}
 \title{Demonstration of the Quincunx (Bean Machine/Galton Box)}
 \usage{
-quincunx(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, 
-    col.balls = sample(colors(), balls, TRUE), cex.balls = 2)
+quincunx(
+  balls = 200,
+  layers = 15,
+  pch.layers = 2,
+  pch.balls = 19,
+  col.balls = sample(colors(), balls, TRUE),
+  cex.balls = 2
+)
 
-quincunx2(balls = 200, layers = 15, pch.layers = 2, pch.balls = 19, 
-    col.balls = sample(colors(), balls, TRUE), cex.balls = 2)
+quincunx2(
+  balls = 200,
+  layers = 15,
+  pch.layers = 2,
+  pch.balls = 19,
+  col.balls = sample(colors(), balls, TRUE),
+  cex.balls = 2
+)
 }
 \arguments{
 \item{balls}{number of balls}
@@ -50,7 +62,7 @@ The maximum number of animation frames is controlled by
   animation frames.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/quincunx/}
+Examples at \url{https://yihui.org/animation/example/quincunx/}
 }
 \seealso{
 \code{\link{rbinom}}

@@ -4,8 +4,18 @@
 \alias{price.ani}
 \title{Demonstrate stock prices in animations}
 \usage{
-price.ani(price, time, time.begin = min(time), span = 15 * 60, ..., xlab = "price", 
-    ylab = "frequency", xlim, ylim, main)
+price.ani(
+  price,
+  time,
+  time.begin = min(time),
+  span = 15 * 60,
+  ...,
+  xlab = "price",
+  ylab = "frequency",
+  xlim,
+  ylim,
+  main
+)
 }
 \arguments{
 \item{price}{stock prices}
@@ -30,7 +40,7 @@ This function can display the frequencies of stock prices in a certain time
 span with the span changing.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/price-ani/}
+Examples at \url{https://yihui.org/animation/example/price-ani/}
 }
 \author{
 Yihui Xie

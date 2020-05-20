@@ -32,7 +32,7 @@ In fact, points in the original version of `Lilac Chaser' are
   \emph{blurred}, which is not implemented in this function.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/vi-lilac.chaser/}
+Examples at \url{https://yihui.org/animation/example/vi-lilac.chaser/}
 }
 \seealso{
 \code{\link{points}}

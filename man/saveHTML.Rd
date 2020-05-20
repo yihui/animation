@@ -4,9 +4,15 @@
 \alias{saveHTML}
 \title{Insert animations into an HTML page}
 \usage{
-saveHTML(expr, img.name = "Rplot", global.opts = "", single.opts = "", 
-    navigator = ani.options("nmax") <= 100 && ani.options("interval") >= 
-        0.05, htmlfile = "index.html", ...)
+saveHTML(
+  expr,
+  img.name = "Rplot",
+  global.opts = "",
+  single.opts = "",
+  navigator = ani.options("nmax") <= 100 && ani.options("interval") >= 0.05,
+  htmlfile = "index.html",
+  ...
+)
 }
 \arguments{
 \item{expr}{an R expression to be evaluated to create a sequence of images}
@@ -93,14 +99,17 @@ Microsoft IE might restrict the HTML page from running JavaScript and
   See the last example below.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/savehtml/}
+Examples at \url{https://yihui.org/animation/example/savehtml/}
 
   scianimator official website \url{https://github.com/brentertz/scianimator}
 }
 \seealso{
-Other utilities: \code{\link{im.convert}},
-  \code{\link{saveGIF}}, \code{\link{saveLatex}},
-  \code{\link{saveSWF}}, \code{\link{saveVideo}}
+Other utilities: 
+\code{\link{im.convert}()},
+\code{\link{saveGIF}()},
+\code{\link{saveLatex}()},
+\code{\link{saveSWF}()},
+\code{\link{saveVideo}()}
 }
 \author{
 Yihui Xie

@@ -4,8 +4,14 @@
 \alias{g.brownian.motion}
 \title{Brownian Motion using Google Visualization API}
 \usage{
-g.brownian.motion(p = 20, start = 1900, digits = 14, file = "index.html", width = 800, 
-    height = 600)
+g.brownian.motion(
+  p = 20,
+  start = 1900,
+  digits = 14,
+  file = "index.html",
+  width = 800,
+  height = 600
+)
 }
 \arguments{
 \item{p}{number of points}

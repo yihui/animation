@@ -4,10 +4,23 @@
 \alias{saveLatex}
 \title{Insert animations into a LaTeX document and compile it}
 \usage{
-saveLatex(expr, nmax, img.name = "Rplot", ani.opts, centering = TRUE, 
-    caption = NULL, label = NULL, pkg.opts = NULL, documentclass = "article", 
-    latex.filename = "animation.tex", pdflatex = "pdflatex", install.animate = TRUE, 
-    overwrite = TRUE, full.path = FALSE, ...)
+saveLatex(
+  expr,
+  nmax,
+  img.name = "Rplot",
+  ani.opts,
+  centering = TRUE,
+  caption = NULL,
+  label = NULL,
+  pkg.opts = NULL,
+  documentclass = "article",
+  latex.filename = "animation.tex",
+  pdflatex = "pdflatex",
+  install.animate = TRUE,
+  overwrite = TRUE,
+  full.path = FALSE,
+  ...
+)
 }
 \arguments{
 \item{expr}{an expression to generate animations; use either the animation
@@ -104,16 +117,19 @@ This function will detect if it was called in a Sweave environment --
   \code{options(pdfviewer = 'acroread')}.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/savelatex/}
+Examples at \url{https://yihui.org/animation/example/savelatex/}
 
   To know more about the \code{animate} package, please refer to
   \url{http://www.ctan.org/tex-archive/macros/latex/contrib/animate/}. There
   are a lot of options can be set in \code{ani.opts} and \code{pkg.opts}.
 }
 \seealso{
-Other utilities: \code{\link{im.convert}},
-  \code{\link{saveGIF}}, \code{\link{saveHTML}},
-  \code{\link{saveSWF}}, \code{\link{saveVideo}}
+Other utilities: 
+\code{\link{im.convert}()},
+\code{\link{saveGIF}()},
+\code{\link{saveHTML}()},
+\code{\link{saveSWF}()},
+\code{\link{saveVideo}()}
 }
 \author{
 Yihui Xie

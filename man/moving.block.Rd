@@ -49,7 +49,7 @@ There will be \code{ani.options('nmax')} image frames created in the
   more about how to make use of these three arguments.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/moving-block/}
+Examples at \url{https://yihui.org/animation/example/moving-block/}
 }
 \author{
 Yihui Xie

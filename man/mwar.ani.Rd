@@ -4,8 +4,16 @@
 \alias{mwar.ani}
 \title{Demonstration for ``Moving Window Auto-Regression''}
 \usage{
-mwar.ani(x, k = 15, conf = 2, mat = matrix(1:2, 2), widths = rep(1, ncol(mat)), 
-    heights = rep(1, nrow(mat)), lty.rect = 2, ...)
+mwar.ani(
+  x,
+  k = 15,
+  conf = 2,
+  mat = matrix(1:2, 2),
+  widths = rep(1, ncol(mat)),
+  heights = rep(1, nrow(mat)),
+  lty.rect = 2,
+  ...
+)
 }
 \arguments{
 \item{x}{univariate time-series (a single numerical vector); default to be
@@ -40,7 +48,7 @@ computed for data points inside the ``windows'' during the process of moving.
 The AR(1) coefficients are computed by \code{\link{arima}}.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/mwar-ani/}
+Examples at \url{https://yihui.org/animation/example/mwar-ani/}
 
   Robert A. Meyer, Jr. Estimating coefficients that change over
   time. \emph{International Economic Review}, 13(3):705-710, 1972.

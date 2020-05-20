@@ -5,9 +5,14 @@
 \alias{gm.convert}
 \title{A wrapper for the `convert' utility of ImageMagick or GraphicsMagick}
 \usage{
-im.convert(files, output = "animation.gif", convert = c("magick", "convert", 
-    "gm convert"), cmd.fun = if (.Platform$OS.type == "windows") shell else system, 
-    extra.opts = "", clean = FALSE)
+im.convert(
+  files,
+  output = "animation.gif",
+  convert = c("magick", "convert", "gm convert"),
+  cmd.fun = if (.Platform$OS.type == "windows") shell else system,
+  extra.opts = "",
+  clean = FALSE
+)
 
 gm.convert(..., convert = "gm convert")
 }
@@ -97,16 +102,19 @@ If \code{files} is a character vector, please make sure the order of
   failures.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/im-convert/}
+Examples at \url{https://yihui.org/animation/example/im-convert/}
 
   ImageMagick: \url{http://www.imagemagick.org/script/convert.php}
 
   GraphicsMagick: \url{http://www.graphicsmagick.org}
 }
 \seealso{
-Other utilities: \code{\link{saveGIF}},
-  \code{\link{saveHTML}}, \code{\link{saveLatex}},
-  \code{\link{saveSWF}}, \code{\link{saveVideo}}
+Other utilities: 
+\code{\link{saveGIF}()},
+\code{\link{saveHTML}()},
+\code{\link{saveLatex}()},
+\code{\link{saveSWF}()},
+\code{\link{saveVideo}()}
 }
 \author{
 Yihui Xie

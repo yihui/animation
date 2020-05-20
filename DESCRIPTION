@@ -34,4 +34,4 @@ URL: https://yihui.org/animation/
 BugReports: https://github.com/yihui/animation/issues
 LazyData: yes
 Encoding: UTF-8
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0

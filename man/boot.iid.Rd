@@ -4,9 +4,18 @@
 \alias{boot.iid}
 \title{Demonstrate bootstrapping for iid data}
 \usage{
-boot.iid(x = runif(20), statistic = mean, m = length(x), mat = matrix(1:2, 2), 
-    widths = rep(1, ncol(mat)), heights = rep(1, nrow(mat)), col = c("black", "red", 
-        "bisque", "red", "gray"), cex = c(1.5, 0.8), main, ...)
+boot.iid(
+  x = runif(20),
+  statistic = mean,
+  m = length(x),
+  mat = matrix(1:2, 2),
+  widths = rep(1, ncol(mat)),
+  heights = rep(1, nrow(mat)),
+  col = c("black", "red", "bisque", "red", "gray"),
+  cex = c(1.5, 0.8),
+  main,
+  ...
+)
 }
 \arguments{
 \item{x}{a numerical vector (the original data).}
@@ -55,7 +64,7 @@ The maximum times of resampling is specified in
   \code{ani.options('nmax')}.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/boot-iid/}
+Examples at \url{https://yihui.org/animation/example/boot-iid/}
 
   There are many references explaining the bootstrap and its
   variations.

@@ -4,9 +4,19 @@
 \alias{grad.desc}
 \title{Gradient Descent Algorithm for the 2D case}
 \usage{
-grad.desc(FUN = function(x, y) x^2 + 2 * y^2, rg = c(-3, -3, 3, 3), init = c(-3, 
-    3), gamma = 0.05, tol = 0.001, gr = NULL, len = 50, interact = FALSE, 
-    col.contour = "red", col.arrow = "blue", main)
+grad.desc(
+  FUN = function(x, y) x^2 + 2 * y^2,
+  rg = c(-3, -3, 3, 3),
+  init = c(-3, 3),
+  gamma = 0.05,
+  tol = 0.001,
+  gr = NULL,
+  len = 50,
+  interact = FALSE,
+  col.contour = "red",
+  col.arrow = "blue",
+  main
+)
 }
 \arguments{
 \item{FUN}{a bivariate objective function to be minimized (variable names do
@@ -80,7 +90,7 @@ Please make sure the function \code{FUN} provided is differentiable at
   increased.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/grad-desc/}
+Examples at \url{https://yihui.org/animation/example/grad-desc/}
 }
 \seealso{
 \code{\link{deriv}}, \code{\link{persp}}, \code{\link{contour}},

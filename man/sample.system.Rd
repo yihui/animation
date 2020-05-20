@@ -4,8 +4,13 @@
 \alias{sample.system}
 \title{Demonstration for the systematic sampling}
 \usage{
-sample.system(nrow = 10, ncol = 10, size = 15, p.col = c("blue", "red"), p.cex = c(1, 
-    3))
+sample.system(
+  nrow = 10,
+  ncol = 10,
+  size = 15,
+  p.col = c("blue", "red"),
+  p.cex = c(1, 3)
+)
 }
 \arguments{
 \item{nrow}{the desired number of rows of the sample frame.}
@@ -26,7 +31,7 @@ plane, and the sample points with equal intervals are drawn out according to
 a random starting point. The points being sampled are marked by red circles.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/sample-system/}
+Examples at \url{https://yihui.org/animation/example/sample-system/}
 }
 \seealso{
 \code{\link{sample}}, \code{\link{sample.simple}},

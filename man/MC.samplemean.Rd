@@ -4,8 +4,13 @@
 \alias{MC.samplemean}
 \title{Sample Mean Monte Carlo integration}
 \usage{
-MC.samplemean(FUN = function(x) x - x^2, n = ani.options("nmax"), col.rect = c("gray", 
-    "black"), adj.x = TRUE, ...)
+MC.samplemean(
+  FUN = function(x) x - x^2,
+  n = ani.options("nmax"),
+  col.rect = c("gray", "black"),
+  adj.x = TRUE,
+  ...
+)
 }
 \arguments{
 \item{FUN}{the function to be integrated}
@@ -52,7 +57,7 @@ This function is for demonstration purpose only; the integral might be
   \code{ani.options('nmax')} specifies the maximum number of trials.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/mc-samplemean/}
+Examples at \url{https://yihui.org/animation/example/mc-samplemean/}
 }
 \seealso{
 \code{\link{integrate}}, \code{\link{MC.hitormiss}}

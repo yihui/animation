@@ -4,9 +4,14 @@
 \alias{saveVideo}
 \title{Convert a sequence of images to a video by FFmpeg}
 \usage{
-saveVideo(expr, video.name = "animation.mp4", img.name = "Rplot", 
-    ffmpeg = ani.options("ffmpeg"), other.opts = if (grepl("[.]mp4$", 
-        video.name)) "-pix_fmt yuv420p", ...)
+saveVideo(
+  expr,
+  video.name = "animation.mp4",
+  img.name = "Rplot",
+  ffmpeg = ani.options("ffmpeg"),
+  other.opts = if (grepl("[.]mp4$", video.name)) "-pix_fmt yuv420p",
+  ...
+)
 }
 \arguments{
 \item{expr}{the R code to draw (several) plots}
@@ -51,14 +56,17 @@ There are a lot of possibilities in optimizing the video. My knowledge
   be a good guide: \url{http://code.google.com/p/winff/}.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/savevideo/}
+Examples at \url{https://yihui.org/animation/example/savevideo/}
 
   To know more about ffmpeg, please see \url{http://ffmpeg.org/documentation.html}
 }
 \seealso{
-Other utilities: \code{\link{im.convert}},
-  \code{\link{saveGIF}}, \code{\link{saveHTML}},
-  \code{\link{saveLatex}}, \code{\link{saveSWF}}
+Other utilities: 
+\code{\link{im.convert}()},
+\code{\link{saveGIF}()},
+\code{\link{saveHTML}()},
+\code{\link{saveLatex}()},
+\code{\link{saveSWF}()}
 }
 \author{
 Yihui Xie, based on an inital version by Thomas Julou

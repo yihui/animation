@@ -4,7 +4,13 @@
 \alias{saveSWF}
 \title{Convert images to Flash animations}
 \usage{
-saveSWF(expr, swf.name = "animation.swf", img.name = "Rplot", swftools = NULL, ...)
+saveSWF(
+  expr,
+  swf.name = "animation.swf",
+  img.name = "Rplot",
+  swftools = NULL,
+  ...
+)
 }
 \arguments{
 \item{expr}{an expression to generate animations; use either the animation
@@ -52,12 +58,15 @@ Please download and install the SWFTools before using this function:
   \code{\link{pdftk}}.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/saveswf/}
+Examples at \url{https://yihui.org/animation/example/saveswf/}
 }
 \seealso{
-Other utilities: \code{\link{im.convert}},
-  \code{\link{saveGIF}}, \code{\link{saveHTML}},
-  \code{\link{saveLatex}}, \code{\link{saveVideo}}
+Other utilities: 
+\code{\link{im.convert}()},
+\code{\link{saveGIF}()},
+\code{\link{saveHTML}()},
+\code{\link{saveLatex}()},
+\code{\link{saveVideo}()}
 }
 \author{
 Yihui Xie

@@ -4,8 +4,15 @@
 \alias{lln.ani}
 \title{Demonstration of Law of Large Numbers}
 \usage{
-lln.ani(FUN = rnorm, mu = 0, np = 30, pch = 20, col.poly = "bisque", col.mu = "gray", 
-    ...)
+lln.ani(
+  FUN = rnorm,
+  mu = 0,
+  np = 30,
+  pch = 20,
+  col.poly = "bisque",
+  col.mu = "gray",
+  ...
+)
 }
 \arguments{
 \item{FUN}{a function to generate random numbers from a certain distribution:
@@ -49,7 +56,7 @@ The argument \code{pch} will influence the speed of plotting, and for a
   specified as `\code{.}'.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/lln-ani/}
+Examples at \url{https://yihui.org/animation/example/lln-ani/}
 }
 \author{
 Yihui Xie

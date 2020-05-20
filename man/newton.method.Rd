@@ -4,8 +4,18 @@
 \alias{newton.method}
 \title{Demonstration of the Newton-Raphson method for root-finding}
 \usage{
-newton.method(FUN = function(x) x^2 - 4, init = 10, rg = c(-1, 10), tol = 0.001, 
-    interact = FALSE, col.lp = c("blue", "red", "red"), main, xlab, ylab, ...)
+newton.method(
+  FUN = function(x) x^2 - 4,
+  init = 10,
+  rg = c(-1, 10),
+  tol = 0.001,
+  interact = FALSE,
+  col.lp = c("blue", "red", "red"),
+  main,
+  xlab,
+  ylab,
+  ...
+)
 }
 \arguments{
 \item{FUN}{the function in the equation to solve (univariate), which has to
@@ -60,7 +70,7 @@ The algorithm might not converge -- it depends on the starting value.
   See the examples below.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/newton-method/}
+Examples at \url{https://yihui.org/animation/example/newton-method/}
 
 For more information about Newton's method, please see \url{http://en.wikipedia.org/wiki/Newton's_method}
 }

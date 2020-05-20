@@ -74,10 +74,10 @@ Bug reports and feature requests can be sent to
 }
 
 \references{
-Examples at \url{https://yihui.name/animation/example/animation-package/}
+Examples at \url{https://yihui.org/animation/example/animation-package/}
 
   The associated website for this package:
-  \url{https://yihui.name/animation}
+  \url{https://yihui.org/animation}
 
   Yihui Xie and Xiaoyue Cheng. animation: A package for statistical
   animations. \emph{R News}, \bold{8}(2):23--27, October 2008.  URL:

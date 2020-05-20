@@ -4,10 +4,12 @@
 \name{pollen}
 \alias{pollen}
 \title{Synthetic dataset about the geometric features of pollen grains}
-\format{A data frame with 3848 observations on the following 5 variables.
+\format{
+A data frame with 3848 observations on the following 5 variables.
   \describe{ \item{RIDGE}{a numeric vector} \item{NUB}{a numeric vector}
   \item{CRACK}{a numeric vector} \item{WEIGHT}{a numeric vector}
-  \item{DENSITY}{a numeric vector} }}
+  \item{DENSITY}{a numeric vector} }
+}
 \source{
 collected from Statlib Datasets Archive:
   \url{http://lib.stat.cmu.edu/data-expo/}

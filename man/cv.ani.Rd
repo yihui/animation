@@ -4,7 +4,13 @@
 \alias{cv.ani}
 \title{Demonstration for the process of cross-validation}
 \usage{
-cv.ani(x = runif(150), k = 10, col = c("green", "red", "blue"), pch = c(4, 1), ...)
+cv.ani(
+  x = runif(150),
+  k = 10,
+  col = c("green", "red", "blue"),
+  pch = c(4, 1),
+  ...
+)
 }
 \arguments{
 \item{x}{a numerical vector which stands for the sample points.}
@@ -48,7 +54,7 @@ This function has nothing to do with specific models used in
 cross-validation.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/cv-ani/}
+Examples at \url{https://yihui.org/animation/example/cv-ani/}
 }
 \seealso{
 \code{\link{kfcv}}

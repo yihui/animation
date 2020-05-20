@@ -4,8 +4,17 @@
 \alias{flip.coin}
 \title{Probability in flipping coins}
 \usage{
-flip.coin(faces = 2, prob = NULL, border = "white", grid = "white", col = 1:2, 
-    type = "p", pch = 21, bg = "transparent", digits = 3)
+flip.coin(
+  faces = 2,
+  prob = NULL,
+  border = "white",
+  grid = "white",
+  col = 1:2,
+  type = "p",
+  pch = 21,
+  bg = "transparent",
+  digits = 3
+)
 }
 \arguments{
 \item{faces}{an integer or a character vector. See details below.}
@@ -56,7 +65,7 @@ You may change the colors of each face using the argument \code{col}
   (repeated if shorter than the number of faces).
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/flip-coin/}
+Examples at \url{https://yihui.org/animation/example/flip-coin/}
 }
 \seealso{
 \code{\link{points}}, \code{\link{sample}}

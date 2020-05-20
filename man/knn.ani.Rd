@@ -4,9 +4,19 @@
 \alias{knn.ani}
 \title{Demonstration of the k-Nearest Neighbour classification}
 \usage{
-knn.ani(train, test, cl, k = 10, interact = FALSE, tt.col = c("blue", "red"), 
-    cl.pch = seq_along(unique(cl)), dist.lty = 2, dist.col = "gray", knn.col = "green", 
-    ...)
+knn.ani(
+  train,
+  test,
+  cl,
+  k = 10,
+  interact = FALSE,
+  tt.col = c("blue", "red"),
+  cl.pch = seq_along(unique(cl)),
+  dist.lty = 2,
+  dist.col = "gray",
+  knn.col = "green",
+  ...
+)
 }
 \arguments{
 \item{train}{matrix or data frame of training set cases containing only 2
@@ -70,7 +80,7 @@ There is a special restriction (only two columns) on the training and
   random matrices prepared for them. (It's the same for \code{cl}.)
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/knn-ani/}
+Examples at \url{https://yihui.org/animation/example/knn-ani/}
 
   Venables, W. N. and Ripley, B. D. (2002) \emph{Modern Applied
   Statistics with S}. Fourth edition. Springer.

@@ -4,10 +4,23 @@
 \alias{Rosling.bubbles}
 \title{The bubbles animation in Hans Rosling's Talk}
 \usage{
-Rosling.bubbles(x, y, data, type = c("circles", "squares", "rectangles", "stars", 
-    "thermometers", "boxplots"), bg, xlim = range(x), ylim = range(y), main = NULL, 
-    xlab = "x", ylab = "y", ..., grid = TRUE, text = 1:ani.options("nmax"), 
-    text.col = rgb(0, 0, 0, 0.5), text.cex = 5)
+Rosling.bubbles(
+  x,
+  y,
+  data,
+  type = c("circles", "squares", "rectangles", "stars", "thermometers", "boxplots"),
+  bg,
+  xlim = range(x),
+  ylim = range(y),
+  main = NULL,
+  xlab = "x",
+  ylab = "y",
+  ...,
+  grid = TRUE,
+  text = 1:ani.options("nmax"),
+  text.col = rgb(0, 0, 0, 0.5),
+  text.cex = 5
+)
 }
 \arguments{
 \item{x, y}{the x and y co-ordinates for the centres of the bubbles (symbols).
@@ -52,7 +65,7 @@ And the length of \code{x} and \code{y} should be equal to the number of rows
 of this matrix.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/rosling-bubbles/}
+Examples at \url{https://yihui.org/animation/example/rosling-bubbles/}
 
   TED talk: 
   \url{http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html}

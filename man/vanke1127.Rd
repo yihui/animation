@@ -4,9 +4,11 @@
 \name{vanke1127}
 \alias{vanke1127}
 \title{Stock prices of Vanke Co., Ltd on 2009/11/27}
-\format{A data frame with 2831 observations on the following 2 variables.
+\format{
+A data frame with 2831 observations on the following 2 variables.
   \describe{ \item{time}{POSIXt: the time corresponding to stock prices}
-  \item{price}{a numeric vector: stock prices} }}
+  \item{price}{a numeric vector: stock prices} }
+}
 \source{
 This data can be obtained from most stock websites.
 }

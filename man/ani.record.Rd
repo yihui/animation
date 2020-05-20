@@ -104,7 +104,7 @@ saveHTML({
 ani.options(oopts)
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/ani-record/}
+Examples at \url{https://yihui.org/animation/example/ani-record/}
 }
 \seealso{
 \code{\link{recordPlot}} and \code{\link{replayPlot}};

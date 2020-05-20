@@ -4,8 +4,13 @@
 \alias{sample.cluster}
 \title{Demonstration for the cluster sampling}
 \usage{
-sample.cluster(pop = ceiling(10 * runif(10, 0.2, 1)), size = 3, p.col = c("blue", 
-    "red"), p.cex = c(1, 3), ...)
+sample.cluster(
+  pop = ceiling(10 * runif(10, 0.2, 1)),
+  size = 3,
+  p.col = c("blue", "red"),
+  p.cex = c(1, 3),
+  ...
+)
 }
 \arguments{
 \item{pop}{a vector for the size of each cluster in the population.}
@@ -27,7 +32,7 @@ replacement is performed for each cluster. All points in the clusters being
 sampled will be drawn out.
 }
 \references{
-Examples at \url{https://yihui.name/animation/example/sample-cluster/}
+Examples at \url{https://yihui.org/animation/example/sample-cluster/}
 }
 \seealso{
 \code{\link{sample}}, \code{\link{sample.simple}},
