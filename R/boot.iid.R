@@ -33,7 +33,7 @@
 #'   \code{ani.options('nmax')}.
 #' @author Yihui Xie
 #' @seealso \code{\link{sunflowerplot}}
-#' @references Examples at \url{https://yihui.name/animation/example/boot-iid/}
+#' @references Examples at \url{https://yihui.org/animation/example/boot-iid/}
 #' 
 #'   There are many references explaining the bootstrap and its
 #'   variations.

@@ -16,7 +16,7 @@
 #'   returns the status of the operation (\code{0} for success; see
 #'   \code{\link{system}}); otherwise a warning will be issued
 #' @author Yihui Xie
-#' @references Examples at \url{https://yihui.name/animation/example/qpdf/}
+#' @references Examples at \url{https://yihui.org/animation/example/qpdf/}
 #' 
 #' qpdf official website \url{http://qpdf.sourceforge.net/}
 #' @export

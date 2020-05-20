@@ -22,7 +22,7 @@
 #'   interval}
 #' @author Yihui Xie
 #' @seealso \code{\link{arima}}
-#' @references Examples at \url{https://yihui.name/animation/example/mwar-ani/}
+#' @references Examples at \url{https://yihui.org/animation/example/mwar-ani/}
 #' 
 #'   Robert A. Meyer, Jr. Estimating coefficients that change over
 #'   time. \emph{International Economic Review}, 13(3):705-710, 1972.

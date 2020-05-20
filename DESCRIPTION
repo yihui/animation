@@ -30,7 +30,7 @@ Suggests:
     class,
     testit
 License: GPL
-URL: https://yihui.name/animation
+URL: https://yihui.org/animation/
 BugReports: https://github.com/yihui/animation/issues
 LazyData: yes
 Encoding: UTF-8

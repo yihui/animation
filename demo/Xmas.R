@@ -1,5 +1,5 @@
 # Merry Xmas 2009!
-# see: http://yihui.name/en/2009/12/merry-christmas-using-r/
+# see: http://yihui.org/en/2009/12/merry-christmas-using-r/
 n = length(speed <- runif(angle <- runif(
   x <- strsplit('MERRY CHRISTMAS', '')[[1]], 0, 360), 0, 15))
 x11(width = 10, height = 3)

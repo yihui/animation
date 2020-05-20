@@ -21,7 +21,7 @@
 #' @note The maximum number of steps in the motion is specified in
 #'   \code{ani.options('nmax')}.
 #' @author Yihui Xie
-#' @references Examples at \url{https://yihui.name/animation/example/brownian-motion/}
+#' @references Examples at \url{https://yihui.org/animation/example/brownian-motion/}
 #' @seealso \code{\link{rnorm}}
 #' @export
 brownian.motion = function(

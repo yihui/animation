@@ -55,7 +55,7 @@
 #'   confusions between \code{\link{saveMovie}} and \code{\link{saveVideo}}.
 #' @author Yihui Xie
 #' @family utilities
-#' @references Examples at \url{https://yihui.name/animation/example/savegif/}
+#' @references Examples at \url{https://yihui.org/animation/example/savegif/}
 #'
 #'   ImageMagick: \url{http://www.imagemagick.org/script/convert.php};
 #'

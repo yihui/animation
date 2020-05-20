@@ -69,7 +69,7 @@
 #'   failures.
 #' @author Yihui Xie
 #' @family utilities
-#' @references Examples at \url{https://yihui.name/animation/example/im-convert/}
+#' @references Examples at \url{https://yihui.org/animation/example/im-convert/}
 #'
 #'   ImageMagick: \url{http://www.imagemagick.org/script/convert.php}
 #'

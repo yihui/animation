@@ -36,7 +36,7 @@
 #'   P-values
 #' @return A data frame of P-values.
 #' @author Yihui Xie
-#' @references Examples at \url{https://yihui.name/animation/example/clt-ani/}
+#' @references Examples at \url{https://yihui.org/animation/example/clt-ani/}
 #' @seealso \code{\link{hist}}, \code{\link{density}}
 #' @export
 clt.ani = function(

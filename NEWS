@@ -27,7 +27,7 @@ MAJOR CHANGES
   o removed all examples from the package, since this package failed to pass R
   CMD check on CRAN for unknown reasons; all examples are still available on
   Github https://github.com/yihui/animation/tree/master/inst/examples and they
-  will be moved to https://yihui.name/animation in the future
+  will be moved to https://yihui.org/animation in the future
 
 		  CHANGES IN animation VERSION 2.4
 
@@ -92,7 +92,7 @@ BUG FIXES
 
 DOCUMENTATION
 
-  o the animation website http://animation.yihui.name is being rebuilt with
+  o the animation website http://animation.yihui.org is being rebuilt with
   knitr and Jekyll on Github (contributions/pull requests are welcome):
   http://vis.supstat.com/categories.html#Animation-ref
 
@@ -794,7 +794,7 @@ NEW FEATURES
   a new interface.
 
     o A wiki has been build to support this package:
-  http://animation.yihui.name (AniWiki: Animations in Statistics)
+  http://animation.yihui.org (AniWiki: Animations in Statistics)
 
 MINOR CHANGES
 
@@ -809,7 +809,7 @@ MINOR CHANGES
 SIGNIFICANT CHANGES
 
     o The vignette is abandoned and stopped being updated; the wiki
-  http://animation.yihui.name will be used instead.
+  http://animation.yihui.org will be used instead.
 
     o The way to create HTML animations is significantly changed for
   the sake of a better interface and more flexible control of

@@ -28,7 +28,7 @@
 #'   very large sample size (say, 300), it is suggested that this argument be
 #'   specified as `\code{.}'.
 #' @author Yihui Xie
-#' @references Examples at \url{https://yihui.name/animation/example/lln-ani/}
+#' @references Examples at \url{https://yihui.org/animation/example/lln-ani/}
 #' @export
 lln.ani = function(
   FUN = rnorm, mu = 0, np = 30, pch = 20, col.poly = 'bisque', col.mu = 'gray', ...

@@ -33,7 +33,7 @@
 #'   animation pages when we use the \code{\link{png}} device (see the examples
 #'   below).
 #' @author Yihui Xie
-#' @references Examples at \url{https://yihui.name/animation/example/ani-record/}
+#' @references Examples at \url{https://yihui.org/animation/example/ani-record/}
 #' @seealso \code{\link{recordPlot}} and \code{\link{replayPlot}};
 #'   \code{\link{ani.pause}}
 #' @export

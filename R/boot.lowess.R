@@ -10,7 +10,7 @@
 #' @param ... other arguments passed to the scatterplot by \code{\link{plot}}
 #' @return NULL
 #' @author Yihui Xie
-#' @references Examples at \url{https://yihui.name/animation/example/boot-lowess/}
+#' @references Examples at \url{https://yihui.org/animation/example/boot-lowess/}
 #' @export
 boot.lowess = function(x, y = NULL, f = 2/3, iter = 3, line.col = '#FF000033', ...) {
   if (missing(x)) {

@@ -10,7 +10,7 @@
 #'   population and the sample
 #' @return None (invisible \code{NULL}).
 #' @author Yihui Xie
-#' @references Examples at \url{https://yihui.name/animation/example/sample-system/}
+#' @references Examples at \url{https://yihui.org/animation/example/sample-system/}
 #' @seealso \code{\link{sample}}, \code{\link{sample.simple}},
 #'   \code{\link{sample.cluster}}, \code{\link{sample.ratio}},
 #'   \code{\link{sample.strat}}

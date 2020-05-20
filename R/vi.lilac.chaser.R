@@ -13,7 +13,7 @@
 #' @note In fact, points in the original version of `Lilac Chaser' are
 #'   \emph{blurred}, which is not implemented in this function.
 #' @author Yihui Xie
-#' @references Examples at \url{https://yihui.name/animation/example/vi-lilac.chaser/}
+#' @references Examples at \url{https://yihui.org/animation/example/vi-lilac.chaser/}
 #' @seealso \code{\link{points}}
 #' @export
 vi.lilac.chaser = function(

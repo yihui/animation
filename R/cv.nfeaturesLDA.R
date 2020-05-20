@@ -48,7 +48,7 @@
 #'   based on the cross-validation}
 #' @author Yihui Xie <\url{http://yihui.name}>
 #' @seealso \code{\link{kfcv}}, \code{\link{cv.ani}}, \code{\link[MASS]{lda}}
-#' @references Examples at \url{https://yihui.name/animation/example/cv-nfeatureslda/}
+#' @references Examples at \url{https://yihui.org/animation/example/cv-nfeatureslda/}
 #' 
 #'   Maindonald J, Braun J (2007). \emph{Data Analysis and Graphics
 #'   Using R - An Example-Based Approach}. Cambridge University Press, 2nd

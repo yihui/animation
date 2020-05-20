@@ -55,10 +55,10 @@
 #' @author Yihui Xie
 #' @note Bug reports and feature requests can be sent to
 #'   \url{https://github.com/yihui/animation/issues}.
-#' @references Examples at \url{https://yihui.name/animation/example/animation-package/}
+#' @references Examples at \url{https://yihui.org/animation/example/animation-package/}
 #'
 #'   The associated website for this package:
-#'   \url{https://yihui.name/animation}
+#'   \url{https://yihui.org/animation}
 #'
 #'   Yihui Xie and Xiaoyue Cheng. animation: A package for statistical
 #'   animations. \emph{R News}, \bold{8}(2):23--27, October 2008.  URL:
@@ -114,7 +114,7 @@ NULL
 
 #' Page views from Sep 21, 2007 to Dec 2, 2007 of Yihui's website
 #'
-#' The data is collected by Awstats for the website \url{http://yihui.name}.
+#' The data is collected by Awstats for the website \url{http://yihui.org}.
 #' @name pageview
 #' @docType data
 #' @format A data frame with 73 observations on the following 5 variables.
@@ -128,7 +128,7 @@ NULL
 #'   \emph{page, image, file} of the site is viewed or downloaded by someone.}
 #'   \item{bandwidth}{amount of data downloaded by all \emph{pages},
 #'   \emph{images} and \emph{files} within the site (units in MegaBytes).} }
-#' @source \url{http://yihui.name}
+#' @source \url{http://yihui.org}
 #' @examples
 #' plot(pageview[,1:2], type = 'b', col = 'red',
 #'   main = "Number of Visits in Yihui's Web")

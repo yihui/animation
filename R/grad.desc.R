@@ -54,7 +54,7 @@
 #'   iterations \code{nmax} in \code{\link{ani.options}} may need to be
 #'   increased.
 #' @author Yihui Xie
-#' @references Examples at \url{https://yihui.name/animation/example/grad-desc/}
+#' @references Examples at \url{https://yihui.org/animation/example/grad-desc/}
 #' @seealso \code{\link{deriv}}, \code{\link{persp}}, \code{\link{contour}},
 #'   \code{\link{optim}}
 #' @export

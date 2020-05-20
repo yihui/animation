@@ -6,7 +6,7 @@ env:
     - R_PKG="$(basename $TRAVIS_REPO_SLUG)"
 
 repos:
-  XRAN: https://xran.yihui.name
+  XRAN: https://xran.yihui.org
 
 addons:
   apt:

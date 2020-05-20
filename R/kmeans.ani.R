@@ -36,7 +36,7 @@
 #'   condition for stopping the iteration has not yet been met (i.e. the cluster
 #'   membership will not change any longer).
 #' @author Yihui Xie
-#' @references Examples at \url{https://yihui.name/animation/example/kmeans-ani/}
+#' @references Examples at \url{https://yihui.org/animation/example/kmeans-ani/}
 #' @seealso \code{\link{kmeans}}
 #' @export
 kmeans.ani = function(

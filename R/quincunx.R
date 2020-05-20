@@ -27,7 +27,7 @@
 #'   will just fall through all the layers and there will be no redundant
 #'   animation frames.
 #' @author Yihui Xie, Lijia Yu, and Keith ORourke
-#' @references Examples at \url{https://yihui.name/animation/example/quincunx/}
+#' @references Examples at \url{https://yihui.org/animation/example/quincunx/}
 #' @seealso \code{\link{rbinom}}
 #' @export
 quincunx = function(

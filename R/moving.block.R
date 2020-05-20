@@ -32,7 +32,7 @@
 #'   mean value of \code{dat[i + 1:block]}, etc. See the examples below to learn
 #'   more about how to make use of these three arguments.
 #' @author Yihui Xie
-#' @references Examples at \url{https://yihui.name/animation/example/moving-block/}
+#' @references Examples at \url{https://yihui.org/animation/example/moving-block/}
 #' @export
 moving.block = function(dat = runif(100), block, FUN, ...) {
   nmax = ani.options('nmax')

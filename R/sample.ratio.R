@@ -21,7 +21,7 @@
 #'   \item{Ybar}{population mean of Y} \item{ybar.simple}{simple sample mean of
 #'   Y} \item{ybar.ratio}{sample mean of Y via ratio estimation}
 #' @author Yihui Xie
-#' @references Examples at \url{https://yihui.name/animation/example/sample-ratio/}
+#' @references Examples at \url{https://yihui.org/animation/example/sample-ratio/}
 #' @seealso \code{\link{sample}}, \code{\link{sample.simple}},
 #'   \code{\link{sample.cluster}}, \code{\link{sample.strat}},
 #'   \code{\link{sample.system}}

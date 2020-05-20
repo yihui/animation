@@ -75,7 +75,7 @@
 #'   \code{options(pdfviewer = 'acroread')}.
 #' @author Yihui Xie
 #' @family utilities
-#' @references Examples at \url{https://yihui.name/animation/example/savelatex/}
+#' @references Examples at \url{https://yihui.org/animation/example/savelatex/}
 #'
 #'   To know more about the \code{animate} package, please refer to
 #'   \url{http://www.ctan.org/tex-archive/macros/latex/contrib/animate/}. There

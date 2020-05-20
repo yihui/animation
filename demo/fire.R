@@ -1,5 +1,5 @@
 ## Original code by Linlin Yan
-## See http://yihui.name/en/2009/06/simulation-of-burning-fire-in-r/ for the
+## See http://yihui.org/en/2009/06/simulation-of-burning-fire-in-r/ for the
 ##    introduction of this demo
 ## If your computer is too fast, just add Sys.sleep(0.01) somewhere in the loop
 local({
