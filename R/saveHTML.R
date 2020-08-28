@@ -132,8 +132,15 @@ saveHTML = function(
 
   img.fmt = file.path(imgdir, paste(img.name, ani.options('imgnfmt'), '.', ani.type, sep = ''))
   ani.options(img.fmt = img.fmt)
-  if ((use.dev <- ani.options('use.dev')))
-    ani.dev(img.fmt, width = ani.options('ani.width'), height = ani.options('ani.height'))
+  if ((use.dev <- ani.options('use.dev'))) {
+    if (is.character(ani.options('ani.dev')) &&
+        any(grepl(ani.options('ani.dev'), c("png", "bmp", "jpeg", "tiff")))) {
+      ani.dev(img.fmt, width = ani.options('ani.width'),
+              height = ani.options('ani.height'), res = ani.options('ani.res'))
+    } else {
+      ani.dev(img.fmt, width = ani.options('ani.width'), height = ani.options('ani.height'))
+    }
+  }
   eval(expr)
   if (use.dev) dev.off()
 
