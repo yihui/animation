@@ -10,8 +10,8 @@
 #' where \code{interval} comes from \code{ani.options('interval')}, and
 #' \code{ani.type} is from \code{ani.options('ani.type')}. For more details on
 #' the numerous options of FFmpeg, please see the reference.
-#' 
-#' Some linux systems may use the alternate software 'avconv' instead of 'ffmpeg'.  The package will attempt to determine which command is present and set \code{\link{ani.options}('ffmpeg')} to an appropriate default value. This can be overridden by passing in the \code{ffmpeg} argument. 
+#'
+#' Some linux systems may use the alternate software 'avconv' instead of 'ffmpeg'.  The package will attempt to determine which command is present and set \code{\link{ani.options}('ffmpeg')} to an appropriate default value. This can be overridden by passing in the \code{ffmpeg} argument.
 #' @param expr the R code to draw (several) plots
 #' @param img.name the file name of the sequence of images to be generated
 #' @param video.name the file name of the output video (e.g.
@@ -32,7 +32,7 @@
 #'   be of low quality or too large. The file \file{presets.xml} of WinFF might
 #'   be a good guide: \url{http://code.google.com/p/winff/}.
 #' @references Examples at \url{https://yihui.org/animation/example/savevideo/}
-#' 
+#'
 #'   To know more about ffmpeg, please see \url{http://ffmpeg.org/documentation.html}
 #' @family utilities
 #' @export
@@ -42,11 +42,11 @@ saveVideo = function(
 ) {
   oopt = ani.options(...)
   on.exit(ani.options(oopt))
-  
+
   if(!dir.exists(dirname(video.name))){
     dir.create(dirname(video.name))
   }
-  
+
   owd = setwd(tempdir())
   on.exit(setwd(owd), add = TRUE)
 
@@ -74,9 +74,15 @@ saveVideo = function(
   img.fmt = paste(img.name, num, '.', file.ext, sep = '')
   img.fmt = file.path(tempdir(), img.fmt)
   ani.options(img.fmt = img.fmt)
-  if ((use.dev <- ani.options('use.dev')))
-    ani.dev(img.fmt, width = ani.options('ani.width'),
-            height = ani.options('ani.height'))
+  if ((use.dev <- ani.options('use.dev'))) {
+    if (is.character(ani.options('ani.dev')) &&
+        any(grepl(ani.options('ani.dev'), c("png", "bmp", "jpeg", "tiff")))) {
+      ani.dev(img.fmt, width = ani.options('ani.width'),
+              height = ani.options('ani.height'), res = ani.options('ani.res'))
+    } else {
+      ani.dev(img.fmt, width = ani.options('ani.width'), height = ani.options('ani.height'))
+    }
+  }
   in_dir(owd, expr)
   if (use.dev) dev.off()
 
