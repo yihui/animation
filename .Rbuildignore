@@ -4,3 +4,4 @@ animation.Rproj
 ^\.Rproj\.user$
 ^.*\.Rproj$
 .travis.yml
+^\.github$
