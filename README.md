@@ -1,7 +1,9 @@
 # animation
 
-[![Build Status](https://travis-ci.org/yihui/animation.svg)](https://travis-ci.org/yihui/animation)
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/yihui/animation/workflows/R-CMD-check/badge.svg)](https://github.com/yihui/animation/actions)
 [![Downloads from the RStudio CRAN mirror](https://cranlogs.r-pkg.org/badges/animation)](https://cran.r-project.org/package=animation)
+<!-- badges: end -->
 
 ## Introduction
 
