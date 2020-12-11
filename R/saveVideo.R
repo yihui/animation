@@ -58,9 +58,8 @@ saveVideo = function(
 
   version = try(system(paste(ffmpeg, '-version'), intern = TRUE))
   if (inherits(version, 'try-error')) {
-    warning('The command "', ffmpeg, '" is not available in your system. Please install FFmpeg or avconv first: ',
-            ifelse(.Platform$OS.type == 'windows', 'http://ffmpeg.arrozcru.org/autobuilds/',
-                   'http://ffmpeg.org/download.html'))
+    warning('The command "', ffmpeg, '" is not available in your system.',
+            ' Please install FFmpeg or avconv first: http://ffmpeg.org/download.html')
     return()
   }
 
