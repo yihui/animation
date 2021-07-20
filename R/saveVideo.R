@@ -74,8 +74,7 @@ saveVideo = function(
   img.fmt = file.path(tempdir(), img.fmt)
   ani.options(img.fmt = img.fmt)
   if ((use.dev <- ani.options('use.dev'))) {
-    if (is.character(ani.options('ani.dev')) &&
-        any(grepl(ani.options('ani.dev'), c("png", "bmp", "jpeg", "tiff")))) {
+    if ("res" %in% names(formals(ani.dev))){
       ani.dev(img.fmt, width = ani.options('ani.width'),
               height = ani.options('ani.height'), res = ani.options('ani.res'))
     } else {
