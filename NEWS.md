@@ -1,8 +1,10 @@
 # CHANGES IN animation VERSION 2.7
 
-## BUG FIXES
-
 - `saveGIF()` didn't work when the option `ani.dev` is set to a function (thanks, @stla, #120 #121).
+
+- The `ani.res` option works for `saveHTML()` and `saveVideo()` now (thanks, @trevorld, #127 #129).
+
+- The `ani.res` option works for arbitrary graphical devices now (thanks, @trevorld, #135).
 
 # CHANGES IN animation VERSION 2.6
 
