@@ -44,7 +44,7 @@ The number of frames is controlled by \code{ani.options('nmax')} as
   HTML file to a web server and use the http address to view the Flash file.
 }
 \examples{
-g.brownian.motion(15, digits = 2, width = 600, height = 500, 
+if (interactive()) g.brownian.motion(15, digits = 2, width = 600, height = 500,
     file = "BM-motion-chart.html")
 }
 \references{

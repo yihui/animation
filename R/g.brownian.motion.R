@@ -25,7 +25,8 @@
 #'   \url{http://bit.ly/12w1sYi}
 #' @export
 #' @examples
-#' g.brownian.motion(15, digits = 2, width = 600, height = 500, file = 'BM-motion-chart.html')
+#' if (interactive())
+#'   g.brownian.motion(15, digits = 2, width = 600, height = 500, file = 'BM-motion-chart.html')
 g.brownian.motion = function(
   p = 20, start = 1900, digits = 14, file = 'index.html', width = 800, height = 600
 ) {
