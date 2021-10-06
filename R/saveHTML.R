@@ -205,6 +205,12 @@ saveHTML = function(
     browseURL(paste('file:///', normalizePath(htmlfile), sep = ''))
   ani.options(oopt)
   message('HTML file created at: ', htmlfile)
+
+  # a dirty hack to delete "non-standard things" during R CMD check
+  if (!interactive() && !is.na(Sys.getenv('_R_CHECK_PACKAGE_NAME_', NA))) {
+    unlink(c('css', imgdir, htmlfile, 'js'), recursive = TRUE)
+  }
+
   invisible(htmlfile)
 }
 
