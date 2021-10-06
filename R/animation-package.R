@@ -69,7 +69,7 @@
 #'
 #'   Yihui Xie (2013). animation: An R Package for Creating Animations and
 #'   Demonstrating Statistical Methods. \emph{Journal of Statistical Software},
-#'   \bold{53}(1), 1-27. URL \url{https://doi.org/10.18637/jss.v053.i01}.
+#'   \bold{53}(1), 1-27. URL \doi{10.18637/jss.v053.i01}.
 #' @seealso \code{\link{saveHTML}}, \code{\link{saveGIF}},
 #'   \code{\link{saveSWF}}, \code{\link{saveVideo}}, \code{\link{saveLatex}}
 #' @import datasets grDevices graphics stats utils
