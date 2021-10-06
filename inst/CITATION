@@ -11,13 +11,13 @@ citEntry(entry = "Article",
   volume       = "53",
   number       = "1",
   pages        = "1--27",
-  url          = "http://www.jstatsoft.org/v53/i01/",
+  url          = "https://doi.org/10.18637/jss.v053.i01",
 
   textVersion  =
   paste("Yihui Xie (2013).",
         "animation: An R Package for Creating Animations and Demonstrating Statistical Methods.",
         "Journal of Statistical Software, 53(1), 1-27.",
-        "URL http://www.jstatsoft.org/v53/i01/.")
+        "URL https://doi.org/10.18637/jss.v053.i01.")
 )
 
 citEntry(
