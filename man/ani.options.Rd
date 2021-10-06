@@ -181,9 +181,9 @@ Examples at \url{https://yihui.org/animation/example/ani-options/}
   \code{\link{saveHTML}}, \code{\link{saveGIF}}, \code{\link{saveLatex}},
   \code{\link{saveSWF}}, \code{\link{pdftk}}
 
-  \url{http://qpdf.sourceforge.net/}
+  \url{https://qpdf.sourceforge.io/}
 
-  \url{http://www.pdflabs.com/docs/pdftk-man-page/}
+  \url{https://www.pdflabs.com/docs/pdftk-man-page/}
 }
 \author{
 Yihui Xie

@@ -81,5 +81,5 @@ Examples at \url{https://yihui.org/animation/example/cv-nfeatureslda/}
 \code{\link{kfcv}}, \code{\link{cv.ani}}, \code{\link[MASS]{lda}}
 }
 \author{
-Yihui Xie <\url{http://yihui.name}>
+Yihui Xie <\url{https://yihui.org/}>
 }

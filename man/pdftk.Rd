@@ -36,7 +36,7 @@ See the reference for detailed usage of \command{pdftk}.
 \references{
 Examples at \url{https://yihui.org/animation/example/pdftk/}
 
-pdftk official website \url{http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/}
+pdftk official website \url{https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/}
 }
 \author{
 Yihui Xie

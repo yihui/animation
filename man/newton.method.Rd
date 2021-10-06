@@ -72,7 +72,7 @@ The algorithm might not converge -- it depends on the starting value.
 \references{
 Examples at \url{https://yihui.org/animation/example/newton-method/}
 
-For more information about Newton's method, please see \url{http://en.wikipedia.org/wiki/Newton's_method}
+For more information about Newton's method, please see \url{https://en.wikipedia.org/wiki/Newton's_method}
 }
 \seealso{
 \code{\link{optim}}

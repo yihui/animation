@@ -48,8 +48,8 @@ if (interactive()) g.brownian.motion(15, digits = 2, width = 600, height = 500,
     file = "BM-motion-chart.html")
 }
 \references{
-\url{http://code.google.com/apis/visualization/} and
-  \url{http://bit.ly/12w1sYi}
+\url{https://developers.google.com/chart/?csw=1} and
+  \url{https://yihui.org/en/2008/11/brownian-motion-using-google-visualization-api-and-r/}
 }
 \seealso{
 \code{\link{brownian.motion}}, \code{\link{BM.circle}},
