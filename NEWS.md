@@ -1,3 +1,6 @@
+# CHANGES IN animation VERSION 2.8
+
+
 # CHANGES IN animation VERSION 2.7
 
 - `saveGIF()` didn't work when the option `ani.dev` is set to a function (thanks, @stla, #120 #121).
