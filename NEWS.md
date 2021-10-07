@@ -13,7 +13,7 @@
 
 ## NEW FEATURES
 
-- add a new option `ani.res` to ani.options(), to control the resolution of png, jepg, bmp and tiff images when using saveGIF() (#99).
+- Added a new option `ani.res` to ani.options(), to control the resolution of png, jpeg, bmp and tiff images when using saveGIF() (#99).
 
 - saveGIF() and im.convert() now support converting using the 'magick' R package which does not require shelling out to external software.
 
