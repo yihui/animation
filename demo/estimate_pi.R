@@ -36,13 +36,13 @@ estimate_pi = function(output = "estimate_pi.gif") {
         border = "black", lwd = 2
       )
       
-      mtext(paste(
-        "n = ", nrow(points)), side = 3, 
-        line = 1, at = -0.9, adj = 0, cex = 2
+      mtext(
+        paste("n =", nrow(points)), 
+        side = 3, line = 1, at = -0.9, adj = 0, cex = 2
       )
-      mtext(paste(
-        "π ≈", round(pi_estimate, 6)), side = 3, 
-        line = 1, at = 0.2, adj = 0, cex = 2
+      mtext(
+        substitute(hat(pi) == x, list(x = round(pi_estimate, 6))),
+        side = 3, line = 1, at = 0.1, adj = 0, cex = 2
       )
       
       points(
