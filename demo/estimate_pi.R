@@ -1,5 +1,5 @@
 library(animation)
-estimate_pi = \(output = "estimate_pi.gif") {
+estimate_pi = function(output = "estimate_pi.gif") {
   par(pty = "s")
   nmax = ani.options("nmax")
   
