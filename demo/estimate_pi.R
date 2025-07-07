@@ -1,7 +1,6 @@
 library(animation)
 estimate_pi = function(output = "estimate_pi.gif") {
-  par(pty = "s")
-  nmax = ani.options("nmax")
+  par(pty = "s", mar = c(0.5, 0.5, 2.5, 0.5))
   
   points = data.frame(
     x = numeric(0), 
@@ -25,7 +24,7 @@ estimate_pi = function(output = "estimate_pi.gif") {
       theta = seq(0, 2 * pi, length.out = 100)
       plot(
         x = cos(theta), y = sin(theta), 
-        axes = FALSE, col = "black", 
+        axes = FALSE, asp = 1, col = "black",
         lwd = 2, type = "l", bty = "n",
         xlab = "", ylab = "", main = ""
       )
@@ -36,13 +35,13 @@ estimate_pi = function(output = "estimate_pi.gif") {
         border = "black", lwd = 2
       )
       
-      mtext(
-        paste("n =", nrow(points)), 
-        side = 3, line = 1, at = -0.9, adj = 0, cex = 2
+      text(
+        -0.95, 1.2, adj = 0, cex = 2, xpd = NA,
+        paste("n =", nrow(points)) 
       )
-      mtext(
-        substitute(hat(pi) == x, list(x = round(pi_estimate, 6))),
-        side = 3, line = 1, at = 0.1, adj = 0, cex = 2
+      text(
+        0.05, 1.2, adj = 0, cex = 2, xpd = NA,
+        substitute(hat(pi) == x, list(x = round(pi_estimate, 6)))
       )
       
       points(
