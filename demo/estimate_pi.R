@@ -68,3 +68,6 @@ estimate_pi = function(output = "estimate_pi.gif") {
   cat("final_points: ", result$total_points, "\n")
   cat("pi_estimate: ", result$final_pi_estimate, "\n")
 }
+
+set.seed(1234)
+estimate_pi()
