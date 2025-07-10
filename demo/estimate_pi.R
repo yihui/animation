@@ -62,10 +62,12 @@ estimate_pi = function(output = "estimate_pi.gif") {
   )
   
   result = list(
-    final_pi_estimate = tail(pi_estimates, 1),
-    total_points = nrow(points)
+    total_points = nrow(points),
+    total_inside_circle_points = sum(inside),
+    final_pi_estimate = tail(pi_estimates, 1)
   )
   cat("final_points: ", result$total_points, "\n")
+  cat("final_inside_circle_points: ", result$total_inside_circle_points, "\n")
   cat("pi_estimate: ", result$final_pi_estimate, "\n")
 }
 
