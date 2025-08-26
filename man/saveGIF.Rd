@@ -99,7 +99,7 @@ See \code{\link{im.convert}} for details on the configuration of
 \references{
 Examples at \url{https://yihui.org/animation/example/savegif/}
 
-  ImageMagick: \url{http://www.imagemagick.org/script/convert.php};
+  ImageMagick: \url{https://imagemagick.org/script/convert.php};
 
   GraphicsMagick: \url{http://www.graphicsmagick.org}
 }

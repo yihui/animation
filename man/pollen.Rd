@@ -12,7 +12,7 @@ A data frame with 3848 observations on the following 5 variables.
 }
 \source{
 collected from Statlib Datasets Archive:
-  \url{http://lib.stat.cmu.edu/data-expo/}
+  \url{https://web.archive.org/web/20240415032227/http://lib.stat.cmu.edu/data-expo/1986.html}
 }
 \description{
 There are 3848 observations on 5 variables. From the 1986 ASA Data Exposition

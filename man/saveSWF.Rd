@@ -44,7 +44,7 @@ images to a single Flash animation.
 }
 \note{
 Please download and install the SWFTools before using this function:
-  \url{http://www.swftools.org}
+  \url{https://github.com/swftools/swftools}
 
   We can also set the path to SWF Tools by \code{ani.options(swftools =
   'path/to/swftools')}.

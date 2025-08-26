@@ -844,8 +844,8 @@ Both JavaScript and \LaTeX{} are common tools, so users can easily
 create the HTML and PDF animations, and we still have other three
 approaches: \code{saveGIF()}, \code{saveSWF()} and \code{saveVideo()},
 which rely on three less common third-party software packages GraphicsMagick
-(\url{http://www.graphicsmagick.org})/ImageMagick (\url{http://www.imagemagick.org/}),
-SWF Tools (\url{http://www.swftools.org}), and FFmpeg (\url{http://ffmpeg.org}),
+(\url{http://www.graphicsmagick.org})/ImageMagick (\url{https://www.imagemagick.org/}),
+SWF Tools (\url{https://github.com/swftools/swftools}), and FFmpeg (\url{http://ffmpeg.org}),
 respectively. These functions are merely wrappers to these tools,
 i.e., they will use the function \code{system()} to call these external
 tools to convert \proglang{R} images to other animation formats.

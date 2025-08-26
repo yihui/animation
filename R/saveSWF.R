@@ -21,7 +21,7 @@
 #' @return An integer indicating failure (-1) or success (0) of the converting
 #'   (refer to \code{\link{system}}).
 #' @note Please download and install the SWFTools before using this function:
-#'   \url{http://www.swftools.org}
+#'   \url{https://github.com/swftools/swftools}
 #'
 #'   We can also set the path to SWF Tools by \code{ani.options(swftools =
 #'   'path/to/swftools')}.
@@ -88,7 +88,7 @@ saveSWF = function(expr, swf.name = 'animation.swf', img.name = 'Rplot', swftool
   tool = shQuote(tool)
   version = try(system(paste(tool, '--version'), intern = TRUE))
   if (inherits(version, 'try-error') || !length(grep('swftools', version))) {
-    warning('The command ', tool, ' is not available. Please install: http://www.swftools.org')
+    warning('The command ', tool, ' is not available. Please install: https://github.com/swftools/swftools')
     return()
   }
   wildcard = paste(

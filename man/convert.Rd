@@ -73,7 +73,7 @@ If \code{files} is a character vector, please make sure the order of
   \describe{
 
   \item{\strong{ImageMagick users}}{Please install ImageMagick from
-  \url{http://www.imagemagick.org}, and make sure the the path to
+  \url{https://imagemagick.org}, and make sure the the path to
   \command{convert.exe} is in your \code{'PATH'} variable, in which case the
   command \command{convert} can be called without the full path.  Windows
   users are often very confused about the ImageMagick and \code{'PATH'}
@@ -104,7 +104,7 @@ If \code{files} is a character vector, please make sure the order of
 \references{
 Examples at \url{https://yihui.org/animation/example/im-convert/}
 
-  ImageMagick: \url{http://www.imagemagick.org/script/convert.php}
+  ImageMagick: \url{https://imagemagick.org/script/convert.php}
 
   GraphicsMagick: \url{http://www.graphicsmagick.org}
 }
