@@ -21,8 +21,8 @@
 #' @author Yihui Xie
 #' @seealso \code{\link{brownian.motion}}, \code{\link{BM.circle}},
 #'   \code{\link{rnorm}}
-#' @references \url{http://code.google.com/apis/visualization/} and
-#'   \url{http://bit.ly/12w1sYi}
+#' @references \url{https://developers.google.com/chart/?csw=1} and
+#'   \url{https://yihui.org/en/2008/11/brownian-motion-using-google-visualization-api-and-r/}
 #' @export
 #' @examples
 #' if (interactive())

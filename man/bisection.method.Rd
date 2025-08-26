@@ -64,7 +64,7 @@ The maximum number of iterations is specified in
 \references{
 Examples at \url{https://yihui.org/animation/example/bisection-method/}
 
-  For more information about Bisection method, please see 
+  For more information about Bisection method, please see
   \url{https://en.wikipedia.org/wiki/Bisection_method}
 }
 \seealso{

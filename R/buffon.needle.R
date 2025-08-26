@@ -4,8 +4,8 @@
 #' is one of the oldest problems in the field of geometrical probability.
 #'
 #' This is quite an old problem in probability. For mathematical background,
-#' please refer to \url{http://en.wikipedia.org/wiki/Buffon's_needle} or
-#' \url{http://www.mste.uiuc.edu/reese/buffon/buffon.html}.
+#' please refer to \url{https://en.wikipedia.org/wiki/Buffon's_needle} or
+#' \url{https://mste.illinois.edu/activity/buffon/}.
 #'
 #' `Needles' are denoted by segments on the 2D plane, and dropped randomly to
 #' check whether they cross the parallel lines. Through many times of `dropping'

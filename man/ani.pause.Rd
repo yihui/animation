@@ -30,7 +30,6 @@ for (i in 1:5) {
 ani.options(oopt)
 
 ## see demo('Xmas2', package = 'animation') for another example
-
 }
 \seealso{
 \code{\link{dev.interactive}}, \code{\link{Sys.sleep}},

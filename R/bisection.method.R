@@ -37,8 +37,8 @@
 #' @seealso \code{\link{deriv}}, \code{\link{uniroot}}, \code{\link{curve}}
 #' @references  Examples at \url{https://yihui.org/animation/example/bisection-method/}
 #'
-#'   For more information about Bisection method, please see 
-#'   \url{http://en.wikipedia.org/wiki/Bisection_method}
+#'   For more information about Bisection method, please see
+#'   \url{https://en.wikipedia.org/wiki/Bisection_method}
 #'
 #' @export
 bisection.method = function(

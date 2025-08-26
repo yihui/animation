@@ -46,10 +46,10 @@
 #'   LDA, i.e. build a LDA model with j variables and predict with data in the
 #'   i-th fold (the test set) } \item{optimum }{the optimum number of features
 #'   based on the cross-validation}
-#' @author Yihui Xie <\url{http://yihui.name}>
+#' @author Yihui Xie <\url{http://yihui.org}>
 #' @seealso \code{\link{kfcv}}, \code{\link{cv.ani}}, \code{\link[MASS]{lda}}
 #' @references Examples at \url{https://yihui.org/animation/example/cv-nfeatureslda/}
-#' 
+#'
 #'   Maindonald J, Braun J (2007). \emph{Data Analysis and Graphics
 #'   Using R - An Example-Based Approach}. Cambridge University Press, 2nd
 #'   edition. pp. 400

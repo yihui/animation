@@ -65,9 +65,10 @@ And the length of \code{x} and \code{y} should be equal to the number of rows
 of this matrix.
 }
 \references{
-Examples at \url{https://yihui.org/animation/example/rosling-bubbles/}
+Examples at
+  \url{https://yihui.org/animation/example/rosling-bubbles/}
 
-  TED talk: 
+  TED talk:
   \url{https://www.ted.com/talks/hans_rosling_the_best_stats_you_ve_ever_seen}
 }
 \seealso{

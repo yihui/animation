@@ -40,8 +40,8 @@
 #' @author Yihui Xie
 #' @seealso \code{\link{optim}}
 #' @references Examples at \url{https://yihui.org/animation/example/newton-method/}
-#' 
-#' For more information about Newton's method, please see \url{http://en.wikipedia.org/wiki/Newton's_method}
+#'
+#' For more information about Newton's method, please see \url{https://en.wikipedia.org/wiki/Newton's_method}
 #'
 #' @export
 newton.method = function(

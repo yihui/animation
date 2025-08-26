@@ -21,7 +21,7 @@
 #'   a student in biology, to show the evolution of two species.
 #'
 #'   The original post is in the forum of the ``Capital of Statistics'':
-#'   \url{http://cos.name/cn/topic/14093} (in Chinese)
+#'   \url{https://d.cosx.org/d/14093} (in Chinese)
 #' @export
 #' @examples
 #'

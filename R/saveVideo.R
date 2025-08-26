@@ -30,7 +30,7 @@
 #' @note There are a lot of possibilities in optimizing the video. My knowledge
 #'   on FFmpeg is very limited, hence the default output by this function could
 #'   be of low quality or too large. The file \file{presets.xml} of WinFF might
-#'   be a good guide: \url{http://code.google.com/p/winff/}.
+#'   be a good guide: \url{https://code.google.com/archive/p/winff}.
 #' @references Examples at \url{https://yihui.org/animation/example/savevideo/}
 #'
 #'   To know more about ffmpeg, please see \url{http://ffmpeg.org/documentation.html}
