@@ -22,7 +22,7 @@ install.packages('animation')
 To install the GitHub version under development:
 
 ```s
-install.packages('animation', repos = 'https://xran.yihui.org')
+install.packages('animation', repos = 'https://yihui.r-universe.dev')
 ```
 
 If you want to contribute, the documentation and NAMESPACE of this package
