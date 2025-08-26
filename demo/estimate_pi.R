@@ -17,8 +17,8 @@ estimate_pi = function(n = 1000) {
       xt, yt, axes = FALSE, asp = 1,
       type = "l", bty = "n", xlab = "", ylab = "",
       main = substitute(
-        paste(hat(pi), ' = ', frac(n, N) %*% 4, ' = ', pi_est),
-        list(n = n_in, N = i, pi_est = round(n_in / i * 4, 6))
+        paste(hat(pi), ' = ', frac(n, N) %*% 4, ' = ', pi_hat),
+        list(n = n_in, N = i, pi_hat = round(n_in / i * 4, 6))
       )
     )
     rect(-1, -1, 1, 1)
