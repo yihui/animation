@@ -23,4 +23,4 @@ IBM                       IBM stock closing prices from 2000 to 2010
 ggobi_animation           Record a GGobi tour as an animation in an HTML page
 elephant                  A winking pink elephant
 lissajous                 Animate a series of lissajous
-estimate_pi               A demonstrates  of estimating π through the Monte Carlo method
+estimate_pi               Estimate π through a Monte Carlo method
