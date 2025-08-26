@@ -10,16 +10,17 @@ hanoi                     Tower of Hanoi
 jumpingHorse              A jumping horse on the chess board
 Mandelbrot                Demo of the Mandelbrot set
 Xmas2                     Merry Christmas with snowflakes
-pollen			  rgl 3D demo of the pollen data
-CLEvsLAL		  The NBA game between CLE and LAL on 2009 Christmas
-fireworks		  Set fireworks with R to celebrate the new year
-rgl_animation		  A demo on how to insert rgl 3D animations into a LaTeX document
-use_Cairo		  Using the Cairo devices with the animation package
-Sweave_animation	  A demo on how to insert animations into Sweave documents
-game_of_life		  Game of Life (e.g. Gosper's Glider Gun)
-Xmas_card		  Christmas and New Year card by Yuan Huang
-flowers			  Download images from the Internet and create an animation
-IBM			  IBM stock closing prices from 2000 to 2010
-ggobi_animation		  Record a GGobi tour as an animation in an HTML page
-elephant		  A winking pink elephant 
+pollen                    rgl 3D demo of the pollen data
+CLEvsLAL                  The NBA game between CLE and LAL on 2009 Christmas
+fireworks                 Set fireworks with R to celebrate the new year
+rgl_animation             A demo on how to insert rgl 3D animations into a LaTeX document
+use_Cairo                 Using the Cairo devices with the animation package
+Sweave_animation          A demo on how to insert animations into Sweave documents
+game_of_life              Game of Life (e.g. Gosper's Glider Gun)
+Xmas_card                 Christmas and New Year card by Yuan Huang
+flowers                   Download images from the Internet and create an animation
+IBM                       IBM stock closing prices from 2000 to 2010
+ggobi_animation           Record a GGobi tour as an animation in an HTML page
+elephant                  A winking pink elephant
 lissajous                 Animate a series of lissajous
+estimate_pi               Estimate π through a Monte Carlo method
