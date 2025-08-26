@@ -29,6 +29,10 @@ Imports:
 Suggests:
     MASS,
     class,
+    Cairo,
+    fImport,
+    rgl,
+    zoo,
     testit
 License: GPL
 URL: https://yihui.org/animation/
