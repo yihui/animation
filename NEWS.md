@@ -1,5 +1,6 @@
 # CHANGES IN animation VERSION 2.8
 
+- Added a new demo: `demo('estimate_pi', package = 'animation')` (thanks, @chuxinyuan, #141).
 
 # CHANGES IN animation VERSION 2.7
 

@@ -26,8 +26,8 @@ estimate_pi = function(n = 1000) {
       head(x, i), head(y, i), cex = 10 - (i/n)^.2 * 9.2,
       col = i_in + 2, pch = ifelse(i_in, 20, 4)
     )
-    Sys.sleep(.05)
     dev.flush()
+    Sys.sleep(.05)
   }
 }
 
