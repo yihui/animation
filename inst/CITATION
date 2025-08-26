@@ -1,11 +1,10 @@
-citHeader("To cite animation in publications use:")
-
 year = sub('.*(2[[:digit:]]{3})-.*', '\\1', meta$Date, perl = TRUE)
 vers = paste('R package version', meta$Version)
+if (length(year) == 0) year = format(Sys.Date(), '%Y')
 
-citEntry(entry = "Article",
+bibentry("article",
   title        = "{animation}: An {R} Package for Creating Animations and Demonstrating Statistical Methods",
-  author       = personList(as.person("Yihui Xie")),
+  author       = "Yihui Xie",
   journal      = "Journal of Statistical Software",
   year         = "2013",
   volume       = "53",
@@ -20,12 +19,11 @@ citEntry(entry = "Article",
         "URL https://doi.org/10.18637/jss.v053.i01.")
 )
 
-citEntry(
-  entry = 'manual',
+bibentry(
+  'manual',
   title = paste('animation:', meta$Title),
-  author = as.person(meta$Author),
+  author = Filter(function(p) 'aut' %in% p$role, as.person(meta$Author)),
   year = year,
   note = vers,
-  url = meta$URL,
-  textVersion = paste(meta$Author, ' (', year, '). animation: ', meta$Title, '. ', vers, '.', sep = '')
+  url = meta$URL
 )
