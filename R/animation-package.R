@@ -51,7 +51,6 @@
 #'   \file{wmv}, etc).
 #' @name animation-package
 #' @aliases animation
-#' @docType package
 #' @author Yihui Xie
 #' @note Bug reports and feature requests can be sent to
 #'   \url{https://github.com/yihui/animation/issues}.
@@ -73,7 +72,7 @@
 #' @seealso \code{\link{saveHTML}}, \code{\link{saveGIF}},
 #'   \code{\link{saveSWF}}, \code{\link{saveVideo}}, \code{\link{saveLatex}}
 #' @import datasets grDevices graphics stats utils
-NULL
+'_PACKAGE'
 
 #' Word counts of a speech by the Chinese President Hu
 #'
