@@ -132,7 +132,7 @@ Please note that \code{nmax} is not always equal to the number of
   the path to \file{convert.exe}; we can specify it beforehand to save the
   efforts in searching for \file{convert.exe} in ImageMagick under Windows.
   For example, \code{ani.options(convert = 'c:/program
-  files/imagemagick/convert.exe')}; note this option also works for Mac and
+  files/imagemagick/convert.exe')}; note this option also works for macOS and
   Linux (see \code{help(im.convert)})}
 
   \item{swftools}{this can help \code{\link{saveSWF}} save the efforts of

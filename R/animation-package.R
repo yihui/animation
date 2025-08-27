@@ -16,7 +16,7 @@
 #'
 #'   On-screen animations do not depend on any third-party software, but the
 #'   rendering speed of the windows graphics devices is often slow, so the
-#'   animation might not be smooth (especially under Linux and Mac OS).
+#'   animation might not be smooth (especially under Linux and macOS).
 #'
 #' @section HTML Pages: The generation of HTML animation pages does not rely on
 #'   any third-party software either, and we only need a web browser to watch

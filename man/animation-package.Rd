@@ -28,7 +28,7 @@ Bug reports and feature requests can be sent to
 
   On-screen animations do not depend on any third-party software, but the
   rendering speed of the windows graphics devices is often slow, so the
-  animation might not be smooth (especially under Linux and Mac OS).
+  animation might not be smooth (especially under Linux and macOS).
 }
 
 \section{HTML Pages}{

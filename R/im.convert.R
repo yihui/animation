@@ -14,7 +14,7 @@
 #'   \code{'convert'} or \code{'gm convert'}; and it can be pre-specified as an
 #'   option in \code{\link{ani.options}('convert')}, e.g. (Windows users)
 #'   \code{ani.options(convert = 'c:/program
-#'   files/imagemagick/convert.exe')}, or (Mac users) \code{ani.options(convert
+#'   files/imagemagick/convert.exe')}, or (macOS users) \code{ani.options(convert
 #'   = '/opt/local/bin/convert')}; see the Note section for more details
 #' @param cmd.fun a function to invoke the OS command; by default
 #'   \code{\link{system}}
