@@ -13,18 +13,15 @@
   # if on a non-windows system, try to determine if ffmpeg or avconv installed
   # and set default to appropirate command
   # Windows systems will leave it defaulting to NULL
-  if (.Platform$OS.type != "windows")
-  {
+  if (.Platform$OS.type != "windows") {
     # check if ffmpeg installed
-    if (Sys.which('ffmpeg')==''){
+    if (Sys.which('ffmpeg') == '') {
       # can't find ffmpeg, so try avconv
-      if(Sys.which('avconv')!=''){
+      if (Sys.which('avconv') != '') {
         ani.options(ffmpeg = "avconv")
-     } else {
-       ani.options(ffmpeg= "ffmpeg")
-     }
-  } # TODO: if it is windows, should we set it to ani.options(ffmpeg = 'D:/Installer/ffmpeg/bin/ffmpeg.exe') by default?
-}
-
-
+      } else {
+        ani.options(ffmpeg = "ffmpeg")
+      }
+    } # TODO: if it is windows, should we set it to ani.options(ffmpeg = 'D:/Installer/ffmpeg/bin/ffmpeg.exe') by default?
+  }
 }
